@@ -38,3 +38,11 @@ cmake-build*/
 
 # clangd cache
 .cache/
+
+
+.memories/
+.serena/
+sh_cache/
+benchmarks/*results*
+profiling_results/
+results_*/

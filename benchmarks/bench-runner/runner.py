@@ -7,6 +7,8 @@ import subprocess
 import sys
 import tempfile
 
+from tmpdir import TemporaryDirectory
+
 
 logger = logging.getLogger(__name__)
 
@@ -124,8 +126,9 @@ class HermesRunner(JSBytecodeRunner):
             "-gc-sanitize-handles=0",
             "-b",
         ]
-        if gcMinHeap:
-            execCmdArgs += ["-gc-min-heap=" + collectorHeapSize(gcMinHeap)]
+        # NOTE: -gc-min-heap is not supported by Static Hermes, commented out
+        # if gcMinHeap:
+        #     execCmdArgs += ["-gc-min-heap=" + collectorHeapSize(gcMinHeap)]
         if gcInitHeap:
             execCmdArgs += ["-gc-init-heap=" + collectorHeapSize(gcInitHeap)]
         if gcMaxHeap:
@@ -193,8 +196,9 @@ class SynthBenchmarkRunner:
             "-gc-alloc-young=false",
             "-gc-revert-to-yg-at-tti=true",
         ]
-        if gcMinHeap:
-            run_args += ["-gc-min-heap=" + collectorHeapSize(gcMinHeap)]
+        # NOTE: -gc-min-heap is not supported by Static Hermes, commented out
+        # if gcMinHeap:
+        #     run_args += ["-gc-min-heap=" + collectorHeapSize(gcMinHeap)]
         if gcInitHeap:
             run_args += ["-gc-init-heap=" + collectorHeapSize(gcInitHeap)]
         if gcMaxHeap:
@@ -272,4 +276,132 @@ class V8Runner(JSBytecodeRunner):
             )
             progress(".", end="")
         progress()
-            
+
+
+class SHRunner(JSRunner):
+    """Static Hermes native binary runner"""
+
+    def __init__(self, shermesCmd, numTimes, keepTmpFiles, cacheDir=None):
+        JSRunner.__init__(self, shermesCmd)
+        self.numTimes = numTimes
+        self.keepTmpFiles = keepTmpFiles
+        self.cacheDir = cacheDir
+        if cacheDir:
+            os.makedirs(cacheDir, exist_ok=True)
+
+    def compile(self, name, jsfile, binaryFile):
+        """使用shermes编译JS到原生二进制"""
+        compileCmd = [
+            self.runCmd,
+            '-O',          # 优化级别
+            '-o', binaryFile,
+            jsfile
+        ]
+        displayCmd = [
+            displayFilePath(self.runCmd),
+            '-O',
+            '-o', binaryFile,
+            displayFilePath(jsfile)
+        ]
+
+        logger.info("Compiling {} with shermes ({})".format(name, " ".join(displayCmd)))
+        proc = subprocess.run(
+            compileCmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            encoding="utf-8"
+        )
+        if proc.returncode:
+            raise Exception(
+                "Failed to compile {} with shermes:\n{}".format(name, proc.stderr)
+            )
+
+    def run(self, name, jsfile, gcMinHeap, gcInitHeap, gcMaxHeap):
+        """编译（或使用缓存）并多次运行二进制"""
+        # 1. 确定二进制文件路径和管理临时目录
+        if self.cacheDir:
+            # 使用缓存目录，不需要自动清理
+            binaryFile = os.path.join(self.cacheDir, name + ".bin")
+            needsCompile = not os.path.exists(binaryFile)
+
+            if needsCompile:
+                try:
+                    self.compile(name, jsfile, binaryFile)
+                except Exception as e:
+                    logger.error("Compilation failed: {}".format(e))
+                    progress("SKIPPED (compilation failed)\n")
+                    return
+            else:
+                logger.info("Using cached binary for {}".format(name))
+
+            # 运行基准测试
+            execCmd = [binaryFile]
+            displayCmd = [displayFilePath(binaryFile)]
+
+            logging.info(" ".join(displayCmd))
+            progress("Running {} x {:d} ".format(name, self.numTimes), end="")
+
+            # Warm-up run (预热磁盘缓存)
+            subprocess.run(execCmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+            for _ in range(self.numTimes):
+                proc = subprocess.run(
+                    execCmd,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    encoding="utf-8",
+                )
+                if proc.returncode:
+                    logger.error(
+                        "Error running {}: returncode={}\n==stdout==\n{}\n==stderr==\n{}".format(
+                            name, proc.returncode, proc.stdout, proc.stderr
+                        )
+                    )
+
+                # 解析"Time: <ms>"输出（与V8/Hermes相同）
+                yield parseSimpleStats(proc.stdout)
+                progress(".", end="")
+
+            progress()
+        else:
+            # 使用临时目录，自动清理
+            with TemporaryDirectory(self.keepTmpFiles) as tmpDir:
+                binaryFile = os.path.join(tmpDir, name + ".bin")
+
+                try:
+                    self.compile(name, jsfile, binaryFile)
+                except Exception as e:
+                    logger.error("Compilation failed: {}".format(e))
+                    progress("SKIPPED (compilation failed)\n")
+                    return
+
+                # 运行基准测试
+                execCmd = [binaryFile]
+                displayCmd = [displayFilePath(binaryFile)]
+
+                logging.info(" ".join(displayCmd))
+                progress("Running {} x {:d} ".format(name, self.numTimes), end="")
+
+                # Warm-up run (预热磁盘缓存)
+                subprocess.run(execCmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+                for _ in range(self.numTimes):
+                    proc = subprocess.run(
+                        execCmd,
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE,
+                        encoding="utf-8",
+                    )
+                    if proc.returncode:
+                        logger.error(
+                            "Error running {}: returncode={}\n==stdout==\n{}\n==stderr==\n{}".format(
+                                name, proc.returncode, proc.stdout, proc.stderr
+                            )
+                        )
+
+                    # 解析"Time: <ms>"输出（与V8/Hermes相同）
+                    yield parseSimpleStats(proc.stdout)
+                    progress(".", end="")
+
+                progress()
+

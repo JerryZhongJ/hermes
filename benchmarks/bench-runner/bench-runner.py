@@ -10,7 +10,7 @@ from resource.lib import resourceResolver
 import output
 from categories import categories, synths
 
-from runner import HermesRunner, V8Runner
+from runner import HermesRunner, V8Runner, SHRunner
 from stats import HermesGCStatsCollector, StatsCollector
 from tmpdir import TemporaryDirectory
 
@@ -29,9 +29,10 @@ HermesName = "hermes"
 SynthName = "synth"
 V8Name = "v8"
 V8JitlessName = "v8jitless"
+SHName = "sh"
 
 
-def determineRuntime(hermes, synth, v8, v8jitless):
+def determineRuntime(hermes, synth, v8, v8jitless, sh):
     """
     Choose which Runtime configuration to use, given the flags that were passed
     in. If no flags have been set (i.e. the user made no choice about the
@@ -39,7 +40,7 @@ def determineRuntime(hermes, synth, v8, v8jitless):
     """
 
     runtimes = [(HermesName, hermes), (SynthName, synth), (V8Name, v8),
-                (V8JitlessName, v8jitless)]
+                (V8JitlessName, v8jitless), (SHName, sh)]
 
     choices = [rt for (rt, chosen) in runtimes if chosen]
 
@@ -74,6 +75,8 @@ def main():
     )
     runtimeGroup.add_argument("--v8", help="Use the V8 VM", action="store_true")
     runtimeGroup.add_argument("--v8jitless", help="Use the V8 VM",
+                              action="store_true")
+    runtimeGroup.add_argument("--sh", help="Use Static Hermes (SH backend)",
                               action="store_true")
     argparser.add_argument(
         "-l",
@@ -124,6 +127,13 @@ def main():
         action="store_true",
     )
     argparser.add_argument(
+        "--sh-cache-dir",
+        dest="sh_cache_dir",
+        help="Directory to cache SH compiled binaries (speeds up repeated runs)",
+        action="store",
+        default=None,
+    )
+    argparser.add_argument(
         "--out",
         dest="out",
         help="File into which to hold output",
@@ -152,7 +162,7 @@ def main():
     args = argparser.parse_args()
     logging.basicConfig(level=args.loglevel)
 
-    runtime = determineRuntime(args.hermes, args.synth, args.v8, args.v8jitless)
+    runtime = determineRuntime(args.hermes, args.synth, args.v8, args.v8jitless, args.sh)
 
     formatter = FORMATTERS[args.output_format]
 
@@ -179,6 +189,11 @@ def main():
         # V8 benchmarks, use the V8 runner and simple stats collector.
         # Last arg to V8Runner is "jitless", true here.
         statCollector = StatsCollector(V8Runner(binary, args.count, True))
+    elif runtime == SHName:
+        # Static Hermes SH backend, compile JS to native binary and run.
+        statCollector = StatsCollector(
+            SHRunner(binary, args.count, args.keep_tmp, args.sh_cache_dir)
+        )
     else:
         raise AssertionError("Illegal runtime specified")
 
