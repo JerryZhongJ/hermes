@@ -18,10 +18,12 @@ add_hermes_library(hermesOptimizer
   Optimizer/Scalar/LowerBuiltinCalls.cpp
   Optimizer/Scalar/ScopeElimination.cpp
   Optimizer/Scalar/ScopeHoisting.cpp
+  Optimizer/Scalar/ShapePropagation.cpp
   Optimizer/Scalar/TypeInference.cpp
   Optimizer/Scalar/SimpleStackPromotion.cpp
   Optimizer/Scalar/ObjectMergeNewStores.cpp
   Optimizer/Scalar/ObjectStackPromotion.cpp
+  Optimizer/Scalar/PropertyAccessOptimization.cpp
   Optimizer/Scalar/InstSimplify.cpp
   Optimizer/Scalar/Auditor.cpp
   Optimizer/Scalar/ResolveStaticRequire.cpp

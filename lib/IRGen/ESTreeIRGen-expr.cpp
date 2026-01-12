@@ -41,7 +41,18 @@ Value *ESTreeIRGen::enforceExprType(hermes::Value *value, ESTree::Node *expr) {
 }
 
 Value *ESTreeIRGen::genExpression(ESTree::Node *expr, Identifier nameHint) {
-  return enforceExprType(_genExpressionImpl(expr, nameHint), expr);
+  Value *result = enforceExprType(_genExpressionImpl(expr, nameHint), expr);
+
+  ShapeInfoManager &shapeMgr = Mod->getContext().getShapeInfoManager();
+  if (const ShapeAnnotation *ann =
+          shapeMgr.getAnnotationAt(expr->getSourceRange())) {
+    const ShapeDescriptor *irShape = Builder.getShapeDescptr(ann->shapeId);
+    if (irShape) {
+      Mod->setValueShape(result, irShape);
+    }
+  }
+
+  return result;
 }
 
 Value *ESTreeIRGen::_genExpressionImpl(

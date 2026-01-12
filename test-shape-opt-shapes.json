@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "shapes": [
+    {
+      "properties": [
+        {"name": "x", "type": "number", "slot": 0},
+        {"name": "y", "type": "number", "slot": 1}
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "location": {
+        "file": "/home/zjc/js_engines/static_hermes/test-shape-opt.js",
+        "start": {"line": 6, "column": 19},
+        "end": {"line": 6, "column": 20}
+      },
+      "targetExpression": "Parameter",
+      "shapeId": 0
+    }
+  ]
+}

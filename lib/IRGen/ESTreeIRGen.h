@@ -682,6 +682,8 @@ class ESTreeIRGen {
       llvh::StringRef error);
 
  private:
+  void convertShapesToIR();
+
   /// @name statements
   /// @{
 

@@ -9,6 +9,7 @@
 #define HERMES_AST_CONTEXT_H
 
 #include "hermes/ADT/StringSetVector.h"
+#include "hermes/AST/ShapeInfo.h"
 #include "hermes/Parser/PreParser.h"
 #include "hermes/Regex/RegexSerialization.h"
 #include "hermes/Support/Allocator.h"
@@ -300,6 +301,8 @@ class Context {
 
   std::unique_ptr<irdumper::Namer> persistentIRNamer_;
 
+  ShapeInfoManager shapeInfoManager_;
+
  public:
   explicit Context(
       SourceErrorManager &sm,
@@ -388,6 +391,12 @@ class Context {
   /// Return the textual representation of the identifier.
   llvh::StringRef toString(Identifier iden) {
     return iden.str();
+  }
+
+  /// Get Shape info manager.
+  /// \return Pointer to the ShapeInfoManager.
+  ShapeInfoManager &getShapeInfoManager() {
+    return shapeInfoManager_;
   }
 
   void setStrictMode(bool strictMode) {

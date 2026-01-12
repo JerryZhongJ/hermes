@@ -49,7 +49,12 @@ PASS(
     "objectmergenewstores",
     "Merge DefineOwnPropertyInsts into AllocObjectLiteral")
 PASS(SimplifyCFG, "simplifycfg", "Simplify CFG")
+PASS(ShapePropagation, "shapepropagation", "Shape propagation")
 PASS(TypeInference, "typeinference", "Type inference")
+PASS(
+    PropertyAccessOptimization,
+    "propertyaccessoptimization",
+    "Optimize property access to PrLoad/PrStore")
 PASS(FunctionAnalysis, "functionanalysis", "Function analysis")
 PASS(Inlining, "inlining", "Inlining")
 PASS(ResolveStaticRequire, "staticrequire", "Resolve static require")

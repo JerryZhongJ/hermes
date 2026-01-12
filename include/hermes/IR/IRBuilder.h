@@ -22,6 +22,8 @@
 
 namespace hermes {
 
+struct ShapeAnnotation;
+
 /// The IRBuilder is used for creating IR. The builder APIs is split into two
 /// parts. First, APIs for creating blocks and functions. These APIs are
 /// stateless and do not affect the second kind of APIs which are used for
@@ -198,6 +200,15 @@ class IRBuilder {
 
   LiteralTypeOfIsTypes *getLiteralTypeOfIsTypes(TypeOfIsTypes types) {
     return M->getLiteralTypeOfIsTypes(types);
+  }
+
+  const ShapeDescriptor *getShapeDescptr(uint32_t shapeId) const {
+    return M->getShapeDescptr(shapeId);
+  }
+
+  const ShapeDescriptor *getShapeFromAnnotation(
+      const ShapeAnnotation *ann) const {
+    return ann ? M->getShapeDescptr(ann->shapeId) : nullptr;
   }
 
   /// Return the GlobalObject value.

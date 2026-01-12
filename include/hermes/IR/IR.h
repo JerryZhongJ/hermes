@@ -415,6 +415,27 @@ class Type {
 
 static_assert(sizeof(Type) == 2, "Type must not be too big");
 
+struct ShapeDescriptor;
+
+struct ShapeProperty {
+  Identifier name;
+  uint32_t slot;
+
+  enum class Kind { Primitive, ShapeRef };
+  Kind kind;
+
+  Type primitiveType; // kind == Primitive
+  const ShapeDescriptor *shapeRef; // kind == ShapeRef
+
+  ShapeProperty(Identifier n, Type t, uint32_t s);
+  ShapeProperty(Identifier n, const ShapeDescriptor *shape, uint32_t s);
+};
+
+struct ShapeDescriptor {
+  std::vector<ShapeProperty> properties;
+  ShapeDescriptor() = default;
+};
+
 /// An iterator over the types in a Type.
 class Type::iterator {
   friend class Type;
@@ -2615,6 +2636,12 @@ class Module : public Value {
   /// Extra data to be shared between optimization passes.
   OptimizationContext optContext_{};
 
+  /// IR ShapeDescriptor 存储（不变数据，类似字面量池）
+  std::vector<std::unique_ptr<ShapeDescriptor>> shapeDescriptors_;
+
+  /// Value → ShapeDescriptor 映射（用于 Shape-Typed 优化）
+  llvh::DenseMap<Value *, const ShapeDescriptor *> valueShapes_;
+
  public:
   explicit Module(std::shared_ptr<Context> ctx)
       : Value(ValueKind::ModuleKind), Ctx(std::move(ctx)) {}
@@ -2902,6 +2929,40 @@ class Module : public Value {
   /// by optimization passes; aspects not changed by such passes may
   /// not be included in the hash value.
   llvh::hash_code hash() const;
+
+  /// 获取 Value 的 Shape 描述符
+  /// \param V 要查询的 Value
+  /// \return 找到的 ShapeDescriptor，如果没有返回 nullptr
+  const ShapeDescriptor *getValueShape(Value *V) const {
+    auto it = valueShapes_.find(V);
+    return it != valueShapes_.end() ? it->second : nullptr;
+  }
+
+  /// 设置 Value 的 Shape 描述符
+  /// \param V 要设置的 Value
+  /// \param shape Shape 描述符，如果为 nullptr 则不设置
+  void setValueShape(Value *V, const ShapeDescriptor *shape) {
+    if (shape) {
+      valueShapes_[V] = shape;
+    }
+  }
+
+  /// 检查 Value 是否有 Shape 信息
+  /// \param V 要检查的 Value
+  /// \return 如果有 Shape 信息返回 true，否则返回 false
+  bool hasValueShape(Value *V) const {
+    return valueShapes_.count(V) > 0;
+  }
+
+  /// 创建 IR ShapeDescriptor（仅供 ESTreeIRGen 初始化使用）
+  /// \param shapeId Shape 索引
+  /// \return 可修改的 ShapeDescriptor 指针（用于初始化时填充属性）
+  ShapeDescriptor *addShapeDescptr();
+
+  /// 根据索引获取 IR ShapeDescriptor（供 IRBuilder 转发）
+  /// \param shapeId Shape 索引
+  /// \return Shape 描述符，如果索引无效返回 nullptr
+  const ShapeDescriptor *getShapeDescptr(uint32_t shapeId) const;
 
  private:
   /// Calculate the CJS module function graph, if it hasn't been calculated yet.

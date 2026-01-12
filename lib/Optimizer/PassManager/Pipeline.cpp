@@ -10,6 +10,8 @@
 #include "hermes/Optimizer/PassManager/PassManager.h"
 #include "hermes/Optimizer/Scalar/Auditor.h"
 #include "hermes/Optimizer/Scalar/DCE.h"
+#include "hermes/Optimizer/Scalar/PropertyAccessOptimization.h"
+#include "hermes/Optimizer/Scalar/ShapePropagation.h"
 #include "hermes/Optimizer/Scalar/TypeInference.h"
 
 #include "llvh/Support/Debug.h"
@@ -75,7 +77,9 @@ void hermes::runFullOptimizationPasses(Module &M) {
   PM.addDCE();
   PM.addObjectMergeNewStores();
   PM.addObjectStackPromotion();
+  PM.addShapePropagation();
   PM.addTypeInference();
+  PM.addPropertyAccessOptimization();
   PM.addSimpleStackPromotion();
   PM.addInstSimplify();
   PM.addDCE();
@@ -95,7 +99,9 @@ void hermes::runFullOptimizationPasses(Module &M) {
   PM.addObjectStackPromotion();
 
   // Run type inference before CSE so that we can better reason about binopt.
+  PM.addShapePropagation();
   PM.addTypeInference();
+  PM.addPropertyAccessOptimization();
   PM.addCSE();
   PM.addTDZDedup();
   PM.addSimplifyCFG();
@@ -108,7 +114,9 @@ void hermes::runFullOptimizationPasses(Module &M) {
   addMem2Reg();
   PM.addAuditor();
 
+  PM.addShapePropagation();
   PM.addTypeInference();
+  PM.addPropertyAccessOptimization();
 
   // Run the optimizations.
   PM.run(&M);
@@ -130,7 +138,9 @@ void hermes::runOptimizationPassesToFixedPoint(Module &M) {
   PM.addLowerGeneratorFunction();
 
   PM.beginFixedPointLoop("outer type inference loop");
+  PM.addShapePropagation();
   PM.addTypeInference();
+  PM.addPropertyAccessOptimization();
 
   PM.beginFixedPointLoop("inner loop");
 

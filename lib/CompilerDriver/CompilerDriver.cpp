@@ -11,6 +11,7 @@
 #include "hermes/AST/CommonJS.h"
 #include "hermes/AST/Context.h"
 #include "hermes/AST/ESTreeJSONDumper.h"
+#include "hermes/AST/ShapeInfo.h"
 #include "hermes/AST/TS2Flow.h"
 #include "hermes/AST/TransformAST.h"
 #include "hermes/AST2JS/AST2JS.h"
@@ -410,6 +411,12 @@ opt<bool> Xg3(
 static opt<std::string> InputSourceMap(
     "source-map",
     desc("Specify a matching source map for the input JS file"),
+    cat(CompilerCategory));
+
+static opt<std::string> ShapeInfoFile(
+    "shape-info",
+    desc(
+        "Specify a JSON file containing Shape information for AOT optimization"),
     cat(CompilerCategory));
 
 static opt<bool> OutputSourceMap(
@@ -2026,6 +2033,17 @@ CompileResult processSourceFiles(
         llvh::errs() << "Emitted " << N << " errors. exiting.\n";
       return ParsingFailed;
     }
+
+    // 加载 Shape 信息（如果提供了 -shape-info 参数）
+    // 此时 SourceErrorManager 已经有源文件 buffer，可以将行列号转换为 SMLoc
+    if (!cl::ShapeInfoFile.empty()) {
+      if (!context->getShapeInfoManager().loadFromJSON(cl::ShapeInfoFile)) {
+        llvh::errs() << "Error loading shape info from: " << cl::ShapeInfoFile
+                     << "\n";
+        // 不中止编译，只是警告
+      }
+    }
+
     if (cl::DumpTarget < DumpIR) {
       return Success;
     }

@@ -161,8 +161,74 @@ llvh::StringRef ESTreeIRGen::propertyKeyAsString(
   return llvh::StringRef();
 }
 
+//===----------------------------------------------------------------------===//
+// Initialization
+//===----------------------------------------------------------------------===//
+
+void ESTreeIRGen::convertShapesToIR() {
+  ShapeInfoManager &shapeMgr = Mod->getContext().getShapeInfoManager();
+
+  const auto &shapeDefs = shapeMgr.getShapeDefinitions();
+  if (shapeDefs.empty()) {
+    return;
+  }
+
+  LLVM_DEBUG(
+      llvh::dbgs() << "Converting " << shapeDefs.size()
+                   << " ShapeDefinitions to IR ShapeDescriptors\n");
+
+  // 第一遍：为所有 ShapeDefinition 创建空壳 ShapeDescriptor
+  for (const auto &shapeDef : shapeDefs) {
+    Mod->addShapeDescptr();
+  }
+
+  // 第二遍：填充属性
+  for (int shapeId = 0; shapeId < (int)shapeDefs.size(); ++shapeId) {
+    const auto &shapeDef = shapeDefs[shapeId];
+    ShapeDescriptor *irShape =
+        const_cast<ShapeDescriptor *>(Mod->getShapeDescptr(shapeId));
+    assert(irShape && "ShapeDescriptor should exist after first pass");
+
+    // 遍历所有属性
+    for (const auto &propDef : shapeDef->properties) {
+      if (propDef.kind == ShapePropertyDef::Kind::Primitive) {
+        // 基础类型：将 typeString 转换为 Type
+        Type irType = Type::createAnyType(); // 默认为 Any
+
+        if (propDef.typeString == "number") {
+          irType = Type::createNumber();
+        } else if (propDef.typeString == "string") {
+          irType = Type::createString();
+        } else if (propDef.typeString == "boolean") {
+          irType = Type::createBoolean();
+        } else if (propDef.typeString == "bigint") {
+          irType = Type::createBigInt();
+        } else if (propDef.typeString == "undefined") {
+          irType = Type::createUndefined();
+        } else if (propDef.typeString == "null") {
+          irType = Type::createNull();
+        }
+
+        irShape->properties.emplace_back(propDef.name, irType, propDef.slot);
+      } else {
+        // Shape 引用：查找对应的 ShapeDescriptor
+        const ShapeDescriptor *refShape = Mod->getShapeDescptr(propDef.shapeId);
+        assert(refShape && "Referenced ShapeDescriptor should exist");
+
+        irShape->properties.emplace_back(propDef.name, refShape, propDef.slot);
+      }
+    }
+
+    LLVM_DEBUG(
+        llvh::dbgs() << "  Shape " << shapeId << " with "
+                     << irShape->properties.size() << " properties\n");
+  }
+}
+
 void ESTreeIRGen::doIt(llvh::StringRef topLevelFunctionName) {
   LLVM_DEBUG(llvh::dbgs() << "Processing top level program.\n");
+
+  convertShapesToIR();
 
   ESTree::ProgramNode *Program;
 

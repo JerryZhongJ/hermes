@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "shapes": [
+    {
+      "properties": [
+        {"name": "value", "type": "number", "slot": 0},
+        {"name": "next", "shapeId": 0, "slot": 1}
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "location": {
+        "file": "/home/zjc/js_engines/static_hermes/test-circular-ref.js",
+        "start": {"line": 6, "column": 18},
+        "end": {"line": 6, "column": 22}
+      },
+      "targetExpression": "Parameter",
+      "shapeId": 0
+    }
+  ]
+}

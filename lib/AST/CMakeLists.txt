@@ -14,6 +14,7 @@ add_hermes_library(hermesAST
     TransformAST.cpp
     Context.cpp
     NativeContext.cpp
+    ShapeInfo.cpp
     LINK_OBJLIBS
     hermesRegex
     hermesSupport

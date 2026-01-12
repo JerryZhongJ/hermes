@@ -593,6 +593,43 @@ class TypeInferenceImpl {
     return *inst->getInherentType();
   }
   Type inferLoadPropertyInst(LoadPropertyInst *inst) {
+    Value *obj = inst->getObject();
+    Type objType = obj->getType();
+
+    // 必须是确定的 Object 类型
+    if (!objType.isObjectType()) {
+      return Type::createAnyType();
+    }
+
+    // 查找 Shape
+    Module *M = inst->getParent()->getParent()->getParent();
+    const ShapeDescriptor *shape = M->getValueShape(obj);
+    if (!shape) {
+      return Type::createAnyType(); // 无 Shape 信息
+    }
+
+    // 属性必须是字面量
+    LiteralString *propLit = llvh::dyn_cast<LiteralString>(inst->getProperty());
+    if (!propLit) {
+      return Type::createAnyType();
+    }
+
+    Identifier propName = propLit->getValue();
+
+    // 在 Shape 中查找属性类型
+    for (const auto &prop : shape->properties) {
+      if (prop.name == propName) {
+        // 根据属性类型返回类型
+        if (prop.kind == ShapeProperty::Kind::Primitive) {
+          return prop.primitiveType;
+        } else {
+          // Shape 引用，返回 object 类型
+          return Type::createObject();
+        }
+      }
+    }
+
+    // 属性不在 Shape 中
     return Type::createAnyType();
   }
   Type inferLoadPropertyWithReceiverInst(LoadPropertyWithReceiverInst *inst) {

@@ -1130,6 +1130,17 @@ void ESTreeIRGen::emitParameters(ESTree::FunctionLikeNode *funcNode) {
       break;
     }
     auto *jsParam = Builder.createJSDynamicParam(newFunc, formalParamName);
+
+    ShapeInfoManager &shapeMgr = Mod->getContext().getShapeInfoManager();
+    if (const ShapeAnnotation *ann =
+            shapeMgr.getAnnotationAt(param->getSourceRange())) {
+      // 通过 Builder 获取 IR ShapeDescriptor
+      const ShapeDescriptor *irShape = Builder.getShapeDescptr(ann->shapeId);
+      if (irShape) {
+        Mod->setValueShape(jsParam, irShape);
+      }
+    }
+
     if (flow::TypedFunctionType *ftype =
             llvh::dyn_cast<flow::TypedFunctionType>(
                 flowContext_.getNodeTypeOrAny(funcNode)->info);

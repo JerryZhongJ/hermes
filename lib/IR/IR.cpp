@@ -1032,6 +1032,36 @@ LiteralNativeExtern *Module::getLiteralNativeExtern(NativeExtern *data) {
   return nativeExterns_.getOrEmplace(data).first;
 }
 
+ShapeDescriptor *Module::addShapeDescptr() {
+  auto irShape = std::make_unique<ShapeDescriptor>();
+  ShapeDescriptor *ptr = irShape.get();
+  shapeDescriptors_.push_back(std::move(irShape));
+  return ptr; // 返回非 const 指针，供 ESTreeIRGen 填充属性
+}
+
+const ShapeDescriptor *Module::getShapeDescptr(uint32_t shapeId) const {
+  if (shapeId >= shapeDescriptors_.size())
+    return nullptr;
+  return shapeDescriptors_[shapeId].get();
+}
+
+ShapeProperty::ShapeProperty(Identifier n, Type t, uint32_t s)
+    : name(n),
+      slot(s),
+      kind(Kind::Primitive),
+      primitiveType(t),
+      shapeRef(nullptr) {}
+
+ShapeProperty::ShapeProperty(
+    Identifier n,
+    const ShapeDescriptor *shape,
+    uint32_t s)
+    : name(n),
+      slot(s),
+      kind(Kind::ShapeRef),
+      primitiveType(Type::createAnyType()),
+      shapeRef(shape) {}
+
 void Type::print(llvh::raw_ostream &OS) const {
   bool first = true;
   if (isNoType()) {

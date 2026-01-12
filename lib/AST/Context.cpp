@@ -8,6 +8,7 @@
 #include "hermes/AST/Context.h"
 
 #include "hermes/AST/NativeContext.h"
+#include "hermes/AST/ShapeInfo.h"
 #include "hermes/Utils/Dumper.h"
 
 namespace hermes {
@@ -36,7 +37,8 @@ Context::Context(
       codeGenerationSettings_(std::move(codeGenOpts)),
       optimizationSettings_(std::move(optimizationOpts)),
       nativeContext_(new NativeContext(
-          nativeSettings ? *nativeSettings : NativeSettings())) {}
+          nativeSettings ? *nativeSettings : NativeSettings())),
+      shapeInfoManager_(this) {}
 
 Context::Context(
     CodeGenerationSettings &&codeGenOpts,
@@ -52,7 +54,8 @@ Context::Context(
       codeGenerationSettings_(std::move(codeGenOpts)),
       optimizationSettings_(std::move(optimizationOpts)),
       nativeContext_(new NativeContext(
-          nativeSettings ? *nativeSettings : NativeSettings())) {}
+          nativeSettings ? *nativeSettings : NativeSettings())),
+      shapeInfoManager_(this) {}
 
 Context::~Context() = default;
 
