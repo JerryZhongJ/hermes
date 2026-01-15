@@ -1284,6 +1284,11 @@ bool Verifier::visitMovInst(const hermes::MovInst &Inst) {
   return true;
 }
 
+bool Verifier::visitTypeAssertInst(const hermes::TypeAssertInst &Inst) {
+  // TypeAssert should have a single operand
+  return true;
+}
+
 bool Verifier::visitImplicitMovInst(const hermes::ImplicitMovInst &Inst) {
   // Nothing to verify at this point.
   return true;

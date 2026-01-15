@@ -16,6 +16,7 @@
 #include "hermes/AST/TransformAST.h"
 #include "hermes/IR/IRVerifier.h"
 #include "hermes/IRGen/IRGen.h"
+#include "hermes/IRGen/TypeAnnotationLoader.h"
 #include "hermes/Optimizer/PassManager/PassManager.h"
 #include "hermes/Optimizer/PassManager/Pipeline.h"
 #include "hermes/Runtime/Libhermes.h"
@@ -286,6 +287,11 @@ static cl::opt<std::string> ExportedUnit(
     cl::desc(
         "Produce an SHUnit with the given name to be used by other code. "
         "When this is specified, no main function will be produced."),
+    cl::cat(CompilerCategory));
+
+static cl::opt<std::string> TypeAnnotationFile(
+    "type-annotation-file",
+    cl::desc("JSON file with type annotations to override inference"),
     cl::cat(CompilerCategory));
 
 cl::opt<bool> DumpBetweenPasses(
@@ -928,6 +934,13 @@ bool compileFromCommandLineOptions() {
       cli::OutputLevel < OutputLevelKind::CFG) {
     return true;
   }
+
+  // Load type annotations if specified
+  if (!cli::TypeAnnotationFile.empty()) {
+    context->getTypeAnnotations().loadFromFile(
+        cli::TypeAnnotationFile, context->getSourceErrorManager());
+  }
+
   generateIRFromESTree(&M, semCtx, flowContext, ast);
 
   // Bail out if there were any errors. We can't ensure that the module is in

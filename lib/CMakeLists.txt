@@ -32,12 +32,14 @@ add_hermes_library(hermesOptimizer
   Optimizer/Scalar/InstructionEscapeAnalysis.cpp
   Optimizer/Scalar/TDZDedup.cpp
   Optimizer/Scalar/StripDebugInsts.cpp
+  Optimizer/Scalar/StripTypeAssert.cpp
   Optimizer/Scalar/CacheNewObject.cpp
   LINK_OBJLIBS hermesFrontend
 )
 
 add_hermes_library(hermesFrontend
   IRGen/IRGen.cpp
+  IRGen/TypeAnnotationLoader.cpp
   IRGen/ESTreeIRGen.cpp IRGen/ESTreeIRGen.h
   IRGen/ESTreeIRGen-expr.cpp
   IRGen/ESTreeIRGen-stmt.cpp

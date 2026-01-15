@@ -3741,6 +3741,50 @@ class ImplicitMovInst : public SingleOperandInst {
   }
 };
 
+/// TypeAssertInst represents a compile-time type assertion hint.
+/// Similar to MovInst but carries type information that should be preserved
+/// through optimization. Does not generate runtime code - purely a compiler
+/// hint for type-based optimizations.
+class TypeAssertInst : public SingleOperandInst {
+  TypeAssertInst(const TypeAssertInst &) = delete;
+  void operator=(const TypeAssertInst &) = delete;
+
+ public:
+  /// \param input The value to assert the type of
+  /// \param assertedType The type to assert
+  explicit TypeAssertInst(Value *input, Type assertedType)
+      : SingleOperandInst(ValueKind::TypeAssertInstKind, input) {
+    setType(assertedType);  // Set the asserted type
+  }
+
+  explicit TypeAssertInst(
+      const TypeAssertInst *src,
+      llvh::ArrayRef<Value *> operands)
+      : SingleOperandInst(src, operands) {}
+
+  static bool hasOutput() {
+    return true;
+  }
+
+  /// TypeAssert is typed - its type is fixed, not inferred
+  static bool isTyped() {
+    return true;
+  }
+
+  bool acceptsEmptyTypeImpl() const {
+    return true;
+  }
+
+  /// Idempotent - no side effects, can be reordered/eliminated
+  SideEffect getSideEffectImpl() const {
+    return SideEffect{}.setIdempotent();
+  }
+
+  static bool classof(const Value *V) {
+    return V->getKind() == ValueKind::TypeAssertInstKind;
+  }
+};
+
 class CoerceThisNSInst : public SingleOperandInst {
   CoerceThisNSInst(const MovInst &) = delete;
   void operator=(const CoerceThisNSInst &) = delete;

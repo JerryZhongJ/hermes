@@ -819,6 +819,14 @@ void HBCISel::generateImplicitMovInst(ImplicitMovInst *Inst, BasicBlock *next) {
   // instruction will perform the equivalent of a 'Mov'.
 }
 
+void HBCISel::generateTypeAssertInst(TypeAssertInst *Inst, BasicBlock *next) {
+  // TypeAssertInst should have been stripped by StripTypeAssert pass.
+  // If it reaches here, generate like a Mov for safety.
+  auto dst = encodeValue(Inst);
+  auto src = encodeValue(Inst->getSingleOperand());
+  emitMovIfNeeded(dst, src);
+}
+
 void HBCISel::generateTypeOfInst(TypeOfInst *Inst, hermes::BasicBlock *) {
   auto dst = encodeValue(Inst);
   auto src = encodeValue(Inst->getArgument());

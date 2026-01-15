@@ -6,6 +6,7 @@
  */
 
 #include "ESTreeIRGen.h"
+#include "hermes/IRGen/TypeAnnotationLoader.h"
 #include "hermes/Regex/RegexSerialization.h"
 #include "hermes/Support/UTF8.h"
 
@@ -41,7 +42,37 @@ Value *ESTreeIRGen::enforceExprType(hermes::Value *value, ESTree::Node *expr) {
 }
 
 Value *ESTreeIRGen::genExpression(ESTree::Node *expr, Identifier nameHint) {
-  return enforceExprType(_genExpressionImpl(expr, nameHint), expr);
+  Value *val = enforceExprType(_genExpressionImpl(expr, nameHint), expr);
+
+  // Apply type annotation from external JSON file using TypeAssertInst
+  const TypeAnnotations &typeAnnotations =
+      Mod->getContext().getTypeAnnotations();
+
+  if (!typeAnnotations.empty()) {
+    llvh::SMRange exprRange = expr->getSourceRange();
+    if (exprRange.isValid()) {
+      llvh::Optional<std::string> typeStr =
+          typeAnnotations.getAnnotation(exprRange);
+      if (typeStr.hasValue()) {
+        llvh::Optional<Type> annotatedType =
+            TypeAnnotations::parseTypeName(*typeStr);
+        if (annotatedType.hasValue()) {
+          // Only apply TypeAssert to instruction results
+          if (auto *inst = llvh::dyn_cast<Instruction>(val)) {
+            val = Builder.createTypeAssertInst(inst, annotatedType.getValue());
+            LLVM_DEBUG(
+                llvh::dbgs()
+                << "Applied type assertion to " << inst->getKindStr() << ": "
+                << annotatedType.getValue() << "\n");
+          }
+        } else {
+          LLVM_DEBUG(llvh::dbgs() << "Unknown type name: " << *typeStr << "\n");
+        }
+      }
+    }
+  }
+
+  return val;
 }
 
 Value *ESTreeIRGen::_genExpressionImpl(

@@ -820,6 +820,16 @@ class InstrGen {
     // instruction will perform the equivalent of a 'Mov'.
     os_ << "  // ImplicitMovInst\n";
   }
+  void generateTypeAssertInst(TypeAssertInst &inst) {
+    // TypeAssertInst should have been stripped by StripTypeAssert pass.
+    // If it reaches here, treat it as a Mov (same logic as generateMovInst).
+    sh::Register dstReg = ra_.getRegister(&inst);
+    os_.indent(2);
+    generateRegister(dstReg);
+    os_ << " = ";
+    generateValue(*inst.getSingleOperand());
+    os_ << ";\n";
+  }
   void generateTypeOfInst(TypeOfInst &inst) {
     os_.indent(2);
     generateRegister(inst);

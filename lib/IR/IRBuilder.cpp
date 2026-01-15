@@ -962,6 +962,12 @@ ImplicitMovInst *IRBuilder::createImplicitMovInst(Value *input) {
   return IMI;
 }
 
+TypeAssertInst *IRBuilder::createTypeAssertInst(Value *input, Type assertedType) {
+  auto TAI = new TypeAssertInst(input, assertedType);
+  insert(TAI);
+  return TAI;
+}
+
 CoerceThisNSInst *IRBuilder::createCoerceThisNSInst(Value *input) {
   auto *inst = new CoerceThisNSInst(input);
   insert(inst);

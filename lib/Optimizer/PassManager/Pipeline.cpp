@@ -110,6 +110,9 @@ void hermes::runFullOptimizationPasses(Module &M) {
 
   PM.addTypeInference();
 
+  // Strip TypeAssert instructions after all type-based optimizations
+  PM.addStripTypeAssert();
+
   // Run the optimizations.
   PM.run(&M);
 }

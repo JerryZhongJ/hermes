@@ -481,6 +481,12 @@ class TypeInferenceImpl {
     Type srcType = inst->getSingleOperand()->getType();
     return srcType;
   }
+  Type inferTypeAssertInst(TypeAssertInst *inst) {
+    // TypeAssertInst is typed, so this function is never actually called
+    // (see isTyped() check in inferInstruction).
+    // Return the asserted type for completeness.
+    return inst->getType();
+  }
   Type inferCoerceThisNSInst(CoerceThisNSInst *inst) {
     return *inst->getInherentType();
   }

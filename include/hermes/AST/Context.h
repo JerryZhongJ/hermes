@@ -9,6 +9,7 @@
 #define HERMES_AST_CONTEXT_H
 
 #include "hermes/ADT/StringSetVector.h"
+#include "hermes/IRGen/TypeAnnotationLoader.h"
 #include "hermes/Parser/PreParser.h"
 #include "hermes/Regex/RegexSerialization.h"
 #include "hermes/Support/Allocator.h"
@@ -300,6 +301,8 @@ class Context {
 
   std::unique_ptr<irdumper::Namer> persistentIRNamer_;
 
+  TypeAnnotations typeAnnotations_;
+
  public:
   explicit Context(
       SourceErrorManager &sm,
@@ -590,6 +593,10 @@ class Context {
   /// Return the optional persistent namer used for IR dumps, or nullptr.
   irdumper::Namer *getPersistentIRNamer() {
     return persistentIRNamer_.get();
+  }
+
+  TypeAnnotations &getTypeAnnotations() {
+    return typeAnnotations_;
   }
 };
 

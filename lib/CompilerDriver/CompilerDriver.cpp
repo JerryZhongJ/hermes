@@ -24,6 +24,7 @@
 #include "hermes/IR/IRVerifier.h"
 #include "hermes/IR/Instrs.h"
 #include "hermes/IRGen/IRGen.h"
+#include "hermes/IRGen/TypeAnnotationLoader.h"
 #include "hermes/Optimizer/PassManager/PassManager.h"
 #include "hermes/Optimizer/PassManager/Pipeline.h"
 #include "hermes/Parser/JSONParser.h"
@@ -406,6 +407,13 @@ opt<bool> Xg3(
         "tool directly, this only makes sense to be used in the context of IR/BC tests."),
     Hidden,
     cat(CompilerCategory));
+
+static cl::opt<std::string> TypeAnnotationFile(
+    "type-annotation-file",
+    cl::desc("JSON file with type annotations to override inference"),
+    cl::value_desc("filename"),
+    cl::init(""),
+    cl::cat(CompilerCategory));
 
 static opt<std::string> InputSourceMap(
     "source-map",
@@ -2025,6 +2033,12 @@ CompileResult processSourceFiles(
       if (auto N = context->getSourceErrorManager().getErrorCount())
         llvh::errs() << "Emitted " << N << " errors. exiting.\n";
       return ParsingFailed;
+    }
+
+    // === Load type annotations if provided ===
+    if (!cl::TypeAnnotationFile.empty()) {
+      context->getTypeAnnotations().loadFromFile(
+          cl::TypeAnnotationFile, context->getSourceErrorManager());
     }
     if (cl::DumpTarget < DumpIR) {
       return Success;

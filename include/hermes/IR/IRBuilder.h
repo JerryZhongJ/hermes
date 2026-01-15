@@ -600,6 +600,9 @@ class IRBuilder {
 
   ImplicitMovInst *createImplicitMovInst(Value *input);
 
+  /// Create TypeAssert instruction (compile-time type hint, no runtime code)
+  TypeAssertInst *createTypeAssertInst(Value *input, Type assertedType);
+
   CoerceThisNSInst *createCoerceThisNSInst(Value *input);
 
   DebuggerInst *createDebuggerInst();
