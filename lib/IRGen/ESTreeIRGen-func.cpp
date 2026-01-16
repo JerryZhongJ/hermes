@@ -10,6 +10,7 @@
 #include "hermes/IR/Analysis.h"
 #include "hermes/IR/IRUtils.h"
 #include "hermes/IR/Instrs.h"
+#include "hermes/IRGen/TypeAnnotationLoader.h"
 #include "llvh/ADT/SmallString.h"
 
 namespace hermes {
@@ -1136,7 +1137,13 @@ void ESTreeIRGen::emitParameters(ESTree::FunctionLikeNode *funcNode) {
         ftype && paramIndex < ftype->getParams().size()) {
       jsParam->setType(flowTypeToIRType(ftype->getParams()[paramIndex].second));
     }
+
     Instruction *formalParam = Builder.createLoadParamInst(jsParam);
+
+    // Apply type annotation to parameter using TypeAssertInst
+    formalParam =
+        llvh::cast<Instruction>(tryApplyTypeAnnotation(formalParam, param));
+
     curFunction()->jsParams.push_back(formalParam);
     createLRef(param, true)
         .emitStore(

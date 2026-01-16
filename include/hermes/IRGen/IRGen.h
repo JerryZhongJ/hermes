@@ -27,6 +27,9 @@ namespace flow {
 class FlowContext;
 }
 
+// Forward declaration
+class TypeAnnotations;
+
 /// Lowers an ESTree program into Hermes IR in \p M.
 void generateIRFromESTree(
     Module *M,

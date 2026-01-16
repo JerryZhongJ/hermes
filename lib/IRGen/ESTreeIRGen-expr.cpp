@@ -6,6 +6,7 @@
  */
 
 #include "ESTreeIRGen.h"
+#include "hermes/IRGen/TypeAnnotationLoader.h"
 #include "hermes/Regex/RegexSerialization.h"
 #include "hermes/Support/UTF8.h"
 
@@ -41,7 +42,48 @@ Value *ESTreeIRGen::enforceExprType(hermes::Value *value, ESTree::Node *expr) {
 }
 
 Value *ESTreeIRGen::genExpression(ESTree::Node *expr, Identifier nameHint) {
-  return enforceExprType(_genExpressionImpl(expr, nameHint), expr);
+  Value *val = enforceExprType(_genExpressionImpl(expr, nameHint), expr);
+  return tryApplyTypeAnnotation(val, expr);
+}
+
+Value *ESTreeIRGen::tryApplyTypeAnnotation(Value *val, ESTree::Node *node) {
+  // Apply type annotation from external JSON file using TypeAssertInst
+  const TypeAnnotations &typeAnnotations =
+      Mod->getContext().getTypeAnnotations();
+  auto range = node->getSourceRange();
+  if (typeAnnotations.empty() || !range.isValid()) {
+    return val;
+  }
+
+  llvh::Optional<std::string> typeStr = typeAnnotations.getAnnotation(range);
+  if (!typeStr.hasValue()) {
+    return val;
+  }
+
+  llvh::Optional<Type> annotatedType = TypeAnnotations::parseTypeName(*typeStr);
+  if (!annotatedType.hasValue()) {
+    LLVM_DEBUG(llvh::dbgs() << "Unknown type name: " << *typeStr << "\n");
+    return val;
+  }
+
+  // Only apply TypeAssert to instruction results
+  auto *inst = llvh::dyn_cast<Instruction>(val);
+  if (!inst) {
+    return val;
+  }
+
+  Value *result = Builder.createTypeAssertInst(inst, annotatedType.getValue());
+
+  SourceErrorManager::SourceCoords coords;
+  if (Mod->getContext().getSourceErrorManager().findBufferLineAndLoc(
+          range.Start, coords)) {
+    LLVM_DEBUG(
+        llvh::dbgs() << "Applied type annotation at " << coords.line << ":"
+                     << coords.col << " to " << inst->getKindStr() << ": "
+                     << annotatedType.getValue() << "\n");
+  }
+
+  return result;
 }
 
 Value *ESTreeIRGen::_genExpressionImpl(
@@ -2346,7 +2388,7 @@ Value *ESTreeIRGen::genAssignmentExpr(ESTree::AssignmentExpressionNode *AE) {
   // https://es5.github.io/#x11.13.1
   Value *V = lref.emitLoad();
   V = enforceExprType(V, left);
-
+  V = tryApplyTypeAnnotation(V, left);
   Value *RHS = genExpression(AE->_right, nameHint);
   Value *result;
   result = Builder.createBinaryOperatorInst(V, RHS, AssignmentKind);
