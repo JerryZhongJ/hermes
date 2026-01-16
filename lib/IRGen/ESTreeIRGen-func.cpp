@@ -1141,25 +1141,8 @@ void ESTreeIRGen::emitParameters(ESTree::FunctionLikeNode *funcNode) {
     Instruction *formalParam = Builder.createLoadParamInst(jsParam);
 
     // Apply type annotation to parameter using TypeAssertInst
-    const TypeAnnotations &typeAnnotations =
-        Mod->getContext().getTypeAnnotations();
-    llvh::SMRange paramRange = param->getSourceRange();
-    if (paramRange.isValid()) {
-      llvh::Optional<std::string> typeStr =
-          typeAnnotations.getAnnotation(paramRange);
-      if (typeStr.hasValue()) {
-        llvh::Optional<Type> annotatedType = TypeAnnotations::parseTypeName(*typeStr);
-        if (annotatedType.hasValue()) {
-          // Insert TypeAssertInst after LoadParamInst
-          formalParam = Builder.createTypeAssertInst(
-              formalParam, annotatedType.getValue());
-          LLVM_DEBUG(
-              llvh::dbgs() << "Applied type assertion to parameter "
-                           << formalParamName << ": "
-                           << annotatedType.getValue() << "\n");
-        }
-      }
-    }
+    formalParam =
+        llvh::cast<Instruction>(tryApplyTypeAnnotation(formalParam, param));
 
     curFunction()->jsParams.push_back(formalParam);
     createLRef(param, true)
