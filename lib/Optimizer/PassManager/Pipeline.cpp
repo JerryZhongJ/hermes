@@ -49,6 +49,8 @@ void hermes::runFullOptimizationPasses(Module &M) {
 
   // Add the optimization passes.
 
+  PM.addInsertTypeGuard();
+
   PM.addLowerGeneratorFunction();
   // CacheNewObject benefits from running early because it needs new.target,
   // which may be eliminated by later passes. It also currently only works on
@@ -126,6 +128,9 @@ void hermes::runOptimizationPassesToFixedPoint(Module &M) {
   };
 
   // Add the optimization passes.
+
+  // InsertTypeGuard must run first, before any other optimization
+  PM.addInsertTypeGuard();
 
   PM.addLowerGeneratorFunction();
 

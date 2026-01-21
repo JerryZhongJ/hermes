@@ -476,6 +476,17 @@ bool Verifier::visitBasicBlock(const BasicBlock &BB) {
                             << bbLabel(**I));
   }
 
+  // If this block is speculative, all predecessors must be speculative too.
+  if (BB.isSpeculative()) {
+    for (auto I = pred_begin(&BB), E = pred_end(&BB); I != E; ++I) {
+      AssertWithMsg(
+          (*I)->isSpeculative(),
+          "Speculative block " << bbLabel(BB)
+                               << " has non-speculative predecessor "
+                               << bbLabel(**I));
+    }
+  }
+
   // Verify each instruction
   for (BasicBlock::const_iterator I = BB.begin(); I != BB.end(); I++) {
     AssertWithMsg(
@@ -829,6 +840,25 @@ bool Verifier::visitCondBranchLikeInst(const T &Inst) {
 
 bool Verifier::visitCondBranchInst(const CondBranchInst &Inst) {
   ReturnIfNot(visitCondBranchLikeInst(Inst));
+  return true;
+}
+
+bool Verifier::visitTypeGuardInst(const TypeGuardInst &Inst) {
+  // TypeGuard is similar to CondBranch - verify it has 2 successors
+  ReturnIfNot(visitCondBranchLikeInst(Inst));
+
+  // TypeGuard's true branch must go to a speculative block
+  AssertIWithMsg(
+      Inst,
+      Inst.getTrueDest()->isSpeculative(),
+      "TypeGuardInst: true branch must target a speculative block");
+
+  // TypeGuard's false branch must go to a non-speculative (general) block
+  AssertIWithMsg(
+      Inst,
+      !Inst.getFalseDest()->isSpeculative(),
+      "TypeGuardInst: false branch must target a non-speculative block");
+
   return true;
 }
 

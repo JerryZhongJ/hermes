@@ -363,6 +363,7 @@ Instruction::Instruction(
     llvh::ArrayRef<Value *> operands)
     : Instruction(src->getKind()) {
   setType(src->getType());
+  setSpeculativeType(src->getSpeculativeType());
 
   location_ = src->location_;
   statementIndex_ = src->statementIndex_;
@@ -459,6 +460,13 @@ void Instruction::eraseFromParent() {
   // Release this instruction from the use-list of other instructions.
   for (unsigned i = 0; i < getNumOperands(); i++)
     setOperand(nullptr, i);
+
+  // Remove from typeGuards_ map to avoid stale pointers after memory reuse.
+  if (auto *F = getParent()->getParent()) {
+    if (auto *M = F->getParent()) {
+      M->removeTypeGuard(this);
+    }
+  }
 
   getParent()->erase(this);
 }

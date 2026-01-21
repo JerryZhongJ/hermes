@@ -19,6 +19,7 @@ add_hermes_library(hermesOptimizer
   Optimizer/Scalar/ScopeElimination.cpp
   Optimizer/Scalar/ScopeHoisting.cpp
   Optimizer/Scalar/TypeInference.cpp
+  Optimizer/Scalar/InsertTypeGuard.cpp
   Optimizer/Scalar/SimpleStackPromotion.cpp
   Optimizer/Scalar/ObjectMergeNewStores.cpp
   Optimizer/Scalar/ObjectStackPromotion.cpp
@@ -45,6 +46,7 @@ add_hermes_library(hermesFrontend
   IRGen/ESTreeIRGen-except.cpp
   IRGen/ESTreeIRGen-typed-class.cpp
   IRGen/ESTreeIRGen-legacy-class.cpp
+  IRGen/TypeAnnotationLoader.cpp
   IR/Analysis.cpp
   IR/IR.cpp
   IR/IREval.cpp

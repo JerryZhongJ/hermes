@@ -862,7 +862,7 @@ class ESTreeIRGen {
   /// \param val The value to potentially wrap with TypeAssertInst
   /// \param range The source range to look up annotation for
   /// \return The original value or a TypeAssertInst wrapping it
-  Value *tryApplyTypeAnnotation(Value *val, ESTree::Node *node);
+  bool tryApplyTypeAnnotation(Value *val, ESTree::Node *node);
 
   /// Generate an expression and perform a conditional branch depending on
   /// whether it evaluates to true or false (or optionally, nullish).

@@ -711,6 +711,11 @@ class Value {
   /// The JavaScript type of the value.
   Type valueType = Type::createAnyType();
 
+  /// The speculative type of the value, used for speculative optimization.
+  /// This is separate from valueType and is only set during speculative
+  /// type inference passes.
+  Type speculativeType_ = Type::createAnyType();
+
   /// A list of users of this instruction.
   UseListTy Users;
 
@@ -802,6 +807,21 @@ class Value {
   /// \returns the JavaScript type of the value.
   Type getType() const {
     return valueType;
+  }
+
+  /// Set the speculative type for this value.
+  void setSpeculativeType(Type type) {
+    speculativeType_ = type;
+  }
+
+  /// Get the speculative type of this value.
+  Type getSpeculativeType() const {
+    return speculativeType_;
+  }
+
+  /// Check if this value has a non-default speculative type.
+  bool hasSpeculativeType() const {
+    return speculativeType_ != Type::createAnyType();
   }
 
   /// Takes a Module parameter to allow easily moving the attributes_ storage
@@ -1679,6 +1699,9 @@ class BasicBlock : public llvh::ilist_node_with_parent<BasicBlock, Function>,
  private:
   InstListType InstList{};
   Function *Parent;
+  /// Flag indicating if this basic block is part of a speculative optimization
+  /// path.
+  bool isSpeculative_{false};
 
  public:
   explicit BasicBlock(Function *parent);
@@ -1713,6 +1736,15 @@ class BasicBlock : public llvh::ilist_node_with_parent<BasicBlock, Function>,
     Parent = parent;
   }
 
+  /// Set whether this basic block is part of a speculative optimization path.
+  void setSpeculative(bool flag) {
+    isSpeculative_ = flag;
+  }
+
+  /// Check if this basic block is part of a speculative optimization path.
+  bool isSpeculative() const {
+    return isSpeculative_;
+  }
   /// Needed by llvh::ilist_node_with_parent. Returns the offset of the
   /// aproperiate list based on the type of the argument.
   static InstListType BasicBlock::*getSublistAccess(Instruction *) {
@@ -2615,6 +2647,9 @@ class Module : public Value {
   /// Extra data to be shared between optimization passes.
   OptimizationContext optContext_{};
 
+  /// Type guards map: stores expected types for instructions with type guards.
+  llvh::DenseMap<Instruction *, Type> typeGuards_{};
+
  public:
   explicit Module(std::shared_ptr<Context> ctx)
       : Value(ValueKind::ModuleKind), Ctx(std::move(ctx)) {}
@@ -2687,6 +2722,28 @@ class Module : public Value {
   }
   const OptimizationContext &getOptimizationContext() const {
     return optContext_;
+  }
+
+  /// Set a type guard for an instruction.
+  void setTypeGuard(Instruction *inst, Type type) {
+    typeGuards_.insert({inst, type});
+  }
+
+  /// Get the type guard for an instruction.
+  Type getTypeGuard(Instruction *inst) const {
+    auto it = typeGuards_.find(inst);
+    return it != typeGuards_.end() ? it->second : Type::createAnyType();
+  }
+
+  /// Check if an instruction has a type guard.
+  bool hasTypeGuard(Instruction *inst) const {
+    return typeGuards_.count(inst) > 0;
+  }
+
+  /// Remove a type guard for an instruction (called when instruction is deleted
+  /// to avoid stale pointers after memory reuse).
+  void removeTypeGuard(Instruction *inst) {
+    typeGuards_.erase(inst);
   }
 
   /// Assign index to all Variables in all VariableScopes.

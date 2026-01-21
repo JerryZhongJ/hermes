@@ -43,36 +43,38 @@ Value *ESTreeIRGen::enforceExprType(hermes::Value *value, ESTree::Node *expr) {
 
 Value *ESTreeIRGen::genExpression(ESTree::Node *expr, Identifier nameHint) {
   Value *val = enforceExprType(_genExpressionImpl(expr, nameHint), expr);
-  return tryApplyTypeAnnotation(val, expr);
+  tryApplyTypeAnnotation(val, expr);
+  return val;
 }
 
-Value *ESTreeIRGen::tryApplyTypeAnnotation(Value *val, ESTree::Node *node) {
+bool ESTreeIRGen::tryApplyTypeAnnotation(Value *val, ESTree::Node *node) {
   // Apply type annotation from external JSON file using TypeAssertInst
   const TypeAnnotations &typeAnnotations =
       Mod->getContext().getTypeAnnotations();
   auto range = node->getSourceRange();
   if (typeAnnotations.empty() || !range.isValid()) {
-    return val;
+    return false;
   }
 
   llvh::Optional<std::string> typeStr = typeAnnotations.getAnnotation(range);
   if (!typeStr.hasValue()) {
-    return val;
+    return false;
   }
 
   llvh::Optional<Type> annotatedType = TypeAnnotations::parseTypeName(*typeStr);
   if (!annotatedType.hasValue()) {
     LLVM_DEBUG(llvh::dbgs() << "Unknown type name: " << *typeStr << "\n");
-    return val;
+    return false;
   }
 
-  // Only apply TypeAssert to instruction results
+  // Only apply type guard to instruction results
   auto *inst = llvh::dyn_cast<Instruction>(val);
   if (!inst) {
-    return val;
+    return false;
   }
 
-  Value *result = Builder.createTypeAssertInst(inst, annotatedType.getValue());
+  // Set type guard in module for speculative optimization
+  Mod->setTypeGuard(inst, annotatedType.getValue());
 
   SourceErrorManager::SourceCoords coords;
   if (Mod->getContext().getSourceErrorManager().findBufferLineAndLoc(
@@ -80,10 +82,12 @@ Value *ESTreeIRGen::tryApplyTypeAnnotation(Value *val, ESTree::Node *node) {
     LLVM_DEBUG(
         llvh::dbgs() << "Applied type annotation at " << coords.line << ":"
                      << coords.col << " to " << inst->getKindStr() << ": "
-                     << annotatedType.getValue() << "\n");
+                     << annotatedType.getValue() << " in func "
+                     << inst->getParent()->getParent()->getInternalName()
+                     << " inst=" << inst << "\n");
   }
 
-  return result;
+  return true;
 }
 
 Value *ESTreeIRGen::_genExpressionImpl(
@@ -2388,7 +2392,7 @@ Value *ESTreeIRGen::genAssignmentExpr(ESTree::AssignmentExpressionNode *AE) {
   // https://es5.github.io/#x11.13.1
   Value *V = lref.emitLoad();
   V = enforceExprType(V, left);
-  V = tryApplyTypeAnnotation(V, left);
+  tryApplyTypeAnnotation(V, left);
   Value *RHS = genExpression(AE->_right, nameHint);
   Value *result;
   result = Builder.createBinaryOperatorInst(V, RHS, AssignmentKind);

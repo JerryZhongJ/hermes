@@ -1141,8 +1141,7 @@ void ESTreeIRGen::emitParameters(ESTree::FunctionLikeNode *funcNode) {
     Instruction *formalParam = Builder.createLoadParamInst(jsParam);
 
     // Apply type annotation to parameter using TypeAssertInst
-    formalParam =
-        llvh::cast<Instruction>(tryApplyTypeAnnotation(formalParam, param));
+    tryApplyTypeAnnotation(formalParam, param);
 
     curFunction()->jsParams.push_back(formalParam);
     createLRef(param, true)

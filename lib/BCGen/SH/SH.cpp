@@ -1928,6 +1928,40 @@ class InstrGen {
     generateBasicBlockLabel(inst.getFalseDest(), os_, bbMap_);
     os_ << ";\n";
   }
+
+  void generateTypeGuardInst(TypeGuardInst &inst) {
+    // Generate runtime type check for speculative optimization
+    os_.indent(2);
+    os_ << "if(_sh_type_check_";
+
+    // Generate type check function based on expected type
+    Type expectedType = inst.getExpectedType();
+    if (expectedType.isNumberType()) {
+      os_ << "number";
+    } else if (expectedType.isStringType()) {
+      os_ << "string";
+    } else if (expectedType.isBooleanType()) {
+      os_ << "boolean";
+    } else if (expectedType.isObjectType()) {
+      os_ << "object";
+    } else if (expectedType.isNullType()) {
+      os_ << "null";
+    } else if (expectedType.isUndefinedType()) {
+      os_ << "undefined";
+    } else {
+      // For other types, fall back to false dest
+      os_ << "any";
+    }
+
+    os_ << "(";
+    generateValue(*inst.getCheckedValue());
+    os_ << ")) goto ";
+    generateBasicBlockLabel(inst.getTrueDest(), os_, bbMap_);
+    os_ << ";\n  goto ";
+    generateBasicBlockLabel(inst.getFalseDest(), os_, bbMap_);
+    os_ << ";\n";
+  }
+
   void generateGetPNamesInst(GetPNamesInst &inst) {
     os_.indent(2);
     generateValue(*inst.getIterator());

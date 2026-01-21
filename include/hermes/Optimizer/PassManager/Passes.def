@@ -50,6 +50,7 @@ PASS(
     "Merge DefineOwnPropertyInsts into AllocObjectLiteral")
 PASS(SimplifyCFG, "simplifycfg", "Simplify CFG")
 PASS(TypeInference, "typeinference", "Type inference")
+PASS(InsertTypeGuard, "inserttypeguard", "Insert TypeGuard instructions for speculative optimization")
 PASS(FunctionAnalysis, "functionanalysis", "Function analysis")
 PASS(Inlining, "inlining", "Inlining")
 PASS(ResolveStaticRequire, "staticrequire", "Resolve static require")
