@@ -1930,27 +1930,31 @@ class InstrGen {
   }
 
   void generateTypeGuardInst(TypeGuardInst &inst) {
-    // Generate runtime type check for speculative optimization
+    // Generate runtime type check for speculative optimization.
+    // Uses existing _sh_ljs_is_* functions from sh_legacy_value.h.
     os_.indent(2);
-    os_ << "if(_sh_type_check_";
+    os_ << "if(";
 
     // Generate type check function based on expected type
     Type expectedType = inst.getExpectedType();
     if (expectedType.isNumberType()) {
-      os_ << "number";
+      os_ << "_sh_ljs_is_double";
     } else if (expectedType.isStringType()) {
-      os_ << "string";
+      os_ << "_sh_ljs_is_string";
     } else if (expectedType.isBooleanType()) {
-      os_ << "boolean";
+      os_ << "_sh_ljs_is_bool";
     } else if (expectedType.isObjectType()) {
-      os_ << "object";
+      os_ << "_sh_ljs_is_object";
     } else if (expectedType.isNullType()) {
-      os_ << "null";
+      os_ << "_sh_ljs_is_null";
     } else if (expectedType.isUndefinedType()) {
-      os_ << "undefined";
+      os_ << "_sh_ljs_is_undefined";
     } else {
-      // For other types, fall back to false dest
-      os_ << "any";
+      // For other/unknown types, always go to false dest (deoptimize)
+      os_ << "goto ";
+      generateBasicBlockLabel(inst.getFalseDest(), os_, bbMap_);
+      os_ << ";\n";
+      return;
     }
 
     os_ << "(";
