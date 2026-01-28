@@ -34,12 +34,6 @@ llvh::Optional<Type> TypeAnnotations::parseTypeName(llvh::StringRef typeName) {
     return Type::createBigInt();
   if (typeName == "symbol")
     return Type::createSymbol();
-  if (typeName == "any")
-    return Type::createAnyType();
-  if (typeName == "empty")
-    return Type::createEmpty();
-  if (typeName == "uninit")
-    return Type::createUninit();
   return llvh::None;
 }
 

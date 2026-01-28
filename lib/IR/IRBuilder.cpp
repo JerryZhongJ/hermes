@@ -256,16 +256,6 @@ IRBuilder::createCondBranchInst(Value *Cond, BasicBlock *T, BasicBlock *F) {
   return CBI;
 }
 
-TypeGuardInst *IRBuilder::createTypeGuardInst(
-    Value *checkedValue,
-    Type expectedType,
-    BasicBlock *trueDest,
-    BasicBlock *falseDest) {
-  auto *TGI = new TypeGuardInst(checkedValue, expectedType, trueDest, falseDest);
-  insert(TGI);
-  return TGI;
-}
-
 ReturnInst *IRBuilder::createReturnInst(Value *Val) {
   auto *RI = new ReturnInst(Val);
   insert(RI);

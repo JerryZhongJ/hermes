@@ -23,6 +23,7 @@
 
 #include "hermes/IR/Analysis.h"
 #include "hermes/IR/CFG.h"
+#include "hermes/IR/IR.h"
 #include "hermes/IR/IRBuilder.h"
 #include "hermes/IR/IREval.h"
 #include "hermes/IR/Instrs.h"
@@ -227,6 +228,42 @@ class InstSimplifyImpl {
     }
     // Type is either multiple things or object. We cannot distinguish object
     // from closure yet, so give up.
+    return nullptr;
+  }
+
+  Value *simplifyTypeOfIs(TypeOfIsInst *typeOfIs) {
+    auto *op = typeOfIs->getArgument();
+    Type opTy = op->getType();
+    TypeOfIsTypes expectedTypes = typeOfIs->getTypes()->getData();
+
+    // Check if the operand's type contains internal types that shouldn't
+    // appear in user code. If so, report an error (this is a bug in the IR).
+    assert(
+        opTy.isSubsetOf(Type::createAnyEmptyUninit()) &&
+        "Can not typeof an internal-typed value.");
+
+    // Try to convert the TypeOfIsTypes to an IR Type.
+    llvh::Optional<Type> expectedIRType = typeOfIsTypesToIRType(expectedTypes);
+    if (!expectedIRType.hasValue()) {
+      // Conversion failed (e.g., ambiguous object/function case).
+      return nullptr;
+    }
+
+    Type expectedTy = expectedIRType.getValue();
+
+    // If the operand's type is a subset of the expected type, the typeof check
+    // will always succeed.
+    if (opTy.isSubsetOf(expectedTy)) {
+      return builder_.getLiteralBool(true);
+    }
+
+    // If the operand's type has no intersection with the expected type,
+    // the typeof check will always fail.
+    if (Type::intersectTy(opTy, expectedTy).isNoType()) {
+      return builder_.getLiteralBool(false);
+    }
+
+    // Cannot determine statically.
     return nullptr;
   }
 
@@ -1114,6 +1151,8 @@ class InstSimplifyImpl {
         return simplifyResolveScopeInst(cast<ResolveScopeInst>(I));
       case ValueKind::TypeOfInstKind:
         return simplifyTypeOf(cast<TypeOfInst>(I));
+      case ValueKind::TypeOfIsInstKind:
+        return simplifyTypeOfIs(cast<TypeOfIsInst>(I));
       case ValueKind::CreateThisInstKind:
         return simplifyCreateThisInst(cast<CreateThisInst>(I));
 

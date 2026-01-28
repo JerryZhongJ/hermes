@@ -732,9 +732,6 @@ class TypeInferenceImpl {
   Type inferCondBranchInst(CondBranchInst *inst) {
     return Type::createNoType();
   }
-  Type inferTypeGuardInst(TypeGuardInst *inst) {
-    return Type::createNoType();
-  }
   Type inferGetPNamesInst(GetPNamesInst *inst) {
     return Type::createNoType();
   }

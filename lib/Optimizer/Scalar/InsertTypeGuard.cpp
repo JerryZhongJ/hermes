@@ -29,6 +29,26 @@ STATISTIC(NumFunctionsDuplicated, "Number of functions with duplicated paths");
 
 namespace {
 
+TypeOfIsTypes getTypeOfIsTypesFromType(const Type &type) {
+  if (type.isNumberType())
+    return TypeOfIsTypes{}.withNumber(true);
+  if (type.isStringType())
+    return TypeOfIsTypes{}.withString(true);
+  if (type.isBooleanType())
+    return TypeOfIsTypes{}.withBoolean(true);
+  if (type.isObjectType())
+    return TypeOfIsTypes{}.withObject(true).withFunction(true);
+  if (type.isNullType())
+    return TypeOfIsTypes{}.withNull(true);
+  if (type.isUndefinedType())
+    return TypeOfIsTypes{}.withUndefined(true);
+  if (type.isBigIntType())
+    return TypeOfIsTypes{}.withBigint(true);
+  if (type.isSymbolType())
+    return TypeOfIsTypes{}.withSymbol(true);
+  return TypeOfIsTypes{};
+}
+
 /// Helper class to manage the duplication and insertion process
 class TypeGuardInserter {
   Function *F_;
@@ -56,8 +76,8 @@ class TypeGuardInserter {
       return false;
 
     // Step 2: Collect all instructions with type guards
-    llvh::SmallVector<std::pair<Instruction *, Type>, 4> guardInsts;
-    collectTypeGuardInsts(guardInsts);
+    llvh::SmallVector<std::pair<Instruction *, Type>, 2> guardInsts =
+        collectTypeGuardInsts();
 
     if (guardInsts.empty())
       return false;
@@ -74,11 +94,9 @@ class TypeGuardInserter {
     // Step 4: Insert TypeGuard instructions at each guard point
     for (auto &pair : guardInsts) {
       Instruction *guardInst = pair.first;
-      Type expectedType = pair.second;
+      auto expectedType = pair.second;
 
-      if (!insertTypeGuardInst(guardInst, expectedType))
-        return false;
-      ++NumTypeGuardsInserted;
+      NumTypeGuardsInserted += insertTypeGuard(guardInst, expectedType);
     }
 
     // Step 5: Delete unreachable blocks (now gen entry parts)
@@ -109,13 +127,17 @@ class TypeGuardInserter {
     return false;
   }
 
+  bool isInGeneralPath(BasicBlock *BB) {
+    return genToSpecBBMap_.find(BB) != genToSpecBBMap_.end();
+  }
+
   /// Collect all instructions with type guards
-  void collectTypeGuardInsts(
-      llvh::SmallVectorImpl<std::pair<Instruction *, Type>> &guardInsts) {
+  llvh::SmallVector<std::pair<Instruction *, Type>, 2> collectTypeGuardInsts() {
+    llvh::SmallVector<std::pair<Instruction *, Type>, 2> guardInsts;
     for (auto &BB : *F_) {
       for (auto &I : BB) {
-        if (M_->hasTypeGuard(&I)) {
-          Type type = M_->getTypeGuard(&I);
+        auto type = M_->getTypeGuard(&I);
+        if (!type.isNoType()) {
           LLVM_DEBUG(
               dbgs() << "  Guard on " << I.getKindStr() << ": " << type
                      << " inst=" << &I << "\n");
@@ -123,6 +145,7 @@ class TypeGuardInserter {
         }
       }
     }
+    return guardInsts;
   }
 
   /// Duplicate the function: original becomes speculative, copy becomes general
@@ -136,7 +159,6 @@ class TypeGuardInserter {
 
     // Step 1: Mark original blocks as speculative, create general copies
     for (BasicBlock *specBB : originalBBs) {
-      specBB->setSpeculative(true); // Original = speculative
       auto *genBB = Builder_.createBasicBlock(F_); // Copy = general
 
       // Bidirectional mapping
@@ -202,7 +224,30 @@ class TypeGuardInserter {
   /// Insert TypeGuard instruction after guardInst in speculative path
   /// guardInst is in spec path (original), find gen version via
   /// specToGenInstMap_
-  bool insertTypeGuardInst(Instruction *guardInst, Type expectedType) {
+  bool insertTypeGuard(Instruction *guardInst, Type expectedType) {
+    // Early exit if the guardInst type is already a subset of expectedType,
+    // or if they are disjoint (no intersection).
+    Type guardType = guardInst->getType();
+
+    // If guardInst's type is already a subset of expectedType, no need to
+    // guard.
+    if (guardType.isSubsetOf(expectedType)) {
+      LLVM_DEBUG(
+          dbgs() << "  Skipping guard: " << guardInst->getKindStr() << " type "
+                 << guardType << " is subset of expected " << expectedType
+                 << "\n");
+      return false;
+    }
+
+    // If the types are disjoint (no intersection), the guard would always fail.
+    if (Type::intersectTy(guardType, expectedType).isNoType()) {
+      LLVM_DEBUG(
+          dbgs() << "  Skipping guard: " << guardInst->getKindStr() << " type "
+                 << guardType << " has no intersection with expected "
+                 << expectedType << "\n");
+      return false;
+    }
+
     // guardInst is in spec path (original)
     // Find gen version via reverse mapping
     auto it = specToGenInstMap_.find(guardInst);
@@ -218,27 +263,31 @@ class TypeGuardInserter {
     // Find the split point: skip all FirstInBlock instructions after guardInst
     // TypeGuard cannot be inserted between FirstInBlock instructions (e.g.,
     // Phi)
-    Instruction *splitAfter_spec = guardInst;
-    Instruction *splitAfter_gen = guardInst_gen;
 
-    auto specIt = guardInst->getIterator();
-    ++specIt;
-    while (specIt != specBB->end() &&
-           specIt->getSideEffect().getFirstInBlock()) {
-      splitAfter_spec = &*specIt;
-      ++specIt;
+    auto splitBefore_spec = guardInst->getIterator();
+    ++splitBefore_spec;
+    while (splitBefore_spec != specBB->end() &&
+           splitBefore_spec->getSideEffect().getFirstInBlock()) {
+      ++splitBefore_spec;
     }
 
-    auto genIt = guardInst_gen->getIterator();
-    ++genIt;
-    while (genIt != genBB->end() && genIt->getSideEffect().getFirstInBlock()) {
-      splitAfter_gen = &*genIt;
-      ++genIt;
+    auto splitBefore_gen = guardInst_gen->getIterator();
+    ++splitBefore_gen;
+    while (splitBefore_gen != genBB->end() &&
+           splitBefore_gen->getSideEffect().getFirstInBlock()) {
+      ++splitBefore_gen;
     }
 
     // Split both BBs after the (adjusted) split point
-    BasicBlock *specBB_continue = splitBlockAfter(specBB, splitAfter_spec);
-    BasicBlock *genBB_continue = splitBlockAfter(genBB, splitAfter_gen);
+    BasicBlock *specBB_continue = splitBlockBefore(splitBefore_spec);
+    BasicBlock *genBB_continue = splitBlockBefore(splitBefore_gen);
+
+    Builder_.setInsertionBlock(specBB_continue);
+    Builder_.setInsertionPoint(&specBB_continue->front());
+    auto assert_inst =
+        Builder_.createUnionNarrowTrustedInst(nullptr, expectedType);
+    guardInst->replaceAllUsesWith(assert_inst);
+    assert_inst->setOperand(guardInst, 0);
 
     // Remove the unconditional branch created by split
     if (auto *specTerm = specBB->getTerminator())
@@ -247,9 +296,13 @@ class TypeGuardInserter {
     // Insert TypeGuard in spec block: true → spec continuation, false → gen
     // continuation
     Builder_.setInsertionBlock(specBB);
-    Builder_.createTypeGuardInst(
-        guardInst, expectedType, specBB_continue, genBB_continue);
+    auto type = Builder_.getLiteralTypeOfIsTypes(
+        getTypeOfIsTypesFromType(expectedType));
+    auto typeOfIs = Builder_.createTypeOfIsInst(guardInst, type);
+    Builder_.createCondBranchInst(typeOfIs, specBB_continue, genBB_continue);
 
+    specToGenBBMap_[specBB_continue] = genBB_continue;
+    genToSpecBBMap_[genBB_continue] = specBB_continue;
     return true;
   }
 
@@ -327,7 +380,7 @@ class TypeGuardInserter {
 
     // Iterate over general path basic blocks (skip speculative blocks)
     for (auto &BB : *F_) {
-      if (BB.isSpeculative())
+      if (!isInGeneralPath(&BB))
         continue;
 
       for (auto &I : BB) {
@@ -412,11 +465,6 @@ class TypeGuardInserter {
     }
   }
 
-  /// Check if a BB is on the speculative path
-  bool isSpeculativeBB(BasicBlock *BB) {
-    return BB->isSpeculative();
-  }
-
   /// Collect broken uses by finding general insts and their uses.
   void collectBrokenUses(
       llvh::DenseMap<
@@ -425,7 +473,7 @@ class TypeGuardInserter {
       DominanceInfo &DT) {
     for (auto &BB : *F_) {
       // Skip speculative and unreachable BBs
-      if (BB.isSpeculative() || !DT.getNode(&BB))
+      if (!isInGeneralPath(&BB) || !DT.getNode(&BB))
         continue;
 
       for (auto &I : BB) {
@@ -669,18 +717,17 @@ class TypeGuardInserter {
     replaceUsesOfInst(generalInst, uses, phiMap, DT);
   }
 
-  /// Split a basic block after the given instruction
+  /// Split a basic block before the given instruction
   /// Returns the new continuation block
-  BasicBlock *splitBlockAfter(BasicBlock *BB, Instruction *I) {
-    auto it = I->getIterator();
-    ++it;
-
-    if (it == BB->end())
-      return nullptr;
+  BasicBlock *splitBlockBefore(BasicBlock::iterator it) {
+    assert(
+        it->getSideEffect().getFirstInBlock() == false &&
+        "Cannot split before FirstInBlock instruction");
+    auto BB = it->getParent();
+    assert(it != BB->end() && "BB should be splitted before the terminator");
 
     // Create a new BB for the continuation, inheriting speculative attribute
     BasicBlock *continueBB = Builder_.createBasicBlock(F_);
-    continueBB->setSpeculative(BB->isSpeculative());
 
     // Move instructions from (I+1) to end into continueBB
     // This includes the terminator, so continueBB will have the same successors
@@ -689,33 +736,12 @@ class TypeGuardInserter {
     while (it != BB->end()) {
       Instruction *inst = &*it;
       ++it; // Increment before moving
-      inst->removeFromParent();
-      inst->setParent(continueBB);
-      continueBB->getInstList().push_back(inst);
+      Builder_.transferInstructionToCurrentBlock(inst);
     }
 
     // Add an unconditional branch from BB to continueBB
     Builder_.setInsertionBlock(BB);
     Builder_.createBranchInst(continueBB);
-
-    // Fix all uses of BB in PHI nodes
-    // Collect users first to avoid iterator invalidation during update
-    llvh::SmallVector<Instruction *, 4> users;
-    for (auto it = BB->users_begin(), end = BB->users_end(); it != end; ++it) {
-      users.push_back(*it);
-    }
-
-    for (Instruction *user : users) {
-      if (auto *phi = llvh::dyn_cast<PhiInst>(user)) {
-        // Update all PHI entries that reference BB to reference continueBB
-        for (unsigned i = 0, e = phi->getNumEntries(); i < e; ++i) {
-          auto entry = phi->getEntry(i);
-          if (entry.second == BB) {
-            phi->updateEntry(i, entry.first, continueBB);
-          }
-        }
-      }
-    }
 
     return continueBB;
   }

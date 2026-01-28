@@ -1592,10 +1592,6 @@ void HBCISel::generateCondBranchInst(CondBranchInst *Inst, BasicBlock *next) {
   registerLongJump(loc, falseBlock);
 }
 
-void HBCISel::generateTypeGuardInst(TypeGuardInst *Inst, BasicBlock *next) {
-  hermes::hermes_fatal("TypeGuard is not supported in HBC backend.");
-}
-
 void HBCISel::generateHBCCompareBranchInst(
     HBCCompareBranchInst *Inst,
     BasicBlock *next) {

@@ -21,6 +21,7 @@
 #include "hermes/BCGen/RemoveMovs.h"
 #include "hermes/BCGen/SerializedLiteralGenerator.h"
 #include "hermes/BCGen/ShapeTableEntry.h"
+#include "hermes/FrontEndDefs/Typeof.h"
 #include "hermes/IR/Analysis.h"
 #include "hermes/IR/IR.h"
 #include "hermes/IR/IRVerifier.h"
@@ -830,9 +831,60 @@ class InstrGen {
   void generateTypeOfIsInst(TypeOfIsInst &inst) {
     os_.indent(2);
     generateRegister(inst);
-    os_ << " = _sh_ljs_bool(_sh_ljs_typeof_is(";
-    generateValue(*inst.getArgument());
-    os_ << ", " << inst.getTypes()->getData().getRaw() << "));\n";
+
+    // Get the types to check
+    TypeOfIsTypes types = inst.getTypes()->getData();
+
+    // Optimization: For single type checks with corresponding _sh_ljs_is_*
+    // function, use inline type check instead of calling _sh_ljs_typeof_is
+    if (types.count() == 1) {
+      os_ << " = _sh_ljs_bool(";
+      if (types.hasUndefined()) {
+        os_ << "_sh_ljs_is_undefined(";
+        generateValue(*inst.getArgument());
+        os_ << ")";
+      } else if (types.hasNull()) {
+        os_ << "_sh_ljs_is_null(";
+        generateValue(*inst.getArgument());
+        os_ << ")";
+      } else if (types.hasBoolean()) {
+        os_ << "_sh_ljs_is_bool(";
+        generateValue(*inst.getArgument());
+        os_ << ")";
+      } else if (types.hasNumber()) {
+        os_ << "_sh_ljs_is_double(";
+        generateValue(*inst.getArgument());
+        os_ << ")";
+      } else if (types.hasString()) {
+        os_ << "_sh_ljs_is_string(";
+        generateValue(*inst.getArgument());
+        os_ << ")";
+      } else if (types.hasSymbol()) {
+        os_ << "_sh_ljs_is_symbol(";
+        generateValue(*inst.getArgument());
+        os_ << ")";
+      } else if (types.hasBigint()) {
+        os_ << "_sh_ljs_is_bigint(";
+        generateValue(*inst.getArgument());
+        os_ << ")";
+      } else {
+        // For Function or other complex types, fall back to _sh_ljs_typeof_is
+        os_ << "_sh_ljs_typeof_is(";
+        generateValue(*inst.getArgument());
+        os_ << ", " << types.getRaw() << ")";
+      }
+      os_ << ");\n";
+    } else if (types.count() == 2 && types.hasObject() && types.hasFunction()) {
+      // Etag == Object <=> TypeofIsTypes == {Object, Function}
+      os_ << " = _sh_ljs_bool(_sh_ljs_is_object(";
+      generateValue(*inst.getArgument());
+      os_ << "));\n";
+    } else {
+      // Multiple type checks, use _sh_ljs_typeof_is
+      os_ << " = _sh_ljs_bool(_sh_ljs_typeof_is(";
+      generateValue(*inst.getArgument());
+      os_ << ", " << types.getRaw() << "));\n";
+    }
   }
   void generateUnaryOperatorInst(UnaryOperatorInst &inst) {
     os_.indent(2);
@@ -1923,43 +1975,6 @@ class InstrGen {
     generateRegister(*inst.getCondition());
     os_ << ")) ";
     os_ << "goto ";
-    generateBasicBlockLabel(inst.getTrueDest(), os_, bbMap_);
-    os_ << ";\n  goto ";
-    generateBasicBlockLabel(inst.getFalseDest(), os_, bbMap_);
-    os_ << ";\n";
-  }
-
-  void generateTypeGuardInst(TypeGuardInst &inst) {
-    // Generate runtime type check for speculative optimization.
-    // Uses existing _sh_ljs_is_* functions from sh_legacy_value.h.
-    os_.indent(2);
-    os_ << "if(";
-
-    // Generate type check function based on expected type
-    Type expectedType = inst.getExpectedType();
-    if (expectedType.isNumberType()) {
-      os_ << "_sh_ljs_is_double";
-    } else if (expectedType.isStringType()) {
-      os_ << "_sh_ljs_is_string";
-    } else if (expectedType.isBooleanType()) {
-      os_ << "_sh_ljs_is_bool";
-    } else if (expectedType.isObjectType()) {
-      os_ << "_sh_ljs_is_object";
-    } else if (expectedType.isNullType()) {
-      os_ << "_sh_ljs_is_null";
-    } else if (expectedType.isUndefinedType()) {
-      os_ << "_sh_ljs_is_undefined";
-    } else {
-      // For other/unknown types, always go to false dest (deoptimize)
-      os_ << "goto ";
-      generateBasicBlockLabel(inst.getFalseDest(), os_, bbMap_);
-      os_ << ";\n";
-      return;
-    }
-
-    os_ << "(";
-    generateValue(*inst.getCheckedValue());
-    os_ << ")) goto ";
     generateBasicBlockLabel(inst.getTrueDest(), os_, bbMap_);
     os_ << ";\n  goto ";
     generateBasicBlockLabel(inst.getFalseDest(), os_, bbMap_);

@@ -363,7 +363,6 @@ Instruction::Instruction(
     llvh::ArrayRef<Value *> operands)
     : Instruction(src->getKind()) {
   setType(src->getType());
-  setSpeculativeType(src->getSpeculativeType());
 
   location_ = src->location_;
   statementIndex_ = src->statementIndex_;

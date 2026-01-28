@@ -283,12 +283,6 @@ class IRBuilder {
   CondBranchInst *
   createCondBranchInst(Value *Cond, BasicBlock *T, BasicBlock *F);
 
-  TypeGuardInst *createTypeGuardInst(
-      Value *checkedValue,
-      Type expectedType,
-      BasicBlock *trueDest,
-      BasicBlock *falseDest);
-
   ReturnInst *createReturnInst(Value *Val);
 
   AllocStackInst *createAllocStackInst(const llvh::Twine &varName, Type type);

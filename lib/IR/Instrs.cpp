@@ -461,6 +461,17 @@ bool Instruction::isIdenticalTo(const Instruction *RHS) const {
     if (getOperand(i) != RHS->getOperand(i))
       return false;
 
+  // Workaround for instructions with private fields that are not captured by
+  // operands. These instructions have additional state beyond their operands
+  // that must be compared for equality.
+  // TODO: Implement isIdenticalImpl for each instruction type that has private
+  // fields to properly handle comparison (e.g., ThrowIfInst, LIRDeadValueInst).
+  if (auto *LHSUNT = llvh::dyn_cast<UnionNarrowTrustedInst>(this)) {
+    auto *RHSUNT = cast<UnionNarrowTrustedInst>(RHS);
+    if (LHSUNT->getSavedResultType() != RHSUNT->getSavedResultType())
+      return false;
+  }
+
   return true;
 }
 

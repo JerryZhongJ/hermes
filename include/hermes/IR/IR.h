@@ -20,6 +20,7 @@
 #include "hermes/Support/ScopeChain.h"
 
 #include "llvh/ADT/Hashing.h"
+#include "llvh/ADT/Optional.h"
 #include "llvh/ADT/SmallPtrSet.h"
 #include "llvh/ADT/SmallVector.h"
 #include "llvh/ADT/StringRef.h"
@@ -465,6 +466,65 @@ inline Type::iterator Type::begin() const {
 inline Type::iterator Type::end() const {
   return iterator(*this, sizeof(bitmask_) * CHAR_BIT);
 }
+
+/// Convert TypeOfIsTypes to IR Type.
+/// \returns Optional Type, or None if the conversion is ambiguous.
+/// Ambiguous cases:
+/// - Exactly one of object/function is set (can't distinguish)
+/// \note When both object and function are set, returns Object type.
+/// \note Undefined is converted to (Undefined | Uninit) union.
+inline llvh::Optional<Type> typeOfIsTypesToIRType(TypeOfIsTypes typeofTypes) {
+  bool hasObject = typeofTypes.hasObject();
+  bool hasFunction = typeofTypes.hasFunction();
+
+  // Object and function are ambiguous when exactly one is set.
+  // If both are set, treat as Object (functions are objects at runtime).
+  if (hasObject != hasFunction) {
+    return llvh::None;
+  }
+
+  Type result = Type::createNoType();
+
+  if (hasObject && hasFunction) {
+    result = Type::unionTy(result, Type::createObject());
+  }
+
+  if (typeofTypes.hasUndefined()) {
+    result = Type::unionTy(result, Type::createUndefined());
+    result = Type::unionTy(result, Type::createUninit());
+  }
+
+  if (typeofTypes.hasNull()) {
+    result = Type::unionTy(result, Type::createNull());
+  }
+
+  if (typeofTypes.hasBoolean()) {
+    result = Type::unionTy(result, Type::createBoolean());
+  }
+
+  if (typeofTypes.hasString()) {
+    result = Type::unionTy(result, Type::createString());
+  }
+
+  if (typeofTypes.hasNumber()) {
+    result = Type::unionTy(result, Type::createNumber());
+  }
+
+  if (typeofTypes.hasBigint()) {
+    result = Type::unionTy(result, Type::createBigInt());
+  }
+
+  if (typeofTypes.hasSymbol()) {
+    result = Type::unionTy(result, Type::createSymbol());
+  }
+
+  // Return None if no bits were set (empty TypeOfIsTypes)
+  if (result.isNoType()) {
+    return llvh::None;
+  }
+  return result;
+}
+
 } // namespace hermes
 
 namespace llvh {
@@ -711,11 +771,6 @@ class Value {
   /// The JavaScript type of the value.
   Type valueType = Type::createAnyType();
 
-  /// The speculative type of the value, used for speculative optimization.
-  /// This is separate from valueType and is only set during speculative
-  /// type inference passes.
-  Type speculativeType_ = Type::createAnyType();
-
   /// A list of users of this instruction.
   UseListTy Users;
 
@@ -807,21 +862,6 @@ class Value {
   /// \returns the JavaScript type of the value.
   Type getType() const {
     return valueType;
-  }
-
-  /// Set the speculative type for this value.
-  void setSpeculativeType(Type type) {
-    speculativeType_ = type;
-  }
-
-  /// Get the speculative type of this value.
-  Type getSpeculativeType() const {
-    return speculativeType_;
-  }
-
-  /// Check if this value has a non-default speculative type.
-  bool hasSpeculativeType() const {
-    return speculativeType_ != Type::createAnyType();
   }
 
   /// Takes a Module parameter to allow easily moving the attributes_ storage
@@ -1699,9 +1739,6 @@ class BasicBlock : public llvh::ilist_node_with_parent<BasicBlock, Function>,
  private:
   InstListType InstList{};
   Function *Parent;
-  /// Flag indicating if this basic block is part of a speculative optimization
-  /// path.
-  bool isSpeculative_{false};
 
  public:
   explicit BasicBlock(Function *parent);
@@ -1736,15 +1773,6 @@ class BasicBlock : public llvh::ilist_node_with_parent<BasicBlock, Function>,
     Parent = parent;
   }
 
-  /// Set whether this basic block is part of a speculative optimization path.
-  void setSpeculative(bool flag) {
-    isSpeculative_ = flag;
-  }
-
-  /// Check if this basic block is part of a speculative optimization path.
-  bool isSpeculative() const {
-    return isSpeculative_;
-  }
   /// Needed by llvh::ilist_node_with_parent. Returns the offset of the
   /// aproperiate list based on the type of the argument.
   static InstListType BasicBlock::*getSublistAccess(Instruction *) {
@@ -2732,12 +2760,7 @@ class Module : public Value {
   /// Get the type guard for an instruction.
   Type getTypeGuard(Instruction *inst) const {
     auto it = typeGuards_.find(inst);
-    return it != typeGuards_.end() ? it->second : Type::createAnyType();
-  }
-
-  /// Check if an instruction has a type guard.
-  bool hasTypeGuard(Instruction *inst) const {
-    return typeGuards_.count(inst) > 0;
+    return it != typeGuards_.end() ? it->second : Type::createNoType();
   }
 
   /// Remove a type guard for an instruction (called when instruction is deleted

@@ -1,20 +1,21 @@
 #!/bin/bash
 # Test TypeGuard correctness with random annotations using hermes-lit + FileCheck
 # Prerequisites:
-#   1. Build the project: cmake --build --preset release
+#   1. Build the project: cmake --build --preset debug
 #   2. Generate test files: node tools/gen_typeguard_tests.js
 #
-# Usage: ./test_type_guard.sh [--count N] [--repeat R] [--max M] [--verbose]
+# Usage: ./test_type_guard.sh [--count N] [--repeat R] [--max M] [--verbose] [--verify-ir]
 #   --count N:  Number of annotations per file (default: 20)
 #   --repeat R: Number of annotation variants per JS file (default: 1)
 #   --max M:    Maximum number of JS files to test (default: 50)
 #   --verbose:  Show detailed output
+#   --verify-ir: Only test if InsertTypeGuard pass can pass IRVerifier (not correctness)
 
 # Don't use set -e, we handle errors manually
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-BUILD_DIR="$PROJECT_DIR/../static-build-release"
+BUILD_DIR="$PROJECT_DIR/../static-build-debug"
 HERMES_LIT="$BUILD_DIR/bin/hermes-lit"
 SHERMES="$BUILD_DIR/bin/shermes"
 FILECHECK="$BUILD_DIR/bin/FileCheck"
@@ -26,6 +27,7 @@ ANNOTATION_COUNT=20
 VERBOSE=0
 MAX_TESTS=50
 REPEAT=1
+VERIFY_IR=0
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -45,6 +47,10 @@ while [[ $# -gt 0 ]]; do
         --repeat|-r)
             REPEAT="$2"
             shift 2
+            ;;
+        --verify-ir)
+            VERIFY_IR=1
+            shift
             ;;
         *)
             echo "Unknown option: $1"
@@ -80,6 +86,11 @@ FAIL_DIR="/tmp/typeguard_failures_$(date +%Y%m%d_%H%M%S)"
 mkdir -p "$FAIL_DIR"
 
 echo "=== InsertTypeGuard Pass Test ==="
+if [[ $VERIFY_IR -eq 1 ]]; then
+    echo "Mode: IRVerifier only (not testing correctness)"
+else
+    echo "Mode: Correctness test"
+fi
 echo "Config: --count $ANNOTATION_COUNT --repeat $REPEAT --max $MAX_TESTS"
 echo "Running..."
 
@@ -129,12 +140,27 @@ for JS_FILE in $TEST_FILES; do
             continue
         fi
 
-        # Run hermes-lit with TypeGuard annotation
-        if "$HERMES_LIT" "$JS_FILE" \
-            -D annotation_file="$ANNOTATION_FILE" \
-            -D shermes="$SHERMES" \
-            -D FileCheck="$FILECHECK" \
-            --no-progress-bar > "$TEMP_DIR/output.txt" 2>&1; then
+        # Run test based on mode
+        if [[ $VERIFY_IR -eq 1 ]]; then
+            # IRVerifier mode: only test if InsertTypeGuard pass can pass IRVerifier
+            "$SHERMES" "$JS_FILE" \
+                -verify-ir \
+                -dump-ir \
+                -Xcustom-opt=inserttypeguard \
+                -type-annotation-file="$ANNOTATION_FILE" \
+                > "$TEMP_DIR/output.txt" 2>&1
+            TEST_RESULT=$?
+        else
+            # Correctness mode: Run hermes-lit with TypeGuard annotation
+            "$HERMES_LIT" "$JS_FILE" \
+                -D annotation_file="$ANNOTATION_FILE" \
+                -D shermes="$SHERMES" \
+                -D FileCheck="$FILECHECK" \
+                --no-progress-bar > "$TEMP_DIR/output.txt" 2>&1
+            TEST_RESULT=$?
+        fi
+
+        if [[ $TEST_RESULT -eq 0 ]]; then
             PASSED=$((PASSED + 1))
         else
             FAILED=$((FAILED + 1))
