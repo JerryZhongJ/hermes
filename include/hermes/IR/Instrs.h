@@ -424,9 +424,17 @@ class AsUint32Inst : public SingleOperandInst {
   }
 };
 
+enum class BranchLikelihood : uint8_t {
+  None,
+  LikelyTrue,
+  LikelyFalse,
+};
+
 class CondBranchInst : public TerminatorInst {
   CondBranchInst(const CondBranchInst &) = delete;
   void operator=(const CondBranchInst &) = delete;
+
+  BranchLikelihood likelihood_ = BranchLikelihood::None;
 
  public:
   enum { ConditionIdx, TrueBlockIdx, FalseBlockIdx };
@@ -439,6 +447,13 @@ class CondBranchInst : public TerminatorInst {
   }
   BasicBlock *getFalseDest() const {
     return cast<BasicBlock>(getOperand(FalseBlockIdx));
+  }
+
+  BranchLikelihood getLikelihood() const {
+    return likelihood_;
+  }
+  void setLikelihood(BranchLikelihood L) {
+    likelihood_ = L;
   }
 
   explicit CondBranchInst(
@@ -454,7 +469,7 @@ class CondBranchInst : public TerminatorInst {
   explicit CondBranchInst(
       const CondBranchInst *src,
       llvh::ArrayRef<Value *> operands)
-      : TerminatorInst(src, operands) {}
+      : TerminatorInst(src, operands), likelihood_(src->likelihood_) {}
 
   static bool hasOutput() {
     return false;

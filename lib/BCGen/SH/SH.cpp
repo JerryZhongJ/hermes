@@ -23,6 +23,7 @@
 #include "hermes/BCGen/ShapeTableEntry.h"
 #include "hermes/FrontEndDefs/Typeof.h"
 #include "hermes/IR/Analysis.h"
+#include "hermes/Optimizer/Scalar/Utils.h"
 #include "hermes/IR/IR.h"
 #include "hermes/IR/IRVerifier.h"
 #include "hermes/IR/Instrs.h"
@@ -1966,14 +1967,23 @@ class InstrGen {
   }
   void generateCondBranchInst(CondBranchInst &inst) {
     os_.indent(2);
-    os_ << "if(";
+    auto L = inst.getLikelihood();
+    if (L == BranchLikelihood::LikelyTrue)
+      os_ << "if(SH_LIKELY(";
+    else if (L == BranchLikelihood::LikelyFalse)
+      os_ << "if(SH_UNLIKELY(";
+    else
+      os_ << "if(";
     if (inst.getCondition()->getType().isBooleanType()) {
       os_ << "_sh_ljs_get_bool(";
     } else {
       os_ << "_sh_ljs_to_boolean(";
     }
     generateRegister(*inst.getCondition());
-    os_ << ")) ";
+    os_ << ")";
+    if (L != BranchLikelihood::None)
+      os_ << ")";
+    os_ << ") ";
     os_ << "goto ";
     generateBasicBlockLabel(inst.getTrueDest(), os_, bbMap_);
     os_ << ";\n  goto ";
@@ -2683,6 +2693,26 @@ void generateFunction(
     uint32_t &nextReadCacheIdx,
     uint32_t &nextPrivateNameCacheIdx,
     BytecodeGenerationOptions options) {
+  // Split unlikely edges where the target has PHI nodes, so that lowerPhis
+  // places MOVs for the cold path in the new intermediate block instead of
+  // in the hot predecessor.
+  {
+    IRBuilder builder(&F);
+    for (auto &BB : F) {
+      auto *CBI = llvh::dyn_cast<CondBranchInst>(BB.getTerminator());
+      if (!CBI)
+        continue;
+      auto L = CBI->getLikelihood();
+      BasicBlock *unlikelyTarget = nullptr;
+      if (L == BranchLikelihood::LikelyTrue)
+        unlikelyTarget = CBI->getFalseDest();
+      else if (L == BranchLikelihood::LikelyFalse)
+        unlikelyTarget = CBI->getTrueDest();
+      if (unlikelyTarget && llvh::isa<PhiInst>(&unlikelyTarget->front()))
+        splitCriticalEdge(&builder, &BB, unlikelyTarget);
+    }
+  }
+
   auto PO = hermes::postOrderAnalysis(&F);
 
   llvh::SmallVector<BasicBlock *, 16> order(PO.rbegin(), PO.rend());

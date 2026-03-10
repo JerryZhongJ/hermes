@@ -653,6 +653,12 @@ class InstSimplifyImpl {
         Value *BB2 = CBI->getOperand(2);
         CBI->setOperand(BB1, 2);
         CBI->setOperand(BB2, 1);
+        // Reverse likelihood when swapping branches.
+        auto L = CBI->getLikelihood();
+        if (L == BranchLikelihood::LikelyTrue)
+          CBI->setLikelihood(BranchLikelihood::LikelyFalse);
+        else if (L == BranchLikelihood::LikelyFalse)
+          CBI->setLikelihood(BranchLikelihood::LikelyTrue);
         return CBI;
       }
     }

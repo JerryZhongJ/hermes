@@ -13,8 +13,8 @@
 #include "hermes/IR/CFG.h"
 #include "hermes/IR/IRBuilder.h"
 #include "hermes/IR/Instrs.h"
+#include "hermes/Optimizer/Scalar/Utils.h"
 #include "hermes/Support/Statistic.h"
-
 #include "llvh/ADT/DenseMap.h"
 #include "llvh/ADT/DenseSet.h"
 #include "llvh/Support/Debug.h"
@@ -299,7 +299,9 @@ class TypeGuardInserter {
     auto type = Builder_.getLiteralTypeOfIsTypes(
         getTypeOfIsTypesFromType(expectedType));
     auto typeOfIs = Builder_.createTypeOfIsInst(guardInst, type);
-    Builder_.createCondBranchInst(typeOfIs, specBB_continue, genBB_continue);
+    auto *cbi =
+        Builder_.createCondBranchInst(typeOfIs, specBB_continue, genBB_continue);
+    cbi->setLikelihood(BranchLikelihood::LikelyTrue);
 
     specToGenBBMap_[specBB_continue] = genBB_continue;
     genToSpecBBMap_[genBB_continue] = specBB_continue;
@@ -345,6 +347,32 @@ class TypeGuardInserter {
     }
   }
 
+  bool simplifyPhiInsts() {
+    bool changed = false;
+    bool localChanged;
+    do {
+      localChanged = false;
+      for (auto &BB : *F_) {
+        IRBuilder::InstructionDestroyer destroyer;
+        for (auto &I : BB) {
+          auto *P = llvh::dyn_cast<PhiInst>(&I);
+          if (!P)
+            break;
+
+          // The PHI has a single incoming value. Replace all uses of the PHI
+          // with the incoming value.
+          if (auto *incoming = getSinglePhiValue(P)) {
+            localChanged = true;
+            P->replaceAllUsesWith(incoming);
+            destroyer.add(P);
+          }
+        }
+      }
+      changed |= localChanged;
+    } while (localChanged);
+
+    return changed;
+  }
   /// Fix dominance invariants by inserting PHI nodes
   void fixDominanceInvariants() {
     DominanceInfo DT(F_);
@@ -366,6 +394,7 @@ class TypeGuardInserter {
     for (auto &pair : brokenUses) {
       fixBrokenInst(pair.first, pair.second, DT, domTreeLevels);
     }
+    simplifyPhiInsts();
   }
 
   /// Handle AllocStackInst dominance issues.
