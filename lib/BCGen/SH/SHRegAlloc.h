@@ -320,6 +320,26 @@ struct Interval {
 /// A register allocator that uses livenes information to allocate registers
 /// correctly.
 class RegisterAllocator {
+  class CoalesceMap {
+    RegisterAllocator &allocator_;
+    llvh::DenseMap<Instruction *, Instruction *> parent_;
+
+   public:
+    explicit CoalesceMap(RegisterAllocator &allocator)
+        : allocator_(allocator) {}
+
+    Instruction *find(Instruction *x);
+    void unite(Instruction *x, Instruction *y);
+
+    auto begin() const {
+      return parent_.begin();
+    }
+
+    auto end() const {
+      return parent_.end();
+    }
+  };
+
   /// Represents the liveness info for one block.
   struct BlockLifetimeInfo {
     BlockLifetimeInfo() = default;
@@ -374,9 +394,7 @@ class RegisterAllocator {
   /// the coalesced interval and the interval it was merged into and the
   /// register that it will adopt.
   /// The order of the basic blocks is passed in \p order.
-  void coalesce(
-      llvh::DenseMap<Instruction *, Instruction *> &map,
-      llvh::ArrayRef<BasicBlock *> order);
+  void coalesce(CoalesceMap &map, llvh::ArrayRef<BasicBlock *> order);
 
  protected:
   /// Keeps track of the already allocated values.

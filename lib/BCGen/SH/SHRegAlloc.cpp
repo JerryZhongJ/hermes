@@ -380,7 +380,7 @@ bool RegisterAllocator::isManuallyAllocatedInterval(Instruction *I) {
 }
 
 void RegisterAllocator::coalesce(
-    llvh::DenseMap<Instruction *, Instruction *> &map,
+    CoalesceMap &map,
     llvh::ArrayRef<BasicBlock *> order) {
   // Merge all PHI nodes into a single interval. This part is required for
   // correctness because it bounds the MOV and the PHIs into a single interval.
@@ -390,23 +390,14 @@ void RegisterAllocator::coalesce(
       if (!P)
         continue;
 
-      unsigned phiNum = getInstructionNumber(P);
       for (unsigned i = 0, e = P->getNumEntries(); i < e; ++i) {
         auto *mov = cast<MovInst>(P->getEntry(i).first);
-
-        // Bail out if the interval is already mapped, like in the case of self
-        // edges.
-        if (map.count(mov))
-          continue;
 
         if (!hasInstructionNumber(mov))
           continue;
 
-        unsigned idx = getInstructionNumber(mov);
-        instructionInterval_[phiNum].add(instructionInterval_[idx]);
-
         // Record the fact that the mov should use the same register as the phi.
-        map[mov] = P;
+        map.unite(mov, P);
       }
     }
   }
@@ -450,53 +441,55 @@ void RegisterAllocator::coalesce(
       if (!op)
         continue;
 
-      // Don't coalesce intervals that are already coalesced to other intervals
-      // or that there are other intervals that are coalesced into it, or if
-      // the interval is pre-allocated.
-      if (map.count(op) || isAllocated(op) || isAllocated(mov))
-        continue;
+      Instruction *destRoot = map.find(mov);
+      Instruction *opRoot = map.find(op);
 
-      // If the MOV is already coalesced into some other interval then merge the
-      // operand into that interval.
-      Instruction *dest = mov;
+      // Don't coalesce intervals that are already allocated.
+      if (isAllocated(opRoot) || isAllocated(destRoot))
+        continue;
 
       // Don't handle instructions with target specific lowering because this
       // means that we won't release them (and call the target specific hook)
       // until the whole register is freed.
-      if (isManuallyAllocatedInterval(op))
+      if (isManuallyAllocatedInterval(opRoot))
         continue;
 
-      // If the mov is already merged into another interval then find the
-      // destination interval and try to merge the current interval into it.
-      while (map.count(dest)) {
-        dest = map[dest];
-      }
+      unsigned destRootIdx = getInstructionNumber(destRoot);
+      unsigned opRootIdx = getInstructionNumber(opRoot);
+      Interval &destRootIvl = instructionInterval_[destRootIdx];
+      Interval &opRootIvl = instructionInterval_[opRootIdx];
 
-      unsigned destIdx = getInstructionNumber(dest);
-      unsigned opIdx = getInstructionNumber(op);
-      Interval &destIvl = instructionInterval_[destIdx];
-      Interval &opIvl = instructionInterval_[opIdx];
-
-      if (destIvl.intersects(opIvl))
+      if (destRootIvl.intersects(opRootIvl))
         continue;
 
       LLVM_DEBUG(
-          llvh::dbgs() << "Coalescing instruction @" << opIdx << "  " << opIvl
-                       << " -> @" << destIdx << "  " << destIvl << "\n");
+          llvh::dbgs() << "Coalescing instruction @" << opRootIdx << "  "
+                       << opRootIvl << " -> @" << destRootIdx << "  "
+                       << destRootIvl << "\n");
 
-      for (auto &it : map) {
-        if (it.second == op) {
-          LLVM_DEBUG(
-              llvh::dbgs() << "Remapping @" << getInstructionNumber(it.first)
-                           << " from @" << opIdx << " to @" << destIdx << "\n");
-          it.second = dest;
-        }
-      }
-
-      instructionInterval_[destIdx].add(opIvl);
-      map[op] = dest;
+      map.unite(opRoot, destRoot);
     }
   }
+}
+
+Instruction *RegisterAllocator::CoalesceMap::find(Instruction *x) {
+  auto it = parent_.find(x);
+  if (it == parent_.end())
+    return x;
+  if (it->second != x)
+    it->second = find(it->second);
+  return it->second;
+}
+
+void RegisterAllocator::CoalesceMap::unite(Instruction *x, Instruction *y) {
+  Instruction *rx = find(x);
+  Instruction *ry = find(y);
+  if (rx == ry)
+    return;
+
+  allocator_.getInstructionInterval(ry).add(
+      allocator_.getInstructionInterval(rx));
+  parent_[rx] = ry;
 }
 
 namespace {
@@ -625,7 +618,7 @@ void RegisterAllocator::allocate(ArrayRef<BasicBlock *> order) {
   blockLiveness_.clear();
 
   // Maps coalesced instructions. First uses the register allocated for Second.
-  llvh::DenseMap<Instruction *, Instruction *> coalesced;
+  CoalesceMap coalesced(*this);
 
   coalesce(coalesced, order);
 
@@ -706,7 +699,7 @@ void RegisterAllocator::allocate(ArrayRef<BasicBlock *> order) {
 
     // Don't try to allocate registers that were merged into other live
     // intervals.
-    if (coalesced.count(inst)) {
+    if (coalesced.find(inst) != inst) {
       continue;
     }
 
@@ -735,7 +728,7 @@ void RegisterAllocator::allocate(ArrayRef<BasicBlock *> order) {
   // Allocate registers for the coalesced registers.
   for (auto &RP : coalesced) {
     assert(!isAllocated(RP.first) && "Register should not be allocated");
-    Instruction *dest = RP.second;
+    Instruction *dest = coalesced.find(RP.first);
     updateRegister(RP.first, getRegister(dest));
   }
 }
@@ -798,11 +791,23 @@ void RegisterAllocator::calculateLiveIntervals(ArrayRef<BasicBlock *> order) {
         // Include this instruction in the interval in order to make sure that
         // the register is not freed before the use.
 
-        auto start = operandIdx + 1;
-        auto end = instOffset + 1;
-        if (start < end) {
-          auto seg = Segment(operandIdx + 1, instOffset + 1);
-          instructionInterval_[operandIdx].add(seg);
+        if (liveness.liveIn_.test(operandIdx)) {
+          // The operand is defined in another block and is live-in to this
+          // block. Only extend from the start of this block to the use.
+          // The cross-block coverage is handled by fly-through and liveOut.
+          instructionInterval_[operandIdx].add(
+              Segment(startOffset, instOffset + 1));
+        } else {
+          // The operand is defined in this block. Extend from its definition.
+          // Note: for PhiInst back-edge operands (defined later in the same
+          // block), operandIdx >= instOffset, so start >= end and we skip them.
+          // Those are handled by the PHI-specific code below.
+          auto start = operandIdx + 1;
+          auto end = instOffset + 1;
+          if (start < end) {
+            instructionInterval_[operandIdx].add(
+                Segment(operandIdx + 1, instOffset + 1));
+          }
         }
       }
 
