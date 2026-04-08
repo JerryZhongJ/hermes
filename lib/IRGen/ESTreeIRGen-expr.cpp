@@ -61,6 +61,8 @@ bool ESTreeIRGen::tryApplyTypeAnnotation(Value *val, ESTree::Node *node) {
     return false;
   }
 
+  int annotId = typeAnnotations.getAnnotationId(range);
+
   llvh::Optional<Type> annotatedType = TypeAnnotations::parseTypeName(*typeStr);
   if (!annotatedType.hasValue()) {
     LLVM_DEBUG(llvh::dbgs() << "Unknown type name: " << *typeStr << "\n");
@@ -70,11 +72,15 @@ bool ESTreeIRGen::tryApplyTypeAnnotation(Value *val, ESTree::Node *node) {
   // Only apply type guard to instruction results
   auto *inst = llvh::dyn_cast<Instruction>(val);
   if (!inst) {
+    LLVM_DEBUG(
+        llvh::dbgs() << "Skipping annotation for non-instruction value"
+                     << " (type: " << *typeStr << ")"
+                     << " at node " << node->getNodeName() << "\n");
     return false;
   }
 
   // Set type guard in module for speculative optimization
-  Mod->setTypeGuard(inst, annotatedType.getValue());
+  Mod->setTypeGuard(inst, annotatedType.getValue(), annotId);
 
   SourceErrorManager::SourceCoords coords;
   if (Mod->getContext().getSourceErrorManager().findBufferLineAndLoc(

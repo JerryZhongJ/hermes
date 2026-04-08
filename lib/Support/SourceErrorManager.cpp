@@ -416,13 +416,12 @@ std::pair<SMLoc, SMLoc> SourceErrorManager::findForCoordsImpl(
 
   // ASCII is easy - just add the offset.
   if (LLVM_LIKELY(!utf8)) {
-    // Is the column in range?
-    if (col.getValue() > (size_t)(lineEnd - cur))
+    // Allow col in [1, lineLen + 1]; lineLen + 1 means end-of-line position.
+    if (col.getValue() > (size_t)(lineEnd - cur) + 1)
       return {};
     return {
         SMLoc::getFromPointer(cur + col.getValue() - 1),
         SMLoc::getFromPointer(lineEnd)};
-    ;
   }
 
   // Scan for the column while accounting for multi-byte characters.
@@ -434,6 +433,10 @@ std::pair<SMLoc, SMLoc> SourceErrorManager::findForCoordsImpl(
     if (++column == col.getValue())
       return {SMLoc::getFromPointer(cur), SMLoc::getFromPointer(lineEnd)};
   }
+
+  // Allow one-past-end (end-of-line position).
+  if (column + 1 == col.getValue())
+    return {SMLoc::getFromPointer(lineEnd), SMLoc::getFromPointer(lineEnd)};
 
   return {};
 }

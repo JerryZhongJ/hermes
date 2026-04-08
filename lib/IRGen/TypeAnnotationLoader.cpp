@@ -74,8 +74,9 @@ bool TypeAnnotations::loadFromFile(
   unsigned successCount = 0;
   unsigned failCount = 0;
 
-  for (const auto &item : *annotArr) {
-    const llvh::json::Object *annot = item.getAsObject();
+  for (unsigned annotIndex = 0, e = annotArr->size(); annotIndex < e;
+       ++annotIndex) {
+    const llvh::json::Object *annot = (*annotArr)[annotIndex].getAsObject();
     if (!annot) {
       failCount++;
       continue;
@@ -138,13 +139,13 @@ bool TypeAnnotations::loadFromFile(
                      << "start=" << startLoc.getPointer()
                      << ", end=" << endLoc.getPointer() << "\n");
 
-    // 存储到map中（存储类型字符串，延迟到IRGen时转换）
     llvh::SMRange range(startLoc, endLoc);
     annotations_.insert({range, typeStr->str()});
+    annotationIds_.insert({range, annotIndex});
 
     LLVM_DEBUG(
-        llvh::dbgs() << "  Stored annotation for SMRange ["
-                     << range.Start.getPointer() << ", "
+        llvh::dbgs() << "  Stored annotation #" << annotIndex
+                     << " for SMRange [" << range.Start.getPointer() << ", "
                      << range.End.getPointer() << "), type: " << typeStr->str()
                      << "\n");
 
@@ -162,9 +163,41 @@ llvh::Optional<std::string> TypeAnnotations::getAnnotation(
     llvh::SMRange range) const {
   auto it = annotations_.find(range);
   if (it != annotations_.end()) {
+    matchedIds_.insert(annotationIds_.find(range)->second);
     return it->second;
   }
   return llvh::None;
+}
+
+int TypeAnnotations::getAnnotationId(llvh::SMRange range) const {
+  auto it = annotationIds_.find(range);
+  if (it != annotationIds_.end()) {
+    return static_cast<int>(it->second);
+  }
+  return -1;
+}
+
+void TypeAnnotations::reportUnmatched() const {
+  unsigned total = annotationIds_.size();
+  if (annotations_.empty() || matchedIds_.size() == total)
+    return;
+
+  unsigned unmatched = total - matchedIds_.size();
+  LLVM_DEBUG({
+    llvh::dbgs() << "Warning: " << unmatched << " of " << total
+                 << " annotations were never matched by any IR instruction.\n";
+    llvh::dbgs() << "  Unmatched: ";
+    bool first = true;
+    for (auto &kv : annotationIds_) {
+      if (!matchedIds_.count(kv.second)) {
+        if (!first)
+          llvh::dbgs() << ", ";
+        llvh::dbgs() << "ann#" << kv.second;
+        first = false;
+      }
+    }
+    llvh::dbgs() << "\n";
+  });
 }
 
 } // namespace hermes

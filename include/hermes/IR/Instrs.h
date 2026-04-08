@@ -2966,6 +2966,9 @@ class TypeOfIsInst : public Instruction {
   TypeOfIsInst(const TypeOfIsInst &) = delete;
   void operator=(const TypeOfIsInst &) = delete;
 
+  /// Annotation ID from JSON file, for debug tracking. -1 = not from annotation.
+  int annotationId_ = -1;
+
  public:
   enum { ArgumentIdx, TypesIdx };
 
@@ -2978,13 +2981,20 @@ class TypeOfIsInst : public Instruction {
   explicit TypeOfIsInst(
       const TypeOfIsInst *src,
       llvh::ArrayRef<Value *> operands)
-      : Instruction(src, operands) {}
+      : Instruction(src, operands), annotationId_(src->annotationId_) {}
 
   Value *getArgument() const {
     return getOperand(ArgumentIdx);
   }
   LiteralTypeOfIsTypes *getTypes() const {
     return llvh::cast<LiteralTypeOfIsTypes>(getOperand(TypesIdx));
+  }
+
+  int getAnnotationId() const {
+    return annotationId_;
+  }
+  void setAnnotationId(int id) {
+    annotationId_ = id;
   }
 
   static bool hasOutput() {

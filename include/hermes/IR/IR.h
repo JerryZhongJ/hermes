@@ -2678,6 +2678,9 @@ class Module : public Value {
   /// Type guards map: stores expected types for instructions with type guards.
   llvh::DenseMap<Instruction *, Type> typeGuards_{};
 
+  /// Annotation IDs for type guards (parallel to typeGuards_).
+  llvh::DenseMap<Instruction *, int> typeGuardAnnotationIds_{};
+
  public:
   explicit Module(std::shared_ptr<Context> ctx)
       : Value(ValueKind::ModuleKind), Ctx(std::move(ctx)) {}
@@ -2753,8 +2756,10 @@ class Module : public Value {
   }
 
   /// Set a type guard for an instruction.
-  void setTypeGuard(Instruction *inst, Type type) {
+  void setTypeGuard(Instruction *inst, Type type, int annotationId = -1) {
     typeGuards_.insert({inst, type});
+    if (annotationId >= 0)
+      typeGuardAnnotationIds_.insert({inst, annotationId});
   }
 
   /// Get the type guard for an instruction.
@@ -2763,10 +2768,17 @@ class Module : public Value {
     return it != typeGuards_.end() ? it->second : Type::createNoType();
   }
 
+  /// Get the annotation ID for a type guard instruction.
+  int getTypeGuardAnnotationId(Instruction *inst) const {
+    auto it = typeGuardAnnotationIds_.find(inst);
+    return it != typeGuardAnnotationIds_.end() ? it->second : -1;
+  }
+
   /// Remove a type guard for an instruction (called when instruction is deleted
   /// to avoid stale pointers after memory reuse).
   void removeTypeGuard(Instruction *inst) {
     typeGuards_.erase(inst);
+    typeGuardAnnotationIds_.erase(inst);
   }
 
   /// Assign index to all Variables in all VariableScopes.

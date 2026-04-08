@@ -294,6 +294,12 @@ static cl::opt<std::string> TypeAnnotationFile(
     cl::desc("JSON file with type annotations to override inference"),
     cl::cat(CompilerCategory));
 
+static cl::opt<bool> InstrumentTypeGuards(
+    "instrument-type-guards",
+    cl::desc("Instrument TypeGuard branches with success/fail counters"),
+    cl::init(false),
+    cl::cat(CompilerCategory));
+
 cl::opt<bool> DumpBetweenPasses(
     "Xdump-between-passes",
     cl::init(false),
@@ -943,6 +949,9 @@ bool compileFromCommandLineOptions() {
 
   generateIRFromESTree(&M, semCtx, flowContext, ast);
 
+  // Report unmatched type annotations after IRGen.
+  context->getTypeAnnotations().reportUnmatched();
+
   // Bail out if there were any errors. We can't ensure that the module is in
   // a valid state.
   if (auto N = context->getSourceErrorManager().getErrorCount()) {
@@ -1023,6 +1032,7 @@ bool compileFromCommandLineOptions() {
     genOptions.unitName = cli::ExportedUnit;
 
   genOptions.smallC = cli::SmallC;
+  genOptions.instrumentTypeGuards = cli::InstrumentTypeGuards;
 
   genOptions.emitSourceLocations =
       cli::DumpSourceLocation != LocationDumpMode::None;

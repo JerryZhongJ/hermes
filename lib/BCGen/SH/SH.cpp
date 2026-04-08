@@ -1966,6 +1966,14 @@ class InstrGen {
     hermes_fatal("SwitchInst should have been lowered");
   }
   void generateCondBranchInst(CondBranchInst &inst) {
+    // Check if this is an instrumented TypeGuard branch.
+    int tgAnnotId = -1;
+    if (options_.instrumentTypeGuards) {
+      if (auto *TOI = llvh::dyn_cast<TypeOfIsInst>(inst.getCondition())) {
+        tgAnnotId = TOI->getAnnotationId();
+      }
+    }
+
     os_.indent(2);
     auto L = inst.getLikelihood();
     if (L == BranchLikelihood::LikelyTrue)
@@ -1984,11 +1992,20 @@ class InstrGen {
     if (L != BranchLikelihood::None)
       os_ << ")";
     os_ << ") ";
-    os_ << "goto ";
-    generateBasicBlockLabel(inst.getTrueDest(), os_, bbMap_);
-    os_ << ";\n  goto ";
-    generateBasicBlockLabel(inst.getFalseDest(), os_, bbMap_);
-    os_ << ";\n";
+
+    if (tgAnnotId >= 0) {
+      os_ << "{ ++__tg_counters[" << tgAnnotId << "].success; goto ";
+      generateBasicBlockLabel(inst.getTrueDest(), os_, bbMap_);
+      os_ << "; }\n  { ++__tg_counters[" << tgAnnotId << "].fail; goto ";
+      generateBasicBlockLabel(inst.getFalseDest(), os_, bbMap_);
+      os_ << "; }\n";
+    } else {
+      os_ << "goto ";
+      generateBasicBlockLabel(inst.getTrueDest(), os_, bbMap_);
+      os_ << ";\n  goto ";
+      generateBasicBlockLabel(inst.getFalseDest(), os_, bbMap_);
+      os_ << ";\n";
+    }
   }
 
   void generateGetPNamesInst(GetPNamesInst &inst) {
@@ -3106,6 +3123,36 @@ static SHNativeFuncInfo s_function_info_table[];
     }
   }
 
+  // TypeGuard instrumentation: scan for max annotation ID and emit counters.
+  int maxAnnotationId = -1;
+  if (options.instrumentTypeGuards) {
+    for (auto &F : *M) {
+      for (auto &BB : F) {
+        for (auto &I : BB) {
+          if (auto *TOI = llvh::dyn_cast<TypeOfIsInst>(&I)) {
+            int id = TOI->getAnnotationId();
+            if (id > maxAnnotationId)
+              maxAnnotationId = id;
+          }
+        }
+      }
+    }
+    if (maxAnnotationId >= 0 &&
+        (options.format == DumpBytecode || options.format == EmitBundle)) {
+      OS << "\n/* TypeGuard instrumentation counters */\n";
+      OS << "#include <stdio.h>\n";
+      OS << "static struct { unsigned long long success; unsigned long long fail; }"
+         << " __tg_counters[" << (maxAnnotationId + 1) << "];\n";
+      OS << "static void __tg_print_counters(void) {\n";
+      OS << "  for (int i = 0; i <= " << maxAnnotationId << "; i++) {\n";
+      OS << "    if (__tg_counters[i].success || __tg_counters[i].fail)\n";
+      OS << "      fprintf(stderr, \"TypeGuard #%d: success=%llu, fail=%llu\\n\","
+         << " i, __tg_counters[i].success, __tg_counters[i].fail);\n";
+      OS << "  }\n";
+      OS << "}\n\n";
+    }
+  }
+
   M->assignIndexToVariables();
 
   for (auto &F : *M) {
@@ -3197,7 +3244,11 @@ bool run_event_loop(
 
 int main(int argc, char **argv) {
   SHRuntime *shr = _sh_init(argc, argv);
-  SHConsoleContext *consoleContext = init_console_bindings(shr);
+)";
+      if (options.instrumentTypeGuards && maxAnnotationId >= 0) {
+        OS << "  atexit(__tg_print_counters);\n";
+      }
+      OS << R"(  SHConsoleContext *consoleContext = init_console_bindings(shr);
   bool success =
     _sh_initialize_units(shr, 1, CREATE_THIS_UNIT) &&
     run_event_loop(shr, consoleContext);

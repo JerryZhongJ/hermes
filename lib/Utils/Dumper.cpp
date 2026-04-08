@@ -331,6 +331,13 @@ void IRPrinter::printInstruction(Instruction *I) {
   }
 
   const auto &codeGenOpts = I->getContext().getCodeGenerationSettings();
+
+  // Print annotation ID for TypeOfIsInst.
+  if (auto *TOI = llvh::dyn_cast<TypeOfIsInst>(I)) {
+    if (TOI->getAnnotationId() >= 0)
+      os_ << " [ann#" << TOI->getAnnotationId() << "]";
+  }
+
   // Print the use list if there is any user for the instruction.
   if (!codeGenOpts.dumpUseList || I->getUsers().empty())
     return;

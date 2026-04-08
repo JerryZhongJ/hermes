@@ -51,21 +51,25 @@ struct SMRangeInfo {
 /// Maps source code ranges (SMRange) to their annotated type strings.
 class TypeAnnotations {
  private:
-  /// 类型标注映射: SMRange -> type string (e.g., "number", "string")
-  /// 使用SMRangeInfo作为DenseMap的KeyInfo
+  /// Type annotation map: SMRange -> type string (e.g., "number", "string").
   llvh::DenseMap<llvh::SMRange, std::string, SMRangeInfo> annotations_;
+
+  /// Annotation index map: SMRange -> index in JSON annotations array.
+  llvh::DenseMap<llvh::SMRange, unsigned, SMRangeInfo> annotationIds_;
+
+  /// Track which annotation IDs have been matched during IRGen.
+  mutable llvh::DenseSet<unsigned> matchedIds_;
 
  public:
   /// Load type annotations from a JSON file.
-  /// \param jsonPath path to the JSON file containing annotations
-  /// \param sm SourceErrorManager for coordinate conversion
-  /// \return TypeAnnotations if successful, None otherwise
   bool loadFromFile(llvh::StringRef jsonPath, SourceErrorManager &sm);
 
   /// Query the type annotation string for a given source range.
-  /// \param range the source range to query
-  /// \return the annotated type string if found, None otherwise
   llvh::Optional<std::string> getAnnotation(llvh::SMRange range) const;
+
+  /// Query the annotation index for a given source range.
+  /// Returns -1 if not found.
+  int getAnnotationId(llvh::SMRange range) const;
 
   /// Check if there are any annotations.
   bool empty() const {
@@ -78,9 +82,11 @@ class TypeAnnotations {
     return annotations_;
   }
 
+  /// Report annotations that were loaded but never matched by any IR
+  /// instruction during IRGen.
+  void reportUnmatched() const;
+
   /// Parse a type name string to a Type object.
-  /// \param typeName the type name string (e.g., "number", "string")
-  /// \return the Type object if recognized, None otherwise
   static llvh::Optional<Type> parseTypeName(llvh::StringRef typeName);
 };
 

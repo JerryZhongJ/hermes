@@ -92,6 +92,9 @@ struct BytecodeGenerationOptions {
   // Emit asserts in the bytecode.
   bool emitAsserts = false;
 
+  // Instrument TypeGuard branches with success/fail counters.
+  bool instrumentTypeGuards = false;
+
   /* implicit */ BytecodeGenerationOptions(OutputFormatKind format)
       : format(format) {}
 

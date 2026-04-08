@@ -20,6 +20,7 @@
 #include "llvh/Support/Debug.h"
 
 #include <queue>
+#include <tuple>
 
 using namespace hermes;
 using llvh::dbgs;
@@ -72,11 +73,15 @@ class TypeGuardInserter {
   /// Main entry point: perform the type guard insertion
   bool run() {
     // Step 1: Check for unsupported constructs
-    if (hasUnsupportedConstruct())
+    if (hasUnsupportedConstruct()) {
+      LLVM_DEBUG(
+          dbgs() << "InsertTypeGuard: skipping " << F_->getInternalName()
+                 << " (has try-catch)\n");
       return false;
+    }
 
     // Step 2: Collect all instructions with type guards
-    llvh::SmallVector<std::pair<Instruction *, Type>, 2> guardInsts =
+    llvh::SmallVector<std::tuple<Instruction *, Type, int>, 2> guardInsts =
         collectTypeGuardInsts();
 
     if (guardInsts.empty())
@@ -92,11 +97,12 @@ class TypeGuardInserter {
       return false;
 
     // Step 4: Insert TypeGuard instructions at each guard point
-    for (auto &pair : guardInsts) {
-      Instruction *guardInst = pair.first;
-      auto expectedType = pair.second;
+    for (auto &tuple : guardInsts) {
+      Instruction *guardInst = std::get<0>(tuple);
+      auto expectedType = std::get<1>(tuple);
+      int annotId = std::get<2>(tuple);
 
-      NumTypeGuardsInserted += insertTypeGuard(guardInst, expectedType);
+      NumTypeGuardsInserted += insertTypeGuard(guardInst, expectedType, annotId);
     }
 
     // Step 5: Delete unreachable blocks (now gen entry parts)
@@ -132,17 +138,28 @@ class TypeGuardInserter {
   }
 
   /// Collect all instructions with type guards
-  llvh::SmallVector<std::pair<Instruction *, Type>, 2> collectTypeGuardInsts() {
-    llvh::SmallVector<std::pair<Instruction *, Type>, 2> guardInsts;
+  llvh::SmallVector<std::tuple<Instruction *, Type, int>, 2>
+  collectTypeGuardInsts() {
+    llvh::SmallVector<std::tuple<Instruction *, Type, int>, 2> guardInsts;
     for (auto &BB : *F_) {
       for (auto &I : BB) {
         auto type = M_->getTypeGuard(&I);
-        if (!type.isNoType()) {
+        if (type.isNoType())
+          continue;
+        if (!I.hasUsers()) {
           LLVM_DEBUG(
-              dbgs() << "  Guard on " << I.getKindStr() << ": " << type
-                     << " inst=" << &I << "\n");
-          guardInsts.push_back({&I, type});
+              dbgs() << "  Skipping guard on " << I.getKindStr()
+                     << " (no users)\n");
+          continue;
         }
+        int annotId = M_->getTypeGuardAnnotationId(&I);
+        LLVM_DEBUG(
+            dbgs() << "  Guard on " << I.getKindStr() << ": " << type
+                   << " inst=" << &I
+                   << (annotId >= 0 ? " [ann#" + std::to_string(annotId) + "]"
+                                    : "")
+                   << "\n");
+        guardInsts.push_back({&I, type, annotId});
       }
     }
     return guardInsts;
@@ -224,7 +241,7 @@ class TypeGuardInserter {
   /// Insert TypeGuard instruction after guardInst in speculative path
   /// guardInst is in spec path (original), find gen version via
   /// specToGenInstMap_
-  bool insertTypeGuard(Instruction *guardInst, Type expectedType) {
+  bool insertTypeGuard(Instruction *guardInst, Type expectedType, int annotId) {
     // Early exit if the guardInst type is already a subset of expectedType,
     // or if they are disjoint (no intersection).
     Type guardType = guardInst->getType();
@@ -299,6 +316,7 @@ class TypeGuardInserter {
     auto type = Builder_.getLiteralTypeOfIsTypes(
         getTypeOfIsTypesFromType(expectedType));
     auto typeOfIs = Builder_.createTypeOfIsInst(guardInst, type);
+    typeOfIs->setAnnotationId(annotId);
     auto *cbi =
         Builder_.createCondBranchInst(typeOfIs, specBB_continue, genBB_continue);
     cbi->setLikelihood(BranchLikelihood::LikelyTrue);

@@ -48,8 +48,13 @@ void hermes::runFullOptimizationPasses(Module &M) {
   };
 
   // Add the optimization passes.
-
+  // InsertTypeGuard must run first, before any other optimization
+  // And, remove duplicate type guards right away
   PM.addInsertTypeGuard();
+  PM.addSimpleStackPromotion();
+  PM.addTypeInference();
+  PM.addInstSimplify();
+  PM.addSimplifyCFG();
 
   PM.addLowerGeneratorFunction();
   // CacheNewObject benefits from running early because it needs new.target,
