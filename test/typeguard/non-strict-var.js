@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -target=HBC -O -non-strict %s | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck --match-full-lines %s
 
 x = 10;

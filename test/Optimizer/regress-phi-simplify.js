@@ -44,7 +44,7 @@
 // CHECK-NEXT:       ReturnInst %0: object
 // CHECK-NEXT:function_end
 
-// CHECK:function updateEventTarget(x: any, y: any): any [noReturn]
+// CHECK:function updateEventTarget(x: any, y: any): undefined [noReturn]
 // CHECK-NEXT:%BB0:
 // CHECK-NEXT:       ThrowInst 123: number
 // CHECK-NEXT:function_end

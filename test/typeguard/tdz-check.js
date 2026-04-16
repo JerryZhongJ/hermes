@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -Xenable-tdz --test262 -O0 %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -Xenable-tdz --test262 -O %s | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec --test262 -O0 %s | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec --test262 -O %s | %FileCheck --match-full-lines %s
 

@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -non-strict -O -target=HBC -gc-sanitize-handles=0 %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -non-strict -O -target=HBC -emit-binary -out %t.hbc %s && %hermes -type-annotation-file=%annotation_file -gc-sanitize-handles=0 %t.hbc | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s -Wx,-gc-sanitize-handles=0 | %FileCheck --match-full-lines %s
 
 // This test was one of HandleSan's slowest at 30 seconds, so

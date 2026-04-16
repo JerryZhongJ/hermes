@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
-//
+// RUN: %hermes -type-annotation-file=%annotation_file %s -Xes6-block-scoping | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -Xes6-block-scoping -lazy %s | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -Xes6-block-scoping -exec %s | %FileCheck --match-full-lines %s
 
 let arr = (function (){

@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: %hermes -type-annotation-file=%annotation_file --target=HBC -O %s | %FileCheck %s --match-full-lines
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck %s --match-full-lines
 
 // Using a Phi in a successor of a Phi predecessor block:

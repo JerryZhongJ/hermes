@@ -7,8 +7,8 @@
 
 // RUN: %shermes -type-annotation-file=%annotation_file -exec -Xenable-tdz -Xes6-block-scoping -O0 %s | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec -Xenable-tdz -Xes6-block-scoping -O %s | %FileCheck --match-full-lines %s
-//
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -Xenable-tdz -Xes6-block-scoping -O0 %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -Xenable-tdz -Xes6-block-scoping -O %s | %FileCheck --match-full-lines %s
 
 let x;
 for (let [y, z = ()=>y] of [[x = ()=>y,]]) {

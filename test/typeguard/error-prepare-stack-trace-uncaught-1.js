@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// RUN: (%shermes -type-annotation-file=%annotation_file -exec %s 2>&1 || true) | %FileCheck --match-full-lines %s
+// RUN: (%hermes -type-annotation-file=%annotation_file -target=HBC %s 2>&1 || true) | %FileCheck --match-full-lines %s
 "use strict";
 
-Error.prepareStackTrace = (e, callSites) => "hello"
+Error.prepareStackTrace = (e, callSites) => callSites;
 
 // Uncaught errors are formatted with prepareStackTrace
 throw new Error('foo');
-// CHECK: Uncaught hello
+// CHECK: Uncaught [object CallSite]
 // CHECK-EMPTY

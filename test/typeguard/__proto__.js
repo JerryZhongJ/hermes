@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
-//
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -O %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -O -emit-binary -out %t.hbc %s && %hermes -type-annotation-file=%annotation_file %t.hbc | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -O -dump-bytecode %s | %FileCheck --check-prefix=CHKBC %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck --match-full-lines %s
 
 var proto1 = Object()

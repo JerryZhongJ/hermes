@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -O -fno-inline %s | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec -fno-inline %s | %FileCheck --match-full-lines %s
 
 // This test exercises an issue found in LowerArgumentsArray in which PHI nodes

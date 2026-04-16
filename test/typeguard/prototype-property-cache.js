@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: %hermes -type-annotation-file=%annotation_file %s | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck --match-full-lines %s
 
 // This elicits particular caching behavior to ensure that a hidden class without a property map does not trigger a false positive in the prototype property cache.

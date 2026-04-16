@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
-//
-//
+// RUN: %hermes -type-annotation-file=%annotation_file %s | %FileCheck %s --match-full-lines
+// RUN: %hermes -type-annotation-file=%annotation_file -O %s | %FileCheck %s --match-full-lines
+// RUN: %hermesc -type-annotation-file=%annotation_file %s -emit-binary -out %t.hbc && %hermes -type-annotation-file=%annotation_file %t.hbc | %FileCheck %s --match-full-lines
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck %s --match-full-lines
 
 print('initializers in destructuring');

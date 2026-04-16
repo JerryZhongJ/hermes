@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -O -target=HBC -emit-binary -out=%t %s && %hermes -type-annotation-file=%annotation_file -O -b %t | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -O -Xmetro-require=false -target=HBC -emit-binary -out=%t %s && %hermes -type-annotation-file=%annotation_file -O -b %t | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck --match-full-lines %s
 
 // Tests execution of the Metro require optimization.

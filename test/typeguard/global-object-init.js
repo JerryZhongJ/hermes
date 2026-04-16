@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -target=HBC -O -gc-sanitize-handles=1 %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s -Wx,-gc-sanitize-handles=1
 // This is an empty file, just used to ensure that the Runtime can be
 // constructed with full handle sanitization turned on and not crash.

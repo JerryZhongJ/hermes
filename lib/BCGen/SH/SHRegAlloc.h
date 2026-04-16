@@ -340,6 +340,15 @@ class RegisterAllocator {
     }
   };
 
+  /// Tracks which coalesce-set roots contain at least one instruction
+  /// whose type may be a pointer (i.e. !getType().isNonPtr()).
+  /// Populated during coalescing, used by getRegClass().
+  llvh::DenseSet<Instruction *> coalesceRootHasPtr_;
+
+  /// \returns true if the coalesce set rooted at \p root contains any
+  /// instruction whose type may be a pointer, or if \p root itself may be.
+  bool coalesceSetHasPtr(Instruction *root) const;
+
   /// Represents the liveness info for one block.
   struct BlockLifetimeInfo {
     BlockLifetimeInfo() = default;
@@ -395,6 +404,10 @@ class RegisterAllocator {
   /// register that it will adopt.
   /// The order of the basic blocks is passed in \p order.
   void coalesce(CoalesceMap &map, llvh::ArrayRef<BasicBlock *> order);
+
+  /// Performs a local, block-scoped coalescing pass that reuses holes missed by
+  /// the global interval span used by linear scan.
+  void localCoalesce(CoalesceMap &map, BasicBlock *BB, BasicBlock *nextBB);
 
  protected:
   /// Keeps track of the already allocated values.

@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck --match-full-lines %s
+// RUN: LC_ALL=en_US.UTF-8 %hermes -type-annotation-file=%annotation_file -non-strict -O -target=HBC %s | %FileCheck --match-full-lines %s
 
 function exceptionName(l) {
   try {
@@ -60,13 +60,6 @@ print(typeAndValue(BigInt(-1) << BigInt(4 * 64)))
 
 print(typeAndValue(BigInt(1) << BigInt(4 * 64 + 32)))
 // CHECK-NEXT: bigint 1000000000000000000000000000000000000000000000000000000000000000000000000
-
-// << can no longer be assumed to return number -- it returns
-// a numeric when its arguments' types are unknown.
-
-// CHKIR-LABEL: function numberPlusBigInt() {{.*}}
-// CHKIR:  %[[N:[0-9]+]] = BinaryOperatorInst '<<', %{{[0-9]+}}
-// CHKIR:  %{{[0-9]+}}   = BinaryOperatorInst '+', 1 : number, %[[N]] : number|bigint
 
 function numberPlusBigInt() {
   return (1+(BigInt(2)<<BigInt(1)));

@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
-//
+// RUN: LC_ALL=en_US.UTF-8 %hermes -type-annotation-file=%annotation_file -non-strict -target=HBC %s | %FileCheck --match-full-lines %s
+// RUN: LC_ALL=en_US.UTF-8 %hermes -type-annotation-file=%annotation_file -non-strict -O -target=HBC %s | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck --match-full-lines %s
 
 function exceptionName(l) {

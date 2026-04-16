@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck --match-full-lines %s
+// RUN: LC_ALL=en_US.UTF-8 %hermes -type-annotation-file=%annotation_file -non-strict -O -target=HBC %s | %FileCheck --match-full-lines %s
 
 function exceptionName(l) {
   try {
@@ -37,6 +37,12 @@ print(exceptionName(() => BigInt(0) ** BigInt(-1)));
 print(exceptionName(() => BigInt(0) ** BigInt(-1024)));
 // CHECK-NEXT: RangeError
 
+print(exceptionName(() => 2n ** (2n ** 32n)));
+// CHECK-NEXT: RangeError
+
+print(exceptionName(() => 3n ** (2n ** 32n)));
+// CHECK-NEXT: RangeError
+
 print(typeAndValue(BigInt(1) ** BigInt(0)));
 // CHECK-NEXT: bigint 1
 
@@ -63,3 +69,10 @@ print(typeAndValue(BigInt(2) ** BigInt(64)));
 
 print(typeAndValue((-BigInt(2)) ** BigInt(63)));
 // CHECK-NEXT: bigint -8000000000000000
+
+try {
+  // BigInt as exponent should have side effect.
+  var f = function() { 1n ** -1n; }
+  f();
+} catch (err)  { print(err); }
+// CHECK-NEXT: RangeError: Exponent must be positive

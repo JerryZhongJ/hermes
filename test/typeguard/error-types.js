@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -O -target=HBC -Werror %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s
 "use strict";
 

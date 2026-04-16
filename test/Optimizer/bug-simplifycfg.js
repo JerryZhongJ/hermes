@@ -29,7 +29,7 @@ function bug2() {
 // CHECK-NEXT:       ReturnInst undefined: undefined
 // CHECK-NEXT:function_end
 
-// CHECK:function bug1(): any [noReturn]
+// CHECK:function bug1(): undefined [noReturn]
 // CHECK-NEXT:%BB0:
 // CHECK-NEXT:       BranchInst %BB1
 // CHECK-NEXT:%BB1:
@@ -38,7 +38,7 @@ function bug2() {
 // CHECK-NEXT:       BranchInst %BB1
 // CHECK-NEXT:function_end
 
-// CHECK:function bug2(): any [noReturn]
+// CHECK:function bug2(): undefined [noReturn]
 // CHECK-NEXT:%BB0:
 // CHECK-NEXT:       BranchInst %BB1
 // CHECK-NEXT:%BB1:

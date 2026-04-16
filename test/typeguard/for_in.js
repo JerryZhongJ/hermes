@@ -5,7 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -O -target=HBC %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -O -target=HBC -emit-binary -out %t.hbc %s && %hermes -type-annotation-file=%annotation_file %t.hbc | %FileCheck --match-full-lines %s
 
 // Simple case
 var x = {};
@@ -113,3 +114,16 @@ for (var y in x) {
 for (var k in Number(0)) {}
 // 2. This Proxy uses the same hidden cache object internally.
 for (var k in new Proxy({},{})) {}
+
+// Check that property names are uniqued when
+// travelling through the prototype chain.
+var parent = {0:5, dup: 5, a:5, '2':5};
+var child = {__proto__: parent, 0:5, dup: 5, b:5, 2:5};
+for (var prop in child) {
+  print(prop);
+}
+//CHECK: 0
+//CHECK: 2
+//CHECK: dup
+//CHECK: b
+//CHECK: a

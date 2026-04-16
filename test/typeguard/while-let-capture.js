@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -Xes6-block-scoping %s | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -Xes6-block-scoping -exec %s | %FileCheck --match-full-lines %s
 
 (function (){

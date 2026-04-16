@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: LC_ALL=C.UTF-8 %hermes -type-annotation-file=%annotation_file -O -target=HBC %s | %FileCheck --match-full-lines %s
 // RUN: LC_ALL=C.UTF-8 %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck --match-full-lines %s
 
 "use strict";

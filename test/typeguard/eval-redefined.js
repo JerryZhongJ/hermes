@@ -5,8 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// RUN: %shermes -type-annotation-file=%annotation_file -w -exec %s | %FileCheck --match-full-lines %s
-// UNSUPPORTED: true
+// RUN: %hermes -type-annotation-file=%annotation_file -w %s | %FileCheck --match-full-lines %s
 
 (function (){
   eval("print('real eval')");

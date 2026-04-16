@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -Xhermes-internal-test-methods -Xes6-proxy -O -gc-sanitize-handles=0 %s | %FileCheck %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s -Wx,-Xhermes-internal-test-methods,-gc-sanitize-handles=0 | %FileCheck %s
 
 'use strict';

@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -Xhermes-internal-test-methods -O %s | %FileCheck --match-full-lines %s
+// RUN: %hermesc -type-annotation-file=%annotation_file -O -emit-binary -out %t.hbc %s && %hermes -type-annotation-file=%annotation_file -Xhermes-internal-test-methods %t.hbc | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s -Wx,-Xhermes-internal-test-methods | %FileCheck --match-full-lines %s
 
 print("Check .length");

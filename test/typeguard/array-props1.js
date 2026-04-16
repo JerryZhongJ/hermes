@@ -5,7 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -non-strict -O -target=HBC %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -non-strict -O -target=HBC -emit-binary -out %t.hbc %s && %hermes -type-annotation-file=%annotation_file %t.hbc | %FileCheck --match-full-lines %s
 
 // Make sure that we can redefine a index property.
 var a = [];
@@ -47,3 +48,9 @@ try {
 }
 //CHECK-NEXT: caught exception
 //CHECK-NEXT: 2 1,prop1 prop1 undefined
+
+// Make sure that preventing extensions does not prevent configuring an indexed property.
+var noExArr = Object.preventExtensions([42]);
+Object.defineProperty(noExArr, "0", {enumerable: false})
+print(JSON.stringify(Object.getOwnPropertyDescriptor(noExArr, "0")));
+//CHECK-NEXT: {"value":42,"writable":true,"enumerable":false,"configurable":true}

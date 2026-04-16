@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -O -strict -Wno-undefined-variable -target=HBC %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -O -strict -Wno-undefined-variable -target=HBC -emit-binary -out %t.hbc %s && %hermes -type-annotation-file=%annotation_file %t.hbc | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -w -exec %s | %FileCheck --match-full-lines %s
 
 "use strict";

@@ -178,7 +178,7 @@ function switch_neg(x) {
 // CHECK-NEXT:                 CmpBrStrictlyEqualInst {n0} %25: number, {r0} %24: any, %BB1, %BB9
 // CHECK-NEXT:function_end
 
-// CHECK:function regress1(w: any): any [noReturn]
+// CHECK:function regress1(w: any): undefined [noReturn]
 // CHECK-NEXT:%BB0:
 // CHECK-NEXT:  {r1}      %0 = LoadParamInst (:any) %w: any
 // CHECK-NEXT:  {n3}      %1 = LIRLoadConstInst (:number) 0: number

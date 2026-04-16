@@ -5,10 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// RUN: %shermes -type-annotation-file=%annotation_file -w -exec %s | %FileCheck --match-full-lines %s
-// RUN: %shermes -type-annotation-file=%annotation_file -w -exec %s -Wx,-optimized-eval | %FileCheck --match-full-lines %s
-// UNSUPPORTED: true
-
+// RUN: LC_ALL=en_US.UTF-8 %hermes -type-annotation-file=%annotation_file -O -Wno-direct-eval %s | %FileCheck --match-full-lines %s
+// RUN: LC_ALL=en_US.UTF-8 %hermes -type-annotation-file=%annotation_file -O -optimized-eval -Wno-direct-eval %s | %FileCheck --match-full-lines %s
 "use strict";
 
 print('eval');

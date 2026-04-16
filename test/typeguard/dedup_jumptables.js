@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -non-strict -O %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -non-strict -O %s -emit-binary -out %t && %hermes -type-annotation-file=%annotation_file -b %t | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec -O %s | %FileCheck --match-full-lines %s
 
 function if_small(x, a, b) {

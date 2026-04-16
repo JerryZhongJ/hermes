@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -target=HBC -O -gc-sanitize-handles=0 %s | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s -Wx,-gc-sanitize-handles=0 | %FileCheck --match-full-lines %s
 // Test objects being used as a map with a large number of random access keys.
 

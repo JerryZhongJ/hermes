@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -Xmicrotask-queue=0 %s | %FileCheck --match-full-lines --check-prefix=TASK %s
+// RUN: %hermes -type-annotation-file=%annotation_file -Xmicrotask-queue=1 %s | %FileCheck --match-full-lines --check-prefix=MICROTASK %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec -Wx,-Xmicrotask-queue=0 %s | %FileCheck --match-full-lines --check-prefix=TASK %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec -Wx,-Xmicrotask-queue=1 %s | %FileCheck --match-full-lines --check-prefix=MICROTASK %s
 

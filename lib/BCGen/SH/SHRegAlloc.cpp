@@ -367,6 +367,19 @@ Interval &RegisterAllocator::getInstructionInterval(Instruction *I) {
   return instructionInterval_[idx];
 }
 
+static Interval
+computeLocalInterval(const Interval &ivl, size_t start, size_t end) {
+  Interval local;
+  for (auto &seg : ivl.segments_) {
+    size_t s = std::max(seg.start_, start);
+    size_t e = std::min(seg.end_, end);
+    if (s < e) {
+      local.add(Segment(s, e));
+    }
+  }
+  return local;
+}
+
 bool RegisterAllocator::isManuallyAllocatedInterval(Instruction *I) {
   if (hasTargetSpecificLowering(I))
     return true;
@@ -433,10 +446,15 @@ void RegisterAllocator::coalesce(
   // long interval. This phase is optional.
   for (BasicBlock *BB : order) {
     for (Instruction &I : *BB) {
-      auto *mov = llvh::dyn_cast<MovInst>(&I);
-      if (!mov)
-        continue;
-
+      SingleOperandInst *mov = llvh::dyn_cast<MovInst>(&I);
+      if (!mov) {
+        // UnionNarrowTrustedInst does the same logic as Mov
+        auto *unt = llvh::dyn_cast<UnionNarrowTrustedInst>(&I);
+        if (unt)
+          mov = unt;
+        else
+          continue;
+      }
       auto *op = llvh::dyn_cast<Instruction>(mov->getSingleOperand());
       if (!op)
         continue;
@@ -452,6 +470,9 @@ void RegisterAllocator::coalesce(
       // means that we won't release them (and call the target specific hook)
       // until the whole register is freed.
       if (isManuallyAllocatedInterval(opRoot))
+        continue;
+
+      if (getRegClass(destRoot) != getRegClass(opRoot))
         continue;
 
       unsigned destRootIdx = getInstructionNumber(destRoot);
@@ -470,6 +491,162 @@ void RegisterAllocator::coalesce(
       map.unite(opRoot, destRoot);
     }
   }
+
+  for (size_t i = order.size() - 1; i-- > 0;) {
+    localCoalesce(map, order[i], order[i + 1]);
+  }
+}
+
+void RegisterAllocator::localCoalesce(
+    CoalesceMap &map,
+    BasicBlock *BB,
+    BasicBlock *nextBB) {
+  using InstList = llvh::SmallVector<unsigned, 32>;
+
+  unsigned localStart = getInstructionNumber(&*BB->begin());
+  unsigned localEnd = getInstructionNumber(nextBB->getTerminator()) + 1;
+
+  // localIntervals is exact for pending roots. For live roots, only the
+  // start is relied on; stale non-root entries may remain.
+  llvh::DenseMap<unsigned, Interval> localIntervals;
+
+  llvh::BitVector candidateBits(instructionInterval_.size());
+
+  {
+    BlockLifetimeInfo &liveness = blockLiveness_[BB];
+    candidateBits |= liveness.kill_;
+    candidateBits |= liveness.liveIn_;
+  }
+
+  {
+    BlockLifetimeInfo &liveness = blockLiveness_[nextBB];
+    candidateBits |= liveness.liveIn_;
+    candidateBits |= liveness.kill_;
+  }
+
+  for (int i = 0, e = candidateBits.size(); i < e; i++) {
+    if (!candidateBits.test(i))
+      continue;
+    Instruction *I = instructionsByNumbers_[i];
+    Instruction *root = map.find(I);
+    if (!hasInstructionNumber(root))
+      continue;
+
+    unsigned rootIdx = getInstructionNumber(root);
+    if (localIntervals.count(rootIdx))
+      continue;
+
+    if (isAllocated(root) || isManuallyAllocatedInterval(root))
+      continue;
+
+    Interval local = computeLocalInterval(
+        instructionInterval_[rootIdx], localStart, localEnd);
+
+    if (local.size() == 0)
+      continue;
+
+    localIntervals.try_emplace(rootIdx, std::move(local));
+  }
+
+  if (localIntervals.size() < 2)
+    return;
+
+  auto localEndsFirst = [&](unsigned a, unsigned b) {
+    auto &IA = localIntervals[a];
+    auto &IB = localIntervals[b];
+    if (IB.end() == IA.end()) {
+      return IB.start() > IA.start() || (IB.start() == IA.start() && b > a);
+    }
+    return IB.end() > IA.end();
+  };
+
+  auto localStartsFirst = [&](unsigned a, unsigned b) {
+    auto &IA = localIntervals[a];
+    auto &IB = localIntervals[b];
+    return IA.start() < IB.start() || (IA.start() == IB.start() && a < b);
+  };
+
+  std::priority_queue<unsigned, InstList, decltype(localEndsFirst)> pending(
+      localEndsFirst);
+  std::priority_queue<unsigned, InstList, decltype(localStartsFirst)> live(
+      localStartsFirst);
+
+  for (auto &it : localIntervals) {
+    pending.push(it.first);
+  }
+
+  while (!pending.empty()) {
+    unsigned rootIdx = pending.top();
+    pending.pop();
+
+    if (!localIntervals.count(rootIdx))
+      continue;
+
+    Instruction *root = instructionsByNumbers_[rootIdx];
+    unsigned currentIndex = localIntervals[rootIdx].end();
+    llvh::SmallVector<unsigned, 8> deferred;
+
+    while (!live.empty()) {
+      unsigned topRootIdx = live.top();
+      Interval &range = localIntervals[topRootIdx];
+      if (range.start() < currentIndex) {
+        break;
+      }
+
+      live.pop();
+
+      Instruction *topRoot = instructionsByNumbers_[topRootIdx];
+      if (getRegClass(topRoot) != getRegClass(root)) {
+        deferred.push_back(topRootIdx);
+        continue;
+      }
+
+      Interval &globalA = instructionInterval_[topRootIdx];
+      Interval &globalB = instructionInterval_[rootIdx];
+      if (globalA.intersects(globalB)) {
+        deferred.push_back(topRootIdx);
+        continue;
+      }
+
+      LLVM_DEBUG(
+          llvh::dbgs() << "Local coalesce: @" << rootIdx << "  " << globalB
+                       << " -> @" << topRootIdx << "  " << globalA << "\n");
+
+      map.unite(root, topRoot);
+
+      Instruction *newRoot = map.find(root);
+      unsigned newRootIdx = getInstructionNumber(newRoot);
+      // If the representative stays rootIdx, the merge only adds a later
+      // local interval, so live still sees the same start.
+      if (newRootIdx != rootIdx) {
+        localIntervals[newRootIdx].add(localIntervals[rootIdx]);
+      }
+
+      root = newRoot;
+      rootIdx = newRootIdx;
+      break;
+    }
+
+    for (unsigned idx : deferred) {
+      live.push(idx);
+    }
+
+    live.push(rootIdx);
+  }
+}
+
+bool RegisterAllocator::coalesceSetHasPtr(Instruction *root) const {
+  if (coalesceRootHasPtr_.count(root))
+    return true;
+  // UnionNarrowTrustedInst act like a Mov, however narrowing the type.
+  // This causes unnecessary moves from LocalPtr to LocalNonPtr
+  // So we get the real type from the source instead of the
+  // UnionNarrowTrustedInst itself.
+  auto *unt = llvh::dyn_cast<UnionNarrowTrustedInst>(root);
+  if (unt) {
+    return !unt->getSingleOperand()->getType().isNonPtr();
+  }
+  return !root->getType().isNonPtr();
 }
 
 Instruction *RegisterAllocator::CoalesceMap::find(Instruction *x) {
@@ -487,9 +664,16 @@ void RegisterAllocator::CoalesceMap::unite(Instruction *x, Instruction *y) {
   if (rx == ry)
     return;
 
+  bool mergedHasPtr =
+      allocator_.coalesceSetHasPtr(rx) || allocator_.coalesceSetHasPtr(ry);
+
   allocator_.getInstructionInterval(ry).add(
       allocator_.getInstructionInterval(rx));
   parent_[rx] = ry;
+
+  allocator_.coalesceRootHasPtr_.erase(rx);
+  if (mergedHasPtr)
+    allocator_.coalesceRootHasPtr_.insert(ry);
 }
 
 namespace {
@@ -513,8 +697,11 @@ RegClass RegisterAllocator::getRegClass(Instruction *inst) {
   // handle exceptions, and the setjmp will be at the start of the function.
   if (hasTry_)
     return RegClass::LocalPtr;
-  return inst->getType().isNonPtr() ? RegClass::LocalNonPtr
-                                    : RegClass::LocalPtr;
+  // If the coalesce set contains any pointer-typed instruction, the register
+  // must be in LocalPtr to ensure correct GC scanning.
+  if (coalesceSetHasPtr(inst))
+    return RegClass::LocalPtr;
+  return RegClass::LocalNonPtr;
 }
 
 Register RegisterAllocator::allocateInstruction(Instruction *inst) {
@@ -614,13 +801,13 @@ void RegisterAllocator::allocate(ArrayRef<BasicBlock *> order) {
   // Calculate the live intervals for each instruction.
   calculateLiveIntervals(order);
 
-  // Free the memory used for liveness.
-  blockLiveness_.clear();
-
   // Maps coalesced instructions. First uses the register allocated for Second.
   CoalesceMap coalesced(*this);
 
   coalesce(coalesced, order);
+
+  // Free the memory used for liveness.
+  blockLiveness_.clear();
 
   // Compare two intervals and return the one that starts first.
   auto startsFirst = [&](unsigned a, unsigned b) {

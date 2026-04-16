@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -max-register-stack=256 %s | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec -Wx,-max-register-stack=256 -g %s | %FileCheck --match-full-lines %s
 
 // Test cases of stack overflows where there is either JS mutual recursion or

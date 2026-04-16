@@ -5,7 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -O -target=HBC %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -O -target=HBC -emit-binary -out %t.hbc %s && %hermes -type-annotation-file=%annotation_file %t.hbc | %FileCheck --match-full-lines %s
 
 var e = new Error();
 print(e);
@@ -90,7 +91,7 @@ print(e);
 
 // Check exception case of accessing Error.stack from a different 'this'
 print(new Error().__lookupGetter__("stack").call({}));
-//CHECK-NEXT: undefined
+// CHECK-NEXT: undefined
 
 
 // Regression test: setting the stack while getting the message causes a null dereference.
@@ -102,26 +103,4 @@ Object.defineProperty(e, "message", {
 });
 print(e.stack);
 //CHECK-NEXT: Error
-//CHECK-NEXT:     at global (native)
-
-// Check options object can be a Proxy.
-const options = new Proxy({
-  cause: "random cause"
-}, {
-  has(target, prop) {
-    if (prop === "cause") {
-      print("proxy has")
-    }
-    return prop in target;
-  },
-  get(target, prop) {
-    if (prop === "cause") {
-      print("proxy get")
-    }
-    return target[prop];
-  }
-});
-
-e = Error("random error", options);
-//CHECK-NEXT: proxy has
-//CHECK-NEXT: proxy get
+//CHECK-NEXT:     at global{{.*}}

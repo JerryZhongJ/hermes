@@ -5,7 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -O %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -O -emit-binary -out %t.hbc %s && %hermes -type-annotation-file=%annotation_file %t.hbc | %FileCheck --match-full-lines %s
 
 print('array spread');
 // CHECK-LABEL: array spread
@@ -37,6 +38,15 @@ var arr0 = [1,,3];
 var arr = [...arr0];
 print(arr);
 // CHECK-NEXT: 1,,3
+
+var arr0 = [];
+arr0[Symbol.iterator] = function*() {
+  yield 1;
+  yield 2;
+}
+var arr = [...arr0];
+print(arr);
+// CHECK-NEXT: 1,2
 
 var arr0 = [1,,3];
 arr0.__proto__[1] = 'in_proto';

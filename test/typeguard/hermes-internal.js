@@ -5,10 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
-//
-//
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -enable-hermes-internal=true %s | %FileCheck --match-full-lines --check-prefix=CHKHIE %s
+// RUN: %hermes -type-annotation-file=%annotation_file -enable-hermes-internal=false %s | %FileCheck --match-full-lines --check-prefix=CHKHID %s
+// RUN: %hermes -type-annotation-file=%annotation_file -Xhermes-internal-test-methods=true %s | %FileCheck --match-full-lines --check-prefix=CHKIME %s
+// RUN: %hermes -type-annotation-file=%annotation_file -Xhermes-internal-test-methods=false %s | %FileCheck --match-full-lines --check-prefix=CHKIMD %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s -Wx,-enable-hermes-internal=true | %FileCheck --match-full-lines --check-prefix=CHKHIE %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s -Wx,-enable-hermes-internal=false | %FileCheck --match-full-lines --check-prefix=CHKHID %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s -Wx,-Xhermes-internal-test-methods=true | %FileCheck --match-full-lines --check-prefix=CHKIME %s

@@ -5,7 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -O -target=HBC %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -O -target=HBC -emit-binary -out %t.hbc %s && %hermes -type-annotation-file=%annotation_file %t.hbc | %FileCheck --match-full-lines %s
 "use strict";
 
 function foo() {}
@@ -20,3 +21,10 @@ print(isNaN.name);
 //CHECK: isNaN
 print(Function.name);
 //CHECK: Function
+
+var a_func = function(){};
+print(a_func.hasOwnProperty("prototype"));
+//CHECK: true
+var a_arrow = () => {};
+print(a_arrow.hasOwnProperty("prototype"));
+//CHECK: false

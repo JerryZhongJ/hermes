@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: ulimit -s 1024 && %hermes -type-annotation-file=%annotation_file -gc-sanitize-handles=0 %s | %FileCheck --match-full-lines %s
 // RUN: ulimit -s 1024 && %shermes -type-annotation-file=%annotation_file -exec -Wx,-gc-sanitize-handles=0 %s | %FileCheck --match-full-lines %s
 
 var a = [1];

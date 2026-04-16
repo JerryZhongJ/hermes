@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: TZ="MST+7MDT,M3.2.0/2,M11.1.0/2" %hermes -type-annotation-file=%annotation_file -O %s | %FileCheck --match-full-lines %s
 // RUN: TZ="MST+7MDT,M3.2.0/2,M11.1.0/2" %shermes -type-annotation-file=%annotation_file --exec %s | %FileCheck --match-full-lines %s
 "use strict";
 

@@ -23,10 +23,10 @@
 #include "hermes/BCGen/ShapeTableEntry.h"
 #include "hermes/FrontEndDefs/Typeof.h"
 #include "hermes/IR/Analysis.h"
-#include "hermes/Optimizer/Scalar/Utils.h"
 #include "hermes/IR/IR.h"
 #include "hermes/IR/IRVerifier.h"
 #include "hermes/IR/Instrs.h"
+#include "hermes/Optimizer/Scalar/Utils.h"
 #include "hermes/Support/BigIntSupport.h"
 #include "hermes/Support/DenseMapInfoSpecializations.h"
 #include "hermes/Support/HashString.h"
@@ -1154,8 +1154,9 @@ class InstrGen {
       case ValueKind::BinaryStrictlyNotEqualInstKind: // !==
         if (bothDouble) {
           infixDoubleOp = "!=";
-        } else if (canCompareStrictEqualityRaw(
-                       inst.getLeftHandSide(), inst.getRightHandSide())) {
+        } else if (
+            canCompareStrictEqualityRaw(
+                inst.getLeftHandSide(), inst.getRightHandSide())) {
           infixRawOp = "!=";
         } else {
           funcUntypedOp = "!_sh_ljs_strict_equal";
@@ -1166,8 +1167,9 @@ class InstrGen {
       case ValueKind::BinaryStrictlyEqualInstKind: // ===
         if (bothDouble) {
           infixDoubleOp = "==";
-        } else if (canCompareStrictEqualityRaw(
-                       inst.getLeftHandSide(), inst.getRightHandSide())) {
+        } else if (
+            canCompareStrictEqualityRaw(
+                inst.getLeftHandSide(), inst.getRightHandSide())) {
           infixRawOp = "==";
         } else {
           funcUntypedOp = "_sh_ljs_strict_equal";
@@ -2872,6 +2874,11 @@ void generateFunction(
        i < e;
        ++i) {
     OS << "  SHLegacyValue np" << i << " = _sh_ljs_undefined();\n";
+    // We can safely leave the non-pointer registers uninitialized
+    // if we can guarantee that
+    // 1. All instructions dominates their uses
+    // 2. StoreStackInsts happen before the correspoding LoadStackInsts
+    // OS << "  SHLegacyValue np" << i << ";\n";
   }
 
   // Initialize SHJmpBuf and emit the setjmp for the function-level try.

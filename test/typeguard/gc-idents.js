@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -target=HBC -O -gc-sanitize-handles=0 %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s -Wx,-gc-sanitize-handles=0
 
 function manyIdents(obj) {

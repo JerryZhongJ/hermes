@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck --match-full-lines %s
+// RUN: LC_ALL=en_US.UTF-8 %hermes -type-annotation-file=%annotation_file -non-strict -O -target=HBC %s | %FileCheck --match-full-lines %s
 
 function exceptionName(l) {
   try {
@@ -37,6 +37,9 @@ print(typeAndValue(BigInt(1)));
 // CHECK-NEXT: bigint 1
 
 print(typeAndValue(BigInt('1')));
+// CHECK-NEXT: bigint 1
+
+print(typeAndValue(BigInt(new Boolean(true))));
 // CHECK-NEXT: bigint 1
 
 print(typeAndValue(BigInt('-1234567890123456789012345678901234567890123456789012345678901234567890123456789')));

@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -non-strict -O -target=HBC %s | %FileCheck %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec -O %s | %FileCheck %s
 
 // In non-strict mode, writes to read-only global variables are ignored.  We

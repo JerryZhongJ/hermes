@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -Xhermes-internal-test-methods=true %s | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s -Wx,-Xhermes-internal-test-methods=true | %FileCheck --match-full-lines %s
 
 print("HermesInternal job queue operations");

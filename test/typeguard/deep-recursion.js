@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: ulimit -s 1024 && %hermes -type-annotation-file=%annotation_file -target=HBC -O %s | %FileCheck --match-full-lines %s
 // RUN: ulimit -s 1024 && %shermes -type-annotation-file=%annotation_file -exec %s -Wx,-max-register-stack=1048576 | %FileCheck --match-full-lines %s
 
 function f() {

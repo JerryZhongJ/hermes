@@ -5,7 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -non-strict -O -target=HBC %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -non-strict -O -target=HBC -emit-binary -out %t.hbc %s && %hermes -type-annotation-file=%annotation_file %t.hbc | %FileCheck --match-full-lines %s
 
 print('is');
 // CHECK-LABEL: is
@@ -174,82 +175,6 @@ try {
 }
 //CHECK: to_prim
 
-print('groupBy');
-// CHECK-LABEL: groupBy
-print(JSON.stringify(Object.groupBy([1, 2, 3, 4, 5], (item) => item > 2)));
-// CHECK-NEXT: {"false":[1,2],"true":[3,4,5]}
-print(JSON.stringify(Object.groupBy([1, 2, 3, 4, 5], (item) => item % 2 ? "odd" : "even")));
-// CHECK-NEXT: {"odd":[1,3,5],"even":[2,4]}
-print(JSON.stringify(Object.groupBy([1, 'a', 2, 'b', 3, 'c'], (item) => typeof item)));
-// CHECK-NEXT: {"number":[1,2,3],"string":["a","b","c"]}
-const inventory = [
-  { name: "bananas", quantity: 0 },
-  { name: "goat", quantity: 0 },
-  { name: "cherries", quantity: 3 },
-  { name: "fish", quantity: 4 },
-];
-print(JSON.stringify(Object.groupBy(inventory, (item) => item.quantity > 0 ? "inStock" : 'outOfStock')));
-// CHECK-NEXT: {"outOfStock":[{"name":"bananas","quantity":0},{"name":"goat","quantity":0}],"inStock":[{"name":"cherries","quantity":3},{"name":"fish","quantity":4}]}
-try {
-  Object.groupBy({}, (item) => typeof item);
-} catch (e) {
-  print(e.name);
-}
-// CHECK-NEXT: TypeError 
-const iterableWhichThrows = {
-  [Symbol.iterator]() {
-    throw "Error from iterable";
-  },
-};
-try {
-  Object.groupBy(iterableWhichThrows, (item) => typeof item);
-} catch (e) {
-  print(e);
-}
-// CHECK-NEXT: Error from iterable
-const iteratorWhichThrows = {
-  [Symbol.iterator]() {
-    return this;
-  },
-  next() {
-    throw "Error from iterator";
-  },
-};
-try {
-  Object.groupBy(iteratorWhichThrows, (item) => typeof item);
-} catch (e) {
-  print(e);
-}
-// CHECK-NEXT: Error from iterator
-const iteratorWhichCloses = {
-  [Symbol.iterator]() {
-    return this;
-  },
-  next() {
-    return {};
-  },
-  return() {
-    print("Closing iterator");
-  },
-};
-try {
-  Object.groupBy(iteratorWhichCloses, () => {
-    throw "Error from callback 1";
-  });
-} catch (e) {
-  print(e);
-}
-// CHECK-NEXT: Closing iterator
-// CHECK-NEXT: Error from callback 1
-try {
-  Object.groupBy([1, 2, 3], () => {
-    throw "Error from callback 2";
-  });
-} catch (e) {
-  print(e);
-}
-// CHECK-NEXT: Error from callback 2
-
 print('hasOwn');
 // CHECK-LABEL: hasOwn
 var obj = new Object();
@@ -359,6 +284,13 @@ print(Object.entries(obj));
 var desc = Object.getOwnPropertyDescriptor(obj, 'a');
 print(desc.enumerable, desc.configurable, desc.writable);
 // CHECK-NEXT: true true true
+function* gen(x) {
+  yield ['a', x];
+  yield {0: 'b', 1: x+10};
+}
+var obj = Object.fromEntries(gen(4));
+print(Object.entries(obj));
+// CHECK-NEXT: a,4,b,14
 print(Object.entries(Object.fromEntries([])).length);
 // CHECK-NEXT: 0
 

@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
-//
+// RUN: %hermes -type-annotation-file=%annotation_file -O -gc-sanitize-handles=0 -max-register-stack=1048576 %s | %FileCheck --match-full-lines %s
+// RUN: %hermes -type-annotation-file=%annotation_file -O -target=HBC -emit-binary -out %t.hbc %s && %hermes -type-annotation-file=%annotation_file -gc-sanitize-handles=0 -max-register-stack=1048576 %t.hbc | %FileCheck --match-full-lines %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s -Wx,-gc-sanitize-handles=0,-max-register-stack=1048576 | %FileCheck --match-full-lines %s
 // REQUIRES: !slow_debug
 

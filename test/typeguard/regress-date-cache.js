@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: TZ=PST %hermes -type-annotation-file=%annotation_file -O0 %s | %FileCheck --match-full-lines %s
 // RUN: TZ=PST %shermes -type-annotation-file=%annotation_file -O0 -exec %s | %FileCheck --match-full-lines %s
 
 print("START");

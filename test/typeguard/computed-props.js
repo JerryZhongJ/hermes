@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
-//
+// RUN: %hermes -type-annotation-file=%annotation_file %s | %FileCheck %s --match-full-lines
+// RUN: %hermes -type-annotation-file=%annotation_file -O %s | %FileCheck %s --match-full-lines
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck %s --match-full-lines
 
 print('computed properties');

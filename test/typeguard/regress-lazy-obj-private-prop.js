@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//
+// RUN: %hermes -type-annotation-file=%annotation_file %s | %FileCheck %s
 // RUN: %shermes -type-annotation-file=%annotation_file -exec %s | %FileCheck %s
 
 // Test that assigning a private field to the lazy object f0 works.
