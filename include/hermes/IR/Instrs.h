@@ -3773,6 +3773,9 @@ class PhiInst : public Instruction {
   static bool isTyped() {
     return false;
   }
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx % 2 == 0;
+  }
   bool acceptsEmptyTypeImpl() const {
     return true;
   }
