@@ -635,19 +635,45 @@ void RegisterAllocator::localCoalesce(
   }
 }
 
-bool RegisterAllocator::coalesceSetHasPtr(Instruction *root) const {
-  if (coalesceRootHasPtr_.count(root))
-    return true;
-  // UnionNarrowTrustedInst act like a Mov, however narrowing the type.
-  // This causes unnecessary moves from LocalPtr to LocalNonPtr
-  // So we get the real type from the source instead of the
-  // UnionNarrowTrustedInst itself.
-  auto *unt = llvh::dyn_cast<UnionNarrowTrustedInst>(root);
-  if (unt) {
-    return !unt->getSingleOperand()->getType().isNonPtr();
-  }
-  return !root->getType().isNonPtr();
+namespace {
+inline RegClass mergeRegClasses(RegClass a, RegClass b) {
+  if (a == RegClass::LocalPtr || b == RegClass::LocalPtr)
+    return RegClass::LocalPtr;
+  if (a == RegClass::LocalNonPtr || b == RegClass::LocalNonPtr)
+    return RegClass::LocalNonPtr;
+  return RegClass::LocalSafeNonPtr;
 }
+
+llvh::DenseSet<Instruction *> computeUsedSafely(ArrayRef<BasicBlock *> order) {
+  llvh::DenseMap<Instruction *, unsigned> safeUseCount;
+  llvh::DenseSet<Instruction *> usedSafely;
+
+  for (auto *bb : order) {
+    for (auto &user : *bb) {
+      for (unsigned i = 0, e = user.getNumOperands(); i < e; ++i) {
+        if (!user.shUseSafely(i))
+          continue;
+        auto *operandInst = llvh::dyn_cast<Instruction>(user.getOperand(i));
+        if (!operandInst)
+          continue;
+        ++safeUseCount[operandInst];
+      }
+    }
+  }
+
+  for (auto *bb : order) {
+    for (auto &inst : *bb) {
+      if (!inst.hasOutput())
+        continue;
+      auto it = safeUseCount.find(&inst);
+      if (it != safeUseCount.end() && it->second == inst.getNumUsers())
+        usedSafely.insert(&inst);
+    }
+  }
+
+  return usedSafely;
+}
+} // namespace
 
 Instruction *RegisterAllocator::CoalesceMap::find(Instruction *x) {
   auto it = parent_.find(x);
@@ -664,16 +690,15 @@ void RegisterAllocator::CoalesceMap::unite(Instruction *x, Instruction *y) {
   if (rx == ry)
     return;
 
-  bool mergedHasPtr =
-      allocator_.coalesceSetHasPtr(rx) || allocator_.coalesceSetHasPtr(ry);
+  RegClass mergedClass =
+      mergeRegClasses(allocator_.getRegClass(rx), allocator_.getRegClass(ry));
 
   allocator_.getInstructionInterval(ry).add(
       allocator_.getInstructionInterval(rx));
   parent_[rx] = ry;
 
-  allocator_.coalesceRootHasPtr_.erase(rx);
-  if (mergedHasPtr)
-    allocator_.coalesceRootHasPtr_.insert(ry);
+  allocator_.instrucionRegClass_.erase(rx);
+  allocator_.instrucionRegClass_[ry] = mergedClass;
 }
 
 namespace {
@@ -697,11 +722,15 @@ RegClass RegisterAllocator::getRegClass(Instruction *inst) {
   // handle exceptions, and the setjmp will be at the start of the function.
   if (hasTry_)
     return RegClass::LocalPtr;
-  // If the coalesce set contains any pointer-typed instruction, the register
-  // must be in LocalPtr to ensure correct GC scanning.
-  if (coalesceSetHasPtr(inst))
+
+  auto it = instrucionRegClass_.find(inst);
+  if (it != instrucionRegClass_.end())
+    return it->second;
+
+  if (!inst->getType().isNonPtr())
     return RegClass::LocalPtr;
-  return RegClass::LocalNonPtr;
+  return usedSafely_.count(inst) ? RegClass::LocalSafeNonPtr
+                                 : RegClass::LocalNonPtr;
 }
 
 Register RegisterAllocator::allocateInstruction(Instruction *inst) {
@@ -751,6 +780,7 @@ void RegisterAllocator::allocate(ArrayRef<BasicBlock *> order) {
 
   // Lower PHI nodes into a sequence of MOVs.
   lowerPhis(order);
+  usedSafely_ = computeUsedSafely(order);
 
   {
     // We have two forms of register allocation: classic and fast pass.
@@ -1104,6 +1134,9 @@ llvh::raw_ostream &operator<<(llvh::raw_ostream &OS, Register reg) {
         break;
       case RegClass::LocalNonPtr:
         OS << "np" << reg.getIndex();
+        break;
+      case RegClass::LocalSafeNonPtr:
+        OS << "snp" << reg.getIndex();
         break;
       case RegClass::RegStack:
         OS << "stack[" << reg.getIndex() << ']';

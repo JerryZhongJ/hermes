@@ -1601,6 +1601,16 @@ class Instruction
   /// e.g. have its type inferred by TypeInference.
   bool isTyped() const;
 
+  /// \returns true if operand \p idx is used safely by-value by this
+  /// instruction.
+  bool shUseSafely(unsigned idx) const;
+
+  /// Returns true if operand \p idx is used safely by-value by this
+  /// instruction. The default implementation returns false.
+  bool shUseSafelyImpl(unsigned idx) const {
+    return false;
+  }
+
   /// Returns true if any of the operands can have an "empty" or "uninit" type.
   bool acceptsEmptyType() const;
 

@@ -589,6 +589,21 @@ bool Instruction::isTyped() const {
   }
 }
 
+bool Instruction::shUseSafely(unsigned idx) const {
+  switch (getKind()) {
+    default:
+      llvm_unreachable("Invalid kind");
+
+#define DEF_VALUE(XX, PARENT) \
+  case ValueKind::XX##Kind:   \
+    return cast<XX>(this)->shUseSafelyImpl(idx);
+#define DEF_TAG(XX, PARENT) \
+  case ValueKind::XX##Kind: \
+    return cast<PARENT>(this)->shUseSafelyImpl(idx);
+#include "hermes/IR/Instrs.def"
+  }
+}
+
 bool Instruction::acceptsEmptyType() const {
   switch (getKind()) {
     default:

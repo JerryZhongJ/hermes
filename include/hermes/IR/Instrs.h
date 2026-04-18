@@ -379,6 +379,11 @@ class AsInt32Inst : public SingleOperandInst {
     return false;
   }
 
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == SingleOperandIdx &&
+        getSingleOperand()->getType().isNumberType();
+  }
+
   SideEffect getSideEffectImpl() const {
     return SideEffect::createExecute();
   }
@@ -412,6 +417,11 @@ class AsUint32Inst : public SingleOperandInst {
   }
   static bool isTyped() {
     return false;
+  }
+
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == SingleOperandIdx &&
+        getSingleOperand()->getType().isNumberType();
   }
 
   SideEffect getSideEffectImpl() const {
@@ -477,6 +487,9 @@ class CondBranchInst : public TerminatorInst {
   static bool isTyped() {
     return false;
   }
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == ConditionIdx;
+  }
 
   SideEffect getSideEffectImpl() const {
     return {};
@@ -525,6 +538,9 @@ class ReturnInst : public TerminatorInst {
   }
   static bool isTyped() {
     return false;
+  }
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == ReturnValueIdx;
   }
 
   SideEffect getSideEffectImpl() const {
@@ -621,6 +637,10 @@ class LoadStackInst : public SingleOperandInst {
 
   bool acceptsEmptyTypeImpl() const {
     return true;
+  }
+
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == SingleOperandIdx;
   }
 
   SideEffect getSideEffectImpl() const {
@@ -874,6 +894,10 @@ class LIRResolveScopeInst : public BaseScopeInst {
     return cast<LiteralNumber>(getOperand(NumLevelsIdx));
   }
 
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == StartScopeIdx;
+  }
+
   SideEffect getSideEffectImpl() const {
     return SideEffect{}.setIdempotent();
   }
@@ -908,6 +932,10 @@ class GetClosureScopeInst : public BaseScopeInst {
   }
   Function *getFunctionCode() const {
     return cast<Function>(getOperand(FunctionCodeIdx));
+  }
+
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == ClosureIdx;
   }
 
   SideEffect getSideEffectImpl() const {
@@ -954,6 +982,10 @@ class LoadFrameInst : public Instruction {
 
   bool acceptsEmptyTypeImpl() const {
     return true;
+  }
+
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == ScopeIdx;
   }
 
   SideEffect getSideEffectImpl() const {
@@ -1004,6 +1036,10 @@ class StoreFrameInst : public Instruction {
 
   bool acceptsEmptyTypeImpl() const {
     return true;
+  }
+
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == ScopeIdx || idx == StoredValueIdx;
   }
 
   SideEffect getSideEffectImpl() const {
@@ -2916,6 +2952,19 @@ class UnaryOperatorInst : public SingleOperandInst {
   static bool isTyped() {
     return false;
   }
+  bool shUseSafelyImpl(unsigned idx) const {
+    if (idx != SingleOperandIdx)
+      return false;
+    switch (getKind()) {
+      case ValueKind::UnaryBangInstKind:
+        return true;
+      case ValueKind::UnaryIncInstKind:
+      case ValueKind::UnaryDecInstKind:
+        return getSingleOperand()->getType().isNumberType();
+      default:
+        return false;
+    }
+  }
 
   SideEffect getSideEffectImpl() const;
 
@@ -2966,7 +3015,8 @@ class TypeOfIsInst : public Instruction {
   TypeOfIsInst(const TypeOfIsInst &) = delete;
   void operator=(const TypeOfIsInst &) = delete;
 
-  /// Annotation ID from JSON file, for debug tracking. -1 = not from annotation.
+  /// Annotation ID from JSON file, for debug tracking. -1 = not from
+  /// annotation.
   int annotationId_ = -1;
 
  public:
@@ -3002,6 +3052,9 @@ class TypeOfIsInst : public Instruction {
   }
   static bool isTyped() {
     return false;
+  }
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == ArgumentIdx;
   }
 
   SideEffect getSideEffectImpl() const {
@@ -3072,6 +3125,30 @@ class BinaryOperatorInst : public Instruction {
   }
   static bool isTyped() {
     return false;
+  }
+  bool shUseSafelyImpl(unsigned idx) const {
+    if (idx != LeftHandSideIdx && idx != RightHandSideIdx)
+      return false;
+
+    switch (getKind()) {
+      case ValueKind::BinaryStrictlyEqualInstKind:
+      case ValueKind::BinaryStrictlyNotEqualInstKind:
+        return true;
+      case ValueKind::BinaryAddInstKind:
+      case ValueKind::BinarySubtractInstKind:
+      case ValueKind::BinaryMultiplyInstKind:
+      case ValueKind::BinaryDivideInstKind:
+      case ValueKind::BinaryModuloInstKind:
+      case ValueKind::BinaryEqualInstKind:
+      case ValueKind::BinaryLessThanInstKind:
+      case ValueKind::BinaryLessThanOrEqualInstKind:
+      case ValueKind::BinaryGreaterThanInstKind:
+      case ValueKind::BinaryGreaterThanOrEqualInstKind:
+        return getLeftHandSide()->getType().isNumberType() &&
+            getRightHandSide()->getType().isNumberType();
+      default:
+        return false;
+    }
   }
 
   SideEffect getSideEffectImpl() const {
@@ -3228,6 +3305,10 @@ class ThrowInst : public BaseThrowInst {
     return getThrowInfo();
   }
 
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == ThrowInfoIdx;
+  }
+
   static bool classof(const Value *V) {
     ValueKind kind = V->getKind();
     return kind == ValueKind::ThrowInstKind;
@@ -3358,6 +3439,10 @@ class GetPNamesInst : public TerminatorInst {
     return false;
   }
 
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == IteratorIdx;
+  }
+
   SideEffect getSideEffectImpl() const {
     return SideEffect::createExecute().setReadStack().setWriteStack();
   }
@@ -3420,6 +3505,10 @@ class GetNextPNameInst : public TerminatorInst {
   }
   static bool isTyped() {
     return false;
+  }
+
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == PropertyIdx;
   }
 
   SideEffect getSideEffectImpl() const {
@@ -3619,6 +3708,10 @@ class BranchIfBuiltinInst : public TerminatorInst {
     return false;
   }
 
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == ArgumentIdx;
+  }
+
   SideEffect getSideEffectImpl() const {
     return {};
   }
@@ -3719,6 +3812,9 @@ class MovInst : public SingleOperandInst {
   static bool isTyped() {
     return false;
   }
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == 0;
+  }
   bool acceptsEmptyTypeImpl() const {
     return true;
   }
@@ -3789,6 +3885,9 @@ class CoerceThisNSInst : public SingleOperandInst {
   }
   static bool isTyped() {
     return false;
+  }
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == 0;
   }
 
   SideEffect getSideEffectImpl() const {
@@ -3987,6 +4086,10 @@ class ThrowIfThisInitializedInst : public Instruction {
 
   bool acceptsEmptyTypeImpl() const {
     return true;
+  }
+
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == DerivedClassCheckedThisIdx;
   }
 
   SideEffect getSideEffectImpl() const {
@@ -4937,6 +5040,10 @@ class GetConstructedObjectInst : public Instruction {
     return Type::createObject();
   }
 
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == ThisValueIdx || idx == ConstructorReturnValueIdx;
+  }
+
   SideEffect getSideEffectImpl() const {
     // This instruction cannot be hoisted above the instructions that precede
     // it, the instructions that specifically validate that the construct call
@@ -4977,6 +5084,10 @@ class LIRSpillMovInst : public SingleOperandInst {
   }
   static bool isTyped() {
     return false;
+  }
+
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == SingleOperandIdx;
   }
 
   SideEffect getSideEffectImpl() const {
@@ -5410,6 +5521,9 @@ class PrLoadInst : public Instruction {
   static bool isTyped() {
     return true;
   }
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == ObjectIdx;
+  }
   SideEffect getSideEffectImpl() const {
     return SideEffect{}.setReadHeap().setIdempotent();
   }
@@ -5504,6 +5618,9 @@ class FastArrayLoadInst : public Instruction {
   static bool isTyped() {
     return true;
   }
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == IndexIdx;
+  }
   SideEffect getSideEffectImpl() const {
     return SideEffect{}.setReadHeap().setThrow();
   }
@@ -5540,6 +5657,9 @@ class FastArrayStoreInst : public Instruction {
   }
   static bool isTyped() {
     return true;
+  }
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == IndexIdx;
   }
   SideEffect getSideEffectImpl() const {
     return SideEffect{}.setWriteHeap().setThrow();
@@ -5748,6 +5868,10 @@ class LoadParentNoTrapsInst : public Instruction {
     return false;
   }
 
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == ObjectIdx;
+  }
+
   SideEffect getSideEffectImpl() const {
     return SideEffect{}.setReadHeap().setIdempotent();
   }
@@ -5786,6 +5910,9 @@ class FUnaryMathInst : public Instruction {
   }
   static bool isTyped() {
     return true;
+  }
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == ArgIdx;
   }
 
   SideEffect getSideEffectImpl() const {
@@ -5837,6 +5964,9 @@ class FBinaryMathInst : public Instruction {
   static bool isTyped() {
     return true;
   }
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == LeftIdx || idx == RightIdx;
+  }
 
   SideEffect getSideEffectImpl() const {
     return SideEffect{}.setIdempotent();
@@ -5887,6 +6017,9 @@ class FCompareInst : public Instruction {
   }
   static bool isTyped() {
     return true;
+  }
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == LeftIdx || idx == RightIdx;
   }
 
   SideEffect getSideEffectImpl() const {
@@ -6150,6 +6283,10 @@ class CheckedTypeCastInst : public Instruction {
   }
   static bool isTyped() {
     return false;
+  }
+
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == CheckedValueIdx;
   }
 
   SideEffect getSideEffectImpl() const {

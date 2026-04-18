@@ -652,6 +652,10 @@ class InstrGen {
         os_ << "np" << reg.getIndex();
         break;
 
+      case sh::RegClass::LocalSafeNonPtr:
+        os_ << "snp" << reg.getIndex();
+        break;
+
       case sh::RegClass::RegStack:
         os_ << "frame[" << (hbc::StackFrameLayout::FirstLocal + reg.getIndex())
             << ']';
@@ -674,8 +678,12 @@ class InstrGen {
   /// The pointer can be used to pass to API functions that will use it
   /// as a PinnedHermesValue.
   void generateRegisterPtr(Value &val) {
+    auto reg = ra_.getRegister(&val);
+    assert(
+        reg.getClass() != sh::RegClass::LocalSafeNonPtr &&
+        "LocalSafeNonPtr must not be address-taken");
     os_ << "&";
-    generateRegister(val);
+    generateRegister(reg);
   }
 
   /// Helper to generate an SHValue from a Value.
@@ -901,8 +909,8 @@ class InstrGen {
         } else {
           os_ << (options_.smallC ? "_sh_ljs_inc_rjs"
                                   : "_sh_ljs_inc_rjs_inline")
-              << "(shr, &";
-          generateRegister(*inst.getSingleOperand());
+              << "(shr, ";
+          generateRegisterPtr(*inst.getSingleOperand());
           os_ << ");\n";
         }
         break;
@@ -914,21 +922,21 @@ class InstrGen {
         } else {
           os_ << (options_.smallC ? "_sh_ljs_dec_rjs"
                                   : "_sh_ljs_dec_rjs_inline")
-              << "(shr, &";
-          generateRegister(*inst.getSingleOperand());
+              << "(shr, ";
+          generateRegisterPtr(*inst.getSingleOperand());
           os_ << ");\n";
         }
         break;
       case (ValueKind::UnaryTildeInstKind):
         os_ << (options_.smallC ? "_sh_ljs_bit_not_rjs"
                                 : "_sh_ljs_bit_not_rjs_inline")
-            << "(shr, &";
-        generateRegister(*inst.getSingleOperand());
+            << "(shr, ";
+        generateRegisterPtr(*inst.getSingleOperand());
         os_ << ");\n";
         break;
       case ValueKind::UnaryMinusInstKind: { // -
-        os_ << "_sh_ljs_minus_rjs(shr, &";
-        generateRegister(*inst.getSingleOperand());
+        os_ << "_sh_ljs_minus_rjs(shr, ";
+        generateRegisterPtr(*inst.getSingleOperand());
         os_ << ");\n";
         break;
       }
@@ -1275,10 +1283,10 @@ class InstrGen {
       os_ << ".raw";
     } else {
       assert(funcUntypedOp);
-      os_ << funcUntypedOp << "(shr, &";
-      generateRegister(*inst.getLeftHandSide());
-      os_ << ", &";
-      generateRegister(*inst.getRightHandSide());
+      os_ << funcUntypedOp << "(shr, ";
+      generateRegisterPtr(*inst.getLeftHandSide());
+      os_ << ", ";
+      generateRegisterPtr(*inst.getRightHandSide());
       os_ << ")";
     }
     if (boolConv)
@@ -1290,14 +1298,14 @@ class InstrGen {
 
   void generateStorePropertyWithReceiverInst(
       StorePropertyWithReceiverInst &inst) {
-    os_ << "_sh_ljs_put_by_val_with_receiver_rjs(shr,&";
-    generateRegister(*inst.getObject());
-    os_ << ", &";
-    generateRegister(*inst.getProperty());
-    os_ << ", &";
-    generateRegister(*inst.getStoredValue());
-    os_ << ", &";
-    generateRegister(*inst.getReceiver());
+    os_ << "_sh_ljs_put_by_val_with_receiver_rjs(shr, ";
+    generateRegisterPtr(*inst.getObject());
+    os_ << ", ";
+    generateRegisterPtr(*inst.getProperty());
+    os_ << ", ";
+    generateRegisterPtr(*inst.getStoredValue());
+    os_ << ", ";
+    generateRegisterPtr(*inst.getReceiver());
     os_ << ", " << inst.getIsStrict();
     os_ << ");\n";
   }
@@ -1308,8 +1316,8 @@ class InstrGen {
         os_ << "_sh_ljs_put_by_id_strict_rjs";
       else
         os_ << "_sh_ljs_put_by_id_loose_rjs";
-      os_ << "(shr, shUnit, &";
-      generateRegister(*inst.getObject());
+      os_ << "(shr, shUnit, ";
+      generateRegisterPtr(*inst.getObject());
       os_ << ", ";
       genStringConstWriteIC(LS, inst.getStoredValue()) << ");\n";
       return;
@@ -1319,12 +1327,12 @@ class InstrGen {
       os_ << "_sh_ljs_put_by_val_strict_rjs";
     else
       os_ << "_sh_ljs_put_by_val_loose_rjs";
-    os_ << "(shr,&";
-    generateRegister(*inst.getObject());
-    os_ << ", &";
-    generateRegister(*inst.getProperty());
-    os_ << ", &";
-    generateRegister(*inst.getStoredValue());
+    os_ << "(shr,";
+    generateRegisterPtr(*inst.getObject());
+    os_ << ", ";
+    generateRegisterPtr(*inst.getProperty());
+    os_ << ", ";
+    generateRegisterPtr(*inst.getStoredValue());
     os_ << ");\n";
   }
   void generateStorePropertyLooseInst(StorePropertyLooseInst &inst) {
@@ -1387,8 +1395,8 @@ class InstrGen {
       assert(
           inst.getIsEnumerable() &&
           "Non-enumerable properties with literal keys should be handled by LoadConstants");
-      os_ << "_sh_ljs_define_own_by_id(shr,&";
-      generateRegister(*inst.getObject());
+      os_ << "_sh_ljs_define_own_by_id(shr, ";
+      generateRegisterPtr(*inst.getObject());
       os_ << ", ";
       genStringConstWriteIC(LS, inst.getStoredValue()) << ");\n";
       return;
@@ -1486,8 +1494,8 @@ class InstrGen {
     if (auto *LS = llvh::dyn_cast<LiteralString>(inst.getProperty())) {
       os_ << (options_.smallC ? "_sh_ljs_get_by_id_rjs"
                               : "_sh_ljs_get_by_id_rjs_inline")
-          << "(shr,&";
-      generateRegister(*inst.getObject());
+          << "(shr,";
+      generateRegisterPtr(*inst.getObject());
       os_ << ",";
       genStringConstReadIC(LS) << ");\n";
       return;
@@ -1495,17 +1503,17 @@ class InstrGen {
     // If the prop is an index-like constant, generate the special bytecode.
     if (auto *litNum = llvh::dyn_cast<LiteralNumber>(inst.getProperty())) {
       if (auto idxOpt = doubleToArrayIndex(litNum->getValue())) {
-        os_ << "_sh_ljs_get_by_index_rjs(shr,&";
-        generateRegister(*inst.getObject());
+        os_ << "_sh_ljs_get_by_index_rjs(shr,";
+        generateRegisterPtr(*inst.getObject());
         os_ << ", ";
         os_ << *idxOpt << ");\n";
         return;
       }
     }
-    os_ << "_sh_ljs_get_by_val_rjs(shr,&";
-    generateRegister(*inst.getObject());
-    os_ << ", &";
-    generateRegister(*inst.getProperty());
+    os_ << "_sh_ljs_get_by_val_rjs(shr,";
+    generateRegisterPtr(*inst.getObject());
+    os_ << ", ";
+    generateRegisterPtr(*inst.getProperty());
     os_ << ");\n";
   }
   void generateLoadPropertyWithReceiverInst(
@@ -1515,20 +1523,20 @@ class InstrGen {
     os_ << " = ";
     auto prop = inst.getProperty();
     if (auto *LS = llvh::dyn_cast<LiteralString>(prop)) {
-      os_ << "_sh_ljs_get_by_id_with_receiver_rjs(shr, &";
-      generateRegister(*inst.getObject());
-      os_ << ", &";
-      generateRegister(*inst.getReceiver());
+      os_ << "_sh_ljs_get_by_id_with_receiver_rjs(shr, ";
+      generateRegisterPtr(*inst.getObject());
+      os_ << ", ";
+      generateRegisterPtr(*inst.getReceiver());
       os_ << ", ";
       genStringConstReadIC(LS) << ");\n";
       return;
     }
-    os_ << "_sh_ljs_get_by_val_with_receiver_rjs(shr, &";
-    generateRegister(*inst.getObject());
-    os_ << ", &";
-    generateRegister(*inst.getProperty());
-    os_ << ", &";
-    generateRegister(*inst.getReceiver());
+    os_ << "_sh_ljs_get_by_val_with_receiver_rjs(shr, ";
+    generateRegisterPtr(*inst.getObject());
+    os_ << ", ";
+    generateRegisterPtr(*inst.getProperty());
+    os_ << ", ";
+    generateRegisterPtr(*inst.getReceiver());
     os_ << ");\n";
   }
   void generateLoadOwnPrivateFieldInst(LoadOwnPrivateFieldInst &inst) {
@@ -1548,8 +1556,8 @@ class InstrGen {
     generateRegister(inst);
     os_ << " = ";
     LiteralString *LS = inst.getProperty();
-    os_ << "_sh_ljs_try_get_by_id_rjs(shr,&";
-    generateRegister(*inst.getObject());
+    os_ << "_sh_ljs_try_get_by_id_rjs(shr,";
+    generateRegisterPtr(*inst.getObject());
     os_ << ", ";
     genStringConstReadIC(LS) << ");\n";
   }
@@ -1749,8 +1757,8 @@ class InstrGen {
     if (llvh::isa<EmptySentinel>(inst.getParentObject())) {
       os_ << "_sh_ljs_new_object(shr)";
     } else {
-      os_ << "_sh_ljs_new_object_with_parent(shr, &";
-      generateValue(*inst.getParentObject());
+      os_ << "_sh_ljs_new_object_with_parent(shr, ";
+      generateRegisterPtr(*inst.getParentObject());
       os_ << ")";
     }
     os_ << ";\n";
@@ -1766,8 +1774,8 @@ class InstrGen {
     if (llvh::isa<EmptySentinel>(inst.getParentObject())) {
       os_ << "_sh_ljs_new_object(shr)";
     } else {
-      os_ << "_sh_ljs_new_object_with_parent(shr, &";
-      generateValue(*inst.getParentObject());
+      os_ << "_sh_ljs_new_object_with_parent(shr, ";
+      generateRegisterPtr(*inst.getParentObject());
       os_ << ")";
     }
     os_ << ";\n";
@@ -2214,10 +2222,10 @@ class InstrGen {
   void generateCreateThisInst(CreateThisInst &inst) {
     os_.indent(2);
     generateRegister(inst);
-    os_ << " = _sh_ljs_create_this(shr, &";
-    generateRegister(*inst.getClosure());
-    os_ << ", &";
-    generateRegister(*inst.getNewTarget());
+    os_ << " = _sh_ljs_create_this(shr, ";
+    generateRegisterPtr(*inst.getClosure());
+    os_ << ", ";
+    generateRegisterPtr(*inst.getNewTarget());
     os_ << ", ";
     Module *M = F_.getParent();
     auto *protoStr =
@@ -2879,6 +2887,11 @@ void generateFunction(
     // 1. All instructions dominates their uses
     // 2. StoreStackInsts happen before the correspoding LoadStackInsts
     // OS << "  SHLegacyValue np" << i << ";\n";
+  }
+  for (size_t i = 0, e = RA.getMaxRegisterUsage(sh::RegClass::LocalSafeNonPtr);
+       i < e;
+       ++i) {
+    OS << "  SHLegacyValue snp" << i << " = _sh_ljs_undefined();\n";
   }
 
   // Initialize SHJmpBuf and emit the setjmp for the function-level try.

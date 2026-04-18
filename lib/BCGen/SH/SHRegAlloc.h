@@ -26,6 +26,9 @@ enum class RegClass : uint8_t {
   LocalPtr,
   /// A native local that is guaranteed to not be a pointer.
   LocalNonPtr,
+  /// A native local that is guaranteed to not be a pointer and is only used
+  /// safely by-value in SH C codegen.
+  LocalSafeNonPtr,
   /// An entry in the VM register stack.
   RegStack,
   /// The last entry.
@@ -340,14 +343,11 @@ class RegisterAllocator {
     }
   };
 
-  /// Tracks which coalesce-set roots contain at least one instruction
-  /// whose type may be a pointer (i.e. !getType().isNonPtr()).
-  /// Populated during coalescing, used by getRegClass().
-  llvh::DenseSet<Instruction *> coalesceRootHasPtr_;
+  /// Tracks the current register class for instructions and coalesce roots.
+  llvh::DenseMap<Instruction *, RegClass> instrucionRegClass_;
 
-  /// \returns true if the coalesce set rooted at \p root contains any
-  /// instruction whose type may be a pointer, or if \p root itself may be.
-  bool coalesceSetHasPtr(Instruction *root) const;
+  /// Instructions whose every user is a safe-by-value SH consumer.
+  llvh::DenseSet<Instruction *> usedSafely_;
 
   /// Represents the liveness info for one block.
   struct BlockLifetimeInfo {
