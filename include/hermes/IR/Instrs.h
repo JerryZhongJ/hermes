@@ -1419,6 +1419,10 @@ class CallInst : public BaseCallInst {
   explicit CallInst(const CallInst *src, llvh::ArrayRef<Value *> operands)
       : BaseCallInst(src, operands) {}
 
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx >= getThisIdx() && idx < getNumOperands();
+  }
+
   static bool classof(const Value *V) {
     return V->getKind() == ValueKind::CallInstKind;
   }
@@ -1501,6 +1505,10 @@ class CallBuiltinInst : public BaseCallInst {
       const CallBuiltinInst *src,
       llvh::ArrayRef<Value *> operands)
       : BaseCallInst(src, operands) {}
+
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx >= getThisIdx() && idx < getNumOperands();
+  }
 
   BuiltinMethod::Enum getBuiltinIndex() const {
     return cast<LiteralBuiltinIdx>(getCallee())->getData();
@@ -6228,6 +6236,10 @@ class UnionNarrowTrustedInst : public SingleOperandInst {
     // UnionNarrowTrusted participates in TypeInference because its type is
     // based on the input type when possible.
     return false;
+  }
+
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == SingleOperandIdx;
   }
 
   bool acceptsEmptyTypeImpl() const {

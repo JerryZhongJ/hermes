@@ -469,8 +469,8 @@ void RegisterAllocator::coalesce(
       // Don't handle instructions with target specific lowering because this
       // means that we won't release them (and call the target specific hook)
       // until the whole register is freed.
-      if (isManuallyAllocatedInterval(opRoot))
-        continue;
+      // if (isManuallyAllocatedInterval(opRoot))
+      //   continue;
 
       if (getRegClass(destRoot) != getRegClass(opRoot))
         continue;
@@ -536,7 +536,8 @@ void RegisterAllocator::localCoalesce(
     if (localIntervals.count(rootIdx))
       continue;
 
-    if (isAllocated(root) || isManuallyAllocatedInterval(root))
+    // if (isAllocated(root) || isManuallyAllocatedInterval(root))
+    if (isAllocated(root))
       continue;
 
     Interval local = computeLocalInterval(
@@ -911,7 +912,7 @@ void RegisterAllocator::allocate(ArrayRef<BasicBlock *> order) {
                        << " used by instruction " << I->getName() << "\n");
       file.killRegister(R);
 
-      handleInstruction(I);
+      // handleInstruction(I);
     }
 
     // Don't try to allocate registers that were merged into other live
@@ -938,7 +939,7 @@ void RegisterAllocator::allocate(ArrayRef<BasicBlock *> order) {
         llvh::dbgs() << "Free register used by instruction " << I->getName()
                      << "\n");
     file.killRegister(getRegister(I));
-    handleInstruction(I);
+    // handleInstruction(I);
     liveIntervalsQueue.pop();
   }
 
@@ -947,6 +948,12 @@ void RegisterAllocator::allocate(ArrayRef<BasicBlock *> order) {
     assert(!isAllocated(RP.first) && "Register should not be allocated");
     Instruction *dest = coalesced.find(RP.first);
     updateRegister(RP.first, getRegister(dest));
+  }
+
+  for (auto &BB : order) {
+    for (auto &inst : *BB) {
+      handleInstruction(&inst);
+    }
   }
 }
 
