@@ -1139,7 +1139,7 @@ void ESTreeIRGen::emitParameters(ESTree::FunctionLikeNode *funcNode) {
     }
 
     Instruction *formalParam = Builder.createLoadParamInst(jsParam);
-
+    formalParam->setLocation(param->getDebugLoc());
     // Apply type annotation to parameter using TypeAssertInst
     tryApplyTypeAnnotation(formalParam, param);
 

@@ -744,6 +744,15 @@ void initGlobalObject(Runtime &runtime, const JSLibFlags &jsLibFlags) {
   // Define the 'print' function.
   defineGlobalFunc(Predefined::getSymbolID(Predefined::print), print, 1);
 
+  // Define the 'read' function.
+  defineGlobalFunc(
+      runtime.ignoreAllocationFailure(
+          runtime.getIdentifierTable().getSymbolHandle(
+              runtime, llvh::createASCIIRef("read")))
+          .get(),
+      read,
+      2);
+
   // Define the 'eval' function.
   defineGlobalFunc(Predefined::getSymbolID(Predefined::eval), eval, 1);
 

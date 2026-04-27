@@ -18,6 +18,7 @@ add_subdirectory(fuzzers)
 add_subdirectory(dependency-extractor)
 add_subdirectory(hermes-parser)
 add_subdirectory(shermes)
+add_subdirectory(speculator)
 add_subdirectory(synth)
 add_subdirectory(hcdp)
 

@@ -17,6 +17,25 @@
 
 namespace hermes {
 
+llvh::Optional<Type> TypeAnnotations::parseTypeNames(
+    const std::vector<std::string> &typeNames) {
+  if (typeNames.empty())
+    return llvh::None;
+
+  llvh::Optional<Type> result;
+  for (const auto &name : typeNames) {
+    llvh::Optional<Type> t = parseTypeName(name);
+    if (!t.hasValue())
+      return llvh::None;
+    if (!result.hasValue()) {
+      result = t.getValue();
+    } else {
+      result = Type::unionTy(result.getValue(), t.getValue());
+    }
+  }
+  return result;
+}
+
 llvh::Optional<Type> TypeAnnotations::parseTypeName(llvh::StringRef typeName) {
   if (typeName == "number")
     return Type::createNumber();
@@ -93,8 +112,21 @@ bool TypeAnnotations::loadFromFile(
     const llvh::json::Object *start = loc->getObject("start");
     const llvh::json::Object *end = loc->getObject("end");
     auto typeStr = annot->getString("type");
+    const llvh::json::Array *typeArr = annot->getArray("type");
 
-    if (!file || !start || !end || !typeStr) {
+    // Support both string "type": "number" and array "type": ["number", "string"]
+    std::vector<std::string> typeStrs;
+    if (typeArr) {
+      for (const auto &elem : *typeArr) {
+        auto s = elem.getAsString();
+        if (s)
+          typeStrs.push_back(s->str());
+      }
+    } else if (typeStr) {
+      typeStrs.push_back(typeStr->str());
+    }
+
+    if (!file || !start || !end || typeStrs.empty()) {
       llvh::errs() << "Warning: Incomplete annotation entry\n";
       failCount++;
       continue;
@@ -140,14 +172,13 @@ bool TypeAnnotations::loadFromFile(
                      << ", end=" << endLoc.getPointer() << "\n");
 
     llvh::SMRange range(startLoc, endLoc);
-    annotations_.insert({range, typeStr->str()});
+    annotations_.insert({range, std::move(typeStrs)});
     annotationIds_.insert({range, annotIndex});
 
     LLVM_DEBUG(
         llvh::dbgs() << "  Stored annotation #" << annotIndex
                      << " for SMRange [" << range.Start.getPointer() << ", "
-                     << range.End.getPointer() << "), type: " << typeStr->str()
-                     << "\n");
+                     << range.End.getPointer() << ")\n");
 
     successCount++;
   }
@@ -159,7 +190,7 @@ bool TypeAnnotations::loadFromFile(
   return true;
 }
 
-llvh::Optional<std::string> TypeAnnotations::getAnnotation(
+llvh::Optional<std::vector<std::string>> TypeAnnotations::getAnnotation(
     llvh::SMRange range) const {
   auto it = annotations_.find(range);
   if (it != annotations_.end()) {

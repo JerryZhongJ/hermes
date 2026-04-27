@@ -401,6 +401,10 @@ CallResult<HermesValue> directEval(
     const CodeBlock *codeBlock,
     bool singleFunction = false);
 
+/// Read a file from disk. If \p mode is "binary", returns a Uint8Array;
+/// otherwise returns the file content as a UTF-8 string.
+CallResult<HermesValue> read(void *, Runtime &runtime);
+
 /// ES10 23.1.1.2 AddEntriesFromIterable
 /// Calls a callback with each pair of [key, value] from an iterable.
 /// \param target the object to which to add the entries

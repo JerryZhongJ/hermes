@@ -56,16 +56,21 @@ bool ESTreeIRGen::tryApplyTypeAnnotation(Value *val, ESTree::Node *node) {
     return false;
   }
 
-  llvh::Optional<std::string> typeStr = typeAnnotations.getAnnotation(range);
-  if (!typeStr.hasValue()) {
+  llvh::Optional<std::vector<std::string>> typeStrs = typeAnnotations.getAnnotation(range);
+  if (!typeStrs.hasValue()) {
     return false;
   }
 
   int annotId = typeAnnotations.getAnnotationId(range);
 
-  llvh::Optional<Type> annotatedType = TypeAnnotations::parseTypeName(*typeStr);
+  llvh::Optional<Type> annotatedType = TypeAnnotations::parseTypeNames(*typeStrs);
   if (!annotatedType.hasValue()) {
-    LLVM_DEBUG(llvh::dbgs() << "Unknown type name: " << *typeStr << "\n");
+    LLVM_DEBUG({
+      llvh::dbgs() << "Unknown type names:";
+      for (const auto &s : *typeStrs)
+        llvh::dbgs() << " " << s;
+      llvh::dbgs() << "\n";
+    });
     return false;
   }
 
@@ -74,7 +79,6 @@ bool ESTreeIRGen::tryApplyTypeAnnotation(Value *val, ESTree::Node *node) {
   if (!inst) {
     LLVM_DEBUG(
         llvh::dbgs() << "Skipping annotation for non-instruction value"
-                     << " (type: " << *typeStr << ")"
                      << " at node " << node->getNodeName() << "\n");
     return false;
   }

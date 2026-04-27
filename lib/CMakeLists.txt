@@ -77,6 +77,7 @@ add_subdirectory(Regex)
 add_subdirectory(Platform)
 add_subdirectory(InternalJavaScript)
 add_subdirectory(Sema)
+add_subdirectory(Speculator)
 
 # Define combined libraries from all components. Components are defined as object
 # libraries. It is tricky.

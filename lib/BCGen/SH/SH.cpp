@@ -843,56 +843,85 @@ class InstrGen {
 
     // Get the types to check
     TypeOfIsTypes types = inst.getTypes()->getData();
-
-    // Optimization: For single type checks with corresponding _sh_ljs_is_*
-    // function, use inline type check instead of calling _sh_ljs_typeof_is
-    if (types.count() == 1) {
-      os_ << " = _sh_ljs_bool(";
-      if (types.hasUndefined()) {
-        os_ << "_sh_ljs_is_undefined(";
-        generateValue(*inst.getArgument());
-        os_ << ")";
-      } else if (types.hasNull()) {
-        os_ << "_sh_ljs_is_null(";
-        generateValue(*inst.getArgument());
-        os_ << ")";
-      } else if (types.hasBoolean()) {
-        os_ << "_sh_ljs_is_bool(";
-        generateValue(*inst.getArgument());
-        os_ << ")";
-      } else if (types.hasNumber()) {
-        os_ << "_sh_ljs_is_double(";
-        generateValue(*inst.getArgument());
-        os_ << ")";
-      } else if (types.hasString()) {
-        os_ << "_sh_ljs_is_string(";
-        generateValue(*inst.getArgument());
-        os_ << ")";
-      } else if (types.hasSymbol()) {
-        os_ << "_sh_ljs_is_symbol(";
-        generateValue(*inst.getArgument());
-        os_ << ")";
-      } else if (types.hasBigint()) {
-        os_ << "_sh_ljs_is_bigint(";
-        generateValue(*inst.getArgument());
-        os_ << ")";
-      } else {
-        // For Function or other complex types, fall back to _sh_ljs_typeof_is
-        os_ << "_sh_ljs_typeof_is(";
-        generateValue(*inst.getArgument());
-        os_ << ", " << types.getRaw() << ")";
-      }
-      os_ << ");\n";
-    } else if (types.count() == 2 && types.hasObject() && types.hasFunction()) {
-      // Etag == Object <=> TypeofIsTypes == {Object, Function}
-      os_ << " = _sh_ljs_bool(_sh_ljs_is_object(";
-      generateValue(*inst.getArgument());
-      os_ << "));\n";
-    } else {
-      // Multiple type checks, use _sh_ljs_typeof_is
+    bool hasObject = types.hasObject();
+    bool hasFunction = types.hasFunction();
+    if (hasObject != hasFunction) {
+      // Cannot distinguish Object from Function via inline checks,
+      // use runtime _sh_ljs_typeof_is
       os_ << " = _sh_ljs_bool(_sh_ljs_typeof_is(";
       generateValue(*inst.getArgument());
       os_ << ", " << types.getRaw() << "));\n";
+    } else {
+      // Inline: generate _sh_ljs_bool(check1 || check2 || ...)
+      os_ << " = _sh_ljs_bool(";
+      bool first = true;
+
+      // Object + Function together => _sh_ljs_is_object
+      if (hasObject && hasFunction) {
+        os_ << "_sh_ljs_is_object(";
+        generateValue(*inst.getArgument());
+        os_ << ")";
+        first = false;
+      }
+
+      if (types.hasUndefined()) {
+        if (!first)
+          os_ << " || ";
+        os_ << "_sh_ljs_is_undefined(";
+        generateValue(*inst.getArgument());
+        os_ << ")";
+        first = false;
+      }
+      if (types.hasNull()) {
+        if (!first)
+          os_ << " || ";
+        os_ << "_sh_ljs_is_null(";
+        generateValue(*inst.getArgument());
+        os_ << ")";
+        first = false;
+      }
+      if (types.hasBoolean()) {
+        if (!first)
+          os_ << " || ";
+        os_ << "_sh_ljs_is_bool(";
+        generateValue(*inst.getArgument());
+        os_ << ")";
+        first = false;
+      }
+      if (types.hasNumber()) {
+        if (!first)
+          os_ << " || ";
+        os_ << "_sh_ljs_is_double(";
+        generateValue(*inst.getArgument());
+        os_ << ")";
+        first = false;
+      }
+      if (types.hasString()) {
+        if (!first)
+          os_ << " || ";
+        os_ << "_sh_ljs_is_string(";
+        generateValue(*inst.getArgument());
+        os_ << ")";
+        first = false;
+      }
+      if (types.hasSymbol()) {
+        if (!first)
+          os_ << " || ";
+        os_ << "_sh_ljs_is_symbol(";
+        generateValue(*inst.getArgument());
+        os_ << ")";
+        first = false;
+      }
+      if (types.hasBigint()) {
+        if (!first)
+          os_ << " || ";
+        os_ << "_sh_ljs_is_bigint(";
+        generateValue(*inst.getArgument());
+        os_ << ")";
+        first = false;
+      }
+
+      os_ << ");\n";
     }
   }
   void generateUnaryOperatorInst(UnaryOperatorInst &inst) {

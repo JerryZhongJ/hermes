@@ -129,6 +129,7 @@ set(source_files
   JSLib/WeakRef.cpp
   JSLib/WeakSet.cpp
   JSLib/print.cpp
+  JSLib/read.cpp
   JSLib/eval.cpp
   JSLib/escape.cpp
   JSLib/require.cpp

@@ -31,23 +31,24 @@ STATISTIC(NumFunctionsDuplicated, "Number of functions with duplicated paths");
 namespace {
 
 TypeOfIsTypes getTypeOfIsTypesFromType(const Type &type) {
-  if (type.isNumberType())
-    return TypeOfIsTypes{}.withNumber(true);
-  if (type.isStringType())
-    return TypeOfIsTypes{}.withString(true);
-  if (type.isBooleanType())
-    return TypeOfIsTypes{}.withBoolean(true);
-  if (type.isObjectType())
-    return TypeOfIsTypes{}.withObject(true).withFunction(true);
-  if (type.isNullType())
-    return TypeOfIsTypes{}.withNull(true);
-  if (type.isUndefinedType())
-    return TypeOfIsTypes{}.withUndefined(true);
-  if (type.isBigIntType())
-    return TypeOfIsTypes{}.withBigint(true);
-  if (type.isSymbolType())
-    return TypeOfIsTypes{}.withSymbol(true);
-  return TypeOfIsTypes{};
+  TypeOfIsTypes result;
+  if (type.canBeNumber())
+    result = result.withNumber(true);
+  if (type.canBeString())
+    result = result.withString(true);
+  if (type.canBeBoolean())
+    result = result.withBoolean(true);
+  if (type.canBeObject())
+    result = result.withObject(true).withFunction(true);
+  if (type.canBeNull())
+    result = result.withNull(true);
+  if (type.canBeUndefined())
+    result = result.withUndefined(true);
+  if (type.canBeBigInt())
+    result = result.withBigint(true);
+  if (type.canBeSymbol())
+    result = result.withSymbol(true);
+  return result;
 }
 
 /// Helper class to manage the duplication and insertion process
