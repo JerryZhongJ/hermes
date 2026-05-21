@@ -301,11 +301,10 @@ void analyzeCreateCallable(BaseCreateCallableInst *create) {
       // UnionNarrowTrustedInst is a cast, the result is the same as its input.
       // That means we can add it to the worklist to follow it.
       if (llvh::isa<UnionNarrowTrustedInst>(closureUser)) {
-        // The result type of UnionNarrowTrustedInst may not allow object if this
-        // is from speculative optimization (e.g., InsertTypeGuard pass). In such
-        // cases, the TypeGuard at runtime ensures correctness, but we cannot
-        // track the closure through this path in analysis.
-        // assert(
+        // The result type of UnionNarrowTrustedInst may not allow object if
+        // this is from speculative optimization (e.g., InsertGuard pass). In
+        // such cases, the TypeGuard at runtime ensures correctness, but we
+        // cannot track the closure through this path in analysis. assert(
         //     llvh::cast<UnionNarrowTrustedInst>(closureUser)
         //         ->getSingleOperand()
         //         ->getType()
@@ -319,8 +318,8 @@ void analyzeCreateCallable(BaseCreateCallableInst *create) {
         if (!llvh::cast<UnionNarrowTrustedInst>(closureUser)
                  ->getType()
                  .canBeObject()) {
-          // Cannot track closure through this path due to speculative narrowing.
-          // Skip this user.
+          // Cannot track closure through this path due to speculative
+          // narrowing. Skip this user.
           continue;
         }
         worklist.push_back(

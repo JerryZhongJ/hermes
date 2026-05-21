@@ -416,6 +416,58 @@ class Type {
 
 static_assert(sizeof(Type) == 2, "Type must not be too big");
 
+//===----------------------------------------------------------------------===//
+// TypedShape
+//===----------------------------------------------------------------------===//
+
+/// A single property in a typed shape: its name and expected type.
+struct TypedShapeProperty {
+  Identifier name;
+  Type type;
+};
+
+/// Describes a typed shape: an ordered list of data properties with their
+/// expected types. Property order matters: the same set of properties in
+/// different order defines a different shape.
+struct TypedShapeDesc {
+  void addProperty(Identifier name, Type type) {
+    props_.push_back({name, type});
+  }
+  void addProperty(TypedShapeProperty prop) {
+    props_.push_back(prop);
+  }
+
+  size_t size() const {
+    return props_.size();
+  }
+
+  Identifier getPropertyName(size_t i) const {
+    return props_[i].name;
+  }
+
+  Type getPropertyType(size_t i) const {
+    return props_[i].type;
+  }
+
+  bool hasProperty(Identifier name) const {
+    for (const auto &p : props_)
+      if (p.name == name)
+        return true;
+    return false;
+  }
+
+  /// Returns the index of the property with the given name, or -1 if not found.
+  int getPropertyIndex(Identifier name) const {
+    for (size_t i = 0, e = props_.size(); i < e; ++i)
+      if (props_[i].name == name)
+        return static_cast<int>(i);
+    return -1;
+  }
+
+ private:
+  llvh::SmallVector<TypedShapeProperty, 8> props_;
+};
+
 /// An iterator over the types in a Type.
 class Type::iterator {
   friend class Type;
@@ -1382,6 +1434,10 @@ using LiteralIRType =
 using LiteralTypeOfIsTypes = LiteralWrapper<
     TypeOfIsTypes,
     ValueKind::LiteralTypeOfIsTypesKind,
+    Type::createNull>;
+using LiteralTypedShape = LiteralWrapper<
+    const TypedShapeDesc *,
+    ValueKind::LiteralTypedShapeKind,
     Type::createNull>;
 using LiteralNativeSignature =
     LiteralWrapper<NativeSignature *, ValueKind::LiteralNativeSignatureKind>;
@@ -2628,6 +2684,11 @@ class Module : public Value {
   ValueOFS<LiteralTypeOfIsTypes> literalTypeOfIsTypes_{};
   ValueOFS<LiteralNativeSignature> nativeSignatures_{};
   ValueOFS<LiteralNativeExtern> nativeExterns_{};
+  ValueOFS<LiteralTypedShape> literalTypedShapes_{};
+
+  /// Typed shape descriptor table. Descriptors are stored via unique_ptr to
+  /// guarantee stable pointers. LiteralTypedShape holds a non-owning pointer.
+  std::vector<std::unique_ptr<TypedShapeDesc>> typedShapeDescs_{};
 
   /// Map from an identifier to a number indicating how many times it has been
   /// used. This allows to construct unique internal names derived from regular
@@ -2690,6 +2751,12 @@ class Module : public Value {
 
   /// Annotation IDs for type guards (parallel to typeGuards_).
   llvh::DenseMap<Instruction *, int> typeGuardAnnotationIds_{};
+
+  /// Shape guards map: stores expected typed shapes for instructions.
+  llvh::DenseMap<Instruction *, const TypedShapeDesc *> shapeGuards_{};
+
+  /// Annotation IDs for shape guards (parallel to shapeGuards_).
+  llvh::DenseMap<Instruction *, int> shapeGuardAnnotationIds_{};
 
  public:
   explicit Module(std::shared_ptr<Context> ctx)
@@ -2789,6 +2856,34 @@ class Module : public Value {
   void removeTypeGuard(Instruction *inst) {
     typeGuards_.erase(inst);
     typeGuardAnnotationIds_.erase(inst);
+  }
+
+  /// Register a typed shape descriptor from an ordered list of properties.
+  /// Module takes ownership of the constructed descriptor and returns a stable
+  /// pointer valid for the lifetime of the Module.
+  const TypedShapeDesc *createTypedShape(
+      llvh::ArrayRef<TypedShapeProperty> properties);
+
+  /// Create or get a uniqued LiteralTypedShape wrapping the given descriptor.
+  LiteralTypedShape *getLiteralTypedShape(const TypedShapeDesc *desc);
+
+  /// Set a shape guard for an instruction.
+  void setShapeGuard(Instruction *inst, const TypedShapeDesc *shape, int annotationId = -1) {
+    shapeGuards_.insert({inst, shape});
+    if (annotationId >= 0)
+      shapeGuardAnnotationIds_.insert({inst, annotationId});
+  }
+  /// Get the shape guard for an instruction. Returns nullptr if not found.
+  const TypedShapeDesc *getShapeGuard(Instruction *inst) const;
+  /// Get the annotation ID for a shape guard instruction.
+  int getShapeGuardAnnotationId(Instruction *inst) const {
+    auto it = shapeGuardAnnotationIds_.find(inst);
+    return it != shapeGuardAnnotationIds_.end() ? it->second : -1;
+  }
+  /// Remove a shape guard for an instruction.
+  void removeShapeGuard(Instruction *inst) {
+    shapeGuards_.erase(inst);
+    shapeGuardAnnotationIds_.erase(inst);
   }
 
   /// Assign index to all Variables in all VariableScopes.

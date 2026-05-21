@@ -48,9 +48,9 @@ void hermes::runFullOptimizationPasses(Module &M) {
   };
 
   // Add the optimization passes.
-  // InsertTypeGuard must run first, before any other optimization
+  // InsertGuard must run first, before any other optimization
   // And, remove duplicate type guards right away
-  PM.addInsertTypeGuard();
+  PM.addInsertGuard();
   PM.addSimpleStackPromotion();
   PM.addTypeInference();
   PM.addInstSimplify();
@@ -134,8 +134,8 @@ void hermes::runOptimizationPassesToFixedPoint(Module &M) {
 
   // Add the optimization passes.
 
-  // InsertTypeGuard must run first, before any other optimization
-  PM.addInsertTypeGuard();
+  // InsertGuard must run first, before any other optimization
+  PM.addInsertGuard();
 
   PM.addLowerGeneratorFunction();
 

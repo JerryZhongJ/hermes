@@ -2604,6 +2604,94 @@ class AllocTypedObjectInst : public BaseAllocObjectLiteralInst {
   }
 };
 
+/// Promotes an object from untyped shape to typed shape unconditionally.
+/// Modifies the hidden class of the object — this is a heap mutation (the
+/// hidden class pointer lives in the heap object header), but is not
+/// observable from JS semantics.
+class PromoteTypedShapeInst : public Instruction {
+  PromoteTypedShapeInst(const PromoteTypedShapeInst &) = delete;
+  void operator=(const PromoteTypedShapeInst &) = delete;
+
+ public:
+  enum { ObjectIdx, ShapeIdx };
+
+  explicit PromoteTypedShapeInst(Value *obj, LiteralTypedShape *shape)
+      : Instruction(ValueKind::PromoteTypedShapeInstKind) {
+    setType(Type::createNoType());
+    pushOperand(obj);
+    pushOperand(shape);
+  }
+  explicit PromoteTypedShapeInst(
+      const PromoteTypedShapeInst *src,
+      llvh::ArrayRef<Value *> operands)
+      : Instruction(src, operands) {}
+
+  Value *getObject() const {
+    return getOperand(ObjectIdx);
+  }
+  LiteralTypedShape *getShape() const {
+    return llvh::cast<LiteralTypedShape>(getOperand(ShapeIdx));
+  }
+
+  static bool hasOutput() {
+    return false;
+  }
+  static bool isTyped() {
+    return false;
+  }
+
+  SideEffect getSideEffectImpl() const {
+    return SideEffect{}.setWriteHeap().setIdempotent();
+  }
+
+  static bool classof(const Value *V) {
+    return V->getKind() == ValueKind::PromoteTypedShapeInstKind;
+  }
+};
+
+/// Tries to promote an object from untyped shape to typed shape.
+/// Checks if the object's properties match the shape before promoting.
+class TryPromoteTypedShapeInst : public Instruction {
+  TryPromoteTypedShapeInst(const TryPromoteTypedShapeInst &) = delete;
+  void operator=(const TryPromoteTypedShapeInst &) = delete;
+
+ public:
+  enum { ObjectIdx, ShapeIdx };
+
+  explicit TryPromoteTypedShapeInst(Value *obj, LiteralTypedShape *shape)
+      : Instruction(ValueKind::TryPromoteTypedShapeInstKind) {
+    setType(Type::createNoType());
+    pushOperand(obj);
+    pushOperand(shape);
+  }
+  explicit TryPromoteTypedShapeInst(
+      const TryPromoteTypedShapeInst *src,
+      llvh::ArrayRef<Value *> operands)
+      : Instruction(src, operands) {}
+
+  Value *getObject() const {
+    return getOperand(ObjectIdx);
+  }
+  LiteralTypedShape *getShape() const {
+    return llvh::cast<LiteralTypedShape>(getOperand(ShapeIdx));
+  }
+
+  static bool hasOutput() {
+    return false;
+  }
+  static bool isTyped() {
+    return false;
+  }
+
+  SideEffect getSideEffectImpl() const {
+    return SideEffect{}.setWriteHeap().setIdempotent();
+  }
+
+  static bool classof(const Value *V) {
+    return V->getKind() == ValueKind::TryPromoteTypedShapeInstKind;
+  }
+};
+
 class GetTemplateObjectInst : public Instruction {
   GetTemplateObjectInst(const GetTemplateObjectInst &) = delete;
   void operator=(const GetTemplateObjectInst &) = delete;
@@ -3074,6 +3162,63 @@ class TypeOfIsInst : public Instruction {
 
   static bool classof(const Value *V) {
     return V->getKind() == ValueKind::TypeOfIsInstKind;
+  }
+};
+
+class IsTypedShapeInst : public Instruction {
+ private:
+  IsTypedShapeInst(const IsTypedShapeInst &) = delete;
+  void operator=(const IsTypedShapeInst &) = delete;
+
+  int annotationId_ = -1;
+
+ public:
+  enum { ArgumentIdx, ShapeIdx };
+
+  explicit IsTypedShapeInst(Value *op, LiteralTypedShape *shape)
+      : Instruction(ValueKind::IsTypedShapeInstKind) {
+    setType(*getInherentTypeImpl());
+    pushOperand(op);
+    pushOperand(shape);
+  }
+  explicit IsTypedShapeInst(
+      const IsTypedShapeInst *src,
+      llvh::ArrayRef<Value *> operands)
+      : Instruction(src, operands), annotationId_(src->annotationId_) {}
+
+  Value *getArgument() const {
+    return getOperand(ArgumentIdx);
+  }
+  LiteralTypedShape *getShape() const {
+    return llvh::cast<LiteralTypedShape>(getOperand(ShapeIdx));
+  }
+
+  int getAnnotationId() const {
+    return annotationId_;
+  }
+  void setAnnotationId(int id) {
+    annotationId_ = id;
+  }
+
+  static bool hasOutput() {
+    return true;
+  }
+  static bool isTyped() {
+    return false;
+  }
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == ArgumentIdx;
+  }
+
+  SideEffect getSideEffectImpl() const {
+    return SideEffect{}.setIdempotent();
+  }
+  static llvh::Optional<Type> getInherentTypeImpl() {
+    return Type::createBoolean();
+  }
+
+  static bool classof(const Value *V) {
+    return V->getKind() == ValueKind::IsTypedShapeInstKind;
   }
 };
 
@@ -6264,6 +6409,55 @@ class UnionNarrowTrustedInst : public SingleOperandInst {
   /// \return the original result type that was set before TypeInference.
   Type getSavedResultType() const {
     return savedResultType_;
+  }
+};
+
+class AssertTypedShapeInst : public SingleOperandInst {
+  AssertTypedShapeInst(const AssertTypedShapeInst &) = delete;
+  void operator=(const AssertTypedShapeInst &) = delete;
+
+  const TypedShapeDesc *shape_;
+
+ public:
+  explicit AssertTypedShapeInst(Value *src, const TypedShapeDesc *shape)
+      : SingleOperandInst(ValueKind::AssertTypedShapeInstKind, src),
+        shape_(shape) {
+    setType(*getInherentTypeImpl());
+  }
+  explicit AssertTypedShapeInst(
+      const AssertTypedShapeInst *src,
+      llvh::ArrayRef<Value *> operands)
+      : SingleOperandInst(src, operands), shape_(src->shape_) {}
+
+  const TypedShapeDesc *getShape() const {
+    return shape_;
+  }
+
+  static bool hasOutput() {
+    return true;
+  }
+  static bool isTyped() {
+    return false;
+  }
+
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == SingleOperandIdx;
+  }
+
+  bool acceptsEmptyTypeImpl() const {
+    return true;
+  }
+
+  SideEffect getSideEffectImpl() const {
+    return SideEffect{}.setIdempotent().setUnhoistable();
+  }
+
+  static llvh::Optional<Type> getInherentTypeImpl() {
+    return Type::createObject();
+  }
+
+  static bool classof(const Value *V) {
+    return V->getKind() == ValueKind::AssertTypedShapeInstKind;
   }
 };
 

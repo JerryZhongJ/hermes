@@ -23,7 +23,7 @@ void ESTreeIRGen::genBody(ESTree::NodeList &Body) {
   }
 }
 
-void ESTreeIRGen::genStatement(ESTree::Node *stmt) {
+void ESTreeIRGen::_genStatementImpl(ESTree::Node *stmt) {
   LLVM_DEBUG(
       llvh::dbgs() << "IRGen statement of type " << stmt->getNodeName()
                    << "\n");
@@ -225,6 +225,11 @@ void ESTreeIRGen::genStatement(ESTree::Node *stmt) {
 
   Builder.getModule()->getContext().getSourceErrorManager().error(
       stmt->getSourceRange(), Twine("invalid statement encountered."));
+}
+
+void ESTreeIRGen::genStatement(ESTree::Node *stmt) {
+  _genStatementImpl(stmt);
+  tryInsertTryPromoteTypedShape(stmt);
 }
 
 void ESTreeIRGen::genExpressionWrapper(ESTree::Node *expr) {

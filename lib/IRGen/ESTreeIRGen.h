@@ -520,6 +520,14 @@ class ESTreeIRGen {
 
   /// The module we are constructing.
   Module *Mod;
+
+  /// Pre-registered typed shape descriptors (indexed by JSON shape def index).
+  llvh::SmallVector<const TypedShapeDesc *, 4> shapeDescs_;
+
+  /// Map from object-range to the Value* produced by that expression.
+  /// Pre-filled with nullptr for all known object locations at construction
+  /// time. Filled with real values inside tryApplyAnnotation().
+  llvh::DenseMap<llvh::SMRange, Value *, SMRangeInfo> pendingPromotions_;
   /// Semantic resolution tables.
   sema::SemContext &semCtx_;
   /// Keywords to avoid string content comparisons.
@@ -692,6 +700,9 @@ class ESTreeIRGen {
   /// Generate code for the statement \p Stmt.
   void genStatement(ESTree::Node *stmt);
 
+  /// Core statement dispatch without shape promotion check.
+  void _genStatementImpl(ESTree::Node *stmt);
+
   /// Wrapper of genExpression. If curFunction()->globalReturnRegister is
   /// set, stores the expression value into it.
   void genExpressionWrapper(ESTree::Node *expr);
@@ -863,6 +874,11 @@ class ESTreeIRGen {
   /// \param range The source range to look up annotation for
   /// \return The original value or a TypeAssertInst wrapping it
   bool tryApplyTypeAnnotation(Value *val, ESTree::Node *node);
+  bool tryApplyShapeAnnotation(Value *val, ESTree::Node *node);
+  void tryApplyAnnotation(Value *val, ESTree::Node *node);
+
+  /// Try to insert a TryPromoteTypedShapeInst after a statement is generated.
+  void tryInsertTryPromoteTypedShape(ESTree::Node *stmtNode);
 
   /// Generate an expression and perform a conditional branch depending on
   /// whether it evaluates to true or false (or optionally, nullish).

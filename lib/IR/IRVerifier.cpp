@@ -845,6 +845,63 @@ bool Verifier::visitTypeOfIsInst(const TypeOfIsInst &Inst) {
   return true;
 }
 
+bool Verifier::visitIsTypedShapeInst(const IsTypedShapeInst &Inst) {
+  AssertIWithMsg(
+      Inst,
+      llvh::isa<LiteralTypedShape>(Inst.getOperand(IsTypedShapeInst::ShapeIdx)),
+      "IsTypedShapeInst::Shape must be a LiteralTypedShape");
+  return true;
+}
+
+bool Verifier::visitAssertTypedShapeInst(const AssertTypedShapeInst &Inst) {
+  AssertIWithMsg(
+      Inst,
+      Inst.getShape() != nullptr,
+      "AssertTypedShapeInst::Shape must not be null");
+
+  // 1. Must be the first non-phi instruction in its basic block.
+  BasicBlock *BB = Inst.getParent();
+  for (auto &I : *BB) {
+    if (&I == &Inst)
+      break;
+    AssertIWithMsg(
+        Inst,
+        llvh::isa<PhiInst>(&I),
+        "AssertTypedShapeInst must be preceded only by PhiInst");
+  }
+
+  // 2. Must have exactly one predecessor whose terminator is a CondBranchInst
+  //    and the current block is the true successor.
+  int predCount = 0;
+  BasicBlock *predBB = nullptr;
+  for (auto *P : predecessors(BB)) {
+    predCount++;
+    predBB = P;
+  }
+  AssertIWithMsg(
+      Inst,
+      predCount == 1,
+      "AssertTypedShapeInst block must have exactly one predecessor");
+  auto *condBr = llvh::dyn_cast<CondBranchInst>(predBB->getTerminator());
+  AssertIWithMsg(
+      Inst,
+      condBr && condBr->getTrueDest() == BB,
+      "Predecessor's terminator must be CondBranchInst with this block as true "
+      "destination");
+
+  // 3. The condition of the CondBranch must be an IsTypedShapeInst with the
+  //    same TypedShape as this AssertTypedShapeInst.
+  auto *isTypedShape =
+      llvh::dyn_cast<IsTypedShapeInst>(condBr->getCondition());
+  AssertIWithMsg(
+      Inst,
+      isTypedShape && isTypedShape->getShape()->getData() == Inst.getShape(),
+      "Predecessor's CondBranch condition must be IsTypedShapeInst with "
+      "matching shape");
+
+  return true;
+}
+
 bool Verifier::visitUnaryOperatorInst(const UnaryOperatorInst &Inst) {
   // Nothing to verify at this point.
   return true;
@@ -1489,6 +1546,18 @@ bool Verifier::visitAllocObjectLiteralInst(
 
 bool Verifier::visitAllocTypedObjectInst(
     const hermes::AllocTypedObjectInst &Inst) {
+  return true;
+}
+
+bool Verifier::visitPromoteTypedShapeInst(
+    const hermes::PromoteTypedShapeInst &Inst) {
+  AssertIWithMsg(Inst, Inst.getShape(), "shape must not be null");
+  return true;
+}
+
+bool Verifier::visitTryPromoteTypedShapeInst(
+    const hermes::TryPromoteTypedShapeInst &Inst) {
+  AssertIWithMsg(Inst, Inst.getShape(), "shape must not be null");
   return true;
 }
 

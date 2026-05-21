@@ -28,7 +28,7 @@ class FlowContext;
 }
 
 // Forward declaration
-class TypeAnnotations;
+class Annotations;
 
 /// Lowers an ESTree program into Hermes IR in \p M.
 void generateIRFromESTree(

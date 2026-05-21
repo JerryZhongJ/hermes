@@ -9,7 +9,7 @@
 #define HERMES_AST_CONTEXT_H
 
 #include "hermes/ADT/StringSetVector.h"
-#include "hermes/IRGen/TypeAnnotationLoader.h"
+#include "hermes/IRGen/AnnotationLoader.h"
 #include "hermes/Parser/PreParser.h"
 #include "hermes/Regex/RegexSerialization.h"
 #include "hermes/Support/Allocator.h"
@@ -301,7 +301,7 @@ class Context {
 
   std::unique_ptr<irdumper::Namer> persistentIRNamer_;
 
-  TypeAnnotations typeAnnotations_;
+  Annotations typeAnnotations_;
 
  public:
   explicit Context(
@@ -595,7 +595,7 @@ class Context {
     return persistentIRNamer_.get();
   }
 
-  TypeAnnotations &getTypeAnnotations() {
+  Annotations &getTypeAnnotations() {
     return typeAnnotations_;
   }
 };

@@ -169,6 +169,10 @@ llvh::hash_code hash_value(const Value &val, const FuncSharedData &sharedData) {
     case ValueKind::LiteralTypeOfIsTypesKind:
       hc = llvh::cast<LiteralTypeOfIsTypes>(val).getData().getRaw();
       break;
+    case ValueKind::LiteralTypedShapeKind:
+      hc = llvh::hash_value(
+          llvh::cast<LiteralTypedShape>(val).getData());
+      break;
     case ValueKind::LabelKind:
       hc = hash_value(llvh::cast<Label>(val).get().str());
       break;

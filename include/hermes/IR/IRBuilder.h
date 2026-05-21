@@ -200,6 +200,10 @@ class IRBuilder {
     return M->getLiteralTypeOfIsTypes(types);
   }
 
+  LiteralTypedShape *getLiteralTypedShape(const TypedShapeDesc *desc) {
+    return M->getLiteralTypedShape(desc);
+  }
+
   /// Return the GlobalObject value.
   GlobalObject *getGlobalObject();
 
@@ -522,6 +526,14 @@ class IRBuilder {
       const AllocTypedObjectInst::ObjectPropertyMap &propMap,
       Value *parentObject);
 
+  PromoteTypedShapeInst *createPromoteTypedShapeInst(
+      Value *obj,
+      LiteralTypedShape *shape);
+
+  TryPromoteTypedShapeInst *createTryPromoteTypedShapeInst(
+      Value *obj,
+      LiteralTypedShape *shape);
+
   AllocFastArrayInst *createAllocFastArrayInst(LiteralNumber *sizeHint);
 
   AllocArrayInst *createAllocArrayInst(
@@ -554,6 +566,9 @@ class IRBuilder {
 
   TypeOfInst *createTypeOfInst(Value *input);
   TypeOfIsInst *createTypeOfIsInst(Value *input, LiteralTypeOfIsTypes *types);
+  IsTypedShapeInst *createIsTypedShapeInst(
+      Value *input,
+      LiteralTypedShape *shape);
 
   UnaryOperatorInst *createUnaryOperatorInst(
       Value *value,
@@ -756,6 +771,9 @@ class IRBuilder {
   HBCStringConcatInst *createHBCStringConcatInst(Value *left, Value *right);
 
   UnionNarrowTrustedInst *createUnionNarrowTrustedInst(Value *value, Type type);
+  AssertTypedShapeInst *createAssertTypedShapeInst(
+      Value *value,
+      const TypedShapeDesc *shape);
   CheckedTypeCastInst *createCheckedTypeCastInst(Value *value, Type type);
 
   LIRDeadValueInst *createLIRDeadValueInst(Type type);

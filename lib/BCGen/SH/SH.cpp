@@ -1809,6 +1809,12 @@ class InstrGen {
     }
     os_ << ";\n";
   }
+  void generatePromoteTypedShapeInst(PromoteTypedShapeInst &inst) {
+    unimplemented(inst);
+  }
+  void generateTryPromoteTypedShapeInst(TryPromoteTypedShapeInst &inst) {
+    unimplemented(inst);
+  }
   void generateCreateArgumentsLooseInst(CreateArgumentsLooseInst &inst) {
     hermes_fatal("CreateArgumentsLooseInst should have been lowered.");
   }
@@ -2495,6 +2501,12 @@ class InstrGen {
     os_ << "_sh_ljs_throw_if_this_initialized(shr, ";
     generateRegister(*inst.getDerivedClassCheckedThis());
     os_ << ");\n";
+  }
+  void generateIsTypedShapeInst(IsTypedShapeInst &inst) {
+    unimplemented(inst);
+  }
+  void generateAssertTypedShapeInst(AssertTypedShapeInst &inst) {
+    unimplemented(inst);
   }
   void generateLIRDeadValueInst(LIRDeadValueInst &inst) {
     os_.indent(2);

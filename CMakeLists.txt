@@ -784,6 +784,7 @@ if(HERMES_ENABLE_TEST_SUITE)
     hbc-diff
     dependency-extractor
     shermes-dep
+    speculator
     compileJS
     emhermesc
     )
@@ -809,6 +810,7 @@ if(HERMES_ENABLE_TEST_SUITE)
     hbcdump=${HERMES_TOOLS_OUTPUT_DIR}/hbcdump
     hbc-deltaprep=${HERMES_TOOLS_OUTPUT_DIR}/hbc-deltaprep
     hbc_diff=${HERMES_TOOLS_OUTPUT_DIR}/hbc-diff
+    speculator=${HERMES_TOOLS_OUTPUT_DIR}/speculator
     slow_debug=$<IF:$<CONFIG:Debug>,${HERMES_SLOW_DEBUG},OFF>
     debug_options=$<IF:$<CONFIG:Debug>,ON,OFF>
     exception_on_oom_enabled=${HERMESVM_EXCEPTION_ON_OOM}

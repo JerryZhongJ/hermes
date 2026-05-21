@@ -50,7 +50,10 @@ PASS(
     "Merge DefineOwnPropertyInsts into AllocObjectLiteral")
 PASS(SimplifyCFG, "simplifycfg", "Simplify CFG")
 PASS(TypeInference, "typeinference", "Type inference")
-PASS(InsertTypeGuard, "inserttypeguard", "Insert TypeGuard instructions for speculative optimization")
+PASS(
+    InsertGuard,
+    "insertguard",
+    "Insert TypeGuard instructions for speculative optimization")
 PASS(FunctionAnalysis, "functionanalysis", "Function analysis")
 PASS(Inlining, "inlining", "Inlining")
 PASS(ResolveStaticRequire, "staticrequire", "Resolve static require")
@@ -59,7 +62,10 @@ PASS(Auditor, "auditor", "Auditor")
 PASS(TDZDedup, "tdzdedup", "TDZ Deduplication")
 PASS(StripDebugInsts, "stripdebug", "Strip debug instructions")
 PASS(LowerBuiltinCalls, "lowerbuiltincalls", "Lower builtin calls")
-PASS(LowerBuiltinCallsOptimized, "lowerbuiltincallsoptimized", "Lower builtin calls (with optimizations)")
+PASS(
+    LowerBuiltinCallsOptimized,
+    "lowerbuiltincallsoptimized",
+    "Lower builtin calls (with optimizations)")
 PASS(CacheNewObject, "cachenewobject", "Insert CacheNewObject instructions")
 
 #undef PASS

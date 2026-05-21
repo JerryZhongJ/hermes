@@ -118,7 +118,48 @@ ESTreeIRGen::ESTreeIRGen(
       flowContext_(flowContext),
       Root(root),
       Builder(Mod),
-      identDefaultExport_(Builder.createIdentifier("?default")) {}
+      identDefaultExport_(Builder.createIdentifier("?default")) {
+  // Pre-register all typed shape definitions from annotations.
+  const auto &ann = M->getContext().getTypeAnnotations();
+  for (const auto &def : ann.getTypedShapeDefs()) {
+    llvh::SmallVector<TypedShapeProperty, 8> properties;
+    for (const auto &prop : def.properties) {
+      auto type = Annotations::parseTypeNames(prop.typeNames);
+      if (!type.hasValue())
+        continue;
+      Identifier iden = M->getContext().getIdentifier(prop.name);
+      properties.push_back({iden, type.getValue()});
+    }
+    shapeDescs_.push_back(M->createTypedShape(properties));
+  }
+
+  // Pre-register object locations for shape promotions.
+  llvh::SmallVector<llvh::SMRange, 4> objectRanges;
+  ann.getShapePromotionObjectRanges(objectRanges);
+  for (const auto &range : objectRanges)
+    pendingPromotions_.insert({range, nullptr});
+}
+
+void ESTreeIRGen::tryInsertTryPromoteTypedShape(ESTree::Node *stmtNode) {
+  auto range = stmtNode->getSourceRange();
+  if (!range.isValid())
+    return;
+
+  auto entry = Mod->getContext().getTypeAnnotations().getShapePromotion(range);
+  if (!entry.hasValue())
+    return;
+
+  auto it = pendingPromotions_.find(entry->objectRange);
+  if (it == pendingPromotions_.end() || !it->second)
+    return;
+
+  if (entry->shapeIdx >= shapeDescs_.size())
+    return;
+
+  const TypedShapeDesc *desc = shapeDescs_[entry->shapeIdx];
+  auto *litShape = Builder.getLiteralTypedShape(desc);
+  Builder.createTryPromoteTypedShapeInst(it->second, litShape);
+}
 
 llvh::StringRef ESTreeIRGen::propertyKeyAsString(
     llvh::SmallVectorImpl<char> &storage,

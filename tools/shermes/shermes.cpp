@@ -16,7 +16,7 @@
 #include "hermes/AST/TransformAST.h"
 #include "hermes/IR/IRVerifier.h"
 #include "hermes/IRGen/IRGen.h"
-#include "hermes/IRGen/TypeAnnotationLoader.h"
+#include "hermes/IRGen/AnnotationLoader.h"
 #include "hermes/Optimizer/PassManager/PassManager.h"
 #include "hermes/Optimizer/PassManager/Pipeline.h"
 #include "hermes/Runtime/Libhermes.h"
@@ -290,8 +290,8 @@ static cl::opt<std::string> ExportedUnit(
     cl::cat(CompilerCategory));
 
 static cl::opt<std::string> TypeAnnotationFile(
-    "type-annotation-file",
-    cl::desc("JSON file with type annotations to override inference"),
+    "annotation-file",
+    cl::desc("JSON file with shape/type annotations"),
     cl::cat(CompilerCategory));
 
 static cl::opt<bool> InstrumentTypeGuards(

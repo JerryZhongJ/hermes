@@ -6,7 +6,7 @@
  */
 
 #include "ESTreeIRGen.h"
-#include "hermes/IRGen/TypeAnnotationLoader.h"
+#include "hermes/IRGen/AnnotationLoader.h"
 #include "hermes/Regex/RegexSerialization.h"
 #include "hermes/Support/UTF8.h"
 
@@ -43,27 +43,27 @@ Value *ESTreeIRGen::enforceExprType(hermes::Value *value, ESTree::Node *expr) {
 
 Value *ESTreeIRGen::genExpression(ESTree::Node *expr, Identifier nameHint) {
   Value *val = enforceExprType(_genExpressionImpl(expr, nameHint), expr);
-  tryApplyTypeAnnotation(val, expr);
+  tryApplyAnnotation(val, expr);
   return val;
 }
 
 bool ESTreeIRGen::tryApplyTypeAnnotation(Value *val, ESTree::Node *node) {
   // Apply type annotation from external JSON file using TypeAssertInst
-  const TypeAnnotations &typeAnnotations =
-      Mod->getContext().getTypeAnnotations();
+  const Annotations &typeAnnotations = Mod->getContext().getTypeAnnotations();
   auto range = node->getSourceRange();
   if (typeAnnotations.empty() || !range.isValid()) {
     return false;
   }
 
-  llvh::Optional<std::vector<std::string>> typeStrs = typeAnnotations.getAnnotation(range);
+  llvh::Optional<std::vector<std::string>> typeStrs =
+      typeAnnotations.getTypeGuard(range);
   if (!typeStrs.hasValue()) {
     return false;
   }
 
-  int annotId = typeAnnotations.getAnnotationId(range);
+  int annotId = typeAnnotations.getTypeGuardId(range);
 
-  llvh::Optional<Type> annotatedType = TypeAnnotations::parseTypeNames(*typeStrs);
+  llvh::Optional<Type> annotatedType = Annotations::parseTypeNames(*typeStrs);
   if (!annotatedType.hasValue()) {
     LLVM_DEBUG({
       llvh::dbgs() << "Unknown type names:";
@@ -98,6 +98,34 @@ bool ESTreeIRGen::tryApplyTypeAnnotation(Value *val, ESTree::Node *node) {
   }
 
   return true;
+}
+
+bool ESTreeIRGen::tryApplyShapeAnnotation(Value *val, ESTree::Node *node) {
+  const Annotations &ann = Mod->getContext().getTypeAnnotations();
+  auto range = node->getSourceRange();
+  if (!range.isValid())
+    return false;
+
+  int shapeIdx = ann.getShapeGuard(range);
+  if (shapeIdx < 0 || static_cast<unsigned>(shapeIdx) >= shapeDescs_.size())
+    return false;
+
+  auto *inst = llvh::dyn_cast<Instruction>(val);
+  if (!inst)
+    return false;
+
+  Mod->setShapeGuard(inst, shapeDescs_[shapeIdx]);
+  return true;
+}
+
+void ESTreeIRGen::tryApplyAnnotation(Value *val, ESTree::Node *node) {
+  tryApplyTypeAnnotation(val, node);
+  tryApplyShapeAnnotation(val, node);
+  // Record Value* for shape promotions if this is a known object location.
+  auto range = node->getSourceRange();
+  auto it = pendingPromotions_.find(range);
+  if (it != pendingPromotions_.end())
+    it->second = val;
 }
 
 Value *ESTreeIRGen::_genExpressionImpl(
@@ -2402,7 +2430,7 @@ Value *ESTreeIRGen::genAssignmentExpr(ESTree::AssignmentExpressionNode *AE) {
   // https://es5.github.io/#x11.13.1
   Value *V = lref.emitLoad();
   V = enforceExprType(V, left);
-  tryApplyTypeAnnotation(V, left);
+  tryApplyAnnotation(V, left);
   Value *RHS = genExpression(AE->_right, nameHint);
   Value *result;
   result = Builder.createBinaryOperatorInst(V, RHS, AssignmentKind);

@@ -10,7 +10,7 @@
 #include "hermes/IR/Analysis.h"
 #include "hermes/IR/IRUtils.h"
 #include "hermes/IR/Instrs.h"
-#include "hermes/IRGen/TypeAnnotationLoader.h"
+#include "hermes/IRGen/AnnotationLoader.h"
 #include "llvh/ADT/SmallString.h"
 
 namespace hermes {
@@ -840,6 +840,9 @@ void ESTreeIRGen::emitFunctionPrologue(
                                 : Builder.createCoerceThisNSInst(thisVal));
   }
 
+  // Apply external annotations keyed by function range to the "this" param.
+  tryApplyAnnotation(curFunction()->jsParams[0], funcNode);
+
   // Create the function level scope for this function. If a parent scope is
   // provided, use it, otherwise, this function does not have a lexical parent.
   Value *baseScope;
@@ -1141,7 +1144,7 @@ void ESTreeIRGen::emitParameters(ESTree::FunctionLikeNode *funcNode) {
     Instruction *formalParam = Builder.createLoadParamInst(jsParam);
     formalParam->setLocation(param->getDebugLoc());
     // Apply type annotation to parameter using TypeAssertInst
-    tryApplyTypeAnnotation(formalParam, param);
+    tryApplyAnnotation(formalParam, param);
 
     curFunction()->jsParams.push_back(formalParam);
     createLRef(param, true)

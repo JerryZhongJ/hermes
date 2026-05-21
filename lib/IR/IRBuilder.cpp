@@ -871,6 +871,14 @@ TypeOfIsInst *IRBuilder::createTypeOfIsInst(
   return inst;
 }
 
+IsTypedShapeInst *IRBuilder::createIsTypedShapeInst(
+    Value *input,
+    LiteralTypedShape *shape) {
+  auto *inst = new IsTypedShapeInst(input, shape);
+  insert(inst);
+  return inst;
+}
+
 UnaryOperatorInst *
 IRBuilder::createUnaryOperatorInst(Value *value, ValueKind kind, Type type) {
   auto UOI = new UnaryOperatorInst(kind, value, type);
@@ -1183,6 +1191,22 @@ AllocTypedObjectInst *IRBuilder::createAllocTypedObjectInst(
   return inst;
 }
 
+PromoteTypedShapeInst *
+IRBuilder::createPromoteTypedShapeInst(Value *obj, LiteralTypedShape *shape) {
+  auto *inst = new PromoteTypedShapeInst(obj, shape);
+  insert(inst);
+  return inst;
+}
+
+TryPromoteTypedShapeInst *
+IRBuilder::createTryPromoteTypedShapeInst(
+    Value *obj,
+    LiteralTypedShape *shape) {
+  auto *inst = new TryPromoteTypedShapeInst(obj, shape);
+  insert(inst);
+  return inst;
+}
+
 HBCCompareBranchInst *IRBuilder::createHBCCompareBranchInst(
     Value *left,
     Value *right,
@@ -1372,6 +1396,14 @@ UnionNarrowTrustedInst *IRBuilder::createUnionNarrowTrustedInst(
     Value *value,
     Type type) {
   auto *inst = new UnionNarrowTrustedInst(value, type);
+  insert(inst);
+  return inst;
+}
+
+AssertTypedShapeInst *IRBuilder::createAssertTypedShapeInst(
+    Value *value,
+    const TypedShapeDesc *shape) {
+  auto *inst = new AssertTypedShapeInst(value, shape);
   insert(inst);
   return inst;
 }

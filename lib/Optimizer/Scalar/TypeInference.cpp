@@ -626,6 +626,12 @@ class TypeInferenceImpl {
   Type inferAllocFastArrayInst(AllocFastArrayInst *inst) {
     return *inst->getInherentType();
   }
+  Type inferPromoteTypedShapeInst(PromoteTypedShapeInst *inst) {
+    return Type::createNoType();
+  }
+  Type inferTryPromoteTypedShapeInst(TryPromoteTypedShapeInst *inst) {
+    return Type::createNoType();
+  }
   Type inferGetTemplateObjectInst(GetTemplateObjectInst *inst) {
     return *inst->getInherentType();
   }
@@ -663,6 +669,9 @@ class TypeInferenceImpl {
     return *inst->getInherentType();
   }
   Type inferTypeOfIsInst(TypeOfIsInst *inst) {
+    return *inst->getInherentType();
+  }
+  Type inferIsTypedShapeInst(IsTypedShapeInst *inst) {
     return *inst->getInherentType();
   }
   Type inferThrowIfInst(ThrowIfInst *inst) {
@@ -931,6 +940,15 @@ class TypeInferenceImpl {
     // case we simply return something to avoid breaking invariants.
     if (LLVM_UNLIKELY(res.isNoType())) {
       return inst->getSavedResultType();
+    }
+    return res;
+  }
+  Type inferAssertTypedShapeInst(AssertTypedShapeInst *inst) {
+    auto res = Type::intersectTy(
+        *inst->getInherentType(), inst->getSingleOperand()->getType());
+
+    if (LLVM_UNLIKELY(res.isNoType())) {
+      return *inst->getInherentType();
     }
     return res;
   }
