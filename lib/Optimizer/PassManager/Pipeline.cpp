@@ -11,6 +11,7 @@
 #include "hermes/Optimizer/Scalar/Auditor.h"
 #include "hermes/Optimizer/Scalar/DCE.h"
 #include "hermes/Optimizer/Scalar/TypeInference.h"
+#include "hermes/Optimizer/Scalar/LocalTypeAndTypedShapeInference.h"
 
 #include "llvh/Support/Debug.h"
 #include "llvh/Support/raw_ostream.h"
@@ -52,6 +53,7 @@ void hermes::runFullOptimizationPasses(Module &M) {
   // And, remove duplicate type guards right away
   PM.addInsertGuard();
   PM.addSimpleStackPromotion();
+  PM.addLocalTypeAndTypedShapeInference();
   PM.addTypeInference();
   PM.addInstSimplify();
   PM.addSimplifyCFG();
@@ -82,6 +84,7 @@ void hermes::runFullOptimizationPasses(Module &M) {
   PM.addDCE();
   PM.addObjectMergeNewStores();
   PM.addObjectStackPromotion();
+  PM.addLocalTypeAndTypedShapeInference();
   PM.addTypeInference();
   PM.addSimpleStackPromotion();
   PM.addInstSimplify();
@@ -102,6 +105,7 @@ void hermes::runFullOptimizationPasses(Module &M) {
   PM.addObjectStackPromotion();
 
   // Run type inference before CSE so that we can better reason about binopt.
+  PM.addLocalTypeAndTypedShapeInference();
   PM.addTypeInference();
   PM.addCSE();
   PM.addTDZDedup();
@@ -115,6 +119,7 @@ void hermes::runFullOptimizationPasses(Module &M) {
   addMem2Reg();
   PM.addAuditor();
 
+  PM.addLocalTypeAndTypedShapeInference();
   PM.addTypeInference();
 
   // Run the optimizations.
@@ -140,6 +145,7 @@ void hermes::runOptimizationPassesToFixedPoint(Module &M) {
   PM.addLowerGeneratorFunction();
 
   PM.beginFixedPointLoop("outer type inference loop");
+  PM.addLocalTypeAndTypedShapeInference();
   PM.addTypeInference();
 
   PM.beginFixedPointLoop("inner loop");

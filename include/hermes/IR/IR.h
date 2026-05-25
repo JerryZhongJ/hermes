@@ -468,6 +468,32 @@ struct TypedShapeDesc {
   llvh::SmallVector<TypedShapeProperty, 8> props_;
 };
 
+/// The shape status lattice for the object operand in property access or
+/// shape-check instructions: NoShape -> KnownTypedShape -> AnyShapes.
+struct ObjectOperandShape {
+  enum Status : uint8_t { NoShape, KnownTypedShape, AnyShapes };
+
+  Status status = AnyShapes;
+  const TypedShapeDesc *desc = nullptr;
+
+  static ObjectOperandShape createNoShape() {
+    return {NoShape, nullptr};
+  }
+  static ObjectOperandShape createKnownTypedShape(const TypedShapeDesc *d) {
+    return {KnownTypedShape, d};
+  }
+  static ObjectOperandShape createAnyShapes() {
+    return {AnyShapes, nullptr};
+  }
+
+  bool operator==(const ObjectOperandShape &o) const {
+    return status == o.status && desc == o.desc;
+  }
+  bool operator!=(const ObjectOperandShape &o) const {
+    return !(*this == o);
+  }
+};
+
 /// An iterator over the types in a Type.
 class Type::iterator {
   friend class Type;

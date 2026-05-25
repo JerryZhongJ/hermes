@@ -50,6 +50,7 @@ PASS(
     "Merge DefineOwnPropertyInsts into AllocObjectLiteral")
 PASS(SimplifyCFG, "simplifycfg", "Simplify CFG")
 PASS(TypeInference, "typeinference", "Type inference")
+PASS(LocalTypeAndTypedShapeInference, "localtypeandtypedshapeinference", "Local type and typed shape inference")
 PASS(
     InsertGuard,
     "insertguard",

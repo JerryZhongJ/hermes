@@ -1032,6 +1032,67 @@ class InstSimplifyImpl {
       return UNT->getSingleOperand();
     return nullptr;
   }
+
+  /// Convert a LoadProperty-like instruction to PrLoad when the object has a
+  /// known typed shape and the property is a literal string present in that
+  /// shape.
+  Value *simplifyLoadProperty(BaseLoadPropertyInst *inst) {
+    auto operandShape = inst->getObjOperandShape();
+    if (operandShape.status != ObjectOperandShape::KnownTypedShape)
+      return nullptr;
+    auto *propStr = llvh::dyn_cast<LiteralString>(inst->getProperty());
+    if (!propStr)
+      return nullptr;
+    int idx = operandShape.desc->getPropertyIndex(propStr->getValue());
+    if (idx == -1)
+      return nullptr;
+    return builder_.createPrLoadInst(
+        inst->getObject(),
+        (size_t)idx,
+        propStr,
+        operandShape.desc->getPropertyType(idx));
+  }
+
+  /// Convert a StoreProperty-like instruction to PrStore when the object has a
+  /// known typed shape and the property is a literal string present in that
+  /// shape.
+  Value *simplifyStoreProperty(BaseStorePropertyInst *inst) {
+    auto operandShape = inst->getObjOperandShape();
+    if (operandShape.status != ObjectOperandShape::KnownTypedShape)
+      return nullptr;
+    auto *propStr = llvh::dyn_cast<LiteralString>(inst->getProperty());
+    if (!propStr)
+      return nullptr;
+    int idx = operandShape.desc->getPropertyIndex(propStr->getValue());
+    if (idx == -1)
+      return nullptr;
+    bool nonPointer = inst->getStoredValue()->getType().isNonPtr();
+    return builder_.createPrStoreInst(
+        inst->getStoredValue(),
+        inst->getObject(),
+        (size_t)idx,
+        propStr,
+        nonPointer);
+  }
+
+  /// Simplify IsTypedShapeInst:
+  /// 1. If the argument can't be an object, it's always false.
+  /// 2. If the object has a known typed shape, compare it with the checked
+  ///    shape — same shape → true, different shape → false.
+  Value *simplifyIsTypedShape(IsTypedShapeInst *inst) {
+    if (!inst->getArgument()->getType().canBeObject())
+      return builder_.getLiteralBool(false);
+
+    auto operandShape = inst->getObjOperandShape();
+    if (operandShape.status == ObjectOperandShape::KnownTypedShape) {
+      if (operandShape.desc == inst->getShape()->getData())
+        return builder_.getLiteralBool(true);
+      return builder_.getLiteralBool(false);
+    }
+
+    return nullptr;
+  }
+
   /// \returns one of:
   ///   - nullptr if the instruction cannot be simplified.
   ///   - a new value to replace the original one
@@ -1161,6 +1222,16 @@ class InstSimplifyImpl {
         return simplifyTypeOfIs(cast<TypeOfIsInst>(I));
       case ValueKind::CreateThisInstKind:
         return simplifyCreateThisInst(cast<CreateThisInst>(I));
+
+      case ValueKind::LoadPropertyInstKind:
+        return simplifyLoadProperty(cast<LoadPropertyInst>(I));
+      case ValueKind::LoadPropertyWithReceiverInstKind:
+        return simplifyLoadProperty(cast<LoadPropertyWithReceiverInst>(I));
+      case ValueKind::StorePropertyLooseInstKind:
+      case ValueKind::StorePropertyStrictInstKind:
+        return simplifyStoreProperty(cast<StorePropertyInst>(I));
+      case ValueKind::IsTypedShapeInstKind:
+        return simplifyIsTypedShape(cast<IsTypedShapeInst>(I));
 
       default:
         // TODO: handle other kinds of instructions.

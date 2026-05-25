@@ -1646,6 +1646,8 @@ class BaseStorePropertyInst : public Instruction {
   BaseStorePropertyInst(const BaseStorePropertyInst &) = delete;
   void operator=(const BaseStorePropertyInst &) = delete;
 
+  ObjectOperandShape objOperandShape_{};
+
  protected:
   explicit BaseStorePropertyInst(
       ValueKind kind,
@@ -1665,7 +1667,7 @@ class BaseStorePropertyInst : public Instruction {
   explicit BaseStorePropertyInst(
       const BaseStorePropertyInst *src,
       llvh::ArrayRef<Value *> operands)
-      : Instruction(src, operands) {}
+      : Instruction(src, operands), objOperandShape_(src->objOperandShape_) {}
 
   Value *getStoredValue() const {
     return getOperand(StoredValueIdx);
@@ -1675,6 +1677,13 @@ class BaseStorePropertyInst : public Instruction {
   };
   Value *getProperty() const {
     return getOperand(PropertyIdx);
+  }
+
+  ObjectOperandShape getObjOperandShape() const {
+    return objOperandShape_;
+  }
+  void setObjOperandShape(ObjectOperandShape info) {
+    objOperandShape_ = info;
   }
 
   static bool hasOutput() {
@@ -2245,6 +2254,8 @@ class BaseLoadPropertyInst : public Instruction {
   BaseLoadPropertyInst(const BaseLoadPropertyInst &) = delete;
   void operator=(const BaseLoadPropertyInst &) = delete;
 
+  ObjectOperandShape objOperandShape_{};
+
  protected:
   explicit BaseLoadPropertyInst(ValueKind kind, Value *object, Value *property)
       : Instruction(kind) {
@@ -2265,7 +2276,14 @@ class BaseLoadPropertyInst : public Instruction {
   explicit BaseLoadPropertyInst(
       const BaseLoadPropertyInst *src,
       llvh::ArrayRef<Value *> operands)
-      : Instruction(src, operands) {}
+      : Instruction(src, operands), objOperandShape_(src->objOperandShape_) {}
+
+  ObjectOperandShape getObjOperandShape() const {
+    return objOperandShape_;
+  }
+  void setObjOperandShape(ObjectOperandShape info) {
+    objOperandShape_ = info;
+  }
 
   static bool hasOutput() {
     return true;
@@ -3171,6 +3189,7 @@ class IsTypedShapeInst : public Instruction {
   void operator=(const IsTypedShapeInst &) = delete;
 
   int annotationId_ = -1;
+  ObjectOperandShape objOperandShape_{};
 
  public:
   enum { ArgumentIdx, ShapeIdx };
@@ -3184,7 +3203,9 @@ class IsTypedShapeInst : public Instruction {
   explicit IsTypedShapeInst(
       const IsTypedShapeInst *src,
       llvh::ArrayRef<Value *> operands)
-      : Instruction(src, operands), annotationId_(src->annotationId_) {}
+      : Instruction(src, operands),
+        annotationId_(src->annotationId_),
+        objOperandShape_(src->objOperandShape_) {}
 
   Value *getArgument() const {
     return getOperand(ArgumentIdx);
@@ -3200,6 +3221,13 @@ class IsTypedShapeInst : public Instruction {
     annotationId_ = id;
   }
 
+  ObjectOperandShape getObjOperandShape() const {
+    return objOperandShape_;
+  }
+  void setObjOperandShape(ObjectOperandShape info) {
+    objOperandShape_ = info;
+  }
+
   static bool hasOutput() {
     return true;
   }
@@ -3211,7 +3239,7 @@ class IsTypedShapeInst : public Instruction {
   }
 
   SideEffect getSideEffectImpl() const {
-    return SideEffect{}.setIdempotent();
+    return SideEffect{}.setReadHeap().setIdempotent();
   }
   static llvh::Optional<Type> getInherentTypeImpl() {
     return Type::createBoolean();

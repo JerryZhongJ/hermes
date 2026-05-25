@@ -8,31 +8,31 @@
 //===----------------------------------------------------------------------===//
 /// \file
 ///
-/// This optimization performs type inference for instructions that do not have
-/// isTyped() == true.
-/// It infers types for variables and function return types as well,
-/// and propagates them through the IR.
+/// This optimization performs local (per-function) type inference for
+/// instructions that do not have isTyped() == true.
+/// It infers types for instructions and function return types within a single
+/// function, without inter-procedural analysis.
 ///
 /// Steps:
-/// 1. Partition the functions into groups that use each others variables or
-/// call each other. This allows us to process all the instructions that could
-/// possibly influence each others' types together. If we were to visit
-/// functions one at a time, we might visit the use of a variable prior to its
-/// assignment in another function, and be unable to infer its type correctly.
-/// 2. Clear the type information from all instructions in the group. This
+/// 1. Clear the type information from all instructions in the function. This
 /// allows us to expand the types to the smallest valid type for each value
 /// instead of starting with types that are too loose prior to the pass and not
 /// be able to narrow them properly.
-/// 3. Infer the type of every instruction, function, and variable in the group.
+/// 2. Infer the type of every instruction and function return type.
 /// Iterate until no more changes are made.
+///
+/// Unlike the module-level TypeInference pass, this pass does NOT:
+/// - Infer parameter types from call sites
+/// - Track module-level Variables
+/// - Partition functions into groups for cross-function analysis
 ///
 /// The pass never widens types of any value, because it intersects the result
 /// types with the types prior to the pass before setting them.
 //===----------------------------------------------------------------------===//
 
-#define DEBUG_TYPE "typeinference"
+#define DEBUG_TYPE "localtypeinference"
 
-#include "hermes/Optimizer/Scalar/TypeInference.h"
+#include "LocalTypeInferenceRunner.h"
 
 #include "hermes/IR/Analysis.h"
 #include "hermes/IR/CFG.h"
@@ -43,8 +43,6 @@
 
 #include "llvh/ADT/DenseMap.h"
 #include "llvh/ADT/DenseSet.h"
-#include "llvh/ADT/EquivalenceClasses.h"
-#include "llvh/ADT/MapVector.h"
 #include "llvh/ADT/SmallPtrSet.h"
 #include "llvh/Support/Debug.h"
 
@@ -54,7 +52,8 @@ using llvh::SmallPtrSetImpl;
 
 STATISTIC(NumTI, "Number of instructions type inferred");
 
-namespace {
+namespace hermes {
+namespace local_type_inference {
 
 /// \return if the given \p type is a BigInt|Object, which used to determine if
 /// unary/binary operations may have a BigInt result.
@@ -298,8 +297,9 @@ static Type inferBinaryInst(BinaryOperatorInst *BOI) {
   }
 }
 
-/// Actual implementation of type inference pass.
-/// Contains the ability to infer types per-instruction.
+/// Actual implementation of local type inference pass.
+/// Contains the ability to infer types per-instruction within a single
+/// function.
 ///
 /// Prior to inferring the type of the instructions, the result type of
 /// each instruction is cleared out (set to "NoType"), and the inference
@@ -316,16 +316,17 @@ static Type inferBinaryInst(BinaryOperatorInst *BOI) {
 ///
 /// Importantly, the Phi instruction is handled separately from the usual
 /// dispatch mechanism.
-class TypeInferenceImpl {
+class Impl {
+  friend class ::hermes::LocalTypeInferenceRunner;
+
   /// Map from various values to their types prior to the pass.
-  /// Store types for Instruction, Parameter, Variable.
-  /// Store return type for Function.
+  /// Store types for Instruction, Parameter, Function return type.
   llvh::DenseMap<Value *, Type> prePassTypes_{};
 
+  std::vector<BasicBlock *> postOrder_;
+
  public:
-  /// Run type inference on every instruction in the module.
-  /// \return true when some types were changed.
-  bool runOnModule(Module *M);
+  explicit Impl(Function *) {}
 
  private:
   /// Run type inference on an instruction.
@@ -426,12 +427,6 @@ class TypeInferenceImpl {
     inst->setType(newTy);
     return newTy != originalTy;
   }
-
-  /// Run type inference on a the provided set of functions and variables to a
-  /// fixed point.
-  bool runOnFunctionsAndVars(
-      llvh::ArrayRef<Function *> functions,
-      llvh::ArrayRef<Variable *> vars);
 
   Type inferSingleOperandInst(SingleOperandInst *inst) {
     hermes_fatal("This is not a concrete instruction");
@@ -593,32 +588,40 @@ class TypeInferenceImpl {
     return *inst->getInherentType();
   }
   Type inferLoadPropertyInst(LoadPropertyInst *inst) {
-    auto operandShape = inst->getObjOperandShape();
-    assert(
-        operandShape.status != ObjectOperandShape::NoShape &&
-        "NoShape should not appear in TypeInference");
-    if (operandShape.status == ObjectOperandShape::KnownTypedShape) {
-      if (auto *propStr = llvh::dyn_cast<LiteralString>(inst->getProperty())) {
-        int idx = operandShape.desc->getPropertyIndex(propStr->getValue());
-        if (idx != -1)
-          return operandShape.desc->getPropertyType(idx);
+    auto info = inst->getObjOperandShape();
+    switch (info.status) {
+      case ObjectOperandShape::KnownTypedShape: {
+        if (auto *propStr =
+                llvh::dyn_cast<LiteralString>(inst->getProperty())) {
+          int idx = info.desc->getPropertyIndex(propStr->getValue());
+          if (idx != -1)
+            return info.desc->getPropertyType(idx);
+        }
+        return Type::createAnyType();
       }
+      case ObjectOperandShape::NoShape:
+        return Type::createNoType();
+      case ObjectOperandShape::AnyShapes:
+        return Type::createAnyType();
     }
-    return Type::createAnyType();
   }
   Type inferLoadPropertyWithReceiverInst(LoadPropertyWithReceiverInst *inst) {
-    auto operandShape = inst->getObjOperandShape();
-    assert(
-        operandShape.status != ObjectOperandShape::NoShape &&
-        "NoShape should not appear in TypeInference");
-    if (operandShape.status == ObjectOperandShape::KnownTypedShape) {
-      if (auto *propStr = llvh::dyn_cast<LiteralString>(inst->getProperty())) {
-        int idx = operandShape.desc->getPropertyIndex(propStr->getValue());
-        if (idx != -1)
-          return operandShape.desc->getPropertyType(idx);
+    auto info = inst->getObjOperandShape();
+    switch (info.status) {
+      case ObjectOperandShape::KnownTypedShape: {
+        if (auto *propStr =
+                llvh::dyn_cast<LiteralString>(inst->getProperty())) {
+          int idx = info.desc->getPropertyIndex(propStr->getValue());
+          if (idx != -1)
+            return info.desc->getPropertyType(idx);
+        }
+        return Type::createAnyType();
       }
+      case ObjectOperandShape::NoShape:
+        return Type::createNoType();
+      case ObjectOperandShape::AnyShapes:
+        return Type::createAnyType();
     }
-    return Type::createAnyType();
   }
   Type inferLoadOwnPrivateFieldInst(LoadOwnPrivateFieldInst *inst) {
     return Type::createAnyType();
@@ -997,78 +1000,6 @@ class TypeInferenceImpl {
     return inst->getSavedResultType();
   }
 
-  /// If all call sites of this Function are known, propagate
-  /// information from actuals to formals.
-  bool inferParams(Function *F) {
-    bool changed = false;
-    if (!F->allCallsitesKnown()) {
-      LLVM_DEBUG(
-          dbgs() << F->getInternalName().str() << " has unknown call sites.\n");
-      // If there are unknown call sites, we can't infer anything about the
-      // parameters.
-      for (auto *param : F->getJSDynamicParams()) {
-        Type originalTy = param->getType();
-        param->setType(Type::createAnyType());
-        checkAndSetPrePassType(param);
-        changed |= originalTy != param->getType();
-      }
-      return changed;
-    }
-    auto callsites = getKnownCallsites(F);
-    LLVM_DEBUG(
-        dbgs() << F->getInternalName().str() << " has " << callsites.size()
-               << " call sites.\n");
-    return propagateArgs(callsites, F);
-  }
-
-  /// Propagate type information from call sites of F to formals of F.
-  /// This assumes that all call sites of F are known.
-  /// Cannot narrow the type of any parameter from its type prior to this
-  /// function being called.
-  bool propagateArgs(llvh::ArrayRef<BaseCallInst *> callSites, Function *F) {
-    bool changed = false;
-    // Hermes does not support using 'arguments' to modify the arguments to a
-    // function in loose mode. Therefore, we can safely propagate the parameter
-    // types to their usage regardless of the function's strictness.
-    IRBuilder builder(F);
-    for (uint32_t i = 0, e = F->getJSDynamicParams().size(); i < e; ++i) {
-      auto *P = F->getJSDynamicParam(i);
-      Type originalTy = P->getType();
-      Type paramTy = originalTy;
-
-      // For each call sites.
-      for (auto *call : callSites) {
-        // The argument default value is undefined.
-        Value *arg = builder.getLiteralUndefined();
-
-        // Load the argument that's passed in.
-        if (i < call->getNumArguments()) {
-          arg = call->getArgument(i);
-        }
-
-        LLVM_DEBUG(
-            dbgs() << F->getInternalName().c_str()
-                   << "::" << P->getName().c_str()
-                   << " found arg of type: " << arg->getType() << '\n');
-        paramTy = Type::unionTy(paramTy, arg->getType());
-      }
-
-      P->setType(paramTy);
-      checkAndSetPrePassType(P);
-
-      if (P->getType() != originalTy) {
-        LLVM_DEBUG(
-            dbgs() << F->getInternalName().c_str()
-                   << "::" << P->getName().c_str() << " changed to ");
-        LLVM_DEBUG(P->getType().print(dbgs()));
-        LLVM_DEBUG(dbgs() << "\n");
-        changed = true;
-      }
-    }
-
-    return changed;
-  }
-
   /// Infer the return type of \p F and register it.
   /// Cannot narrow the type of \p F from the type prior to this function being
   /// called.
@@ -1096,24 +1027,10 @@ class TypeInferenceImpl {
     return F->getReturnType() != originalTy;
   }
 
-  /// Attempt to infer the type of a variable stored in memory.
-  /// \return true if the type changed.
-  bool inferMemoryType(Value *V) {
-    Type originalTy = V->getType();
-    Type T = inferMemoryLocationType(V);
-
-    // We were able to identify the type of the value. Record this info.
-    if (T != V->getType()) {
-      V->setType(T);
-      checkAndSetPrePassType(V);
-      return V->getType() != originalTy;
-    }
-    return false;
-  }
-
-  /// Clear every type for instructions, return types, parameters and variables
-  /// in the function provided.
+  /// Clear every type for instructions and return type in the function.
   /// Store the pre-pass types in prePassTypes_.
+  /// Parameters retain their pre-pass types — this pass does not do
+  /// inter-procedural parameter inference.
   void clearTypesInFunction(Function *f) {
     // Instructions
     for (auto &bbit : *f) {
@@ -1130,44 +1047,19 @@ class TypeInferenceImpl {
         inst->setType(inherent ? *inherent : Type::createNoType());
       }
     }
-    // Parameters
-    for (auto *P : f->getJSDynamicParams()) {
-      prePassTypes_.try_emplace(P, P->getType());
-      P->setType(Type::createNoType());
-    }
     // Return type
     prePassTypes_.try_emplace(f, f->getReturnType());
     f->setReturnType(Type::createNoType());
   }
 
-  /// Reset every return type and parameters in the function provided to the
-  /// pre-pass type, to handle the cases where the type is notype due to
-  /// unreachable or non-returning code.
+  /// Reset the return type in the function to the pre-pass type, to handle
+  /// the cases where the type is notype due to unreachable or non-returning
+  /// code.
   ///
   /// \return whether anything changed.
-  bool resetReturnAndParamNoTypesToPrePass(Function *F) {
-    LLVM_DEBUG(
-        llvh::dbgs() << "Resetting types in " << F->getInternalName() << '\n');
+ public:
+  bool resetReturnTypeNoTypesToPrePass(Function *F) {
     bool changed = false;
-
-    // Parameters
-    for (auto *P : F->getJSDynamicParams()) {
-      if (P->getType().isNoType()) {
-        assert(
-            F->allCallsitesKnown() &&
-            "params should be 'any' for unknown callsites");
-        // We know all callsites, so we can infer the type of the parameter.
-        // If it's notype, then there must be no reachable callsites.
-        F->getAttributesRef(F->getParent()).unreachable = true;
-        auto it = prePassTypes_.find(P);
-        assert(it != prePassTypes_.end() && "Missing pre-pass type.");
-        P->setType(it->second);
-        LLVM_DEBUG(
-            llvh::dbgs() << "Reset parameter type for " << P->getKindStr()
-                         << " to " << it->second << '\n');
-        changed = true;
-      }
-    }
     // Return type
     if (F->getReturnType().isNoType()) {
       auto it = prePassTypes_.find(F);
@@ -1185,20 +1077,7 @@ class TypeInferenceImpl {
     return changed;
   }
 
-  /// Reset the type of \p V to the pre-pass type, to handle the cases where the
-  /// type is notype due to unreachable or non-returning code.
-  ///
-  /// \return whether anything changed.
-  bool resetVariableNoTypesToPrePass(Variable *V) {
-    if (V->getType().isNoType()) {
-      auto it = prePassTypes_.find(V);
-      assert(it != prePassTypes_.end() && "Missing pre-pass type.");
-      V->setType(it->second);
-      return V->getType() != Type::createNoType();
-    }
-    return false;
-  }
-
+ private:
   /// Ensure that the type of \p val is not wider than its type prior to the
   /// pass by checking against the pre-pass type and intersecting the type with
   /// it when the pre-pass type is different than \p val's type.
@@ -1232,207 +1111,39 @@ class TypeInferenceImpl {
   }
 };
 
-bool TypeInferenceImpl::runOnFunctionsAndVars(
-    llvh::ArrayRef<Function *> functions,
-    llvh::ArrayRef<Variable *> vars) {
+} // namespace local_type_inference
+
+LocalTypeInferenceRunner::LocalTypeInferenceRunner(Function *F)
+    : F_(F), impl_(new local_type_inference::Impl(F)) {}
+
+LocalTypeInferenceRunner::~LocalTypeInferenceRunner() = default;
+
+void LocalTypeInferenceRunner::preIteration() {
   LLVM_DEBUG(
-      dbgs() << "\nStart Type Inference on " << functions.size()
-             << " functions and " << vars.size() << "vars.\n");
+      dbgs() << "\nStart Local Type Inference on " << F_->getInternalName()
+             << "\n");
 
-  // Post-order traversal of blocks for each function.
-  // Reverse when iterating, so that we visit the blocks in reverse post-order.
-  // Precomputed to avoid recomputing it in the inner loop.
-  llvh::DenseMap<Function *, std::vector<BasicBlock *>> funcPostOrders{};
-
-  // Begin by clearing the existing types and storing pre-pass types.
-  // This prevents us from relying on the previous inference pass's type info,
-  // which can be too loose (if things have been simplified, etc.).
-  // Also precompute the post-order traversal for each function.
-  for (Function *F : functions) {
-    clearTypesInFunction(F);
-    funcPostOrders.try_emplace(F, postOrderAnalysis(F));
-  }
-
-  for (Variable *V : vars) {
-    prePassTypes_.try_emplace(V, V->getType());
-    V->setType(Type::createNoType());
-  }
-
-  // Inferring the types of instructions can help us figure out the types of
-  // variables. Typed variables can help us deduce the types of loads and other
-  // values. This means that we need to iterate until we reach convergence.
-  bool localChanged = false;
-  // Whether we've already run the reset step once (don't do it twice, because
-  // it wouldn't do anything).
-  bool haveRunReset = false;
-  do {
-    LLVM_DEBUG(dbgs() << "\nStart TypeInference pass:\n");
-
-    localChanged = false;
-
-    // Infer the type of formal parameters, based on knowing the (full) set
-    // of call sites from which this function may be invoked.
-    bool inferredParam = false;
-    for (Function *F : functions) {
-      inferredParam |= inferParams(F);
-    }
-    if (inferredParam)
-      LLVM_DEBUG(dbgs() << ">> Inferred a parameter\n");
-    localChanged |= inferredParam;
-
-    // Infer types of instructions.
-    bool inferredInst = false;
-    for (Function *F : functions) {
-      llvh::ArrayRef<BasicBlock *> postOrder = funcPostOrders[F];
-      for (auto *bbit : llvh::reverse(postOrder)) {
-        for (auto &it : *bbit) {
-          Instruction *I = &it;
-          inferredInst |= inferInstruction(I);
-        }
-      }
-    }
-    if (inferredInst)
-      LLVM_DEBUG(dbgs() << ">> Inferred an instruction\n");
-    localChanged |= inferredInst;
-
-    // Infer the return type of the function based on the type of return
-    // instructions in the function.
-    bool inferredRetType = false;
-    for (Function *F : functions) {
-      inferredRetType |= inferFunctionReturnType(F);
-    }
-    if (inferredRetType)
-      LLVM_DEBUG(dbgs() << ">> Inferred function return type\n");
-    localChanged |= inferredRetType;
-
-    // Infer type of the supplied variables.
-    bool inferredVarType = false;
-    for (auto *var : vars) {
-      inferredVarType |= inferMemoryType(var);
-    }
-    if (inferredVarType)
-      LLVM_DEBUG(dbgs() << ">> Inferred variable type\n");
-    localChanged |= inferredVarType;
-
-    // The standard loop above failed to find any changes.
-    // Run the reset step to populate remaining NoTypes.
-    // Then we continue running the loop to ensure that we converge to the
-    // correct types (e.g. PhiInst type should be the union of the operands).
-    // We only have to do this once for this set of functions, so also check
-    // haveRunReset.
-    if (!localChanged && !haveRunReset) {
-      for (Function *F : functions) {
-        localChanged |= resetReturnAndParamNoTypesToPrePass(F);
-      }
-      for (Variable *var : vars) {
-        localChanged |= resetVariableNoTypesToPrePass(var);
-      }
-      haveRunReset = true;
-      if (localChanged)
-        LLVM_DEBUG(dbgs() << ">> Reset NoTypes\n");
-    }
-  } while (localChanged);
-
-  // Since we always infer from scratch, the inference has always "changed".
-  return true;
+  impl_->clearTypesInFunction(F_);
+  impl_->postOrder_ = postOrderAnalysis(F_);
 }
 
-/// Type of a group of functions and variables that should be processed
-/// together by type inference.
-using Partition = std::pair<std::vector<Function *>, std::vector<Variable *>>;
-
-/// Partition the functions in \p M into groups such that each group contains
-/// all functions and variables that have usages within the same group, and no
-/// usages outside the group.
-static std::vector<Partition> partitionFunctionsAndVars(Module *M) {
-  // EquivalenceClasses basically implements union-find (disjoint-set).
-  // This is convenient for finding all the functions use each other, as well as
-  // their shared variables.
-  llvh::EquivalenceClasses<const Value *> groups{};
-  for (Function &F : *M) {
-    // Add the function to the equivalence class, in case it doesn't have any
-    // users or captured vars, we will create a new group.
-    groups.insert(&F);
-
-    // NOTE: unionSets automatically inserts both arguments if they don't exist
-    // before unioning.
-
-    // Include any users of the function, to account for known callsites
-    // as well as closure creation.
-    for (const Instruction *user : F.getUsers()) {
-      groups.unionSets(&F, user->getFunction());
-    }
-  }
-
-  // Iterate over all the variables, and union them with the functions that use
-  // them. This ensures that all functions that access a variable are in the
-  // same group as the variable. Unlike with functions, we disregard variables
-  // that are unused, since there is nothing to meaningfully infer.
-  for (VariableScope &VS : M->getVariableScopes()) {
-    for (const Variable *V : VS.getVariables()) {
-      for (const Instruction *user : V->getUsers()) {
-        groups.unionSets(V, user->getFunction());
-      }
-    }
-  }
-
-  // Convert the EquivalenceClasses into a vector of vectors for faster
-  // iteration.
-  // Can't iterate the EquivalenceClasses directly because it uses pointers as
-  // keys and we want a deterministic ordering.
-
-  // Map from leader to index so we can use findLeader.
-  llvh::DenseMap<const Value *, unsigned> groupIndices;
-  // List of the groups, where group i has a leader and
-  // groupIndices[leader] == i.
-  std::vector<Partition> res;
-  for (Function &F : *M) {
-    const Value *leader = *groups.findLeader(&F);
-    auto [it, inserted] = groupIndices.try_emplace(leader, res.size());
-    if (inserted)
-      res.emplace_back();
-
-    res[it->second].first.push_back(&F);
-  }
-
-  for (VariableScope &VS : M->getVariableScopes()) {
-    for (Variable *V : VS.getVariables()) {
-      // Skip Variables that are not in a group, since they are unused.
-      auto leaderIt = groups.findLeader(V);
-      if (leaderIt == groups.member_end())
-        continue;
-
-      // Any variable that is in a group must have an associated function that
-      // uses it, which would have already been inserted.
-      const Value *leader = *leaderIt;
-      auto it = groupIndices.find(leader);
-      assert(it != groupIndices.end() && "Group not found");
-      res[it->second].second.push_back(V);
-    }
-  }
-  return res;
-}
-
-bool TypeInferenceImpl::runOnModule(Module *M) {
+bool LocalTypeInferenceRunner::step() {
+  LLVM_DEBUG(dbgs() << "\nStart LocalTypeInference pass:\n");
   bool changed = false;
-  LLVM_DEBUG(dbgs() << "\nStart Type Inference on Module\n");
 
-  auto partitionedFuncsAndVars = partitionFunctionsAndVars(M);
-  for (const auto &[funcs, vars] : partitionedFuncsAndVars) {
-    changed |= runOnFunctionsAndVars(funcs, vars);
+  for (auto *bbit : llvh::reverse(impl_->postOrder_)) {
+    for (auto &it : *bbit) {
+      changed |= impl_->inferInstruction(&it);
+    }
   }
+  changed |= impl_->inferFunctionReturnType(F_);
   return changed;
 }
 
-} // anonymous namespace
-
-bool TypeInference::runOnModule(Module *M) {
-  TypeInferenceImpl impl{};
-  return impl.runOnModule(M);
+bool LocalTypeInferenceRunner::interIteration() {
+  return impl_->resetReturnTypeNoTypesToPrePass(F_);
 }
 
-Pass *hermes::createTypeInference() {
-  return new TypeInference();
-}
+} // namespace hermes
 
 #undef DEBUG_TYPE
