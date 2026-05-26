@@ -168,9 +168,11 @@ void HiddenClass::_snapshotAddNodesImpl(
 #endif
 
 HiddenClass *HiddenClass::createRoot(Runtime &runtime) {
+  ClassFlags flags{};
+  flags.typed = true;
   return create(
       runtime,
-      ClassFlags{},
+      flags,
       Runtime::makeNullHandle<HiddenClass>(),
       SymbolID{},
       PropertyFlags{},
@@ -201,6 +203,7 @@ Handle<HiddenClass> HiddenClass::copyToNewDictionary(
       !selfHandle->isDictionaryNoCache() && "class already in no-cache mode");
 
   auto newFlags = selfHandle->flags_;
+  newFlags.typed = false;
   newFlags.dictionaryMode = true;
   // If the requested, transition to no-cache mode.
   if (noCache) {
@@ -440,6 +443,8 @@ CallResult<std::pair<Handle<HiddenClass>, SlotIndex>> HiddenClass::addProperty(
       toArrayIndex(runtime.getIdentifierTable().getStringView(runtime, name))
           .hasValue();
   auto newFlags = computeFlags(selfHandle->flags_, propertyFlags, isIndexLike);
+  auto propertyType = propertyFlags.getPropertyType();
+  newFlags.typed = selfHandle->isTyped() && !propertyType.isNone();
 
   // Allocate the child.
   auto childHandle = runtime.makeHandle<HiddenClass>(HiddenClass::create(

@@ -8,6 +8,7 @@
 #ifndef HERMES_VM_PROPERTYDESCRIPTOR_H
 #define HERMES_VM_PROPERTYDESCRIPTOR_H
 
+#include <cassert>
 #include <cstdint>
 
 namespace hermes {
@@ -15,6 +16,80 @@ namespace vm {
 
 /// @name PropertyDescriptor
 /// @{
+
+/// VM-level property type-set code stored in PropertyFlags. This is a compact
+/// 4-bit encoding of selected useful types/unions, not a bitmask.
+class PropertyTypeCode {
+ public:
+  /// Default construction means no type information.
+  constexpr PropertyTypeCode() : code_(Code::None) {}
+
+  static constexpr PropertyTypeCode none() {
+    return PropertyTypeCode(Code::None);
+  }
+  static constexpr PropertyTypeCode number() {
+    return PropertyTypeCode(Code::Number);
+  }
+  static constexpr PropertyTypeCode nullish() {
+    return PropertyTypeCode(Code::Nullish);
+  }
+  static constexpr PropertyTypeCode string() {
+    return PropertyTypeCode(Code::String);
+  }
+  static constexpr PropertyTypeCode boolean() {
+    return PropertyTypeCode(Code::Boolean);
+  }
+  static constexpr PropertyTypeCode numberOrNullish() {
+    return PropertyTypeCode(Code::NumberOrNullish);
+  }
+  static constexpr PropertyTypeCode object() {
+    return PropertyTypeCode(Code::Object);
+  }
+  static constexpr PropertyTypeCode any() {
+    return PropertyTypeCode(Code::Any);
+  }
+
+  static PropertyTypeCode fromRaw(uint8_t raw) {
+    assert(raw <= 0xF && "PropertyTypeCode must fit in 4 bits");
+    return PropertyTypeCode(static_cast<Code>(raw));
+  }
+
+  constexpr uint8_t getRaw() const {
+    return static_cast<uint8_t>(code_);
+  }
+
+  constexpr bool isNone() const {
+    return code_ == Code::None;
+  }
+
+  constexpr bool canBeNumber() const {
+    return code_ == Code::Number || code_ == Code::NumberOrNullish ||
+        code_ == Code::Any;
+  }
+
+  constexpr bool operator==(PropertyTypeCode other) const {
+    return code_ == other.code_;
+  }
+  constexpr bool operator!=(PropertyTypeCode other) const {
+    return !(*this == other);
+  }
+
+ private:
+  enum class Code : uint8_t {
+    None = 0,
+    Number = 1,
+    Nullish = 2,
+    String = 3,
+    Boolean = 4,
+    NumberOrNullish = 5,
+    Object = 6,
+    Any = 15,
+  };
+
+  constexpr PropertyTypeCode(Code code) : code_(code) {}
+
+  Code code_;
+};
 
 /// Flags associated with a single property descriptor.
 struct PropertyFlags {
@@ -63,6 +138,8 @@ struct PropertyFlags {
       uint16_t proxyObject : 1;
       /// The property is a private name.
       uint16_t privateName : 1;
+      /// Compact VM-level property type-set code.
+      uint16_t propertyType : 4;
     };
 
     uint16_t _flags;
@@ -81,6 +158,14 @@ struct PropertyFlags {
   }
   bool operator!=(PropertyFlags f) const {
     return _flags != f._flags;
+  }
+
+  PropertyTypeCode getPropertyType() const {
+    return PropertyTypeCode::fromRaw(propertyType);
+  }
+
+  void setPropertyType(PropertyTypeCode type) {
+    propertyType = type.getRaw();
   }
 
   /// \return true if this is not an invalid instance (i.e. the invalid flag

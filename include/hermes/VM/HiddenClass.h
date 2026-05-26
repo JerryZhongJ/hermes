@@ -55,6 +55,11 @@ struct ClassFlags {
   /// property is set and then deleted, this will still be set to true.
   uint8_t mayHaveAccessor : 1;
 
+  /// This HiddenClass is a typed shape. This is an opt-in state: most shape
+  /// mutations conservatively clear it, and only root plus typed add-property
+  /// construction set it.
+  uint8_t typed : 1;
+
   ClassFlags() {
     ::memset(this, 0, sizeof(*this));
   }
@@ -383,6 +388,10 @@ class HiddenClass final : public GCCell {
     return flags_.mayHaveAccessor;
   }
 
+  bool isTyped() const {
+    return flags_.typed;
+  }
+
   /// \return The for-in cache if one has been set, otherwise nullptr.
   ArrayStorageSmall *getForInCache(Runtime &runtime) const {
     return forInCache_.get(runtime);
@@ -675,6 +684,9 @@ inline ClassFlags HiddenClass::computeFlags(
   // Carry over the the existing mayHaveAccessor flag. Once an accessor property
   // has been set, all subsequent classes must have this property marked.
   flags.mayHaveAccessor |= pf.accessor;
+  // Shape mutations are untyped by default. Typed add-property construction
+  // explicitly sets this back to true after proving its invariant.
+  flags.typed = false;
   return flags;
 }
 
