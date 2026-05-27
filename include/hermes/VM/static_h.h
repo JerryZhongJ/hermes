@@ -1453,6 +1453,14 @@ SHERMES_EXPORT void _sh_prstore_indirect(
     uint32_t propIndex,
     SHLegacyValue *value);
 
+/// Check that \p value can be stored into the typed property at \p propIndex.
+/// The \p propIndex is the absolute named slot index.
+SHERMES_EXPORT void _sh_check_type_for_prstore(
+    SHRuntime *shr,
+    SHLegacyValue *target,
+    uint32_t propIndex,
+    SHLegacyValue *value);
+
 SHERMES_EXPORT void _sh_unreachable() __attribute__((noreturn));
 
 /// Store a property into direct or indirect storage depending on its index.
@@ -1460,7 +1468,11 @@ static inline void _sh_prstore(
     SHRuntime *shr,
     SHLegacyValue *target,
     uint32_t propIndex,
-    SHLegacyValue *value) {
+    SHLegacyValue *value,
+    bool checkType) {
+  if (checkType) {
+    _sh_check_type_for_prstore(shr, target, propIndex, value);
+  }
   if (propIndex < HERMESVM_DIRECT_PROPERTY_SLOTS) {
     _sh_prstore_direct(shr, target, propIndex, value);
   } else {

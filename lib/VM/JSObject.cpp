@@ -26,6 +26,32 @@
 namespace hermes {
 namespace vm {
 
+namespace {
+
+bool typedPropertyValueMatches(PropertyTypeCode type, HermesValue value) {
+  switch (type) {
+    case PropertyTypeCode::None:
+      llvm_unreachable("typed property store must have a property type");
+    case PropertyTypeCode::Any:
+      return true;
+    case PropertyTypeCode::Number:
+      return value.isNumber();
+    case PropertyTypeCode::String:
+      return value.isString();
+    case PropertyTypeCode::Boolean:
+      return value.isBool();
+    case PropertyTypeCode::Object:
+      return value.isObject();
+    case PropertyTypeCode::Nullish:
+      return value.isNull() || value.isUndefined();
+    case PropertyTypeCode::NumberOrNullish:
+      return value.isNumber() || value.isNull() || value.isUndefined();
+  }
+  llvm_unreachable("unsupported PropertyTypeCode");
+}
+
+} // namespace
+
 const ObjectVTable JSObject::vt{
     VTable(
         CellKind::JSObjectKind,
@@ -76,6 +102,56 @@ void JSObjectBuildMeta(const GCCell *cell, Metadata::Builder &mb) {
        ++i) {
     mb.addField(directPropName[i], self->directProps() + i);
   }
+}
+
+void JSObject::checkTypedPropertyStore(
+    Handle<JSObject> selfHandle,
+    Runtime &runtime,
+    SymbolID name,
+    OptValue<HiddenClass::PropertyPos> pos,
+    NamedPropertyDescriptor desc,
+    Handle<> valueHandle) {
+  auto clazzHandle = runtime.makeHandle(selfHandle->getClass(runtime));
+  if (!clazzHandle->isTyped())
+    return;
+
+  if (typedPropertyValueMatches(desc.flags.getPropertyType(), *valueHandle))
+    return;
+
+  if (!pos) {
+    NamedPropertyDescriptor currentDesc;
+    pos = findProperty(selfHandle, runtime, name, currentDesc);
+    assert(pos && "typed store target property must exist");
+    assert(currentDesc.slot == desc.slot && "typed store descriptor mismatch");
+    desc = currentDesc;
+  }
+
+  desc.flags.setPropertyType(PropertyTypeCode::None);
+  auto newClazz =
+      HiddenClass::updateProperty(clazzHandle, runtime, *pos, desc.flags);
+  selfHandle->updateClass(runtime, *newClazz);
+}
+
+void JSObject::checkTypedPropertyStoreBySlot(
+    Handle<JSObject> selfHandle,
+    Runtime &runtime,
+    SlotIndex slot,
+    Handle<> valueHandle) {
+  auto clazzHandle = runtime.makeHandle(selfHandle->getClass(runtime));
+  if (!clazzHandle->isTyped())
+    return;
+
+  auto foundBySlot =
+      HiddenClass::findPropertyBySlot(clazzHandle, runtime, slot);
+  assert(foundBySlot && "typed store target slot must exist");
+  auto desc = foundBySlot->second;
+  if (typedPropertyValueMatches(desc.flags.getPropertyType(), *valueHandle))
+    return;
+
+  desc.flags.setPropertyType(PropertyTypeCode::None);
+  auto newClazz =
+      HiddenClass::updatePropertyBySlot(clazzHandle, runtime, slot, desc.flags);
+  selfHandle->updateClass(runtime, *newClazz);
 }
 
 PseudoHandle<JSObject> JSObject::create(
@@ -304,8 +380,9 @@ ExecutionStatus JSObject::allocateNewSlotStorage(
         PropStorage::create(runtime, DEFAULT_PROPERTY_CAPACITY));
     selfHandle->propStorage_.setNonNull(
         runtime, vmcast<PropStorage>(arrRes), runtime.getHeap());
-  } else if (auto propStoragePtr = selfHandle->propStorage_.getNonNull(runtime);
-             LLVM_UNLIKELY(newSlotIndex >= propStoragePtr->capacity())) {
+  } else if (
+      auto propStoragePtr = selfHandle->propStorage_.getNonNull(runtime);
+      LLVM_UNLIKELY(newSlotIndex >= propStoragePtr->capacity())) {
     // Reallocate the existing one.
     assert(
         newSlotIndex == selfHandle->propStorage_.getNonNull(runtime)->size() &&
@@ -975,8 +1052,19 @@ JSObject *JSObject::getNamedDescriptorUnsafe(
     Runtime &runtime,
     SymbolID name,
     NamedPropertyDescriptor &desc) {
-  if (findProperty(selfHandle, runtime, name, desc))
+  OptValue<HiddenClass::PropertyPos> ignoredPos;
+  return getNamedDescriptorUnsafe(selfHandle, runtime, name, desc, ignoredPos);
+}
+
+JSObject *JSObject::getNamedDescriptorUnsafe(
+    Handle<JSObject> selfHandle,
+    Runtime &runtime,
+    SymbolID name,
+    NamedPropertyDescriptor &desc,
+    OptValue<HiddenClass::PropertyPos> &pos) {
+  if ((pos = findProperty(selfHandle, runtime, name, desc))) {
     return *selfHandle;
+  }
 
   // Check here for host object flag.  This means that "normal" own
   // properties above win over host-defined properties, but there's no
@@ -999,8 +1087,9 @@ JSObject *JSObject::getNamedDescriptorUnsafe(
     // Initialize the object and perform the lookup again.
     JSObject::initializeLazyObject(runtime, selfHandle);
 
-    if (findProperty(selfHandle, runtime, name, desc))
+    if ((pos = findProperty(selfHandle, runtime, name, desc))) {
       return *selfHandle;
+    }
   }
 
   if (LLVM_UNLIKELY(selfHandle->flags_.proxyObject)) {
@@ -1020,7 +1109,7 @@ JSObject *JSObject::getNamedDescriptorUnsafe(
               !mutableSelfHandle->flags_.hostObject &&
               !mutableSelfHandle->flags_.proxyObject)) {
       findProp:
-        if (findProperty(mutableSelfHandle, runtime, name, desc)) {
+        if ((pos = findProperty(mutableSelfHandle, runtime, name, desc))) {
           assert(
               !selfHandle->flags_.proxyObject &&
               "Proxy object parents should never have own properties");
@@ -1435,11 +1524,13 @@ CallResult<bool> JSObject::putNamedWithReceiver_RJS(
     SHUnit *unit,
     WritePropertyCacheEntry *cacheEntry) {
   NamedPropertyDescriptor desc;
+  OptValue<HiddenClass::PropertyPos> pos;
 
   // Look for the property in this object or along the prototype chain.
   // `name` will not be freed before this function returns,
   // so it will outlive the lifetime of `desc`.
-  JSObject *propObj = getNamedDescriptorUnsafe(selfHandle, runtime, name, desc);
+  JSObject *propObj =
+      getNamedDescriptorUnsafe(selfHandle, runtime, name, desc, pos);
 
   // If the property exists (or, we hit a proxy/hostobject on the way
   // up the chain)
@@ -1456,6 +1547,8 @@ CallResult<bool> JSObject::putNamedWithReceiver_RJS(
             !desc.flags.accessor && !desc.flags.internalSetter &&
             !desc.flags.hostObject && !desc.flags.proxyObject &&
             desc.flags.writable)) {
+      assert(pos && "own data property must have a PropertyPos");
+      checkTypedPropertyStore(selfHandle, runtime, name, pos, desc, valueHandle);
       auto shv = SmallHermesValue::encodeHermesValue(*valueHandle, runtime);
       setNamedSlotValueUnsafe(*selfHandle, runtime, desc, shv);
       return true;
@@ -1537,7 +1630,9 @@ CallResult<bool> JSObject::putNamedWithReceiver_RJS(
       return false;
     }
 
-    if (getOwnNamedDescriptor(receiverHandle, runtime, name, desc)) {
+    OptValue<HiddenClass::PropertyPos> receiverPos;
+    if (getOwnNamedDescriptor(
+            receiverHandle, runtime, name, desc, receiverPos)) {
       if (LLVM_UNLIKELY(desc.flags.accessor || !desc.flags.writable)) {
         return false;
       }
@@ -1545,6 +1640,8 @@ CallResult<bool> JSObject::putNamedWithReceiver_RJS(
       assert(
           !receiverHandle->isHostObject() && !receiverHandle->isProxyObject() &&
           "getOwnNamedDescriptor never sets hostObject or proxyObject flags");
+      checkTypedPropertyStore(
+          receiverHandle, runtime, name, receiverPos, desc, valueHandle);
       auto shv = SmallHermesValue::encodeHermesValue(*valueHandle, runtime);
       setNamedSlotValueUnsafe(*receiverHandle, runtime, desc, shv);
       return true;
@@ -1703,6 +1800,17 @@ CallResult<bool> JSObject::putComputedWithReceiver_RJS(
             !desc.flags.accessor && !desc.flags.internalSetter &&
             !desc.flags.hostObject && !desc.flags.proxyObject &&
             desc.flags.writable)) {
+      if (LLVM_LIKELY(!desc.flags.indexed)) {
+        SymbolID id{};
+        LAZY_TO_IDENTIFIER(runtime, nameValPrimitiveHandle, id);
+        checkTypedPropertyStore(
+            selfHandle,
+            runtime,
+            id,
+            llvh::None,
+            NamedPropertyDescriptor{desc.flags, desc.slot},
+            valueHandle);
+      }
       if (LLVM_UNLIKELY(
               setComputedSlotValueUnsafe(
                   selfHandle, runtime, desc, valueHandle) ==
@@ -1819,6 +1927,17 @@ CallResult<bool> JSObject::putComputedWithReceiver_RJS(
               !existingDesc.flags.internalSetter &&
               !receiverHandle->isHostObject() &&
               !receiverHandle->isProxyObject())) {
+        if (LLVM_LIKELY(!existingDesc.flags.indexed)) {
+          SymbolID id{};
+          LAZY_TO_IDENTIFIER(runtime, nameValPrimitiveHandle, id);
+          checkTypedPropertyStore(
+              receiverHandle,
+              runtime,
+              id,
+              llvh::None,
+              NamedPropertyDescriptor{existingDesc.flags, existingDesc.slot},
+              valueHandle);
+        }
         if (LLVM_UNLIKELY(
                 setComputedSlotValueUnsafe(
                     receiverHandle, runtime, existingDesc, valueHandle) ==
@@ -2994,6 +3113,9 @@ ExecutionStatus JSObject::addOwnPropertyImpl(
       propertyFlags.privateName ||
       !selfHandle->flags_.proxyObject &&
           "Internal non-private properties cannot be added to Proxy objects");
+  assert(
+      propertyFlags.getPropertyType() == PropertyTypeCode::None &&
+      "runtime object property adds cannot introduce typed properties");
 
   struct : public Locals {
     PinnedValue<HiddenClass> startClazz;

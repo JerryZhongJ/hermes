@@ -9,6 +9,7 @@
 
 #include "hermes/VM/HostModel.h"
 #include "hermes/VM/JSCallableProxy.h"
+#include "hermes/VM/JSObject.h"
 #include "hermes/VM/JSProxy.h"
 #include "hermes/VM/Runtime.h"
 
@@ -56,6 +57,7 @@ TEST_F(HiddenClassTest, SmokeTest) {
 
   ASSERT_EQ(0u, rootHnd->getNumProperties());
   ASSERT_FALSE(rootHnd->isDictionary());
+  ASSERT_TRUE(rootHnd->isTyped());
   ASSERT_TRUE(rootHnd->isKnownLeaf());
 
   // x = {}
@@ -68,6 +70,7 @@ TEST_F(HiddenClassTest, SmokeTest) {
     ASSERT_EQ(0u, addRes->second);
     ASSERT_NE(*rootHnd, *addRes->first);
     x = *addRes->first;
+    ASSERT_FALSE(x->isTyped());
   }
   {
     // x.b
@@ -149,6 +152,7 @@ TEST_F(HiddenClassTest, SmokeTest) {
     auto newClz = HiddenClass::updateProperty(x, runtime, *found, desc.flags);
     ASSERT_NE(*x, *newClz);
     ASSERT_EQ(x->getNumProperties(), newClz->getNumProperties());
+    ASSERT_FALSE(newClz->isTyped());
     x = *newClz;
 
     found = HiddenClass::findProperty(x, runtime, *bHnd, desc);
@@ -222,6 +226,7 @@ TEST_F(HiddenClassTest, SmokeTest) {
     ASSERT_NE(*x, *x1);
     ASSERT_FALSE(x->isDictionary());
     ASSERT_TRUE(x1->isDictionary());
+    ASSERT_FALSE(x1->isTyped());
     ASSERT_EQ(2u, x1->getNumProperties());
 
     found = HiddenClass::findProperty(x1, runtime, *aHnd, desc);
@@ -519,6 +524,235 @@ TEST_F(HiddenClassTest, ForEachProperty) {
         propertiesNoAlloc.emplace_back(id, desc);
       });
   EXPECT_EQ(expectedProperties, propertiesNoAlloc);
+}
+
+TEST_F(HiddenClassTest, TypedPropertyTransitions) {
+  GCScope gcScope{runtime, "HiddenClassTest.TypedPropertyTransitions", 48};
+
+  auto xHnd = *runtime.getIdentifierTable().getSymbolHandle(
+      runtime, createUTF16Ref(u"x"));
+  auto yHnd = *runtime.getIdentifierTable().getSymbolHandle(
+      runtime, createUTF16Ref(u"y"));
+
+  auto root = runtime.makeHandle<HiddenClass>(HiddenClass::createRoot(runtime));
+  ASSERT_TRUE(root->isTyped());
+
+  auto defaultFlags = PropertyFlags::defaultNewNamedPropertyFlags();
+  auto numberFlags = defaultFlags;
+  numberFlags.setPropertyType(PropertyTypeCode::Number);
+  auto stringFlags = defaultFlags;
+  stringFlags.setPropertyType(PropertyTypeCode::String);
+
+  auto numberAdd = HiddenClass::addProperty(root, runtime, *xHnd, numberFlags);
+  ASSERT_RETURNED(numberAdd);
+  auto numberClass = numberAdd->first;
+  EXPECT_TRUE(numberClass->isTyped());
+  EXPECT_EQ(0u, numberAdd->second);
+
+  auto numberAddAgain =
+      HiddenClass::addProperty(root, runtime, *xHnd, numberFlags);
+  ASSERT_RETURNED(numberAddAgain);
+  EXPECT_EQ(*numberClass, *numberAddAgain->first);
+
+  auto stringAdd = HiddenClass::addProperty(root, runtime, *xHnd, stringFlags);
+  ASSERT_RETURNED(stringAdd);
+  EXPECT_TRUE(stringAdd->first->isTyped());
+  EXPECT_NE(*numberClass, *stringAdd->first);
+
+  auto untypedAdd =
+      HiddenClass::addProperty(root, runtime, *xHnd, defaultFlags);
+  ASSERT_RETURNED(untypedAdd);
+  EXPECT_FALSE(untypedAdd->first->isTyped());
+  EXPECT_NE(*numberClass, *untypedAdd->first);
+  EXPECT_NE(*stringAdd->first, *untypedAdd->first);
+
+  auto addToUntyped =
+      HiddenClass::addProperty(untypedAdd->first, runtime, *yHnd, numberFlags);
+  ASSERT_RETURNED(addToUntyped);
+  EXPECT_FALSE(addToUntyped->first->isTyped());
+}
+
+TEST_F(HiddenClassTest, TypedPropertyMapPreservesTypes) {
+  GCScope gcScope{
+      runtime, "HiddenClassTest.TypedPropertyMapPreservesTypes", 48};
+
+  auto xHnd = *runtime.getIdentifierTable().getSymbolHandle(
+      runtime, createUTF16Ref(u"x"));
+  auto yHnd = *runtime.getIdentifierTable().getSymbolHandle(
+      runtime, createUTF16Ref(u"y"));
+
+  MutableHandle<HiddenClass> clazz{runtime, HiddenClass::createRoot(runtime)};
+  auto defaultFlags = PropertyFlags::defaultNewNamedPropertyFlags();
+  auto numberFlags = defaultFlags;
+  numberFlags.setPropertyType(PropertyTypeCode::Number);
+  auto stringFlags = defaultFlags;
+  stringFlags.setPropertyType(PropertyTypeCode::String);
+  auto booleanFlags = defaultFlags;
+  booleanFlags.setPropertyType(PropertyTypeCode::Boolean);
+
+  {
+    auto addRes = HiddenClass::addProperty(clazz, runtime, *xHnd, numberFlags);
+    ASSERT_RETURNED(addRes);
+    clazz = *addRes->first;
+  }
+  {
+    auto addRes = HiddenClass::addProperty(clazz, runtime, *yHnd, stringFlags);
+    ASSERT_RETURNED(addRes);
+    clazz = *addRes->first;
+  }
+  ASSERT_TRUE(clazz->isTyped());
+
+  NamedPropertyDescriptor desc;
+  auto found = HiddenClass::findProperty(clazz, runtime, *xHnd, desc);
+  ASSERT_TRUE(found);
+  EXPECT_EQ(0u, desc.slot);
+  EXPECT_EQ(PropertyTypeCode::Number, desc.flags.getPropertyType());
+
+  found = HiddenClass::findProperty(clazz, runtime, *yHnd, desc);
+  ASSERT_TRUE(found);
+  EXPECT_EQ(1u, desc.slot);
+  EXPECT_EQ(PropertyTypeCode::String, desc.flags.getPropertyType());
+
+  MutableHandle<HiddenClass> next{runtime, *clazz};
+  auto zHnd = *runtime.getIdentifierTable().getSymbolHandle(
+      runtime, createUTF16Ref(u"z"));
+  auto addRes = HiddenClass::addProperty(next, runtime, *zHnd, booleanFlags);
+  ASSERT_RETURNED(addRes);
+  next = *addRes->first;
+  EXPECT_TRUE(next->isTyped());
+
+  found = HiddenClass::findProperty(next, runtime, *zHnd, desc);
+  ASSERT_TRUE(found);
+  EXPECT_EQ(2u, desc.slot);
+  EXPECT_EQ(PropertyTypeCode::Boolean, desc.flags.getPropertyType());
+}
+
+TEST_F(HiddenClassTest, TypedPropertyMapIndexMatchesSlot) {
+  GCScope gcScope{
+      runtime, "HiddenClassTest.TypedPropertyMapIndexMatchesSlot", 48};
+
+  auto xHnd = *runtime.getIdentifierTable().getSymbolHandle(
+      runtime, createUTF16Ref(u"x"));
+  auto yHnd = *runtime.getIdentifierTable().getSymbolHandle(
+      runtime, createUTF16Ref(u"y"));
+
+  MutableHandle<HiddenClass> clazz{runtime, HiddenClass::createRoot(runtime)};
+  auto flags = PropertyFlags::defaultNewNamedPropertyFlags();
+  flags.setPropertyType(PropertyTypeCode::Number);
+  {
+    auto addRes = HiddenClass::addProperty(clazz, runtime, *xHnd, flags);
+    ASSERT_RETURNED(addRes);
+    clazz = *addRes->first;
+  }
+  {
+    auto addRes = HiddenClass::addProperty(clazz, runtime, *yHnd, flags);
+    ASSERT_RETURNED(addRes);
+    clazz = *addRes->first;
+  }
+
+  ASSERT_TRUE(clazz->isTyped());
+  for (SlotIndex slot = 0; slot < clazz->getNumProperties(); ++slot) {
+    auto found = HiddenClass::findPropertyBySlot(clazz, runtime, slot);
+    ASSERT_TRUE(found);
+    EXPECT_EQ(slot, found->second.slot);
+    EXPECT_EQ(
+        PropertyTypeCode::Number, found->second.flags.getPropertyType());
+  }
+}
+
+TEST_F(HiddenClassTest, TypedStoreMismatchFallsBackAndStores) {
+  GCScope gcScope{
+      runtime, "HiddenClassTest.TypedStoreMismatchFallsBackAndStores", 48};
+
+  auto xHnd = *runtime.getIdentifierTable().getSymbolHandle(
+      runtime, createUTF16Ref(u"x"));
+
+  auto obj = runtime.makeHandle(JSObject::create(runtime));
+  auto root = runtime.makeHandle<HiddenClass>(HiddenClass::createRoot(runtime));
+  auto flags = PropertyFlags::defaultNewNamedPropertyFlags();
+  flags.setPropertyType(PropertyTypeCode::Number);
+  auto addRes = HiddenClass::addProperty(root, runtime, *xHnd, flags);
+  ASSERT_RETURNED(addRes);
+  auto typedClass = addRes->first;
+  ASSERT_TRUE(typedClass->isTyped());
+
+  auto initial = SmallHermesValue::encodeNumberValue(1, runtime);
+  JSObject::addNewOwnPropertyInSlot(*obj, runtime, *typedClass, 0, initial);
+  ASSERT_TRUE(obj->getClass(runtime)->isTyped());
+
+  auto boolValue = runtime.makeHandle(HermesValue::encodeBoolValue(true));
+  auto putRes = JSObject::putNamed_RJS(obj, runtime, *xHnd, boolValue);
+  ASSERT_RETURNED(putRes);
+  EXPECT_TRUE(*putRes);
+  EXPECT_FALSE(obj->getClass(runtime)->isTyped());
+
+  NamedPropertyDescriptor desc;
+  auto found = JSObject::getOwnNamedDescriptor(obj, runtime, *xHnd, desc);
+  ASSERT_TRUE(found);
+  EXPECT_EQ(PropertyTypeCode::None, desc.flags.getPropertyType());
+  auto stored = JSObject::getNamedSlotValueUnsafe(*obj, runtime, desc);
+  EXPECT_TRUE(stored.isBool());
+}
+
+TEST_F(HiddenClassTest, TypedFallbackBySlotUsesUpdateTransition) {
+  GCScope gcScope{
+      runtime, "HiddenClassTest.TypedFallbackBySlotUsesUpdateTransition", 48};
+
+  auto xHnd = *runtime.getIdentifierTable().getSymbolHandle(
+      runtime, createUTF16Ref(u"x"));
+  auto yHnd = *runtime.getIdentifierTable().getSymbolHandle(
+      runtime, createUTF16Ref(u"y"));
+
+  MutableHandle<HiddenClass> typed{runtime, HiddenClass::createRoot(runtime)};
+  auto defaultFlags = PropertyFlags::defaultNewNamedPropertyFlags();
+  auto numberFlags = defaultFlags;
+  numberFlags.setPropertyType(PropertyTypeCode::Number);
+  auto stringFlags = defaultFlags;
+  stringFlags.setPropertyType(PropertyTypeCode::String);
+  {
+    auto addRes = HiddenClass::addProperty(typed, runtime, *xHnd, numberFlags);
+    ASSERT_RETURNED(addRes);
+    typed = *addRes->first;
+  }
+  {
+    auto addRes = HiddenClass::addProperty(typed, runtime, *yHnd, stringFlags);
+    ASSERT_RETURNED(addRes);
+    typed = *addRes->first;
+  }
+  ASSERT_TRUE(typed->isTyped());
+
+  auto foundX = HiddenClass::findPropertyBySlot(typed, runtime, 0);
+  ASSERT_TRUE(foundX);
+  auto flags = foundX->second.flags;
+  flags.setPropertyType(PropertyTypeCode::None);
+  auto fallbackX = HiddenClass::updatePropertyBySlot(typed, runtime, 0, flags);
+  EXPECT_FALSE(fallbackX->isTyped());
+  EXPECT_EQ(typed->getNumProperties(), fallbackX->getNumProperties());
+
+  NamedPropertyDescriptor fallbackDesc;
+  auto found =
+      HiddenClass::findProperty(fallbackX, runtime, *xHnd, fallbackDesc);
+  ASSERT_TRUE(found);
+  EXPECT_EQ(PropertyTypeCode::None, fallbackDesc.flags.getPropertyType());
+  found = HiddenClass::findProperty(fallbackX, runtime, *yHnd, fallbackDesc);
+  ASSERT_TRUE(found);
+  EXPECT_EQ(PropertyTypeCode::String, fallbackDesc.flags.getPropertyType());
+
+  foundX = HiddenClass::findPropertyBySlot(typed, runtime, 0);
+  ASSERT_TRUE(foundX);
+  flags = foundX->second.flags;
+  flags.setPropertyType(PropertyTypeCode::None);
+  auto fallbackXAgain =
+      HiddenClass::updatePropertyBySlot(typed, runtime, 0, flags);
+  EXPECT_EQ(*fallbackX, *fallbackXAgain);
+
+  auto foundY = HiddenClass::findPropertyBySlot(typed, runtime, 1);
+  ASSERT_TRUE(foundY);
+  flags = foundY->second.flags;
+  flags.setPropertyType(PropertyTypeCode::None);
+  auto fallbackY = HiddenClass::updatePropertyBySlot(typed, runtime, 1, flags);
+  EXPECT_FALSE(fallbackY->isTyped());
+  EXPECT_NE(*fallbackX, *fallbackY);
 }
 
 TEST_F(HiddenClassTest, ReservedSlots) {

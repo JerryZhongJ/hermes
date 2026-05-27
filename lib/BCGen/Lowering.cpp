@@ -205,7 +205,7 @@ bool LowerAllocObjectLiteral::lowerAllocObjectBuffer(
             allocInst,
             i,
             cast<LiteralString>(propKey),
-            propVal->getType().isNonPtr());
+            propVal->getType());
       }
     }
   }

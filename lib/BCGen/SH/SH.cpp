@@ -2333,20 +2333,27 @@ class InstrGen {
   void generatePrStoreInst(PrStoreInst &inst) {
     os_.indent(2);
     const char *suffix = "";
-    Type propType = inst.getStoredValue()->getType();
-    if (propType.isNumberType()) {
-      suffix = "_number";
-    } else if (propType.isBooleanType()) {
-      suffix = "_bool";
-    } else if (propType.isObjectType()) {
-      suffix = "_object";
-    } else if (propType.isStringType()) {
-      suffix = "_string";
+    Type storedValueType = inst.getStoredValue()->getType();
+    bool noCheckType = storedValueType.isSubsetOf(inst.getExpectedType());
+    if (noCheckType) {
+      if (storedValueType.isNumberType()) {
+        suffix = "_number";
+      } else if (storedValueType.isBooleanType()) {
+        suffix = "_bool";
+      } else if (storedValueType.isObjectType()) {
+        suffix = "_object";
+      } else if (storedValueType.isStringType()) {
+        suffix = "_string";
+      }
     }
+
     os_ << "_sh_prstore" << suffix << "(shr, ";
     generateRegisterPtr(*inst.getObject());
     os_ << ", " << inst.getPropIndex() << ", ";
     generateRegisterPtr(*inst.getStoredValue());
+    if (!*suffix)
+      os_ << (noCheckType ? ", false" : ", true");
+
     os_ << ");\n";
   }
   void generateUnionNarrowTrustedInst(UnionNarrowTrustedInst &inst) {

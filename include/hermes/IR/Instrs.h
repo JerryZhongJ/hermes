@@ -5725,27 +5725,27 @@ class PrLoadInst : public Instruction {
 };
 
 class PrStoreInst : public Instruction {
- public:
-  enum { StoredValueIdx, ObjectIdx, PropIndexIdx, PropNameIdx, NonPointerIdx };
+  Type expectedType_;
 
-  /// \param nonPointer set to true when we know that both the old and new
-  ///     value are non-pointers.
+ public:
+  enum { StoredValueIdx, ObjectIdx, PropIndexIdx, PropNameIdx };
+
+  /// \param expectedType the expected type of the destination property.
   explicit PrStoreInst(
       Value *storedValue,
       Value *object,
       LiteralNumber *propIndex,
       LiteralString *propName,
-      LiteralBool *nonPointer)
-      : Instruction(ValueKind::PrStoreInstKind) {
+      Type expectedType)
+      : Instruction(ValueKind::PrStoreInstKind), expectedType_(expectedType) {
     setType(Type::createNoType());
     pushOperand(storedValue);
     pushOperand(object);
     pushOperand(propIndex);
     pushOperand(propName);
-    pushOperand(nonPointer);
   }
   explicit PrStoreInst(const PrStoreInst *src, llvh::ArrayRef<Value *> operands)
-      : Instruction(src, operands) {}
+      : Instruction(src, operands), expectedType_(src->expectedType_) {}
 
   static bool classof(const Value *V) {
     return V->getKind() == ValueKind::PrStoreInstKind;
@@ -5773,8 +5773,8 @@ class PrStoreInst : public Instruction {
   LiteralString *getPropName() const {
     return llvh::cast<LiteralString>(getOperand(PropNameIdx));
   }
-  bool getNonPointer() const {
-    return llvh::cast<LiteralBool>(getOperand(NonPointerIdx))->getValue();
+  Type getExpectedType() const {
+    return expectedType_;
   }
 };
 

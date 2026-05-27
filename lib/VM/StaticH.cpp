@@ -766,7 +766,6 @@ static inline void putById_RJS(
     WritePropertyCacheEntry *cacheEntry) {
   //++NumPutById;
   if (LLVM_LIKELY(target->isObject())) {
-    SmallHermesValue shv = SmallHermesValue::encodeHermesValue(*value, runtime);
     auto *obj = vmcast<JSObject>(*target);
 
     // #ifdef HERMESVM_PROFILER_BB
@@ -793,8 +792,15 @@ static inline void putById_RJS(
     // return the property.
     if (LLVM_LIKELY(cacheEntry && cacheEntry->clazz == clazzPtr)) {
       //++NumPutByIdCacheHits;
+      JSObject::checkTypedPropertyStoreBySlot(
+          Handle<JSObject>::vmcast(target),
+          runtime,
+          cacheEntry->getSlot(),
+          Handle<>(value));
+      auto storeShv = SmallHermesValue::encodeHermesValue(*value, runtime);
+      obj = vmcast<JSObject>(*target);
       JSObject::setNamedSlotValueUnsafe(
-          obj, runtime, cacheEntry->getSlot(), shv);
+          obj, runtime, cacheEntry->getSlot(), storeShv);
       return;
     }
 
@@ -812,14 +818,20 @@ static inline void putById_RJS(
         LLVM_LIKELY(addCacheEntry.parent == obj->getParentGCPtr())) {
       HiddenClass *resultClazz =
           addCacheEntry.resultClazz.getNonNull(runtime, runtime.getHeap());
+      assert(
+          !resultClazz->isTyped() &&
+          "runtime object property adds cannot produce typed classes");
+      auto storeShv = SmallHermesValue::encodeHermesValue(*value, runtime);
+      obj = vmcast<JSObject>(*target);
       JSObject::addNewOwnPropertyInSlot(
-          obj, runtime, resultClazz, addCacheEntry.getSlot(), shv);
+          obj, runtime, resultClazz, addCacheEntry.getSlot(), storeShv);
       return;
     }
 
     NamedPropertyDescriptor desc;
-    OptValue<bool> hasOwnProp =
-        JSObject::tryGetOwnNamedDescriptorFast(obj, runtime, symID, desc);
+    OptValue<HiddenClass::PropertyPos> propertyPos;
+    OptValue<bool> hasOwnProp = JSObject::tryGetOwnNamedDescriptorFast(
+        obj, runtime, symID, desc, propertyPos);
     if (LLVM_LIKELY(hasOwnProp.hasValue() && hasOwnProp.getValue()) &&
         !desc.flags.accessor && desc.flags.writable &&
         !desc.flags.internalSetter) {
@@ -843,7 +855,17 @@ static inline void putById_RJS(
       }
 
       // This must be valid because an own property was already found.
-      JSObject::setNamedSlotValueUnsafe(obj, runtime, desc.slot, shv);
+      assert(propertyPos && "own property fast path must return PropertyPos");
+      JSObject::checkTypedPropertyStore(
+          Handle<JSObject>::vmcast(target),
+          runtime,
+          symID,
+          propertyPos,
+          desc,
+          Handle<>(value));
+      auto storeShv = SmallHermesValue::encodeHermesValue(*value, runtime);
+      obj = vmcast<JSObject>(*target);
+      JSObject::setNamedSlotValueUnsafe(obj, runtime, desc.slot, storeShv);
       return;
     }
 
@@ -2345,6 +2367,20 @@ extern "C" void _sh_prstore_indirect(
       SmallHermesValue::encodeHermesValue(*toPHV(value), runtime);
   JSObject::setNamedSlotValueIndirectUnsafe(
       vmcast<JSObject>(*toPHV(target)), runtime, propIndex, shv);
+}
+
+LLVM_ATTRIBUTE_NOINLINE
+extern "C" void _sh_check_type_for_prstore(
+    SHRuntime *shr,
+    SHLegacyValue *target,
+    uint32_t propIndex,
+    SHLegacyValue *value) {
+  Runtime &runtime = getRuntime(shr);
+  JSObject::checkTypedPropertyStoreBySlot(
+      Handle<JSObject>::vmcast(toPHV(target)),
+      runtime,
+      propIndex,
+      Handle<>(toPHV(value)));
 }
 
 LLVM_ATTRIBUTE_NOINLINE

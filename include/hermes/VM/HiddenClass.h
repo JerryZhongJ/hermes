@@ -463,6 +463,16 @@ class HiddenClass final : public GCCell {
   static llvh::Optional<NamedPropertyDescriptor>
   findPropertyNoAlloc(HiddenClass *self, PointerBase &base, SymbolID name);
 
+  /// Look for a property by storage slot. For typed hidden classes this uses
+  /// the invariant that descriptor-array index equals slot index. For all
+  /// other classes it falls back to walking the property descriptors.
+  /// \return the property name and descriptor if found.
+  static llvh::Optional<std::pair<SymbolID, NamedPropertyDescriptor>>
+  findPropertyBySlot(
+      Handle<HiddenClass> selfHandle,
+      Runtime &runtime,
+      SlotIndex slot);
+
   /// An optimistic fast path for \c findProperty(). If there is an allocated
   /// property map, this will return an OptValue containing either true or
   /// false. If there was no allocated property map, this returns llvh::None. If
@@ -473,6 +483,13 @@ class HiddenClass final : public GCCell {
       PointerBase &base,
       SymbolID name,
       NamedPropertyDescriptor &desc);
+
+  static OptValue<bool> tryFindPropertyFast(
+      const HiddenClass *self,
+      PointerBase &base,
+      SymbolID name,
+      NamedPropertyDescriptor &desc,
+      OptValue<PropertyPos> &pos);
 
   /// Performs a very slow linear search for the specified property. This should
   /// only be used for debug tests where we don't want to allocate a property
@@ -502,6 +519,14 @@ class HiddenClass final : public GCCell {
       Handle<HiddenClass> selfHandle,
       Runtime &runtime,
       PropertyPos pos,
+      PropertyFlags newFlags);
+
+  /// Update an existing property's flags by storage slot. This is only valid
+  /// for typed hidden classes, where descriptor-array index equals slot index.
+  static Handle<HiddenClass> updatePropertyBySlot(
+      Handle<HiddenClass> selfHandle,
+      Runtime &runtime,
+      SlotIndex slot,
       PropertyFlags newFlags);
 
   /// Mark all properties as non-configurable.
@@ -669,6 +694,28 @@ inline OptValue<bool> HiddenClass::tryFindPropertyFast(
       desc = DictPropertyMap::getDescriptorPair(
                  self->propertyMap_.getNonNull(base), *found)
                  ->second;
+    }
+    return found.hasValue();
+  } else if (self->numProperties_ == 0) {
+    return false;
+  }
+  return llvh::None;
+}
+inline OptValue<bool> HiddenClass::tryFindPropertyFast(
+    const HiddenClass *self,
+    PointerBase &base,
+    SymbolID name,
+    NamedPropertyDescriptor &desc,
+    OptValue<PropertyPos> &pos) {
+  pos = llvh::None;
+  if (LLVM_LIKELY(self->propertyMap_)) {
+    auto found =
+        DictPropertyMap::find(self->propertyMap_.getNonNull(base), name);
+    if (LLVM_LIKELY(found)) {
+      desc = DictPropertyMap::getDescriptorPair(
+                 self->propertyMap_.getNonNull(base), *found)
+                 ->second;
+      pos = *found;
     }
     return found.hasValue();
   } else if (self->numProperties_ == 0) {

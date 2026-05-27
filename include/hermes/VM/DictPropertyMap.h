@@ -242,6 +242,14 @@ class DictPropertyMap final
       DictPropertyMap *self,
       PropertyPos pos);
 
+  /// Return the descriptor pair at \p index in the descriptor array.
+  /// This is an index into the insertion-ordered descriptor storage, not the
+  /// hash table. Callers must not assume it matches a property slot except
+  /// under a separately established invariant.
+  static DescriptorPair *getDescriptorPairAtIndex(
+      DictPropertyMap *self,
+      size_type index);
+
   /// Find a property by \p id. On success return a reference to the found
   /// property.
   static OptValue<PropertyPos> find(const DictPropertyMap *self, SymbolID id);
@@ -562,6 +570,16 @@ inline DictPropertyMap::DescriptorPair *DictPropertyMap::getDescriptorPair(
   auto *res = self->getDescriptorPairs() + descIndex;
   assert(hashPair->mayBe(res->first) && "accessing incorrect descriptor pair");
   return res;
+}
+
+inline DictPropertyMap::DescriptorPair *
+DictPropertyMap::getDescriptorPairAtIndex(
+    DictPropertyMap *self,
+    size_type index) {
+  assert(
+      index < self->numDescriptors_.load(std::memory_order_relaxed) &&
+      "descriptor index out of range");
+  return self->getDescriptorPairs() + index;
 }
 
 inline std::pair<bool, DictPropertyMap::HashPair *>

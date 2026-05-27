@@ -1066,13 +1066,12 @@ class InstSimplifyImpl {
     int idx = operandShape.desc->getPropertyIndex(propStr->getValue());
     if (idx == -1)
       return nullptr;
-    bool nonPointer = inst->getStoredValue()->getType().isNonPtr();
     return builder_.createPrStoreInst(
         inst->getStoredValue(),
         inst->getObject(),
         (size_t)idx,
         propStr,
-        nonPointer);
+        operandShape.desc->getPropertyType(idx));
   }
 
   /// Simplify IsTypedShapeInst:

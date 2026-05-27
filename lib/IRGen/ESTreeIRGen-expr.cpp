@@ -1210,7 +1210,7 @@ void ESTreeIRGen::emitTypedFieldStore(
       object,
       fieldIndex,
       Builder.getLiteralString(propName),
-      flowTypeToIRType(optFieldLookup->getField()->type).isNonPtr());
+      flowTypeToIRType(optFieldLookup->getField()->type));
 }
 
 void ESTreeIRGen::emitMemberStore(
@@ -1253,7 +1253,7 @@ void ESTreeIRGen::emitMemberStore(
           baseValue,
           *optIndex,
           Builder.getLiteralString(propName),
-          flowTypeToIRType(field.type).isNonPtr());
+          flowTypeToIRType(field.type));
       return;
     }
   }
@@ -1283,7 +1283,7 @@ void ESTreeIRGen::emitMemberStore(
           baseValue,
           ulen,
           Builder.getLiteralString(llvh::Twine(ulen)),
-          flowTypeToIRType(tupleType->getTypes()[ulen]).isNonPtr());
+          flowTypeToIRType(tupleType->getTypes()[ulen]));
       return;
     }
     Mod->getContext().getSourceErrorManager().error(
@@ -1855,7 +1855,7 @@ Value *ESTreeIRGen::genTypedObjectExpr(
           result,
           idx,
           name,
-          flowTypeToIRType(type->getFields()[idx].type).isNonPtr());
+          flowTypeToIRType(type->getFields()[idx].type));
     }
   }
 

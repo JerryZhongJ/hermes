@@ -218,8 +218,7 @@ bool LoadConstants::operandMustBeLiteral(Instruction *Inst, unsigned opIndex) {
   }
   if (llvh::isa<PrStoreInst>(Inst) &&
       (opIndex == PrStoreInst::PropIndexIdx ||
-       opIndex == PrStoreInst::PropNameIdx ||
-       opIndex == PrStoreInst::NonPointerIdx)) {
+       opIndex == PrStoreInst::PropNameIdx)) {
     return true;
   }
 

@@ -735,14 +735,13 @@ class IRBuilder {
       LiteralString *propName,
       Type checkedType);
 
-  /// \param nonPointer can be set to true when it is known that both the old
-  ///     and the new value are not pointers.
+  /// \param expectedType the expected type of the destination property.
   PrStoreInst *createPrStoreInst(
       Value *storedValue,
       Value *object,
       size_t propIndex,
       LiteralString *propName,
-      bool nonPointer);
+      Type expectedType);
 
   FastArrayLoadInst *
   createFastArrayLoadInst(Value *array, Value *index, Type checkedType);

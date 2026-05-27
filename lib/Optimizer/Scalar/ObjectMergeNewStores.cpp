@@ -167,7 +167,7 @@ bool mergeStoresToObjectLiteral(
             I->getObject(),
             i,
             cast<LiteralString>(propKey),
-            propVal->getType().isNonPtr());
+            propVal->getType());
       }
       I->eraseFromParent();
     }

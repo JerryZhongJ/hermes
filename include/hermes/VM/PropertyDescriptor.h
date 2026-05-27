@@ -19,76 +19,16 @@ namespace vm {
 
 /// VM-level property type-set code stored in PropertyFlags. This is a compact
 /// 4-bit encoding of selected useful types/unions, not a bitmask.
-class PropertyTypeCode {
- public:
-  /// Default construction means no type information.
-  constexpr PropertyTypeCode() : code_(Code::None) {}
-
-  static constexpr PropertyTypeCode none() {
-    return PropertyTypeCode(Code::None);
-  }
-  static constexpr PropertyTypeCode number() {
-    return PropertyTypeCode(Code::Number);
-  }
-  static constexpr PropertyTypeCode nullish() {
-    return PropertyTypeCode(Code::Nullish);
-  }
-  static constexpr PropertyTypeCode string() {
-    return PropertyTypeCode(Code::String);
-  }
-  static constexpr PropertyTypeCode boolean() {
-    return PropertyTypeCode(Code::Boolean);
-  }
-  static constexpr PropertyTypeCode numberOrNullish() {
-    return PropertyTypeCode(Code::NumberOrNullish);
-  }
-  static constexpr PropertyTypeCode object() {
-    return PropertyTypeCode(Code::Object);
-  }
-  static constexpr PropertyTypeCode any() {
-    return PropertyTypeCode(Code::Any);
-  }
-
-  static PropertyTypeCode fromRaw(uint8_t raw) {
-    assert(raw <= 0xF && "PropertyTypeCode must fit in 4 bits");
-    return PropertyTypeCode(static_cast<Code>(raw));
-  }
-
-  constexpr uint8_t getRaw() const {
-    return static_cast<uint8_t>(code_);
-  }
-
-  constexpr bool isNone() const {
-    return code_ == Code::None;
-  }
-
-  constexpr bool canBeNumber() const {
-    return code_ == Code::Number || code_ == Code::NumberOrNullish ||
-        code_ == Code::Any;
-  }
-
-  constexpr bool operator==(PropertyTypeCode other) const {
-    return code_ == other.code_;
-  }
-  constexpr bool operator!=(PropertyTypeCode other) const {
-    return !(*this == other);
-  }
-
- private:
-  enum class Code : uint8_t {
-    None = 0,
-    Number = 1,
-    Nullish = 2,
-    String = 3,
-    Boolean = 4,
-    NumberOrNullish = 5,
-    Object = 6,
-    Any = 15,
-  };
-
-  constexpr PropertyTypeCode(Code code) : code_(code) {}
-
-  Code code_;
+enum class PropertyTypeCode : uint8_t {
+  /// Zero value means no type information.
+  None = 0,
+  Number = 1,
+  Nullish = 2,
+  String = 3,
+  Boolean = 4,
+  NumberOrNullish = 5,
+  Object = 6,
+  Any = 15,
 };
 
 /// Flags associated with a single property descriptor.
@@ -161,11 +101,12 @@ struct PropertyFlags {
   }
 
   PropertyTypeCode getPropertyType() const {
-    return PropertyTypeCode::fromRaw(propertyType);
+    assert(propertyType <= 0xF && "PropertyTypeCode must fit in 4 bits");
+    return static_cast<PropertyTypeCode>(propertyType);
   }
 
   void setPropertyType(PropertyTypeCode type) {
-    propertyType = type.getRaw();
+    propertyType = static_cast<uint8_t>(type);
   }
 
   /// \return true if this is not an invalid instance (i.e. the invalid flag

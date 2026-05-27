@@ -323,6 +323,38 @@ llvh::Optional<NamedPropertyDescriptor> HiddenClass::findPropertyNoAlloc(
   return llvh::None;
 }
 
+llvh::Optional<std::pair<SymbolID, NamedPropertyDescriptor>>
+HiddenClass::findPropertyBySlot(
+    Handle<HiddenClass> selfHandle,
+    Runtime &runtime,
+    SlotIndex slot) {
+  if (selfHandle->isTyped()) {
+    assert(!selfHandle->isDictionary() && "typed HiddenClass cannot be dict");
+    if (LLVM_UNLIKELY(slot >= selfHandle->numProperties_))
+      return llvh::None;
+
+    if (LLVM_UNLIKELY(!selfHandle->propertyMap_))
+      initializeMissingPropertyMap(selfHandle, runtime);
+    auto *propMap = selfHandle->propertyMap_.getNonNull(runtime);
+    auto *pair = DictPropertyMap::getDescriptorPairAtIndex(propMap, slot);
+    assert(pair->first.isValid() && "typed descriptor must be valid");
+    assert(pair->second.slot == slot && "typed slot invariant broken");
+    return std::make_pair(static_cast<SymbolID>(pair->first), pair->second);
+  }
+
+  llvh::Optional<std::pair<SymbolID, NamedPropertyDescriptor>> result;
+  forEachPropertyWhile(
+      selfHandle,
+      runtime,
+      [&result, slot](Runtime &, SymbolID name, NamedPropertyDescriptor desc) {
+        if (desc.slot != slot)
+          return true;
+        result = std::make_pair(name, desc);
+        return false;
+      });
+  return result;
+}
+
 bool HiddenClass::debugIsPropertyDefined(
     HiddenClass *self,
     PointerBase &base,
@@ -444,7 +476,8 @@ CallResult<std::pair<Handle<HiddenClass>, SlotIndex>> HiddenClass::addProperty(
           .hasValue();
   auto newFlags = computeFlags(selfHandle->flags_, propertyFlags, isIndexLike);
   auto propertyType = propertyFlags.getPropertyType();
-  newFlags.typed = selfHandle->isTyped() && !propertyType.isNone();
+  newFlags.typed =
+      selfHandle->isTyped() && propertyType != PropertyTypeCode::None;
 
   // Allocate the child.
   auto childHandle = runtime.makeHandle<HiddenClass>(HiddenClass::create(
@@ -597,6 +630,66 @@ Handle<HiddenClass> HiddenClass::updateProperty(
              << childHandle->getDebugAllocationId() << "\n");
 
   // Move the updated map to the child class.
+  childHandle->propertyMap_.set(
+      runtime, selfHandle->propertyMap_, runtime.getHeap());
+  selfHandle->propertyMap_.setNull(runtime.getHeap());
+
+  return childHandle;
+}
+
+Handle<HiddenClass> HiddenClass::updatePropertyBySlot(
+    Handle<HiddenClass> selfHandle,
+    Runtime &runtime,
+    SlotIndex slot,
+    PropertyFlags newFlags) {
+  assert(selfHandle->isTyped() && "expected typed HiddenClass");
+  assert(!selfHandle->isDictionary() && "typed HiddenClass cannot be dict");
+  assert(slot < selfHandle->numProperties_ && "typed slot out of range");
+  assert(newFlags.isValid() && "newFlags must be valid");
+
+  if (LLVM_UNLIKELY(!selfHandle->propertyMap_))
+    initializeMissingPropertyMap(selfHandle, runtime);
+
+  auto *descPair = DictPropertyMap::getDescriptorPairAtIndex(
+      selfHandle->propertyMap_.getNonNull(runtime), slot);
+  assert(descPair->first.isValid() && "typed descriptor must be valid");
+  assert(descPair->second.slot == slot && "typed slot invariant broken");
+
+  if (descPair->second.flags == newFlags)
+    return selfHandle;
+
+  auto name = descPair->first;
+  PropertyFlags transitionFlags = newFlags;
+  transitionFlags.flagsTransition = 1;
+
+  auto existingChild =
+      selfHandle->transitionMap_.lookup(runtime, {name, transitionFlags});
+  if (LLVM_LIKELY(existingChild)) {
+    if (!existingChild->propertyMap_) {
+      descPair->second.flags = newFlags;
+      existingChild->propertyMap_.set(
+          runtime, selfHandle->propertyMap_, runtime.getHeap());
+    }
+    selfHandle->propertyMap_.setNull(runtime.getHeap());
+    return runtime.makeHandle(existingChild);
+  }
+
+  descPair->second.flags = newFlags;
+  auto childHandle = runtime.makeHandle<HiddenClass>(HiddenClass::create(
+      runtime,
+      computeFlags(selfHandle->flags_, newFlags, false),
+      selfHandle,
+      name,
+      transitionFlags,
+      selfHandle->numProperties_));
+
+  auto inserted = selfHandle->transitionMap_.insertNew(
+      runtime, Transition(name, transitionFlags), childHandle);
+  (void)inserted;
+  assert(
+      inserted &&
+      "transition already exists when updating typed property by slot");
+
   childHandle->propertyMap_.set(
       runtime, selfHandle->propertyMap_, runtime.getHeap());
   selfHandle->propertyMap_.setNull(runtime.getHeap());

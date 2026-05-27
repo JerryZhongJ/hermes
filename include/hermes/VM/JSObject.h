@@ -723,6 +723,27 @@ class JSObject : public GCCell {
     setNamedSlotValueUnsafe(self, runtime, desc.slot, value);
   }
 
+  /// If \p selfHandle currently has a typed HiddenClass, verify that \p value
+  /// is compatible with the typed property described by \p desc. On mismatch,
+  /// transition the object to an untyped HiddenClass for that property and
+  /// return. The original value store is still performed by the caller.
+  static void checkTypedPropertyStore(
+      Handle<JSObject> selfHandle,
+      Runtime &runtime,
+      SymbolID name,
+      OptValue<HiddenClass::PropertyPos> pos,
+      NamedPropertyDescriptor desc,
+      Handle<> valueHandle);
+
+  /// Same as \c checkTypedPropertyStore, but for callers that only know the
+  /// target slot. This relies on the typed HiddenClass invariant that
+  /// descriptor-array index equals slot index.
+  static void checkTypedPropertyStoreBySlot(
+      Handle<JSObject> selfHandle,
+      Runtime &runtime,
+      SlotIndex slot,
+      Handle<> valueHandle);
+
   /// Load a value using a named descriptor. Read the value either from
   /// named storage or indexed storage depending on the presence of the
   /// "Indexed" flag. Call the getter function if it's defined.
@@ -816,6 +837,13 @@ class JSObject : public GCCell {
       SymbolID name,
       NamedPropertyDescriptor &desc);
 
+  static bool getOwnNamedDescriptor(
+      Handle<JSObject> selfHandle,
+      Runtime &runtime,
+      SymbolID name,
+      NamedPropertyDescriptor &desc,
+      OptValue<HiddenClass::PropertyPos> &pos);
+
   /// ES5.1 8.12.1.
   /// An opportunistic fast path of \c getOwnNamedDescriptor(). If certain
   /// implementation-dependent conditions are met, it can look up a property
@@ -828,6 +856,13 @@ class JSObject : public GCCell {
       Runtime &runtime,
       SymbolID name,
       NamedPropertyDescriptor &desc);
+
+  static OptValue<bool> tryGetOwnNamedDescriptorFast(
+      JSObject *self,
+      Runtime &runtime,
+      SymbolID name,
+      NamedPropertyDescriptor &desc,
+      OptValue<HiddenClass::PropertyPos> &pos);
 
   /// Tries to get a property without doing any allocation, while searching the
   /// prototype chain.
@@ -909,6 +944,13 @@ class JSObject : public GCCell {
       Runtime &runtime,
       SymbolID name,
       NamedPropertyDescriptor &desc);
+
+  static JSObject *getNamedDescriptorUnsafe(
+      Handle<JSObject> selfHandle,
+      Runtime &runtime,
+      SymbolID name,
+      NamedPropertyDescriptor &desc,
+      OptValue<HiddenClass::PropertyPos> &pos);
 
   /// ES5.1 8.12.2.
   /// Extract a descriptor \p desc of a named property \p name in this object
@@ -2034,7 +2076,17 @@ inline bool JSObject::getOwnNamedDescriptor(
     Runtime &runtime,
     SymbolID name,
     NamedPropertyDescriptor &desc) {
-  return findProperty(selfHandle, runtime, name, desc).hasValue();
+  OptValue<HiddenClass::PropertyPos> ignoredPos;
+  return getOwnNamedDescriptor(selfHandle, runtime, name, desc, ignoredPos);
+}
+
+inline bool JSObject::getOwnNamedDescriptor(
+    Handle<JSObject> selfHandle,
+    Runtime &runtime,
+    SymbolID name,
+    NamedPropertyDescriptor &desc,
+    OptValue<HiddenClass::PropertyPos> &pos) {
+  return (pos = findProperty(selfHandle, runtime, name, desc)).hasValue();
 }
 
 inline OptValue<bool> JSObject::tryGetOwnNamedDescriptorFast(
@@ -2044,6 +2096,16 @@ inline OptValue<bool> JSObject::tryGetOwnNamedDescriptorFast(
     NamedPropertyDescriptor &desc) {
   return HiddenClass::tryFindPropertyFast(
       self->getClass(runtime), runtime, name, desc);
+}
+
+inline OptValue<bool> JSObject::tryGetOwnNamedDescriptorFast(
+    JSObject *self,
+    Runtime &runtime,
+    SymbolID name,
+    NamedPropertyDescriptor &desc,
+    OptValue<HiddenClass::PropertyPos> &pos) {
+  auto *clazz = self->getClass(runtime);
+  return HiddenClass::tryFindPropertyFast(clazz, runtime, name, desc, pos);
 }
 
 inline OptValue<SmallHermesValue>

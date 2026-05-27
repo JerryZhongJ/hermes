@@ -1284,13 +1284,13 @@ PrStoreInst *IRBuilder::createPrStoreInst(
     Value *object,
     size_t propIndex,
     LiteralString *propName,
-    bool nonPointer) {
+    Type expectedType) {
   auto *I = new PrStoreInst(
       storedValue,
       object,
       getLiteralNumber((double)propIndex),
       propName,
-      getLiteralBool(nonPointer));
+      expectedType);
   insert(I);
   return I;
 }
