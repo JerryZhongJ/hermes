@@ -199,6 +199,15 @@ bool operandMustBeLiteral(Instruction *Inst, unsigned opIndex) {
     return true;
   }
 
+  if (llvh::isa<TrySetTypedShapeInst>(Inst) &&
+      opIndex == TrySetTypedShapeInst::ShapeIdx) {
+    return true;
+  }
+  if (llvh::isa<HasTypedShapeInst>(Inst) &&
+      opIndex == HasTypedShapeInst::ShapeIdx) {
+    return true;
+  }
+
   if (llvh::isa<BaseCallInst>(Inst) &&
       opIndex == BaseCallInst::CalleeIsAlwaysClosure) {
     return true;

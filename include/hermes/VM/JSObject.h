@@ -23,6 +23,30 @@
 namespace hermes {
 namespace vm {
 
+inline bool typedPropertyValueMatches(
+    PropertyTypeCode type,
+    HermesValue value) {
+  switch (type) {
+    case PropertyTypeCode::None:
+      return false;
+    case PropertyTypeCode::Any:
+      return true;
+    case PropertyTypeCode::Number:
+      return value.isNumber();
+    case PropertyTypeCode::String:
+      return value.isString();
+    case PropertyTypeCode::Boolean:
+      return value.isBool();
+    case PropertyTypeCode::Object:
+      return value.isObject();
+    case PropertyTypeCode::Nullish:
+      return value.isNull() || value.isUndefined();
+    case PropertyTypeCode::NumberOrNullish:
+      return value.isNumber() || value.isNull() || value.isUndefined();
+  }
+  llvm_unreachable("unsupported PropertyTypeCode");
+}
+
 union DefinePropertyFlags {
   struct {
     uint32_t enumerable : 1;
@@ -743,6 +767,16 @@ class JSObject : public GCCell {
       Runtime &runtime,
       SlotIndex slot,
       Handle<> valueHandle);
+
+  /// If \p clazz describes the same named property layout as \p selfHandle,
+  /// replace the object's current HiddenClass with \p clazz and return true.
+  /// Class flags must match except for the typed bit, descriptor flags must
+  /// match except for the property type, and typed target classes additionally
+  /// require existing slot values to match the target descriptor types.
+  static bool switchClass(
+      Handle<JSObject> selfHandle,
+      Runtime &runtime,
+      HiddenClass *clazz);
 
   /// Load a value using a named descriptor. Read the value either from
   /// named storage or indexed storage depending on the presence of the

@@ -1074,11 +1074,11 @@ class InstSimplifyImpl {
         operandShape.desc->getPropertyType(idx));
   }
 
-  /// Simplify IsTypedShapeInst:
+  /// Simplify HasTypedShapeInst:
   /// 1. If the argument can't be an object, it's always false.
   /// 2. If the object has a known typed shape, compare it with the checked
   ///    shape — same shape → true, different shape → false.
-  Value *simplifyIsTypedShape(IsTypedShapeInst *inst) {
+  Value *simplifyHasTypedShape(HasTypedShapeInst *inst) {
     if (!inst->getArgument()->getType().canBeObject())
       return builder_.getLiteralBool(false);
 
@@ -1229,8 +1229,8 @@ class InstSimplifyImpl {
       case ValueKind::StorePropertyLooseInstKind:
       case ValueKind::StorePropertyStrictInstKind:
         return simplifyStoreProperty(cast<StorePropertyInst>(I));
-      case ValueKind::IsTypedShapeInstKind:
-        return simplifyIsTypedShape(cast<IsTypedShapeInst>(I));
+      case ValueKind::HasTypedShapeInstKind:
+        return simplifyHasTypedShape(cast<HasTypedShapeInst>(I));
 
       default:
         // TODO: handle other kinds of instructions.

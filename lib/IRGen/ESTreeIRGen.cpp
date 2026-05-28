@@ -140,7 +140,7 @@ ESTreeIRGen::ESTreeIRGen(
     pendingPromotions_.insert({range, nullptr});
 }
 
-void ESTreeIRGen::tryInsertTryPromoteTypedShape(ESTree::Node *stmtNode) {
+void ESTreeIRGen::tryInsertTrySetTypedShape(ESTree::Node *stmtNode) {
   auto range = stmtNode->getSourceRange();
   if (!range.isValid())
     return;
@@ -158,7 +158,7 @@ void ESTreeIRGen::tryInsertTryPromoteTypedShape(ESTree::Node *stmtNode) {
 
   const TypedShapeDesc *desc = shapeDescs_[entry->shapeIdx];
   auto *litShape = Builder.getLiteralTypedShape(desc);
-  Builder.createTryPromoteTypedShapeInst(it->second, litShape);
+  Builder.createTrySetTypedShapeInst(it->second, litShape);
 }
 
 llvh::StringRef ESTreeIRGen::propertyKeyAsString(

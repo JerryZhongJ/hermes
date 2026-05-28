@@ -792,11 +792,14 @@ static inline void putById_RJS(
     // return the property.
     if (LLVM_LIKELY(cacheEntry && cacheEntry->clazz == clazzPtr)) {
       //++NumPutByIdCacheHits;
-      JSObject::checkTypedPropertyStoreBySlot(
-          Handle<JSObject>::vmcast(target),
-          runtime,
-          cacheEntry->getSlot(),
-          Handle<>(value));
+      {
+        GCScopeMarkerRAII marker{runtime};
+        JSObject::checkTypedPropertyStoreBySlot(
+            Handle<JSObject>::vmcast(target),
+            runtime,
+            cacheEntry->getSlot(),
+            Handle<>(value));
+      }
       auto storeShv = SmallHermesValue::encodeHermesValue(*value, runtime);
       obj = vmcast<JSObject>(*target);
       JSObject::setNamedSlotValueUnsafe(
@@ -856,13 +859,16 @@ static inline void putById_RJS(
 
       // This must be valid because an own property was already found.
       assert(propertyPos && "own property fast path must return PropertyPos");
-      JSObject::checkTypedPropertyStore(
-          Handle<JSObject>::vmcast(target),
-          runtime,
-          symID,
-          propertyPos,
-          desc,
-          Handle<>(value));
+      {
+        GCScopeMarkerRAII marker{runtime};
+        JSObject::checkTypedPropertyStore(
+            Handle<JSObject>::vmcast(target),
+            runtime,
+            symID,
+            propertyPos,
+            desc,
+            Handle<>(value));
+      }
       auto storeShv = SmallHermesValue::encodeHermesValue(*value, runtime);
       obj = vmcast<JSObject>(*target);
       JSObject::setNamedSlotValueUnsafe(obj, runtime, desc.slot, storeShv);
@@ -2376,11 +2382,99 @@ extern "C" void _sh_check_type_for_prstore(
     uint32_t propIndex,
     SHLegacyValue *value) {
   Runtime &runtime = getRuntime(shr);
+  GCScopeMarkerRAII marker{runtime};
   JSObject::checkTypedPropertyStoreBySlot(
       Handle<JSObject>::vmcast(toPHV(target)),
       runtime,
       propIndex,
       Handle<>(toPHV(value)));
+}
+
+namespace {
+
+WeakRoot<HiddenClass> *getTypedShapeClassCacheEntry(
+    SHUnit *unit,
+    uint32_t index) {
+  assert(index < unit->typed_shape_table_count && "typed shape index OOB");
+  return reinterpret_cast<WeakRoot<HiddenClass> *>(
+      &unit->typed_shape_class_cache[index]);
+}
+
+HiddenClass *
+getCachedTypedShapeClass(Runtime &runtime, SHUnit *unit, uint32_t index) {
+  auto *cacheEntry = getTypedShapeClassCacheEntry(unit, index);
+  if (!*cacheEntry)
+    return nullptr;
+  return cacheEntry->getNonNull(runtime, runtime.getHeap());
+}
+
+HiddenClass *
+getTypedShapeClass(Runtime &runtime, SHUnit *unit, uint32_t index) {
+  if (HiddenClass *cached = getCachedTypedShapeClass(runtime, unit, index))
+    return cached;
+
+  auto *cacheEntry = getTypedShapeClassCacheEntry(unit, index);
+
+  const SHTypedShapeTableEntry &shape = unit->typed_shape_table[index];
+  assert(
+      shape.prop_offset + shape.num_props <= unit->typed_shape_props_count &&
+      "typed shape prop range OOB");
+
+  MutableHandle<HiddenClass> clazz{runtime, HiddenClass::createRoot(runtime)};
+
+  auto defaultFlags = PropertyFlags::defaultNewNamedPropertyFlags();
+  for (uint32_t i = 0; i != shape.num_props; ++i) {
+    const SHTypedShapeProp &prop =
+        unit->typed_shape_props[shape.prop_offset + i];
+    assert(prop.name_index < unit->num_symbols && "typed shape name OOB");
+    PropertyFlags flags = defaultFlags;
+    flags.setPropertyType(static_cast<PropertyTypeCode>(prop.type));
+    auto addRes = HiddenClass::addProperty(
+        clazz,
+        runtime,
+        SymbolID::unsafeCreate(unit->symbols[prop.name_index]),
+        flags);
+    if (LLVM_UNLIKELY(addRes == ExecutionStatus::EXCEPTION))
+      _sh_throw_current(&runtime);
+    clazz = *addRes->first;
+  }
+
+  cacheEntry->set(runtime, clazz.get());
+  return clazz.get();
+}
+
+} // namespace
+
+LLVM_ATTRIBUTE_NOINLINE
+extern "C" bool _sh_ljs_has_typed_shape(
+    SHRuntime *shr,
+    SHLegacyValue value,
+    SHUnit *unit,
+    uint32_t shapeIndex) {
+  if (!_sh_ljs_is_object(value))
+    return false;
+  Runtime &runtime = getRuntime(shr);
+  GCScopeMarkerRAII marker{runtime};
+  HiddenClass *shapeClass = getCachedTypedShapeClass(runtime, unit, shapeIndex);
+  if (!shapeClass)
+    return false;
+  return vmcast<JSObject>(HermesValue::fromRaw(value.raw))->getClass(runtime) ==
+      shapeClass;
+}
+
+LLVM_ATTRIBUTE_NOINLINE
+extern "C" void _sh_ljs_try_set_typed_shape(
+    SHRuntime *shr,
+    SHLegacyValue *target,
+    SHUnit *unit,
+    uint32_t shapeIndex) {
+  if (!_sh_ljs_is_object(*target))
+    return;
+  Runtime &runtime = getRuntime(shr);
+  GCScopeMarkerRAII marker{runtime};
+  auto obj = Handle<JSObject>::vmcast(toPHV(target));
+  JSObject::switchClass(
+      obj, runtime, getTypedShapeClass(runtime, unit, shapeIndex));
 }
 
 LLVM_ATTRIBUTE_NOINLINE

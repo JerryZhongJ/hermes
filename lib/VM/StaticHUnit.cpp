@@ -265,6 +265,12 @@ void hermes::vm::sh_unit_mark_weak_roots(
              unit->obj_shape_table_count)) {
       acceptor.acceptWeak(entry);
     }
+
+    for (auto &entry : llvh::makeMutableArrayRef(
+             reinterpret_cast<WeakRootBase *>(unit->typed_shape_class_cache),
+             unit->typed_shape_table_count)) {
+      acceptor.acceptWeak(entry);
+    }
   }
 
   if (markLongLived) {

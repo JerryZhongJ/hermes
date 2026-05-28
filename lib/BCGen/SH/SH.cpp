@@ -247,6 +247,122 @@ class SHLiteralBuffers {
   }
 };
 
+class SHTypedShapeTable {
+  struct EncodedProp {
+    uint32_t nameIndex;
+    uint8_t typeCode;
+  };
+
+  struct EncodedShape {
+    uint32_t propOffset;
+    uint32_t numProps;
+  };
+
+  llvh::DenseMap<const TypedShapeDesc *, uint32_t> shapeIndices_{};
+  std::vector<EncodedProp> props_{};
+  std::vector<EncodedShape> shapes_{};
+
+  static uint8_t getPropertyTypeCode(Type type) {
+    enum : uint8_t {
+      None = 0,
+      Number = 1,
+      Nullish = 2,
+      String = 3,
+      Boolean = 4,
+      NumberOrNullish = 5,
+      Object = 6,
+      Any = 15,
+    };
+    if (type == Type::createNumber())
+      return Number;
+    if (type == Type::createString())
+      return String;
+    if (type == Type::createBoolean())
+      return Boolean;
+    if (type == Type::createObject())
+      return Object;
+    if (type == Type::unionTy(Type::createNull(), Type::createUndefined()))
+      return Nullish;
+    if (type ==
+        Type::unionTy(
+            Type::createNumber(),
+            Type::unionTy(Type::createNull(), Type::createUndefined())))
+      return NumberOrNullish;
+    if (type == Type::createAnyType())
+      return Any;
+
+    hermes_fatal("unsupported typed shape property type for SH backend");
+  }
+
+  void addShape(const TypedShapeDesc *desc, SHStringTable &stringTable) {
+    if (shapeIndices_.count(desc))
+      return;
+
+    uint32_t shapeIndex = shapes_.size();
+    shapeIndices_[desc] = shapeIndex;
+
+    EncodedShape shape{
+        static_cast<uint32_t>(props_.size()),
+        static_cast<uint32_t>(desc->size())};
+    shapes_.push_back(shape);
+
+    for (size_t i = 0, e = desc->size(); i < e; ++i) {
+      props_.push_back(
+          EncodedProp{
+              stringTable.add(desc->getPropertyName(i).str()),
+              getPropertyTypeCode(desc->getPropertyType(i))});
+    }
+  }
+
+ public:
+  explicit SHTypedShapeTable(Module *M, SHStringTable &stringTable) {
+    for (auto &F : *M) {
+      for (auto &BB : F) {
+        for (auto &I : BB) {
+          for (unsigned i = 0, e = I.getNumOperands(); i != e; ++i) {
+            auto *litShape = llvh::dyn_cast<LiteralTypedShape>(I.getOperand(i));
+            if (!litShape)
+              continue;
+            addShape(litShape->getData(), stringTable);
+          }
+        }
+      }
+    }
+  }
+
+  uint32_t getIndex(LiteralTypedShape *litShape) const {
+    auto it = shapeIndices_.find(litShape->getData());
+    assert(it != shapeIndices_.end() && "typed shape was not registered");
+    return it->second;
+  }
+
+  uint32_t size() const {
+    return shapes_.size();
+  }
+
+  uint32_t propsSize() const {
+    return props_.size();
+  }
+
+  void generate(llvh::raw_ostream &os) const {
+    os << "static const SHTypedShapeProp s_typed_shape_props[] = {\n";
+    for (const auto &prop : props_) {
+      os.indent(2);
+      os << "{ .name_index = " << prop.nameIndex
+         << ", .type = " << static_cast<unsigned>(prop.typeCode) << " },\n";
+    }
+    os << "};\n";
+
+    os << "static const SHTypedShapeTableEntry s_typed_shape_table[] = {\n";
+    for (const auto &shape : shapes_) {
+      os.indent(2);
+      os << "{ .prop_offset = " << shape.propOffset
+         << ", .num_props = " << shape.numProps << " },\n";
+    }
+    os << "};\n";
+  }
+};
+
 /// For each unique SourceCoords, maintain a corresponding index, which can be
 /// used to retrieve that source location information at runtime. Invalid
 /// coordinates have an index of 0.
@@ -435,6 +551,9 @@ struct ModuleGen {
   /// Literal buffers for objects and arrays.
   SHLiteralBuffers literalBuffers;
 
+  /// Table of typed shapes.
+  SHTypedShapeTable typedShapeTable;
+
   /// Maintain a table of all unique source file locations used by throwing
   /// instructions.
   SHSrcLocationTable srcLocationTable;
@@ -444,6 +563,7 @@ struct ModuleGen {
 
   explicit ModuleGen(Module *M, bool optimizationEnabled)
       : literalBuffers{M, stringTable, optimizationEnabled},
+        typedShapeTable{M, stringTable},
         srcLocationTable{stringTable},
         nativeFunctionTable{M, stringTable} {}
 };
@@ -1191,9 +1311,8 @@ class InstrGen {
       case ValueKind::BinaryStrictlyNotEqualInstKind: // !==
         if (bothDouble) {
           infixDoubleOp = "!=";
-        } else if (
-            canCompareStrictEqualityRaw(
-                inst.getLeftHandSide(), inst.getRightHandSide())) {
+        } else if (canCompareStrictEqualityRaw(
+                       inst.getLeftHandSide(), inst.getRightHandSide())) {
           infixRawOp = "!=";
         } else {
           funcUntypedOp = "!_sh_ljs_strict_equal";
@@ -1204,9 +1323,8 @@ class InstrGen {
       case ValueKind::BinaryStrictlyEqualInstKind: // ===
         if (bothDouble) {
           infixDoubleOp = "==";
-        } else if (
-            canCompareStrictEqualityRaw(
-                inst.getLeftHandSide(), inst.getRightHandSide())) {
+        } else if (canCompareStrictEqualityRaw(
+                       inst.getLeftHandSide(), inst.getRightHandSide())) {
           infixRawOp = "==";
         } else {
           funcUntypedOp = "_sh_ljs_strict_equal";
@@ -1810,10 +1928,14 @@ class InstrGen {
     os_ << ";\n";
   }
   void generatePromoteTypedShapeInst(PromoteTypedShapeInst &inst) {
-    unimplemented(inst);
+    hermes_fatal("PromoteTypedShapeInst not supported in SH backend");
   }
-  void generateTryPromoteTypedShapeInst(TryPromoteTypedShapeInst &inst) {
-    unimplemented(inst);
+  void generateTrySetTypedShapeInst(TrySetTypedShapeInst &inst) {
+    os_.indent(2);
+    os_ << "_sh_ljs_try_set_typed_shape(shr, ";
+    generateRegisterPtr(*inst.getObject());
+    os_ << ", shUnit, " << moduleGen_.typedShapeTable.getIndex(inst.getShape())
+        << ");\n";
   }
   void generateCreateArgumentsLooseInst(CreateArgumentsLooseInst &inst) {
     hermes_fatal("CreateArgumentsLooseInst should have been lowered.");
@@ -2509,11 +2631,20 @@ class InstrGen {
     generateRegister(*inst.getDerivedClassCheckedThis());
     os_ << ");\n";
   }
-  void generateIsTypedShapeInst(IsTypedShapeInst &inst) {
-    unimplemented(inst);
+  void generateHasTypedShapeInst(HasTypedShapeInst &inst) {
+    os_.indent(2);
+    generateRegister(inst);
+    os_ << " = _sh_ljs_bool(_sh_ljs_has_typed_shape(shr, ";
+    generateValue(*inst.getArgument());
+    os_ << ", shUnit, " << moduleGen_.typedShapeTable.getIndex(inst.getShape())
+        << "));\n";
   }
   void generateAssertTypedShapeInst(AssertTypedShapeInst &inst) {
-    unimplemented(inst);
+    os_.indent(2);
+    generateRegister(inst);
+    os_ << " = ";
+    generateValue(*inst.getSingleOperand());
+    os_ << ";\n";
   }
   void generateLIRDeadValueInst(LIRDeadValueInst &inst) {
     os_.indent(2);
@@ -3236,6 +3367,7 @@ static SHNativeFuncInfo s_function_info_table[];
 
   if (options.format == DumpBytecode || options.format == EmitBundle) {
     moduleGen.literalBuffers.generate(OS);
+    moduleGen.typedShapeTable.generate(OS);
     moduleGen.srcLocationTable.generate(
         OS, M->getContext().getSourceErrorManager());
     moduleGen.nativeFunctionTable.generate(OS);
@@ -3257,7 +3389,10 @@ static SHNativeFuncInfo s_function_info_table[];
        << "  SHPrivateNameCacheEntry private_name_cache_data["
        << nextPrivateNameCacheIdx << "];\n"
        << "  SHCompressedPointer object_literal_class_cache["
-       << moduleGen.literalBuffers.objShapeTable.size() << "];\n};\n"
+       << moduleGen.literalBuffers.objShapeTable.size() << "];\n"
+       << "  SHCompressedPointer typed_shape_class_cache["
+       << moduleGen.typedShapeTable.size() << "];\n"
+       << "};\n"
        << "SHUnit *CREATE_THIS_UNIT(void) {\n"
        << "  struct UnitData *unit_data = calloc(sizeof(struct UnitData), 1);\n"
        << "  *unit_data = (struct UnitData){.unit = {.index = &unit_index,"
@@ -3277,6 +3412,13 @@ static SHNativeFuncInfo s_function_info_table[];
        << ".obj_shape_table_count = "
        << moduleGen.literalBuffers.objShapeTable.size() << ", "
        << ".object_literal_class_cache = unit_data->object_literal_class_cache, "
+       << ".typed_shape_props = s_typed_shape_props, "
+       << ".typed_shape_props_count = " << moduleGen.typedShapeTable.propsSize()
+       << ", "
+       << ".typed_shape_table = s_typed_shape_table, "
+       << ".typed_shape_table_count = " << moduleGen.typedShapeTable.size()
+       << ", "
+       << ".typed_shape_class_cache = unit_data->typed_shape_class_cache, "
        << ".source_locations = s_source_locations, "
        << ".source_locations_size = " << moduleGen.srcLocationTable.size()
        << ", " << ".unit_main = _0_global, "

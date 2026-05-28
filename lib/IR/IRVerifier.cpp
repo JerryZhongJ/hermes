@@ -845,11 +845,12 @@ bool Verifier::visitTypeOfIsInst(const TypeOfIsInst &Inst) {
   return true;
 }
 
-bool Verifier::visitIsTypedShapeInst(const IsTypedShapeInst &Inst) {
+bool Verifier::visitHasTypedShapeInst(const HasTypedShapeInst &Inst) {
   AssertIWithMsg(
       Inst,
-      llvh::isa<LiteralTypedShape>(Inst.getOperand(IsTypedShapeInst::ShapeIdx)),
-      "IsTypedShapeInst::Shape must be a LiteralTypedShape");
+      llvh::isa<LiteralTypedShape>(
+          Inst.getOperand(HasTypedShapeInst::ShapeIdx)),
+      "HasTypedShapeInst::Shape must be a LiteralTypedShape");
   return true;
 }
 
@@ -889,14 +890,14 @@ bool Verifier::visitAssertTypedShapeInst(const AssertTypedShapeInst &Inst) {
       "Predecessor's terminator must be CondBranchInst with this block as true "
       "destination");
 
-  // 3. The condition of the CondBranch must be an IsTypedShapeInst with the
+  // 3. The condition of the CondBranch must be a HasTypedShapeInst with the
   //    same TypedShape as this AssertTypedShapeInst.
-  auto *isTypedShape =
-      llvh::dyn_cast<IsTypedShapeInst>(condBr->getCondition());
+  auto *hasTypedShape =
+      llvh::dyn_cast<HasTypedShapeInst>(condBr->getCondition());
   AssertIWithMsg(
       Inst,
-      isTypedShape && isTypedShape->getShape()->getData() == Inst.getShape(),
-      "Predecessor's CondBranch condition must be IsTypedShapeInst with "
+      hasTypedShape && hasTypedShape->getShape()->getData() == Inst.getShape(),
+      "Predecessor's CondBranch condition must be HasTypedShapeInst with "
       "matching shape");
 
   return true;
@@ -1555,8 +1556,8 @@ bool Verifier::visitPromoteTypedShapeInst(
   return true;
 }
 
-bool Verifier::visitTryPromoteTypedShapeInst(
-    const hermes::TryPromoteTypedShapeInst &Inst) {
+bool Verifier::visitTrySetTypedShapeInst(
+    const hermes::TrySetTypedShapeInst &Inst) {
   AssertIWithMsg(Inst, Inst.getShape(), "shape must not be null");
   return true;
 }

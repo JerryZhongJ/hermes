@@ -26,32 +26,6 @@
 namespace hermes {
 namespace vm {
 
-namespace {
-
-bool typedPropertyValueMatches(PropertyTypeCode type, HermesValue value) {
-  switch (type) {
-    case PropertyTypeCode::None:
-      llvm_unreachable("typed property store must have a property type");
-    case PropertyTypeCode::Any:
-      return true;
-    case PropertyTypeCode::Number:
-      return value.isNumber();
-    case PropertyTypeCode::String:
-      return value.isString();
-    case PropertyTypeCode::Boolean:
-      return value.isBool();
-    case PropertyTypeCode::Object:
-      return value.isObject();
-    case PropertyTypeCode::Nullish:
-      return value.isNull() || value.isUndefined();
-    case PropertyTypeCode::NumberOrNullish:
-      return value.isNumber() || value.isNull() || value.isUndefined();
-  }
-  llvm_unreachable("unsupported PropertyTypeCode");
-}
-
-} // namespace
-
 const ObjectVTable JSObject::vt{
     VTable(
         CellKind::JSObjectKind,
@@ -152,6 +126,61 @@ void JSObject::checkTypedPropertyStoreBySlot(
   auto newClazz =
       HiddenClass::updatePropertyBySlot(clazzHandle, runtime, slot, desc.flags);
   selfHandle->updateClass(runtime, *newClazz);
+}
+
+bool JSObject::switchClass(
+    Handle<JSObject> selfHandle,
+    Runtime &runtime,
+    HiddenClass *clazz) {
+  assert(clazz && "expected target HiddenClass");
+  auto currentClass = runtime.makeHandle(selfHandle->getClass(runtime));
+  auto targetClass = runtime.makeHandle(clazz);
+
+  if (currentClass->isDictionary() != targetClass->isDictionary())
+    return false;
+  if (currentClass->isDictionaryNoCache() != targetClass->isDictionaryNoCache())
+    return false;
+  if (currentClass->getHasIndexLikeProperties() !=
+      targetClass->getHasIndexLikeProperties())
+    return false;
+  if (currentClass->getMayHaveAccessor() != targetClass->getMayHaveAccessor())
+    return false;
+
+  unsigned numProperties = currentClass->getNumProperties();
+  if (numProperties != targetClass->getNumProperties())
+    return false;
+
+  for (SlotIndex slot = 0; slot != numProperties; ++slot) {
+    auto currentProperty =
+        HiddenClass::findPropertyBySlot(currentClass, runtime, slot);
+    auto targetProperty =
+        HiddenClass::findPropertyBySlot(targetClass, runtime, slot);
+    if (!currentProperty || !targetProperty)
+      return false;
+
+    const NamedPropertyDescriptor &currentDesc = currentProperty->second;
+    const NamedPropertyDescriptor &targetDesc = targetProperty->second;
+    if (currentProperty->first != targetProperty->first)
+      return false;
+    if (currentDesc.slot != targetDesc.slot || targetDesc.slot != slot)
+      return false;
+    PropertyFlags currentFlags = currentDesc.flags;
+    PropertyFlags targetFlags = targetDesc.flags;
+    currentFlags.setPropertyType(PropertyTypeCode::None);
+    targetFlags.setPropertyType(PropertyTypeCode::None);
+    if (currentFlags != targetFlags)
+      return false;
+
+    if (targetClass->isTyped()) {
+      auto value = getNamedSlotValueUnsafe(selfHandle.get(), runtime, slot)
+                       .unboxToHV(runtime);
+      if (!typedPropertyValueMatches(targetDesc.flags.getPropertyType(), value))
+        return false;
+    }
+  }
+
+  selfHandle->updateClass(runtime, clazz);
+  return true;
 }
 
 PseudoHandle<JSObject> JSObject::create(
@@ -380,9 +409,8 @@ ExecutionStatus JSObject::allocateNewSlotStorage(
         PropStorage::create(runtime, DEFAULT_PROPERTY_CAPACITY));
     selfHandle->propStorage_.setNonNull(
         runtime, vmcast<PropStorage>(arrRes), runtime.getHeap());
-  } else if (
-      auto propStoragePtr = selfHandle->propStorage_.getNonNull(runtime);
-      LLVM_UNLIKELY(newSlotIndex >= propStoragePtr->capacity())) {
+  } else if (auto propStoragePtr = selfHandle->propStorage_.getNonNull(runtime);
+             LLVM_UNLIKELY(newSlotIndex >= propStoragePtr->capacity())) {
     // Reallocate the existing one.
     assert(
         newSlotIndex == selfHandle->propStorage_.getNonNull(runtime)->size() &&
@@ -1548,7 +1576,8 @@ CallResult<bool> JSObject::putNamedWithReceiver_RJS(
             !desc.flags.hostObject && !desc.flags.proxyObject &&
             desc.flags.writable)) {
       assert(pos && "own data property must have a PropertyPos");
-      checkTypedPropertyStore(selfHandle, runtime, name, pos, desc, valueHandle);
+      checkTypedPropertyStore(
+          selfHandle, runtime, name, pos, desc, valueHandle);
       auto shv = SmallHermesValue::encodeHermesValue(*valueHandle, runtime);
       setNamedSlotValueUnsafe(*selfHandle, runtime, desc, shv);
       return true;

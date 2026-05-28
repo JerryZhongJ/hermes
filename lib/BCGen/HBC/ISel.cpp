@@ -1376,10 +1376,10 @@ void HBCISel::generatePromoteTypedShapeInst(
     BasicBlock *) {
   hermes_fatal("PromoteTypedShapeInst not supported in HBC backend");
 }
-void HBCISel::generateTryPromoteTypedShapeInst(
-    TryPromoteTypedShapeInst *,
+void HBCISel::generateTrySetTypedShapeInst(
+    TrySetTypedShapeInst *,
     BasicBlock *) {
-  hermes_fatal("TryPromoteTypedShapeInst not supported in HBC backend");
+  hermes_fatal("TrySetTypedShapeInst not supported in HBC backend");
 }
 void HBCISel::generateAllocArrayInst(AllocArrayInst *Inst, BasicBlock *next) {
   auto dstReg = encodeValue(Inst);
@@ -2480,8 +2480,8 @@ void HBCISel::generateUnionNarrowTrustedInst(
   auto src = encodeValue(Inst->getSingleOperand());
   emitMovIfNeeded(dst, src);
 }
-void HBCISel::generateIsTypedShapeInst(IsTypedShapeInst *, BasicBlock *) {
-  hermes_fatal("IsTypedShapeInst not supported in HBC backend");
+void HBCISel::generateHasTypedShapeInst(HasTypedShapeInst *, BasicBlock *) {
+  hermes_fatal("HasTypedShapeInst not supported in HBC backend");
 }
 void HBCISel::generateAssertTypedShapeInst(
     AssertTypedShapeInst *Inst,

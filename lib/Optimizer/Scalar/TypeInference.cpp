@@ -651,7 +651,7 @@ class TypeInferenceImpl {
   Type inferPromoteTypedShapeInst(PromoteTypedShapeInst *inst) {
     return Type::createNoType();
   }
-  Type inferTryPromoteTypedShapeInst(TryPromoteTypedShapeInst *inst) {
+  Type inferTrySetTypedShapeInst(TrySetTypedShapeInst *inst) {
     return Type::createNoType();
   }
   Type inferGetTemplateObjectInst(GetTemplateObjectInst *inst) {
@@ -693,7 +693,7 @@ class TypeInferenceImpl {
   Type inferTypeOfIsInst(TypeOfIsInst *inst) {
     return *inst->getInherentType();
   }
-  Type inferIsTypedShapeInst(IsTypedShapeInst *inst) {
+  Type inferHasTypedShapeInst(HasTypedShapeInst *inst) {
     return *inst->getInherentType();
   }
   Type inferThrowIfInst(ThrowIfInst *inst) {

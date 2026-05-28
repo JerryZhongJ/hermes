@@ -134,7 +134,7 @@ static ObjectOperandShape getObjectOperandShape(Instruction *inst) {
     return L->getObjOperandShape();
   if (auto *S = llvh::dyn_cast<BaseStorePropertyInst>(inst))
     return S->getObjOperandShape();
-  return llvh::cast<IsTypedShapeInst>(inst)->getObjOperandShape();
+  return llvh::cast<HasTypedShapeInst>(inst)->getObjOperandShape();
 }
 
 static void setObjectOperandShape(Instruction *inst, ObjectOperandShape shape) {
@@ -143,7 +143,7 @@ static void setObjectOperandShape(Instruction *inst, ObjectOperandShape shape) {
   else if (auto *S = llvh::dyn_cast<BaseStorePropertyInst>(inst))
     S->setObjOperandShape(shape);
   else
-    llvh::cast<IsTypedShapeInst>(inst)->setObjOperandShape(shape);
+    llvh::cast<HasTypedShapeInst>(inst)->setObjOperandShape(shape);
 }
 
 class Impl {
@@ -161,7 +161,7 @@ class Impl {
   BBAssertionMap validAssertionsAtIn_;
   BBAssertionMap validAssertionsAtOut_;
 
-  /// (LoadProperty/StoreProperty/IsTypedShape, object operand)，提前收集。
+  /// (LoadProperty/StoreProperty/HasTypedShape, object operand)，提前收集。
   llvh::SmallVector<std::pair<Instruction *, Instruction *>, 64> shapedInsts_;
 
   /// 保存的原始 ObjectOperandShape（验证用）
@@ -191,7 +191,7 @@ class Impl {
       return L->getObject();
     if (auto *S = llvh::dyn_cast<BaseStorePropertyInst>(inst))
       return S->getObject();
-    if (auto *I = llvh::dyn_cast<IsTypedShapeInst>(inst))
+    if (auto *I = llvh::dyn_cast<HasTypedShapeInst>(inst))
       return I->getArgument();
     return nullptr;
   }

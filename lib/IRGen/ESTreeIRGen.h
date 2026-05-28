@@ -877,8 +877,8 @@ class ESTreeIRGen {
   bool tryApplyShapeAnnotation(Value *val, ESTree::Node *node);
   void tryApplyAnnotation(Value *val, ESTree::Node *node);
 
-  /// Try to insert a TryPromoteTypedShapeInst after a statement is generated.
-  void tryInsertTryPromoteTypedShape(ESTree::Node *stmtNode);
+  /// Try to insert a TrySetTypedShapeInst after a statement is generated.
+  void tryInsertTrySetTypedShape(ESTree::Node *stmtNode);
 
   /// Generate an expression and perform a conditional branch depending on
   /// whether it evaluates to true or false (or optionally, nullish).

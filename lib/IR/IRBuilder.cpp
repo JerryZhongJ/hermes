@@ -871,10 +871,10 @@ TypeOfIsInst *IRBuilder::createTypeOfIsInst(
   return inst;
 }
 
-IsTypedShapeInst *IRBuilder::createIsTypedShapeInst(
+HasTypedShapeInst *IRBuilder::createHasTypedShapeInst(
     Value *input,
     LiteralTypedShape *shape) {
-  auto *inst = new IsTypedShapeInst(input, shape);
+  auto *inst = new HasTypedShapeInst(input, shape);
   insert(inst);
   return inst;
 }
@@ -1191,18 +1191,18 @@ AllocTypedObjectInst *IRBuilder::createAllocTypedObjectInst(
   return inst;
 }
 
-PromoteTypedShapeInst *
-IRBuilder::createPromoteTypedShapeInst(Value *obj, LiteralTypedShape *shape) {
+PromoteTypedShapeInst *IRBuilder::createPromoteTypedShapeInst(
+    Value *obj,
+    LiteralTypedShape *shape) {
   auto *inst = new PromoteTypedShapeInst(obj, shape);
   insert(inst);
   return inst;
 }
 
-TryPromoteTypedShapeInst *
-IRBuilder::createTryPromoteTypedShapeInst(
+TrySetTypedShapeInst *IRBuilder::createTrySetTypedShapeInst(
     Value *obj,
     LiteralTypedShape *shape) {
-  auto *inst = new TryPromoteTypedShapeInst(obj, shape);
+  auto *inst = new TrySetTypedShapeInst(obj, shape);
   insert(inst);
   return inst;
 }

@@ -530,7 +530,7 @@ class IRBuilder {
       Value *obj,
       LiteralTypedShape *shape);
 
-  TryPromoteTypedShapeInst *createTryPromoteTypedShapeInst(
+  TrySetTypedShapeInst *createTrySetTypedShapeInst(
       Value *obj,
       LiteralTypedShape *shape);
 
@@ -566,7 +566,7 @@ class IRBuilder {
 
   TypeOfInst *createTypeOfInst(Value *input);
   TypeOfIsInst *createTypeOfIsInst(Value *input, LiteralTypeOfIsTypes *types);
-  IsTypedShapeInst *createIsTypedShapeInst(
+  HasTypedShapeInst *createHasTypedShapeInst(
       Value *input,
       LiteralTypedShape *shape);
 

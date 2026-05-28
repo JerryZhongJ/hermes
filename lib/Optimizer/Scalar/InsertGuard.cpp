@@ -395,7 +395,7 @@ class GuardInserter {
     insertGuardImpl(
         guardInst,
         guardInst_gen,
-        [&]() { return Builder_.createIsTypedShapeInst(guardInst, litShape); },
+        [&]() { return Builder_.createHasTypedShapeInst(guardInst, litShape); },
         [&]() { return Builder_.createAssertTypedShapeInst(nullptr, desc); });
     return true;
   }

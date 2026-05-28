@@ -2667,23 +2667,23 @@ class PromoteTypedShapeInst : public Instruction {
   }
 };
 
-/// Tries to promote an object from untyped shape to typed shape.
-/// Checks if the object's properties match the shape before promoting.
-class TryPromoteTypedShapeInst : public Instruction {
-  TryPromoteTypedShapeInst(const TryPromoteTypedShapeInst &) = delete;
-  void operator=(const TryPromoteTypedShapeInst &) = delete;
+/// Tries to set an object's hidden class to a typed shape.
+/// Checks if the object's properties match the shape before switching.
+class TrySetTypedShapeInst : public Instruction {
+  TrySetTypedShapeInst(const TrySetTypedShapeInst &) = delete;
+  void operator=(const TrySetTypedShapeInst &) = delete;
 
  public:
   enum { ObjectIdx, ShapeIdx };
 
-  explicit TryPromoteTypedShapeInst(Value *obj, LiteralTypedShape *shape)
-      : Instruction(ValueKind::TryPromoteTypedShapeInstKind) {
+  explicit TrySetTypedShapeInst(Value *obj, LiteralTypedShape *shape)
+      : Instruction(ValueKind::TrySetTypedShapeInstKind) {
     setType(Type::createNoType());
     pushOperand(obj);
     pushOperand(shape);
   }
-  explicit TryPromoteTypedShapeInst(
-      const TryPromoteTypedShapeInst *src,
+  explicit TrySetTypedShapeInst(
+      const TrySetTypedShapeInst *src,
       llvh::ArrayRef<Value *> operands)
       : Instruction(src, operands) {}
 
@@ -2706,7 +2706,7 @@ class TryPromoteTypedShapeInst : public Instruction {
   }
 
   static bool classof(const Value *V) {
-    return V->getKind() == ValueKind::TryPromoteTypedShapeInstKind;
+    return V->getKind() == ValueKind::TrySetTypedShapeInstKind;
   }
 };
 
@@ -3183,10 +3183,10 @@ class TypeOfIsInst : public Instruction {
   }
 };
 
-class IsTypedShapeInst : public Instruction {
+class HasTypedShapeInst : public Instruction {
  private:
-  IsTypedShapeInst(const IsTypedShapeInst &) = delete;
-  void operator=(const IsTypedShapeInst &) = delete;
+  HasTypedShapeInst(const HasTypedShapeInst &) = delete;
+  void operator=(const HasTypedShapeInst &) = delete;
 
   int annotationId_ = -1;
   ObjectOperandShape objOperandShape_{};
@@ -3194,14 +3194,14 @@ class IsTypedShapeInst : public Instruction {
  public:
   enum { ArgumentIdx, ShapeIdx };
 
-  explicit IsTypedShapeInst(Value *op, LiteralTypedShape *shape)
-      : Instruction(ValueKind::IsTypedShapeInstKind) {
+  explicit HasTypedShapeInst(Value *op, LiteralTypedShape *shape)
+      : Instruction(ValueKind::HasTypedShapeInstKind) {
     setType(*getInherentTypeImpl());
     pushOperand(op);
     pushOperand(shape);
   }
-  explicit IsTypedShapeInst(
-      const IsTypedShapeInst *src,
+  explicit HasTypedShapeInst(
+      const HasTypedShapeInst *src,
       llvh::ArrayRef<Value *> operands)
       : Instruction(src, operands),
         annotationId_(src->annotationId_),
@@ -3246,7 +3246,7 @@ class IsTypedShapeInst : public Instruction {
   }
 
   static bool classof(const Value *V) {
-    return V->getKind() == ValueKind::IsTypedShapeInstKind;
+    return V->getKind() == ValueKind::HasTypedShapeInstKind;
   }
 };
 
