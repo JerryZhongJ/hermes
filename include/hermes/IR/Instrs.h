@@ -5759,7 +5759,14 @@ class PrStoreInst : public Instruction {
   SideEffect getSideEffectImpl() const {
     return SideEffect{}.setWriteHeap().setIdempotent();
   }
-
+  bool shUseSafelyImpl(unsigned idx) const {
+    if (idx != StoredValueIdx)
+      return false;
+    return (expectedType_.isNumberType() &&
+            getStoredValue()->getType().isNumberType()) ||
+        (expectedType_.isBooleanType() &&
+         getStoredValue()->getType().isBooleanType());
+  }
   Value *getStoredValue() const {
     return getOperand(StoredValueIdx);
   }

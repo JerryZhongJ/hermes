@@ -1489,11 +1489,20 @@ SHERMES_EXPORT void _sh_check_type_for_prstore(
     uint32_t propIndex,
     SHLegacyValue *value);
 
-SHERMES_EXPORT bool _sh_ljs_has_typed_shape(
+/// Check if the object has the typed shape class at the given index.
+/// Compares raw compressed pointer values — no decode or read barrier needed.
+static inline bool _sh_ljs_has_typed_shape(
     SHRuntime *shr,
     SHLegacyValue value,
     SHUnit *unit,
-    uint32_t shapeIndex);
+    uint32_t shapeIndex) {
+  (void)shr;
+  if (SH_UNLIKELY(!_sh_ljs_is_object(value)))
+    return false;
+  SHCompressedPointer cachedClass = unit->typed_shape_class_cache[shapeIndex];
+  SHJSObject *obj = (SHJSObject *)_sh_ljs_get_pointer(value);
+  return obj->clazz == cachedClass.raw;
+}
 
 SHERMES_EXPORT void _sh_ljs_try_set_typed_shape(
     SHRuntime *shr,
@@ -1502,6 +1511,28 @@ SHERMES_EXPORT void _sh_ljs_try_set_typed_shape(
     uint32_t shapeIndex);
 
 SHERMES_EXPORT void _sh_unreachable() __attribute__((noreturn));
+
+#ifndef HERMESVM_BOXED_DOUBLES
+/// Store a typed non-pointer property. This skips write barriers and is only
+/// valid when the old slot value and new value are both known to be
+/// non-pointers.
+static inline void _sh_prstore_nonptr_inline(
+    SHRuntime *shr,
+    SHLegacyValue *target,
+    uint32_t propIndex,
+    SHLegacyValue value) {
+  if (propIndex < HERMESVM_DIRECT_PROPERTY_SLOTS) {
+    ((SHJSObjectAndDirectProps *)_sh_ljs_get_pointer(*target))
+        ->directProps[propIndex] = value;
+    return;
+  }
+  SHCompressedPointer propStoragePtr = {
+      .raw = ((SHJSObject *)_sh_ljs_get_pointer(*target))->propStorage};
+  SHArrayStorageSmall *propStorage =
+      (SHArrayStorageSmall *)_sh_cp_decode_non_null(shr, propStoragePtr);
+  propStorage->storage[propIndex - HERMESVM_DIRECT_PROPERTY_SLOTS] = value;
+}
+#endif
 
 /// Store a property into direct or indirect storage depending on its index.
 static inline void _sh_prstore(
@@ -1527,19 +1558,18 @@ static inline void _sh_prstore_bool(
     SHRuntime *shr,
     SHLegacyValue *target,
     uint32_t propIndex,
-    SHLegacyValue *value) {
-  assert(_sh_ljs_is_bool(*value));
-  if (propIndex < HERMESVM_DIRECT_PROPERTY_SLOTS) {
+    SHLegacyValue value) {
+  assert(_sh_ljs_is_bool(value));
 #ifndef HERMESVM_BOXED_DOUBLES
-    ((SHJSObjectAndDirectProps *)_sh_ljs_get_pointer(*target))
-        ->directProps[propIndex] = *value;
+  _sh_prstore_nonptr_inline(shr, target, propIndex, value);
 #else
+  if (propIndex < HERMESVM_DIRECT_PROPERTY_SLOTS) {
     _sh_prstore_direct_bool(shr, target, propIndex, value);
-#endif
   } else {
     _sh_prstore_indirect(
         shr, target, propIndex - HERMESVM_DIRECT_PROPERTY_SLOTS, value);
   }
+#endif
 }
 
 /// Store a number property into direct or indirect storage depending on its
@@ -1548,19 +1578,18 @@ static inline void _sh_prstore_number(
     SHRuntime *shr,
     SHLegacyValue *target,
     uint32_t propIndex,
-    SHLegacyValue *value) {
-  assert(_sh_ljs_is_double(*value));
-  if (propIndex < HERMESVM_DIRECT_PROPERTY_SLOTS) {
+    SHLegacyValue value) {
+  assert(_sh_ljs_is_double(value));
 #ifndef HERMESVM_BOXED_DOUBLES
-    ((SHJSObjectAndDirectProps *)_sh_ljs_get_pointer(*target))
-        ->directProps[propIndex] = *value;
+  _sh_prstore_nonptr_inline(shr, target, propIndex, value);
 #else
+  if (propIndex < HERMESVM_DIRECT_PROPERTY_SLOTS) {
     _sh_prstore_direct_number(shr, target, propIndex, value);
-#endif
   } else {
     _sh_prstore_indirect(
         shr, target, propIndex - HERMESVM_DIRECT_PROPERTY_SLOTS, value);
   }
+#endif
 }
 
 /// Store an object property into direct or indirect storage depending on its

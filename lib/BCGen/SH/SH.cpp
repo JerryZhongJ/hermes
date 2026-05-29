@@ -1311,8 +1311,9 @@ class InstrGen {
       case ValueKind::BinaryStrictlyNotEqualInstKind: // !==
         if (bothDouble) {
           infixDoubleOp = "!=";
-        } else if (canCompareStrictEqualityRaw(
-                       inst.getLeftHandSide(), inst.getRightHandSide())) {
+        } else if (
+            canCompareStrictEqualityRaw(
+                inst.getLeftHandSide(), inst.getRightHandSide())) {
           infixRawOp = "!=";
         } else {
           funcUntypedOp = "!_sh_ljs_strict_equal";
@@ -1323,8 +1324,9 @@ class InstrGen {
       case ValueKind::BinaryStrictlyEqualInstKind: // ===
         if (bothDouble) {
           infixDoubleOp = "==";
-        } else if (canCompareStrictEqualityRaw(
-                       inst.getLeftHandSide(), inst.getRightHandSide())) {
+        } else if (
+            canCompareStrictEqualityRaw(
+                inst.getLeftHandSide(), inst.getRightHandSide())) {
           infixRawOp = "==";
         } else {
           funcUntypedOp = "_sh_ljs_strict_equal";
@@ -2448,7 +2450,8 @@ class InstrGen {
     os_.indent(2);
     generateValue(inst);
     os_ << " = ";
-    os_ << "_sh_prload(shr, ";
+    os_ << (options_.smallC ? "_sh_prload" : "_sh_prload_inline");
+    os_ << "(shr, ";
     generateRegister(*inst.getObject());
     os_ << ", " << inst.getPropIndex() << ");\n";
   }
@@ -2457,11 +2460,14 @@ class InstrGen {
     const char *suffix = "";
     Type storedValueType = inst.getStoredValue()->getType();
     bool noCheckType = storedValueType.isSubsetOf(inst.getExpectedType());
+    bool passNonPtr = false;
     if (noCheckType) {
       if (storedValueType.isNumberType()) {
         suffix = "_number";
+        passNonPtr = true;
       } else if (storedValueType.isBooleanType()) {
         suffix = "_bool";
+        passNonPtr = true;
       } else if (storedValueType.isObjectType()) {
         suffix = "_object";
       } else if (storedValueType.isStringType()) {
@@ -2472,7 +2478,11 @@ class InstrGen {
     os_ << "_sh_prstore" << suffix << "(shr, ";
     generateRegisterPtr(*inst.getObject());
     os_ << ", " << inst.getPropIndex() << ", ";
-    generateRegisterPtr(*inst.getStoredValue());
+    if (passNonPtr)
+      generateRegister(*inst.getStoredValue());
+    else
+      generateRegisterPtr(*inst.getStoredValue());
+
     if (!*suffix)
       os_ << (noCheckType ? ", false" : ", true");
 
@@ -2640,6 +2650,11 @@ class InstrGen {
         << "));\n";
   }
   void generateAssertTypedShapeInst(AssertTypedShapeInst &inst) {
+    sh::Register dstReg = ra_.getRegister(&inst);
+    if (ra_.isAllocated(inst.getSingleOperand()) &&
+        dstReg == ra_.getRegister(inst.getSingleOperand())) {
+      return;
+    }
     os_.indent(2);
     generateRegister(inst);
     os_ << " = ";

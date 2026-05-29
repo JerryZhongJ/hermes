@@ -2392,28 +2392,14 @@ extern "C" void _sh_check_type_for_prstore(
 
 namespace {
 
-WeakRoot<HiddenClass> *getTypedShapeClassCacheEntry(
-    SHUnit *unit,
-    uint32_t index) {
-  assert(index < unit->typed_shape_table_count && "typed shape index OOB");
-  return reinterpret_cast<WeakRoot<HiddenClass> *>(
-      &unit->typed_shape_class_cache[index]);
-}
-
-HiddenClass *
-getCachedTypedShapeClass(Runtime &runtime, SHUnit *unit, uint32_t index) {
-  auto *cacheEntry = getTypedShapeClassCacheEntry(unit, index);
-  if (!*cacheEntry)
-    return nullptr;
-  return cacheEntry->getNonNull(runtime, runtime.getHeap());
-}
-
 HiddenClass *
 getTypedShapeClass(Runtime &runtime, SHUnit *unit, uint32_t index) {
-  if (HiddenClass *cached = getCachedTypedShapeClass(runtime, unit, index))
-    return cached;
+  assert(index < unit->typed_shape_table_count && "typed shape index OOB");
+  WeakRoot<HiddenClass> *cacheEntry = reinterpret_cast<WeakRoot<HiddenClass> *>(
+      &unit->typed_shape_class_cache[index]);
 
-  auto *cacheEntry = getTypedShapeClassCacheEntry(unit, index);
+  if (*cacheEntry)
+    return cacheEntry->getNonNull(runtime, runtime.getHeap());
 
   const SHTypedShapeTableEntry &shape = unit->typed_shape_table[index];
   assert(
@@ -2444,23 +2430,6 @@ getTypedShapeClass(Runtime &runtime, SHUnit *unit, uint32_t index) {
 }
 
 } // namespace
-
-LLVM_ATTRIBUTE_NOINLINE
-extern "C" bool _sh_ljs_has_typed_shape(
-    SHRuntime *shr,
-    SHLegacyValue value,
-    SHUnit *unit,
-    uint32_t shapeIndex) {
-  if (!_sh_ljs_is_object(value))
-    return false;
-  Runtime &runtime = getRuntime(shr);
-  GCScopeMarkerRAII marker{runtime};
-  HiddenClass *shapeClass = getCachedTypedShapeClass(runtime, unit, shapeIndex);
-  if (!shapeClass)
-    return false;
-  return vmcast<JSObject>(HermesValue::fromRaw(value.raw))->getClass(runtime) ==
-      shapeClass;
-}
 
 LLVM_ATTRIBUTE_NOINLINE
 extern "C" void _sh_ljs_try_set_typed_shape(

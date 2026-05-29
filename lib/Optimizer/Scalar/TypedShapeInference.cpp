@@ -265,7 +265,7 @@ class Impl {
     if (!assertions_.count(assertion))
       return false;
     BasicBlock *BB = use->getParent();
-    auto it = assertion->getIterator();
+    auto it = ++assertion->getIterator();
     auto end = use->getIterator();
     if (assertion->getParent() != BB) {
       if (!isInBBSet(validAssertionsAtIn_, BB, assertion))
