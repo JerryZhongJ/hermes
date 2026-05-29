@@ -80,6 +80,7 @@ class InstSimplifyImpl {
         /// it further.
         builder_.setInsertionPointAfter(II);
 
+        IRBuilder::ScopedLocationChange slc(builder_, II->getLocation());
         auto optNewVal = simplifyInstruction(II);
 
         // Increment iterator after simplifyInstruction to make sure we step to

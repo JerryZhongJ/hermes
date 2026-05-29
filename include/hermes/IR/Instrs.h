@@ -6457,7 +6457,7 @@ class AssertTypedShapeInst : public SingleOperandInst {
   explicit AssertTypedShapeInst(Value *src, const TypedShapeDesc *shape)
       : SingleOperandInst(ValueKind::AssertTypedShapeInstKind, src),
         shape_(shape) {
-    setType(*getInherentTypeImpl());
+    setType(Type::createNoType());
   }
   explicit AssertTypedShapeInst(
       const AssertTypedShapeInst *src,
@@ -6469,7 +6469,7 @@ class AssertTypedShapeInst : public SingleOperandInst {
   }
 
   static bool hasOutput() {
-    return true;
+    return false;
   }
   static bool isTyped() {
     return false;
@@ -6485,10 +6485,6 @@ class AssertTypedShapeInst : public SingleOperandInst {
 
   SideEffect getSideEffectImpl() const {
     return SideEffect{}.setIdempotent().setUnhoistable();
-  }
-
-  static llvh::Optional<Type> getInherentTypeImpl() {
-    return Type::createObject();
   }
 
   static bool classof(const Value *V) {

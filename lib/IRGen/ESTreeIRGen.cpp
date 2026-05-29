@@ -136,6 +136,7 @@ ESTreeIRGen::ESTreeIRGen(
   // Pre-register object locations for shape promotions.
   llvh::SmallVector<llvh::SMRange, 4> objectRanges;
   ann.getShapePromotionObjectRanges(objectRanges);
+  ann.getShapeGuardObjectRanges(objectRanges);
   for (const auto &range : objectRanges)
     pendingPromotions_.insert({range, nullptr});
 }

@@ -70,6 +70,16 @@ struct ShapePromotionEntry {
   unsigned shapeIdx;
 };
 
+/// Entry in the shape guards array.
+struct ShapeGuardEntry {
+  /// Source range of the expression that produces the object to guard.
+  llvh::SMRange objectRange;
+  /// Index into typedShapeDefs_.
+  unsigned shapeIdx;
+  /// Index in the JSON "shape guards" array.
+  unsigned annotationId;
+};
+
 /// Stores type guards, shape guards, and shape promotions loaded from a JSON
 /// file.
 class Annotations {
@@ -87,8 +97,12 @@ class Annotations {
   /// Typed shape definitions loaded from JSON (type names, not Type objects).
   llvh::SmallVector<TypedShapeDefinition, 4> typedShapeDefs_;
 
-  /// Shape guard map: SMRange -> shape index into typedShapeDefs_.
-  llvh::DenseMap<llvh::SMRange, unsigned, SMRangeInfo> shapeGuards_;
+  /// Shape guard map: guard location -> guard entries.
+  llvh::DenseMap<
+      llvh::SMRange,
+      llvh::SmallVector<ShapeGuardEntry, 2>,
+      SMRangeInfo>
+      shapeGuards_;
 
   /// Track which shape guard IDs have been matched.
   mutable llvh::DenseSet<unsigned> matchedShapeGuardIds_;
@@ -136,9 +150,10 @@ class Annotations {
     return typedShapeDefs_;
   }
 
-  /// Query the shape guard index for a given source range.
-  /// Returns -1 if not found.
-  int getShapeGuard(llvh::SMRange range) const;
+  /// Query the shape guards for a given guard-location source range.
+  void getShapeGuards(
+      llvh::SMRange range,
+      llvh::SmallVectorImpl<ShapeGuardEntry> &guards) const;
 
   /// Query the shape promotion for a given promote-location source range.
   /// Returns None if not found.
@@ -150,6 +165,14 @@ class Annotations {
       llvh::SmallVectorImpl<llvh::SMRange> &ranges) const {
     for (const auto &kv : shapePromotions_)
       ranges.push_back(kv.second.objectRange);
+  }
+
+  /// Collect all object location ranges from shape guards.
+  void getShapeGuardObjectRanges(
+      llvh::SmallVectorImpl<llvh::SMRange> &ranges) const {
+    for (const auto &kv : shapeGuards_)
+      for (const auto &entry : kv.second)
+        ranges.push_back(entry.objectRange);
   }
 };
 

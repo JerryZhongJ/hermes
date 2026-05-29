@@ -69,6 +69,22 @@ class GuardInserter {
   llvh::DenseMap<Instruction *, Instruction *> specToGenInstMap_;
   llvh::DenseMap<BasicBlock *, BasicBlock *> specToGenBBMap_;
 
+  struct CollectedTypeGuard {
+    Instruction *guardInst;
+    Type expectedType;
+    int annotationId;
+  };
+
+  struct CollectedShapeGuard {
+    Instruction *guardInst;
+    Instruction *insertAfter;
+    const TypedShapeDesc *shape;
+    int annotationId;
+  };
+
+  llvh::SmallVector<CollectedTypeGuard, 4> collectedTypeGuards_;
+  llvh::SmallVector<CollectedShapeGuard, 4> collectedShapeGuards_;
+
  public:
   explicit GuardInserter(Function *F)
       : F_(F), M_(F->getParent()), Builder_(F) {}
@@ -83,41 +99,31 @@ class GuardInserter {
       return false;
     }
 
-    // Step 2: Collect all instructions with guards
-    llvh::SmallVector<std::tuple<Instruction *, Type, int>, 2> typeGuardInsts =
-        collectTypeGuardInsts();
-    llvh::SmallVector<std::tuple<Instruction *, const TypedShapeDesc *, int>, 2>
-        shapeGuardInsts = collectShapeGuardInsts();
+    // Step 2: Collect all instructions with guards.
+    collectGuards();
 
-    if (typeGuardInsts.empty() && shapeGuardInsts.empty())
+    if (collectedTypeGuards_.empty() && collectedShapeGuards_.empty())
       return false;
 
     LLVM_DEBUG(
         dbgs() << "InsertGuard: " << F_->getInternalName() << " with "
-               << typeGuardInsts.size() << " type guards, "
-               << shapeGuardInsts.size() << " shape guards\n");
+               << collectedTypeGuards_.size() << " type guards, "
+               << collectedShapeGuards_.size() << " shape guards\n");
 
     // Step 4: Duplicate all instructions and basic blocks
     // Original becomes speculative (stays in place), copy becomes general
     if (!duplicateFunction())
       return false;
 
-    // Step 5: Insert shape guards (before type guards to avoid conflicts
-    // on the same instruction).
-    for (auto &tuple : shapeGuardInsts) {
-      Instruction *guardInst = std::get<0>(tuple);
-      const TypedShapeDesc *desc = std::get<1>(tuple);
-      int annotId = std::get<2>(tuple);
-      NumShapeGuardsInserted += insertShapeGuard(guardInst, desc, annotId);
+    // Step 5: Insert guards. Each guard is erased before insertion so updates
+    // to remaining collected guards never visit the current entry.
+    while (!collectedShapeGuards_.empty()) {
+      CollectedShapeGuard guard = collectedShapeGuards_.pop_back_val();
+      NumShapeGuardsInserted += insertShapeGuard(guard);
     }
-
-    // Step 6: Insert type guards
-    for (auto &tuple : typeGuardInsts) {
-      Instruction *guardInst = std::get<0>(tuple);
-      auto expectedType = std::get<1>(tuple);
-      int annotId = std::get<2>(tuple);
-      NumTypeGuardsInserted +=
-          insertTypeGuard(guardInst, expectedType, annotId);
+    while (!collectedTypeGuards_.empty()) {
+      CollectedTypeGuard guard = collectedTypeGuards_.pop_back_val();
+      NumTypeGuardsInserted += insertTypeGuard(guard);
     }
 
     // Step 7: Delete unreachable blocks (now gen entry parts)
@@ -152,10 +158,8 @@ class GuardInserter {
     return genToSpecBBMap_.find(BB) != genToSpecBBMap_.end();
   }
 
-  /// Collect all instructions with type guards
-  llvh::SmallVector<std::tuple<Instruction *, Type, int>, 2>
-  collectTypeGuardInsts() {
-    llvh::SmallVector<std::tuple<Instruction *, Type, int>, 2> guardInsts;
+  /// Collect all type and shape guards.
+  void collectGuards() {
     for (auto &BB : *F_) {
       for (auto &I : BB) {
         auto type = M_->getTypeGuard(&I);
@@ -174,42 +178,36 @@ class GuardInserter {
                    << (annotId >= 0 ? " [ann#" + std::to_string(annotId) + "]"
                                     : "")
                    << "\n");
-        guardInsts.push_back({&I, type, annotId});
+        collectedTypeGuards_.push_back({&I, type, annotId});
       }
     }
-    return guardInsts;
-  }
 
-  /// Collect all instructions with shape guards.
-  llvh::SmallVector<std::tuple<Instruction *, const TypedShapeDesc *, int>, 2>
-  collectShapeGuardInsts() {
-    llvh::SmallVector<std::tuple<Instruction *, const TypedShapeDesc *, int>, 2>
-        guardInsts;
-    for (auto &BB : *F_) {
-      for (auto &I : BB) {
-        auto *desc = M_->getShapeGuard(&I);
-        if (!desc)
-          continue;
-        // If this instruction also has a type guard, skip shape guard
-        // (type guard takes precedence).
-        if (!M_->getTypeGuard(&I).isNoType())
-          continue;
-        if (!I.hasUsers()) {
-          LLVM_DEBUG(
-              dbgs() << "  Skipping shape guard on " << I.getKindStr()
-                     << " (no users)\n");
-          continue;
-        }
-        int annotId = M_->getShapeGuardAnnotationId(&I);
+    for (const auto &record : M_->getShapeGuards()) {
+      if (!record.objectInst || !record.insertAfter || !record.shape)
+        continue;
+      if (record.objectInst->getParent()->getParent() != F_ ||
+          record.insertAfter->getParent()->getParent() != F_)
+        continue;
+      if (!record.objectInst->hasUsers()) {
         LLVM_DEBUG(
-            dbgs() << "  Shape guard on " << I.getKindStr() << " inst=" << &I
-                   << (annotId >= 0 ? " [ann#" + std::to_string(annotId) + "]"
-                                    : "")
-                   << "\n");
-        guardInsts.push_back({&I, desc, annotId});
+            dbgs() << "  Skipping shape guard on "
+                   << record.objectInst->getKindStr() << " (no users)\n");
+        continue;
       }
+      LLVM_DEBUG(
+          dbgs() << "  Shape guard on " << record.objectInst->getKindStr()
+                 << " inst=" << record.objectInst
+                 << " insertAfter=" << record.insertAfter
+                 << (record.annotationId >= 0
+                         ? " [ann#" + std::to_string(record.annotationId) + "]"
+                         : "")
+                 << "\n");
+      collectedShapeGuards_.push_back(
+          {record.objectInst,
+           record.insertAfter,
+           record.shape,
+           record.annotationId});
     }
-    return guardInsts;
   }
 
   /// Duplicate the function: original becomes speculative, copy becomes general
@@ -288,23 +286,23 @@ class GuardInserter {
   /// Shared logic for block splitting, narrowing, check insertion and CFG
   /// update. The two callbacks are invoked at the correct insertion points.
   void insertGuardImpl(
-      Instruction *guardInst,
-      Instruction *guardInst_gen,
+      Instruction *insertAfter,
+      Instruction *insertAfter_gen,
       llvh::function_ref<Instruction *()> createCheck,
-      llvh::function_ref<SingleOperandInst *()> createNarrow) {
-    BasicBlock *specBB = guardInst->getParent();
-    BasicBlock *genBB = guardInst_gen->getParent();
-    assert(specBB && genBB && "guardInst must have parent BB");
+      llvh::function_ref<SingleOperandInst *()> createAssert) {
+    BasicBlock *specBB = insertAfter->getParent();
+    BasicBlock *genBB = insertAfter_gen->getParent();
+    assert(specBB && genBB && "insertAfter must have parent BB");
 
-    // Find split point: skip all FirstInBlock instructions after guardInst.
-    auto splitBefore_spec = guardInst->getIterator();
+    // Find split point: skip all FirstInBlock instructions after insertAfter.
+    auto splitBefore_spec = insertAfter->getIterator();
     ++splitBefore_spec;
     while (splitBefore_spec != specBB->end() &&
            splitBefore_spec->getSideEffect().getFirstInBlock()) {
       ++splitBefore_spec;
     }
 
-    auto splitBefore_gen = guardInst_gen->getIterator();
+    auto splitBefore_gen = insertAfter_gen->getIterator();
     ++splitBefore_gen;
     while (splitBefore_gen != genBB->end() &&
            splitBefore_gen->getSideEffect().getFirstInBlock()) {
@@ -315,12 +313,10 @@ class GuardInserter {
     BasicBlock *specBB_continue = splitBlockBefore(splitBefore_spec);
     BasicBlock *genBB_continue = splitBlockBefore(splitBefore_gen);
 
-    // In specBB_continue, insert narrowing inst and replace uses.
+    // In specBB_continue, insert the narrowing/assertion instruction.
     Builder_.setInsertionBlock(specBB_continue);
     Builder_.setInsertionPoint(&specBB_continue->front());
-    auto *narrowInst = createNarrow();
-    guardInst->replaceAllUsesWith(narrowInst);
-    narrowInst->setOperand(guardInst, 0);
+    createAssert();
 
     // Remove the unconditional branch created by split.
     if (auto *specTerm = specBB->getTerminator())
@@ -341,7 +337,10 @@ class GuardInserter {
   /// Insert TypeGuard instruction after guardInst in speculative path
   /// guardInst is in spec path (original), find gen version via
   /// specToGenInstMap_
-  bool insertTypeGuard(Instruction *guardInst, Type expectedType, int annotId) {
+  bool insertTypeGuard(CollectedTypeGuard &guard) {
+    Instruction *guardInst = guard.guardInst;
+    Type expectedType = guard.expectedType;
+
     // Early exit if the guardInst type is already a subset of expectedType,
     // or if they are disjoint (no intersection).
     Type guardType = guardInst->getType();
@@ -366,37 +365,43 @@ class GuardInserter {
     assert(
         it != specToGenInstMap_.end() &&
         "guardInst must be in specToGenInstMap_");
-    Instruction *guardInst_gen = it->second;
+    Instruction *insertAfter_gen = it->second;
 
     auto *typeLit = Builder_.getLiteralTypeOfIsTypes(
         getTypeOfIsTypesFromType(expectedType));
     insertGuardImpl(
         guardInst,
-        guardInst_gen,
+        insertAfter_gen,
         [&]() { return Builder_.createTypeOfIsInst(guardInst, typeLit); },
         [&]() {
-          return Builder_.createUnionNarrowTrustedInst(nullptr, expectedType);
+          auto *narrowInst =
+              Builder_.createUnionNarrowTrustedInst(nullptr, expectedType);
+          guardInst->replaceAllUsesWith(narrowInst);
+          narrowInst->setOperand(
+              guardInst, UnionNarrowTrustedInst::SingleOperandIdx);
+          return narrowInst;
         });
     return true;
   }
 
   /// Insert ShapeGuard instruction after guardInst in speculative path.
-  bool insertShapeGuard(
-      Instruction *guardInst,
-      const TypedShapeDesc *desc,
-      int annotId) {
-    auto it = specToGenInstMap_.find(guardInst);
+  bool insertShapeGuard(CollectedShapeGuard &guard) {
+    Instruction *guardInst = guard.guardInst;
+    Instruction *insertAfter = guard.insertAfter;
+    const TypedShapeDesc *desc = guard.shape;
+
+    auto it = specToGenInstMap_.find(insertAfter);
     assert(
         it != specToGenInstMap_.end() &&
-        "guardInst must be in specToGenInstMap_");
-    Instruction *guardInst_gen = it->second;
+        "insertAfter must be in specToGenInstMap_");
+    Instruction *insertAfter_gen = it->second;
 
     LiteralTypedShape *litShape = M_->getLiteralTypedShape(desc);
     insertGuardImpl(
-        guardInst,
-        guardInst_gen,
+        insertAfter,
+        insertAfter_gen,
         [&]() { return Builder_.createHasTypedShapeInst(guardInst, litShape); },
-        [&]() { return Builder_.createAssertTypedShapeInst(nullptr, desc); });
+        [&]() { return Builder_.createAssertTypedShapeInst(guardInst, desc); });
     return true;
   }
 

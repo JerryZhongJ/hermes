@@ -524,9 +524,9 @@ class ESTreeIRGen {
   /// Pre-registered typed shape descriptors (indexed by JSON shape def index).
   llvh::SmallVector<const TypedShapeDesc *, 4> shapeDescs_;
 
-  /// Map from object-range to the Value* produced by that expression.
-  /// Pre-filled with nullptr for all known object locations at construction
-  /// time. Filled with real values inside tryApplyAnnotation().
+  /// Map from annotated object-range to the Value* produced by that
+  /// expression. Pre-filled with nullptr for all known object locations at
+  /// construction time. Filled with real values inside tryApplyAnnotation().
   llvh::DenseMap<llvh::SMRange, Value *, SMRangeInfo> pendingPromotions_;
   /// Semantic resolution tables.
   sema::SemContext &semCtx_;

@@ -2658,6 +2658,13 @@ class Module : public Value {
     Function *function;
   };
 
+  struct ShapeGuardRecord {
+    Instruction *objectInst;
+    Instruction *insertAfter;
+    const TypedShapeDesc *shape;
+    int annotationId;
+  };
+
  private:
   std::shared_ptr<Context> Ctx;
   /// Optionally specify the top level function, if it isn't the first one.
@@ -2778,11 +2785,9 @@ class Module : public Value {
   /// Annotation IDs for type guards (parallel to typeGuards_).
   llvh::DenseMap<Instruction *, int> typeGuardAnnotationIds_{};
 
-  /// Shape guards map: stores expected typed shapes for instructions.
-  llvh::DenseMap<Instruction *, const TypedShapeDesc *> shapeGuards_{};
-
-  /// Annotation IDs for shape guards (parallel to shapeGuards_).
-  llvh::DenseMap<Instruction *, int> shapeGuardAnnotationIds_{};
+  /// Shape guard records. objectInst is the value being guarded, insertAfter is
+  /// the instruction after which the guard is inserted.
+  llvh::SmallVector<ShapeGuardRecord, 4> shapeGuards_{};
 
  public:
   explicit Module(std::shared_ptr<Context> ctx)
@@ -2893,23 +2898,27 @@ class Module : public Value {
   /// Create or get a uniqued LiteralTypedShape wrapping the given descriptor.
   LiteralTypedShape *getLiteralTypedShape(const TypedShapeDesc *desc);
 
-  /// Set a shape guard for an instruction.
-  void setShapeGuard(Instruction *inst, const TypedShapeDesc *shape, int annotationId = -1) {
-    shapeGuards_.insert({inst, shape});
-    if (annotationId >= 0)
-      shapeGuardAnnotationIds_.insert({inst, annotationId});
+  /// Add a shape guard for an object instruction at an insertion point.
+  void addShapeGuard(
+      Instruction *objectInst,
+      Instruction *insertAfter,
+      const TypedShapeDesc *shape,
+      int annotationId = -1) {
+    shapeGuards_.push_back({objectInst, insertAfter, shape, annotationId});
   }
-  /// Get the shape guard for an instruction. Returns nullptr if not found.
-  const TypedShapeDesc *getShapeGuard(Instruction *inst) const;
-  /// Get the annotation ID for a shape guard instruction.
-  int getShapeGuardAnnotationId(Instruction *inst) const {
-    auto it = shapeGuardAnnotationIds_.find(inst);
-    return it != shapeGuardAnnotationIds_.end() ? it->second : -1;
+
+  llvh::ArrayRef<ShapeGuardRecord> getShapeGuards() const {
+    return shapeGuards_;
   }
+
   /// Remove a shape guard for an instruction.
   void removeShapeGuard(Instruction *inst) {
-    shapeGuards_.erase(inst);
-    shapeGuardAnnotationIds_.erase(inst);
+    for (auto it = shapeGuards_.begin(); it != shapeGuards_.end();) {
+      if (it->objectInst == inst || it->insertAfter == inst)
+        it = shapeGuards_.erase(it);
+      else
+        ++it;
+    }
   }
 
   /// Assign index to all Variables in all VariableScopes.

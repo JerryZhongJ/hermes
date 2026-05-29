@@ -167,7 +167,10 @@ void loadShapeGuards(
     const llvh::json::Array &arr,
     SourceErrorManager &sm,
     llvh::ArrayRef<TypedShapeDefinition> typedShapeDefs,
-    llvh::DenseMap<llvh::SMRange, unsigned, SMRangeInfo> &shapeGuards) {
+    llvh::DenseMap<
+        llvh::SMRange,
+        llvh::SmallVector<ShapeGuardEntry, 2>,
+        SMRangeInfo> &shapeGuards) {
   unsigned failCount = 0;
 
   for (unsigned i = 0, e = arr.size(); i < e; ++i) {
@@ -177,8 +180,9 @@ void loadShapeGuards(
       continue;
     }
 
-    const llvh::json::Object *loc = sa->getObject("location");
-    if (!loc) {
+    const llvh::json::Object *objLoc = sa->getObject("object location");
+    const llvh::json::Object *guardLoc = sa->getObject("guard location");
+    if (!objLoc || !guardLoc) {
       failCount++;
       continue;
     }
@@ -191,13 +195,15 @@ void loadShapeGuards(
       continue;
     }
 
-    auto range = resolveLocation(loc, sm);
-    if (!range.hasValue()) {
+    auto objectRange = resolveLocation(objLoc, sm);
+    auto guardRange = resolveLocation(guardLoc, sm);
+    if (!objectRange.hasValue() || !guardRange.hasValue()) {
       failCount++;
       continue;
     }
 
-    shapeGuards.insert({range.getValue(), static_cast<unsigned>(*shapeIdx)});
+    shapeGuards[guardRange.getValue()].push_back(
+        {objectRange.getValue(), static_cast<unsigned>(*shapeIdx), i});
   }
 
   if (failCount > 0)
@@ -354,12 +360,16 @@ int Annotations::getTypeGuardId(llvh::SMRange range) const {
   return -1;
 }
 
-int Annotations::getShapeGuard(llvh::SMRange range) const {
+void Annotations::getShapeGuards(
+    llvh::SMRange range,
+    llvh::SmallVectorImpl<ShapeGuardEntry> &guards) const {
   auto it = shapeGuards_.find(range);
   if (it != shapeGuards_.end()) {
-    return static_cast<int>(it->second);
+    for (const auto &entry : it->second) {
+      matchedShapeGuardIds_.insert(entry.annotationId);
+      guards.push_back(entry);
+    }
   }
-  return -1;
 }
 
 llvh::Optional<ShapePromotionEntry> Annotations::getShapePromotion(

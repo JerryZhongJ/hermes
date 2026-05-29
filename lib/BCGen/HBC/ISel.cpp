@@ -2484,11 +2484,8 @@ void HBCISel::generateHasTypedShapeInst(HasTypedShapeInst *, BasicBlock *) {
   hermes_fatal("HasTypedShapeInst not supported in HBC backend");
 }
 void HBCISel::generateAssertTypedShapeInst(
-    AssertTypedShapeInst *Inst,
+    AssertTypedShapeInst *,
     BasicBlock *) {
-  auto dst = encodeValue(Inst);
-  auto src = encodeValue(Inst->getSingleOperand());
-  emitMovIfNeeded(dst, src);
 }
 void HBCISel::generateCreateArgumentsLooseInst(
     CreateArgumentsLooseInst *,

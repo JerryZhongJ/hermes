@@ -460,8 +460,8 @@ void Instruction::eraseFromParent() {
   for (unsigned i = 0; i < getNumOperands(); i++)
     setOperand(nullptr, i);
 
-  // Remove from typeGuards_/shapeGuards_ maps to avoid stale pointers after
-  // memory reuse.
+  // Remove from typeGuards_/shapeGuards_ to avoid stale pointers after memory
+  // reuse.
   if (auto *F = getParent()->getParent()) {
     if (auto *M = F->getParent()) {
       M->removeTypeGuard(this);
@@ -1068,11 +1068,6 @@ const TypedShapeDesc *Module::createTypedShape(
   const TypedShapeDesc *ptr = desc.get();
   typedShapeDescs_.push_back(std::move(desc));
   return ptr;
-}
-
-const TypedShapeDesc *Module::getShapeGuard(Instruction *inst) const {
-  auto it = shapeGuards_.find(inst);
-  return it != shapeGuards_.end() ? it->second : nullptr;
 }
 
 void Type::print(llvh::raw_ostream &OS) const {

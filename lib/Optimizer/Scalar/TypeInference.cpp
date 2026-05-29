@@ -965,14 +965,8 @@ class TypeInferenceImpl {
     }
     return res;
   }
-  Type inferAssertTypedShapeInst(AssertTypedShapeInst *inst) {
-    auto res = Type::intersectTy(
-        *inst->getInherentType(), inst->getSingleOperand()->getType());
-
-    if (LLVM_UNLIKELY(res.isNoType())) {
-      return *inst->getInherentType();
-    }
-    return res;
+  Type inferAssertTypedShapeInst(AssertTypedShapeInst *) {
+    return Type::createNoType();
   }
   Type inferCheckedTypeCastInst(CheckedTypeCastInst *inst) {
     Type inputType = inst->getCheckedValue()->getType();

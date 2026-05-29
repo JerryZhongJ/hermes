@@ -2649,18 +2649,7 @@ class InstrGen {
     os_ << ", shUnit, " << moduleGen_.typedShapeTable.getIndex(inst.getShape())
         << "));\n";
   }
-  void generateAssertTypedShapeInst(AssertTypedShapeInst &inst) {
-    sh::Register dstReg = ra_.getRegister(&inst);
-    if (ra_.isAllocated(inst.getSingleOperand()) &&
-        dstReg == ra_.getRegister(inst.getSingleOperand())) {
-      return;
-    }
-    os_.indent(2);
-    generateRegister(inst);
-    os_ << " = ";
-    generateValue(*inst.getSingleOperand());
-    os_ << ";\n";
-  }
+  void generateAssertTypedShapeInst(AssertTypedShapeInst &) {}
   void generateLIRDeadValueInst(LIRDeadValueInst &inst) {
     os_.indent(2);
     os_ << "__builtin_unreachable();\n";

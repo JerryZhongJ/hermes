@@ -33,7 +33,7 @@ struct AssertionState {
 };
 
 /// Step 1 中 compute 规则，判断 Mov/Phi 的断言状态。
-/// state 中已包含所有 AssertTypedShape/Mov/Phi，find() 本身即隐含类型判断。
+/// state 中已包含所有 AssertTypedShape operand/Mov/Phi，find() 本身即隐含类型判断。
 static AssertionState computeAssertionState(
     Instruction *inst,
     const llvh::DenseMap<Instruction *, AssertionState> &state) {
@@ -151,11 +151,11 @@ class Impl {
 
   Function *F_;
 
-  /// 断言指令 → asserted shape（只缩不增）
+  /// assertion value → asserted shape（只缩不增）
   llvh::DenseMap<Instruction *, const TypedShapeDesc *> assertions_;
 
-  /// 在最后一个 assertion 后必然有 break-all 的块（只增不减）
-  llvh::DenseSet<BasicBlock *> bbBreakAll_;
+  /// 在最后一个 validate 后必然有 invalidate-all 的块（只增不减）
+  llvh::DenseSet<BasicBlock *> bbInvalidateAll_;
 
   /// 块入口/出口处有效且主导的断言。缺失=assertions_（全集）。
   BBAssertionMap validAssertionsAtIn_;
@@ -166,24 +166,6 @@ class Impl {
 
   /// 保存的原始 ObjectOperandShape（验证用）
   llvh::DenseMap<Instruction *, ObjectOperandShape> savedShapes_;
-
-  /// Check whether there is no break-all instruction before \p use in its
-  /// block. If \p start is provided, the scan begins there instead of at the
-  /// block entry; this also verifies that \p start appears before \p use.
-  bool isBreakAllFreeBefore(Instruction *use, Instruction *start = nullptr)
-      const {
-    BasicBlock *BB = use->getParent();
-    bool scanning = !start;
-    for (auto &I : *BB) {
-      if (&I == use)
-        return scanning;
-      if (&I == start)
-        scanning = true;
-      if (scanning && instBreakAll(&I))
-        return false;
-    }
-    return false;
-  }
 
   /// 获取属性访问/shape检查指令的 object 操作数。不匹配返回 nullptr。
   static Value *getObjectOperand(Instruction *inst) {
@@ -214,8 +196,8 @@ class Impl {
     return storedType.isSubsetOf(expectedType);
   }
 
-  /// 动态判断指令是否会破坏断言链。结合固有 break-all 和 shape 上下文。
-  bool instBreakAll(Instruction *inst) const {
+  /// 动态判断指令是否会破坏断言链。结合固有 invalidate-all 和 shape 上下文。
+  bool instInvalidateAll(Instruction *inst) const {
     auto se = inst->getSideEffect();
     if (!se.getWriteHeap() && !se.getExecuteJS() && !se.getThrow())
       return false;
@@ -236,22 +218,38 @@ class Impl {
       }
     }
 
-    return false;
+    return true;
   }
 
-  /// shape 变更后检查是否需要将所在块标为 breakAll。
-  void updateBBBreakAll(Instruction *inst) {
+  /// \return the assertion validated immediately after \p inst, or nullptr.
+  Instruction *getValidatedAssertion(Instruction *inst) const {
+    if (auto *assertTypedShape = llvh::dyn_cast<AssertTypedShapeInst>(inst)) {
+      auto *assertion =
+          llvh::dyn_cast<Instruction>(assertTypedShape->getSingleOperand());
+      return assertion && assertions_.count(assertion) ? assertion : nullptr;
+    }
+
+    if ((llvh::isa<MovInst>(inst) || llvh::isa<PhiInst>(inst)) &&
+        assertions_.count(inst)) {
+      return inst;
+    }
+
+    return nullptr;
+  }
+
+  /// shape 变更后检查是否需要将所在块标为 invalidateAll。
+  void updateBBInvalidateAll(Instruction *inst) {
     BasicBlock *BB = inst->getParent();
-    if (bbBreakAll_.count(BB) || !instBreakAll(inst))
+    if (bbInvalidateAll_.count(BB) || !instInvalidateAll(inst))
       return;
 
     auto it = inst->getIterator();
     for (++it; it != BB->end(); ++it) {
-      if (assertions_.count(&*it)) {
+      if (getValidatedAssertion(&*it)) {
         return;
       }
     }
-    bbBreakAll_.insert(BB);
+    bbInvalidateAll_.insert(BB);
   }
 
   /// Check whether \p assertion is valid at the program point immediately
@@ -264,19 +262,20 @@ class Impl {
 
     if (!assertions_.count(assertion))
       return false;
+
     BasicBlock *BB = use->getParent();
-    auto it = ++assertion->getIterator();
-    auto end = use->getIterator();
-    if (assertion->getParent() != BB) {
-      if (!isInBBSet(validAssertionsAtIn_, BB, assertion))
+
+    auto it = use->getIterator();
+    while (it != BB->begin()) {
+      --it;
+      Instruction *inst = &*it;
+      if (instInvalidateAll(inst))
         return false;
-      it = BB->begin();
+      if (getValidatedAssertion(inst) == assertion)
+        return true;
     }
-    for (; it != end; ++it) {
-      if (instBreakAll(&*it))
-        return false;
-    }
-    return true;
+
+    return isInBBSet(validAssertionsAtIn_, BB, assertion);
   }
 
   //===------------------------------------------------------------------===//
@@ -286,13 +285,16 @@ class Impl {
     llvh::DenseMap<Instruction *, AssertionState> state;
     llvh::SmallVector<Instruction *, 32> worklist;
 
-    // 初始化：AssertTypedShape → {true, shape}；Mov/Phi → {false, nullptr}
+    // 初始化：AssertTypedShape operand → {true, shape}；Mov/Phi → {false, nullptr}
     for (auto &BB : *F_) {
       for (auto &I : BB) {
         if (auto *AT = llvh::dyn_cast<AssertTypedShapeInst>(&I)) {
-          state[&I] = {true, AT->getShape()};
+          if (auto *opInst =
+                  llvh::dyn_cast<Instruction>(AT->getSingleOperand())) {
+            state[opInst] = {true, AT->getShape()};
+          }
         } else if (llvh::isa<MovInst>(&I) || llvh::isa<PhiInst>(&I)) {
-          state[&I] = {false, nullptr};
+          state.try_emplace(&I, AssertionState{false, nullptr});
           worklist.push_back(&I);
         }
       }
@@ -343,25 +345,25 @@ class Impl {
   }
 
   //===------------------------------------------------------------------===//
-  // Step 3: 初始化 bbBreakAll_
+  // Step 3: 初始化 bbInvalidateAll_
   //===------------------------------------------------------------------===//
-  void initBreakAll() {
-    // 初始化 bbBreakAll_: 每块从后往前找最后一个 assertion，
-    // 若找到且该 assertion 后有 breakAll 指令 → BB ∈ bbBreakAll_
+  void initInvalidateAll() {
+    // 初始化 bbInvalidateAll_: 每块从后往前找最后一个 validate，
+    // 若找到且该 validate 后有 invalidateAll 指令 → BB ∈ bbInvalidateAll_
     for (auto &BB : *F_) {
       for (auto &I : llvh::reverse(BB)) {
-        if (instBreakAll(&I)) {
-          bbBreakAll_.insert(&BB);
+        if (instInvalidateAll(&I)) {
+          bbInvalidateAll_.insert(&BB);
           break;
         }
-        if (assertions_.count(&I))
+        if (getValidatedAssertion(&I))
           break;
       }
     }
 
     LLVM_DEBUG(
-        dbgs() << "TypedShapeInference: " << bbBreakAll_.size()
-               << " break-all BBs\n");
+        dbgs() << "TypedShapeInference: " << bbInvalidateAll_.size()
+               << " invalidate-all BBs\n");
   }
 
   //===------------------------------------------------------------------===//
@@ -374,9 +376,6 @@ class Impl {
     llvh::SmallVector<Instruction *, 16> worklist;
 
     for (auto &[inst, shape] : assertions_) {
-      if (llvh::isa<AssertTypedShapeInst>(inst))
-        continue;
-
       if (auto *mov = llvh::dyn_cast<MovInst>(inst)) {
         auto *srcI = llvh::dyn_cast<Instruction>(mov->getSingleOperand());
         if (!srcI || !isAssertionValidBefore(srcI, mov))
@@ -429,7 +428,7 @@ class Impl {
       if (newShape != getObjectOperandShape(user)) {
         setObjectOperandShape(user, newShape);
         changed = true;
-        updateBBBreakAll(user);
+        updateBBInvalidateAll(user);
       }
     }
     return changed;
@@ -465,15 +464,15 @@ class Impl {
       // === Transfer: OUT[B] = OUT[B] ∩ transfer(IN[B], B) ===
       AssertionSet transfer;
       bool mergeIn = false;
-      if (!bbBreakAll_.count(BB)) {
+      if (!bbInvalidateAll_.count(BB)) {
         mergeIn = true;
         for (auto &I : llvh::reverse(*BB)) {
-          if (instBreakAll(&I)) {
+          if (instInvalidateAll(&I)) {
             mergeIn = false;
             break;
           }
-          if (assertions_.count(&I))
-            transfer.insert(&I);
+          if (auto *assertion = getValidatedAssertion(&I))
+            transfer.insert(assertion);
         }
       }
       if (mergeIn && in)
@@ -520,7 +519,7 @@ void TypedShapeInferenceRunner::preIteration() {
     return;
 
   impl_->saveAndResetShapes();
-  impl_->initBreakAll();
+  impl_->initInvalidateAll();
 
   BasicBlock *entryBB = &*impl_->F_->begin();
   impl_->validAssertionsAtIn_[entryBB] = {};

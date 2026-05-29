@@ -106,26 +106,46 @@ bool ESTreeIRGen::tryApplyShapeAnnotation(Value *val, ESTree::Node *node) {
   if (!range.isValid())
     return false;
 
-  int shapeIdx = ann.getShapeGuard(range);
-  if (shapeIdx < 0 || static_cast<unsigned>(shapeIdx) >= shapeDescs_.size())
+  llvh::SmallVector<ShapeGuardEntry, 2> shapeGuards;
+  ann.getShapeGuards(range, shapeGuards);
+  if (shapeGuards.empty())
     return false;
 
-  auto *inst = llvh::dyn_cast<Instruction>(val);
-  if (!inst)
+  auto *insertAfter = llvh::dyn_cast<Instruction>(val);
+  if (!insertAfter)
     return false;
 
-  Mod->setShapeGuard(inst, shapeDescs_[shapeIdx]);
-  return true;
+  bool applied = false;
+  for (const auto &shapeGuard : shapeGuards) {
+    if (shapeGuard.shapeIdx >= shapeDescs_.size())
+      continue;
+
+    auto objectIt = pendingPromotions_.find(shapeGuard.objectRange);
+    if (objectIt == pendingPromotions_.end() || !objectIt->second)
+      continue;
+
+    auto *objectInst = llvh::dyn_cast<Instruction>(objectIt->second);
+    if (!objectInst)
+      continue;
+
+    Mod->addShapeGuard(
+        objectInst,
+        insertAfter,
+        shapeDescs_[shapeGuard.shapeIdx],
+        shapeGuard.annotationId);
+    applied = true;
+  }
+  return applied;
 }
 
 void ESTreeIRGen::tryApplyAnnotation(Value *val, ESTree::Node *node) {
-  tryApplyTypeAnnotation(val, node);
-  tryApplyShapeAnnotation(val, node);
-  // Record Value* for shape promotions if this is a known object location.
   auto range = node->getSourceRange();
   auto it = pendingPromotions_.find(range);
   if (it != pendingPromotions_.end())
     it->second = val;
+
+  tryApplyTypeAnnotation(val, node);
+  tryApplyShapeAnnotation(val, node);
 }
 
 Value *ESTreeIRGen::_genExpressionImpl(

@@ -448,7 +448,6 @@ void RegisterAllocator::coalesce(
     for (Instruction &I : *BB) {
       SingleOperandInst *mov = llvh::dyn_cast<MovInst>(&I);
       mov = mov ? mov : llvh::dyn_cast<UnionNarrowTrustedInst>(&I);
-      mov = mov ? mov : llvh::dyn_cast<AssertTypedShapeInst>(&I);
       if (!mov)
         continue;
 

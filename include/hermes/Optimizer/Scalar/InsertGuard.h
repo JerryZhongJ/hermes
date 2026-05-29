@@ -20,7 +20,7 @@ namespace hermes {
 /// 4. Fixing up PHI nodes and control flow
 ///
 /// This pass is based on type annotations stored in Module::typeGuards_
-/// and shape annotations stored in Module::shapeGuards_.
+/// and shape guard records stored in Module::shapeGuards_.
 class InsertGuard : public FunctionPass {
  public:
   explicit InsertGuard() : FunctionPass("InsertGuard") {}
