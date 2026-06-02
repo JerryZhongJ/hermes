@@ -97,7 +97,8 @@ class Annotations {
   /// Typed shape definitions loaded from JSON (type names, not Type objects).
   llvh::SmallVector<TypedShapeDefinition, 4> typedShapeDefs_;
 
-  /// Shape guard map: guard location -> guard entries.
+  /// Shape guard map: guard location -> guard entries. A single annotation can
+  /// describe one object-to-shape guard with multiple guard locations.
   llvh::DenseMap<
       llvh::SMRange,
       llvh::SmallVector<ShapeGuardEntry, 2>,

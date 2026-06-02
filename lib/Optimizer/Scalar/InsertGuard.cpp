@@ -289,7 +289,7 @@ class GuardInserter {
       Instruction *insertAfter,
       Instruction *insertAfter_gen,
       llvh::function_ref<Instruction *()> createCheck,
-      llvh::function_ref<SingleOperandInst *()> createAssert) {
+      llvh::function_ref<void()> createAssert) {
     BasicBlock *specBB = insertAfter->getParent();
     BasicBlock *genBB = insertAfter_gen->getParent();
     assert(specBB && genBB && "insertAfter must have parent BB");
@@ -379,7 +379,6 @@ class GuardInserter {
           guardInst->replaceAllUsesWith(narrowInst);
           narrowInst->setOperand(
               guardInst, UnionNarrowTrustedInst::SingleOperandIdx);
-          return narrowInst;
         });
     return true;
   }
@@ -401,7 +400,7 @@ class GuardInserter {
         insertAfter,
         insertAfter_gen,
         [&]() { return Builder_.createHasTypedShapeInst(guardInst, litShape); },
-        [&]() { return Builder_.createAssertTypedShapeInst(guardInst, desc); });
+        []() {});
     return true;
   }
 

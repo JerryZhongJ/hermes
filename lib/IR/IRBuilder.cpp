@@ -1400,14 +1400,6 @@ UnionNarrowTrustedInst *IRBuilder::createUnionNarrowTrustedInst(
   return inst;
 }
 
-AssertTypedShapeInst *IRBuilder::createAssertTypedShapeInst(
-    Value *value,
-    const TypedShapeDesc *shape) {
-  auto *inst = new AssertTypedShapeInst(value, shape);
-  insert(inst);
-  return inst;
-}
-
 CheckedTypeCastInst *IRBuilder::createCheckedTypeCastInst(
     Value *value,
     Type type) {

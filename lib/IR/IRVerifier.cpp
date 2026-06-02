@@ -854,55 +854,6 @@ bool Verifier::visitHasTypedShapeInst(const HasTypedShapeInst &Inst) {
   return true;
 }
 
-bool Verifier::visitAssertTypedShapeInst(const AssertTypedShapeInst &Inst) {
-  AssertIWithMsg(
-      Inst,
-      Inst.getShape() != nullptr,
-      "AssertTypedShapeInst::Shape must not be null");
-
-  // 1. Must be the first non-phi instruction in its basic block.
-  BasicBlock *BB = Inst.getParent();
-  for (auto &I : *BB) {
-    if (&I == &Inst)
-      break;
-    AssertIWithMsg(
-        Inst,
-        llvh::isa<PhiInst>(&I),
-        "AssertTypedShapeInst must be preceded only by PhiInst");
-  }
-
-  // 2. Must have exactly one predecessor whose terminator is a CondBranchInst
-  //    and the current block is the true successor.
-  int predCount = 0;
-  BasicBlock *predBB = nullptr;
-  for (auto *P : predecessors(BB)) {
-    predCount++;
-    predBB = P;
-  }
-  AssertIWithMsg(
-      Inst,
-      predCount == 1,
-      "AssertTypedShapeInst block must have exactly one predecessor");
-  auto *condBr = llvh::dyn_cast<CondBranchInst>(predBB->getTerminator());
-  AssertIWithMsg(
-      Inst,
-      condBr && condBr->getTrueDest() == BB,
-      "Predecessor's terminator must be CondBranchInst with this block as true "
-      "destination");
-
-  // 3. The condition of the CondBranch must be a HasTypedShapeInst with the
-  //    same TypedShape as this AssertTypedShapeInst.
-  auto *hasTypedShape =
-      llvh::dyn_cast<HasTypedShapeInst>(condBr->getCondition());
-  AssertIWithMsg(
-      Inst,
-      hasTypedShape && hasTypedShape->getShape()->getData() == Inst.getShape(),
-      "Predecessor's CondBranch condition must be HasTypedShapeInst with "
-      "matching shape");
-
-  return true;
-}
-
 bool Verifier::visitUnaryOperatorInst(const UnaryOperatorInst &Inst) {
   // Nothing to verify at this point.
   return true;

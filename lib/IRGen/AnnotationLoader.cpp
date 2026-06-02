@@ -181,8 +181,8 @@ void loadShapeGuards(
     }
 
     const llvh::json::Object *objLoc = sa->getObject("object location");
-    const llvh::json::Object *guardLoc = sa->getObject("guard location");
-    if (!objLoc || !guardLoc) {
+    const llvh::json::Array *guardLocs = sa->getArray("guard locations");
+    if (!objLoc || !guardLocs || guardLocs->empty()) {
       failCount++;
       continue;
     }
@@ -196,14 +196,29 @@ void loadShapeGuards(
     }
 
     auto objectRange = resolveLocation(objLoc, sm);
-    auto guardRange = resolveLocation(guardLoc, sm);
-    if (!objectRange.hasValue() || !guardRange.hasValue()) {
+    if (!objectRange.hasValue()) {
       failCount++;
       continue;
     }
+    unsigned shapeIndex = static_cast<unsigned>(*shapeIdx);
 
-    shapeGuards[guardRange.getValue()].push_back(
-        {objectRange.getValue(), static_cast<unsigned>(*shapeIdx), i});
+    bool loadedAnyGuardLocation = false;
+    for (const auto &guardLocValue : *guardLocs) {
+      const llvh::json::Object *guardLoc = guardLocValue.getAsObject();
+      if (!guardLoc)
+        continue;
+
+      auto guardRange = resolveLocation(guardLoc, sm);
+      if (!guardRange.hasValue())
+        continue;
+
+      shapeGuards[guardRange.getValue()].push_back(
+          {objectRange.getValue(), shapeIndex, i});
+      loadedAnyGuardLocation = true;
+    }
+
+    if (!loadedAnyGuardLocation)
+      failCount++;
   }
 
   if (failCount > 0)

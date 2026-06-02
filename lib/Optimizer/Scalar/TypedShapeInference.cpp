@@ -33,7 +33,8 @@ struct AssertionState {
 };
 
 /// Step 1 中 compute 规则，判断 Mov/Phi 的断言状态。
-/// state 中已包含所有 AssertTypedShape operand/Mov/Phi，find() 本身即隐含类型判断。
+/// state 中已包含所有 HasTypedShape operand/Mov/Phi，find()
+/// 本身即隐含类型判断。
 static AssertionState computeAssertionState(
     Instruction *inst,
     const llvh::DenseMap<Instruction *, AssertionState> &state) {
@@ -82,11 +83,14 @@ using BBAssertionMap = llvh::DenseMap<BasicBlock *, AssertionSet>;
 
 /// 就地取交集：dst = dst ∩ other。原地修改，避免临时分配。
 /// \return true if \p dst changed.
-inline bool intersectWith(AssertionSet &dst, const AssertionSet &other) {
+inline bool intersectWith(
+    AssertionSet &dst,
+    const AssertionSet &other,
+    Instruction *extra = nullptr) {
   bool changed = false;
   llvh::SmallVector<Instruction *, 16> toRemove;
   for (Instruction *inst : dst)
-    if (!other.count(inst))
+    if (!other.count(inst) && inst != extra)
       toRemove.push_back(inst);
   for (Instruction *inst : toRemove) {
     dst.erase(inst);
@@ -164,9 +168,6 @@ class Impl {
   /// (LoadProperty/StoreProperty/HasTypedShape, object operand)，提前收集。
   llvh::SmallVector<std::pair<Instruction *, Instruction *>, 64> shapedInsts_;
 
-  /// 保存的原始 ObjectOperandShape（验证用）
-  llvh::DenseMap<Instruction *, ObjectOperandShape> savedShapes_;
-
   /// 获取属性访问/shape检查指令的 object 操作数。不匹配返回 nullptr。
   static Value *getObjectOperand(Instruction *inst) {
     if (auto *L = llvh::dyn_cast<BaseLoadPropertyInst>(inst))
@@ -196,10 +197,10 @@ class Impl {
     return storedType.isSubsetOf(expectedType);
   }
 
-  /// 动态判断指令是否会破坏断言链。结合固有 invalidate-all 和 shape 上下文。
+  /// 动态判断指令是否会破坏断言链。只有 heap 写入可能改变对象 shape。
   bool instInvalidateAll(Instruction *inst) const {
     auto se = inst->getSideEffect();
-    if (!se.getWriteHeap() && !se.getExecuteJS() && !se.getThrow())
+    if (!se.getWriteHeap())
       return false;
 
     if (auto *load = llvh::dyn_cast<BaseLoadPropertyInst>(inst)) {
@@ -221,20 +222,27 @@ class Impl {
     return true;
   }
 
-  /// \return the assertion validated immediately after \p inst, or nullptr.
-  Instruction *getValidatedAssertion(Instruction *inst) const {
-    if (auto *assertTypedShape = llvh::dyn_cast<AssertTypedShapeInst>(inst)) {
-      auto *assertion =
-          llvh::dyn_cast<Instruction>(assertTypedShape->getSingleOperand());
-      return assertion && assertions_.count(assertion) ? assertion : nullptr;
-    }
+  /// \return whether \p inst is a Mov/Phi assertion.
+  inline bool isMovPhiAssertion(Instruction *inst) const {
+    return (llvh::isa<MovInst>(inst) || llvh::isa<PhiInst>(inst)) &&
+        assertions_.count(inst);
+  }
 
-    if ((llvh::isa<MovInst>(inst) || llvh::isa<PhiInst>(inst)) &&
-        assertions_.count(inst)) {
-      return inst;
-    }
+  /// \return the assertion validated on edge \p pred -> \p succ, or nullptr.
+  Instruction *getEdgeValidatedAssertion(BasicBlock *pred, BasicBlock *succ)
+      const {
+    auto *condBr = llvh::dyn_cast<CondBranchInst>(pred->getTerminator());
+    if (!condBr || condBr->getTrueDest() != succ)
+      return nullptr;
 
-    return nullptr;
+    auto *hasTypedShape =
+        llvh::dyn_cast<HasTypedShapeInst>(condBr->getCondition());
+    if (!hasTypedShape)
+      return nullptr;
+
+    auto *assertion = llvh::dyn_cast<Instruction>(hasTypedShape->getArgument());
+
+    return assertion;
   }
 
   /// shape 变更后检查是否需要将所在块标为 invalidateAll。
@@ -245,7 +253,7 @@ class Impl {
 
     auto it = inst->getIterator();
     for (++it; it != BB->end(); ++it) {
-      if (getValidatedAssertion(&*it)) {
+      if (isMovPhiAssertion(&*it)) {
         return;
       }
     }
@@ -271,7 +279,7 @@ class Impl {
       Instruction *inst = &*it;
       if (instInvalidateAll(inst))
         return false;
-      if (getValidatedAssertion(inst) == assertion)
+      if (inst == assertion && isMovPhiAssertion(inst))
         return true;
     }
 
@@ -285,13 +293,12 @@ class Impl {
     llvh::DenseMap<Instruction *, AssertionState> state;
     llvh::SmallVector<Instruction *, 32> worklist;
 
-    // 初始化：AssertTypedShape operand → {true, shape}；Mov/Phi → {false, nullptr}
+    // 初始化：HasTypedShape operand → {true, shape}；Mov/Phi → {false, nullptr}
     for (auto &BB : *F_) {
       for (auto &I : BB) {
-        if (auto *AT = llvh::dyn_cast<AssertTypedShapeInst>(&I)) {
-          if (auto *opInst =
-                  llvh::dyn_cast<Instruction>(AT->getSingleOperand())) {
-            state[opInst] = {true, AT->getShape()};
+        if (auto *HTS = llvh::dyn_cast<HasTypedShapeInst>(&I)) {
+          if (auto *opInst = llvh::dyn_cast<Instruction>(HTS->getArgument())) {
+            state[opInst] = {true, HTS->getShape()->getData()};
           }
         } else if (llvh::isa<MovInst>(&I) || llvh::isa<PhiInst>(&I)) {
           state.try_emplace(&I, AssertionState{false, nullptr});
@@ -330,14 +337,13 @@ class Impl {
   //===------------------------------------------------------------------===//
   // Step 2: 保存并重置 objectShape
   //===------------------------------------------------------------------===//
-  void saveAndResetShapes() {
+  void resetShapes() {
     for (auto &BB : *F_) {
       for (auto &I : BB) {
         Value *object = getObjectOperand(&I);
         if (object) {
           auto *objInst = llvh::dyn_cast<Instruction>(object);
           shapedInsts_.emplace_back(&I, objInst);
-          savedShapes_[&I] = getObjectOperandShape(&I);
           setObjectOperandShape(&I, ObjectOperandShape::createNoShape());
         }
       }
@@ -356,7 +362,7 @@ class Impl {
           bbInvalidateAll_.insert(&BB);
           break;
         }
-        if (getValidatedAssertion(&I))
+        if (isMovPhiAssertion(&I))
           break;
       }
     }
@@ -384,11 +390,19 @@ class Impl {
         for (unsigned i = 0, e = phi->getNumEntries(); i < e; ++i) {
           auto entry = phi->getEntry(i);
           auto *incomingI = llvh::dyn_cast<Instruction>(entry.first);
-          if (!incomingI || !assertions_.count(incomingI) ||
-              !isInBBSet(validAssertionsAtOut_, entry.second, incomingI)) {
+          if (!incomingI || !assertions_.count(incomingI)) {
             worklist.push_back(inst);
             break;
           }
+          if (isInBBSet(validAssertionsAtOut_, entry.second, incomingI)) {
+            continue;
+          }
+          if (getEdgeValidatedAssertion(entry.second, phi->getParent()) ==
+              incomingI) {
+            continue;
+          }
+          worklist.push_back(inst);
+          break;
         }
       }
     }
@@ -453,11 +467,14 @@ class Impl {
         auto *predOut = getAssertions(validAssertionsAtOut_, pred);
         if (!predOut)
           continue;
+        Instruction *edgeAssertion = getEdgeValidatedAssertion(pred, BB);
         if (!in) {
           in = putAssertions(validAssertionsAtIn_, BB, *predOut);
+          if (edgeAssertion)
+            in->insert(edgeAssertion);
           changed = true;
         } else {
-          changed |= intersectWith(*in, *predOut);
+          changed |= intersectWith(*in, *predOut, edgeAssertion);
         }
       }
 
@@ -471,8 +488,8 @@ class Impl {
             mergeIn = false;
             break;
           }
-          if (auto *assertion = getValidatedAssertion(&I))
-            transfer.insert(assertion);
+          if (isMovPhiAssertion(&I))
+            transfer.insert(&I);
         }
       }
       if (mergeIn && in)
@@ -518,7 +535,7 @@ void TypedShapeInferenceRunner::preIteration() {
   if (impl_->assertions_.empty())
     return;
 
-  impl_->saveAndResetShapes();
+  impl_->resetShapes();
   impl_->initInvalidateAll();
 
   BasicBlock *entryBB = &*impl_->F_->begin();

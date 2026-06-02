@@ -6447,51 +6447,6 @@ class UnionNarrowTrustedInst : public SingleOperandInst {
   }
 };
 
-class AssertTypedShapeInst : public SingleOperandInst {
-  AssertTypedShapeInst(const AssertTypedShapeInst &) = delete;
-  void operator=(const AssertTypedShapeInst &) = delete;
-
-  const TypedShapeDesc *shape_;
-
- public:
-  explicit AssertTypedShapeInst(Value *src, const TypedShapeDesc *shape)
-      : SingleOperandInst(ValueKind::AssertTypedShapeInstKind, src),
-        shape_(shape) {
-    setType(Type::createNoType());
-  }
-  explicit AssertTypedShapeInst(
-      const AssertTypedShapeInst *src,
-      llvh::ArrayRef<Value *> operands)
-      : SingleOperandInst(src, operands), shape_(src->shape_) {}
-
-  const TypedShapeDesc *getShape() const {
-    return shape_;
-  }
-
-  static bool hasOutput() {
-    return false;
-  }
-  static bool isTyped() {
-    return false;
-  }
-
-  bool shUseSafelyImpl(unsigned idx) const {
-    return idx == SingleOperandIdx;
-  }
-
-  bool acceptsEmptyTypeImpl() const {
-    return true;
-  }
-
-  SideEffect getSideEffectImpl() const {
-    return SideEffect{}.setIdempotent().setUnhoistable();
-  }
-
-  static bool classof(const Value *V) {
-    return V->getKind() == ValueKind::AssertTypedShapeInstKind;
-  }
-};
-
 class CheckedTypeCastInst : public Instruction {
   CheckedTypeCastInst(const CheckedTypeCastInst &) = delete;
   void operator=(const CheckedTypeCastInst &) = delete;

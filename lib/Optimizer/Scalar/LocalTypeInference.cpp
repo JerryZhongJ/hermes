@@ -968,9 +968,6 @@ class Impl {
     }
     return res;
   }
-  Type inferAssertTypedShapeInst(AssertTypedShapeInst *) {
-    return Type::createNoType();
-  }
   Type inferCheckedTypeCastInst(CheckedTypeCastInst *inst) {
     Type inputType = inst->getCheckedValue()->getType();
     assert(

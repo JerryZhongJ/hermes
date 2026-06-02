@@ -770,9 +770,6 @@ class IRBuilder {
   HBCStringConcatInst *createHBCStringConcatInst(Value *left, Value *right);
 
   UnionNarrowTrustedInst *createUnionNarrowTrustedInst(Value *value, Type type);
-  AssertTypedShapeInst *createAssertTypedShapeInst(
-      Value *value,
-      const TypedShapeDesc *shape);
   CheckedTypeCastInst *createCheckedTypeCastInst(Value *value, Type type);
 
   LIRDeadValueInst *createLIRDeadValueInst(Type type);

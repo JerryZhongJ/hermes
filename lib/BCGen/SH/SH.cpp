@@ -2649,7 +2649,6 @@ class InstrGen {
     os_ << ", shUnit, " << moduleGen_.typedShapeTable.getIndex(inst.getShape())
         << "));\n";
   }
-  void generateAssertTypedShapeInst(AssertTypedShapeInst &) {}
   void generateLIRDeadValueInst(LIRDeadValueInst &inst) {
     os_.indent(2);
     os_ << "__builtin_unreachable();\n";

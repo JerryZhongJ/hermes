@@ -2483,10 +2483,6 @@ void HBCISel::generateUnionNarrowTrustedInst(
 void HBCISel::generateHasTypedShapeInst(HasTypedShapeInst *, BasicBlock *) {
   hermes_fatal("HasTypedShapeInst not supported in HBC backend");
 }
-void HBCISel::generateAssertTypedShapeInst(
-    AssertTypedShapeInst *,
-    BasicBlock *) {
-}
 void HBCISel::generateCreateArgumentsLooseInst(
     CreateArgumentsLooseInst *,
     BasicBlock *) {

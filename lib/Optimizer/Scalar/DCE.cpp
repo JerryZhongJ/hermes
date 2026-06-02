@@ -42,8 +42,7 @@ static bool performFunctionDCE(Function *F) {
 
       // Skip if the instruction has side effects that prevent us from deleting
       // it, or if it is a terminator.
-      if (I->getSideEffect().hasSideEffect() || llvh::isa<TerminatorInst>(I) ||
-          llvh::isa<AssertTypedShapeInst>(I))
+      if (I->getSideEffect().hasSideEffect() || llvh::isa<TerminatorInst>(I))
         continue;
 
       // If some other instruction is using the result of this instruction then
