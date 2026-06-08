@@ -202,11 +202,9 @@ class Impl {
     auto se = inst->getSideEffect();
     if (!se.getWriteHeap())
       return false;
-
-    if (auto *load = llvh::dyn_cast<BaseLoadPropertyInst>(inst)) {
-      return load->getObjOperandShape().status == ObjectOperandShape::AnyShapes;
-    }
-
+    // StoreProperty and PrStore will definitely write heap
+    // However, they don't invalidate assertions if the stored value's type
+    // is compatible with the expected type in the known shape.
     if (auto *store = llvh::dyn_cast<BaseStorePropertyInst>(inst)) {
       switch (store->getObjOperandShape().status) {
         case ObjectOperandShape::KnownTypedShape:
@@ -218,6 +216,10 @@ class Impl {
           return true;
       }
     }
+
+    if (auto *store = llvh::dyn_cast<PrStoreInst>(inst))
+      return !store->getStoredValue()->getType().isSubsetOf(
+          store->getExpectedType());
 
     return true;
   }

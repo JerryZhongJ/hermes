@@ -101,18 +101,18 @@ bool ESTreeIRGen::tryApplyTypeAnnotation(Value *val, ESTree::Node *node) {
 }
 
 bool ESTreeIRGen::tryApplyShapeAnnotation(Value *val, ESTree::Node *node) {
+  auto *insertAfter = llvh::dyn_cast<Instruction>(val);
+  if (!insertAfter)
+    return false;
+
   const Annotations &ann = Mod->getContext().getTypeAnnotations();
   auto range = node->getSourceRange();
-  if (!range.isValid())
+  if (!range.isValid() || appliedShapeGuards_.count(range))
     return false;
 
   llvh::SmallVector<ShapeGuardEntry, 2> shapeGuards;
   ann.getShapeGuards(range, shapeGuards);
   if (shapeGuards.empty())
-    return false;
-
-  auto *insertAfter = llvh::dyn_cast<Instruction>(val);
-  if (!insertAfter)
     return false;
 
   bool applied = false;
@@ -135,6 +135,8 @@ bool ESTreeIRGen::tryApplyShapeAnnotation(Value *val, ESTree::Node *node) {
         shapeGuard.annotationId);
     applied = true;
   }
+  if (applied)
+    appliedShapeGuards_.insert(range);
   return applied;
 }
 
@@ -145,6 +147,7 @@ void ESTreeIRGen::tryApplyAnnotation(Value *val, ESTree::Node *node) {
     it->second = val;
 
   tryApplyTypeAnnotation(val, node);
+  tryInsertTrySetTypedShape(node);
   tryApplyShapeAnnotation(val, node);
 }
 

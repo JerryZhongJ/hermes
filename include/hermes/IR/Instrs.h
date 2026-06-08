@@ -1514,6 +1514,8 @@ class CallBuiltinInst : public BaseCallInst {
     return cast<LiteralBuiltinIdx>(getCallee())->getData();
   }
 
+  SideEffect getSideEffectImpl() const;
+
   static bool classof(const Value *V) {
     return V->getKind() == ValueKind::CallBuiltinInstKind;
   }
@@ -2293,7 +2295,15 @@ class BaseLoadPropertyInst : public Instruction {
   }
 
   SideEffect getSideEffectImpl() const {
-    return SideEffect::createExecute();
+    switch (objOperandShape_.status) {
+      case ObjectOperandShape::KnownTypedShape:
+        return SideEffect{}.setReadHeap().setIdempotent();
+      case ObjectOperandShape::NoShape:
+        return SideEffect{};
+      case ObjectOperandShape::AnyShapes:
+        return SideEffect::createExecute();
+    }
+    llvm_unreachable("unknown ObjectOperandShape status");
   }
 
   static bool classof(const Value *V) {

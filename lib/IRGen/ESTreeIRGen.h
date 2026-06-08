@@ -14,6 +14,7 @@
 #include "hermes/Sema/FlowContext.h"
 #include "hermes/Sema/SemContext.h"
 
+#include "llvh/ADT/DenseSet.h"
 #include "llvh/ADT/StringRef.h"
 #include "llvh/Support/Debug.h"
 
@@ -528,6 +529,13 @@ class ESTreeIRGen {
   /// expression. Pre-filled with nullptr for all known object locations at
   /// construction time. Filled with real values inside tryApplyAnnotation().
   llvh::DenseMap<llvh::SMRange, Value *, SMRangeInfo> pendingPromotions_;
+
+  /// Shape annotation source ranges that have already been successfully
+  /// applied. These prevent duplicate insertion when the same source range is
+  /// visited both as an expression and as a statement.
+  llvh::DenseSet<llvh::SMRange, SMRangeInfo> appliedShapePromotions_;
+  llvh::DenseSet<llvh::SMRange, SMRangeInfo> appliedShapeGuards_;
+
   /// Semantic resolution tables.
   sema::SemContext &semCtx_;
   /// Keywords to avoid string content comparisons.
@@ -877,8 +885,8 @@ class ESTreeIRGen {
   bool tryApplyShapeAnnotation(Value *val, ESTree::Node *node);
   void tryApplyAnnotation(Value *val, ESTree::Node *node);
 
-  /// Try to insert a TrySetTypedShapeInst after a statement is generated.
-  void tryInsertTrySetTypedShape(ESTree::Node *stmtNode);
+  /// Try to insert a TrySetTypedShapeInst after a node is generated.
+  bool tryInsertTrySetTypedShape(ESTree::Node *node);
 
   /// Generate an expression and perform a conditional branch depending on
   /// whether it evaluates to true or false (or optionally, nullish).

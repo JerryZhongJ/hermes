@@ -72,6 +72,10 @@ ValueKind UnaryOperatorInst::parseOperator(llvh::StringRef op) {
 }
 
 SideEffect UnaryOperatorInst::getSideEffectImpl() const {
+  if (getSingleOperand()->getType().isNoType()) {
+    return SideEffect{};
+  }
+
   if (getSingleOperand()->getType().isPrimitive()) {
     return SideEffect{}.setIdempotent();
   }
@@ -106,10 +110,57 @@ ValueKind BinaryOperatorInst::parseAssignmentOperator(llvh::StringRef op) {
   return parseOperator_impl(op, assignmentOpStringRepr);
 }
 
+SideEffect CallBuiltinInst::getSideEffectImpl() const {
+  auto toNumberArgs = [this](unsigned maxArgs) {
+    for (unsigned i = 0; i < maxArgs; ++i) {
+      Type type = getOperand(getThisIdx() + 1 + i)->getType();
+      if (type.isNoType())
+        return SideEffect{};
+      if (type.canBeObject())
+        return SideEffect::createExecute();
+
+      if (type.canBeBigInt() || type.canBeSymbol())
+        return SideEffect{}.setThrow().setIdempotent();
+    }
+    return SideEffect{}.setIdempotent();
+  };
+
+  switch (getBuiltinIndex()) {
+    case BuiltinMethod::Math_abs:
+    case BuiltinMethod::Math_acos:
+    case BuiltinMethod::Math_asin:
+    case BuiltinMethod::Math_atan:
+    case BuiltinMethod::Math_ceil:
+    case BuiltinMethod::Math_cos:
+    case BuiltinMethod::Math_exp:
+    case BuiltinMethod::Math_floor:
+    case BuiltinMethod::Math_log:
+    case BuiltinMethod::Math_round:
+    case BuiltinMethod::Math_sin:
+    case BuiltinMethod::Math_sqrt:
+    case BuiltinMethod::Math_tan:
+    case BuiltinMethod::Math_trunc:
+      return toNumberArgs(1);
+    case BuiltinMethod::Math_atan2:
+    case BuiltinMethod::Math_imul:
+    case BuiltinMethod::Math_pow:
+      return toNumberArgs(2);
+    case BuiltinMethod::Math_hypot:
+    case BuiltinMethod::Math_max:
+    case BuiltinMethod::Math_min:
+      return toNumberArgs(getNumArguments() - 1);
+    default:
+      return SideEffect::createExecute();
+  }
+}
+
 SideEffect BinaryOperatorInst::getBinarySideEffect(
     Type leftTy,
     Type rightTy,
     ValueKind op) {
+  if (leftTy.isNoType() || rightTy.isNoType())
+    return SideEffect{};
+
   switch (op) {
     // The 'in' and 'instanceof' operators may execute arbitrary code, or throw
     // when given primitive types:
