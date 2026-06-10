@@ -23,8 +23,8 @@
 #include "hermes/IR/IRBuilder.h"
 #include "hermes/IR/IRVerifier.h"
 #include "hermes/IR/Instrs.h"
-#include "hermes/IRGen/IRGen.h"
 #include "hermes/IRGen/AnnotationLoader.h"
+#include "hermes/IRGen/IRGen.h"
 #include "hermes/Optimizer/PassManager/PassManager.h"
 #include "hermes/Optimizer/PassManager/Pipeline.h"
 #include "hermes/Parser/JSONParser.h"
@@ -2037,7 +2037,7 @@ CompileResult processSourceFiles(
 
     // === Load type annotations if provided ===
     if (!cl::TypeAnnotationFile.empty()) {
-      context->getTypeAnnotations().loadFromFile(
+      context->getAnnotations().loadFromFile(
           cl::TypeAnnotationFile, context->getSourceErrorManager());
     }
     if (cl::DumpTarget < DumpIR) {

@@ -161,20 +161,8 @@ class Annotations {
   llvh::Optional<ShapePromotionEntry> getShapePromotion(
       llvh::SMRange promoteRange) const;
 
-  /// Collect all object location ranges from shape promotions.
-  void getShapePromotionObjectRanges(
-      llvh::SmallVectorImpl<llvh::SMRange> &ranges) const {
-    for (const auto &kv : shapePromotions_)
-      ranges.push_back(kv.second.objectRange);
-  }
-
-  /// Collect all object location ranges from shape guards.
-  void getShapeGuardObjectRanges(
-      llvh::SmallVectorImpl<llvh::SMRange> &ranges) const {
-    for (const auto &kv : shapeGuards_)
-      for (const auto &entry : kv.second)
-        ranges.push_back(entry.objectRange);
-  }
+  /// Return all object location ranges referenced by shape annotations.
+  llvh::SmallVector<llvh::SMRange, 4> getShapeAnnotationObjectRanges() const;
 };
 
 } // namespace hermes

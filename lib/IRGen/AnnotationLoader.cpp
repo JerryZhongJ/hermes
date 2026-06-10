@@ -395,6 +395,17 @@ llvh::Optional<ShapePromotionEntry> Annotations::getShapePromotion(
   return llvh::None;
 }
 
+llvh::SmallVector<llvh::SMRange, 4>
+Annotations::getShapeAnnotationObjectRanges() const {
+  llvh::SmallVector<llvh::SMRange, 4> ranges;
+  for (const auto &kv : shapePromotions_)
+    ranges.push_back(kv.second.objectRange);
+  for (const auto &kv : shapeGuards_)
+    for (const auto &entry : kv.second)
+      ranges.push_back(entry.objectRange);
+  return ranges;
+}
+
 void Annotations::reportUnmatched() const {
   unsigned total = typeGuardIds_.size();
   if (typeGuards_.empty() || matchedTypeGuardIds_.size() == total)

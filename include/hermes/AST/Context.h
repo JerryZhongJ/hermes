@@ -301,7 +301,7 @@ class Context {
 
   std::unique_ptr<irdumper::Namer> persistentIRNamer_;
 
-  Annotations typeAnnotations_;
+  Annotations annotations_;
 
  public:
   explicit Context(
@@ -595,8 +595,8 @@ class Context {
     return persistentIRNamer_.get();
   }
 
-  Annotations &getTypeAnnotations() {
-    return typeAnnotations_;
+  Annotations &getAnnotations() {
+    return annotations_;
   }
 };
 

@@ -460,15 +460,6 @@ void Instruction::eraseFromParent() {
   for (unsigned i = 0; i < getNumOperands(); i++)
     setOperand(nullptr, i);
 
-  // Remove from typeGuards_/shapeGuards_ to avoid stale pointers after memory
-  // reuse.
-  if (auto *F = getParent()->getParent()) {
-    if (auto *M = F->getParent()) {
-      M->removeTypeGuard(this);
-      M->removeShapeGuard(this);
-    }
-  }
-
   getParent()->erase(this);
 }
 

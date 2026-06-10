@@ -525,10 +525,10 @@ class ESTreeIRGen {
   /// Pre-registered typed shape descriptors (indexed by JSON shape def index).
   llvh::SmallVector<const TypedShapeDesc *, 4> shapeDescs_;
 
-  /// Map from annotated object-range to the Value* produced by that
-  /// expression. Pre-filled with nullptr for all known object locations at
-  /// construction time. Filled with real values inside tryApplyAnnotation().
-  llvh::DenseMap<llvh::SMRange, Value *, SMRangeInfo> pendingPromotions_;
+  /// Map from annotated AST node ranges to the IR Value* produced for them.
+  /// Pre-filled with nullptr for known object locations, then filled with real
+  /// values inside tryApplyAnnotation().
+  llvh::DenseMap<llvh::SMRange, Value *, SMRangeInfo> smRangeToIR_;
 
   /// Shape annotation source ranges that have already been successfully
   /// applied. These prevent duplicate insertion when the same source range is
@@ -877,12 +877,8 @@ class ESTreeIRGen {
   /// A helper called only from \c genExpression. It performs the actual work.
   Value *_genExpressionImpl(ESTree::Node *expr, Identifier nameHint);
 
-  /// Try to apply external type annotation to an instruction value.
-  /// \param val The value to potentially wrap with TypeAssertInst
-  /// \param range The source range to look up annotation for
-  /// \return The original value or a TypeAssertInst wrapping it
-  bool tryApplyTypeAnnotation(Value *val, ESTree::Node *node);
-  bool tryApplyShapeAnnotation(Value *val, ESTree::Node *node);
+  bool tryInsertTypeCheck(Value *val, ESTree::Node *node);
+  bool tryInsertShapeCheck(ESTree::Node *node);
   void tryApplyAnnotation(Value *val, ESTree::Node *node);
 
   /// Try to insert a TrySetTypedShapeInst after a node is generated.
@@ -1842,17 +1838,15 @@ class ESTreeIRGen {
           decl->kind == sema::Decl::Kind::PrivateSetter ||
           decl->kind == sema::Decl::Kind::PrivateGetterSetter);
     }
-    if constexpr (std::is_same_v<
-                      T,
-                      PrivateNameFunctionTable::SingleFunctionEntry>) {
+    if constexpr (
+        std::is_same_v<T, PrivateNameFunctionTable::SingleFunctionEntry>) {
       assert(
           decl->kind == sema::Decl::Kind::PrivateMethod ||
           decl->kind == sema::Decl::Kind::PrivateGetter ||
           decl->kind == sema::Decl::Kind::PrivateSetter);
     }
-    if constexpr (std::is_same_v<
-                      T,
-                      PrivateNameFunctionTable::GetterSetterEntry>) {
+    if constexpr (
+        std::is_same_v<T, PrivateNameFunctionTable::GetterSetterEntry>) {
       assert(decl->kind == sema::Decl::Kind::PrivateGetterSetter);
     }
     return static_cast<T *>(decl->customData);

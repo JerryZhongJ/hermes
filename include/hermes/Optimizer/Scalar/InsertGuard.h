@@ -15,12 +15,9 @@ namespace hermes {
 
 /// InsertGuard Pass - Implements speculative optimization by:
 /// 1. Duplicating function instructions into speculative and general paths
-/// 2. Inserting TypeGuard instructions at appropriate points (type guards)
-/// 3. Inserting ShapeGuard instructions at appropriate points (shape guards)
+/// 2. Finding annotation TypeOfIsInst/HasTypedShapeInst checks
+/// 3. Branching speculative execution on those checks
 /// 4. Fixing up PHI nodes and control flow
-///
-/// This pass is based on type annotations stored in Module::typeGuards_
-/// and shape guard records stored in Module::shapeGuards_.
 class InsertGuard : public FunctionPass {
  public:
   explicit InsertGuard() : FunctionPass("InsertGuard") {}

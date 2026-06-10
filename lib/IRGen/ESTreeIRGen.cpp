@@ -120,7 +120,7 @@ ESTreeIRGen::ESTreeIRGen(
       Builder(Mod),
       identDefaultExport_(Builder.createIdentifier("?default")) {
   // Pre-register all typed shape definitions from annotations.
-  const auto &ann = M->getContext().getTypeAnnotations();
+  const auto &ann = M->getContext().getAnnotations();
   for (const auto &def : ann.getTypedShapeDefs()) {
     llvh::SmallVector<TypedShapeProperty, 8> properties;
     for (const auto &prop : def.properties) {
@@ -133,12 +133,9 @@ ESTreeIRGen::ESTreeIRGen(
     shapeDescs_.push_back(M->createTypedShape(properties));
   }
 
-  // Pre-register object locations for shape promotions.
-  llvh::SmallVector<llvh::SMRange, 4> objectRanges;
-  ann.getShapePromotionObjectRanges(objectRanges);
-  ann.getShapeGuardObjectRanges(objectRanges);
-  for (const auto &range : objectRanges)
-    pendingPromotions_.insert({range, nullptr});
+  // Pre-register object locations for shape annotations.
+  for (const auto &range : ann.getShapeAnnotationObjectRanges())
+    smRangeToIR_.insert({range, nullptr});
 }
 
 bool ESTreeIRGen::tryInsertTrySetTypedShape(ESTree::Node *node) {
@@ -146,12 +143,12 @@ bool ESTreeIRGen::tryInsertTrySetTypedShape(ESTree::Node *node) {
   if (!range.isValid() || appliedShapePromotions_.count(range))
     return false;
 
-  auto entry = Mod->getContext().getTypeAnnotations().getShapePromotion(range);
+  auto entry = Mod->getContext().getAnnotations().getShapePromotion(range);
   if (!entry.hasValue())
     return false;
 
-  auto it = pendingPromotions_.find(entry->objectRange);
-  if (it == pendingPromotions_.end() || !it->second)
+  auto it = smRangeToIR_.find(entry->objectRange);
+  if (it == smRangeToIR_.end() || !it->second)
     return false;
 
   if (entry->shapeIdx >= shapeDescs_.size())

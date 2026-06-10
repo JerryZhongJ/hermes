@@ -47,9 +47,8 @@ Value *ESTreeIRGen::genExpression(ESTree::Node *expr, Identifier nameHint) {
   return val;
 }
 
-bool ESTreeIRGen::tryApplyTypeAnnotation(Value *val, ESTree::Node *node) {
-  // Apply type annotation from external JSON file using TypeAssertInst
-  const Annotations &typeAnnotations = Mod->getContext().getTypeAnnotations();
+bool ESTreeIRGen::tryInsertTypeCheck(Value *val, ESTree::Node *node) {
+  const Annotations &typeAnnotations = Mod->getContext().getAnnotations();
   auto range = node->getSourceRange();
   if (typeAnnotations.empty() || !range.isValid()) {
     return false;
@@ -83,8 +82,10 @@ bool ESTreeIRGen::tryApplyTypeAnnotation(Value *val, ESTree::Node *node) {
     return false;
   }
 
-  // Set type guard in module for speculative optimization
-  Mod->setTypeGuard(inst, annotatedType.getValue(), annotId);
+  auto *typeLit =
+      Builder.getLiteralTypeOfIsTypes(irTypeToTypeOfIsTypes(*annotatedType));
+  auto *checkInst = Builder.createTypeOfIsInst(inst, typeLit);
+  checkInst->setAnnotationId(annotId);
 
   SourceErrorManager::SourceCoords coords;
   if (Mod->getContext().getSourceErrorManager().findBufferLineAndLoc(
@@ -94,18 +95,14 @@ bool ESTreeIRGen::tryApplyTypeAnnotation(Value *val, ESTree::Node *node) {
                      << coords.col << " to " << inst->getKindStr() << ": "
                      << annotatedType.getValue() << " in func "
                      << inst->getParent()->getParent()->getInternalName()
-                     << " inst=" << inst << "\n");
+                     << " inst=" << inst << " check=" << checkInst << "\n");
   }
 
   return true;
 }
 
-bool ESTreeIRGen::tryApplyShapeAnnotation(Value *val, ESTree::Node *node) {
-  auto *insertAfter = llvh::dyn_cast<Instruction>(val);
-  if (!insertAfter)
-    return false;
-
-  const Annotations &ann = Mod->getContext().getTypeAnnotations();
+bool ESTreeIRGen::tryInsertShapeCheck(ESTree::Node *node) {
+  const Annotations &ann = Mod->getContext().getAnnotations();
   auto range = node->getSourceRange();
   if (!range.isValid() || appliedShapeGuards_.count(range))
     return false;
@@ -120,19 +117,15 @@ bool ESTreeIRGen::tryApplyShapeAnnotation(Value *val, ESTree::Node *node) {
     if (shapeGuard.shapeIdx >= shapeDescs_.size())
       continue;
 
-    auto objectIt = pendingPromotions_.find(shapeGuard.objectRange);
-    if (objectIt == pendingPromotions_.end() || !objectIt->second)
+    auto objectIt = smRangeToIR_.find(shapeGuard.objectRange);
+    if (objectIt == smRangeToIR_.end() || !objectIt->second)
       continue;
 
-    auto *objectInst = llvh::dyn_cast<Instruction>(objectIt->second);
-    if (!objectInst)
-      continue;
-
-    Mod->addShapeGuard(
-        objectInst,
-        insertAfter,
-        shapeDescs_[shapeGuard.shapeIdx],
-        shapeGuard.annotationId);
+    auto *litShape =
+        Builder.getLiteralTypedShape(shapeDescs_[shapeGuard.shapeIdx]);
+    auto *checkInst =
+        Builder.createHasTypedShapeInst(objectIt->second, litShape);
+    checkInst->setAnnotationId(shapeGuard.annotationId);
     applied = true;
   }
   if (applied)
@@ -142,13 +135,13 @@ bool ESTreeIRGen::tryApplyShapeAnnotation(Value *val, ESTree::Node *node) {
 
 void ESTreeIRGen::tryApplyAnnotation(Value *val, ESTree::Node *node) {
   auto range = node->getSourceRange();
-  auto it = pendingPromotions_.find(range);
-  if (it != pendingPromotions_.end())
+  auto it = smRangeToIR_.find(range);
+  if (it != smRangeToIR_.end())
     it->second = val;
 
-  tryApplyTypeAnnotation(val, node);
+  tryInsertTypeCheck(val, node);
   tryInsertTrySetTypedShape(node);
-  tryApplyShapeAnnotation(val, node);
+  tryInsertShapeCheck(node);
 }
 
 Value *ESTreeIRGen::_genExpressionImpl(
