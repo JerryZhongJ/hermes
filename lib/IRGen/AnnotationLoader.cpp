@@ -8,6 +8,7 @@
 #include "hermes/IRGen/AnnotationLoader.h"
 #include "hermes/IR/IR.h"
 
+#include "llvh/ADT/StringMap.h"
 #include "llvh/Support/Debug.h"
 #include "llvh/Support/JSON.h"
 #include "llvh/Support/MemoryBuffer.h"
@@ -64,24 +65,25 @@ llvh::Optional<llvh::SMRange> resolveLocation(
   return llvh::SMRange(startLoc, endLoc);
 }
 
-/// Load typed shape definitions from the "typed shapes" JSON array.
-/// Each entry is an object with a "properties" array; each element in that
-/// array is {"name": string, "type": string|[string]}. Property order in the
-/// array is significant: different order means a different shape.
+/// Load typed shape definitions from the "shapes" JSON object.
+/// Each entry maps a shape name to an object with a "properties" array; each
+/// property is {"name": string, "type": string|[string]}. Property order in
+/// the array is significant: different order means a different shape.
 void loadTypedShapes(
-    const llvh::json::Array &arr,
-    llvh::SmallVectorImpl<TypedShapeDefinition> &defs) {
-  for (unsigned i = 0, e = arr.size(); i < e; ++i) {
-    const llvh::json::Object *shapeObj = arr[i].getAsObject();
+    const llvh::json::Object &shapesObj,
+    llvh::StringMap<TypedShapeDefinition> &defs) {
+  for (const auto &entry : shapesObj) {
+    llvh::StringRef shapeName = entry.first;
+    const llvh::json::Object *shapeObj = entry.second.getAsObject();
     if (!shapeObj) {
-      llvh::errs() << "Warning: invalid typed shape entry at index " << i
+      llvh::errs() << "Warning: invalid typed shape entry '" << shapeName
                    << "\n";
       continue;
     }
     auto *propsArr = shapeObj->getArray("properties");
     if (!propsArr) {
       llvh::errs()
-          << "Warning: missing 'properties' array in typed shape entry " << i
+          << "Warning: missing 'properties' array in typed shape '" << shapeName
           << "\n";
       continue;
     }
@@ -89,7 +91,8 @@ void loadTypedShapes(
     for (const auto &elem : *propsArr) {
       const llvh::json::Object *propObj = elem.getAsObject();
       if (!propObj) {
-        llvh::errs() << "Warning: invalid property in typed shape entry " << i
+        llvh::errs() << "Warning: invalid property in typed shape '"
+                     << shapeName
                      << "\n";
         continue;
       }
@@ -108,13 +111,33 @@ void loadTypedShapes(
       }
       def.properties.push_back({name->str(), std::move(typeStrs)});
     }
-    defs.push_back(std::move(def));
+    defs[shapeName] = std::move(def);
   }
   LLVM_DEBUG(
       llvh::dbgs() << "Loaded " << defs.size() << " typed shape definitions\n");
 }
 
-/// Load type guards from the "type guards" JSON array.
+llvh::Optional<std::string> resolveShapeName(
+    const llvh::json::Object &annotation,
+    const llvh::StringMap<TypedShapeDefinition> &shapeDefs,
+    llvh::StringRef context) {
+  auto shapeName = annotation.getString("shape");
+  if (!shapeName) {
+    llvh::errs() << "Warning: missing shape name in " << context << "\n";
+    return llvh::None;
+  }
+
+  auto it = shapeDefs.find(*shapeName);
+  if (it == shapeDefs.end()) {
+    llvh::errs() << "Warning: unknown shape name '" << *shapeName << "' in "
+                 << context << "\n";
+    return llvh::None;
+  }
+
+  return shapeName->str();
+}
+
+/// Load type hints from the "type hints" JSON array.
 void loadTypeGuards(
     const llvh::json::Array &arr,
     SourceErrorManager &sm,
@@ -130,7 +153,7 @@ void loadTypeGuards(
       continue;
     }
 
-    const llvh::json::Object *loc = annot->getObject("location");
+    const llvh::json::Object *loc = annot->getObject("expression range");
     if (!loc) {
       failCount++;
       continue;
@@ -159,14 +182,14 @@ void loadTypeGuards(
   }
 
   if (failCount > 0)
-    llvh::errs() << "Warning: " << failCount << " type guards failed to load\n";
+    llvh::errs() << "Warning: " << failCount << " type hints failed to load\n";
 }
 
-/// Load shape guards from the "shape guards" JSON array.
+/// Load shape hints from the "shape hints" JSON array.
 void loadShapeGuards(
     const llvh::json::Array &arr,
     SourceErrorManager &sm,
-    llvh::ArrayRef<TypedShapeDefinition> typedShapeDefs,
+    const llvh::StringMap<TypedShapeDefinition> &shapeDefs,
     llvh::DenseMap<
         llvh::SMRange,
         llvh::SmallVector<ShapeGuardEntry, 2>,
@@ -180,17 +203,16 @@ void loadShapeGuards(
       continue;
     }
 
-    const llvh::json::Object *objLoc = sa->getObject("object location");
-    const llvh::json::Array *guardLocs = sa->getArray("guard locations");
-    if (!objLoc || !guardLocs || guardLocs->empty()) {
+    const llvh::json::Object *objLoc = sa->getObject("expression range");
+    const llvh::json::Array *hintAfterRanges =
+        sa->getArray("hint after ranges");
+    if (!objLoc || !hintAfterRanges || hintAfterRanges->empty()) {
       failCount++;
       continue;
     }
 
-    auto shapeIdx = sa->getInteger("shape");
-    if (!shapeIdx || *shapeIdx < 0 ||
-        static_cast<unsigned>(*shapeIdx) >= typedShapeDefs.size()) {
-      llvh::errs() << "Warning: invalid shape index in shape guard\n";
+    auto shapeName = resolveShapeName(*sa, shapeDefs, "shape hint");
+    if (!shapeName.hasValue()) {
       failCount++;
       continue;
     }
@@ -200,20 +222,19 @@ void loadShapeGuards(
       failCount++;
       continue;
     }
-    unsigned shapeIndex = static_cast<unsigned>(*shapeIdx);
 
     bool loadedAnyGuardLocation = false;
-    for (const auto &guardLocValue : *guardLocs) {
-      const llvh::json::Object *guardLoc = guardLocValue.getAsObject();
-      if (!guardLoc)
+    for (const auto &hintAfterValue : *hintAfterRanges) {
+      const llvh::json::Object *hintAfter = hintAfterValue.getAsObject();
+      if (!hintAfter)
         continue;
 
-      auto guardRange = resolveLocation(guardLoc, sm);
-      if (!guardRange.hasValue())
+      auto hintAfterRange = resolveLocation(hintAfter, sm);
+      if (!hintAfterRange.hasValue())
         continue;
 
-      shapeGuards[guardRange.getValue()].push_back(
-          {objectRange.getValue(), shapeIndex, i});
+      shapeGuards[hintAfterRange.getValue()].push_back(
+          {objectRange.getValue(), shapeName.getValue(), i});
       loadedAnyGuardLocation = true;
     }
 
@@ -223,14 +244,14 @@ void loadShapeGuards(
 
   if (failCount > 0)
     llvh::errs() << "Warning: " << failCount
-                 << " shape guards failed to load\n";
+                 << " shape hints failed to load\n";
 }
 
-/// Load shape promotions from the "shape promotions" JSON array.
+/// Load shape assignments from the "shape assignments" JSON array.
 void loadShapePromotions(
     const llvh::json::Array &arr,
     SourceErrorManager &sm,
-    llvh::ArrayRef<TypedShapeDefinition> typedShapeDefs,
+    const llvh::StringMap<TypedShapeDefinition> &shapeDefs,
     llvh::DenseMap<llvh::SMRange, ShapePromotionEntry, SMRangeInfo>
         &shapePromotions) {
   unsigned failCount = 0;
@@ -242,36 +263,34 @@ void loadShapePromotions(
       continue;
     }
 
-    const llvh::json::Object *objLoc = sp->getObject("object location");
-    const llvh::json::Object *promoteLoc = sp->getObject("promote location");
-    if (!objLoc || !promoteLoc) {
+    const llvh::json::Object *objLoc = sp->getObject("expression range");
+    const llvh::json::Object *assignAfter = sp->getObject("assign after");
+    if (!objLoc || !assignAfter) {
       failCount++;
       continue;
     }
 
-    auto shapeIdx = sp->getInteger("shape");
-    if (!shapeIdx || *shapeIdx < 0 ||
-        static_cast<unsigned>(*shapeIdx) >= typedShapeDefs.size()) {
-      llvh::errs() << "Warning: invalid shape index in shape promotion\n";
+    auto shapeName = resolveShapeName(*sp, shapeDefs, "shape assignment");
+    if (!shapeName.hasValue()) {
       failCount++;
       continue;
     }
 
     auto objectRange = resolveLocation(objLoc, sm);
-    auto promoteRange = resolveLocation(promoteLoc, sm);
-    if (!objectRange.hasValue() || !promoteRange.hasValue()) {
+    auto assignAfterRange = resolveLocation(assignAfter, sm);
+    if (!objectRange.hasValue() || !assignAfterRange.hasValue()) {
       failCount++;
       continue;
     }
 
     shapePromotions.insert(
-        {promoteRange.getValue(),
-         {objectRange.getValue(), static_cast<unsigned>(*shapeIdx)}});
+        {assignAfterRange.getValue(),
+         {objectRange.getValue(), shapeName.getValue()}});
   }
 
   if (failCount > 0)
     llvh::errs() << "Warning: " << failCount
-                 << " shape promotions failed to load\n";
+                 << " shape assignments failed to load\n";
 }
 
 } // namespace
@@ -338,21 +357,21 @@ bool Annotations::loadFromFile(
     return false;
   }
 
-  // 1. Typed shapes
-  if (auto *arr = root->getArray("typed shapes"))
-    loadTypedShapes(*arr, typedShapeDefs_);
+  // 1. Shapes
+  if (auto *shapesObj = root->getObject("shapes"))
+    loadTypedShapes(*shapesObj, shapeDefs_);
 
-  // 2. Type guards
-  if (auto *arr = root->getArray("type guards"))
+  // 2. Type hints
+  if (auto *arr = root->getArray("type hints"))
     loadTypeGuards(*arr, sm, typeGuards_, typeGuardIds_);
 
-  // 3. Shape guards
-  if (auto *arr = root->getArray("shape guards"))
-    loadShapeGuards(*arr, sm, typedShapeDefs_, shapeGuards_);
+  // 3. Shape hints
+  if (auto *arr = root->getArray("shape hints"))
+    loadShapeGuards(*arr, sm, shapeDefs_, shapeGuards_);
 
-  // 4. Shape promotions
-  if (auto *arr = root->getArray("shape promotions"))
-    loadShapePromotions(*arr, sm, typedShapeDefs_, shapePromotions_);
+  // 4. Shape assignments
+  if (auto *arr = root->getArray("shape assignments"))
+    loadShapePromotions(*arr, sm, shapeDefs_, shapePromotions_);
 
   return true;
 }
@@ -414,14 +433,14 @@ void Annotations::reportUnmatched() const {
   unsigned unmatched = total - matchedTypeGuardIds_.size();
   LLVM_DEBUG({
     llvh::dbgs() << "Warning: " << unmatched << " of " << total
-                 << " type guards were never matched by any IR instruction.\n";
+                 << " type hints were never matched by any IR instruction.\n";
     llvh::dbgs() << "  Unmatched: ";
     bool first = true;
     for (auto &kv : typeGuardIds_) {
       if (!matchedTypeGuardIds_.count(kv.second)) {
         if (!first)
           llvh::dbgs() << ", ";
-        llvh::dbgs() << "guard#" << kv.second;
+        llvh::dbgs() << "hint#" << kv.second;
         first = false;
       }
     }

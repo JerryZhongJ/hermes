@@ -15,6 +15,7 @@
 #include "hermes/Sema/SemContext.h"
 
 #include "llvh/ADT/DenseSet.h"
+#include "llvh/ADT/StringMap.h"
 #include "llvh/ADT/StringRef.h"
 #include "llvh/Support/Debug.h"
 
@@ -522,8 +523,8 @@ class ESTreeIRGen {
   /// The module we are constructing.
   Module *Mod;
 
-  /// Pre-registered typed shape descriptors (indexed by JSON shape def index).
-  llvh::SmallVector<const TypedShapeDesc *, 4> shapeDescs_;
+  /// Pre-registered typed shape descriptors, keyed by JSON shape name.
+  llvh::StringMap<const TypedShapeDesc *> shapeDescsByName_;
 
   /// Map from annotated AST node ranges to the IR Value* produced for them.
   /// Pre-filled with nullptr for known object locations, then filled with real

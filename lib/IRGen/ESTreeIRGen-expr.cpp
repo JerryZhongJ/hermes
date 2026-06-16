@@ -114,15 +114,15 @@ bool ESTreeIRGen::tryInsertShapeCheck(ESTree::Node *node) {
 
   bool applied = false;
   for (const auto &shapeGuard : shapeGuards) {
-    if (shapeGuard.shapeIdx >= shapeDescs_.size())
+    auto shapeDescIt = shapeDescsByName_.find(shapeGuard.shapeName);
+    if (shapeDescIt == shapeDescsByName_.end())
       continue;
 
     auto objectIt = smRangeToIR_.find(shapeGuard.objectRange);
     if (objectIt == smRangeToIR_.end() || !objectIt->second)
       continue;
 
-    auto *litShape =
-        Builder.getLiteralTypedShape(shapeDescs_[shapeGuard.shapeIdx]);
+    auto *litShape = Builder.getLiteralTypedShape(shapeDescIt->second);
     auto *checkInst =
         Builder.createHasTypedShapeInst(objectIt->second, litShape);
     checkInst->setAnnotationId(shapeGuard.annotationId);

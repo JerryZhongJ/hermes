@@ -121,7 +121,8 @@ ESTreeIRGen::ESTreeIRGen(
       identDefaultExport_(Builder.createIdentifier("?default")) {
   // Pre-register all typed shape definitions from annotations.
   const auto &ann = M->getContext().getAnnotations();
-  for (const auto &def : ann.getTypedShapeDefs()) {
+  for (const auto &shapeEntry : ann.getShapeDefs()) {
+    const auto &def = shapeEntry.second;
     llvh::SmallVector<TypedShapeProperty, 8> properties;
     for (const auto &prop : def.properties) {
       auto type = Annotations::parseTypeNames(prop.typeNames);
@@ -130,7 +131,7 @@ ESTreeIRGen::ESTreeIRGen(
       Identifier iden = M->getContext().getIdentifier(prop.name);
       properties.push_back({iden, type.getValue()});
     }
-    shapeDescs_.push_back(M->createTypedShape(properties));
+    shapeDescsByName_[shapeEntry.first()] = M->createTypedShape(properties);
   }
 
   // Pre-register object locations for shape annotations.
@@ -151,10 +152,11 @@ bool ESTreeIRGen::tryInsertTrySetTypedShape(ESTree::Node *node) {
   if (it == smRangeToIR_.end() || !it->second)
     return false;
 
-  if (entry->shapeIdx >= shapeDescs_.size())
+  auto shapeDescIt = shapeDescsByName_.find(entry->shapeName);
+  if (shapeDescIt == shapeDescsByName_.end())
     return false;
 
-  const TypedShapeDesc *desc = shapeDescs_[entry->shapeIdx];
+  const TypedShapeDesc *desc = shapeDescIt->second;
   auto *litShape = Builder.getLiteralTypedShape(desc);
   Builder.createTrySetTypedShapeInst(it->second, litShape);
   appliedShapePromotions_.insert(range);

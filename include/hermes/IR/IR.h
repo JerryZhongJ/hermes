@@ -545,6 +545,30 @@ inline Type::iterator Type::end() const {
   return iterator(*this, sizeof(bitmask_) * CHAR_BIT);
 }
 
+/// Convert an IR Type to TypeOfIsTypes.
+/// Object is converted to object|function because typeof cannot distinguish
+/// ordinary objects from function objects in the IR type lattice.
+inline TypeOfIsTypes irTypeToTypeOfIsTypes(const Type &type) {
+  TypeOfIsTypes result;
+  if (type.canBeNumber())
+    result = result.withNumber(true);
+  if (type.canBeString())
+    result = result.withString(true);
+  if (type.canBeBoolean())
+    result = result.withBoolean(true);
+  if (type.canBeObject())
+    result = result.withObject(true).withFunction(true);
+  if (type.canBeNull())
+    result = result.withNull(true);
+  if (type.canBeUndefined() || type.canBeUninit())
+    result = result.withUndefined(true);
+  if (type.canBeBigInt())
+    result = result.withBigint(true);
+  if (type.canBeSymbol())
+    result = result.withSymbol(true);
+  return result;
+}
+
 /// Convert TypeOfIsTypes to IR Type.
 /// \returns Optional Type, or None if the conversion is ambiguous.
 /// Ambiguous cases:
@@ -2658,13 +2682,6 @@ class Module : public Value {
     Function *function;
   };
 
-  struct ShapeGuardRecord {
-    Instruction *objectInst;
-    Instruction *insertAfter;
-    const TypedShapeDesc *shape;
-    int annotationId;
-  };
-
  private:
   std::shared_ptr<Context> Ctx;
   /// Optionally specify the top level function, if it isn't the first one.
@@ -2779,16 +2796,6 @@ class Module : public Value {
   /// Extra data to be shared between optimization passes.
   OptimizationContext optContext_{};
 
-  /// Type guards map: stores expected types for instructions with type guards.
-  llvh::DenseMap<Instruction *, Type> typeGuards_{};
-
-  /// Annotation IDs for type guards (parallel to typeGuards_).
-  llvh::DenseMap<Instruction *, int> typeGuardAnnotationIds_{};
-
-  /// Shape guard records. objectInst is the value being guarded, insertAfter is
-  /// the instruction after which the guard is inserted.
-  llvh::SmallVector<ShapeGuardRecord, 4> shapeGuards_{};
-
  public:
   explicit Module(std::shared_ptr<Context> ctx)
       : Value(ValueKind::ModuleKind), Ctx(std::move(ctx)) {}
@@ -2863,32 +2870,6 @@ class Module : public Value {
     return optContext_;
   }
 
-  /// Set a type guard for an instruction.
-  void setTypeGuard(Instruction *inst, Type type, int annotationId = -1) {
-    typeGuards_.insert({inst, type});
-    if (annotationId >= 0)
-      typeGuardAnnotationIds_.insert({inst, annotationId});
-  }
-
-  /// Get the type guard for an instruction.
-  Type getTypeGuard(Instruction *inst) const {
-    auto it = typeGuards_.find(inst);
-    return it != typeGuards_.end() ? it->second : Type::createNoType();
-  }
-
-  /// Get the annotation ID for a type guard instruction.
-  int getTypeGuardAnnotationId(Instruction *inst) const {
-    auto it = typeGuardAnnotationIds_.find(inst);
-    return it != typeGuardAnnotationIds_.end() ? it->second : -1;
-  }
-
-  /// Remove a type guard for an instruction (called when instruction is deleted
-  /// to avoid stale pointers after memory reuse).
-  void removeTypeGuard(Instruction *inst) {
-    typeGuards_.erase(inst);
-    typeGuardAnnotationIds_.erase(inst);
-  }
-
   /// Register a typed shape descriptor from an ordered list of properties.
   /// Module takes ownership of the constructed descriptor and returns a stable
   /// pointer valid for the lifetime of the Module.
@@ -2897,29 +2878,6 @@ class Module : public Value {
 
   /// Create or get a uniqued LiteralTypedShape wrapping the given descriptor.
   LiteralTypedShape *getLiteralTypedShape(const TypedShapeDesc *desc);
-
-  /// Add a shape guard for an object instruction at an insertion point.
-  void addShapeGuard(
-      Instruction *objectInst,
-      Instruction *insertAfter,
-      const TypedShapeDesc *shape,
-      int annotationId = -1) {
-    shapeGuards_.push_back({objectInst, insertAfter, shape, annotationId});
-  }
-
-  llvh::ArrayRef<ShapeGuardRecord> getShapeGuards() const {
-    return shapeGuards_;
-  }
-
-  /// Remove a shape guard for an instruction.
-  void removeShapeGuard(Instruction *inst) {
-    for (auto it = shapeGuards_.begin(); it != shapeGuards_.end();) {
-      if (it->objectInst == inst || it->insertAfter == inst)
-        it = shapeGuards_.erase(it);
-      else
-        ++it;
-    }
-  }
 
   /// Assign index to all Variables in all VariableScopes.
   void assignIndexToVariables() {
