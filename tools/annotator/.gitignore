@@ -1,0 +1,17 @@
+# Python bytecode & caches
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+
+# Claude Code machine-local settings (permissions are per-host)
+.claude/settings.local.json
+
+# Isolated codex runtime home (written under the agent workdir at runtime)
+.codex_home/
+
+# Agent configs embed real API keys — never commit raw configs.
+# Ship sanitized copies as configs/*.example.json (those stay tracked).
+configs/*.json
+!configs/*.example.json

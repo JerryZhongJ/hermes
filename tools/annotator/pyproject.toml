@@ -1,0 +1,24 @@
+[project]
+name = "hermes-annotator"
+version = "0.1.0"
+description = "Agent-driven Hermes typed-shape annotation generator."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "claude-agent-sdk>=0.2.99",
+    "openai-codex>=0.1.0b3",
+    "pydantic>=2",
+]
+
+[project.scripts]
+annotator = "annotator.annotate:main"
+
+[dependency-groups]
+dev = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/annotator"]
