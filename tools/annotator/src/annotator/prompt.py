@@ -19,7 +19,6 @@ SUPPORTED_TYPES = {
 
 def location_schema() -> str:
     return """{
-  "file": "<basename of input file>",
   "start": {"line": 1, "column": 1},
   "end": {"line": 1, "column": 2}
 }"""
@@ -27,50 +26,68 @@ def location_schema() -> str:
 
 def build_prompt(
     source_path: Path,
-    source_text: str,
     annotation_path: Path,
 ) -> str:
-    return f"""You are generating a Hermes annotation JSON file for performance optimization.
+    return f"""Read `./{source_path.name}`, analyze it, and write speculative optimization hints to
+`./{annotation_path.name}` — this makes hot JavaScript code run faster.
 
-Write the final annotation JSON to this exact path:
-{annotation_path}
+What the hints are:
+They are SPECULATIVE: each is checked at runtime, and a wrong hint only falls
+back to the slow path — it never breaks correctness. Three kinds, each gated by
+a runtime check:
+- TYPE HINT says an expression's value is probably a concrete type (e.g.
+  number). Specify the expression and its type; the check runs right after the
+  expression is evaluated. On a pass the value is narrowed from `any` to that
+  type, so arithmetic / string / compare ops on it take fast paths.
+- SHAPE HINT says an object's value probably has a given shape. Specify the
+  expression, the shape, and the expression(s) or statement(s) after which it takes
+  effect. A shape hint may need to be inserted at several points: some
+  instructions (property writes, unknown calls, heap side effects) invalidate
+  it, so it must be re-confirmed after each.
+  On a pass, property accesses on it use fast shape-based loads.
+- SHAPE ASSIGNMENT says an object probably has a given shape right after it is
+  constructed. Specify the object, the shape, and the point right after
+  construction where it takes effect. The runtime tries to set the typed shape
+  on the object, taking effect only if the object's actual shape matches. Every 
+  shape also needs at least one assignment to take effect.
 
-Tool usage:
-- Create the annotation file with the Write tool directly.
-- Do NOT use the Bash tool to write the file: shell output redirection (>), input redirection (<), heredocs (<<), command substitution $(), and interpreters such as python3 / node / sh -c are blocked by the sandbox and will be denied, wasting turns.
-- To verify the file after writing, use the Read tool rather than Bash.
-
-Target:
-- Use typed shape and type annotations to help the Hermes compiler optimize hot code.
-- Prioritize loops, nested loops, frequently called functions, core data structure accesses, and repeated property reads/writes.
-- Keep cold-code annotations restrained and spend annotation effort where optimization payoff is most likely.
-
-Shape accuracy:
-- A typed shape must exactly match the actual constructed object: complete property set, no extra properties, accurate property types.
-- Property order must match the object construction / initialization write order. Typed shapes are order-sensitive.
-- For objects with uncertain construction or mutation history, prefer a local shape hint or skip that shape.
+Where to place them:
+Emit a hint only when all three hold:
+- Correctness — a hint must be likely true at runtime. For a shape
+  hint/assignment, "true" means the object's shape equals the declared one —
+  same properties, same order, same property types. Shape equality is
+  all-or-nothing: one extra, missing, or wrongly-typed property and the check
+  fails outright (harmless but useless). 
+- Necessity — only where the compiler can't already derive the type/shape. A
+  hint that confirms what's already known (literals, constants, values implied
+  by a shape or a prior hint) does nothing. 
+- Usefulness — where it actually pays off: the hottest code — loops, nested
+  loops, frequently called functions, core data-structure accesses, repeated
+  property reads/writes, dense numeric/string work.
 
 JSON format:
-- The top-level object must contain "shapes", "shape hints", and "shape assignments". It may also contain "type hints".
-- Locations use 1-based line and column numbers.
-- Location objects have this form:
+- Top level: "shapes" (name -> definition), "shape hints", "shape
+  assignments", and optional "type hints".
+- Each referenced shape is defined once in "shapes" (names are internal ids)
+  and must have at least one shape assignment — otherwise that shape's hints
+  will never work.
+- Field names must match exactly: "expression range", "hint after ranges",
+  "assign after", "shape", and "type" (string) or "types" (string array). A
+  single type is a string; a union is an array.
+- Location fields (each value is a source range, not a single point):
+  - "expression range" (all hints): the range of the expression or object being
+    checked.
+  - "hint after ranges" (shape hint) / "assign after" (shape assignment): ranges
+    of expressions or statements after which the check (or shape-set) is
+    inserted.
+- Type and property values: {", ".join(sorted(SUPPORTED_TYPES))}.
+- Locations use 1-based line/column. The end column is EXCLUSIVE:
 ```json
 {location_schema()}
 ```
-- "shapes" is an object mapping shape names to shape definitions. Shape names are only stable identifiers used by hints and assignments.
-- Field names must match Hermes AnnotationLoader exactly: "expression range", "hint after ranges", "assign after", "shape".
-- Property types are one of: {", ".join(sorted(SUPPORTED_TYPES))}. A union type is represented as an array of those strings.
-- The annotation file content must be pure JSON.
+- Output must be pure JSON.
 
-Annotation strategy:
-- Every typed shape needs at least one assignment.
-- Prefer assignment at the object literal or after initialization completes.
-- Property read/write, unknown calls, and generic unary/binary operations may block shape propagation through heap side effects.
-- When useful, annotate operands with type/shape information or place a shape hint after a blocking operation.
-- For unary/binary numeric operations, prefer type hints proving operands are "number".
-- For unknown-shape property reads/writes, prefer a shape hint on the object or assignment after construction completes.
-
-Example shape annotation:
+Example (type hint + shape hint + shape assignment):
 ```json
 {{
   "shapes": {{
@@ -81,7 +98,12 @@ Example shape annotation:
       ]
     }}
   }},
-  "type hints": [],
+  "type hints": [
+    {{
+      "expression range": {{"file": "{source_path.name}", "start": {{"line": 12, "column": 11}}, "end": {{"line": 12, "column": 16}}}},
+      "type": "number"
+    }}
+  ],
   "shape hints": [
     {{
       "expression range": {{"file": "{source_path.name}", "start": {{"line": 10, "column": 8}}, "end": {{"line": 10, "column": 9}}}},
@@ -101,8 +123,8 @@ Example shape annotation:
 }}
 ```
 
-Input file: {source_path.name}
-```javascript
-{source_text}
-```
+Tool usage:
+- Create `./{annotation_path.name}` with the Write tool; do not use Bash (shell
+  redirection > < <<, $(), and interpreters python3/node/sh -c are blocked by
+  the sandbox).
 """

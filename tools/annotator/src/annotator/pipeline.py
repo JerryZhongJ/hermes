@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import shutil
 import sys
 import time
@@ -12,22 +13,22 @@ from typing import Any, TextIO
 from .agents import AgentRun, AgentRunner
 from .prompt import build_prompt
 
+LOGGER = logging.getLogger(__name__)
+
 
 def generate_annotations(
     runner: AgentRunner,
     input_path: Path,
-    source_text: str,
     output_path: Path,
     temp_root: Path,
 ) -> AgentRun:
-    attempt_dir = temp_root / "attempt"
-    attempt_dir.mkdir(parents=True, exist_ok=True)
-    annotation_path = attempt_dir / "annotation.json"
+    annotation_path = temp_root / "annotation.json"
+    shutil.copyfile(input_path, temp_root / input_path.name)
 
-    prompt = build_prompt(input_path, source_text, annotation_path)
-    (attempt_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
+    prompt = build_prompt(input_path, annotation_path)
+    LOGGER.info("prompt:\n%s", prompt)
 
-    run = runner.run(prompt, attempt_dir)
+    run = runner.run(prompt, temp_root)
     if run.errors:
         return run
 

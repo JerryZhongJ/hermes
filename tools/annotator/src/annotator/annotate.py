@@ -25,7 +25,6 @@ def main() -> int:
         agent_config = load_config(args.config)
         if not args.input.exists():
             raise ValueError(f"Input file not found: {args.input}")
-        source_text = args.input.read_text(encoding="utf-8")
     except ValueError as exc:
         print(str(exc), file=sys.stderr)
         return 2
@@ -39,7 +38,6 @@ def main() -> int:
         run = generate_annotations(
             runner,
             args.input,
-            source_text,
             output_path,
             temp_root,
         )

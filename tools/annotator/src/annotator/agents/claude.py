@@ -82,11 +82,16 @@ class ClaudeSdkRunner:
     def _options(self, attempt_dir: Path) -> ClaudeAgentOptions:
         policy = ClaudeToolPolicy(attempt_dir)
         settings = self.config.claude_settings
+        env = self.config.environment()
+        # An annotator run is a one-shot labeling job, not an interactive
+        # session; it must never write to the user's memory.
+        env["CLAUDE_CODE_DISABLE_AUTO_MEMORY"] = "1"
         return ClaudeAgentOptions(
             cwd=attempt_dir,
-            env=self.config.environment(),
+            env=env,
             model=self.config.model,
             permission_mode="acceptEdits",
+            tools=["Bash", "Edit", "Read", "Write"],  # limit to the tools the annotator needs; Write lets the agent create the file directly
             setting_sources=[],  # isolate from user/project/local Claude Code settings
             settings=(
                 json.dumps(settings)
@@ -94,7 +99,6 @@ class ClaudeSdkRunner:
                 else settings
             ),
             sandbox=self.config.claude_sandbox,
-            extra_args={"bare": None},
             stderr=LOGGER.error,
             can_use_tool=policy.can_use_tool,
         )

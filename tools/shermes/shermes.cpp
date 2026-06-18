@@ -15,8 +15,8 @@
 #include "hermes/AST/TS2Flow.h"
 #include "hermes/AST/TransformAST.h"
 #include "hermes/IR/IRVerifier.h"
-#include "hermes/IRGen/IRGen.h"
 #include "hermes/IRGen/AnnotationLoader.h"
+#include "hermes/IRGen/IRGen.h"
 #include "hermes/Optimizer/PassManager/PassManager.h"
 #include "hermes/Optimizer/PassManager/Pipeline.h"
 #include "hermes/Runtime/Libhermes.h"
@@ -943,14 +943,14 @@ bool compileFromCommandLineOptions() {
 
   // Load type annotations if specified
   if (!cli::TypeAnnotationFile.empty()) {
-    context->getTypeAnnotations().loadFromFile(
+    context->getAnnotations().loadFromFile(
         cli::TypeAnnotationFile, context->getSourceErrorManager());
   }
 
   generateIRFromESTree(&M, semCtx, flowContext, ast);
 
   // Report unmatched type annotations after IRGen.
-  context->getTypeAnnotations().reportUnmatched();
+  context->getAnnotations().reportUnmatched();
 
   // Bail out if there were any errors. We can't ensure that the module is in
   // a valid state.
