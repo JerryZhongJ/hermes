@@ -16,21 +16,13 @@ from openai_codex import (
 )
 from openai_codex.generated.v2_all import (
     AgentMessageDeltaNotification,
-    AgentMessageThreadItem,
-    CollabAgentToolCallThreadItem,
-    CommandExecutionThreadItem,
-    DynamicToolCallThreadItem,
     ItemCompletedNotification,
-    McpToolCallThreadItem,
-    ThreadItem,
     ThreadTokenUsageUpdatedNotification,
     TurnCompletedNotification,
-    UserMessageThreadItem,
-    WebSearchThreadItem,
 )
 
 from ..config import AgentConfig
-from ..metrics import AgentMetrics, json_get_int, to_jsonable
+from ..metrics import to_jsonable
 from . import AgentRun, run_async_with_timeout
 
 LOGGER = logging.getLogger("codex")
@@ -103,24 +95,25 @@ class CodexSdkRunner:
         self.timeout_seconds = timeout_seconds
 
     def run(self, prompt: str, attempt_dir: Path) -> AgentRun:
+        messages: list[object] = []
+        errors: list[str] = []
         try:
-            metrics = run_async_with_timeout(
-                self._run_codex_sdk(prompt, attempt_dir),
+            run_async_with_timeout(
+                self._run_codex_sdk(prompt, attempt_dir, messages),
                 self.timeout_seconds,
             )
-            errors: list[str] = []
         except TimeoutError:
-            metrics = AgentMetrics()
             LOGGER.error("Codex SDK run timed out")
             errors = ["agent timed out"]
         except Exception as exc:
-            metrics = AgentMetrics()
             LOGGER.error("%s: %s", type(exc).__name__, exc)
             errors = [f"agent failed: {type(exc).__name__}: {exc}"]
 
-        return AgentRun(errors=errors, metrics=metrics)
+        return AgentRun(errors=errors, messages=messages)
 
-    async def _run_codex_sdk(self, prompt: str, attempt_dir: Path) -> AgentMetrics:
+    async def _run_codex_sdk(
+        self, prompt: str, attempt_dir: Path, messages: list[object]
+    ) -> None:
         env = self.config.environment()
         # Isolate codex from ~/.codex, mirroring claude's setting_sources=[]:
         # the run sees only a throwaway CODEX_HOME populated from this agent
@@ -130,7 +123,7 @@ class CodexSdkRunner:
         async with AsyncCodex(config=config) as codex:
             thread = await codex.thread_start(**self._thread_start_kwargs(attempt_dir))
             turn = await thread.turn(prompt)
-            return await collect_codex_stream_metrics(turn)
+            await collect_codex_turn(turn, messages)
 
     def _thread_start_kwargs(self, attempt_dir: Path) -> dict[str, Any]:
         # dict[str, Any] is required: **kwargs unpacking needs each value to be
@@ -149,30 +142,19 @@ class CodexSdkRunner:
         return kwargs
 
 
-async def collect_codex_stream_metrics(turn: AsyncTurnHandle) -> AgentMetrics:
-    stats = AgentMetrics()
+async def collect_codex_turn(turn: AsyncTurnHandle, messages: list[object]) -> None:
+    """Consume a codex turn stream: collect raw notifications for post-hoc
+    analysis and detect completion / failure. No inline metric accumulation."""
     completed = None
-
     async for notification in turn.stream():
         payload = notification.payload
         LOGGER.info("codex %s: %r", turn.id, payload)
-
-        if isinstance(payload, ThreadTokenUsageUpdatedNotification):
-            # Overwrite each update; the last total seen is the turn-cumulative.
-            usage = to_jsonable(payload.token_usage)
-            stats.set_usage(
-                input_tokens=json_get_int(usage, "total", "input_tokens"),
-                output_tokens=json_get_int(usage, "total", "output_tokens"),
-                cached_input_tokens=json_get_int(usage, "total", "cached_input_tokens"),
-                total_tokens=json_get_int(usage, "total", "total_tokens"),
-            )
-        elif isinstance(payload, TurnCompletedNotification):
-            stats.add_event("result")
+        entry = to_jsonable(payload)
+        if isinstance(entry, dict):
+            entry["type"] = _notification_kind(payload)
+        messages.append(entry)
+        if isinstance(payload, TurnCompletedNotification):
             completed = payload.turn
-        elif isinstance(payload, AgentMessageDeltaNotification):
-            stats.add_event("assistant")
-        elif isinstance(payload, ItemCompletedNotification):
-            process_thread_item(payload.item, stats)
 
     if completed is None:
         raise RuntimeError("turn completed event not received")
@@ -182,42 +164,16 @@ async def collect_codex_stream_metrics(turn: AsyncTurnHandle) -> AgentMetrics:
         if error is not None and getattr(error, "message", None):
             raise RuntimeError(error.message)
         raise RuntimeError(f"turn failed with status {status}")
-    return stats
 
 
-def process_thread_item(thread_item: ThreadItem, stats: AgentMetrics) -> None:
-    item = thread_item.root
-    if isinstance(item, UserMessageThreadItem):
-        stats.add_event("user")
-        return
-    if isinstance(item, AgentMessageThreadItem):
-        stats.add_event("assistant")
-        return
-    name = tool_name_for(thread_item)
-    if name is not None:
-        stats.add_event("tool_use")
-        stats.add_tool(name)
-        return
-    stats.add_event("unknown")
-    stats.add_unknown_event(type(item).__name__)
-
-
-def tool_name_for(thread_item: ThreadItem) -> str | None:
-    item = thread_item.root
-    if isinstance(item, CommandExecutionThreadItem):
-        return "shell"
-    if isinstance(item, McpToolCallThreadItem):
-        return item.tool
-    if isinstance(item, DynamicToolCallThreadItem):
-        return item.tool
-    if isinstance(item, CollabAgentToolCallThreadItem):
-        return enum_value(item.tool) or "collab_agent"
-    if isinstance(item, WebSearchThreadItem):
-        return "web_search"
-    return None
-
-
-def enum_value(value: object) -> str | None:
-    if value is None:
-        return None
-    return str(getattr(value, "value", value))
+def _notification_kind(payload: object) -> str:
+    """Stable string tag for a codex notification (postprocess dispatches on it)."""
+    if isinstance(payload, TurnCompletedNotification):
+        return "turn_completed"
+    if isinstance(payload, ThreadTokenUsageUpdatedNotification):
+        return "token_usage"
+    if isinstance(payload, AgentMessageDeltaNotification):
+        return "assistant_delta"
+    if isinstance(payload, ItemCompletedNotification):
+        return "item_completed"
+    return type(payload).__name__

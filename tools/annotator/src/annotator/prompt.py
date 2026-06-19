@@ -31,14 +31,23 @@ def build_prompt(
     return f"""Read `./{source_path.name}`, analyze it, and write speculative optimization hints to
 `./{annotation_path.name}` — this makes hot JavaScript code run faster.
 
+Basic concepts:
+- expression — a value the program computes or loads; a function parameter
+  (loaded at entry) is one too. Every hint targets an expression.
+- type — what kind of value an expression holds: a single concrete type
+  (e.g. `number`), a union of several, or `any` (all types — no narrowing).
+  Concrete types: {", ".join(sorted(SUPPORTED_TYPES))}.
+- shape — an object's own properties only (not inherited from its prototype),
+  in order, each carrying a type.
+
 What the hints are:
-They are SPECULATIVE: each is checked at runtime, and a wrong hint only falls
-back to the slow path — it never breaks correctness. Three kinds, each gated by
-a runtime check:
-- TYPE HINT says an expression's value is probably a concrete type (e.g.
-  number). Specify the expression and its type; the check runs right after the
-  expression is evaluated. On a pass the value is narrowed from `any` to that
-  type, so arithmetic / string / compare ops on it take fast paths.
+The hints are SPECULATIVE: each is checked at runtime, and a wrong hint only
+falls back to the slow path — it never breaks correctness. Three kinds, each
+gated by a runtime check:
+- TYPE HINT says an expression's value is probably of a given type. Specify
+  the expression and its type; the check runs right after the expression is
+  evaluated. On a pass the value is narrowed to that type, so arithmetic /
+  string / compare ops on it take fast paths.
 - SHAPE HINT says an object's value probably has a given shape. Specify the
   expression, the shape, and the expression(s) or statement(s) after which it takes
   effect. A shape hint may need to be inserted at several points: some
@@ -72,15 +81,16 @@ JSON format:
   and must have at least one shape assignment — otherwise that shape's hints
   will never work.
 - Field names must match exactly: "expression range", "hint after ranges",
-  "assign after", "shape", and "type" (string) or "types" (string array). A
-  single type is a string; a union is an array.
+  "assign after", "shape", and "type". A type is a single string or an array
+  for a union (e.g. ["number", "string"]).
 - Location fields (each value is a source range, not a single point):
   - "expression range" (all hints): the range of the expression or object being
     checked.
+  - For a parameter, use its declaration range as the "expression range": the
+    parameter itself in the signature, or the whole function for `this`.
   - "hint after ranges" (shape hint) / "assign after" (shape assignment): ranges
     of expressions or statements after which the check (or shape-set) is
     inserted.
-- Type and property values: {", ".join(sorted(SUPPORTED_TYPES))}.
 - Locations use 1-based line/column. The end column is EXCLUSIVE:
 ```json
 {location_schema()}

@@ -258,9 +258,7 @@ class GuardInserter {
   /// path.
   bool insertTypeGuard(TypeOfIsInst *checkInst) {
     auto *guardInst = llvh::dyn_cast<Instruction>(checkInst->getArgument());
-    assert(
-        &*(--checkInst->getIterator()) == guardInst &&
-        "annotation TypeOfIsInst must immediately follow its operand");
+    assert(guardInst && "TypeOfIsInst argument must be an Instruction");
 
     llvh::Optional<Type> expectedType =
         typeOfIsTypesToIRType(checkInst->getTypes()->getData());
@@ -275,8 +273,36 @@ class GuardInserter {
     Builder_.setInsertionPoint(&specBBContinue->front());
     auto *narrowInst =
         Builder_.createUnionNarrowTrustedInst(nullptr, *expectedType);
-    guardInst->replaceAllUsesWith(narrowInst);
-    checkInst->setOperand(guardInst, TypeOfIsInst::ArgumentIdx);
+
+    // Fast path: when the operand immediately precedes the guard, every other
+    // user of guardInst executes after the check (in the typed continuation),
+    // so a blanket replaceAllUsesWith is sound.
+    if (&*(--checkInst->getIterator()) == guardInst) {
+      guardInst->replaceAllUsesWith(narrowInst);
+      checkInst->setOperand(guardInst, TypeOfIsInst::ArgumentIdx);
+    } else {
+      // Slow path: an instruction sits between operand and guard (e.g. the
+      // StoreFrame writeback of `--lc`). Replacing that earlier user with
+      // narrowInst would be use-before-def, since narrowInst lives in the
+      // post-check block. Use the dominator tree to redirect only the users
+      // that the typed continuation dominates; earlier users (and the guard
+      // itself) keep the original operand.
+      DominanceInfo DT(F_);
+      llvh::SmallVector<std::pair<Instruction *, unsigned>, 8> toReplace;
+      for (auto *userInst : guardInst->getUsers()) {
+        if (!userInst || userInst == checkInst)
+          continue;
+        if (!DT.dominates(specBBContinue, userInst->getParent()))
+          continue;
+        for (unsigned i = 0, e = userInst->getNumOperands(); i < e; ++i) {
+          if (userInst->getOperand(i) == guardInst)
+            toReplace.push_back({userInst, i});
+        }
+      }
+      for (auto [userInst, idx] : toReplace)
+        userInst->setOperand(narrowInst, idx);
+    }
+
     narrowInst->setOperand(guardInst, UnionNarrowTrustedInst::SingleOperandIdx);
     return true;
   }

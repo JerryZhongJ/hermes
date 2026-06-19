@@ -12,7 +12,7 @@ from pathlib import Path
 
 from .agents import create_runner
 from .config import load_config, parse_args
-from .pipeline import generate_annotations, report_result, write_stats
+from .pipeline import generate_annotations, report_result, write_messages
 
 
 def main() -> int:
@@ -30,7 +30,7 @@ def main() -> int:
         return 2
 
     output_path = args.output
-    stats_path = args.stats or output_path.with_name(output_path.name + ".stats.json")
+    run_path = args.output_run or output_path.with_name(output_path.name + ".run.json")
     temp_root = Path(tempfile.mkdtemp(prefix="annotator-"))
     start_time = time.monotonic()
     runner = create_runner(agent_config, timeout_seconds=args.agent_timeout)
@@ -41,9 +41,10 @@ def main() -> int:
             output_path,
             temp_root,
         )
-        if not run.errors:
-            write_stats(stats_path, start_time, run)
-        return report_result(output_path, stats_path, temp_root, args.keep_workdir, run)
+        # Always dump the run record — even on failure the partial transcript
+        # has value, and all stats are recomputed offline from this file.
+        write_messages(run_path, args.input, start_time, agent_config.agent, run)
+        return report_result(output_path, run_path, temp_root, args.keep_workdir, run)
     finally:
         if not args.keep_workdir:
             shutil.rmtree(temp_root, ignore_errors=True)

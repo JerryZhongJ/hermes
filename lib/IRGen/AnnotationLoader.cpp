@@ -159,13 +159,10 @@ void loadTypeGuards(
       continue;
     }
 
-    // "types" (array) or "type" (single string).
+    // "type": a single type string or an array of type strings (union).
     std::vector<std::string> typeStrs;
-    if (auto *v = annot->get("types"))
+    if (auto *v = annot->get("type"))
       typeStrs = extractTypeStrings(*v);
-    if (typeStrs.empty())
-      if (auto *v = annot->get("type"))
-        typeStrs = extractTypeStrings(*v);
     if (typeStrs.empty()) {
       failCount++;
       continue;

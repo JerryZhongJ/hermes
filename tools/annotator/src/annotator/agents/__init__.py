@@ -4,12 +4,11 @@ from __future__ import annotations
 
 import asyncio
 from collections.abc import Awaitable
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Protocol, TypeVar
 
 from ..config import AgentConfig
-from ..metrics import AgentMetrics
 
 
 T = TypeVar("T")
@@ -18,7 +17,9 @@ T = TypeVar("T")
 @dataclass(frozen=True)
 class AgentRun:
     errors: list[str]
-    metrics: AgentMetrics
+    # Raw SDK messages for post-hoc analysis (thinking_tokens already
+    # filtered). Lets stats be recomputed offline instead of inline.
+    messages: list[object] = field(default_factory=list)
 
 
 class AgentRunner(Protocol):

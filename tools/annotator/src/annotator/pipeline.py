@@ -37,26 +37,39 @@ def generate_annotations(
     return run
 
 
-def write_stats(stats_path: Path, start_time: float, run: AgentRun) -> None:
+def write_messages(
+    path: Path, input_path: Path, start_time: float, agent: str, run: AgentRun
+) -> None:
+    """Dump raw agent messages (thinking_tokens filtered) for post-hoc analysis.
+
+    meta holds non-message-derived facts (duration is wall-clock, not in the
+    stream; agent selects the postprocess extractor); everything
+    token/cost/tool-related is recomputable from messages.
+    """
     write_json(
-        stats_path,
+        path,
         {
-            "duration_seconds": round(time.monotonic() - start_time, 3),
-            "agent_metrics": run.metrics.to_json(),
+            "meta": {
+                "input": str(input_path),
+                "agent": agent,
+                "duration_seconds": round(time.monotonic() - start_time, 3),
+                "errors": run.errors,
+            },
+            "messages": run.messages,
         },
     )
 
 
 def report_result(
     output_path: Path,
-    stats_path: Path,
+    messages_path: Path,
     temp_root: Path,
     keep_workdir: bool,
     run: AgentRun,
 ) -> int:
     if not run.errors:
         print(f"Wrote annotations to {output_path}")
-        print(f"Wrote stats to {stats_path}")
+        print(f"Wrote messages to {messages_path}")
         print_kept_workdir(temp_root, keep_workdir, sys.stdout)
         return 0
 

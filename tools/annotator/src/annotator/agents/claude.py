@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
-from collections.abc import AsyncIterator, Iterable
+from collections.abc import AsyncIterator
 from pathlib import Path
 
 from claude_agent_sdk import ClaudeAgentOptions, query
@@ -17,12 +17,11 @@ from claude_agent_sdk.types import (
     StreamEvent,
     SystemMessage,
     ToolPermissionContext,
-    ToolUseBlock,
     UserMessage,
 )
 
 from ..config import AgentConfig
-from ..metrics import AgentMetrics, json_get_int, to_jsonable
+from ..metrics import to_jsonable
 from . import AgentRun, run_async_with_timeout
 
 LOGGER = logging.getLogger("claude_code")
@@ -50,12 +49,12 @@ class ClaudeSdkRunner:
         self.timeout_seconds = timeout_seconds
 
     def run(self, prompt: str, attempt_dir: Path) -> AgentRun:
-        metrics = AgentMetrics()
+        messages: list[object] = []
         errors: list[str] = []
 
         try:
             run_async_with_timeout(
-                self._collect_events(prompt, attempt_dir, metrics),
+                self._collect_events(prompt, attempt_dir, messages),
                 self.timeout_seconds,
             )
         except TimeoutError:
@@ -65,19 +64,30 @@ class ClaudeSdkRunner:
             errors = [f"agent failed: {type(exc).__name__}: {exc}"]
             LOGGER.error("%s: %s", type(exc).__name__, exc)
 
-        return AgentRun(errors=errors, metrics=metrics)
+        return AgentRun(errors=errors, messages=messages)
 
     async def _collect_events(
         self,
         prompt: str,
         attempt_dir: Path,
-        metrics: AgentMetrics,
+        messages: list[object],
     ) -> None:
         options = self._options(attempt_dir)
         async for message in query(
             prompt=_user_prompt_stream(prompt), options=options
         ):
-            process_message(message, metrics, "1")
+            # Drop the thinking_tokens stream — reasoning models emit one per
+            # generated reasoning token (thousands per run, zero signal).
+            if isinstance(message, SystemMessage) and message.subtype == "thinking_tokens":
+                continue
+            LOGGER.info("claude 1: %r", message)
+            entry = to_jsonable(message)
+            if isinstance(entry, dict):
+                # to_jsonable drops the SDK's `type` field (it serializes to
+                # None then gets filtered); restore it so post-hoc tools can
+                # tell assistant/user/system/result apart.
+                entry["type"] = _message_kind(message)
+            messages.append(entry)
 
     def _options(self, attempt_dir: Path) -> ClaudeAgentOptions:
         policy = ClaudeToolPolicy(attempt_dir)
@@ -144,61 +154,16 @@ class ClaudeToolPolicy:
             return False
 
 
-def process_message(message: Message, stats: AgentMetrics, turn_id: str) -> None:
-    # Reasoning models (e.g. deepseek-v4) emit one SystemMessage(subtype=
-    # "thinking_tokens") per generated reasoning token — thousands per run and
-    # zero signal. Suppress only that stream's logging; stats still count it.
-    if not (
-        isinstance(message, SystemMessage) and message.subtype == "thinking_tokens"
-    ):
-        LOGGER.info("claude %s: %r", turn_id, message)
+def _message_kind(message: Message) -> str:
+    """Stable string tag for an SDK message (its `.type` is lost in to_jsonable)."""
+    if isinstance(message, AssistantMessage):
+        return "assistant"
+    if isinstance(message, UserMessage):
+        return "user"
     if isinstance(message, SystemMessage):
-        stats.add_event("system")
-    elif isinstance(message, AssistantMessage):
-        stats.add_event("assistant")
-        # Content blocks are SDK dataclasses (e.g. ToolUseBlock) whose asdict()
-        # form drops the "type" field, so iter_tool_names' type-string match
-        # never fires. isinstance is the only reliable way to count tool use.
-        for block in message.content or []:
-            if isinstance(block, ToolUseBlock):
-                stats.add_tool(block.name)
-    elif isinstance(message, UserMessage):
-        stats.add_event("user")
-    elif isinstance(message, ResultMessage):
-        stats.add_event("result")
-        if message.usage:
-            usage = to_jsonable(message.usage)
-            # Claude reports cache_creation and cache_read separately; merge into one bucket.
-            stats.set_usage(
-                input_tokens=json_get_int(usage, "input_tokens"),
-                output_tokens=json_get_int(usage, "output_tokens"),
-                cached_input_tokens=(
-                    json_get_int(usage, "cache_creation_input_tokens")
-                    + json_get_int(usage, "cache_read_input_tokens")
-                ),
-                total_tokens=json_get_int(usage, "total_tokens"),
-            )
-        if message.total_cost_usd is not None:
-            stats.add_cost(message.total_cost_usd)
-    elif isinstance(message, StreamEvent):
-        # Stream events don't count as a separate event_type; extract nested tool_use only.
-        event_data = to_jsonable(message.event)
-        if isinstance(event_data, dict):
-            for name in iter_tool_names(event_data.get("content_block")):
-                stats.add_tool(name)
-    else:
-        stats.add_event("unknown")
-        stats.add_unknown_event(type(message).__name__)
-
-
-def iter_tool_names(value: object) -> Iterable[str]:
-    if isinstance(value, dict):
-        if value.get("type") in {"tool_use", "tool_call"} and isinstance(
-            value.get("name"), str
-        ):
-            yield value["name"]
-        for child in value.values():
-            yield from iter_tool_names(child)
-    elif isinstance(value, list):
-        for item in value:
-            yield from iter_tool_names(item)
+        return "system"
+    if isinstance(message, ResultMessage):
+        return "result"
+    if isinstance(message, StreamEvent):
+        return "stream"
+    return type(message).__name__

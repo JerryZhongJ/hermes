@@ -61,9 +61,10 @@ def parse_args() -> argparse.Namespace:
         help="JSON file with agent/model/env configuration",
     )
     parser.add_argument(
-        "--stats",
+        "--output-run",
         type=Path,
-        help="Stats JSON output. Defaults to <output>.stats.json",
+        help="Agent run record JSON (meta + raw messages, thinking_tokens "
+        "filtered) for post-hoc analysis. Defaults to <output>.run.json",
     )
     parser.add_argument(
         "--keep-workdir",
