@@ -86,6 +86,9 @@ bool ESTreeIRGen::tryInsertTypeCheck(Value *val, ESTree::Node *node) {
       Builder.getLiteralTypeOfIsTypes(irTypeToTypeOfIsTypes(*annotatedType));
   auto *checkInst = Builder.createTypeOfIsInst(inst, typeLit);
   checkInst->setAnnotationId(annotId);
+  // Carry the guard's source location so instrumentation can report where
+  // each guard site lives (see SH backend __tg_print_counters).
+  checkInst->setLocation(node->getDebugLoc());
 
   SourceErrorManager::SourceCoords coords;
   if (Mod->getContext().getSourceErrorManager().findBufferLineAndLoc(
@@ -126,6 +129,9 @@ bool ESTreeIRGen::tryInsertShapeCheck(ESTree::Node *node) {
     auto *checkInst =
         Builder.createHasTypedShapeInst(objectIt->second, litShape);
     checkInst->setAnnotationId(shapeGuard.annotationId);
+    // Carry the guard's source location (the hint-after site) so
+    // instrumentation can report where each guard site lives.
+    checkInst->setLocation(node->getDebugLoc());
     applied = true;
   }
   if (applied)

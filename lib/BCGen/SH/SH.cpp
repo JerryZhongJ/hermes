@@ -561,6 +561,19 @@ struct ModuleGen {
   /// Table of JS native functions
   SHNativeJSFunctionTable nativeFunctionTable;
 
+  /// Guard instrumentation (type + shape guards). Maps each guard check
+  /// instruction (the TypeOfIsInst/HasTypedShapeInst used as a CondBranch
+  /// condition) to a unique counter index. This is deliberately decoupled from
+  /// annotationId: a single shape hint with N "hint after" locations shares one
+  /// annotationId but spawns N guard sites, so annotationId alone cannot
+  /// distinguish their success/fail counts.
+  llvh::DenseMap<const Value *, unsigned> guardCounterIdx;
+  /// Per-guard-site label string (e.g. "guard #1 [shape ann#1] @file:7:5"),
+  /// indexed by counterIdx. Built at scan time and consumed only to emit the
+  /// __tg_print_counters fprintf calls, so kind/annotationId/location are
+  /// collapsed into one self-describing string instead of a struct.
+  llvh::SmallVector<std::string, 0> guardCounterInfo;
+
   explicit ModuleGen(Module *M, bool optimizationEnabled)
       : literalBuffers{M, stringTable, optimizationEnabled},
         typedShapeTable{M, stringTable},
@@ -2135,12 +2148,14 @@ class InstrGen {
     hermes_fatal("SwitchInst should have been lowered");
   }
   void generateCondBranchInst(CondBranchInst &inst) {
-    // Check if this is an instrumented TypeGuard branch.
-    int tgAnnotId = -1;
-    if (options_.instrumentTypeGuards) {
-      if (auto *TOI = llvh::dyn_cast<TypeOfIsInst>(inst.getCondition())) {
-        tgAnnotId = TOI->getAnnotationId();
-      }
+    // Check if this is an instrumented guard branch (type or shape guard).
+    // Counter index is decoupled from annotationId; see
+    // ModuleGen::guardCounterIdx.
+    int tgCounterIdx = -1;
+    if (options_.instrumentGuards) {
+      auto it = moduleGen_.guardCounterIdx.find(inst.getCondition());
+      if (it != moduleGen_.guardCounterIdx.end())
+        tgCounterIdx = static_cast<int>(it->second);
     }
 
     os_.indent(2);
@@ -2162,10 +2177,10 @@ class InstrGen {
       os_ << ")";
     os_ << ") ";
 
-    if (tgAnnotId >= 0) {
-      os_ << "{ ++__tg_counters[" << tgAnnotId << "].success; goto ";
+    if (tgCounterIdx >= 0) {
+      os_ << "{ ++__tg_counters[" << tgCounterIdx << "].success; goto ";
       generateBasicBlockLabel(inst.getTrueDest(), os_, bbMap_);
-      os_ << "; }\n  { ++__tg_counters[" << tgAnnotId << "].fail; goto ";
+      os_ << "; }\n  { ++__tg_counters[" << tgCounterIdx << "].fail; goto ";
       generateBasicBlockLabel(inst.getFalseDest(), os_, bbMap_);
       os_ << "; }\n";
     } else {
@@ -3325,32 +3340,77 @@ static SHNativeFuncInfo s_function_info_table[];
     }
   }
 
-  // TypeGuard instrumentation: scan for max annotation ID and emit counters.
-  int maxAnnotationId = -1;
-  if (options.instrumentTypeGuards) {
+  // Guard instrumentation (type + shape guards): assign each physical guard
+  // site a unique counter index, decoupled from annotationId. A shape hint
+  // with N "hint after" locations shares one annotationId but produces N guard
+  // sites; without a per-site index their counts would collide (and shape ids
+  // could index past a type-only sized counter array).
+  if (options.instrumentGuards) {
+    auto &srcMgr = M->getContext().getSourceErrorManager();
     for (auto &F : *M) {
       for (auto &BB : F) {
         for (auto &I : BB) {
-          if (auto *TOI = llvh::dyn_cast<TypeOfIsInst>(&I)) {
-            int id = TOI->getAnnotationId();
-            if (id > maxAnnotationId)
-              maxAnnotationId = id;
+          auto *CBI = llvh::dyn_cast<CondBranchInst>(&I);
+          if (!CBI)
+            continue;
+          Value *cond = CBI->getCondition();
+          bool isShape = false;
+          int annotId = -1;
+          Instruction *checkInst = nullptr;
+          if (auto *TOI = llvh::dyn_cast<TypeOfIsInst>(cond)) {
+            annotId = TOI->getAnnotationId();
+            checkInst = TOI;
+          } else if (auto *HTS = llvh::dyn_cast<HasTypedShapeInst>(cond)) {
+            isShape = true;
+            annotId = HTS->getAnnotationId();
+            checkInst = HTS;
+          } else {
+            continue;
           }
+          if (annotId < 0)
+            continue;
+
+          // Resolve the guard's source location to an escaped "file:line:col".
+          std::string locStr = "<unknown>";
+          SourceErrorManager::SourceCoords coords;
+          if (srcMgr.findBufferLineAndLoc(checkInst->getLocation(), coords)) {
+            locStr.clear();
+            llvh::StringRef fname = srcMgr.getBufferFileName(coords.bufId);
+            for (char c : fname) {
+              if (c == '\\' || c == '"')
+                locStr.push_back('\\');
+              locStr.push_back(c);
+            }
+            locStr += ":" + std::to_string(coords.line) + ":" +
+                std::to_string(coords.col);
+          }
+
+          unsigned idx = moduleGen.guardCounterInfo.size();
+          moduleGen.guardCounterIdx[cond] = idx;
+          moduleGen.guardCounterInfo.push_back(
+              "guard #" + std::to_string(idx) + " [" +
+              (isShape ? "shape" : "type") + " ann#" +
+              std::to_string(annotId) + "] @" + locStr);
         }
       }
     }
-    if (maxAnnotationId >= 0 &&
+
+    unsigned numCounters = moduleGen.guardCounterInfo.size();
+    if (numCounters > 0 &&
         (options.format == DumpBytecode || options.format == EmitBundle)) {
-      OS << "\n/* TypeGuard instrumentation counters */\n";
+      OS << "\n/* Guard instrumentation counters (type + shape) */\n";
       OS << "#include <stdio.h>\n";
       OS << "static struct { unsigned long long success; unsigned long long fail; }"
-         << " __tg_counters[" << (maxAnnotationId + 1) << "];\n";
+         << " __tg_counters[" << numCounters << "];\n";
       OS << "static void __tg_print_counters(void) {\n";
-      OS << "  for (int i = 0; i <= " << maxAnnotationId << "; i++) {\n";
-      OS << "    if (__tg_counters[i].success || __tg_counters[i].fail)\n";
-      OS << "      fprintf(stderr, \"TypeGuard #%d: success=%llu, fail=%llu\\n\","
-         << " i, __tg_counters[i].success, __tg_counters[i].fail);\n";
-      OS << "  }\n";
+      for (unsigned i = 0; i < numCounters; ++i) {
+        OS << "  if (__tg_counters[" << i << "].success || __tg_counters[" << i
+           << "].fail)\n";
+        OS << "    fprintf(stderr, \"" << moduleGen.guardCounterInfo[i]
+           << ": success=%llu, fail=%llu\\n\","
+           << " __tg_counters[" << i << "].success, __tg_counters[" << i
+           << "].fail);\n";
+      }
       OS << "}\n\n";
     }
   }
@@ -3458,7 +3518,8 @@ bool run_event_loop(
 int main(int argc, char **argv) {
   SHRuntime *shr = _sh_init(argc, argv);
 )";
-      if (options.instrumentTypeGuards && maxAnnotationId >= 0) {
+      if (options.instrumentGuards &&
+          !moduleGen.guardCounterInfo.empty()) {
         OS << "  atexit(__tg_print_counters);\n";
       }
       OS << R"(  SHConsoleContext *consoleContext = init_console_bindings(shr);
