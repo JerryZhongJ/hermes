@@ -140,6 +140,8 @@ bool ESTreeIRGen::tryInsertShapeCheck(ESTree::Node *node) {
 }
 
 void ESTreeIRGen::tryApplyAnnotation(Value *val, ESTree::Node *node) {
+  if (!node)
+    return;
   auto range = node->getSourceRange();
   auto it = smRangeToIR_.find(range);
   if (it != smRangeToIR_.end())
