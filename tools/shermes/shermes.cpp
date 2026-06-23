@@ -294,9 +294,9 @@ static cl::opt<std::string> TypeAnnotationFile(
     cl::desc("JSON file with shape/type annotations"),
     cl::cat(CompilerCategory));
 
-static cl::opt<bool> InstrumentTypeGuards(
-    "instrument-type-guards",
-    cl::desc("Instrument TypeGuard branches with success/fail counters"),
+static cl::opt<bool> InstrumentGuards(
+    "instrument-guards",
+    cl::desc("Instrument type/shape guard branches with success/fail counters"),
     cl::init(false),
     cl::cat(CompilerCategory));
 
@@ -1032,7 +1032,7 @@ bool compileFromCommandLineOptions() {
     genOptions.unitName = cli::ExportedUnit;
 
   genOptions.smallC = cli::SmallC;
-  genOptions.instrumentTypeGuards = cli::InstrumentTypeGuards;
+  genOptions.instrumentGuards = cli::InstrumentGuards;
 
   genOptions.emitSourceLocations =
       cli::DumpSourceLocation != LocationDumpMode::None;
