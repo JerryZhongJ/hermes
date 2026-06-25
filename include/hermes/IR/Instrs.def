@@ -45,7 +45,7 @@ END_VALUE(UnaryOperatorInst)
 
 DEF_VALUE(TypeOfInst, Instruction)
 DEF_VALUE(TypeOfIsInst, Instruction)
-DEF_VALUE(HasTypedShapeInst, Instruction)
+DEF_VALUE(HasStaticShapeInst, Instruction)
 DEF_VALUE(AddEmptyStringInst, Instruction)
 DEF_VALUE(ToPropertyKeyInst, Instruction)
 DEF_VALUE(AsNumberInst, Instruction)
@@ -143,8 +143,7 @@ DEF_VALUE(AllocObjectLiteralInst, BaseAllocObjectLiteralInst)
 DEF_VALUE(AllocTypedObjectInst, BaseAllocObjectLiteralInst)
 MARK_LAST(BaseAllocObjectLiteralInst)
 
-DEF_VALUE(PromoteTypedShapeInst, Instruction)
-DEF_VALUE(TrySetTypedShapeInst, Instruction)
+DEF_VALUE(TrySetStaticShapeInst, Instruction)
 
 DEF_VALUE(GetTemplateObjectInst, Instruction)
 DEF_VALUE(CatchInst, Instruction)

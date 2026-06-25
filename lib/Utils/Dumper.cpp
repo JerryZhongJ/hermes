@@ -232,7 +232,7 @@ void IRPrinter::printValueLabel(Instruction *I, Value *V, unsigned opIndex) {
     if (ne->declared())
       os_ << " /*declared*/";
     os_ << ")";
-  } else if (auto *LTS = llvh::dyn_cast<LiteralTypedShape>(V)) {
+  } else if (auto *LTS = llvh::dyn_cast<LiteralStaticShape>(V)) {
     auto *desc = LTS->getData();
     os_ << "{";
     for (size_t i = 0, e = desc->size(); i < e; ++i) {

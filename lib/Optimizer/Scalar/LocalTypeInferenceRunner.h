@@ -17,7 +17,7 @@ namespace local_type_inference {
 class Impl;
 } // namespace local_type_inference
 
-/// Private driver used by the combined local type + typed shape inference pass.
+/// Private driver used by the combined local type + static shape inference pass.
 class LocalTypeInferenceRunner {
  public:
   explicit LocalTypeInferenceRunner(Function *F);

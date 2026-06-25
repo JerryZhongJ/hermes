@@ -523,8 +523,8 @@ class ESTreeIRGen {
   /// The module we are constructing.
   Module *Mod;
 
-  /// Pre-registered typed shape descriptors, keyed by JSON shape name.
-  llvh::StringMap<const TypedShapeDesc *> shapeDescsByName_;
+  /// Pre-registered static shape descriptors, keyed by JSON shape name.
+  llvh::StringMap<const StaticShapeDesc *> shapeDescsByName_;
 
   /// Map from annotated AST node ranges to the IR Value* produced for them.
   /// Pre-filled with nullptr for known object locations, then filled with real
@@ -534,7 +534,7 @@ class ESTreeIRGen {
   /// Shape annotation source ranges that have already been successfully
   /// applied. These prevent duplicate insertion when the same source range is
   /// visited both as an expression and as a statement.
-  llvh::DenseSet<llvh::SMRange, SMRangeInfo> appliedShapePromotions_;
+  llvh::DenseSet<llvh::SMRange, SMRangeInfo> appliedShapeBindings_;
   llvh::DenseSet<llvh::SMRange, SMRangeInfo> appliedShapeGuards_;
 
   /// Semantic resolution tables.
@@ -709,7 +709,7 @@ class ESTreeIRGen {
   /// Generate code for the statement \p Stmt.
   void genStatement(ESTree::Node *stmt);
 
-  /// Core statement dispatch without shape promotion check.
+  /// Core statement dispatch without shape binding check.
   void _genStatementImpl(ESTree::Node *stmt);
 
   /// Wrapper of genExpression. If curFunction()->globalReturnRegister is
@@ -882,8 +882,8 @@ class ESTreeIRGen {
   bool tryInsertShapeCheck(ESTree::Node *node);
   void tryApplyAnnotation(Value *val, ESTree::Node *node);
 
-  /// Try to insert a TrySetTypedShapeInst after a node is generated.
-  bool tryInsertTrySetTypedShape(ESTree::Node *node);
+  /// Try to insert a TrySetStaticShapeInst after a node is generated.
+  bool tryInsertTrySetStaticShape(ESTree::Node *node);
 
   /// Generate an expression and perform a conditional branch depending on
   /// whether it evaluates to true or false (or optionally, nullish).

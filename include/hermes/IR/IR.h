@@ -417,23 +417,23 @@ class Type {
 static_assert(sizeof(Type) == 2, "Type must not be too big");
 
 //===----------------------------------------------------------------------===//
-// TypedShape
+// StaticShape
 //===----------------------------------------------------------------------===//
 
-/// A single property in a typed shape: its name and expected type.
-struct TypedShapeProperty {
+/// A single property in a static shape: its name and expected type.
+struct StaticShapeProperty {
   Identifier name;
   Type type;
 };
 
-/// Describes a typed shape: an ordered list of data properties with their
+/// Describes a static shape: an ordered list of data properties with their
 /// expected types. Property order matters: the same set of properties in
 /// different order defines a different shape.
-struct TypedShapeDesc {
+struct StaticShapeDesc {
   void addProperty(Identifier name, Type type) {
     props_.push_back({name, type});
   }
-  void addProperty(TypedShapeProperty prop) {
+  void addProperty(StaticShapeProperty prop) {
     props_.push_back(prop);
   }
 
@@ -465,22 +465,22 @@ struct TypedShapeDesc {
   }
 
  private:
-  llvh::SmallVector<TypedShapeProperty, 8> props_;
+  llvh::SmallVector<StaticShapeProperty, 8> props_;
 };
 
 /// The shape status lattice for the object operand in property access or
-/// shape-check instructions: NoShape -> KnownTypedShape -> AnyShapes.
+/// shape-check instructions: NoShape -> KnownStaticShape -> AnyShapes.
 struct ObjectOperandShape {
-  enum Status : uint8_t { NoShape, KnownTypedShape, AnyShapes };
+  enum Status : uint8_t { NoShape, KnownStaticShape, AnyShapes };
 
   Status status = AnyShapes;
-  const TypedShapeDesc *desc = nullptr;
+  const StaticShapeDesc *desc = nullptr;
 
   static ObjectOperandShape createNoShape() {
     return {NoShape, nullptr};
   }
-  static ObjectOperandShape createKnownTypedShape(const TypedShapeDesc *d) {
-    return {KnownTypedShape, d};
+  static ObjectOperandShape createKnownStaticShape(const StaticShapeDesc *d) {
+    return {KnownStaticShape, d};
   }
   static ObjectOperandShape createAnyShapes() {
     return {AnyShapes, nullptr};
@@ -1485,9 +1485,9 @@ using LiteralTypeOfIsTypes = LiteralWrapper<
     TypeOfIsTypes,
     ValueKind::LiteralTypeOfIsTypesKind,
     Type::createNull>;
-using LiteralTypedShape = LiteralWrapper<
-    const TypedShapeDesc *,
-    ValueKind::LiteralTypedShapeKind,
+using LiteralStaticShape = LiteralWrapper<
+    const StaticShapeDesc *,
+    ValueKind::LiteralStaticShapeKind,
     Type::createNull>;
 using LiteralNativeSignature =
     LiteralWrapper<NativeSignature *, ValueKind::LiteralNativeSignatureKind>;
@@ -2734,11 +2734,11 @@ class Module : public Value {
   ValueOFS<LiteralTypeOfIsTypes> literalTypeOfIsTypes_{};
   ValueOFS<LiteralNativeSignature> nativeSignatures_{};
   ValueOFS<LiteralNativeExtern> nativeExterns_{};
-  ValueOFS<LiteralTypedShape> literalTypedShapes_{};
+  ValueOFS<LiteralStaticShape> literalStaticShapes_{};
 
   /// Typed shape descriptor table. Descriptors are stored via unique_ptr to
-  /// guarantee stable pointers. LiteralTypedShape holds a non-owning pointer.
-  std::vector<std::unique_ptr<TypedShapeDesc>> typedShapeDescs_{};
+  /// guarantee stable pointers. LiteralStaticShape holds a non-owning pointer.
+  std::vector<std::unique_ptr<StaticShapeDesc>> staticShapeDescs_{};
 
   /// Map from an identifier to a number indicating how many times it has been
   /// used. This allows to construct unique internal names derived from regular
@@ -2870,14 +2870,14 @@ class Module : public Value {
     return optContext_;
   }
 
-  /// Register a typed shape descriptor from an ordered list of properties.
+  /// Register a static shape descriptor from an ordered list of properties.
   /// Module takes ownership of the constructed descriptor and returns a stable
   /// pointer valid for the lifetime of the Module.
-  const TypedShapeDesc *createTypedShape(
-      llvh::ArrayRef<TypedShapeProperty> properties);
+  const StaticShapeDesc *createStaticShape(
+      llvh::ArrayRef<StaticShapeProperty> properties);
 
-  /// Create or get a uniqued LiteralTypedShape wrapping the given descriptor.
-  LiteralTypedShape *getLiteralTypedShape(const TypedShapeDesc *desc);
+  /// Create or get a uniqued LiteralStaticShape wrapping the given descriptor.
+  LiteralStaticShape *getLiteralStaticShape(const StaticShapeDesc *desc);
 
   /// Assign index to all Variables in all VariableScopes.
   void assignIndexToVariables() {

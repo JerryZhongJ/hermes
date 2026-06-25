@@ -37,21 +37,21 @@ typedef struct SHShapeTableEntry {
   uint32_t num_props;
 } SHShapeTableEntry;
 
-/// Encodes one typed shape property.
-typedef struct SHTypedShapeProp {
+/// Encodes one static shape property.
+typedef struct SHStaticShapeProp {
   /// Index into SHUnit::symbols for the property name.
   uint32_t name_index;
   /// PropertyTypeCode encoded as an integer.
   uint8_t type;
-} SHTypedShapeProp;
+} SHStaticShapeProp;
 
-/// Encodes one typed shape descriptor.
-typedef struct SHTypedShapeTableEntry {
-  /// The number of entries into typed_shape_props this shape begins.
+/// Encodes one static shape descriptor.
+typedef struct SHStaticShapeTableEntry {
+  /// The number of entries into static_shape_props this shape begins.
   uint32_t prop_offset;
   /// The number of properties in this shape.
   uint32_t num_props;
-} SHTypedShapeTableEntry;
+} SHStaticShapeTableEntry;
 
 /// This represents a source JS location. This is only valid in a particular
 /// SHUnit, since the filename is stored as an index into the SHUnit's global
@@ -158,16 +158,16 @@ typedef struct SHUnit {
   SHCompressedPointer *object_literal_class_cache;
 
   /// Typed shape property table.
-  const SHTypedShapeProp *typed_shape_props;
-  /// Size of typed shape property table.
-  uint32_t typed_shape_props_count;
+  const SHStaticShapeProp *static_shape_props;
+  /// Size of static shape property table.
+  uint32_t static_shape_props_count;
   /// Typed shape descriptor table.
-  const SHTypedShapeTableEntry *typed_shape_table;
-  /// Size of typed shape descriptor table.
-  uint32_t typed_shape_table_count;
-  /// Cached typed shape hidden classes. Points to an array of
-  /// `typed_shape_table_count` WeakRoots.
-  SHCompressedPointer *typed_shape_class_cache;
+  const SHStaticShapeTableEntry *static_shape_table;
+  /// Size of static shape descriptor table.
+  uint32_t static_shape_table_count;
+  /// Cached static shape hidden classes. Points to an array of
+  /// `static_shape_table_count` WeakRoots.
+  SHCompressedPointer *static_shape_class_cache;
 
   /// The module exports cache: a map from non-negative integer module indexes
   /// to the export of the module.  An empty value indicates that the module has
@@ -1489,9 +1489,9 @@ SHERMES_EXPORT void _sh_check_type_for_prstore(
     uint32_t propIndex,
     SHLegacyValue *value);
 
-/// Check if the object has the typed shape class at the given index.
+/// Check if the object has the static shape class at the given index.
 /// Compares raw compressed pointer values — no decode or read barrier needed.
-static inline bool _sh_ljs_has_typed_shape(
+static inline bool _sh_ljs_has_static_shape(
     SHRuntime *shr,
     SHLegacyValue value,
     SHUnit *unit,
@@ -1499,12 +1499,12 @@ static inline bool _sh_ljs_has_typed_shape(
   (void)shr;
   if (SH_UNLIKELY(!_sh_ljs_is_object(value)))
     return false;
-  SHCompressedPointer cachedClass = unit->typed_shape_class_cache[shapeIndex];
+  SHCompressedPointer cachedClass = unit->static_shape_class_cache[shapeIndex];
   SHJSObject *obj = (SHJSObject *)_sh_ljs_get_pointer(value);
   return obj->clazz == cachedClass.raw;
 }
 
-SHERMES_EXPORT void _sh_ljs_try_set_typed_shape(
+SHERMES_EXPORT void _sh_ljs_try_set_static_shape(
     SHRuntime *shr,
     SHLegacyValue *target,
     SHUnit *unit,

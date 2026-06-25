@@ -200,8 +200,8 @@ class IRBuilder {
     return M->getLiteralTypeOfIsTypes(types);
   }
 
-  LiteralTypedShape *getLiteralTypedShape(const TypedShapeDesc *desc) {
-    return M->getLiteralTypedShape(desc);
+  LiteralStaticShape *getLiteralStaticShape(const StaticShapeDesc *desc) {
+    return M->getLiteralStaticShape(desc);
   }
 
   /// Return the GlobalObject value.
@@ -526,13 +526,9 @@ class IRBuilder {
       const AllocTypedObjectInst::ObjectPropertyMap &propMap,
       Value *parentObject);
 
-  PromoteTypedShapeInst *createPromoteTypedShapeInst(
+  TrySetStaticShapeInst *createTrySetStaticShapeInst(
       Value *obj,
-      LiteralTypedShape *shape);
-
-  TrySetTypedShapeInst *createTrySetTypedShapeInst(
-      Value *obj,
-      LiteralTypedShape *shape);
+      LiteralStaticShape *shape);
 
   AllocFastArrayInst *createAllocFastArrayInst(LiteralNumber *sizeHint);
 
@@ -566,9 +562,9 @@ class IRBuilder {
 
   TypeOfInst *createTypeOfInst(Value *input);
   TypeOfIsInst *createTypeOfIsInst(Value *input, LiteralTypeOfIsTypes *types);
-  HasTypedShapeInst *createHasTypedShapeInst(
+  HasStaticShapeInst *createHasStaticShapeInst(
       Value *input,
-      LiteralTypedShape *shape);
+      LiteralStaticShape *shape);
 
   UnaryOperatorInst *createUnaryOperatorInst(
       Value *value,

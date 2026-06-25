@@ -51,37 +51,40 @@ struct SMRangeInfo {
   }
 };
 
-/// A single property in a typed shape definition (before Type resolution).
-struct TypedShapePropertyDefinition {
+/// A single property in a static shape definition (before Type resolution).
+struct StaticShapePropertyDefinition {
   std::string name;
   std::vector<std::string> typeNames;
 };
 
-/// Typed shape definition loaded from JSON. Uses type name strings
+/// Static shape definition loaded from JSON. Uses type name strings
 /// instead of resolved Type objects to avoid depending on IR.
-struct TypedShapeDefinition {
-  llvh::SmallVector<TypedShapePropertyDefinition, 8> properties;
+struct StaticShapeDefinition {
+  llvh::SmallVector<StaticShapePropertyDefinition, 8> properties;
 };
 
-/// Entry in the shape assignments array.
-struct ShapePromotionEntry {
+/// Entry in the shape bindings array.
+struct ShapeBindingEntry {
   /// Source range of the expression that produces the object.
   llvh::SMRange objectRange;
-  /// Name of the typed shape in the JSON "shapes" object.
+  /// Name of the static shape in the JSON "static shapes" object.
   std::string shapeName;
+  /// Index in the JSON "shape bindings" array; tags the Has guard emitted
+  /// after the TrySet so the binding is tracked like a shape hint.
+  unsigned annotationId;
 };
 
 /// Entry in the shape hints array.
 struct ShapeGuardEntry {
   /// Source range of the expression that produces the object to hint.
   llvh::SMRange objectRange;
-  /// Name of the typed shape in the JSON "shapes" object.
+  /// Name of the static shape in the JSON "static shapes" object.
   std::string shapeName;
   /// Index in the JSON "shape hints" array.
   unsigned annotationId;
 };
 
-/// Stores type hints, shape hints, and shape assignments loaded from a JSON
+/// Stores type hints, shape hints, and shape bindings loaded from a JSON
 /// file.
 class Annotations {
  private:
@@ -95,11 +98,11 @@ class Annotations {
   /// Track which type hint IDs have been matched during IRGen.
   mutable llvh::DenseSet<unsigned> matchedTypeGuardIds_;
 
-  /// Typed shape definitions loaded from JSON, keyed by shape name.
-  llvh::StringMap<TypedShapeDefinition> shapeDefs_;
+  /// Static shape definitions loaded from JSON, keyed by shape name.
+  llvh::StringMap<StaticShapeDefinition> shapeDefs_;
 
-  /// Shape hint map: hint-after range -> hint entries. A single annotation can
-  /// describe one object-to-shape hint with multiple hint-after ranges.
+  /// Shape hint map: target range -> hint entries. Each hint checks the
+  /// target expression's value against a static shape right after evaluation.
   llvh::DenseMap<
       llvh::SMRange,
       llvh::SmallVector<ShapeGuardEntry, 2>,
@@ -109,12 +112,12 @@ class Annotations {
   /// Track which shape hint IDs have been matched.
   mutable llvh::DenseSet<unsigned> matchedShapeGuardIds_;
 
-  /// Shape assignment map: assign-after range -> assignment entry.
-  llvh::DenseMap<llvh::SMRange, ShapePromotionEntry, SMRangeInfo>
-      shapePromotions_;
+  /// Shape binding map: bind-after (or target) range -> binding entry.
+  llvh::DenseMap<llvh::SMRange, ShapeBindingEntry, SMRangeInfo>
+      shapeBindings_;
 
  public:
-  /// Load type hints, shape hints, and shape assignments from a JSON file.
+  /// Load type hints, shape hints, and shape bindings from a JSON file.
   bool loadFromFile(llvh::StringRef jsonPath, SourceErrorManager &sm);
 
   /// Query the type hint strings for a given source range.
@@ -147,20 +150,20 @@ class Annotations {
   static llvh::Optional<Type> parseTypeNames(
       const std::vector<std::string> &typeNames);
 
-  /// Return all typed shape definitions loaded from JSON.
-  const llvh::StringMap<TypedShapeDefinition> &getShapeDefs() const {
+  /// Return all static shape definitions loaded from JSON.
+  const llvh::StringMap<StaticShapeDefinition> &getShapeDefs() const {
     return shapeDefs_;
   }
 
-  /// Query the shape hints for a given hint-after source range.
+  /// Query the shape hints whose target range equals \p range.
   void getShapeGuards(
       llvh::SMRange range,
       llvh::SmallVectorImpl<ShapeGuardEntry> &guards) const;
 
-  /// Query the shape assignment for a given assign-after source range.
-  /// Returns None if not found.
-  llvh::Optional<ShapePromotionEntry> getShapePromotion(
-      llvh::SMRange promoteRange) const;
+  /// Query the shape binding whose insertion (bind-after, or target) range
+  /// equals \p range. Returns None if not found.
+  llvh::Optional<ShapeBindingEntry> getShapeBinding(
+      llvh::SMRange bindRange) const;
 
   /// Return all expression ranges referenced by shape annotations.
   llvh::SmallVector<llvh::SMRange, 4> getShapeAnnotationObjectRanges() const;

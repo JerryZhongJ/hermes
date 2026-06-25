@@ -845,12 +845,12 @@ bool Verifier::visitTypeOfIsInst(const TypeOfIsInst &Inst) {
   return true;
 }
 
-bool Verifier::visitHasTypedShapeInst(const HasTypedShapeInst &Inst) {
+bool Verifier::visitHasStaticShapeInst(const HasStaticShapeInst &Inst) {
   AssertIWithMsg(
       Inst,
-      llvh::isa<LiteralTypedShape>(
-          Inst.getOperand(HasTypedShapeInst::ShapeIdx)),
-      "HasTypedShapeInst::Shape must be a LiteralTypedShape");
+      llvh::isa<LiteralStaticShape>(
+          Inst.getOperand(HasStaticShapeInst::ShapeIdx)),
+      "HasStaticShapeInst::Shape must be a LiteralStaticShape");
   return true;
 }
 
@@ -1501,14 +1501,8 @@ bool Verifier::visitAllocTypedObjectInst(
   return true;
 }
 
-bool Verifier::visitPromoteTypedShapeInst(
-    const hermes::PromoteTypedShapeInst &Inst) {
-  AssertIWithMsg(Inst, Inst.getShape(), "shape must not be null");
-  return true;
-}
-
-bool Verifier::visitTrySetTypedShapeInst(
-    const hermes::TrySetTypedShapeInst &Inst) {
+bool Verifier::visitTrySetStaticShapeInst(
+    const hermes::TrySetStaticShapeInst &Inst) {
   AssertIWithMsg(Inst, Inst.getShape(), "shape must not be null");
   return true;
 }

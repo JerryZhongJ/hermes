@@ -20,8 +20,8 @@ add_hermes_library(hermesOptimizer
   Optimizer/Scalar/ScopeHoisting.cpp
   Optimizer/Scalar/TypeInference.cpp
   Optimizer/Scalar/LocalTypeInference.cpp
-  Optimizer/Scalar/TypedShapeInference.cpp
-  Optimizer/Scalar/LocalTypeAndTypedShapeInference.cpp
+  Optimizer/Scalar/StaticShapeInference.cpp
+  Optimizer/Scalar/LocalTypeAndStaticShapeInference.cpp
   Optimizer/Scalar/InsertGuard.cpp
   Optimizer/Scalar/SimpleStackPromotion.cpp
   Optimizer/Scalar/ObjectMergeNewStores.cpp

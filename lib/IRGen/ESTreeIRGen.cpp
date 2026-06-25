@@ -119,11 +119,11 @@ ESTreeIRGen::ESTreeIRGen(
       Root(root),
       Builder(Mod),
       identDefaultExport_(Builder.createIdentifier("?default")) {
-  // Pre-register all typed shape definitions from annotations.
+  // Pre-register all static shape definitions from annotations.
   const auto &ann = M->getContext().getAnnotations();
   for (const auto &shapeEntry : ann.getShapeDefs()) {
     const auto &def = shapeEntry.second;
-    llvh::SmallVector<TypedShapeProperty, 8> properties;
+    llvh::SmallVector<StaticShapeProperty, 8> properties;
     for (const auto &prop : def.properties) {
       auto type = Annotations::parseTypeNames(prop.typeNames);
       if (!type.hasValue())
@@ -131,7 +131,7 @@ ESTreeIRGen::ESTreeIRGen(
       Identifier iden = M->getContext().getIdentifier(prop.name);
       properties.push_back({iden, type.getValue()});
     }
-    shapeDescsByName_[shapeEntry.first()] = M->createTypedShape(properties);
+    shapeDescsByName_[shapeEntry.first()] = M->createStaticShape(properties);
   }
 
   // Pre-register object locations for shape annotations.
@@ -139,12 +139,12 @@ ESTreeIRGen::ESTreeIRGen(
     smRangeToIR_.insert({range, nullptr});
 }
 
-bool ESTreeIRGen::tryInsertTrySetTypedShape(ESTree::Node *node) {
+bool ESTreeIRGen::tryInsertTrySetStaticShape(ESTree::Node *node) {
   auto range = node->getSourceRange();
-  if (!range.isValid() || appliedShapePromotions_.count(range))
+  if (!range.isValid() || appliedShapeBindings_.count(range))
     return false;
 
-  auto entry = Mod->getContext().getAnnotations().getShapePromotion(range);
+  auto entry = Mod->getContext().getAnnotations().getShapeBinding(range);
   if (!entry.hasValue())
     return false;
 
@@ -156,10 +156,15 @@ bool ESTreeIRGen::tryInsertTrySetTypedShape(ESTree::Node *node) {
   if (shapeDescIt == shapeDescsByName_.end())
     return false;
 
-  const TypedShapeDesc *desc = shapeDescIt->second;
-  auto *litShape = Builder.getLiteralTypedShape(desc);
-  Builder.createTrySetTypedShapeInst(it->second, litShape);
-  appliedShapePromotions_.insert(range);
+  const StaticShapeDesc *desc = shapeDescIt->second;
+  auto *litShape = Builder.getLiteralStaticShape(desc);
+  Builder.createTrySetStaticShapeInst(it->second, litShape);
+  // Guard the binding: after setting the shape, emit a Has check so the
+  // binding also acts as a shape hint (InsertGuard tracks Has, not TrySet).
+  auto *guardInst = Builder.createHasStaticShapeInst(it->second, litShape);
+  guardInst->setAnnotationId(entry->annotationId);
+  guardInst->setLocation(node->getDebugLoc());
+  appliedShapeBindings_.insert(range);
   return true;
 }
 

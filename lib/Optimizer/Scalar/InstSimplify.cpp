@@ -1035,11 +1035,11 @@ class InstSimplifyImpl {
   }
 
   /// Convert a LoadProperty-like instruction to PrLoad when the object has a
-  /// known typed shape and the property is a literal string present in that
+  /// known static shape and the property is a literal string present in that
   /// shape.
   Value *simplifyLoadProperty(BaseLoadPropertyInst *inst) {
     auto operandShape = inst->getObjOperandShape();
-    if (operandShape.status != ObjectOperandShape::KnownTypedShape)
+    if (operandShape.status != ObjectOperandShape::KnownStaticShape)
       return nullptr;
     auto *propStr = llvh::dyn_cast<LiteralString>(inst->getProperty());
     if (!propStr)
@@ -1055,11 +1055,11 @@ class InstSimplifyImpl {
   }
 
   /// Convert a StoreProperty-like instruction to PrStore when the object has a
-  /// known typed shape and the property is a literal string present in that
+  /// known static shape and the property is a literal string present in that
   /// shape.
   Value *simplifyStoreProperty(BaseStorePropertyInst *inst) {
     auto operandShape = inst->getObjOperandShape();
-    if (operandShape.status != ObjectOperandShape::KnownTypedShape)
+    if (operandShape.status != ObjectOperandShape::KnownStaticShape)
       return nullptr;
     auto *propStr = llvh::dyn_cast<LiteralString>(inst->getProperty());
     if (!propStr)
@@ -1075,16 +1075,16 @@ class InstSimplifyImpl {
         operandShape.desc->getPropertyType(idx));
   }
 
-  /// Simplify HasTypedShapeInst:
+  /// Simplify HasStaticShapeInst:
   /// 1. If the argument can't be an object, it's always false.
-  /// 2. If the object has a known typed shape, compare it with the checked
+  /// 2. If the object has a known static shape, compare it with the checked
   ///    shape — same shape → true, different shape → false.
-  Value *simplifyHasTypedShape(HasTypedShapeInst *inst) {
+  Value *simplifyHasStaticShape(HasStaticShapeInst *inst) {
     if (!inst->getArgument()->getType().canBeObject())
       return builder_.getLiteralBool(false);
 
     auto operandShape = inst->getObjOperandShape();
-    if (operandShape.status == ObjectOperandShape::KnownTypedShape) {
+    if (operandShape.status == ObjectOperandShape::KnownStaticShape) {
       if (operandShape.desc == inst->getShape()->getData())
         return builder_.getLiteralBool(true);
       return builder_.getLiteralBool(false);
@@ -1230,8 +1230,8 @@ class InstSimplifyImpl {
       case ValueKind::StorePropertyLooseInstKind:
       case ValueKind::StorePropertyStrictInstKind:
         return simplifyStoreProperty(cast<StorePropertyInst>(I));
-      case ValueKind::HasTypedShapeInstKind:
-        return simplifyHasTypedShape(cast<HasTypedShapeInst>(I));
+      case ValueKind::HasStaticShapeInstKind:
+        return simplifyHasStaticShape(cast<HasStaticShapeInst>(I));
 
       default:
         // TODO: handle other kinds of instructions.

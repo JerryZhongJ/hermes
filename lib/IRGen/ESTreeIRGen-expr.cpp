@@ -125,9 +125,9 @@ bool ESTreeIRGen::tryInsertShapeCheck(ESTree::Node *node) {
     if (objectIt == smRangeToIR_.end() || !objectIt->second)
       continue;
 
-    auto *litShape = Builder.getLiteralTypedShape(shapeDescIt->second);
+    auto *litShape = Builder.getLiteralStaticShape(shapeDescIt->second);
     auto *checkInst =
-        Builder.createHasTypedShapeInst(objectIt->second, litShape);
+        Builder.createHasStaticShapeInst(objectIt->second, litShape);
     checkInst->setAnnotationId(shapeGuard.annotationId);
     // Carry the guard's source location (the hint-after site) so
     // instrumentation can report where each guard site lives.
@@ -148,7 +148,7 @@ void ESTreeIRGen::tryApplyAnnotation(Value *val, ESTree::Node *node) {
     it->second = val;
 
   tryInsertTypeCheck(val, node);
-  tryInsertTrySetTypedShape(node);
+  tryInsertTrySetStaticShape(node);
   tryInsertShapeCheck(node);
 }
 

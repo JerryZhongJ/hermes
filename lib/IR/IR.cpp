@@ -1047,17 +1047,17 @@ LiteralNativeExtern *Module::getLiteralNativeExtern(NativeExtern *data) {
   return nativeExterns_.getOrEmplace(data).first;
 }
 
-LiteralTypedShape *Module::getLiteralTypedShape(const TypedShapeDesc *desc) {
-  return literalTypedShapes_.getOrEmplace(desc).first;
+LiteralStaticShape *Module::getLiteralStaticShape(const StaticShapeDesc *desc) {
+  return literalStaticShapes_.getOrEmplace(desc).first;
 }
 
-const TypedShapeDesc *Module::createTypedShape(
-    llvh::ArrayRef<TypedShapeProperty> properties) {
-  auto desc = std::make_unique<TypedShapeDesc>();
+const StaticShapeDesc *Module::createStaticShape(
+    llvh::ArrayRef<StaticShapeProperty> properties) {
+  auto desc = std::make_unique<StaticShapeDesc>();
   for (const auto &prop : properties)
     desc->addProperty(prop);
-  const TypedShapeDesc *ptr = desc.get();
-  typedShapeDescs_.push_back(std::move(desc));
+  const StaticShapeDesc *ptr = desc.get();
+  staticShapeDescs_.push_back(std::move(desc));
   return ptr;
 }
 

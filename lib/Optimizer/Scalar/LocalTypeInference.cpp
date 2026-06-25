@@ -590,7 +590,7 @@ class Impl {
   Type inferLoadPropertyInst(LoadPropertyInst *inst) {
     auto info = inst->getObjOperandShape();
     switch (info.status) {
-      case ObjectOperandShape::KnownTypedShape: {
+      case ObjectOperandShape::KnownStaticShape: {
         if (auto *propStr =
                 llvh::dyn_cast<LiteralString>(inst->getProperty())) {
           int idx = info.desc->getPropertyIndex(propStr->getValue());
@@ -608,7 +608,7 @@ class Impl {
   Type inferLoadPropertyWithReceiverInst(LoadPropertyWithReceiverInst *inst) {
     auto info = inst->getObjOperandShape();
     switch (info.status) {
-      case ObjectOperandShape::KnownTypedShape: {
+      case ObjectOperandShape::KnownStaticShape: {
         if (auto *propStr =
                 llvh::dyn_cast<LiteralString>(inst->getProperty())) {
           int idx = info.desc->getPropertyIndex(propStr->getValue());
@@ -651,10 +651,7 @@ class Impl {
   Type inferAllocFastArrayInst(AllocFastArrayInst *inst) {
     return *inst->getInherentType();
   }
-  Type inferPromoteTypedShapeInst(PromoteTypedShapeInst *inst) {
-    return Type::createNoType();
-  }
-  Type inferTrySetTypedShapeInst(TrySetTypedShapeInst *inst) {
+  Type inferTrySetStaticShapeInst(TrySetStaticShapeInst *inst) {
     return Type::createNoType();
   }
   Type inferGetTemplateObjectInst(GetTemplateObjectInst *inst) {
@@ -696,7 +693,7 @@ class Impl {
   Type inferTypeOfIsInst(TypeOfIsInst *inst) {
     return *inst->getInherentType();
   }
-  Type inferHasTypedShapeInst(HasTypedShapeInst *inst) {
+  Type inferHasStaticShapeInst(HasStaticShapeInst *inst) {
     return *inst->getInherentType();
   }
   Type inferThrowIfInst(ThrowIfInst *inst) {

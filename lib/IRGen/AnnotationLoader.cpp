@@ -65,33 +65,33 @@ llvh::Optional<llvh::SMRange> resolveLocation(
   return llvh::SMRange(startLoc, endLoc);
 }
 
-/// Load typed shape definitions from the "shapes" JSON object.
+/// Load static shape definitions from the "shapes" JSON object.
 /// Each entry maps a shape name to an object with a "properties" array; each
 /// property is {"name": string, "type": string|[string]}. Property order in
 /// the array is significant: different order means a different shape.
-void loadTypedShapes(
+void loadStaticShapes(
     const llvh::json::Object &shapesObj,
-    llvh::StringMap<TypedShapeDefinition> &defs) {
+    llvh::StringMap<StaticShapeDefinition> &defs) {
   for (const auto &entry : shapesObj) {
     llvh::StringRef shapeName = entry.first;
     const llvh::json::Object *shapeObj = entry.second.getAsObject();
     if (!shapeObj) {
-      llvh::errs() << "Warning: invalid typed shape entry '" << shapeName
+      llvh::errs() << "Warning: invalid static shape entry '" << shapeName
                    << "\n";
       continue;
     }
     auto *propsArr = shapeObj->getArray("properties");
     if (!propsArr) {
       llvh::errs()
-          << "Warning: missing 'properties' array in typed shape '" << shapeName
+          << "Warning: missing 'properties' array in static shape '" << shapeName
           << "\n";
       continue;
     }
-    TypedShapeDefinition def;
+    StaticShapeDefinition def;
     for (const auto &elem : *propsArr) {
       const llvh::json::Object *propObj = elem.getAsObject();
       if (!propObj) {
-        llvh::errs() << "Warning: invalid property in typed shape '"
+        llvh::errs() << "Warning: invalid property in static shape '"
                      << shapeName
                      << "\n";
         continue;
@@ -100,7 +100,7 @@ void loadTypedShapes(
       auto *typeVal = propObj->get("type");
       if (!name || !typeVal) {
         llvh::errs()
-            << "Warning: missing name or type in typed shape property\n";
+            << "Warning: missing name or type in static shape property\n";
         continue;
       }
       auto typeStrs = extractTypeStrings(*typeVal);
@@ -114,12 +114,12 @@ void loadTypedShapes(
     defs[shapeName] = std::move(def);
   }
   LLVM_DEBUG(
-      llvh::dbgs() << "Loaded " << defs.size() << " typed shape definitions\n");
+      llvh::dbgs() << "Loaded " << defs.size() << " static shape definitions\n");
 }
 
 llvh::Optional<std::string> resolveShapeName(
     const llvh::json::Object &annotation,
-    const llvh::StringMap<TypedShapeDefinition> &shapeDefs,
+    const llvh::StringMap<StaticShapeDefinition> &shapeDefs,
     llvh::StringRef context) {
   auto shapeName = annotation.getString("shape");
   if (!shapeName) {
@@ -153,7 +153,7 @@ void loadTypeGuards(
       continue;
     }
 
-    const llvh::json::Object *loc = annot->getObject("expression range");
+    const llvh::json::Object *loc = annot->getObject("target range");
     if (!loc) {
       failCount++;
       continue;
@@ -186,7 +186,7 @@ void loadTypeGuards(
 void loadShapeGuards(
     const llvh::json::Array &arr,
     SourceErrorManager &sm,
-    const llvh::StringMap<TypedShapeDefinition> &shapeDefs,
+    const llvh::StringMap<StaticShapeDefinition> &shapeDefs,
     llvh::DenseMap<
         llvh::SMRange,
         llvh::SmallVector<ShapeGuardEntry, 2>,
@@ -200,10 +200,8 @@ void loadShapeGuards(
       continue;
     }
 
-    const llvh::json::Object *objLoc = sa->getObject("expression range");
-    const llvh::json::Array *hintAfterRanges =
-        sa->getArray("hint after ranges");
-    if (!objLoc || !hintAfterRanges || hintAfterRanges->empty()) {
+    const llvh::json::Object *targetLoc = sa->getObject("target range");
+    if (!targetLoc) {
       failCount++;
       continue;
     }
@@ -214,29 +212,17 @@ void loadShapeGuards(
       continue;
     }
 
-    auto objectRange = resolveLocation(objLoc, sm);
-    if (!objectRange.hasValue()) {
+    auto targetRange = resolveLocation(targetLoc, sm);
+    if (!targetRange.hasValue()) {
       failCount++;
       continue;
     }
 
-    bool loadedAnyGuardLocation = false;
-    for (const auto &hintAfterValue : *hintAfterRanges) {
-      const llvh::json::Object *hintAfter = hintAfterValue.getAsObject();
-      if (!hintAfter)
-        continue;
-
-      auto hintAfterRange = resolveLocation(hintAfter, sm);
-      if (!hintAfterRange.hasValue())
-        continue;
-
-      shapeGuards[hintAfterRange.getValue()].push_back(
-          {objectRange.getValue(), shapeName.getValue(), i});
-      loadedAnyGuardLocation = true;
-    }
-
-    if (!loadedAnyGuardLocation)
-      failCount++;
+    // The check runs right after the target expression is evaluated, so the
+    // insertion point (map key) and the checked object range are both the
+    // target range.
+    shapeGuards[targetRange.getValue()].push_back(
+        {targetRange.getValue(), shapeName.getValue(), i});
   }
 
   if (failCount > 0)
@@ -244,13 +230,15 @@ void loadShapeGuards(
                  << " shape hints failed to load\n";
 }
 
-/// Load shape assignments from the "shape assignments" JSON array.
-void loadShapePromotions(
+/// Load shape bindings from the "shape bindings" JSON array. A binding sets a
+/// static shape on an object and then guards it; the binding runs right after
+/// the target expression, or after the optional "bind after" point.
+void loadShapeBindings(
     const llvh::json::Array &arr,
     SourceErrorManager &sm,
-    const llvh::StringMap<TypedShapeDefinition> &shapeDefs,
-    llvh::DenseMap<llvh::SMRange, ShapePromotionEntry, SMRangeInfo>
-        &shapePromotions) {
+    const llvh::StringMap<StaticShapeDefinition> &shapeDefs,
+    llvh::DenseMap<llvh::SMRange, ShapeBindingEntry, SMRangeInfo>
+        &shapeBindings) {
   unsigned failCount = 0;
 
   for (unsigned i = 0, e = arr.size(); i < e; ++i) {
@@ -260,34 +248,44 @@ void loadShapePromotions(
       continue;
     }
 
-    const llvh::json::Object *objLoc = sp->getObject("expression range");
-    const llvh::json::Object *assignAfter = sp->getObject("assign after");
-    if (!objLoc || !assignAfter) {
+    const llvh::json::Object *targetLoc = sp->getObject("target range");
+    if (!targetLoc) {
       failCount++;
       continue;
     }
 
-    auto shapeName = resolveShapeName(*sp, shapeDefs, "shape assignment");
+    auto shapeName = resolveShapeName(*sp, shapeDefs, "shape binding");
     if (!shapeName.hasValue()) {
       failCount++;
       continue;
     }
 
-    auto objectRange = resolveLocation(objLoc, sm);
-    auto assignAfterRange = resolveLocation(assignAfter, sm);
-    if (!objectRange.hasValue() || !assignAfterRange.hasValue()) {
+    auto targetRange = resolveLocation(targetLoc, sm);
+    if (!targetRange.hasValue()) {
       failCount++;
       continue;
     }
 
-    shapePromotions.insert(
-        {assignAfterRange.getValue(),
-         {objectRange.getValue(), shapeName.getValue()}});
+    // The bound object is always the target expression. The insertion point
+    // (map key) is the optional "bind after" location; if omitted the binding
+    // runs right after the target expression.
+    llvh::SMRange insertRange = targetRange.getValue();
+    if (const llvh::json::Object *bindAfter = sp->getObject("bind after")) {
+      auto bindAfterRange = resolveLocation(bindAfter, sm);
+      if (!bindAfterRange.hasValue()) {
+        failCount++;
+        continue;
+      }
+      insertRange = bindAfterRange.getValue();
+    }
+
+    shapeBindings.insert(
+        {insertRange, {targetRange.getValue(), shapeName.getValue(), i}});
   }
 
   if (failCount > 0)
     llvh::errs() << "Warning: " << failCount
-                 << " shape assignments failed to load\n";
+                 << " shape bindings failed to load\n";
 }
 
 } // namespace
@@ -354,9 +352,9 @@ bool Annotations::loadFromFile(
     return false;
   }
 
-  // 1. Shapes
-  if (auto *shapesObj = root->getObject("shapes"))
-    loadTypedShapes(*shapesObj, shapeDefs_);
+  // 1. Static shapes
+  if (auto *shapesObj = root->getObject("static shapes"))
+    loadStaticShapes(*shapesObj, shapeDefs_);
 
   // 2. Type hints
   if (auto *arr = root->getArray("type hints"))
@@ -366,9 +364,9 @@ bool Annotations::loadFromFile(
   if (auto *arr = root->getArray("shape hints"))
     loadShapeGuards(*arr, sm, shapeDefs_, shapeGuards_);
 
-  // 4. Shape assignments
-  if (auto *arr = root->getArray("shape assignments"))
-    loadShapePromotions(*arr, sm, shapeDefs_, shapePromotions_);
+  // 4. Shape bindings
+  if (auto *arr = root->getArray("shape bindings"))
+    loadShapeBindings(*arr, sm, shapeDefs_, shapeBindings_);
 
   return true;
 }
@@ -403,10 +401,10 @@ void Annotations::getShapeGuards(
   }
 }
 
-llvh::Optional<ShapePromotionEntry> Annotations::getShapePromotion(
-    llvh::SMRange promoteRange) const {
-  auto it = shapePromotions_.find(promoteRange);
-  if (it != shapePromotions_.end())
+llvh::Optional<ShapeBindingEntry> Annotations::getShapeBinding(
+    llvh::SMRange bindRange) const {
+  auto it = shapeBindings_.find(bindRange);
+  if (it != shapeBindings_.end())
     return it->second;
   return llvh::None;
 }
@@ -414,7 +412,7 @@ llvh::Optional<ShapePromotionEntry> Annotations::getShapePromotion(
 llvh::SmallVector<llvh::SMRange, 4>
 Annotations::getShapeAnnotationObjectRanges() const {
   llvh::SmallVector<llvh::SMRange, 4> ranges;
-  for (const auto &kv : shapePromotions_)
+  for (const auto &kv : shapeBindings_)
     ranges.push_back(kv.second.objectRange);
   for (const auto &kv : shapeGuards_)
     for (const auto &entry : kv.second)

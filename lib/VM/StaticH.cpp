@@ -2393,26 +2393,26 @@ extern "C" void _sh_check_type_for_prstore(
 namespace {
 
 HiddenClass *
-getTypedShapeClass(Runtime &runtime, SHUnit *unit, uint32_t index) {
-  assert(index < unit->typed_shape_table_count && "typed shape index OOB");
+getStaticShapeClass(Runtime &runtime, SHUnit *unit, uint32_t index) {
+  assert(index < unit->static_shape_table_count && "static shape index OOB");
   WeakRoot<HiddenClass> *cacheEntry = reinterpret_cast<WeakRoot<HiddenClass> *>(
-      &unit->typed_shape_class_cache[index]);
+      &unit->static_shape_class_cache[index]);
 
   if (*cacheEntry)
     return cacheEntry->getNonNull(runtime, runtime.getHeap());
 
-  const SHTypedShapeTableEntry &shape = unit->typed_shape_table[index];
+  const SHStaticShapeTableEntry &shape = unit->static_shape_table[index];
   assert(
-      shape.prop_offset + shape.num_props <= unit->typed_shape_props_count &&
-      "typed shape prop range OOB");
+      shape.prop_offset + shape.num_props <= unit->static_shape_props_count &&
+      "static shape prop range OOB");
 
   MutableHandle<HiddenClass> clazz{runtime, HiddenClass::createRoot(runtime)};
 
   auto defaultFlags = PropertyFlags::defaultNewNamedPropertyFlags();
   for (uint32_t i = 0; i != shape.num_props; ++i) {
-    const SHTypedShapeProp &prop =
-        unit->typed_shape_props[shape.prop_offset + i];
-    assert(prop.name_index < unit->num_symbols && "typed shape name OOB");
+    const SHStaticShapeProp &prop =
+        unit->static_shape_props[shape.prop_offset + i];
+    assert(prop.name_index < unit->num_symbols && "static shape name OOB");
     PropertyFlags flags = defaultFlags;
     flags.setPropertyType(static_cast<PropertyTypeCode>(prop.type));
     auto addRes = HiddenClass::addProperty(
@@ -2432,7 +2432,7 @@ getTypedShapeClass(Runtime &runtime, SHUnit *unit, uint32_t index) {
 } // namespace
 
 LLVM_ATTRIBUTE_NOINLINE
-extern "C" void _sh_ljs_try_set_typed_shape(
+extern "C" void _sh_ljs_try_set_static_shape(
     SHRuntime *shr,
     SHLegacyValue *target,
     SHUnit *unit,
@@ -2443,7 +2443,7 @@ extern "C" void _sh_ljs_try_set_typed_shape(
   GCScopeMarkerRAII marker{runtime};
   auto obj = Handle<JSObject>::vmcast(toPHV(target));
   JSObject::switchClass(
-      obj, runtime, getTypedShapeClass(runtime, unit, shapeIndex));
+      obj, runtime, getStaticShapeClass(runtime, unit, shapeIndex));
 }
 
 LLVM_ATTRIBUTE_NOINLINE

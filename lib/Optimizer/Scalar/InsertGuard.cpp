@@ -46,7 +46,7 @@ class GuardInserter {
   llvh::DenseMap<BasicBlock *, BasicBlock *> specToGenBBMap_;
 
   llvh::SmallVector<TypeOfIsInst *, 4> collectedTypeChecks_;
-  llvh::SmallVector<HasTypedShapeInst *, 4> collectedShapeChecks_;
+  llvh::SmallVector<HasStaticShapeInst *, 4> collectedShapeChecks_;
 
  public:
   explicit GuardInserter(Function *F) : F_(F), Builder_(F) {}
@@ -80,7 +80,7 @@ class GuardInserter {
     // Step 5: Insert guards. Each guard is erased before insertion so updates
     // to remaining collected guards never visit the current entry.
     while (!collectedShapeChecks_.empty()) {
-      HasTypedShapeInst *checkInst = collectedShapeChecks_.pop_back_val();
+      HasStaticShapeInst *checkInst = collectedShapeChecks_.pop_back_val();
       NumShapeGuardsInserted += insertShapeGuard(checkInst);
     }
     while (!collectedTypeChecks_.empty()) {
@@ -135,7 +135,7 @@ class GuardInserter {
           continue;
         }
 
-        if (auto *HTS = llvh::dyn_cast<HasTypedShapeInst>(&I)) {
+        if (auto *HTS = llvh::dyn_cast<HasStaticShapeInst>(&I)) {
           int annotId = HTS->getAnnotationId();
           if (annotId < 0)
             continue;
@@ -307,14 +307,14 @@ class GuardInserter {
     return true;
   }
 
-  /// Insert ShapeGuard branch for an existing HasTypedShapeInst in the
+  /// Insert ShapeGuard branch for an existing HasStaticShapeInst in the
   /// speculative path.
-  bool insertShapeGuard(HasTypedShapeInst *checkInst) {
+  bool insertShapeGuard(HasStaticShapeInst *checkInst) {
     auto it = specToGenInstMap_.find(checkInst);
     assert(
         it != specToGenInstMap_.end() &&
         "checkInst must be in specToGenInstMap_");
-    auto *checkInstGen = llvh::cast<HasTypedShapeInst>(it->second);
+    auto *checkInstGen = llvh::cast<HasStaticShapeInst>(it->second);
     insertGuardImpl(checkInst, checkInstGen);
     return true;
   }

@@ -55,8 +55,9 @@ struct ClassFlags {
   /// property is set and then deleted, this will still be set to true.
   uint8_t mayHaveAccessor : 1;
 
-  /// This HiddenClass is a typed shape. This is an opt-in state: most shape
-  /// mutations conservatively clear it, and only root plus typed add-property
+  /// This HiddenClass is a typed hidden class (carries typed property
+  /// descriptors). This is an opt-in state: most shape mutations
+  /// conservatively clear it, and only root plus typed add-property
   /// construction set it.
   uint8_t typed : 1;
 

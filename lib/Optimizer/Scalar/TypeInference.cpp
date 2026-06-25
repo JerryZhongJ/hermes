@@ -597,7 +597,7 @@ class TypeInferenceImpl {
     assert(
         operandShape.status != ObjectOperandShape::NoShape &&
         "NoShape should not appear in TypeInference");
-    if (operandShape.status == ObjectOperandShape::KnownTypedShape) {
+    if (operandShape.status == ObjectOperandShape::KnownStaticShape) {
       if (auto *propStr = llvh::dyn_cast<LiteralString>(inst->getProperty())) {
         int idx = operandShape.desc->getPropertyIndex(propStr->getValue());
         if (idx != -1)
@@ -611,7 +611,7 @@ class TypeInferenceImpl {
     assert(
         operandShape.status != ObjectOperandShape::NoShape &&
         "NoShape should not appear in TypeInference");
-    if (operandShape.status == ObjectOperandShape::KnownTypedShape) {
+    if (operandShape.status == ObjectOperandShape::KnownStaticShape) {
       if (auto *propStr = llvh::dyn_cast<LiteralString>(inst->getProperty())) {
         int idx = operandShape.desc->getPropertyIndex(propStr->getValue());
         if (idx != -1)
@@ -648,10 +648,7 @@ class TypeInferenceImpl {
   Type inferAllocFastArrayInst(AllocFastArrayInst *inst) {
     return *inst->getInherentType();
   }
-  Type inferPromoteTypedShapeInst(PromoteTypedShapeInst *inst) {
-    return Type::createNoType();
-  }
-  Type inferTrySetTypedShapeInst(TrySetTypedShapeInst *inst) {
+  Type inferTrySetStaticShapeInst(TrySetStaticShapeInst *inst) {
     return Type::createNoType();
   }
   Type inferGetTemplateObjectInst(GetTemplateObjectInst *inst) {
@@ -693,7 +690,7 @@ class TypeInferenceImpl {
   Type inferTypeOfIsInst(TypeOfIsInst *inst) {
     return *inst->getInherentType();
   }
-  Type inferHasTypedShapeInst(HasTypedShapeInst *inst) {
+  Type inferHasStaticShapeInst(HasStaticShapeInst *inst) {
     return *inst->getInherentType();
   }
   Type inferThrowIfInst(ThrowIfInst *inst) {
