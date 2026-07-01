@@ -1,0 +1,25 @@
+{
+  "type hints": [],
+  "shape hints": [
+    {
+      "target range": {
+        "file": "inference-phiSame.js",
+        "start": {"line": 6, "column": 9},
+        "end": {"line": 6, "column": 10}
+      },
+      "shape": "XNumber"
+    },
+    {
+      "target range": {
+        "file": "inference-phiSame.js",
+        "start": {"line": 8, "column": 9},
+        "end": {"line": 8, "column": 10}
+      },
+      "shape": "XNumber"
+    }
+  ],
+  "static shapes": {
+    "XNumber": {"properties": [{"name": "x", "type": "number"}]}
+  },
+  "shape bindings": []
+}

@@ -595,9 +595,9 @@ class TypeInferenceImpl {
   Type inferLoadPropertyInst(LoadPropertyInst *inst) {
     auto operandShape = inst->getObjOperandShape();
     assert(
-        operandShape.status != ObjectOperandShape::NoShape &&
+        operandShape.status != StaticShapeInfo::NoShape &&
         "NoShape should not appear in TypeInference");
-    if (operandShape.status == ObjectOperandShape::KnownStaticShape) {
+    if (operandShape.status == StaticShapeInfo::KnownStaticShape) {
       if (auto *propStr = llvh::dyn_cast<LiteralString>(inst->getProperty())) {
         int idx = operandShape.desc->getPropertyIndex(propStr->getValue());
         if (idx != -1)
@@ -609,9 +609,9 @@ class TypeInferenceImpl {
   Type inferLoadPropertyWithReceiverInst(LoadPropertyWithReceiverInst *inst) {
     auto operandShape = inst->getObjOperandShape();
     assert(
-        operandShape.status != ObjectOperandShape::NoShape &&
+        operandShape.status != StaticShapeInfo::NoShape &&
         "NoShape should not appear in TypeInference");
-    if (operandShape.status == ObjectOperandShape::KnownStaticShape) {
+    if (operandShape.status == StaticShapeInfo::KnownStaticShape) {
       if (auto *propStr = llvh::dyn_cast<LiteralString>(inst->getProperty())) {
         int idx = operandShape.desc->getPropertyIndex(propStr->getValue());
         if (idx != -1)

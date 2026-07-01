@@ -13,508 +13,400 @@
 #include "hermes/IR/Instrs.h"
 #include "llvh/ADT/DenseMap.h"
 #include "llvh/ADT/DenseSet.h"
+#include "llvh/ADT/Optional.h"
 #include "llvh/ADT/SmallPtrSet.h"
 #include "llvh/ADT/SmallVector.h"
 #include "llvh/Support/Debug.h"
 
 using namespace hermes;
-using llvh::dbgs;
 
 namespace hermes {
 namespace static_shape_inference {
 
-/// 3 状态标记：仅用于 MovInst/PhiInst 的事实传播。
-/// visited=false              → NoShape（未处理）
-/// visited=true, staticShape≠nullptr → KnownShape
-/// visited=true, staticShape=nullptr → AnyShapes
-struct FactState {
-  bool visited = false;
-  const StaticShapeDesc *staticShape = nullptr;
-};
+/// 复用 IR.h 的 StaticShapeInfo 作为格元素：
+///   NoShape(⊥,不可达) ⊑ KnownStaticShape ⊑ AnyShapes(⊤,可达但未知)
+/// 汇合用 join(⊔)：NoShape 幺元、AnyShapes 吸收元、两个不同 Known → Any。
+/// 故 join 结果为具体 shape ⟺ 所有可达路径形状一致（must 级确定性）。
 
-/// Step 1 中 compute 规则，判断 Mov/Phi 的事实状态。
-/// state 中已包含所有 HasStaticShape operand/Mov/Phi，find()
-/// 本身即隐含类型判断。
-static FactState computeFactState(
-    Instruction *inst,
-    const llvh::DenseMap<Instruction *, FactState> &state) {
-  if (auto *mov = llvh::dyn_cast<MovInst>(inst)) {
-    auto *opInst = llvh::dyn_cast<Instruction>(mov->getSingleOperand());
-    if (!opInst)
-      return {true, nullptr};
-    auto it = state.find(opInst);
-    if (it == state.end())
-      return {true, nullptr};
-    if (it->second.visited)
-      return {true, it->second.staticShape};
-    return {false, nullptr};
-  }
-
-  if (auto *phi = llvh::dyn_cast<PhiInst>(inst)) {
-    const StaticShapeDesc *staticShape = nullptr;
-    bool hasVisited = false;
-    for (unsigned i = 0, e = phi->getNumEntries(); i < e; ++i) {
-      Value *v = phi->getEntry(i).first;
-      auto *vInst = llvh::dyn_cast<Instruction>(v);
-      if (!vInst)
-        return {true, nullptr};
-      auto it = state.find(vInst);
-      if (it == state.end())
-        return {true, nullptr};
-      if (!it->second.visited)
-        continue;
-      if (!hasVisited)
-        staticShape = it->second.staticShape;
-      else if (staticShape != it->second.staticShape)
-        staticShape = nullptr;
-
-      hasVisited = true;
-    }
-    if (!hasVisited)
-      return {false, nullptr};
-    return {true, staticShape};
-  }
-
-  llvm_unreachable("Unexpected instruction kind in computeFactState");
+/// join ⊔（格汇合）：NoShape 幺元、AnyShapes 吸收元、两个不同 Known → Any。
+/// 故 a | b 为具体 shape ⟺ 所有可达路径形状一致（must 级确定性）。
+static inline StaticShapeInfo operator|(StaticShapeInfo a, StaticShapeInfo b) {
+  if (a.status == StaticShapeInfo::NoShape)
+    return b;
+  if (b.status == StaticShapeInfo::NoShape)
+    return a;
+  if (a.status == StaticShapeInfo::AnyShapes ||
+      b.status == StaticShapeInfo::AnyShapes)
+    return StaticShapeInfo::createAnyShapes();
+  if (a.desc == b.desc) // 均 KnownStaticShape
+    return a;
+  return StaticShapeInfo::createAnyShapes();
 }
 
-using FactSet = llvh::SmallPtrSet<Instruction *, 16>;
-using BBFactMap = llvh::DenseMap<BasicBlock *, FactSet>;
-
-/// 就地取交集：dst = dst ∩ other。原地修改，避免临时分配。
-/// \return true if \p dst changed.
-inline bool intersectWith(
-    FactSet &dst,
-    const FactSet &other,
-    Instruction *extra = nullptr) {
-  bool changed = false;
-  llvh::SmallVector<Instruction *, 16> toRemove;
-  for (Instruction *inst : dst)
-    if (!other.count(inst) && inst != extra)
-      toRemove.push_back(inst);
-  for (Instruction *inst : toRemove) {
-    dst.erase(inst);
-    changed = true;
-  }
-  return changed;
+/// mov-like：单一 operand 的纯值传递，不写堆；shape 沿 operand 链传播。
+static inline SingleOperandInst *isMovLikeInst(Instruction *inst) {
+  if (llvh::isa<MovInst>(inst) || llvh::isa<ImplicitMovInst>(inst) ||
+      llvh::isa<UnionNarrowTrustedInst>(inst))
+    return static_cast<SingleOperandInst *>(inst);
+  return nullptr;
 }
 
-/// nullptr = BB不在map中 = 全集。
-inline FactSet *getFacts(BBFactMap &bbMap, BasicBlock *BB) {
-  auto it = bbMap.find(BB);
-  return it != bbMap.end() ? &it->second : nullptr;
-}
-
-inline const FactSet *getFacts(
-    const BBFactMap &bbMap,
-    BasicBlock *BB) {
-  auto it = bbMap.find(BB);
-  return it != bbMap.end() ? &it->second : nullptr;
-}
-
-inline FactSet *putFacts(
-    BBFactMap &bbMap,
-    BasicBlock *BB,
-    const FactSet &facts) {
-  auto inserted = bbMap.try_emplace(BB, facts);
-  return &inserted.first->second;
-}
-
-/// 检查 inst 是否在 bbMap[BB] 中。BB 不在 map → 全集 → 总是 true。
-inline bool
-isInBBSet(BBFactMap &bbMap, BasicBlock *BB, Instruction *inst) {
-  auto *s = getFacts(bbMap, BB);
-  return !s || s->count(inst);
-}
-
-inline bool
-isInBBSet(const BBFactMap &bbMap, BasicBlock *BB, Instruction *inst) {
-  auto *s = getFacts(bbMap, BB);
-  return !s || s->count(inst);
-}
-
-static ObjectOperandShape getObjectOperandShape(Instruction *inst) {
-  if (auto *L = llvh::dyn_cast<BaseLoadPropertyInst>(inst))
-    return L->getObjOperandShape();
-  if (auto *S = llvh::dyn_cast<BaseStorePropertyInst>(inst))
-    return S->getObjOperandShape();
-  return llvh::cast<HasStaticShapeInst>(inst)->getObjOperandShape();
-}
-
-static void setObjectOperandShape(Instruction *inst, ObjectOperandShape shape) {
+static void setStaticShapeInfo(Instruction *inst, StaticShapeInfo shape) {
   if (auto *L = llvh::dyn_cast<BaseLoadPropertyInst>(inst))
     L->setObjOperandShape(shape);
   else if (auto *S = llvh::dyn_cast<BaseStorePropertyInst>(inst))
     S->setObjOperandShape(shape);
-  else
-    llvh::cast<HasStaticShapeInst>(inst)->setObjOperandShape(shape);
+  else if (auto *H = llvh::dyn_cast<HasStaticShapeInst>(inst))
+    H->setObjOperandShape(shape);
 }
+
+/// edge 上 ShapeGuard 注入的 shape（CondBranch 真分支）。
+struct EdgeFact {
+  Instruction *object; // HasStaticShape 的 argument
+  const StaticShapeDesc *shape; // 注入的 known shape
+};
 
 class Impl {
   friend class ::hermes::StaticShapeInferenceRunner;
 
   Function *F_;
 
-  /// fact value → its shape（只缩不增）
-  llvh::DenseMap<Instruction *, const StaticShapeDesc *> facts_;
+  /// 分析范围：从各 HasStaticShape 的 argument 沿 propagator(mov-like/phi)
+  /// 向下游可达的指令。划定 State 的 key 域——范围外指令查询恒返回 Any。
+  /// 没 guard 的函数此集为空 → 分析近乎空跑。
+  llvh::DenseSet<Instruction *> analysisScope_;
 
-  /// 在最后一个 validate 后必然有 kill-all 的块（只增不减）
-  llvh::DenseSet<BasicBlock *> bbKillAll_;
+  /// 数据流状态：Instruction → StaticShapeInfo，封装 get/set。
+  /// - get 用 find：读取绝不能插入默认值（StaticShapeInfo 默认 AnyShapes，
+  ///   会与缺省 NoShape=不可达 语义冲突，冲掉注入的 Known shape）。
+  /// - set 用 operator[]：纯覆盖写，插入的默认值立刻被 info 覆盖，安全。
+  /// scope 引用 analysisScope_，供 get 判定范围（范围外 → Any）。
+  struct State {
+   private:
+    llvh::DenseMap<Instruction *, StaticShapeInfo> map_;
+    const llvh::DenseSet<Instruction *> &scope;
+    /// map_ 中 status==AnyShapes 的条目数。set/setAll 维护，operator== 预检。
+    unsigned anyCount_ = 0;
 
-  /// 块入口/出口处有效且主导的事实。缺失=facts_（全集）。
-  BBFactMap validFactsAtIn_;
-  BBFactMap validFactsAtOut_;
+   public:
+    State(const llvh::DenseSet<Instruction *> &scope_) : scope(scope_) {}
 
-  /// (LoadProperty/StoreProperty/HasStaticShape, object operand)，提前收集。
-  llvh::SmallVector<std::pair<Instruction *, Instruction *>, 64> shapedInsts_;
+    State(const State &o)
+        : map_(o.map_), scope(o.scope), anyCount_(o.anyCount_) {}
+    State(State &&o)
+        : map_(std::move(o.map_)), scope(o.scope), anyCount_(o.anyCount_) {}
+    State &operator=(const State &o) {
+      assert(&scope == &o.scope && "State assigned across different scopes");
+      map_ = o.map_;
+      anyCount_ = o.anyCount_;
+      return *this;
+    }
+    State &operator=(State &&o) {
+      assert(&scope == &o.scope && "State assigned across different scopes");
+      map_ = std::move(o.map_);
+      anyCount_ = o.anyCount_;
+      return *this;
+    }
+    /// 取 inst 的 shape：null 或不在 scope_(范围外) → Any；
+    /// 范围内但不在 map → NoShape(不可达)；否则 map 值。
+    StaticShapeInfo get(Instruction *inst) const {
+      if (!inst || !scope.count(inst))
+        return StaticShapeInfo::createAnyShapes();
+      auto it = map_.find(inst);
+      return it != map_.end() ? it->second : StaticShapeInfo::createNoShape();
+    }
 
-  /// 获取属性访问/shape检查指令的 object 操作数。不匹配返回 nullptr。
-  static Value *getObjectOperand(Instruction *inst) {
-    if (auto *L = llvh::dyn_cast<BaseLoadPropertyInst>(inst))
-      return L->getObject();
-    if (auto *S = llvh::dyn_cast<BaseStorePropertyInst>(inst))
-      return S->getObject();
-    if (auto *I = llvh::dyn_cast<HasStaticShapeInst>(inst))
-      return I->getArgument();
-    return nullptr;
+    void set(Instruction *inst, StaticShapeInfo info) {
+      auto it = map_.find(inst);
+      bool oldAny = false;
+      bool newAny = info.status == StaticShapeInfo::AnyShapes;
+      if (it != map_.end()) {
+        oldAny = it->second.status == StaticShapeInfo::AnyShapes;
+        it->second = info;
+      } else
+        map_.try_emplace(inst, info);
+
+      if (oldAny && !newAny)
+        --anyCount_;
+      else if (!oldAny && newAny)
+        ++anyCount_;
+    }
+
+    void setAll(StaticShapeInfo info) {
+      for (auto &kv : map_)
+        kv.second = info;
+      anyCount_ = (info.status == StaticShapeInfo::AnyShapes) ? map_.size() : 0;
+    }
+
+    bool contains(Instruction *inst) const {
+      return map_.find(inst) != map_.end();
+    }
+
+    bool operator==(const State &o) const {
+      // 快速预检：AnyShapes 条目数不同必不等。
+      if (map_.size() != o.map_.size())
+        return false;
+      if (anyCount_ != o.anyCount_)
+        return false;
+      for (const auto &kv : map_) {
+        auto it = o.map_.find(kv.first);
+        if (it == o.map_.end() || !(it->second == kv.second))
+          return false;
+      }
+      return true;
+    }
+    bool operator!=(const State &o) const {
+      return !(*this == o);
+    }
+
+    // 只读遍历，供数据流汇合枚举 pred 的 OUT。
+    using const_iterator =
+        llvh::DenseMap<Instruction *, StaticShapeInfo>::const_iterator;
+    const_iterator begin() const {
+      return map_.begin();
+    }
+    const_iterator end() const {
+      return map_.end();
+    }
+  };
+  using BBStateMap = llvh::DenseMap<BasicBlock *, State>;
+
+  /// 块出口状态。缺失 = 空 State(全 NoShape)。IN 不缓存，computeIn 现算。
+  BBStateMap out_;
+
+  /// 关键指令(load/store/hasStaticShape)的 object 操作数；非关键指令返回 null。
+  static inline bool isTargetInst(Instruction *inst) {
+    return llvh::isa<BaseLoadPropertyInst>(inst) ||
+        llvh::isa<BaseStorePropertyInst>(inst) ||
+        llvh::isa<HasStaticShapeInst>(inst);
   }
 
-  /// 检查 StoreProperty 是否与已知 shape 兼容。
   bool isStoreShapeCompatible(
       BaseStorePropertyInst *store,
       const StaticShapeDesc *shape) const {
     auto *prop = llvh::dyn_cast<LiteralString>(store->getProperty());
     if (!prop)
       return false;
-
     Identifier name = prop->getValue();
     int idx = shape->getPropertyIndex(name);
     if (idx < 0)
       return false;
-
     Type expectedType = shape->getPropertyType(idx);
     Type storedType = store->getStoredValue()->getType();
     return storedType.isSubsetOf(expectedType);
   }
 
-  /// 动态判断指令是否会破坏事实链。只有 heap 写入可能改变对象 shape。
-  bool instKillAll(Instruction *inst) const {
+  /// 指令是否 pollute（写堆且不精确兼容）。依赖指令成员 objOperandShape_。
+  bool polluting(Instruction *inst) const {
     auto se = inst->getSideEffect();
     if (!se.getWriteHeap())
       return false;
-    // StoreProperty and PrStore will definitely write heap
-    // However, they don't kill facts if the stored value's type
-    // is compatible with the expected type in the known shape.
     if (auto *store = llvh::dyn_cast<BaseStorePropertyInst>(inst)) {
       switch (store->getObjOperandShape().status) {
-        case ObjectOperandShape::KnownStaticShape:
+        case StaticShapeInfo::KnownStaticShape:
           return !isStoreShapeCompatible(
               store, store->getObjOperandShape().desc);
-        case ObjectOperandShape::NoShape:
+        case StaticShapeInfo::NoShape:
           return false;
-        case ObjectOperandShape::AnyShapes:
+        case StaticShapeInfo::AnyShapes:
           return true;
       }
     }
-
     if (auto *store = llvh::dyn_cast<PrStoreInst>(inst))
       return !store->getStoredValue()->getType().isSubsetOf(
           store->getExpectedType());
-
     return true;
   }
 
-  /// \return whether \p inst is a Mov/Phi fact.
-  inline bool isMovPhiFact(Instruction *inst) const {
-    return (llvh::isa<MovInst>(inst) || llvh::isa<PhiInst>(inst)) &&
-        facts_.count(inst);
-  }
-
-  /// \return the fact validated on edge \p pred -> \p succ, or nullptr.
-  Instruction *getEdgeValidatedFact(BasicBlock *pred, BasicBlock *succ)
+  /// ShapeGuard = CondBranch 以 HasStaticShape 为 condition 且紧挨它。
+  /// 真分支上注入 (argument, shape)。assert HasStaticShape 紧邻 CondBranch。
+  llvh::Optional<EdgeFact> getEdgeFact(BasicBlock *pred, BasicBlock *succ)
       const {
     auto *condBr = llvh::dyn_cast<CondBranchInst>(pred->getTerminator());
     if (!condBr || condBr->getTrueDest() != succ)
-      return nullptr;
-
-    auto *hasStaticShape =
-        llvh::dyn_cast<HasStaticShapeInst>(condBr->getCondition());
-    if (!hasStaticShape)
-      return nullptr;
-
-    auto *fact = llvh::dyn_cast<Instruction>(hasStaticShape->getArgument());
-
-    return fact;
-  }
-
-  /// shape 变更后检查是否需要将所在块标为 killAll。
-  void updateBBKillAll(Instruction *inst) {
-    BasicBlock *BB = inst->getParent();
-    if (bbKillAll_.count(BB) || !instKillAll(inst))
-      return;
-
-    auto it = inst->getIterator();
-    for (++it; it != BB->end(); ++it) {
-      if (isMovPhiFact(&*it)) {
-        return;
-      }
-    }
-    bbKillAll_.insert(BB);
-  }
-
-  /// Check whether \p fact is valid at the program point immediately
-  /// before \p use.
-  bool isFactValidBefore(Instruction *fact, Instruction *use) const {
-    // Phi incoming values are checked against predecessor OUT sets instead.
-    // For non-phi uses, an operand defined in the same block must appear before
-    // the use.
-    assert(!llvh::isa<PhiInst>(use) && "use must not be a PhiInst");
-
-    if (!facts_.count(fact))
-      return false;
-
-    BasicBlock *BB = use->getParent();
-
-    auto it = use->getIterator();
-    while (it != BB->begin()) {
-      --it;
-      Instruction *inst = &*it;
-      if (instKillAll(inst))
-        return false;
-      if (inst == fact && isMovPhiFact(inst))
-        return true;
-    }
-
-    return isInBBSet(validFactsAtIn_, BB, fact);
+      return llvh::None;
+    auto *hss = llvh::dyn_cast<HasStaticShapeInst>(condBr->getCondition());
+    if (!hss)
+      return llvh::None;
+    assert(
+        hss->getParent() == pred &&
+        "ShapeGuard: HasStaticShape must be in the same block as CondBranch");
+    assert(
+        std::next(hss->getIterator()) == condBr->getIterator() &&
+        "ShapeGuard: HasStaticShape must immediately precede CondBranch");
+    auto *object = llvh::dyn_cast<Instruction>(hss->getArgument());
+    if (!object)
+      return llvh::None;
+    return EdgeFact{object, hss->getShape()->getData()};
   }
 
   //===------------------------------------------------------------------===//
-  // Step 1: 收集最大事实集
+  // Step 1: 收集 analysisScope_ + 重置 objOperandShape_
   //===------------------------------------------------------------------===//
-  void collectFacts() {
-    llvh::DenseMap<Instruction *, FactState> state;
-    llvh::SmallVector<Instruction *, 32> worklist;
-
-    // 初始化：HasStaticShape operand → {true, shape}；Mov/Phi → {false, nullptr}
+  void collectAnalysisScope() {
+    // 正向：从 argument 沿 propagator 向下游 BFS。
+    llvh::SmallVector<Instruction *, 16> wl;
     for (auto &BB : *F_) {
       for (auto &I : BB) {
-        if (auto *HTS = llvh::dyn_cast<HasStaticShapeInst>(&I)) {
-          if (auto *opInst = llvh::dyn_cast<Instruction>(HTS->getArgument())) {
-            state[opInst] = {true, HTS->getShape()->getData()};
-          }
-        } else if (llvh::isa<MovInst>(&I) || llvh::isa<PhiInst>(&I)) {
-          state.try_emplace(&I, FactState{false, nullptr});
-          worklist.push_back(&I);
-        }
+        auto *hss = llvh::dyn_cast<HasStaticShapeInst>(&I);
+        if (!hss)
+          continue;
+        auto *arg = llvh::dyn_cast<Instruction>(hss->getArgument());
+        if (!arg)
+          continue;
+        wl.push_back(arg);
       }
     }
 
-    // 工作列表迭代
-    while (!worklist.empty()) {
-      auto *inst = worklist.pop_back_val();
-      FactState newState = computeFactState(inst, state);
-      if (newState.visited == state[inst].visited &&
-          newState.staticShape == state[inst].staticShape)
+    while (!wl.empty()) {
+      auto *v = wl.pop_back_val();
+      if (!analysisScope_.insert(v).second)
         continue;
-      state[inst] = newState;
-      for (auto *userInst : inst->getUsers()) {
-        if (llvh::isa<MovInst>(userInst) || llvh::isa<PhiInst>(userInst))
-          worklist.push_back(userInst);
+      for (auto *U : v->getUsers()) {
+        auto *user = llvh::dyn_cast<Instruction>(U);
+        if (user && (isMovLikeInst(user) || llvh::isa<PhiInst>(user)))
+          wl.push_back(user);
       }
     }
-
-    // 构建 facts_
-    facts_.clear();
-    for (auto &entry : state) {
-      if (entry.second.visited && entry.second.staticShape) {
-        facts_[entry.first] = entry.second.staticShape;
-      }
-    }
-
-    LLVM_DEBUG(
-        dbgs() << "StaticShapeInference: collected " << facts_.size()
-               << " facts in function " << F_->getInternalName() << "\n");
   }
 
-  //===------------------------------------------------------------------===//
-  // Step 2: 保存并重置 objectShape
-  //===------------------------------------------------------------------===//
   void resetShapes() {
     for (auto &BB : *F_) {
       for (auto &I : BB) {
-        Value *object = getObjectOperand(&I);
-        if (object) {
-          auto *objInst = llvh::dyn_cast<Instruction>(object);
-          shapedInsts_.emplace_back(&I, objInst);
-          setObjectOperandShape(&I, ObjectOperandShape::createNoShape());
-        }
+        // 仅关键指令有 objOperandShape_ 成员。
+        if (isTargetInst(&I))
+          setStaticShapeInfo(&I, StaticShapeInfo::createNoShape());
       }
     }
   }
 
-  //===------------------------------------------------------------------===//
-  // Step 3: 初始化 bbKillAll_
-  //===------------------------------------------------------------------===//
-  void initKillAll() {
-    // 初始化 bbKillAll_: 每块从后往前找最后一个 validate，
-    // 若找到且该 validate 后有 killAll 指令 → BB ∈ bbKillAll_
-    for (auto &BB : *F_) {
-      for (auto &I : llvh::reverse(BB)) {
-        if (instKillAll(&I)) {
-          bbKillAll_.insert(&BB);
-          break;
-        }
-        if (isMovPhiFact(&I))
-          break;
-      }
-    }
-
-    LLVM_DEBUG(
-        dbgs() << "StaticShapeInference: " << bbKillAll_.size()
-               << " kill-all BBs\n");
-  }
-
-  //===------------------------------------------------------------------===//
-  // Step 4: 不动点迭代
-  //===------------------------------------------------------------------===//
-
-  // 4a. 更新 Mov/Phi 事实（初始扫描 + 工作队列级联kill）
-  bool updateMovPhiFacts() {
-    bool changed = false;
-    llvh::SmallVector<Instruction *, 16> worklist;
-
-    for (auto &[inst, shape] : facts_) {
-      if (auto *mov = llvh::dyn_cast<MovInst>(inst)) {
-        auto *srcI = llvh::dyn_cast<Instruction>(mov->getSingleOperand());
-        if (!srcI || !isFactValidBefore(srcI, mov))
-          worklist.push_back(inst);
-      } else if (auto *phi = llvh::dyn_cast<PhiInst>(inst)) {
-        for (unsigned i = 0, e = phi->getNumEntries(); i < e; ++i) {
-          auto entry = phi->getEntry(i);
-          auto *incomingI = llvh::dyn_cast<Instruction>(entry.first);
-          if (!incomingI || !facts_.count(incomingI)) {
-            worklist.push_back(inst);
-            break;
-          }
-          if (isInBBSet(validFactsAtOut_, entry.second, incomingI)) {
-            continue;
-          }
-          if (getEdgeValidatedFact(entry.second, phi->getParent()) ==
-              incomingI) {
-            continue;
-          }
-          worklist.push_back(inst);
-          break;
-        }
-      }
-    }
-
-    while (!worklist.empty()) {
-      auto *inst = worklist.pop_back_val();
-      if (!facts_.count(inst))
-        continue;
-
-      facts_.erase(inst);
-      changed = true;
-
-      // 级联：下游 Mov/Phi 也kill
-      for (auto *user : inst->getUsers()) {
-        if (llvh::isa<PhiInst>(user) || llvh::isa<MovInst>(user))
-          worklist.push_back(user);
-      }
-    }
-
-    LLVM_DEBUG(
-        if (changed) dbgs()
-        << "StaticShapeInference: removed Mov/Phi facts in function "
-        << F_->getInternalName() << "\n");
-    return changed;
-  }
-
-  // 4b. 更新 objectShape
-  bool updateObjectShapes() {
-    bool changed = false;
-    for (auto [user, objInst] : shapedInsts_) {
-      ObjectOperandShape newShape = ObjectOperandShape::createAnyShapes();
-
-      if (objInst && isFactValidBefore(objInst, user))
-        newShape =
-            ObjectOperandShape::createKnownStaticShape(facts_[objInst]);
-
-      if (newShape != getObjectOperandShape(user)) {
-        setObjectOperandShape(user, newShape);
-        changed = true;
-        updateBBKillAll(user);
-      }
-    }
-    return changed;
-  }
-
-  // 4c. 前向数据流：工作队列传播 valid facts
-  bool propagateValidFacts() {
-    bool changed = false;
-    llvh::SmallVector<BasicBlock *, 16> worklist;
-
+  /// 预填所有 BB 的 OUT 为空 State（全 NoShape），并清掉上一轮残留。
+  /// 之后 out_.find(pred) 必命中，computeIn/transferPhi/runToFixpoint 无需再判
+  /// end()；不可达 BB 的 OUT 保持空 State，get 返回 NoShape（join 幺元）。
+  void initOut() {
+    out_.clear();
     for (auto &BB : *F_)
-      worklist.push_back(&BB);
+      out_.try_emplace(&BB, analysisScope_);
+  }
 
-    while (!worklist.empty()) {
-      auto *BB = worklist.pop_back_val();
+  //===------------------------------------------------------------------===//
+  // Step 2: 前向数据流（join）
+  //===------------------------------------------------------------------===//
 
-      // === Meet: IN[B] = IN[B] ∩ OUT[pred(B)] ===
-      // Missing map entry means universe. The entry block starts as an
-      // explicit empty set and has no predecessors, so it remains fixed.
-      auto *in = getFacts(validFactsAtIn_, BB);
-      for (auto *pred : predecessors(BB)) {
-        auto *predOut = getFacts(validFactsAtOut_, pred);
-        if (!predOut)
+  /// IN[b] = ⊔_pred edge(pred→b)(OUT[pred])，edge 在真分支注入 guard shape。
+  State computeIn(BasicBlock *BB) {
+    State in(analysisScope_);
+    for (auto *pred : predecessors(BB)) {
+      const State &predOut = out_.find(pred)->second; // 预填保证命中
+      auto edge = getEdgeFact(pred, BB);
+      if (edge)
+        in.set(
+            edge->object,
+            in.get(edge->object) |
+                StaticShapeInfo::createKnownStaticShape(edge->shape));
+      for (const auto &kv : predOut) {
+        if (edge && kv.first == edge->object)
           continue;
-        Instruction *edgeFact = getEdgeValidatedFact(pred, BB);
-        if (!in) {
-          in = putFacts(validFactsAtIn_, BB, *predOut);
-          if (edgeFact)
-            in->insert(edgeFact);
-          changed = true;
-        } else {
-          changed |= intersectWith(*in, *predOut, edgeFact);
-        }
-      }
 
-      // === Transfer: OUT[B] = OUT[B] ∩ transfer(IN[B], B) ===
-      FactSet transfer;
-      bool mergeIn = false;
-      if (!bbKillAll_.count(BB)) {
-        mergeIn = true;
-        for (auto &I : llvh::reverse(*BB)) {
-          if (instKillAll(&I)) {
-            mergeIn = false;
-            break;
-          }
-          if (isMovPhiFact(&I))
-            transfer.insert(&I);
-        }
+        in.set(kv.first, in.get(kv.first) | kv.second);
       }
-      if (mergeIn && in)
-        transfer.insert(in->begin(), in->end());
+    }
+    return in;
+  }
 
-      bool outChanged = false;
-      auto *out = getFacts(validFactsAtOut_, BB);
-      if (mergeIn && !in)
-        // mergeIn == true && in == universe => out == universe, no change
-        ;
-      // must be: mergeIn == false || in != universe
-      // transfer has merged `in`, if necessary.
-      else if (out)
-        outChanged = intersectWith(*out, transfer);
-      else {
-        out = putFacts(validFactsAtOut_, BB, transfer);
-        outChanged = true;
+  /// phi：s[phi] = ⊔_k edge(pred_k→BB)(OUT[pred_k])[incoming_k]。
+  /// 平行语义：第 k 个 incoming 仅在 pred_k 可达时有效。不可达 pred 的 OUT
+  /// 缺失 → NoShape（⊥，join 幺元自动吸收），不会用别的 pred 的值污染。
+  /// 故必须 per-pred 取 OUT，而非用当前 BB 已 join 全部 pred 的全局 IN——
+  /// 后者会把 incoming 在「其它 pred 的 OUT」里的 Any/NoShape 误并入。
+  void transferPhi(State &s, PhiInst *phi) const {
+    BasicBlock *BB = phi->getParent();
+    StaticShapeInfo ph = StaticShapeInfo::createNoShape();
+    for (unsigned k = 0, e = phi->getNumEntries(); k < e; ++k) {
+      auto entry = phi->getEntry(k);
+      auto *vI = llvh::dyn_cast<Instruction>(entry.first);
+      StaticShapeInfo shape = out_.find(entry.second)->second.get(vI);
+      auto edge = getEdgeFact(entry.second, BB);
+      if (edge && edge->object == vI)
+        shape = StaticShapeInfo::createKnownStaticShape(edge->shape);
+      ph = ph | shape;
+    }
+    s.set(phi, ph);
+  }
+
+  /// mov-like：s[mov] = s[src]（src 范围外/字面量 → Any）。
+  void transferMovLike(State &s, SingleOperandInst *movLike) const {
+    auto *src = llvh::dyn_cast<Instruction>(movLike->getSingleOperand());
+    s.set(movLike, s.get(src));
+  }
+
+  /// 源头（范围内非 propagator，如 argument）→ Any。
+  void transferObjectSource(State &s, Instruction *inst) const {
+    s.set(inst, StaticShapeInfo::createAnyShapes());
+  }
+
+  /// pollute → ⊤_p：dom(s) 全置 AnyShapes（缺省 NoShape 不动）。
+  void transferPolluting(State &s) const {
+    s.setAll(StaticShapeInfo::createAnyShapes());
+  }
+
+  /// 关键指令：把 s[object] 同步到指令成员 objOperandShape_（只读 State）。
+  void syncObjOperandShape(Instruction *inst, const State &s) const {
+    Instruction *obj = nullptr;
+    if (auto *load = llvh::dyn_cast<BaseLoadPropertyInst>(inst))
+      obj = llvh::dyn_cast<Instruction>(load->getObject());
+    else if (auto *store = llvh::dyn_cast<BaseStorePropertyInst>(inst))
+      obj = llvh::dyn_cast<Instruction>(store->getObject());
+    else if (auto *hss = llvh::dyn_cast<HasStaticShapeInst>(inst))
+      obj = llvh::dyn_cast<Instruction>(hss->getArgument());
+    setStaticShapeInfo(inst, s.get(obj));
+  }
+
+  /// OUT[b] = transfer(IN[b])。
+  State transfer(BasicBlock *BB, State s) {
+    for (auto &I : *BB) {
+      Instruction *inst = &I;
+      if (isTargetInst(inst))
+        syncObjOperandShape(inst, s);
+      // pollute 对每条指令都判（写堆的不止关键指令，如 CallBuiltin）。
+      if (polluting(inst))
+        transferPolluting(s);
+      // 范围外指令不进 State。
+      if (!analysisScope_.count(inst))
+        continue;
+      // 范围内：propagator 传播；源头置 Any。
+      if (auto *phi = llvh::dyn_cast<PhiInst>(inst)) {
+        transferPhi(s, phi);
+        continue;
       }
+      if (auto *movLike = isMovLikeInst(inst)) {
+        transferMovLike(s, movLike);
+        continue;
+      }
+      transferObjectSource(s, inst);
+    }
+    return s;
+  }
 
-      if (outChanged) {
+  /// worklist 不动点：从 entry 起传播，仅重算 OUT 变化的后继。
+  /// 不可达块永不被处理，其 out_ 保持空(全 NoShape)。
+  bool runToFixpoint() {
+    bool changed = false;
+    llvh::SmallVector<BasicBlock *, 16> wl;
+    // 全量入队：保证首轮覆盖所有 BB（含循环 back-edge pred），避免因处理
+    // 顺序使首轮 IN 基于未更新的 pred OUT。
+    for (auto &BB : *F_)
+      wl.push_back(&BB);
+    while (!wl.empty()) {
+      auto *BB = wl.pop_back_val();
+      State newIn = computeIn(BB);
+      State newOut = transfer(BB, std::move(newIn));
+      auto itOut = out_.find(BB); // 预填保证命中
+      if (itOut->second != newOut) {
+        itOut->second = std::move(newOut);
         changed = true;
         for (auto *succ : successors(BB))
-          worklist.push_back(succ);
+          wl.push_back(succ);
       }
     }
     return changed;
@@ -528,32 +420,16 @@ class Impl {
 
 StaticShapeInferenceRunner::StaticShapeInferenceRunner(Function *F)
     : impl_(new static_shape_inference::Impl(F)) {}
-
 StaticShapeInferenceRunner::~StaticShapeInferenceRunner() = default;
 
 void StaticShapeInferenceRunner::preIteration() {
-  impl_->collectFacts();
-
-  if (impl_->facts_.empty())
-    return;
-
+  impl_->collectAnalysisScope();
   impl_->resetShapes();
-  impl_->initKillAll();
-
-  BasicBlock *entryBB = &*impl_->F_->begin();
-  impl_->validFactsAtIn_[entryBB] = {};
+  impl_->initOut();
 }
 
 bool StaticShapeInferenceRunner::step() {
-  if (impl_->facts_.empty())
-    return false;
-
-  bool changed = false;
-  changed |= impl_->updateMovPhiFacts();
-  changed |= impl_->updateObjectShapes();
-  changed |= impl_->propagateValidFacts();
-
-  return changed;
+  return impl_->runToFixpoint();
 }
 
 } // namespace hermes

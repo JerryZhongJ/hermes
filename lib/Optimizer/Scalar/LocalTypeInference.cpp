@@ -590,7 +590,7 @@ class Impl {
   Type inferLoadPropertyInst(LoadPropertyInst *inst) {
     auto info = inst->getObjOperandShape();
     switch (info.status) {
-      case ObjectOperandShape::KnownStaticShape: {
+      case StaticShapeInfo::KnownStaticShape: {
         if (auto *propStr =
                 llvh::dyn_cast<LiteralString>(inst->getProperty())) {
           int idx = info.desc->getPropertyIndex(propStr->getValue());
@@ -599,16 +599,16 @@ class Impl {
         }
         return Type::createAnyType();
       }
-      case ObjectOperandShape::NoShape:
+      case StaticShapeInfo::NoShape:
         return Type::createNoType();
-      case ObjectOperandShape::AnyShapes:
+      case StaticShapeInfo::AnyShapes:
         return Type::createAnyType();
     }
   }
   Type inferLoadPropertyWithReceiverInst(LoadPropertyWithReceiverInst *inst) {
     auto info = inst->getObjOperandShape();
     switch (info.status) {
-      case ObjectOperandShape::KnownStaticShape: {
+      case StaticShapeInfo::KnownStaticShape: {
         if (auto *propStr =
                 llvh::dyn_cast<LiteralString>(inst->getProperty())) {
           int idx = info.desc->getPropertyIndex(propStr->getValue());
@@ -617,9 +617,9 @@ class Impl {
         }
         return Type::createAnyType();
       }
-      case ObjectOperandShape::NoShape:
+      case StaticShapeInfo::NoShape:
         return Type::createNoType();
-      case ObjectOperandShape::AnyShapes:
+      case StaticShapeInfo::AnyShapes:
         return Type::createAnyType();
     }
   }

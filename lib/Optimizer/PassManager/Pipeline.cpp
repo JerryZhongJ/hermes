@@ -12,6 +12,7 @@
 #include "hermes/Optimizer/Scalar/DCE.h"
 #include "hermes/Optimizer/Scalar/TypeInference.h"
 #include "hermes/Optimizer/Scalar/LocalTypeAndStaticShapeInference.h"
+#include "hermes/Optimizer/Scalar/RemoveUselessSpeculativeGuards.h"
 
 #include "llvh/Support/Debug.h"
 #include "llvh/Support/raw_ostream.h"
@@ -114,6 +115,7 @@ void hermes::runFullOptimizationPasses(Module &M) {
   PM.addInstSimplify();
   PM.addFuncSigOpts();
   PM.addDCE();
+  PM.addRemoveUselessSpeculativeGuards();
   PM.addSimplifyCFG();
   PM.addFrameLoadStoreOpts();
   addMem2Reg();

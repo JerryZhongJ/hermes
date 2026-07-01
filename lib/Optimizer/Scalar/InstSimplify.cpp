@@ -1039,7 +1039,7 @@ class InstSimplifyImpl {
   /// shape.
   Value *simplifyLoadProperty(BaseLoadPropertyInst *inst) {
     auto operandShape = inst->getObjOperandShape();
-    if (operandShape.status != ObjectOperandShape::KnownStaticShape)
+    if (operandShape.status != StaticShapeInfo::KnownStaticShape)
       return nullptr;
     auto *propStr = llvh::dyn_cast<LiteralString>(inst->getProperty());
     if (!propStr)
@@ -1059,7 +1059,7 @@ class InstSimplifyImpl {
   /// shape.
   Value *simplifyStoreProperty(BaseStorePropertyInst *inst) {
     auto operandShape = inst->getObjOperandShape();
-    if (operandShape.status != ObjectOperandShape::KnownStaticShape)
+    if (operandShape.status != StaticShapeInfo::KnownStaticShape)
       return nullptr;
     auto *propStr = llvh::dyn_cast<LiteralString>(inst->getProperty());
     if (!propStr)
@@ -1084,7 +1084,7 @@ class InstSimplifyImpl {
       return builder_.getLiteralBool(false);
 
     auto operandShape = inst->getObjOperandShape();
-    if (operandShape.status == ObjectOperandShape::KnownStaticShape) {
+    if (operandShape.status == StaticShapeInfo::KnownStaticShape) {
       if (operandShape.desc == inst->getShape()->getData())
         return builder_.getLiteralBool(true);
       return builder_.getLiteralBool(false);

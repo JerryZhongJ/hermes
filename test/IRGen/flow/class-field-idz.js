@@ -51,9 +51,9 @@ return C;
 // CHECK-NEXT:  %0 = LoadParamInst (:object) %<this>: object
 // CHECK-NEXT:  %1 = GetParentScopeInst (:environment) %VS0: any, %parentScope: environment
 // CHECK-NEXT:  %2 = CreateScopeInst (:environment) %VS1: any, %1: environment
-// CHECK-NEXT:       PrStoreInst 1: number, %0: object, 0: number, "p1": string, true: boolean
-// CHECK-NEXT:       PrStoreInst 2: number, %0: object, 1: number, "p2": string, false: boolean
-// CHECK-NEXT:       PrStoreInst undefined: undefined, %0: object, 2: number, "p3": string, false: boolean
+// CHECK-NEXT:       PrStoreInst 1: number, %0: object, 0: number, "p1": string
+// CHECK-NEXT:       PrStoreInst 2: number, %0: object, 1: number, "p2": string
+// CHECK-NEXT:       PrStoreInst undefined: undefined, %0: object, 2: number, "p3": string
 // CHECK-NEXT:       ReturnInst undefined: undefined
 // CHECK-NEXT:function_end
 

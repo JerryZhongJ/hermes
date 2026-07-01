@@ -23,6 +23,7 @@ add_hermes_library(hermesOptimizer
   Optimizer/Scalar/StaticShapeInference.cpp
   Optimizer/Scalar/LocalTypeAndStaticShapeInference.cpp
   Optimizer/Scalar/InsertGuard.cpp
+  Optimizer/Scalar/RemoveUselessSpeculativeGuards.cpp
   Optimizer/Scalar/SimpleStackPromotion.cpp
   Optimizer/Scalar/ObjectMergeNewStores.cpp
   Optimizer/Scalar/ObjectStackPromotion.cpp

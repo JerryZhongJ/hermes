@@ -1648,7 +1648,7 @@ class BaseStorePropertyInst : public Instruction {
   BaseStorePropertyInst(const BaseStorePropertyInst &) = delete;
   void operator=(const BaseStorePropertyInst &) = delete;
 
-  ObjectOperandShape objOperandShape_{};
+  StaticShapeInfo objOperandShape_{};
 
  protected:
   explicit BaseStorePropertyInst(
@@ -1681,10 +1681,10 @@ class BaseStorePropertyInst : public Instruction {
     return getOperand(PropertyIdx);
   }
 
-  ObjectOperandShape getObjOperandShape() const {
+  StaticShapeInfo getObjOperandShape() const {
     return objOperandShape_;
   }
-  void setObjOperandShape(ObjectOperandShape info) {
+  void setObjOperandShape(StaticShapeInfo info) {
     objOperandShape_ = info;
   }
 
@@ -2256,7 +2256,7 @@ class BaseLoadPropertyInst : public Instruction {
   BaseLoadPropertyInst(const BaseLoadPropertyInst &) = delete;
   void operator=(const BaseLoadPropertyInst &) = delete;
 
-  ObjectOperandShape objOperandShape_{};
+  StaticShapeInfo objOperandShape_{};
 
  protected:
   explicit BaseLoadPropertyInst(ValueKind kind, Value *object, Value *property)
@@ -2280,10 +2280,10 @@ class BaseLoadPropertyInst : public Instruction {
       llvh::ArrayRef<Value *> operands)
       : Instruction(src, operands), objOperandShape_(src->objOperandShape_) {}
 
-  ObjectOperandShape getObjOperandShape() const {
+  StaticShapeInfo getObjOperandShape() const {
     return objOperandShape_;
   }
-  void setObjOperandShape(ObjectOperandShape info) {
+  void setObjOperandShape(StaticShapeInfo info) {
     objOperandShape_ = info;
   }
 
@@ -2296,14 +2296,14 @@ class BaseLoadPropertyInst : public Instruction {
 
   SideEffect getSideEffectImpl() const {
     switch (objOperandShape_.status) {
-      case ObjectOperandShape::KnownStaticShape:
+      case StaticShapeInfo::KnownStaticShape:
         return SideEffect{}.setReadHeap().setIdempotent();
-      case ObjectOperandShape::NoShape:
+      case StaticShapeInfo::NoShape:
         return SideEffect{};
-      case ObjectOperandShape::AnyShapes:
+      case StaticShapeInfo::AnyShapes:
         return SideEffect::createExecute();
     }
-    llvm_unreachable("unknown ObjectOperandShape status");
+    llvm_unreachable("unknown StaticShapeInfo status");
   }
 
   static bool classof(const Value *V) {
@@ -3154,7 +3154,7 @@ class HasStaticShapeInst : public Instruction {
   void operator=(const HasStaticShapeInst &) = delete;
 
   int annotationId_ = -1;
-  ObjectOperandShape objOperandShape_{};
+  StaticShapeInfo objOperandShape_{};
 
  public:
   enum { ArgumentIdx, ShapeIdx };
@@ -3186,10 +3186,10 @@ class HasStaticShapeInst : public Instruction {
     annotationId_ = id;
   }
 
-  ObjectOperandShape getObjOperandShape() const {
+  StaticShapeInfo getObjOperandShape() const {
     return objOperandShape_;
   }
-  void setObjOperandShape(ObjectOperandShape info) {
+  void setObjOperandShape(StaticShapeInfo info) {
     objOperandShape_ = info;
   }
 

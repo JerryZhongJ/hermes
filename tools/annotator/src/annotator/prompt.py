@@ -9,11 +9,8 @@ SUPPORTED_TYPES = {
     "number",
     "string",
     "boolean",
-    "object",
     "null",
     "undefined",
-    "bigint",
-    "symbol",
 }
 
 
@@ -34,9 +31,9 @@ def build_prompt(
 Basic concepts:
 - target expression — a value the program computes or loads; a function
   parameter (loaded at entry) is one too. Every hint targets one.
-- type — what kind of value a target expression holds: a single concrete type
-  (e.g. `number`), a union of several, or `any` (all types — no narrowing).
-  Concrete types: {", ".join(sorted(SUPPORTED_TYPES))}.
+- type — what kind of value a target expression holds: a concrete type, a
+  union of several, or `any`. Supported concrete types: {", ".join(sorted(SUPPORTED_TYPES))}.
+  Use any for any type not listed above (e.g. object, bigint, symbol).
 - static shape — a description of an object's own properties (not inherited
   from its prototype), in order, each carrying a type. As opposed to the actual
   shape an object takes on at runtime which is built dynamically, the static shape
@@ -44,22 +41,23 @@ Basic concepts:
   properties (non-accessor) are supported.
 
 What the hints are:
-The hints are SPECULATIVE: each is checked at runtime, and a wrong hint only
-falls back to the slow path — it never breaks correctness. Three kinds, each
-gated by a runtime check:
+The hints are SPECULATIVE: each is checked at runtime, and a wrong hint never
+ breaks correctness. Three kinds, each gated by a runtime check:
 - TYPE HINT says a target expression's value is probably of a given type.
   Specify the target expression and its type; the check runs right after it is
   evaluated. On a pass the value is narrowed to that type, so arithmetic /
   string / compare ops on it take fast paths.
-- SHAPE HINT assumes a real object matches a static shape, so property accesses
-  on it take fast shape-based paths. The check runs right after the target
-  expression is evaluated, same as a type hint. Specify the target expression
-  and the static shape.
-- SHAPE BINDING binds a static shape onto an object — a shape hint's
-  assumption only holds at points after such a binding. Specify the target
+- SHAPE BINDING assumes an object's shape is fixed and equals a given static
+  shape, and tries to bind the static shape to the object. Specify the target
   expression and the static shape; the binding runs right after the target
-  expression, or give "bind after" to delay it to a later point where the
-  object's actual shape already equals the static shape.
+  expression, or give "bind after" to delay it to where the shape is actually
+  fixed.
+- SHAPE HINT assumes an object has already been bound to a static shape, so
+  property accesses on it take fast shape-based paths. Specify the target
+  expression and the static shape; the check runs right after the target
+  expression is evaluated and lasts only until something may change the
+  object's shape; if it does not actually change the object's shape, emit the
+  shape hint again after it.
 
 Where to place them:
 Emit a hint only when all three hold:
@@ -90,7 +88,8 @@ JSON format:
     example `function() {{ ... }}`.
   - "bind after" (shape binding, optional): if omitted, the binding runs right
     after the target expression; if given, it runs after this point instead.
-- Locations use 1-based line/column. The end column is EXCLUSIVE:
+- Locations use 1-based line/column. The end column is EXCLUSIVE. "file" is
+  optional (defaults to the source file being annotated):
 ```json
 {location_schema()}
 ```
@@ -109,19 +108,24 @@ Example (type hint + shape hint + shape binding):
   }},
   "type hints": [
     {{
-      "target range": {{"file": "{source_path.name}", "start": {{"line": 12, "column": 11}}, "end": {{"line": 12, "column": 16}}}},
+      "target range": {{"start": {{"line": 12, "column": 11}}, "end": {{"line": 12, "column": 16}}}},
       "type": "number"
     }}
   ],
   "shape hints": [
     {{
-      "target range": {{"file": "{source_path.name}", "start": {{"line": 10, "column": 8}}, "end": {{"line": 10, "column": 9}}}},
+      "target range": {{"start": {{"line": 10, "column": 8}}, "end": {{"line": 10, "column": 9}}}},
       "shape": "Point"
     }}
   ],
   "shape bindings": [
     {{
-      "target range": {{"file": "{source_path.name}", "start": {{"line": 4, "column": 9}}, "end": {{"line": 4, "column": 19}}}},
+      "target range": {{"start": {{"line": 4, "column": 9}}, "end": {{"line": 4, "column": 19}}}},
+      "shape": "Point"
+    }},
+    {{
+      "target range": {{"start": {{"line": 20, "column": 5}}, "end": {{"line": 20, "column": 9}}}},
+      "bind after": {{"start": {{"line": 20, "column": 10}}, "end": {{"line": 20, "column": 20}}}},
       "shape": "Point"
     }}
   ]
@@ -129,7 +133,7 @@ Example (type hint + shape hint + shape binding):
 ```
 
 Tool usage:
-- Create `./{annotation_path.name}` with the Write tool; do not use Bash (shell
-  redirection > < <<, $(), and interpreters python3/node/sh -c are blocked by
-  the sandbox).
+- Create `./{annotation_path.name}` with the Write tool; 
+- Shell redirection like `>` `<` `<<`, `$()`, and interpreters `python3/node/sh -c` are blocked by
+  the sandbox.
 """

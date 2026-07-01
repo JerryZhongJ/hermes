@@ -1,0 +1,34 @@
+{
+  "type hints": [
+    {
+      "target range": {
+        "file": "inference-loopSame.js",
+        "start": {"line": 3, "column": 19},
+        "end": {"line": 3, "column": 20}
+      },
+      "type": "number"
+    }
+  ],
+  "shape hints": [
+    {
+      "target range": {
+        "file": "inference-loopSame.js",
+        "start": {"line": 4, "column": 11},
+        "end": {"line": 4, "column": 12}
+      },
+      "shape": "XNumber"
+    },
+    {
+      "target range": {
+        "file": "inference-loopSame.js",
+        "start": {"line": 6, "column": 9},
+        "end": {"line": 6, "column": 10}
+      },
+      "shape": "XNumber"
+    }
+  ],
+  "static shapes": {
+    "XNumber": {"properties": [{"name": "x", "type": "number"}]}
+  },
+  "shape bindings": []
+}

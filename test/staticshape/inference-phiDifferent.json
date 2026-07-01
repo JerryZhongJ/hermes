@@ -1,0 +1,26 @@
+{
+  "type hints": [],
+  "shape hints": [
+    {
+      "target range": {
+        "file": "inference-phiDifferent.js",
+        "start": {"line": 6, "column": 9},
+        "end": {"line": 6, "column": 10}
+      },
+      "shape": "XNumber"
+    },
+    {
+      "target range": {
+        "file": "inference-phiDifferent.js",
+        "start": {"line": 8, "column": 9},
+        "end": {"line": 8, "column": 10}
+      },
+      "shape": "XString"
+    }
+  ],
+  "static shapes": {
+    "XNumber": {"properties": [{"name": "x", "type": "number"}]},
+    "XString": {"properties": [{"name": "x", "type": "string"}]}
+  },
+  "shape bindings": []
+}

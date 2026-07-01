@@ -470,26 +470,26 @@ struct StaticShapeDesc {
 
 /// The shape status lattice for the object operand in property access or
 /// shape-check instructions: NoShape -> KnownStaticShape -> AnyShapes.
-struct ObjectOperandShape {
+struct StaticShapeInfo {
   enum Status : uint8_t { NoShape, KnownStaticShape, AnyShapes };
 
   Status status = AnyShapes;
   const StaticShapeDesc *desc = nullptr;
 
-  static ObjectOperandShape createNoShape() {
+  static StaticShapeInfo createNoShape() {
     return {NoShape, nullptr};
   }
-  static ObjectOperandShape createKnownStaticShape(const StaticShapeDesc *d) {
+  static StaticShapeInfo createKnownStaticShape(const StaticShapeDesc *d) {
     return {KnownStaticShape, d};
   }
-  static ObjectOperandShape createAnyShapes() {
+  static StaticShapeInfo createAnyShapes() {
     return {AnyShapes, nullptr};
   }
 
-  bool operator==(const ObjectOperandShape &o) const {
+  bool operator==(const StaticShapeInfo &o) const {
     return status == o.status && desc == o.desc;
   }
-  bool operator!=(const ObjectOperandShape &o) const {
+  bool operator!=(const StaticShapeInfo &o) const {
     return !(*this == o);
   }
 };

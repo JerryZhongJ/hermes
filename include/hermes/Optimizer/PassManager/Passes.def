@@ -55,6 +55,10 @@ PASS(
     InsertGuard,
     "insertguard",
     "Insert TypeGuard instructions for speculative optimization")
+PASS(
+    RemoveUselessSpeculativeGuards,
+    "removeuselessspeculativeguards",
+    "Remove speculative guards/try-set-shape with no useful consumer")
 PASS(FunctionAnalysis, "functionanalysis", "Function analysis")
 PASS(Inlining, "inlining", "Inlining")
 PASS(ResolveStaticRequire, "staticrequire", "Resolve static require")
