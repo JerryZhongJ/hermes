@@ -50,10 +50,10 @@ The hints are SPECULATIVE: each is checked at runtime, and a wrong hint never
 - SHAPE BINDING assumes an object's shape is fixed and equals a given static
   shape, and tries to bind the static shape to the object. Specify the target
   expression and the static shape; the binding runs right after the target
-  expression, or give "bind after" to delay it to where the shape is actually
-  fixed.
-- SHAPE HINT assumes an object has already been bound to a static shape, so
-  property accesses on it take fast shape-based paths. Specify the target
+  expression, or give "bind after" to delay it to where the shape becomes fixed
+  — e.g. when its properties are written one by one after construction.
+- SHAPE HINT assumes an object has already been bound to a static shape by a
+  shape binding, so property accesses on it take fast shape-based paths. Specify the target
   expression and the static shape; the check runs right after the target
   expression is evaluated and lasts only until something may change the
   object's shape; if it does not actually change the object's shape, emit the
@@ -133,7 +133,18 @@ Example (type hint + shape hint + shape binding):
 ```
 
 Tool usage:
-- Create `./{annotation_path.name}` with the Write tool; 
+- Create `./{annotation_path.name}` with the Write tool;
+- Use the `locate` tool to get exact source ranges for annotations instead of
+  grep/awk or counting columns by hand. Example:
+  locate(file="{source_path.name}", from_line=2, to_line=5, text="abc")
+  It returns each match as `line:startcol-endline:endcol` — 1-based, EXCLUSIVE
+  end column, cross-line OK — which matches the annotation format. Omit from_line/to_line to search
+  the whole file. Every match comes with a preview; pick the one you mean.
+  Never guess a column.
+- Use the `fold` tool first to get a structural view of large or files: 
+  it folds multi-line blocks into ` … N lines folded …`, and prints
+  1-based line numbers. Raise `unfold` (default 0) to expand a region,
+  e.g. fold(file="{source_path.name}", from_line=176, to_line=200, unfold=1).
 - Shell redirection like `>` `<` `<<`, `$()`, and interpreters `python3/node/sh -c` are blocked by
   the sandbox.
 """

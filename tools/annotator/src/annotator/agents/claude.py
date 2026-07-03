@@ -21,6 +21,8 @@ from claude_agent_sdk.types import (
 )
 
 from ..config import AgentConfig
+from ..tools.fold_tool import make_fold_server
+from ..tools.locate_tool import make_locate_server
 from ..metrics import to_jsonable
 from . import AgentRun, run_async_with_timeout
 
@@ -102,6 +104,12 @@ class ClaudeSdkRunner:
             model=self.config.model,
             permission_mode="acceptEdits",
             tools=["Bash", "Edit", "Read", "Write"],  # limit to the tools the annotator needs; Write lets the agent create the file directly
+            # In-process MCP server the agent calls to get exact source ranges,
+            # replacing grep -ob + hand-counting (the sandbox blocks python3/node).
+            mcp_servers={
+                "source-fold": make_fold_server(attempt_dir),
+                "source-locate": make_locate_server(attempt_dir),
+            },
             setting_sources=[],  # isolate from user/project/local Claude Code settings
             settings=(
                 json.dumps(settings)
