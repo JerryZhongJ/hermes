@@ -26,6 +26,7 @@
 #include "hermes/IR/IR.h"
 #include "hermes/IR/IRVerifier.h"
 #include "hermes/IR/Instrs.h"
+#include "hermes/IRGen/AnnotationLoader.h"
 #include "hermes/Optimizer/Scalar/Utils.h"
 #include "hermes/Support/BigIntSupport.h"
 #include "hermes/Support/DenseMapInfoSpecializations.h"
@@ -544,6 +545,18 @@ class SHNativeJSFunctionTable {
   }
 };
 
+/// If \p cond is a guard check instruction (TypeOfIsInst / HasStaticShapeInst)
+/// originating from an annotation, return its annotation id, which doubles as
+/// the guard-instrumentation counter index. Returns -1 otherwise (a non-guard
+/// CondBranch, or a guard not derived from an annotation).
+static int getGuardAnnotationId(Value *cond) {
+  if (auto *TOI = llvh::dyn_cast<TypeOfIsInst>(cond))
+    return TOI->getAnnotationId();
+  if (auto *HTS = llvh::dyn_cast<HasStaticShapeInst>(cond))
+    return HTS->getAnnotationId();
+  return -1;
+}
+
 struct ModuleGen {
   /// Table containing uniqued strings for the current module.
   SHStringTable stringTable{};
@@ -561,17 +574,13 @@ struct ModuleGen {
   /// Table of JS native functions
   SHNativeJSFunctionTable nativeFunctionTable;
 
-  /// Guard instrumentation (type + shape guards). Maps each guard check
-  /// instruction (the TypeOfIsInst/HasStaticShapeInst used as a CondBranch
-  /// condition) to a unique counter index. This is deliberately decoupled from
-  /// annotationId: a single shape hint with N "hint after" locations shares one
-  /// annotationId but spawns N guard sites, so annotationId alone cannot
-  /// distinguish their success/fail counts.
-  llvh::DenseMap<const Value *, unsigned> guardCounterIdx;
-  /// Per-guard-site label string (e.g. "guard #1 [shape ann#1] @file:7:5"),
-  /// indexed by counterIdx. Built at scan time and consumed only to emit the
-  /// __tg_print_counters fprintf calls, so kind/annotationId/location are
-  /// collapsed into one self-describing string instead of a struct.
+  /// Guard instrumentation labels (type + shape guards), indexed by the
+  /// globally-unique annotation id (which doubles as the counter index). Built
+  /// at scan time, consumed only to emit the __tg_print_counters fprintf
+  /// calls. Each entry is a self-describing string such as
+  /// "ann#1 [shape-hint XNumber] @file:7:5"; empty entries mark annotations
+  /// that were loaded but never matched to a guard site (their counters stay
+  /// zero and are skipped at print time).
   llvh::SmallVector<std::string, 0> guardCounterInfo;
 
   explicit ModuleGen(Module *M, bool optimizationEnabled)
@@ -2145,15 +2154,12 @@ class InstrGen {
     hermes_fatal("SwitchInst should have been lowered");
   }
   void generateCondBranchInst(CondBranchInst &inst) {
-    // Check if this is an instrumented guard branch (type or shape guard).
-    // Counter index is decoupled from annotationId; see
-    // ModuleGen::guardCounterIdx.
-    int tgCounterIdx = -1;
-    if (options_.instrumentGuards) {
-      auto it = moduleGen_.guardCounterIdx.find(inst.getCondition());
-      if (it != moduleGen_.guardCounterIdx.end())
-        tgCounterIdx = static_cast<int>(it->second);
-    }
+    // A guard branch's counter index is its annotation id (see
+    // getGuardAnnotationId); -1 means this CondBranch is not an annotated
+    // guard and emits plain gotos.
+    int tgCounterIdx = options_.instrumentGuards
+        ? getGuardAnnotationId(inst.getCondition())
+        : -1;
 
     os_.indent(2);
     auto L = inst.getLikelihood();
@@ -3337,13 +3343,15 @@ static SHNativeFuncInfo s_function_info_table[];
     }
   }
 
-  // Guard instrumentation (type + shape guards): assign each physical guard
-  // site a unique counter index, decoupled from annotationId. A shape hint
-  // with N "hint after" locations shares one annotationId but produces N guard
-  // sites; without a per-site index their counts would collide (and shape ids
-  // could index past a type-only sized counter array).
+  // Guard instrumentation (type + shape guards). The counter index is the
+  // guard's globally-unique annotation id, so each annotation's success/fail
+  // counts land in a distinct slot.
   if (options.instrumentGuards) {
     auto &srcMgr = M->getContext().getSourceErrorManager();
+    auto &ann = M->getContext().getAnnotations();
+    // Size the counter array by the total number of loaded annotations; each
+    // one's id is its counter index (unmatched ones keep a zero/empty slot).
+    moduleGen.guardCounterInfo.assign(ann.getAnnotationCount(), "");
     for (auto &F : *M) {
       for (auto &BB : F) {
         for (auto &I : BB) {
@@ -3351,26 +3359,16 @@ static SHNativeFuncInfo s_function_info_table[];
           if (!CBI)
             continue;
           Value *cond = CBI->getCondition();
-          bool isShape = false;
-          int annotId = -1;
-          Instruction *checkInst = nullptr;
-          if (auto *TOI = llvh::dyn_cast<TypeOfIsInst>(cond)) {
-            annotId = TOI->getAnnotationId();
-            checkInst = TOI;
-          } else if (auto *HTS = llvh::dyn_cast<HasStaticShapeInst>(cond)) {
-            isShape = true;
-            annotId = HTS->getAnnotationId();
-            checkInst = HTS;
-          } else {
-            continue;
-          }
+          int annotId = getGuardAnnotationId(cond);
           if (annotId < 0)
             continue;
 
           // Resolve the guard's source location to an escaped "file:line:col".
           std::string locStr = "<unknown>";
           SourceErrorManager::SourceCoords coords;
-          if (srcMgr.findBufferLineAndLoc(checkInst->getLocation(), coords)) {
+          Instruction *checkInst = llvh::dyn_cast<Instruction>(cond);
+          if (checkInst &&
+              srcMgr.findBufferLineAndLoc(checkInst->getLocation(), coords)) {
             locStr.clear();
             llvh::StringRef fname = srcMgr.getBufferFileName(coords.bufId);
             for (char c : fname) {
@@ -3382,12 +3380,14 @@ static SHNativeFuncInfo s_function_info_table[];
                 std::to_string(coords.col);
           }
 
-          unsigned idx = moduleGen.guardCounterInfo.size();
-          moduleGen.guardCounterIdx[cond] = idx;
-          moduleGen.guardCounterInfo.push_back(
-              "guard #" + std::to_string(idx) + " [" +
-              (isShape ? "shape" : "type") + " ann#" +
-              std::to_string(annotId) + "] @" + locStr);
+          const AnnotationDescriptor *desc =
+              ann.getAnnotationDescriptor(static_cast<unsigned>(annotId));
+          std::string kindStr =
+              desc ? annotationKindLabel(desc->kind).str() : "?";
+          std::string detail = desc ? desc->detail : std::string{};
+          moduleGen.guardCounterInfo[static_cast<unsigned>(annotId)] =
+              "ann#" + std::to_string(annotId) + " [" + kindStr + " " +
+              detail + "] @" + locStr;
         }
       }
     }
@@ -3401,6 +3401,8 @@ static SHNativeFuncInfo s_function_info_table[];
          << " __tg_counters[" << numCounters << "];\n";
       OS << "static void __tg_print_counters(void) {\n";
       for (unsigned i = 0; i < numCounters; ++i) {
+        if (moduleGen.guardCounterInfo[i].empty())
+          continue;
         OS << "  if (__tg_counters[" << i << "].success || __tg_counters[" << i
            << "].fail)\n";
         OS << "    fprintf(stderr, \"" << moduleGen.guardCounterInfo[i]

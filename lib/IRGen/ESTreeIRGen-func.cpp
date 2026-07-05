@@ -840,8 +840,10 @@ void ESTreeIRGen::emitFunctionPrologue(
                                 : Builder.createCoerceThisNSInst(thisVal));
   }
 
-  // Apply external annotations keyed by function range to the "this" param.
-  tryApplyAnnotation(curFunction()->jsParams[0], funcNode);
+  // Apply external annotations keyed by the function *body* range to "this".
+  // The body range (a node's own getSourceRange) is unambiguous, unlike the
+  // function-expression range which collides with the function-object value.
+  tryApplyAnnotation(curFunction()->jsParams[0], ESTree::getBlockStatement(funcNode));
 
   // Create the function level scope for this function. If a parent scope is
   // provided, use it, otherwise, this function does not have a lexical parent.

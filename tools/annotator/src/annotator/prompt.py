@@ -84,8 +84,7 @@ JSON format:
     checked.
   - For a parameter, use its declaration range as the "target range": the
     parameter itself in the signature. For `this`, use the range of the
-    function it belongs to — the function expression/declaration itself, for 
-    example `function() {{ ... }}`.
+    function body, for example `{{ ... }}`.
   - "bind after" (shape binding, optional): if omitted, the binding runs right
     after the target expression; if given, it runs after this point instead.
 - Locations use 1-based line/column. The end column is EXCLUSIVE. "file" is

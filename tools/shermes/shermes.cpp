@@ -438,6 +438,15 @@ static cl::opt<bool> LegacyMem2Reg(
     cl::desc("Use the legacy Mem2Reg pass."),
     cl::cat(CompilerCategory));
 
+static cl::opt<bool> NoRemoveGuards(
+    "no-remove-guards",
+    cl::init(false),
+    cl::desc(
+        "Disable the RemoveUselessSpeculativeGuards pass, keeping every "
+        "type/shape guard in the IR (useful for guard instrumentation and "
+        "verification)."),
+    cl::cat(CompilerCategory));
+
 CLFlag StripFunctionNames(
     'f',
     "strip-function-names",
@@ -633,6 +642,8 @@ std::shared_ptr<Context> createContext() {
   optimizationOpts.metroRequireOpt = cli::MetroRequireOpt;
 
   optimizationOpts.useLegacyMem2Reg = cli::LegacyMem2Reg;
+
+  optimizationOpts.removeUselessSpeculativeGuards = !cli::NoRemoveGuards;
 
   NativeSettings nativeSettings{};
   nativeSettings.emitCheckNativeStack = cli::CheckNativeStack;
@@ -949,8 +960,8 @@ bool compileFromCommandLineOptions() {
 
   generateIRFromESTree(&M, semCtx, flowContext, ast);
 
-  // Report unmatched type annotations after IRGen.
-  context->getAnnotations().reportUnmatched();
+  // Report each annotation's match status after IRGen.
+  context->getAnnotations().reportMatchStatus();
 
   // Bail out if there were any errors. We can't ensure that the module is in
   // a valid state.

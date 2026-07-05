@@ -1,0 +1,17 @@
+{
+  "type hints": [],
+  "shape hints": [
+    {
+      "target range": {
+        "file": "inference-simple.js",
+        "start": {"line": 3, "column": 17},
+        "end": {"line": 3, "column": 18}
+      },
+      "shape": "XNumber"
+    }
+  ],
+  "static shapes": {
+    "XNumber": {"properties": [{"name": "x", "type": "number"}]}
+  },
+  "shape bindings": []
+}

@@ -158,7 +158,10 @@ bool ESTreeIRGen::tryInsertTrySetStaticShape(ESTree::Node *node) {
 
   const StaticShapeDesc *desc = shapeDescIt->second;
   auto *litShape = Builder.getLiteralStaticShape(desc);
-  Builder.createTrySetStaticShapeInst(it->second, litShape);
+  auto *trySetInst = Builder.createTrySetStaticShapeInst(it->second, litShape);
+  // Tag the TrySet with the same annotation id as its Has guard so both halves
+  // of a shape binding can be reported as one annotation when removed.
+  trySetInst->setAnnotationId(entry->annotationId);
   // Guard the binding: after setting the shape, emit a Has check so the
   // binding also acts as a shape hint (InsertGuard tracks Has, not TrySet).
   auto *guardInst = Builder.createHasStaticShapeInst(it->second, litShape);

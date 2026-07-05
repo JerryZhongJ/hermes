@@ -115,7 +115,8 @@ void hermes::runFullOptimizationPasses(Module &M) {
   PM.addInstSimplify();
   PM.addFuncSigOpts();
   PM.addDCE();
-  PM.addRemoveUselessSpeculativeGuards();
+  if (M.getContext().getOptimizationSettings().removeUselessSpeculativeGuards)
+    PM.addRemoveUselessSpeculativeGuards();
   PM.addSimplifyCFG();
   PM.addFrameLoadStoreOpts();
   addMem2Reg();

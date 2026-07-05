@@ -8,6 +8,7 @@
 #include "hermes/IRGen/AnnotationLoader.h"
 #include "hermes/IR/IR.h"
 
+#include "llvh/ADT/StringExtras.h"
 #include "llvh/ADT/StringMap.h"
 #include "llvh/Support/Debug.h"
 #include "llvh/Support/JSON.h"
@@ -39,10 +40,9 @@ std::vector<std::string> extractTypeStrings(const llvh::json::Value &val) {
 llvh::Optional<llvh::SMRange> resolveLocation(
     const llvh::json::Object *loc,
     SourceErrorManager &sm) {
-  auto file = loc->getString("file");
   const llvh::json::Object *start = loc->getObject("start");
   const llvh::json::Object *end = loc->getObject("end");
-  if (!file || !start || !end)
+  if (!start || !end)
     return llvh::None;
 
   auto startLine = start->getInteger("line");
@@ -63,6 +63,26 @@ llvh::Optional<llvh::SMRange> resolveLocation(
     return llvh::None;
 
   return llvh::SMRange(startLoc, endLoc);
+}
+
+/// Read the 1-based start line/col from a JSON location object into \p line /
+/// \p col. Returns false (leaving the outputs untouched) if the start position
+/// is missing, so callers can record a best-effort position on the descriptor
+/// for debug logs independently of resolveLocation's SMRange resolution.
+bool readStartPos(
+    const llvh::json::Object *loc,
+    unsigned &line,
+    unsigned &col) {
+  const llvh::json::Object *start = loc->getObject("start");
+  if (!start)
+    return false;
+  auto l = start->getInteger("line");
+  auto c = start->getInteger("column");
+  if (!l || !c)
+    return false;
+  line = static_cast<unsigned>(*l);
+  col = static_cast<unsigned>(*c);
+  return true;
 }
 
 /// Load static shape definitions from the "shapes" JSON object.
@@ -143,7 +163,9 @@ void loadTypeGuards(
     SourceErrorManager &sm,
     llvh::DenseMap<llvh::SMRange, std::vector<std::string>, SMRangeInfo>
         &typeGuards,
-    llvh::DenseMap<llvh::SMRange, unsigned, SMRangeInfo> &typeGuardIds) {
+    llvh::DenseMap<llvh::SMRange, unsigned, SMRangeInfo> &typeGuardIds,
+    unsigned &nextAnnotationId,
+    std::vector<AnnotationDescriptor> &annotationDescriptors) {
   unsigned failCount = 0;
 
   for (unsigned i = 0, e = arr.size(); i < e; ++i) {
@@ -168,14 +190,21 @@ void loadTypeGuards(
       continue;
     }
 
+    unsigned line = 0, col = 0;
+    readStartPos(loc, line, col);
     auto range = resolveLocation(loc, sm);
     if (!range.hasValue()) {
       failCount++;
       continue;
     }
 
+    // Assign a globally-unique id shared across all annotation categories.
+    unsigned id = nextAnnotationId++;
+    std::string detail = llvh::join(typeStrs, "|");
     typeGuards.insert({range.getValue(), std::move(typeStrs)});
-    typeGuardIds.insert({range.getValue(), i});
+    typeGuardIds.insert({range.getValue(), id});
+    annotationDescriptors.push_back(
+        {AnnotationDescriptor::Type, std::move(detail), line, col});
   }
 
   if (failCount > 0)
@@ -190,7 +219,9 @@ void loadShapeGuards(
     llvh::DenseMap<
         llvh::SMRange,
         llvh::SmallVector<ShapeGuardEntry, 2>,
-        SMRangeInfo> &shapeGuards) {
+        SMRangeInfo> &shapeGuards,
+    unsigned &nextAnnotationId,
+    std::vector<AnnotationDescriptor> &annotationDescriptors) {
   unsigned failCount = 0;
 
   for (unsigned i = 0, e = arr.size(); i < e; ++i) {
@@ -212,6 +243,8 @@ void loadShapeGuards(
       continue;
     }
 
+    unsigned line = 0, col = 0;
+    readStartPos(targetLoc, line, col);
     auto targetRange = resolveLocation(targetLoc, sm);
     if (!targetRange.hasValue()) {
       failCount++;
@@ -221,8 +254,11 @@ void loadShapeGuards(
     // The check runs right after the target expression is evaluated, so the
     // insertion point (map key) and the checked object range are both the
     // target range.
+    unsigned id = nextAnnotationId++;
     shapeGuards[targetRange.getValue()].push_back(
-        {targetRange.getValue(), shapeName.getValue(), i});
+        {targetRange.getValue(), shapeName.getValue(), id});
+    annotationDescriptors.push_back(
+        {AnnotationDescriptor::ShapeHint, shapeName.getValue(), line, col});
   }
 
   if (failCount > 0)
@@ -238,7 +274,9 @@ void loadShapeBindings(
     SourceErrorManager &sm,
     const llvh::StringMap<StaticShapeDefinition> &shapeDefs,
     llvh::DenseMap<llvh::SMRange, ShapeBindingEntry, SMRangeInfo>
-        &shapeBindings) {
+        &shapeBindings,
+    unsigned &nextAnnotationId,
+    std::vector<AnnotationDescriptor> &annotationDescriptors) {
   unsigned failCount = 0;
 
   for (unsigned i = 0, e = arr.size(); i < e; ++i) {
@@ -260,6 +298,8 @@ void loadShapeBindings(
       continue;
     }
 
+    unsigned line = 0, col = 0;
+    readStartPos(targetLoc, line, col);
     auto targetRange = resolveLocation(targetLoc, sm);
     if (!targetRange.hasValue()) {
       failCount++;
@@ -279,8 +319,11 @@ void loadShapeBindings(
       insertRange = bindAfterRange.getValue();
     }
 
+    unsigned id = nextAnnotationId++;
     shapeBindings.insert(
-        {insertRange, {targetRange.getValue(), shapeName.getValue(), i}});
+        {insertRange, {targetRange.getValue(), shapeName.getValue(), id}});
+    annotationDescriptors.push_back(
+        {AnnotationDescriptor::ShapeBinding, shapeName.getValue(), line, col});
   }
 
   if (failCount > 0)
@@ -358,15 +401,18 @@ bool Annotations::loadFromFile(
 
   // 2. Type hints
   if (auto *arr = root->getArray("type hints"))
-    loadTypeGuards(*arr, sm, typeGuards_, typeGuardIds_);
+    loadTypeGuards(*arr, sm, typeGuards_, typeGuardIds_, nextAnnotationId_,
+                   annotationDescriptors_);
 
   // 3. Shape hints
   if (auto *arr = root->getArray("shape hints"))
-    loadShapeGuards(*arr, sm, shapeDefs_, shapeGuards_);
+    loadShapeGuards(*arr, sm, shapeDefs_, shapeGuards_, nextAnnotationId_,
+                    annotationDescriptors_);
 
   // 4. Shape bindings
   if (auto *arr = root->getArray("shape bindings"))
-    loadShapeBindings(*arr, sm, shapeDefs_, shapeBindings_);
+    loadShapeBindings(*arr, sm, shapeDefs_, shapeBindings_, nextAnnotationId_,
+                      annotationDescriptors_);
 
   return true;
 }
@@ -375,7 +421,7 @@ llvh::Optional<std::vector<std::string>> Annotations::getTypeGuard(
     llvh::SMRange range) const {
   auto it = typeGuards_.find(range);
   if (it != typeGuards_.end()) {
-    matchedTypeGuardIds_.insert(typeGuardIds_.find(range)->second);
+    matchedAnnotationIds_.insert(typeGuardIds_.find(range)->second);
     return it->second;
   }
   return llvh::None;
@@ -395,7 +441,7 @@ void Annotations::getShapeGuards(
   auto it = shapeGuards_.find(range);
   if (it != shapeGuards_.end()) {
     for (const auto &entry : it->second) {
-      matchedShapeGuardIds_.insert(entry.annotationId);
+      matchedAnnotationIds_.insert(entry.annotationId);
       guards.push_back(entry);
     }
   }
@@ -404,8 +450,10 @@ void Annotations::getShapeGuards(
 llvh::Optional<ShapeBindingEntry> Annotations::getShapeBinding(
     llvh::SMRange bindRange) const {
   auto it = shapeBindings_.find(bindRange);
-  if (it != shapeBindings_.end())
+  if (it != shapeBindings_.end()) {
+    matchedAnnotationIds_.insert(it->second.annotationId);
     return it->second;
+  }
   return llvh::None;
 }
 
@@ -420,26 +468,30 @@ Annotations::getShapeAnnotationObjectRanges() const {
   return ranges;
 }
 
-void Annotations::reportUnmatched() const {
-  unsigned total = typeGuardIds_.size();
-  if (typeGuards_.empty() || matchedTypeGuardIds_.size() == total)
+void Annotations::reportMatchStatus() const {
+  unsigned total = annotationDescriptors_.size();
+  if (total == 0)
     return;
 
-  unsigned unmatched = total - matchedTypeGuardIds_.size();
+  unsigned matched = matchedAnnotationIds_.size();
+  unsigned unmatched = total - matched;
+
   LLVM_DEBUG({
-    llvh::dbgs() << "Warning: " << unmatched << " of " << total
-                 << " type hints were never matched by any IR instruction.\n";
-    llvh::dbgs() << "  Unmatched: ";
-    bool first = true;
-    for (auto &kv : typeGuardIds_) {
-      if (!matchedTypeGuardIds_.count(kv.second)) {
-        if (!first)
-          llvh::dbgs() << ", ";
-        llvh::dbgs() << "hint#" << kv.second;
-        first = false;
-      }
-    }
+    llvh::dbgs() << "Annotations: " << matched << "/" << total
+                 << " matched by IR instructions";
+    if (unmatched)
+      llvh::dbgs() << ", " << unmatched << " UNMATCHED";
     llvh::dbgs() << "\n";
+    // Report every annotation's detail and match status so both successfully
+    // consumed and missing ones are visible at a glance.
+    for (unsigned id = 0; id < total; ++id) {
+      const auto &desc = annotationDescriptors_[id];
+      bool isMatched = matchedAnnotationIds_.count(id);
+      llvh::dbgs() << "  ann#" << id << " ["
+                   << annotationKindLabel(desc.kind) << " " << desc.detail
+                   << "] @" << desc.line << ":" << desc.col << " "
+                   << (isMatched ? "matched" : "UNMATCHED") << "\n";
+    }
   });
 }
 

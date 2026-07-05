@@ -69,8 +69,8 @@ struct ShapeBindingEntry {
   llvh::SMRange objectRange;
   /// Name of the static shape in the JSON "static shapes" object.
   std::string shapeName;
-  /// Index in the JSON "shape bindings" array; tags the Has guard emitted
-  /// after the TrySet so the binding is tracked like a shape hint.
+  /// Globally-unique annotation id; tags the Has guard emitted after the
+  /// TrySet so the binding is tracked like a shape hint.
   unsigned annotationId;
 };
 
@@ -80,23 +80,48 @@ struct ShapeGuardEntry {
   llvh::SMRange objectRange;
   /// Name of the static shape in the JSON "static shapes" object.
   std::string shapeName;
-  /// Index in the JSON "shape hints" array.
+  /// Globally-unique annotation id.
   unsigned annotationId;
 };
 
-/// Stores type hints, shape hints, and shape bindings loaded from a JSON
-/// file.
+/// Descriptor for a single annotation (type hint / shape hint / shape
+/// binding), indexed by its globally-unique annotation id. Built at load time
+/// so guard instrumentation (SH.cpp) can report each annotation's kind and
+/// detail without re-encoding or reaching back into the loader's maps.
+struct AnnotationDescriptor {
+  enum Kind { Type, ShapeHint, ShapeBinding } kind;
+  /// Human-readable detail: type names joined by '|' (e.g. "number|string"),
+  /// or the shape name (e.g. "XNumber").
+  std::string detail;
+  /// Start position (1-based line:col) of the annotated expression, captured
+  /// at load time so reportMatchStatus needs no SourceErrorManager lookup.
+  unsigned line = 0;
+  unsigned col = 0;
+};
+
+/// Display label for an annotation kind (e.g. "type", "shape-hint").
+inline llvh::StringRef annotationKindLabel(AnnotationDescriptor::Kind k) {
+  switch (k) {
+    case AnnotationDescriptor::Type:
+      return "type";
+    case AnnotationDescriptor::ShapeHint:
+      return "shape-hint";
+    case AnnotationDescriptor::ShapeBinding:
+      return "shape-binding";
+  }
+  return "?";
+}
+
+/// Stores type hints, shape hints, and shape bindings loaded from a JSON file.
+/// Annotation ids are globally unique across all three categories.
 class Annotations {
  private:
   /// Type hint map: SMRange -> type strings (e.g., ["number", "string"]).
   llvh::DenseMap<llvh::SMRange, std::vector<std::string>, SMRangeInfo>
       typeGuards_;
 
-  /// Type hint index map: SMRange -> index in JSON "type hints" array.
+  /// Type hint index map: SMRange -> globally-unique annotation id.
   llvh::DenseMap<llvh::SMRange, unsigned, SMRangeInfo> typeGuardIds_;
-
-  /// Track which type hint IDs have been matched during IRGen.
-  mutable llvh::DenseSet<unsigned> matchedTypeGuardIds_;
 
   /// Static shape definitions loaded from JSON, keyed by shape name.
   llvh::StringMap<StaticShapeDefinition> shapeDefs_;
@@ -109,12 +134,21 @@ class Annotations {
       SMRangeInfo>
       shapeGuards_;
 
-  /// Track which shape hint IDs have been matched.
-  mutable llvh::DenseSet<unsigned> matchedShapeGuardIds_;
-
   /// Shape binding map: bind-after (or target) range -> binding entry.
   llvh::DenseMap<llvh::SMRange, ShapeBindingEntry, SMRangeInfo>
       shapeBindings_;
+
+  /// Global counter assigning globally-unique annotation ids across all
+  /// categories (type hints, shape hints, shape bindings). Replaces the old
+  /// per-category JSON array index, which could collide across categories.
+  unsigned nextAnnotationId_ = 0;
+
+  /// Per-annotation descriptors, indexed by globally-unique id.
+  std::vector<AnnotationDescriptor> annotationDescriptors_;
+
+  /// Globally-unique annotation ids that were matched to an IR instruction
+  /// during IRGen (across all categories). Used by reportMatchStatus().
+  mutable llvh::DenseSet<unsigned> matchedAnnotationIds_;
 
  public:
   /// Load type hints, shape hints, and shape bindings from a JSON file.
@@ -128,6 +162,19 @@ class Annotations {
   /// Returns -1 if not found.
   int getTypeGuardId(llvh::SMRange range) const;
 
+  /// Total number of annotations loaded (== one past the largest annotation
+  /// id). Used by guard instrumentation to size the counter array.
+  unsigned getAnnotationCount() const {
+    return annotationDescriptors_.size();
+  }
+
+  /// Look up an annotation's descriptor by its globally-unique id.
+  /// Returns nullptr if \p id is out of range.
+  const AnnotationDescriptor *getAnnotationDescriptor(unsigned id) const {
+    return id < annotationDescriptors_.size() ? &annotationDescriptors_[id]
+                                              : nullptr;
+  }
+
   /// Check if there are any type hints.
   bool empty() const {
     return typeGuards_.empty();
@@ -139,9 +186,10 @@ class Annotations {
     return typeGuards_;
   }
 
-  /// Report type hints that were loaded but never matched by any IR
-  /// instruction during IRGen.
-  void reportUnmatched() const;
+  /// Report the match status of every loaded annotation (both matched and
+  /// unmatched) after IRGen. Each annotation id is printed with its kind,
+  /// detail, source position, and whether an IR instruction consumed it.
+  void reportMatchStatus() const;
 
   /// Parse a type name string to a Type object.
   static llvh::Optional<Type> parseTypeName(llvh::StringRef typeName);

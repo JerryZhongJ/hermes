@@ -2442,8 +2442,10 @@ extern "C" void _sh_ljs_try_set_static_shape(
   Runtime &runtime = getRuntime(shr);
   GCScopeMarkerRAII marker{runtime};
   auto obj = Handle<JSObject>::vmcast(toPHV(target));
-  JSObject::switchClass(
-      obj, runtime, getStaticShapeClass(runtime, unit, shapeIndex));
+  HiddenClass *targetClass = getStaticShapeClass(runtime, unit, shapeIndex);
+  if (obj->getClass(runtime) == targetClass)
+    return;
+  JSObject::switchClass(obj, runtime, targetClass);
 }
 
 LLVM_ATTRIBUTE_NOINLINE

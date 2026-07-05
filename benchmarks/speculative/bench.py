@@ -4,18 +4,31 @@ TypeGuard Benchmark Runner
 
 对比 Static Hermes 在有/无类型标注下的性能差异。
 特性：
-  - 自动发现 benchmark（.js + .json 配对）
+  - 自动递归发现 test-suites/ 下的 benchmark
+  - 在 annotations/<version>/ 下查找镜像路径的 .json 标注
   - warmup 预热 + 多次迭代
   - 统计分析（median, mean, stddev, 2σ% bounds）
   - A/B 对比（基于 median 的 speedup + 显著性判断）
   - geomean 汇总
   - JSON 结果归档
 
+目录结构:
+  suites/                             # JS benchmark 套件（可嵌套子目录）
+    nbody.js
+    jetstream/cdjs/benchmark.js
+  annotations/
+    v1/                               # 标注版本 v1
+      nbody.json                      # 对应 test-suites/nbody.js
+      jetstream/cdjs/benchmark.json   # 对应 test-suites/jetstream/cdjs/benchmark.js
+    v2/                               # 标注版本 v2
+      ...
+
 用法:
-  python3 bench.py                          # 运行所有 benchmark
-  python3 bench.py -n 20                    # 每个配置运行 20 次
-  python3 bench.py --only nbody-mini        # 只运行 nbody-mini
-  python3 bench.py --json results.json      # 保存 JSON 结果
+  python3 bench.py -a v1                          # 运行所有有标注的 benchmark
+  python3 bench.py -a v1 -n 20                    # 每个配置运行 20 次
+  python3 bench.py -a v1 --only jetstream         # 只运行 jetstream/ 下的
+  python3 bench.py -a v1 --only nbody             # 只运行 nbody.js
+  python3 bench.py -a v1 --json results.json      # 保存 JSON 结果
 """
 
 import argparse
@@ -88,9 +101,9 @@ class BenchmarkRunner:
 
     def compile(self, js_file, output_bin, annotation_file=None):
         """编译 JS -> 原生二进制"""
-        cmd = [self.shermes, self.opt]
+        cmd = [self.shermes, self.opt, '-fstatic-builtins']
         if annotation_file:
-            cmd.append(f'-type-annotation-file={annotation_file}')
+            cmd.append(f'-annotation-file={annotation_file}')
         cmd += ['-o', output_bin, js_file]
 
         env = {**os.environ, 'CC': self.cc}
@@ -100,11 +113,15 @@ class BenchmarkRunner:
                 f"编译失败: {' '.join(cmd)}\n{proc.stderr.strip()}"
             )
 
-    def run_once(self, binary):
-        """运行一次，解析 Time: 输出（毫秒）"""
+    def run_once(self, binary, cwd=None):
+        """运行一次，解析 Time: 输出（毫秒）
+
+        cwd 设为 benchmark 所在目录，使二进制内 read('./resources/...') 能定位到
+        该 benchmark 的 resources；产物保持相对路径，不耦合绝对路径，可移植。
+        """
         cmd = ['taskset', '-c', str(self.cpu), binary] if self.cpu is not None else [binary]
         proc = subprocess.run(
-            cmd, capture_output=True, text=True, timeout=300
+            cmd, capture_output=True, text=True, timeout=300, cwd=cwd
         )
         if proc.returncode != 0:
             raise RuntimeError(f"运行失败 ({binary}):\n{proc.stderr.strip()}")
@@ -118,18 +135,21 @@ class BenchmarkRunner:
             f"输出中未找到 'Time:' 行\nstdout: {proc.stdout[:500]}"
         )
 
-    def measure_interleaved(self, binaries, labels):
-        """交叉测量多个二进制，消除顺序偏差（A-B-A-B...）"""
+    def measure_interleaved(self, binaries, labels, cwd=None):
+        """交叉测量多个二进制，消除顺序偏差（A-B-A-B...）
+
+        cwd 透传给 run_once，让同一 benchmark 的所有二进制都在该 benchmark 目录下执行。
+        """
         # 每个二进制 warmup 1 次（填充 page cache + 稳定 CPU 频率）
         for binary, label in zip(binaries, labels):
-            self.run_once(binary)
+            self.run_once(binary, cwd=cwd)
             info(f"  warmup {label} 完成")
 
         # 交叉测量
         all_samples = [[] for _ in binaries]
         for i in range(self.iterations):
             for j, (binary, label) in enumerate(zip(binaries, labels)):
-                t = self.run_once(binary)
+                t = self.run_once(binary, cwd=cwd)
                 all_samples[j].append(t)
                 info(f"  {label} [{i+1:2d}/{self.iterations}] {t:8.1f} ms")
 
@@ -137,20 +157,55 @@ class BenchmarkRunner:
 
 # ─── Benchmark 发现 ───
 
-def discover(directory):
+def discover(base_dir, match_dir, only=None):
     """
-    发现目录中的 benchmark：
-    必须有 .js + 同名 .json 配对才算一个 benchmark。
-    例如 nbody.js + nbody.json
+    发现 benchmark：
+    - 递归搜索 test-suites/ 下所有 .js 文件
+    - 在 match_dir/ 下查找镜像相对路径的配对文件（通常是 .json）
+    - 只有 .js + 配对文件 都存在才算一个有效 benchmark
+
+    参数:
+      base_dir: benchmark 根目录（包含 test-suites/）
+      match_dir: 配对目录，相对于 base_dir（如 'annotations/v1', 'candidates'）
+      only: 相对于 test-suites/ 的路径，可以是目录或文件（不含 .js 后缀亦可）
     """
+    suites_dir = Path(base_dir) / 'suites'
+    match_base = Path(base_dir) / match_dir
+
+    if not suites_dir.is_dir():
+        die(f"suites 目录不存在: {suites_dir}")
+    if not match_base.is_dir():
+        die(f"配对目录不存在: {match_base}")
+
+    # 确定搜索范围
+    js_files = []
+    if only:
+        target = suites_dir / only
+        if target.is_file():
+            js_files = [target]
+        elif target.is_dir():
+            js_files = sorted(target.rglob('*.js'))
+        elif target.with_suffix('.js').is_file():
+            js_files = [target.with_suffix('.js')]
+        else:
+            die(f"路径不存在: {target}（也不存在 {target.with_suffix('.js')}）")
+    else:
+        js_files = sorted(suites_dir.rglob('*.js'))
+
+    # 从 match_dir 推导输出 key: 取第一级目录名, 去掉末尾 's'
+    # 'annotations/v1' → 'annotation', 'candidates' → 'candidate'
+    key_raw = match_dir.rstrip('/').split('/')[0]
+    match_key = key_raw[:-1] if key_raw.endswith('s') else key_raw
+
     benchmarks = []
-    for ann in sorted(Path(directory).glob('*.json')):
-        js = Path(directory) / f'{ann.stem}.js'
-        if js.is_file():
+    for js in js_files:
+        rel = js.relative_to(suites_dir)
+        pair = match_base / rel.with_suffix('.json')
+        if pair.is_file():
             benchmarks.append({
-                'name': ann.stem,
+                'name': str(rel.with_suffix('')),
                 'js': str(js.resolve()),
-                'annotation': str(ann.resolve()),
+                match_key: str(pair.resolve()),
             })
     return benchmarks
 
@@ -202,7 +257,7 @@ def print_comparison(baseline_stats, tg_stats, tg_label):
         color_end = '\033[0m' if color_start else ''
 
         sig_text = " (显著)" if significant else " (不显著)"
-        print(f"  {color_start}{icon} {tg_label}: {speedup:.3f}x ({delta_pct:+.1f}%){sig_text}{color_end}")
+        print(f"  {color_start}{icon} {tg_label}: {speedup:.3f}x{sig_text}{color_end}")
     else:
         print(f"  ? {tg_label}: 无法计算")
 
@@ -233,11 +288,11 @@ def run_all(args):
     )
 
     bench_dir = args.bench_dir or os.path.dirname(os.path.abspath(__file__))
-    benchmarks = discover(bench_dir)
 
-    if args.only:
-        names = set(args.only)
-        benchmarks = [b for b in benchmarks if b['name'] in names]
+    if not args.ann_version:
+        die("必须指定标注版本，例如 --ann-version v1（对应 annotations/v1/）")
+
+    benchmarks = discover(bench_dir, f'annotations/{args.ann_version}', only=args.only)
 
     if not benchmarks:
         die(f"未找到 benchmark（目录: {bench_dir}）")
@@ -261,8 +316,10 @@ def run_all(args):
         result = {'name': name, 'js': js}
 
         # 1) 编译 baseline 和 typeguard
-        baseline_bin = os.path.join(runner.cache_dir, f'{name}_baseline')
-        tg_bin = os.path.join(runner.cache_dir, f'{name}_typeguard')
+        # 编译使用安全文件名（替换路径分隔符）
+        safe_name = name.replace('/', '_').replace('\\', '_')
+        baseline_bin = os.path.join(runner.cache_dir, f'{safe_name}_baseline')
+        tg_bin = os.path.join(runner.cache_dir, f'{safe_name}_typeguard')
         try:
             runner.compile(js, baseline_bin)
             runner.compile(js, tg_bin, annotation)
@@ -270,10 +327,11 @@ def run_all(args):
             print(f"  编译失败: {e}")
             continue
 
-        # 2) 交叉测量（A-B-A-B）
+        # 2) 交叉测量（A-B-A-B）；cwd 设为 benchmark 目录，使 resources 相对路径可用
         info(f"\n  ▶ 交叉测量: baseline vs typeguard")
         all_samples = runner.measure_interleaved(
-            [baseline_bin, tg_bin], ['baseline', 'typeguard']
+            [baseline_bin, tg_bin], ['baseline', 'typeguard'],
+            cwd=str(Path(js).parent),
         )
 
         baseline_stats = summarize(all_samples[0])
@@ -354,12 +412,12 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:
-  %(prog)s                                # 运行所有 benchmark
-  %(prog)s -n 20                          # 每配置运行 20 次
-  %(prog)s --only nbody-mini              # 只运行 nbody-mini
-  %(prog)s --only nbody --only nbody-mini # 运行多个指定 benchmark
-  %(prog)s --json results.json            # 保存 JSON 结果
-  %(prog)s -n 30                          # 30次测量
+  %(prog)s -a v1                                # 运行所有有标注的 benchmark
+  %(prog)s -a v1 -n 20                          # 每配置运行 20 次
+  %(prog)s -a v1 --only jetstream               # 只运行 jetstream/ 目录下的
+  %(prog)s -a v1 --only jetstream/cdjs          # 只运行 jetstream/cdjs/ 下的
+  %(prog)s -a v1 --only nbody                   # 只运行 nbody.js
+  %(prog)s -a v1 --json results.json            # 保存 JSON 结果
         """
     )
 
@@ -375,13 +433,16 @@ def main():
     )
     parser.add_argument(
         '--iterations', '-n',
-        type=int, default=10,
+        type=int, default=20,
         help='测量运行次数 (默认 10)'
     )
     parser.add_argument(
+        '--ann-version', '-a',
+        help='标注版本（annotations/ 下的子目录名，如 v1）'
+    )
+    parser.add_argument(
         '--only',
-        action='append',
-        help='只运行指定的 benchmark（可多次使用）'
+        help='只搜索 suites/ 下指定的相对路径（可以是目录或文件）'
     )
     parser.add_argument(
         '--json',

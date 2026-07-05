@@ -82,6 +82,11 @@ struct OptimizationSettings {
   /// better code for irreducible CFGs.
   bool useLegacyMem2Reg{false};
 
+  /// Whether to run the RemoveUselessSpeculativeGuards pass. Disabled by the
+  /// -no-remove-guards shermes flag, which keeps every guard in the IR (useful
+  /// for instrumentation/verification of the speculative guards).
+  bool removeUselessSpeculativeGuards{true};
+
   /// Whether to use a more complicated condition to prevent recursive inlining
   /// (which will prevent unbounded code growth in "opt-to-fixed-point"
   /// compilations).

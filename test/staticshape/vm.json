@@ -1,75 +1,138 @@
 {
-  "shapes": {
+  "shape hints": [],
+  "static shapes": {
     "XNumber": {
       "properties": [
-        {"name": "x", "type": "number"}
+        {
+          "name": "x",
+          "type": "number"
+        }
       ]
     }
   },
-  "shape hints": [],
-  "shape assignments": [
+  "shape bindings": [
     {
-      "expression range": {
+      "target range": {
         "file": "vm.js",
-        "start": {"line": 12, "column": 11},
-        "end": {"line": 12, "column": 17}
+        "start": {
+          "line": 12,
+          "column": 11
+        },
+        "end": {
+          "line": 12,
+          "column": 17
+        }
       },
-      "assign after": {
+      "bind after": {
         "file": "vm.js",
-        "start": {"line": 12, "column": 11},
-        "end": {"line": 12, "column": 17}
+        "start": {
+          "line": 12,
+          "column": 11
+        },
+        "end": {
+          "line": 12,
+          "column": 17
+        }
       },
       "shape": "XNumber"
     },
     {
-      "expression range": {
+      "target range": {
         "file": "vm.js",
-        "start": {"line": 18, "column": 11},
-        "end": {"line": 18, "column": 17}
+        "start": {
+          "line": 18,
+          "column": 11
+        },
+        "end": {
+          "line": 18,
+          "column": 17
+        }
       },
-      "assign after": {
+      "bind after": {
         "file": "vm.js",
-        "start": {"line": 18, "column": 11},
-        "end": {"line": 18, "column": 17}
-      },
-      "shape": "XNumber"
-    },
-    {
-      "expression range": {
-        "file": "vm.js",
-        "start": {"line": 24, "column": 10},
-        "end": {"line": 24, "column": 16}
-      },
-      "assign after": {
-        "file": "vm.js",
-        "start": {"line": 24, "column": 10},
-        "end": {"line": 24, "column": 16}
-      },
-      "shape": "XNumber"
-    },
-    {
-      "expression range": {
-        "file": "vm.js",
-        "start": {"line": 28, "column": 11},
-        "end": {"line": 28, "column": 17}
-      },
-      "assign after": {
-        "file": "vm.js",
-        "start": {"line": 28, "column": 11},
-        "end": {"line": 28, "column": 17}
+        "start": {
+          "line": 18,
+          "column": 11
+        },
+        "end": {
+          "line": 18,
+          "column": 17
+        }
       },
       "shape": "XNumber"
     },
     {
-      "expression range": {
+      "target range": {
         "file": "vm.js",
-        "start": {"line": 33, "column": 11},
-        "end": {"line": 33, "column": 21}
+        "start": {
+          "line": 24,
+          "column": 10
+        },
+        "end": {
+          "line": 24,
+          "column": 16
+        }
       },
-      "assign after": {
+      "bind after": {
         "file": "vm.js",
-        "start": {"line": 33, "column": 11},
-        "end": {"line": 33, "column": 21}
+        "start": {
+          "line": 24,
+          "column": 10
+        },
+        "end": {
+          "line": 24,
+          "column": 16
+        }
+      },
+      "shape": "XNumber"
+    },
+    {
+      "target range": {
+        "file": "vm.js",
+        "start": {
+          "line": 28,
+          "column": 11
+        },
+        "end": {
+          "line": 28,
+          "column": 17
+        }
+      },
+      "bind after": {
+        "file": "vm.js",
+        "start": {
+          "line": 28,
+          "column": 11
+        },
+        "end": {
+          "line": 28,
+          "column": 17
+        }
+      },
+      "shape": "XNumber"
+    },
+    {
+      "target range": {
+        "file": "vm.js",
+        "start": {
+          "line": 33,
+          "column": 11
+        },
+        "end": {
+          "line": 33,
+          "column": 21
+        }
+      },
+      "bind after": {
+        "file": "vm.js",
+        "start": {
+          "line": 33,
+          "column": 11
+        },
+        "end": {
+          "line": 33,
+          "column": 21
+        }
       },
       "shape": "XNumber"
     }

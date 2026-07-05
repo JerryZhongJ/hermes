@@ -1,0 +1,11 @@
+{
+  "static shapes": {
+    "Vec": {"properties": [{"name": "x", "type": "number"}]}
+  },
+  "shape hints": [
+    {"target range": {"start": {"line": 20, "column": 33}, "end": {"line": 23, "column": 2}}, "shape": "Vec"}
+  ],
+  "type hints": [
+    {"target range": {"start": {"line": 20, "column": 30}, "end": {"line": 20, "column": 31}}, "type": "number"}
+  ]
+}

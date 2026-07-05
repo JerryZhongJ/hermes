@@ -2638,6 +2638,11 @@ class TrySetStaticShapeInst : public Instruction {
   TrySetStaticShapeInst(const TrySetStaticShapeInst &) = delete;
   void operator=(const TrySetStaticShapeInst &) = delete;
 
+  /// Annotation ID from JSON file, for debug tracking. -1 = not from an
+  /// annotation. Mirrors the id on the Has guard of the same shape binding so
+  /// the TrySet can be reported as part of that annotation when removed.
+  int annotationId_ = -1;
+
  public:
   enum { ObjectIdx, ShapeIdx };
 
@@ -2650,13 +2655,20 @@ class TrySetStaticShapeInst : public Instruction {
   explicit TrySetStaticShapeInst(
       const TrySetStaticShapeInst *src,
       llvh::ArrayRef<Value *> operands)
-      : Instruction(src, operands) {}
+      : Instruction(src, operands), annotationId_(src->annotationId_) {}
 
   Value *getObject() const {
     return getOperand(ObjectIdx);
   }
   LiteralStaticShape *getShape() const {
     return llvh::cast<LiteralStaticShape>(getOperand(ShapeIdx));
+  }
+
+  int getAnnotationId() const {
+    return annotationId_;
+  }
+  void setAnnotationId(int id) {
+    annotationId_ = id;
   }
 
   static bool hasOutput() {

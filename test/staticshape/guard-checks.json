@@ -1,49 +1,69 @@
 {
-  "shapes": {
-    "XNumber": {
-      "properties": [
-        {"name": "x", "type": "number"}
-      ]
-    }
-  },
   "type hints": [
     {
-      "expression range": {
+      "target range": {
         "file": "guard-checks.js",
-        "start": {"line": 12, "column": 10},
-        "end": {"line": 12, "column": 15}
+        "start": {
+          "line": 12,
+          "column": 10
+        },
+        "end": {
+          "line": 12,
+          "column": 15
+        }
       },
       "type": "number"
     }
   ],
   "shape hints": [
     {
-      "expression range": {
+      "target range": {
         "file": "guard-checks.js",
-        "start": {"line": 16, "column": 13},
-        "end": {"line": 16, "column": 19}
-      },
-      "hint after ranges": [
-        {
-          "file": "guard-checks.js",
-          "start": {"line": 16, "column": 3},
-          "end": {"line": 16, "column": 20}
+        "start": {
+          "line": 16,
+          "column": 13
+        },
+        "end": {
+          "line": 16,
+          "column": 19
         }
-      ],
+      },
       "shape": "XNumber"
     }
   ],
-  "shape assignments": [
+  "static shapes": {
+    "XNumber": {
+      "properties": [
+        {
+          "name": "x",
+          "type": "number"
+        }
+      ]
+    }
+  },
+  "shape bindings": [
     {
-      "expression range": {
+      "target range": {
         "file": "guard-checks.js",
-        "start": {"line": 16, "column": 13},
-        "end": {"line": 16, "column": 19}
+        "start": {
+          "line": 16,
+          "column": 13
+        },
+        "end": {
+          "line": 16,
+          "column": 19
+        }
       },
-      "assign after": {
+      "bind after": {
         "file": "guard-checks.js",
-        "start": {"line": 16, "column": 3},
-        "end": {"line": 16, "column": 20}
+        "start": {
+          "line": 16,
+          "column": 3
+        },
+        "end": {
+          "line": 16,
+          "column": 20
+        }
       },
       "shape": "XNumber"
     }
