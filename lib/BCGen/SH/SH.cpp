@@ -3066,6 +3066,11 @@ void generateFunction(
      << "  locals.head.count =" << localsSize << ";\n"
      << "  SHUnit *shUnit = shr->units[unit_index];\n";
 
+  if (options.instrumentFunctionCalls) {
+    OS << "  ++__fc_counters["
+       << moduleGen.nativeFunctionTable.getIndex(&F) << "];\n";
+  }
+
   if (emitNativeTraces) {
     // Initialize the current SHUnit.
     OS << "  locals.head.unit = shUnit;\n";
@@ -3414,6 +3419,43 @@ static SHNativeFuncInfo s_function_info_table[];
     }
   }
 
+  // Function call instrumentation. The counter index is the function's id in
+  // the native function table, so each function lands in a distinct slot.
+  if (options.instrumentFunctionCalls &&
+      (options.format == DumpBytecode || options.format == EmitBundle)) {
+    unsigned numFuncs = moduleGen.nativeFunctionTable.size();
+    // Collect functions ordered by their native function table index.
+    std::vector<const Function *> sortedFuncs{numFuncs};
+    for (auto &F : *M)
+      sortedFuncs[moduleGen.nativeFunctionTable.getIndex(&F)] = &F;
+
+    OS << "\n/* Function call counters */\n";
+    OS << "#include <stdio.h>\n";
+    OS << "static const char *__fc_names[" << numFuncs << "] = {";
+    for (unsigned i = 0; i < numFuncs; ++i) {
+      if (i)
+        OS << ", ";
+      OS << "\"";
+      // Use the internal name (same as the _<id>_<name> C symbol) so every
+      // function is non-empty and matches perf/nm output; getOriginalOrInferredName
+      // is empty for anonymous functions.
+      std::string name = sortedFuncs[i]->getInternalNameStr().str();
+      for (char c : name) {
+        if (c == '\\' || c == '"')
+          OS << '\\';
+        OS << c;
+      }
+      OS << "\"";
+    }
+    OS << "};\n";
+    OS << "static unsigned long long __fc_counters[" << numFuncs << "];\n";
+    OS << "static void __fc_print_counters(void) {\n";
+    OS << "  for (unsigned i = 0; i < " << numFuncs
+       << "; ++i)\n    if (__fc_counters[i])\n      fprintf(stderr, "
+          "\"func#%u %s: count=%llu\\n\", i, __fc_names[i], __fc_counters[i]);\n";
+    OS << "}\n\n";
+  }
+
   M->assignIndexToVariables();
 
   for (auto &F : *M) {
@@ -3520,6 +3562,9 @@ int main(int argc, char **argv) {
       if (options.instrumentGuards &&
           !moduleGen.guardCounterInfo.empty()) {
         OS << "  atexit(__tg_print_counters);\n";
+      }
+      if (options.instrumentFunctionCalls) {
+        OS << "  atexit(__fc_print_counters);\n";
       }
       OS << R"(  SHConsoleContext *consoleContext = init_console_bindings(shr);
   bool success =

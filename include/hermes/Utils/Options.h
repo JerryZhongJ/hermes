@@ -95,6 +95,9 @@ struct BytecodeGenerationOptions {
   // Instrument type/shape guard branches with success/fail counters.
   bool instrumentGuards = false;
 
+  // Instrument each JS function entry with a call counter; dump on exit.
+  bool instrumentFunctionCalls = false;
+
   /* implicit */ BytecodeGenerationOptions(OutputFormatKind format)
       : format(format) {}
 

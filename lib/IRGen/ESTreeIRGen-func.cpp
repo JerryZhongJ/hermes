@@ -840,11 +840,6 @@ void ESTreeIRGen::emitFunctionPrologue(
                                 : Builder.createCoerceThisNSInst(thisVal));
   }
 
-  // Apply external annotations keyed by the function *body* range to "this".
-  // The body range (a node's own getSourceRange) is unambiguous, unlike the
-  // function-expression range which collides with the function-object value.
-  tryApplyAnnotation(curFunction()->jsParams[0], ESTree::getBlockStatement(funcNode));
-
   // Create the function level scope for this function. If a parent scope is
   // provided, use it, otherwise, this function does not have a lexical parent.
   Value *baseScope;
@@ -858,6 +853,25 @@ void ESTreeIRGen::emitFunctionPrologue(
   // later during a lowering pass.
   if (!llvh::isa<GeneratorFunction>(curFunction()->function)) {
     makeNewScope(Builder.createVariableScope(parentScope), baseScope);
+  }
+
+  // Apply external annotations keyed by the function *body* range to "this".
+  // The body range (a node's own getSourceRange) is unambiguous, unlike the
+  // function-expression range which collides with the function-object value.
+  // This must come AFTER the function scope is created above. A guard emitted
+  // here (e.g. HasStaticShapeInst on `this`) has no data dependency on the
+  // scope, but emitting it before the CreateScopeInst would make InsertGuard
+  // split before the scope, duplicating CreateScopeInst into both paths and
+  // forming a scope-phi at the next guard's merge that blocks
+  // SimpleStackPromotion (parameters/vars stay pinned to the frame).
+  // Skip for synthesized functions with no ESTree node (e.g. the legacy class
+  // <instance_members_initializer>), where funcNode is null: there is no body
+  // block to key annotations on, and getBlockStatement(null) would dereference
+  // null. tryApplyAnnotation itself guards a null node, but getBlockStatement()
+  // is evaluated before the call.
+  if (funcNode) {
+    tryApplyAnnotation(
+        curFunction()->jsParams[0], ESTree::getBlockStatement(funcNode));
   }
 
   if (doInitES5CaptureState != InitES5CaptureState::No)
