@@ -51,6 +51,10 @@ typedef struct SHStaticShapeTableEntry {
   uint32_t prop_offset;
   /// The number of properties in this shape.
   uint32_t num_props;
+  /// Whether to build a typed hidden class. 0 = untyped: the shape has no
+  /// non-Any property, so the runtime skips setting property types and the
+  /// resulting hidden class is untyped. 1 = typed.
+  uint8_t typed;
 } SHStaticShapeTableEntry;
 
 /// This represents a source JS location. This is only valid in a particular
@@ -1489,16 +1493,12 @@ SHERMES_EXPORT void _sh_check_type_for_prstore(
     uint32_t propIndex,
     SHLegacyValue *value);
 
-/// Return true iff \p target is an object whose HiddenClass is a cached
-/// static-shape class (switched via _sh_ljs_try_set_static_shape). Used only by
-/// --instrument-store-property; not on any hot path otherwise. NB: this matches
-/// the class pointer against the unit cache rather than reading the typed flag,
-/// because createRoot also sets the typed flag (so isTyped() alone would count
-/// empty objects still on their root class).
-SHERMES_EXPORT bool _sh_ljs_is_typed_hc(
-    SHRuntime *shr,
-    SHUnit *unit,
-    SHLegacyValue *target);
+/// Return true iff \p target is an object whose HiddenClass is typed. Ordinary
+/// roots are untyped (see HiddenClass::createRoot), so this is a direct
+/// isTyped() check with no special-casing of empty roots; only objects in a
+/// typed hierarchy (static shape) report true. Used only by
+/// --instrument-store-property; not on any hot path otherwise.
+SHERMES_EXPORT bool _sh_ljs_is_typed(SHRuntime *shr, SHLegacyValue *target);
 
 /// Check if the object has the static shape class at the given index.
 /// Compares raw compressed pointer values — no decode or read barrier needed.

@@ -2391,24 +2391,18 @@ extern "C" void _sh_check_type_for_prstore(
 }
 
 /// Probe used only by --instrument-store-property: report whether \p target is
-/// an object whose HiddenClass is a cached static-shape class (i.e. switched via
-/// _sh_ljs_try_set_static_shape). We match the class pointer against the unit's
-/// cache rather than reading the typed flag: createRoot also sets the typed
-/// flag, so isTyped() alone would count empty objects still on their root class.
+/// an object whose HiddenClass is typed. Ordinary roots are untyped (see
+/// HiddenClass::createRoot), so an empty object {} reports false directly via
+/// isTyped(); only objects whose class lives in a typed hierarchy (static shape)
+/// report true.
 LLVM_ATTRIBUTE_NOINLINE
-extern "C" bool _sh_ljs_is_typed_hc(
-    SHRuntime *shr,
-    SHUnit *unit,
-    SHLegacyValue *target) {
-  (void)shr;
+extern "C" bool _sh_ljs_is_typed(SHRuntime *shr, SHLegacyValue *target) {
   if (!_sh_ljs_is_object(*target))
     return false;
-  SHJSObject *obj = (SHJSObject *)_sh_ljs_get_pointer(*target);
-  for (uint32_t i = 0; i < unit->static_shape_table_count; ++i) {
-    if (obj->clazz == unit->static_shape_class_cache[i].raw)
-      return true;
-  }
-  return false;
+  Runtime &runtime = getRuntime(shr);
+  GCScopeMarkerRAII marker{runtime};
+  auto obj = Handle<JSObject>::vmcast(toPHV(target));
+  return obj->getClass(runtime)->isTyped();
 }
 
 namespace {
@@ -2427,7 +2421,14 @@ getStaticShapeClass(Runtime &runtime, SHUnit *unit, uint32_t index) {
       shape.prop_offset + shape.num_props <= unit->static_shape_props_count &&
       "static shape prop range OOB");
 
-  MutableHandle<HiddenClass> clazz{runtime, HiddenClass::createRoot(runtime)};
+  // All static shape classes in this unit share a single typed root, lazily
+  // created and stored on SHUnitExt (marked as a strong root in
+  // sh_unit_mark_roots). This roots the whole hierarchy in one place rather
+  // than rebuilding a fresh root on every cache miss.
+  HiddenClass *&rootSlot = unit->runtime_ext->staticShapeRootClass;
+  if (!rootSlot)
+    rootSlot = HiddenClass::createTypedRoot(runtime);
+  MutableHandle<HiddenClass> clazz{runtime, rootSlot};
 
   auto defaultFlags = PropertyFlags::defaultNewNamedPropertyFlags();
   for (uint32_t i = 0; i != shape.num_props; ++i) {
@@ -2435,7 +2436,8 @@ getStaticShapeClass(Runtime &runtime, SHUnit *unit, uint32_t index) {
         unit->static_shape_props[shape.prop_offset + i];
     assert(prop.name_index < unit->num_symbols && "static shape name OOB");
     PropertyFlags flags = defaultFlags;
-    flags.setPropertyType(static_cast<PropertyTypeCode>(prop.type));
+    if (shape.typed)
+      flags.setPropertyType(static_cast<PropertyTypeCode>(prop.type));
     auto addRes = HiddenClass::addProperty(
         clazz,
         runtime,

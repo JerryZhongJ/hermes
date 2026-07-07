@@ -125,9 +125,18 @@ ESTreeIRGen::ESTreeIRGen(
     const auto &def = shapeEntry.second;
     llvh::SmallVector<StaticShapeProperty, 8> properties;
     for (const auto &prop : def.properties) {
-      auto type = Annotations::parseTypeNames(prop.typeNames);
-      if (!type.hasValue())
+      std::string bad;
+      auto type = Annotations::parseTypeNames(prop.typeNames, &bad);
+      if (!type.hasValue()) {
+        // Fail fast on unknown type names (see tryInsertTypeCheck). The shape
+        // is still registered without this property, but the error surfaces
+        // the bad name and aborts compilation via the error count.
+        M->getContext().getSourceErrorManager().error(
+            SMRange{},
+            "static shape '" + shapeEntry.first().str() +
+                "': property '" + prop.name + "' has unsupported type: " + bad);
         continue;
+      }
       Identifier iden = M->getContext().getIdentifier(prop.name);
       properties.push_back({iden, type.getValue()});
     }

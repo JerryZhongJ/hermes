@@ -257,6 +257,7 @@ class SHStaticShapeTable {
   struct EncodedShape {
     uint32_t propOffset;
     uint32_t numProps;
+    uint8_t typed;
   };
 
   llvh::DenseMap<const StaticShapeDesc *, uint32_t> shapeIndices_{};
@@ -302,17 +303,26 @@ class SHStaticShapeTable {
     uint32_t shapeIndex = shapes_.size();
     shapeIndices_[desc] = shapeIndex;
 
+    // An empty shape is typed (matches createRoot's typed=true). Otherwise
+    // typed iff at least one property is not Any. Compare the IR Type directly
+    // so getPropertyTypeCode's internal enum need not be exposed.
+    uint8_t typed = desc->size() == 0 ? 1 : 0;
+
     EncodedShape shape{
         static_cast<uint32_t>(props_.size()),
-        static_cast<uint32_t>(desc->size())};
+        static_cast<uint32_t>(desc->size()),
+        typed};
     shapes_.push_back(shape);
 
     for (size_t i = 0, e = desc->size(); i < e; ++i) {
-      props_.push_back(
-          EncodedProp{
-              stringTable.add(desc->getPropertyName(i).str()),
-              getPropertyTypeCode(desc->getPropertyType(i))});
+      Type irType = desc->getPropertyType(i);
+      if (irType != Type::createAnyType())
+        typed = 1;
+      props_.push_back(EncodedProp{
+          stringTable.add(desc->getPropertyName(i).str()),
+          getPropertyTypeCode(irType)});
     }
+    shapes_[shapeIndex].typed = typed;
   }
 
  public:
@@ -358,7 +368,8 @@ class SHStaticShapeTable {
     for (const auto &shape : shapes_) {
       os.indent(2);
       os << "{ .prop_offset = " << shape.propOffset
-         << ", .num_props = " << shape.numProps << " },\n";
+         << ", .num_props = " << shape.numProps
+         << ", .typed = " << static_cast<unsigned>(shape.typed) << " },\n";
     }
     os << "};\n";
   }
@@ -1486,7 +1497,7 @@ class InstrGen {
   /// Emit the {total, typed-hc hit} counter bump for a dynamic store site.
   /// No-op when instrumentation is off or the site has no counter. The total
   /// counts every execution; typed counts only those whose runtime target
-  /// object carries a typed HiddenClass (probed via _sh_ljs_is_typed_hc).
+  /// object carries a typed HiddenClass (probed via _sh_ljs_is_typed).
   void emitStorePropertyCounter(Instruction &inst, Value *obj) {
     int idx = getStorePropertyCounterIdx(inst);
     if (idx < 0)
@@ -1494,7 +1505,7 @@ class InstrGen {
     os_.indent(2);
     os_ << "++__sp_counters[" << idx << "].total;\n";
     os_.indent(2);
-    os_ << "if (_sh_ljs_is_typed_hc(shr, shUnit, ";
+    os_ << "if (_sh_ljs_is_typed(shr, ";
     generateRegisterPtr(*obj);
     os_ << ")) ++__sp_counters[" << idx << "].typed;\n";
   }

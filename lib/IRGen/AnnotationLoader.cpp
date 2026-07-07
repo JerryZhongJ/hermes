@@ -334,21 +334,30 @@ void loadShapeBindings(
 } // namespace
 
 llvh::Optional<Type> Annotations::parseTypeNames(
-    const std::vector<std::string> &typeNames) {
+    const std::vector<std::string> &typeNames,
+    std::string *unsupported) {
   if (typeNames.empty())
     return llvh::None;
 
   llvh::Optional<Type> result;
   for (const auto &name : typeNames) {
     llvh::Optional<Type> t = parseTypeName(name);
-    if (!t.hasValue())
-      return llvh::None;
+    if (!t.hasValue()) {
+      if (unsupported) {
+        if (!unsupported->empty())
+          *unsupported += ", ";
+        *unsupported += name;
+      }
+      continue;
+    }
     if (!result.hasValue()) {
       result = t.getValue();
     } else {
       result = Type::unionTy(result.getValue(), t.getValue());
     }
   }
+  if (unsupported && !unsupported->empty())
+    return llvh::None;
   return result;
 }
 
@@ -369,6 +378,8 @@ llvh::Optional<Type> Annotations::parseTypeName(llvh::StringRef typeName) {
     return Type::createBigInt();
   if (typeName == "symbol")
     return Type::createSymbol();
+  if (typeName == "any")
+    return Type::createAnyType();
   return llvh::None;
 }
 

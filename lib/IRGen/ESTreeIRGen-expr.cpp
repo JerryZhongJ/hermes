@@ -62,14 +62,15 @@ bool ESTreeIRGen::tryInsertTypeCheck(Value *val, ESTree::Node *node) {
 
   int annotId = typeAnnotations.getTypeGuardId(range);
 
-  llvh::Optional<Type> annotatedType = Annotations::parseTypeNames(*typeStrs);
+  std::string bad;
+  llvh::Optional<Type> annotatedType =
+      Annotations::parseTypeNames(*typeStrs, &bad);
   if (!annotatedType.hasValue()) {
-    LLVM_DEBUG({
-      llvh::dbgs() << "Unknown type names:";
-      for (const auto &s : *typeStrs)
-        llvh::dbgs() << " " << s;
-      llvh::dbgs() << "\n";
-    });
+    // Fail fast: a type annotation referencing an unknown type name is almost
+    // always a bug in the annotation generator. Surface it as a compile error
+    // (listing the offending names) instead of silently dropping the guard.
+    Mod->getContext().getSourceErrorManager().error(
+        range, "unsupported type annotation: " + bad);
     return false;
   }
 

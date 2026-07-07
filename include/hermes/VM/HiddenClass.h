@@ -339,8 +339,13 @@ class HiddenClass final : public GCCell {
   }
 
   /// Create a "root" hidden class - one that doesn't define any properties, but
-  /// is a starting point for a hierarchy.
+  /// is a starting point for a hierarchy. The root is untyped.
   static HiddenClass *createRoot(Runtime &runtime);
+
+  /// Create a typed "root" hidden class. Unlike createRoot, this sets the
+  /// typed flag so typed properties added to descendants propagate the typed
+  /// bit. Used as the single shared root of the static shape hierarchy.
+  static HiddenClass *createTypedRoot(Runtime &runtime);
 
   /// \return true if this hidden class is guaranteed to be a leaf.
   /// It can return false negatives, so it should only be used for stats

@@ -194,9 +194,13 @@ class Annotations {
   /// Parse a type name string to a Type object.
   static llvh::Optional<Type> parseTypeName(llvh::StringRef typeName);
 
-  /// Parse multiple type name strings to a union Type object.
+  /// Parse multiple type name strings to a union Type object. When \p
+  /// unsupported is non-null, every name parseTypeName cannot resolve is
+  /// appended to it (joined by ", "); the result is None if any name is bad,
+  /// so callers can report exactly which names failed.
   static llvh::Optional<Type> parseTypeNames(
-      const std::vector<std::string> &typeNames);
+      const std::vector<std::string> &typeNames,
+      std::string *unsupported = nullptr);
 
   /// Return all static shape definitions loaded from JSON.
   const llvh::StringMap<StaticShapeDefinition> &getShapeDefs() const {

@@ -20,6 +20,12 @@ struct SHUnitExt {
   /// A map from template object ids to template objects.
   llvh::DenseMap<uint32_t, hermes::vm::JSObject *> templateMap{};
 
+  /// The single shared typed root hidden class for this unit's static shape
+  /// hierarchy. Lazily created by getStaticShapeClass and held as a strong
+  /// reference (marked in sh_unit_mark_roots) so the root never moves across
+  /// static_shape_class_cache rebuilds. nullptr until first use.
+  hermes::vm::HiddenClass *staticShapeRootClass{};
+
   /// Vector of AddPropertyCacheEntry, where each element is lazily allocated
   /// whenever a CodeBlock needs a new entry.
   /// Stored in a central location here for easier marking of roots.

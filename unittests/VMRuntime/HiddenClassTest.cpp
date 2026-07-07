@@ -57,7 +57,7 @@ TEST_F(HiddenClassTest, SmokeTest) {
 
   ASSERT_EQ(0u, rootHnd->getNumProperties());
   ASSERT_FALSE(rootHnd->isDictionary());
-  ASSERT_TRUE(rootHnd->isTyped());
+  ASSERT_FALSE(rootHnd->isTyped());
   ASSERT_TRUE(rootHnd->isKnownLeaf());
 
   // x = {}
@@ -534,7 +534,8 @@ TEST_F(HiddenClassTest, TypedPropertyTransitions) {
   auto yHnd = *runtime.getIdentifierTable().getSymbolHandle(
       runtime, createUTF16Ref(u"y"));
 
-  auto root = runtime.makeHandle<HiddenClass>(HiddenClass::createRoot(runtime));
+  auto root =
+      runtime.makeHandle<HiddenClass>(HiddenClass::createTypedRoot(runtime));
   ASSERT_TRUE(root->isTyped());
 
   auto defaultFlags = PropertyFlags::defaultNewNamedPropertyFlags();
@@ -581,7 +582,7 @@ TEST_F(HiddenClassTest, TypedPropertyMapPreservesTypes) {
   auto yHnd = *runtime.getIdentifierTable().getSymbolHandle(
       runtime, createUTF16Ref(u"y"));
 
-  MutableHandle<HiddenClass> clazz{runtime, HiddenClass::createRoot(runtime)};
+  MutableHandle<HiddenClass> clazz{runtime, HiddenClass::createTypedRoot(runtime)};
   auto defaultFlags = PropertyFlags::defaultNewNamedPropertyFlags();
   auto numberFlags = defaultFlags;
   numberFlags.setPropertyType(PropertyTypeCode::Number);
@@ -636,7 +637,7 @@ TEST_F(HiddenClassTest, TypedPropertyMapIndexMatchesSlot) {
   auto yHnd = *runtime.getIdentifierTable().getSymbolHandle(
       runtime, createUTF16Ref(u"y"));
 
-  MutableHandle<HiddenClass> clazz{runtime, HiddenClass::createRoot(runtime)};
+  MutableHandle<HiddenClass> clazz{runtime, HiddenClass::createTypedRoot(runtime)};
   auto flags = PropertyFlags::defaultNewNamedPropertyFlags();
   flags.setPropertyType(PropertyTypeCode::Number);
   {
@@ -668,7 +669,8 @@ TEST_F(HiddenClassTest, TypedStoreMismatchFallsBackAndStores) {
       runtime, createUTF16Ref(u"x"));
 
   auto obj = runtime.makeHandle(JSObject::create(runtime));
-  auto root = runtime.makeHandle<HiddenClass>(HiddenClass::createRoot(runtime));
+  auto root =
+      runtime.makeHandle<HiddenClass>(HiddenClass::createTypedRoot(runtime));
   auto flags = PropertyFlags::defaultNewNamedPropertyFlags();
   flags.setPropertyType(PropertyTypeCode::Number);
   auto addRes = HiddenClass::addProperty(root, runtime, *xHnd, flags);
@@ -703,7 +705,7 @@ TEST_F(HiddenClassTest, TypedFallbackBySlotUsesUpdateTransition) {
   auto yHnd = *runtime.getIdentifierTable().getSymbolHandle(
       runtime, createUTF16Ref(u"y"));
 
-  MutableHandle<HiddenClass> typed{runtime, HiddenClass::createRoot(runtime)};
+  MutableHandle<HiddenClass> typed{runtime, HiddenClass::createTypedRoot(runtime)};
   auto defaultFlags = PropertyFlags::defaultNewNamedPropertyFlags();
   auto numberFlags = defaultFlags;
   numberFlags.setPropertyType(PropertyTypeCode::Number);

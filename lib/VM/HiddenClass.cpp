@@ -168,6 +168,24 @@ void HiddenClass::_snapshotAddNodesImpl(
 #endif
 
 HiddenClass *HiddenClass::createRoot(Runtime &runtime) {
+  // Root classes are untyped: an empty class carries no type information, and
+  // introducing the typed bit is the job of createTypedRoot (used only by the
+  // static shape hierarchy). Keeping the ordinary root untyped means isTyped()
+  // can be queried directly without special-casing empty roots.
+  return create(
+      runtime,
+      ClassFlags{},
+      Runtime::makeNullHandle<HiddenClass>(),
+      SymbolID{},
+      PropertyFlags{},
+      0);
+}
+
+HiddenClass *HiddenClass::createTypedRoot(Runtime &runtime) {
+  // A typed root is the starting point for the static shape hierarchy. Only a
+  // typed root can propagate the typed bit through addProperty (the
+  // `parent.typed && propertyType != None` rule), which is how typed hidden
+  // classes for static shapes are produced.
   ClassFlags flags{};
   flags.typed = true;
   return create(

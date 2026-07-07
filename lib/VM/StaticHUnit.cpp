@@ -217,6 +217,13 @@ void hermes::vm::sh_unit_mark_roots(
     acceptor.acceptPtr(it.second);
   }
 
+  // The shared typed root of the static shape hierarchy is a strong per-unit
+  // reference; mark it so it stays alive for the unit's lifetime and never
+  // drifts across static_shape_class_cache rebuilds.
+  if (auto *staticShapeRoot = unit->runtime_ext->staticShapeRootClass) {
+    acceptor.acceptPtr(staticShapeRoot);
+  }
+
   if (markLongLived) {
     for (const SHSymbolID *p = unit->symbols, *e = p + unit->num_symbols;
          p != e;

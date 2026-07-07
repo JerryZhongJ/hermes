@@ -19,7 +19,7 @@ print(o.x);
 // C: { .name_index = {{[0-9]+}}, .type = 1 },
 // C: { .name_index = {{[0-9]+}}, .type = 1 },
 // C: static const SHStaticShapeTableEntry s_static_shape_table[] = {
-// C: { .prop_offset = 0, .num_props = 2 },
+// C: { .prop_offset = 0, .num_props = 2, .typed = 1 },
 // C: SHCompressedPointer static_shape_class_cache[1];
 // C: .static_shape_table_count = 1
 
