@@ -46,6 +46,7 @@ default.
 - `--agent-timeout SEC` limits each agent attempt. Default: `600`.
 - `--verbose-agent-logs` enables selected SDK messages in the logger.
 - `--keep-workdir` preserves prompts and temporary annotations for debugging.
+- `--append-prompt TEXT` appends extra text after the built prompt for this run only.
 
 ## Temporary Model Configuration
 
@@ -84,19 +85,19 @@ uv run python -m unittest discover -s tests
 
 The generated JSON must follow the schema loaded by `AnnotationLoader`:
 
-- top-level object: `"shapes"`, mapping shape names to shape definitions
-- top-level arrays: `"shape hints"`, `"shape assignments"`
-- optional top-level array: `"type hints"`
+- top-level object: `"static shapes"`, mapping shape names to shape definitions
+- top-level arrays: `"shape guards"`, `"shape bindings"`
+- optional top-level array: `"type guards"`
 - supported property/type-guard types:
-  `number`, `string`, `boolean`, `object`, `null`, `undefined`, `bigint`,
-  `symbol`
+  `number`, `string`, `boolean`, `null`, `undefined`, or `any` for anything
+  else (e.g. object, bigint, symbol)
 - ranges use 1-based line and column numbers
 
 The prompt asks the agent to optimize hot code first: loops, nested loops,
 frequently called functions, core data structure accesses, and repeated
 property reads/writes. Shape definitions must exactly match object construction,
 including property order, because typed shapes are order-sensitive. Shape names
-are only stable identifiers used by hints and assignments.
+are only stable identifiers used by guards and bindings.
 
 ## Statistics
 

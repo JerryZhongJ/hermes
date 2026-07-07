@@ -21,11 +21,14 @@ def generate_annotations(
     input_path: Path,
     output_path: Path,
     temp_root: Path,
+    append_prompt: str | None = None,
 ) -> AgentRun:
     annotation_path = temp_root / "annotation.json"
     shutil.copyfile(input_path, temp_root / input_path.name)
 
     prompt = build_prompt(input_path, annotation_path)
+    if append_prompt:
+        prompt = prompt + "\n\n" + append_prompt
     LOGGER.info("prompt:\n%s", prompt)
 
     run = runner.run(prompt, temp_root)

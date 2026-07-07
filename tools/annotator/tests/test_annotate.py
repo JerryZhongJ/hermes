@@ -24,7 +24,7 @@ def valid_annotation(file_name: str) -> dict:
         "end": {"line": 1, "column": 19},
     }
     return {
-        "shapes": {
+        "static shapes": {
             "Point": {
                 "properties": [
                     {"name": "x", "type": "number"},
@@ -32,11 +32,12 @@ def valid_annotation(file_name: str) -> dict:
                 ]
             }
         },
-        "shape hints": [],
-        "shape assignments": [
+        "shape guards": [],
+        "type guards": [],
+        "shape bindings": [
             {
-                "expression range": loc,
-                "assign after": loc,
+                "target range": loc,
+                "bind after": loc,
                 "shape": "Point",
             }
         ],

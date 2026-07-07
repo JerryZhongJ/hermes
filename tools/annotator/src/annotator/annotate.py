@@ -40,6 +40,7 @@ def main() -> int:
             args.input,
             output_path,
             temp_root,
+            append_prompt=args.append_prompt,
         )
         # Always dump the run record — even on failure the partial transcript
         # has value, and all stats are recomputed offline from this file.

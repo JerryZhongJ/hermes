@@ -83,6 +83,12 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Print selected SDK messages while the agent runs",
     )
+    parser.add_argument(
+        "--append-prompt",
+        metavar="TEXT",
+        default=None,
+        help="Append extra TEXT after the built prompt for this run only.",
+    )
     return parser.parse_args()
 
 
