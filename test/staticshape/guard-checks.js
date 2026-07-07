@@ -44,11 +44,11 @@ function shapeStatement() {
 // IRGEN-NEXT:  %0 = GetParentScopeInst (:environment) %VS0: any, %parentScope: environment
 // IRGEN-NEXT:  %1 = CreateScopeInst (:environment) %VS1: any, %0: environment
 // IRGEN-NEXT:  %2 = LoadParamInst (:any) %x: any
+// IRGEN-NEXT:  %3 = TypeOfIsInst (:boolean) %2: any, typeOfIs(Number) [ann#0]
 // IRGEN-NEXT:       StoreFrameInst %1: environment, %2: any, [%VS1.x]: any
-// IRGEN-NEXT:  %4 = LoadFrameInst (:any) %1: environment, [%VS1.x]: any
-// IRGEN-NEXT:  %5 = BinaryAddInst (:any) %4: any, 1: number
-// IRGEN-NEXT:  %6 = TypeOfIsInst (:boolean) %5: any, typeOfIs(Number) [ann#0]
-// IRGEN-NEXT:       ReturnInst %5: any
+// IRGEN-NEXT:  %5 = LoadFrameInst (:any) %1: environment, [%VS1.x]: any
+// IRGEN-NEXT:  %6 = BinaryAddInst (:any) %5: any, 1: number
+// IRGEN-NEXT:       ReturnInst %6: any
 // IRGEN-NEXT:function_end
 
 // IRGEN:scope %VS2 [obj: any]
@@ -93,16 +93,19 @@ function shapeStatement() {
 // INSERT-NEXT:  %0 = GetParentScopeInst (:environment) %VS0: any, %parentScope: environment
 // INSERT-NEXT:  %1 = CreateScopeInst (:environment) %VS1: any, %0: environment
 // INSERT-NEXT:  %2 = LoadParamInst (:any) %x: any
-// INSERT-NEXT:       StoreFrameInst %1: environment, %2: any, [%VS1.x]: any
-// INSERT-NEXT:  %4 = LoadFrameInst (:any) %1: environment, [%VS1.x]: any
-// INSERT-NEXT:  %5 = BinaryAddInst (:any) %4: any, 1: number
-// INSERT-NEXT:  %6 = TypeOfIsInst (:boolean) %5: any, typeOfIs(Number) [ann#0]
-// INSERT-NEXT:       CondBranchInst %6: boolean, %BB1, %BB2
+// INSERT-NEXT:  %3 = TypeOfIsInst (:boolean) %2: any, typeOfIs(Number) [ann#0]
+// INSERT-NEXT:       CondBranchInst %3: boolean, %BB1, %BB2
 // INSERT-NEXT:%BB1:
-// INSERT-NEXT:  %8 = UnionNarrowTrustedInst (:number) %5: any
-// INSERT-NEXT:       ReturnInst %8: number
+// INSERT-NEXT:  %5 = UnionNarrowTrustedInst (:number) %2: any
+// INSERT-NEXT:       StoreFrameInst %1: environment, %5: number, [%VS1.x]: any
+// INSERT-NEXT:  %7 = LoadFrameInst (:any) %1: environment, [%VS1.x]: any
+// INSERT-NEXT:  %8 = BinaryAddInst (:any) %7: any, 1: number
+// INSERT-NEXT:       ReturnInst %8: any
 // INSERT-NEXT:%BB2:
-// INSERT-NEXT:        ReturnInst %5: any
+// INSERT-NEXT:        StoreFrameInst %1: environment, %2: any, [%VS1.x]: any
+// INSERT-NEXT:  %11 = LoadFrameInst (:any) %1: environment, [%VS1.x]: any
+// INSERT-NEXT:  %12 = BinaryAddInst (:any) %11: any, 1: number
+// INSERT-NEXT:        ReturnInst %12: any
 // INSERT-NEXT:function_end
 
 // INSERT:scope %VS2 [obj: any]
@@ -135,3 +138,42 @@ function shapeStatement() {
 // INSERT-NEXT:  %19 = HasStaticShapeInst (:boolean) %3: object, {x: number}: null
 // INSERT-NEXT:        BranchInst %BB2
 // INSERT-NEXT:function_end
+
+// OPT:function global(): undefined
+// OPT-NEXT:%BB0:
+// OPT-NEXT:       DeclareGlobalVarInst "typeGuard": string
+// OPT-NEXT:       DeclareGlobalVarInst "shapeStatement": string
+// OPT-NEXT:  %2 = CreateFunctionInst (:object) empty: any, empty: any, %typeGuard(): functionCode
+// OPT-NEXT:       StorePropertyLooseInst %2: object, globalObject: object, "typeGuard": string
+// OPT-NEXT:  %4 = CreateFunctionInst (:object) empty: any, empty: any, %shapeStatement(): functionCode
+// OPT-NEXT:       StorePropertyLooseInst %4: object, globalObject: object, "shapeStatement": string
+// OPT-NEXT:       ReturnInst undefined: undefined
+// OPT-NEXT:function_end
+
+// OPT:function typeGuard(x: any): string|number
+// OPT-NEXT:%BB0:
+// OPT-NEXT:  %0 = LoadParamInst (:any) %x: any
+// OPT-NEXT:  %1 = TypeOfIsInst (:boolean) %0: any, typeOfIs(Number) [ann#0]
+// OPT-NEXT:       CondBranchInst %1: boolean, %BB1, %BB2
+// OPT-NEXT:%BB1:
+// OPT-NEXT:  %3 = UnionNarrowTrustedInst (:number) %0: any
+// OPT-NEXT:  %4 = FAddInst (:number) %3: number, 1: number
+// OPT-NEXT:       ReturnInst %4: number
+// OPT-NEXT:%BB2:
+// OPT-NEXT:  %6 = BinaryAddInst (:string|number) %0: any, 1: number
+// OPT-NEXT:       ReturnInst %6: string|number
+// OPT-NEXT:function_end
+
+// OPT:function shapeStatement(): any
+// OPT-NEXT:%BB0:
+// OPT-NEXT:  %0 = AllocObjectLiteralInst (:object) empty: any, "x": string, 1: number
+// OPT-NEXT:  %1 = HasStaticShapeInst (:boolean) %0: object, {x: number}: null
+// OPT-NEXT:       CondBranchInst %1: boolean, %BB1, %BB2
+// OPT-NEXT:%BB1:
+// OPT-NEXT:  %3 = PrLoadInst (:number) %0: object, 0: number, "x": string
+// OPT-NEXT:       ReturnInst %3: number
+// OPT-NEXT:%BB2:
+// OPT-NEXT:       TrySetStaticShapeInst %0: object, {x: number}: null
+// OPT-NEXT:  %6 = LoadPropertyInst (:any) %0: object, "x": string
+// OPT-NEXT:       ReturnInst %6: any
+// OPT-NEXT:function_end

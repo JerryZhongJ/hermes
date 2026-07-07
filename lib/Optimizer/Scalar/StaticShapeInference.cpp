@@ -58,6 +58,8 @@ static void setStaticShapeInfo(Instruction *inst, StaticShapeInfo shape) {
     S->setObjOperandShape(shape);
   else if (auto *H = llvh::dyn_cast<HasStaticShapeInst>(inst))
     H->setObjOperandShape(shape);
+  else if (auto *T = llvh::dyn_cast<TrySetStaticShapeInst>(inst))
+    T->setObjOperandShape(shape);
 }
 
 /// edge 上 ShapeGuard 注入的 shape（CondBranch 真分支）。
@@ -174,11 +176,13 @@ class Impl {
   /// 块出口状态。缺失 = 空 State(全 NoShape)。IN 不缓存，computeIn 现算。
   BBStateMap out_;
 
-  /// 关键指令(load/store/hasStaticShape)的 object 操作数；非关键指令返回 null。
+  /// 关键指令(load/store/hasStaticShape/trySetStaticShape)的 object
+  /// 操作数；非关键指令返回 null。
   static inline bool isTargetInst(Instruction *inst) {
     return llvh::isa<BaseLoadPropertyInst>(inst) ||
         llvh::isa<BaseStorePropertyInst>(inst) ||
-        llvh::isa<HasStaticShapeInst>(inst);
+        llvh::isa<HasStaticShapeInst>(inst) ||
+        llvh::isa<TrySetStaticShapeInst>(inst);
   }
 
   bool isStoreShapeCompatible(
@@ -215,6 +219,11 @@ class Impl {
     if (auto *store = llvh::dyn_cast<PrStoreInst>(inst))
       return !store->getStoredValue()->getType().isSubsetOf(
           store->getExpectedType());
+    // TrySet switches obj's hidden class to a static shape's class only — it
+    // touches no other object and invalidates no existing static shape fact, so
+    // it never pollutes.
+    if (llvh::isa<TrySetStaticShapeInst>(inst))
+      return false;
     return true;
   }
 
@@ -359,6 +368,8 @@ class Impl {
       obj = llvh::dyn_cast<Instruction>(store->getObject());
     else if (auto *hss = llvh::dyn_cast<HasStaticShapeInst>(inst))
       obj = llvh::dyn_cast<Instruction>(hss->getArgument());
+    else if (auto *tss = llvh::dyn_cast<TrySetStaticShapeInst>(inst))
+      obj = llvh::dyn_cast<Instruction>(tss->getObject());
     setStaticShapeInfo(inst, s.get(obj));
   }
 

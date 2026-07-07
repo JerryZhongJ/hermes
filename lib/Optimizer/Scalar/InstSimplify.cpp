@@ -1093,6 +1093,16 @@ class InstSimplifyImpl {
     return nullptr;
   }
 
+  /// If the object's static shape is known, the TrySet is dead:
+  ///  - desc == target: switchClass is a no-op.
+  ///  - desc != target: speculation failed; deleting lets the paired guard take
+  ///    the slow path instead of reading at target's layout.
+  OptValue<Value *> simplifyTrySetStaticShape(TrySetStaticShapeInst *inst) {
+    if (inst->getObjOperandShape().status == StaticShapeInfo::KnownStaticShape)
+      return llvh::None;
+    return nullptr;
+  }
+
   /// \returns one of:
   ///   - nullptr if the instruction cannot be simplified.
   ///   - a new value to replace the original one
@@ -1232,6 +1242,8 @@ class InstSimplifyImpl {
         return simplifyStoreProperty(cast<StorePropertyInst>(I));
       case ValueKind::HasStaticShapeInstKind:
         return simplifyHasStaticShape(cast<HasStaticShapeInst>(I));
+      case ValueKind::TrySetStaticShapeInstKind:
+        return simplifyTrySetStaticShape(cast<TrySetStaticShapeInst>(I));
 
       default:
         // TODO: handle other kinds of instructions.

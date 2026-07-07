@@ -1489,6 +1489,17 @@ SHERMES_EXPORT void _sh_check_type_for_prstore(
     uint32_t propIndex,
     SHLegacyValue *value);
 
+/// Return true iff \p target is an object whose HiddenClass is a cached
+/// static-shape class (switched via _sh_ljs_try_set_static_shape). Used only by
+/// --instrument-store-property; not on any hot path otherwise. NB: this matches
+/// the class pointer against the unit cache rather than reading the typed flag,
+/// because createRoot also sets the typed flag (so isTyped() alone would count
+/// empty objects still on their root class).
+SHERMES_EXPORT bool _sh_ljs_is_typed_hc(
+    SHRuntime *shr,
+    SHUnit *unit,
+    SHLegacyValue *target);
+
 /// Check if the object has the static shape class at the given index.
 /// Compares raw compressed pointer values — no decode or read barrier needed.
 static inline bool _sh_ljs_has_static_shape(

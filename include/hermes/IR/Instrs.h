@@ -2643,6 +2643,11 @@ class TrySetStaticShapeInst : public Instruction {
   /// the TrySet can be reported as part of that annotation when removed.
   int annotationId_ = -1;
 
+  /// Inferred static shape of the object operand. Written by
+  /// StaticShapeInference, read by InstSimplify (which deletes this TrySet when
+  /// the shape is known). Mirrors objOperandShape_ on HasStaticShapeInst.
+  StaticShapeInfo objOperandShape_{};
+
  public:
   enum { ObjectIdx, ShapeIdx };
 
@@ -2655,7 +2660,9 @@ class TrySetStaticShapeInst : public Instruction {
   explicit TrySetStaticShapeInst(
       const TrySetStaticShapeInst *src,
       llvh::ArrayRef<Value *> operands)
-      : Instruction(src, operands), annotationId_(src->annotationId_) {}
+      : Instruction(src, operands),
+        annotationId_(src->annotationId_),
+        objOperandShape_(src->objOperandShape_) {}
 
   Value *getObject() const {
     return getOperand(ObjectIdx);
@@ -2671,6 +2678,13 @@ class TrySetStaticShapeInst : public Instruction {
     annotationId_ = id;
   }
 
+  StaticShapeInfo getObjOperandShape() const {
+    return objOperandShape_;
+  }
+  void setObjOperandShape(StaticShapeInfo info) {
+    objOperandShape_ = info;
+  }
+
   static bool hasOutput() {
     return false;
   }
@@ -2678,8 +2692,19 @@ class TrySetStaticShapeInst : public Instruction {
     return false;
   }
 
+  /// Only an Any-shaped operand may switch
+  /// the hidden class (and can invalidate a shape fact); Known/NoShape never
+  /// switch — Known==target is a no-op, Known!=target is a failed speculation
+  /// InstSimplify deletes, NoShape only appears in initial phase of analysis.
   SideEffect getSideEffectImpl() const {
-    return SideEffect{}.setWriteHeap().setIdempotent();
+    switch (objOperandShape_.status) {
+      case StaticShapeInfo::KnownStaticShape:
+        return SideEffect{}.setIdempotent();
+      case StaticShapeInfo::AnyShapes:
+        return SideEffect{}.setWriteHeap().setIdempotent();
+      case StaticShapeInfo::NoShape:
+        return SideEffect{};
+    }
   }
 
   static bool classof(const Value *V) {

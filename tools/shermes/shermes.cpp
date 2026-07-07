@@ -300,6 +300,21 @@ static cl::opt<bool> InstrumentGuards(
     cl::init(false),
     cl::cat(CompilerCategory));
 
+static cl::opt<bool> InstrumentFunctionCalls(
+    "instrument-function-calls",
+    cl::desc(
+        "Instrument each JS function entry with a call counter; dump counts on exit"),
+    cl::init(false),
+    cl::cat(CompilerCategory));
+
+static cl::opt<bool> InstrumentStoreProperty(
+    "instrument-store-property",
+    cl::desc(
+        "Instrument each dynamic StoreProperty with {typed-hc hits, total} "
+        "counters; dump counts on exit"),
+    cl::init(false),
+    cl::cat(CompilerCategory));
+
 cl::opt<bool> DumpBetweenPasses(
     "Xdump-between-passes",
     cl::init(false),
@@ -1044,6 +1059,8 @@ bool compileFromCommandLineOptions() {
 
   genOptions.smallC = cli::SmallC;
   genOptions.instrumentGuards = cli::InstrumentGuards;
+  genOptions.instrumentFunctionCalls = cli::InstrumentFunctionCalls;
+  genOptions.instrumentStoreProperty = cli::InstrumentStoreProperty;
 
   genOptions.emitSourceLocations =
       cli::DumpSourceLocation != LocationDumpMode::None;

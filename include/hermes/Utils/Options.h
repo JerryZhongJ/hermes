@@ -98,6 +98,10 @@ struct BytecodeGenerationOptions {
   // Instrument each JS function entry with a call counter; dump on exit.
   bool instrumentFunctionCalls = false;
 
+  // Instrument each dynamic StoreProperty: count {typed-hc hits, total} per
+  // store site; dump on exit. Covers put_by_id / put_by_val / with_receiver.
+  bool instrumentStoreProperty = false;
+
   /* implicit */ BytecodeGenerationOptions(OutputFormatKind format)
       : format(format) {}
 

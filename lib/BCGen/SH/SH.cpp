@@ -583,6 +583,13 @@ struct ModuleGen {
   /// zero and are skipped at print time).
   llvh::SmallVector<std::string, 0> guardCounterInfo;
 
+  /// StoreProperty instrumentation (one slot per dynamic store site). Built at
+  /// scan time; storeCounterIdx maps each store Instruction* to its slot;
+  /// storeCounterInfo holds the self-describing label consumed only by
+  /// __sp_print_counters.
+  llvh::SmallVector<std::string, 0> storeCounterInfo;
+  llvh::DenseMap<const Instruction *, unsigned> storeCounterIdx;
+
   explicit ModuleGen(Module *M, bool optimizationEnabled)
       : literalBuffers{M, stringTable, optimizationEnabled},
         staticShapeTable{M, stringTable},
@@ -1467,8 +1474,34 @@ class InstrGen {
     os_ << ";\n";
   }
 
+  /// Counter index for a dynamic store site, or -1 if instrumentation is off
+  /// or this site wasn't recorded at scan time.
+  int getStorePropertyCounterIdx(const Instruction &I) {
+    if (!options_.instrumentStoreProperty)
+      return -1;
+    auto it = moduleGen_.storeCounterIdx.find(&I);
+    return it == moduleGen_.storeCounterIdx.end() ? -1 : (int)it->second;
+  }
+
+  /// Emit the {total, typed-hc hit} counter bump for a dynamic store site.
+  /// No-op when instrumentation is off or the site has no counter. The total
+  /// counts every execution; typed counts only those whose runtime target
+  /// object carries a typed HiddenClass (probed via _sh_ljs_is_typed_hc).
+  void emitStorePropertyCounter(Instruction &inst, Value *obj) {
+    int idx = getStorePropertyCounterIdx(inst);
+    if (idx < 0)
+      return;
+    os_.indent(2);
+    os_ << "++__sp_counters[" << idx << "].total;\n";
+    os_.indent(2);
+    os_ << "if (_sh_ljs_is_typed_hc(shr, shUnit, ";
+    generateRegisterPtr(*obj);
+    os_ << ")) ++__sp_counters[" << idx << "].typed;\n";
+  }
+
   void generateStorePropertyWithReceiverInst(
       StorePropertyWithReceiverInst &inst) {
+    emitStorePropertyCounter(inst, inst.getObject());
     os_ << "_sh_ljs_put_by_val_with_receiver_rjs(shr, ";
     generateRegisterPtr(*inst.getObject());
     os_ << ", ";
@@ -1481,6 +1514,7 @@ class InstrGen {
     os_ << ");\n";
   }
   void generateStorePropertyInstImpl(StorePropertyInst &inst, bool strictMode) {
+    emitStorePropertyCounter(inst, inst.getObject());
     os_.indent(2);
     if (auto *LS = llvh::dyn_cast<LiteralString>(inst.getProperty())) {
       if (strictMode)
@@ -3456,6 +3490,76 @@ static SHNativeFuncInfo s_function_info_table[];
     OS << "}\n\n";
   }
 
+  // StoreProperty instrumentation (dynamic stores: put_by_id / put_by_val /
+  // with_receiver). Each store site gets a globally-unique counter index at
+  // scan time; the codegen then bumps {total, typed} at each site.
+  if (options.instrumentStoreProperty) {
+    auto &srcMgr = M->getContext().getSourceErrorManager();
+    for (auto &F : *M) {
+      for (auto &BB : F) {
+        for (auto &I : BB) {
+          if (!llvh::isa<StorePropertyStrictInst>(&I) &&
+              !llvh::isa<StorePropertyLooseInst>(&I) &&
+              !llvh::isa<StorePropertyWithReceiverInst>(&I))
+            continue;
+          unsigned idx = moduleGen.storeCounterInfo.size();
+          moduleGen.storeCounterIdx[&I] = idx;
+
+          // Best-effort property name: literal string for put_by_id, else
+          // <dynamic> for put_by_val / with_receiver.
+          std::string propName = "<dynamic>";
+          if (auto *SP = llvh::dyn_cast<StorePropertyInst>(&I)) {
+            if (auto *LS = llvh::dyn_cast<LiteralString>(SP->getProperty())) {
+              propName = "'";
+              for (char c : LS->getValue().str()) {
+                if (c == '\\' || c == '"')
+                  propName.push_back('\\');
+                propName.push_back(c);
+              }
+              propName += "'";
+            }
+          }
+
+          std::string locStr = "<unknown>";
+          SourceErrorManager::SourceCoords coords;
+          if (srcMgr.findBufferLineAndLoc(I.getLocation(), coords)) {
+            locStr.clear();
+            llvh::StringRef fname = srcMgr.getBufferFileName(coords.bufId);
+            for (char c : fname) {
+              if (c == '\\' || c == '"')
+                locStr.push_back('\\');
+              locStr.push_back(c);
+            }
+            locStr += ":" + std::to_string(coords.line) + ":" +
+                std::to_string(coords.col);
+          }
+
+          moduleGen.storeCounterInfo.push_back(
+              "sp#" + std::to_string(idx) + " prop=" + propName + " @" +
+              locStr);
+        }
+      }
+    }
+
+    unsigned numCounters = moduleGen.storeCounterInfo.size();
+    if (numCounters > 0 &&
+        (options.format == DumpBytecode || options.format == EmitBundle)) {
+      OS << "\n/* StoreProperty instrumentation counters (typed-hc hits + total) */\n";
+      OS << "#include <stdio.h>\n";
+      OS << "static struct { unsigned long long typed; unsigned long long total; }"
+         << " __sp_counters[" << numCounters << "];\n";
+      OS << "static void __sp_print_counters(void) {\n";
+      for (unsigned i = 0; i < numCounters; ++i) {
+        OS << "  if (__sp_counters[" << i << "].total)\n";
+        OS << "    fprintf(stderr, \"" << moduleGen.storeCounterInfo[i]
+           << ": typed=%llu, total=%llu\\n\","
+           << " __sp_counters[" << i << "].typed, __sp_counters[" << i
+           << "].total);\n";
+      }
+      OS << "}\n\n";
+    }
+  }
+
   M->assignIndexToVariables();
 
   for (auto &F : *M) {
@@ -3565,6 +3669,10 @@ int main(int argc, char **argv) {
       }
       if (options.instrumentFunctionCalls) {
         OS << "  atexit(__fc_print_counters);\n";
+      }
+      if (options.instrumentStoreProperty &&
+          !moduleGen.storeCounterInfo.empty()) {
+        OS << "  atexit(__sp_print_counters);\n";
       }
       OS << R"(  SHConsoleContext *consoleContext = init_console_bindings(shr);
   bool success =

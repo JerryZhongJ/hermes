@@ -2390,6 +2390,27 @@ extern "C" void _sh_check_type_for_prstore(
       Handle<>(toPHV(value)));
 }
 
+/// Probe used only by --instrument-store-property: report whether \p target is
+/// an object whose HiddenClass is a cached static-shape class (i.e. switched via
+/// _sh_ljs_try_set_static_shape). We match the class pointer against the unit's
+/// cache rather than reading the typed flag: createRoot also sets the typed
+/// flag, so isTyped() alone would count empty objects still on their root class.
+LLVM_ATTRIBUTE_NOINLINE
+extern "C" bool _sh_ljs_is_typed_hc(
+    SHRuntime *shr,
+    SHUnit *unit,
+    SHLegacyValue *target) {
+  (void)shr;
+  if (!_sh_ljs_is_object(*target))
+    return false;
+  SHJSObject *obj = (SHJSObject *)_sh_ljs_get_pointer(*target);
+  for (uint32_t i = 0; i < unit->static_shape_table_count; ++i) {
+    if (obj->clazz == unit->static_shape_class_cache[i].raw)
+      return true;
+  }
+  return false;
+}
+
 namespace {
 
 HiddenClass *
