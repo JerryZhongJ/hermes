@@ -21,6 +21,7 @@
 #include "hermes/BCGen/RemoveMovs.h"
 #include "hermes/BCGen/SerializedLiteralGenerator.h"
 #include "hermes/BCGen/ShapeTableEntry.h"
+#include "hermes/FrontEndDefs/MathBuiltinProps.h"
 #include "hermes/FrontEndDefs/Typeof.h"
 #include "hermes/IR/Analysis.h"
 #include "hermes/IR/IR.h"
@@ -2384,15 +2385,35 @@ class InstrGen {
         << (uint32_t)inst.getBuiltinIndex() << ");\n";
   }
   void generateCallBuiltinInst(CallBuiltinInst &inst) {
-    if (inst.getBuiltinIndex() == BuiltinMethod::Math_sqrt) {
-      if (inst.getNumArguments() == 2 &&
-          inst.getArgument(1)->getType().isNumberType()) {
-        os_.indent(2);
-        generateRegister(inst);
-        os_ << " = _sh_ljs_double(sqrt(_sh_ljs_get_double(";
-        generateValue(*inst.getArgument(1));
-        os_ << ")));\n";
-        return;
+    // Pure-numeric Math.* builtins with a direct C mapping lower to a typed
+    // fast-path; everything else falls back to the generic builtin dispatch.
+    if (const auto *prop = lookupMathBuiltinProp(inst.getBuiltinIndex())) {
+      const unsigned need = prop->numMathArgs;
+      if (prop->cFunc && (need == 1 || need == 2) &&
+          inst.getNumArguments() == need + 1) {
+        bool allNumber = true;
+        for (unsigned i = 1; i <= need; ++i) {
+          if (!inst.getArgument(i)->getType().isNumberType()) {
+            allNumber = false;
+            break;
+          }
+        }
+        if (allNumber) {
+          os_.indent(2);
+          generateRegister(inst);
+          // _sh_ljs_untrusted_double canonicalizes a NaN returned by the C
+          // library (e.g. sqrt(-1)) so it cannot collide with a non-number
+          // NaN-box tag; it is a no-op for non-NaN values.
+          os_ << " = _sh_ljs_untrusted_double(" << prop->cFunc
+              << "(_sh_ljs_get_double(";
+          generateValue(*inst.getArgument(1));
+          if (need == 2) {
+            os_ << "), _sh_ljs_get_double(";
+            generateValue(*inst.getArgument(2));
+          }
+          os_ << ")));\n";
+          return;
+        }
       }
     }
     os_.indent(2);

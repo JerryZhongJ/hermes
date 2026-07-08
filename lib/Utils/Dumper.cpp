@@ -342,11 +342,18 @@ void IRPrinter::printInstruction(Instruction *I) {
 
   const auto &codeGenOpts = I->getContext().getCodeGenerationSettings();
 
-  // Print annotation ID for TypeOfIsInst.
-  if (auto *TOI = llvh::dyn_cast<TypeOfIsInst>(I)) {
-    if (TOI->getAnnotationId() >= 0)
-      os_ << " [ann#" << TOI->getAnnotationId() << "]";
-  }
+  // Print annotation ID for speculation instructions derived from a
+  // type/shape annotation (TypeOfIs / HasStaticShape / TrySetStaticShape),
+  // so the surviving annotations can be tracked in -dump-ir output.
+  int annId = -1;
+  if (auto *TOI = llvh::dyn_cast<TypeOfIsInst>(I))
+    annId = TOI->getAnnotationId();
+  else if (auto *HSS = llvh::dyn_cast<HasStaticShapeInst>(I))
+    annId = HSS->getAnnotationId();
+  else if (auto *TSS = llvh::dyn_cast<TrySetStaticShapeInst>(I))
+    annId = TSS->getAnnotationId();
+  if (annId >= 0)
+    os_ << " [ann#" << annId << "]";
 
   // Print the use list if there is any user for the instruction.
   if (!codeGenOpts.dumpUseList || I->getUsers().empty())

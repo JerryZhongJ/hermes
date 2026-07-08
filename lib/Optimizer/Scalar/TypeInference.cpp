@@ -34,6 +34,7 @@
 
 #include "hermes/Optimizer/Scalar/TypeInference.h"
 
+#include "hermes/FrontEndDefs/MathBuiltinProps.h"
 #include "hermes/IR/Analysis.h"
 #include "hermes/IR/CFG.h"
 #include "hermes/IR/IRBuilder.h"
@@ -801,31 +802,10 @@ class TypeInferenceImpl {
     return Type::createAnyType();
   }
   Type inferCallBuiltinInst(CallBuiltinInst *inst) {
-    switch (inst->getBuiltinIndex()) {
-      case BuiltinMethod::Math_abs:
-      case BuiltinMethod::Math_acos:
-      case BuiltinMethod::Math_asin:
-      case BuiltinMethod::Math_atan:
-      case BuiltinMethod::Math_atan2:
-      case BuiltinMethod::Math_ceil:
-      case BuiltinMethod::Math_cos:
-      case BuiltinMethod::Math_exp:
-      case BuiltinMethod::Math_floor:
-      case BuiltinMethod::Math_hypot:
-      case BuiltinMethod::Math_imul:
-      case BuiltinMethod::Math_log:
-      case BuiltinMethod::Math_max:
-      case BuiltinMethod::Math_min:
-      case BuiltinMethod::Math_pow:
-      case BuiltinMethod::Math_round:
-      case BuiltinMethod::Math_sin:
-      case BuiltinMethod::Math_sqrt:
-      case BuiltinMethod::Math_tan:
-      case BuiltinMethod::Math_trunc:
-        return Type::createNumber();
-      default:
-        return Type::createAnyType();
-    }
+    // All pure-numeric Math.* builtins return a number.
+    if (isPureNumericMathBuiltin(inst->getBuiltinIndex()))
+      return Type::createNumber();
+    return Type::createAnyType();
   }
   Type inferHBCCallNInst(HBCCallNInst *inst) {
     // unimplemented

@@ -9,6 +9,7 @@
 
 #include "hermes/Optimizer/Scalar/RemoveUselessSpeculativeGuards.h"
 
+#include "hermes/FrontEndDefs/MathBuiltinProps.h"
 #include "hermes/IR/IRBuilder.h"
 #include "hermes/IR/Instrs.h"
 #include "hermes/IRGen/AnnotationLoader.h"
@@ -109,11 +110,19 @@ bool objectOperandKnownShape(Instruction *I) {
 }
 
 /// Useful-consumer predicate for a number type guard: the FXXX float families.
-bool isFXXX(Instruction *I) {
+bool isNumericOperation(Instruction *I) {
   // classof uses HERMES_IR_KIND_IN_CLASS, so isa matches the whole family.
-  return llvh::isa<FBinaryMathInst>(I) || // FAdd/FSub/FMul/FDiv/FMod
+  if (llvh::isa<FBinaryMathInst>(I) || // FAdd/FSub/FMul/FDiv/FMod
       llvh::isa<FUnaryMathInst>(I) || // FNegate
-      llvh::isa<FCompareInst>(I); // FEqual/FNotEqual/F</F<=/F>/F>=
+      llvh::isa<FCompareInst>(I)) // FEqual/FNotEqual/F</F<=/F>/F>=
+    return true;
+  // A pure-numeric Math.* CallBuiltin (e.g. Math.floor) consumes its arguments
+  // as doubles, so it is a useful consumer of a number type guard. Without
+  // this, a guard whose only consumer is such a call would be removed and the
+  // SH fast-path would never see the narrowed number type.
+  if (auto *CB = llvh::dyn_cast<CallBuiltinInst>(I))
+    return isPureNumericMathBuiltin(CB->getBuiltinIndex());
+  return false;
 }
 
 /// Find the single UnionNarrowTrustedInst among the users of \p TOI's argument.
@@ -244,7 +253,10 @@ bool RemoveUselessSpeculativeGuards::runOnModule(Module *M) {
       if (TOI->getTypes()->getData() != TypeOfIsTypes().withNumber(true))
         continue;
       if (hasGuardDependentConsumer(
-              TOI->getArgument(), TOI, isFXXX, /*followStack=*/true))
+              TOI->getArgument(),
+              TOI,
+              isNumericOperation,
+              /*followStack=*/true))
         continue;
 
       // The operand must have exactly one paired UNT; otherwise removing only
@@ -254,8 +266,9 @@ bool RemoveUselessSpeculativeGuards::runOnModule(Module *M) {
       if (!unt)
         continue;
 
-      // The narrow's saved type must be the number the guard checks. InsertGuard
-      // pairs always satisfy this; the check guards against oddly-typed narrows.
+      // The narrow's saved type must be the number the guard checks.
+      // InsertGuard pairs always satisfy this; the check guards against
+      // oddly-typed narrows.
       if (!unt->getSavedResultType().isNumberType())
         continue;
 

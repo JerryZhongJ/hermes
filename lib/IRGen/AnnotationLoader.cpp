@@ -85,6 +85,19 @@ bool readStartPos(
   return true;
 }
 
+/// Look up a JSON array under \p key, falling back to \p alias when \p key is
+/// absent. Annotation JSON accepts both "type hints" and its alias "type
+/// guards" (likewise "shape hints" / "shape guards"); the primary key wins
+/// when both happen to be present.
+const llvh::json::Array *getArrayWithAlias(
+    const llvh::json::Object &obj,
+    llvh::StringRef key,
+    llvh::StringRef alias) {
+  if (auto *arr = obj.getArray(key))
+    return arr;
+  return obj.getArray(alias);
+}
+
 /// Load static shape definitions from the "shapes" JSON object.
 /// Each entry maps a shape name to an object with a "properties" array; each
 /// property is {"name": string, "type": string|[string]}. Property order in
@@ -410,13 +423,13 @@ bool Annotations::loadFromFile(
   if (auto *shapesObj = root->getObject("static shapes"))
     loadStaticShapes(*shapesObj, shapeDefs_);
 
-  // 2. Type hints
-  if (auto *arr = root->getArray("type hints"))
+  // 2. Type hints (alias: "type guards")
+  if (auto *arr = getArrayWithAlias(*root, "type hints", "type guards"))
     loadTypeGuards(*arr, sm, typeGuards_, typeGuardIds_, nextAnnotationId_,
                    annotationDescriptors_);
 
-  // 3. Shape hints
-  if (auto *arr = root->getArray("shape hints"))
+  // 3. Shape hints (alias: "shape guards")
+  if (auto *arr = getArrayWithAlias(*root, "shape hints", "shape guards"))
     loadShapeGuards(*arr, sm, shapeDefs_, shapeGuards_, nextAnnotationId_,
                     annotationDescriptors_);
 
