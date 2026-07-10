@@ -26,7 +26,7 @@ import tree_sitter_javascript as tjs
 from claude_agent_sdk import create_sdk_mcp_server, tool
 from tree_sitter import Language, Parser
 
-from .utils import _err, build_line_starts, resolve_in_workdir
+from .utils import _err, build_line_starts
 
 # Delimiter blocks worth folding. We fold the block node *itself* (its header
 # line carries the opener, its last line the matching close) rather than the
@@ -231,13 +231,14 @@ def _cached_levels(path: Path, data: bytes) -> tuple[list[int], list[str]]:
     return val
 
 
-def build_fold_tool(workdir: Path):
-    """Build the ``fold`` SDK MCP tool, bound to ``workdir``.
+def build_fold_tool(source: Path):
+    """Build the ``fold`` SDK MCP tool, bound to the single source ``source``.
 
-    Exposed separately from :func:`make_fold_server` so tests can invoke the
-    handler directly.
+    One annotator run targets exactly one JS file, so the agent never picks a
+    file — the tool always reads ``source``. Exposed separately from
+    :func:`make_fold_server` so tests can invoke the handler directly.
     """
-    workdir_resolved = workdir.resolve()
+    source_resolved = source.resolve()
 
     @tool(
         "fold",
@@ -251,10 +252,6 @@ def build_fold_tool(workdir: Path):
         {
             "type": "object",
             "properties": {
-                "file": {
-                    "type": "string",
-                    "description": "filename relative to the workdir, e.g. 'box2d.js'",
-                },
                 "from_line": {
                     "type": "integer",
                     "description": "1-based start line (inclusive); omit to fold the whole file",
@@ -272,24 +269,16 @@ def build_fold_tool(workdir: Path):
                     "description": "cap on output size (default 16384; 0 = unlimited)",
                 },
             },
-            "required": ["file"],
+            "required": [],
         },
     )
     async def fold(args: dict[str, Any]) -> dict[str, Any]:
-        file_arg = args.get("file")
-        if not isinstance(file_arg, str) or not file_arg:
-            return _err("missing 'file'")
-        target, err = resolve_in_workdir(workdir_resolved, file_arg)
-        if err is not None:
-            return err
-        assert target is not None  # resolve_in_workdir returns a path unless err set
-
         try:
-            data = target.read_bytes()
+            data = source_resolved.read_bytes()
         except FileNotFoundError:
-            return _err(f"file not found: {file_arg}")
+            return _err(f"source file not found: {source_resolved}")
         except OSError as exc:
-            return _err(f"cannot read {file_arg!r}: {exc}")
+            return _err(f"cannot read {source_resolved!r}: {exc}")
 
         fl_raw = args.get("from_line")
         tl_raw = args.get("to_line")
@@ -316,7 +305,7 @@ def build_fold_tool(workdir: Path):
         except (TypeError, ValueError):
             max_chars = DEFAULT_MAX_OUTPUT_CHARS
 
-        level, lines = _cached_levels(target, data)
+        level, lines = _cached_levels(source_resolved, data)
         n = len(lines)
         if n == 0:
             text = "(empty file)"
@@ -337,6 +326,6 @@ def build_fold_tool(workdir: Path):
     return fold
 
 
-def make_fold_server(workdir: Path):
-    """Build an in-process MCP server exposing ``fold``, bound to ``workdir``."""
-    return create_sdk_mcp_server(name="source-fold", tools=[build_fold_tool(workdir)])
+def make_fold_server(source: Path):
+    """Build an in-process MCP server exposing ``fold``, bound to ``source``."""
+    return create_sdk_mcp_server(name="source-fold", tools=[build_fold_tool(source)])

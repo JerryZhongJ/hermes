@@ -23,7 +23,7 @@ class AgentRun:
 
 
 class AgentRunner(Protocol):
-    def run(self, prompt: str, attempt_dir: Path) -> AgentRun:
+    def run(self, prompt: str, attempt_dir: Path, source_name: str) -> AgentRun:
         ...
 
 

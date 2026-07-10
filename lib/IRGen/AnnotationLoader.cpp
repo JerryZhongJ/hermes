@@ -69,15 +69,18 @@ llvh::Optional<llvh::SMRange> resolveLocation(
 /// \p col. Returns false (leaving the outputs untouched) if the start position
 /// is missing, so callers can record a best-effort position on the descriptor
 /// for debug logs independently of resolveLocation's SMRange resolution.
-bool readStartPos(
+/// Read the 1-based line/column under \p key ("start" or "end") of a JSON
+/// location object. Returns false if the sub-object or either field is absent.
+bool readPos(
     const llvh::json::Object *loc,
+    llvh::StringRef key,
     unsigned &line,
     unsigned &col) {
-  const llvh::json::Object *start = loc->getObject("start");
-  if (!start)
+  const llvh::json::Object *pos = loc->getObject(key);
+  if (!pos)
     return false;
-  auto l = start->getInteger("line");
-  auto c = start->getInteger("column");
+  auto l = pos->getInteger("line");
+  auto c = pos->getInteger("column");
   if (!l || !c)
     return false;
   line = static_cast<unsigned>(*l);
@@ -104,47 +107,57 @@ const llvh::json::Array *getArrayWithAlias(
 /// the array is significant: different order means a different shape.
 void loadStaticShapes(
     const llvh::json::Object &shapesObj,
-    llvh::StringMap<StaticShapeDefinition> &defs) {
+    llvh::StringMap<StaticShapeDefinition> &defs,
+    SourceErrorManager &sm) {
   for (const auto &entry : shapesObj) {
     llvh::StringRef shapeName = entry.first;
     const llvh::json::Object *shapeObj = entry.second.getAsObject();
     if (!shapeObj) {
-      llvh::errs() << "Warning: invalid static shape entry '" << shapeName
-                   << "\n";
+      sm.warning(llvh::SMLoc{},
+                 "invalid static shape entry '" + shapeName.str() + "'");
       continue;
     }
     auto *propsArr = shapeObj->getArray("properties");
     if (!propsArr) {
-      llvh::errs()
-          << "Warning: missing 'properties' array in static shape '" << shapeName
-          << "\n";
+      sm.warning(llvh::SMLoc{},
+                 "missing 'properties' in static shape '" + shapeName.str() +
+                     "'");
       continue;
     }
+    // Build the shape as a whole: any malformed property discards the entire
+    // shape — a partial shape would be misleading. Warn (not error): a bad
+    // shape definition just means that shape's guards won't bind.
     StaticShapeDefinition def;
+    bool ok = true;
     for (const auto &elem : *propsArr) {
       const llvh::json::Object *propObj = elem.getAsObject();
       if (!propObj) {
-        llvh::errs() << "Warning: invalid property in static shape '"
-                     << shapeName
-                     << "\n";
-        continue;
+        sm.warning(llvh::SMLoc{},
+                   "invalid property in static shape '" + shapeName.str() + "'");
+        ok = false;
+        break;
       }
       auto name = propObj->getString("name");
       auto *typeVal = propObj->get("type");
       if (!name || !typeVal) {
-        llvh::errs()
-            << "Warning: missing name or type in static shape property\n";
-        continue;
+        sm.warning(llvh::SMLoc{},
+                   "missing name or type in static shape '" + shapeName.str() +
+                       "'");
+        ok = false;
+        break;
       }
       auto typeStrs = extractTypeStrings(*typeVal);
       if (typeStrs.empty()) {
-        llvh::errs() << "Warning: invalid type for property \"" << name->str()
-                     << "\"\n";
-        continue;
+        sm.warning(llvh::SMLoc{},
+                   "invalid type for property \"" + name->str() +
+                       "\" in static shape '" + shapeName.str() + "'");
+        ok = false;
+        break;
       }
       def.properties.push_back({name->str(), std::move(typeStrs)});
     }
-    defs[shapeName] = std::move(def);
+    if (ok)
+      defs[shapeName] = std::move(def);
   }
   LLVM_DEBUG(
       llvh::dbgs() << "Loaded " << defs.size() << " static shape definitions\n");
@@ -153,17 +166,19 @@ void loadStaticShapes(
 llvh::Optional<std::string> resolveShapeName(
     const llvh::json::Object &annotation,
     const llvh::StringMap<StaticShapeDefinition> &shapeDefs,
-    llvh::StringRef context) {
+    llvh::StringRef context,
+    SourceErrorManager &sm) {
   auto shapeName = annotation.getString("shape");
   if (!shapeName) {
-    llvh::errs() << "Warning: missing shape name in " << context << "\n";
+    sm.warning(llvh::SMLoc{}, "missing shape name in " + context.str());
     return llvh::None;
   }
 
   auto it = shapeDefs.find(*shapeName);
   if (it == shapeDefs.end()) {
-    llvh::errs() << "Warning: unknown shape name '" << *shapeName << "' in "
-                 << context << "\n";
+    sm.warning(llvh::SMLoc{},
+               "unknown shape name '" + shapeName->str() + "' in " +
+                   context.str());
     return llvh::None;
   }
 
@@ -179,35 +194,43 @@ void loadTypeGuards(
     llvh::DenseMap<llvh::SMRange, unsigned, SMRangeInfo> &typeGuardIds,
     unsigned &nextAnnotationId,
     std::vector<AnnotationDescriptor> &annotationDescriptors) {
-  unsigned failCount = 0;
-
   for (unsigned i = 0, e = arr.size(); i < e; ++i) {
     const llvh::json::Object *annot = arr[i].getAsObject();
     if (!annot) {
-      failCount++;
+      sm.warning(llvh::SMLoc{},
+                 "type guard entry #" + std::to_string(i) +
+                     ": not an object");
       continue;
     }
 
     const llvh::json::Object *loc = annot->getObject("target range");
     if (!loc) {
-      failCount++;
+      sm.warning(llvh::SMLoc{},
+                 "type guard entry #" + std::to_string(i) +
+                     ": missing 'target range'");
       continue;
     }
+
+    unsigned line = 0, col = 0;
+    readPos(loc, "start", line, col);
+    unsigned endLine = 0, endCol = 0;
+    readPos(loc, "end", endLine, endCol);
+    std::string at = std::to_string(line) + ":" + std::to_string(col);
 
     // "type": a single type string or an array of type strings (union).
     std::vector<std::string> typeStrs;
     if (auto *v = annot->get("type"))
       typeStrs = extractTypeStrings(*v);
     if (typeStrs.empty()) {
-      failCount++;
+      sm.warning(llvh::SMLoc{},
+                 "type guard at " + at + ": missing or invalid 'type'");
       continue;
     }
 
-    unsigned line = 0, col = 0;
-    readStartPos(loc, line, col);
     auto range = resolveLocation(loc, sm);
     if (!range.hasValue()) {
-      failCount++;
+      sm.warning(llvh::SMLoc{},
+                 "type guard at " + at + ": target range unresolved");
       continue;
     }
 
@@ -217,14 +240,13 @@ void loadTypeGuards(
     typeGuards.insert({range.getValue(), std::move(typeStrs)});
     typeGuardIds.insert({range.getValue(), id});
     annotationDescriptors.push_back(
-        {AnnotationDescriptor::Type, std::move(detail), line, col});
+        {AnnotationDescriptor::Type, std::move(detail), line, col, endLine, endCol});
   }
-
-  if (failCount > 0)
-    llvh::errs() << "Warning: " << failCount << " type hints failed to load\n";
 }
 
-/// Load shape hints from the "shape hints" JSON array.
+/// Load shape hints from the "shape hints" JSON array. Each hint checks the
+/// target expression right after evaluation, or after the optional "guard
+/// after" point if given.
 void loadShapeGuards(
     const llvh::json::Array &arr,
     SourceErrorManager &sm,
@@ -235,48 +257,62 @@ void loadShapeGuards(
         SMRangeInfo> &shapeGuards,
     unsigned &nextAnnotationId,
     std::vector<AnnotationDescriptor> &annotationDescriptors) {
-  unsigned failCount = 0;
-
   for (unsigned i = 0, e = arr.size(); i < e; ++i) {
     const llvh::json::Object *sa = arr[i].getAsObject();
     if (!sa) {
-      failCount++;
+      sm.warning(llvh::SMLoc{},
+                 "shape guard entry #" + std::to_string(i) +
+                     ": not an object");
       continue;
     }
 
     const llvh::json::Object *targetLoc = sa->getObject("target range");
     if (!targetLoc) {
-      failCount++;
-      continue;
-    }
-
-    auto shapeName = resolveShapeName(*sa, shapeDefs, "shape hint");
-    if (!shapeName.hasValue()) {
-      failCount++;
+      sm.warning(llvh::SMLoc{},
+                 "shape guard entry #" + std::to_string(i) +
+                     ": missing 'target range'");
       continue;
     }
 
     unsigned line = 0, col = 0;
-    readStartPos(targetLoc, line, col);
-    auto targetRange = resolveLocation(targetLoc, sm);
-    if (!targetRange.hasValue()) {
-      failCount++;
+    readPos(targetLoc, "start", line, col);
+    unsigned endLine = 0, endCol = 0;
+    readPos(targetLoc, "end", endLine, endCol);
+    std::string at = std::to_string(line) + ":" + std::to_string(col);
+
+    auto shapeName =
+        resolveShapeName(*sa, shapeDefs, "shape guard at " + at, sm);
+    if (!shapeName.hasValue()) {
       continue;
     }
 
-    // The check runs right after the target expression is evaluated, so the
-    // insertion point (map key) and the checked object range are both the
-    // target range.
+    auto targetRange = resolveLocation(targetLoc, sm);
+    if (!targetRange.hasValue()) {
+      sm.warning(llvh::SMLoc{},
+                 "shape guard at " + at + ": target range unresolved");
+      continue;
+    }
+
+    // The checked object is always the target expression. The insertion point
+    // (map key) is the optional "guard after" location; if omitted the guard
+    // runs right after the target expression.
+    llvh::SMRange insertRange = targetRange.getValue();
+    if (const llvh::json::Object *guardAfter = sa->getObject("guard after")) {
+      auto guardAfterRange = resolveLocation(guardAfter, sm);
+      if (!guardAfterRange.hasValue()) {
+        sm.warning(llvh::SMLoc{},
+                   "shape guard at " + at + ": 'guard after' unresolved");
+        continue;
+      }
+      insertRange = guardAfterRange.getValue();
+    }
+
     unsigned id = nextAnnotationId++;
-    shapeGuards[targetRange.getValue()].push_back(
+    shapeGuards[insertRange].push_back(
         {targetRange.getValue(), shapeName.getValue(), id});
     annotationDescriptors.push_back(
-        {AnnotationDescriptor::ShapeHint, shapeName.getValue(), line, col});
+        {AnnotationDescriptor::ShapeHint, shapeName.getValue(), line, col, endLine, endCol});
   }
-
-  if (failCount > 0)
-    llvh::errs() << "Warning: " << failCount
-                 << " shape hints failed to load\n";
 }
 
 /// Load shape bindings from the "shape bindings" JSON array. A binding sets a
@@ -290,32 +326,39 @@ void loadShapeBindings(
         &shapeBindings,
     unsigned &nextAnnotationId,
     std::vector<AnnotationDescriptor> &annotationDescriptors) {
-  unsigned failCount = 0;
-
   for (unsigned i = 0, e = arr.size(); i < e; ++i) {
     const llvh::json::Object *sp = arr[i].getAsObject();
     if (!sp) {
-      failCount++;
+      sm.warning(llvh::SMLoc{},
+                 "shape binding entry #" + std::to_string(i) +
+                     ": not an object");
       continue;
     }
 
     const llvh::json::Object *targetLoc = sp->getObject("target range");
     if (!targetLoc) {
-      failCount++;
-      continue;
-    }
-
-    auto shapeName = resolveShapeName(*sp, shapeDefs, "shape binding");
-    if (!shapeName.hasValue()) {
-      failCount++;
+      sm.warning(llvh::SMLoc{},
+                 "shape binding entry #" + std::to_string(i) +
+                     ": missing 'target range'");
       continue;
     }
 
     unsigned line = 0, col = 0;
-    readStartPos(targetLoc, line, col);
+    readPos(targetLoc, "start", line, col);
+    unsigned endLine = 0, endCol = 0;
+    readPos(targetLoc, "end", endLine, endCol);
+    std::string at = std::to_string(line) + ":" + std::to_string(col);
+
+    auto shapeName =
+        resolveShapeName(*sp, shapeDefs, "shape binding at " + at, sm);
+    if (!shapeName.hasValue()) {
+      continue;
+    }
+
     auto targetRange = resolveLocation(targetLoc, sm);
     if (!targetRange.hasValue()) {
-      failCount++;
+      sm.warning(llvh::SMLoc{},
+                 "shape binding at " + at + ": target range unresolved");
       continue;
     }
 
@@ -326,7 +369,8 @@ void loadShapeBindings(
     if (const llvh::json::Object *bindAfter = sp->getObject("bind after")) {
       auto bindAfterRange = resolveLocation(bindAfter, sm);
       if (!bindAfterRange.hasValue()) {
-        failCount++;
+        sm.warning(llvh::SMLoc{},
+                   "shape binding at " + at + ": 'bind after' unresolved");
         continue;
       }
       insertRange = bindAfterRange.getValue();
@@ -336,12 +380,8 @@ void loadShapeBindings(
     shapeBindings.insert(
         {insertRange, {targetRange.getValue(), shapeName.getValue(), id}});
     annotationDescriptors.push_back(
-        {AnnotationDescriptor::ShapeBinding, shapeName.getValue(), line, col});
+        {AnnotationDescriptor::ShapeBinding, shapeName.getValue(), line, col, endLine, endCol});
   }
-
-  if (failCount > 0)
-    llvh::errs() << "Warning: " << failCount
-                 << " shape bindings failed to load\n";
 }
 
 } // namespace
@@ -421,7 +461,7 @@ bool Annotations::loadFromFile(
 
   // 1. Static shapes
   if (auto *shapesObj = root->getObject("static shapes"))
-    loadStaticShapes(*shapesObj, shapeDefs_);
+    loadStaticShapes(*shapesObj, shapeDefs_, sm);
 
   // 2. Type hints (alias: "type guards")
   if (auto *arr = getArrayWithAlias(*root, "type hints", "type guards"))
@@ -492,31 +532,25 @@ Annotations::getShapeAnnotationObjectRanges() const {
   return ranges;
 }
 
-void Annotations::reportMatchStatus() const {
+void Annotations::reportMatchStatus(SourceErrorManager &sm) const {
+  // Warn about annotations that loaded OK but produced no IR guard — their
+  // target range didn't hit a target AST node. Goes through the compiler's
+  // standard warning path so annotation-dryrun / shermes surface it like
+  // other diagnostics. bufId 2 = main source buffer (matches resolveLocation).
   unsigned total = annotationDescriptors_.size();
-  if (total == 0)
-    return;
-
-  unsigned matched = matchedAnnotationIds_.size();
-  unsigned unmatched = total - matched;
-
-  LLVM_DEBUG({
-    llvh::dbgs() << "Annotations: " << matched << "/" << total
-                 << " matched by IR instructions";
-    if (unmatched)
-      llvh::dbgs() << ", " << unmatched << " UNMATCHED";
-    llvh::dbgs() << "\n";
-    // Report every annotation's detail and match status so both successfully
-    // consumed and missing ones are visible at a glance.
-    for (unsigned id = 0; id < total; ++id) {
-      const auto &desc = annotationDescriptors_[id];
-      bool isMatched = matchedAnnotationIds_.count(id);
-      llvh::dbgs() << "  ann#" << id << " ["
-                   << annotationKindLabel(desc.kind) << " " << desc.detail
-                   << "] @" << desc.line << ":" << desc.col << " "
-                   << (isMatched ? "matched" : "UNMATCHED") << "\n";
-    }
-  });
+  for (unsigned id = 0; id < total; ++id) {
+    const auto &desc = annotationDescriptors_[id];
+    if (matchedAnnotationIds_.count(id))
+      continue;
+    SourceErrorManager::SourceCoords coords(2, desc.line, desc.col);
+    llvh::SMLoc loc = sm.findSMLocFromCoords(coords);
+    sm.warning(
+        loc,
+        "annotation [" + std::string(annotationKindLabel(desc.kind)) + " \"" +
+            desc.detail +
+            "\"] unmatched: target range didn't hit a target AST node "
+            "(fix the range, not the annotation content)");
+  }
 }
 
 } // namespace hermes

@@ -9,7 +9,7 @@
 
 #include "hermes/Optimizer/Scalar/RemoveUselessSpeculativeGuards.h"
 
-#include "hermes/FrontEndDefs/MathBuiltinProps.h"
+#include "hermes/Optimizer/Scalar/SpeculativeGuardUtils.h"
 #include "hermes/IR/IRBuilder.h"
 #include "hermes/IR/Instrs.h"
 #include "hermes/IRGen/AnnotationLoader.h"
@@ -30,18 +30,6 @@ STATISTIC(NumTypeGuardsRemoved, "Number of useless number type guards removed");
 STATISTIC(NumTrySetShapeRemoved, "Number of useless try-set-shape removed");
 
 namespace {
-
-/// A MovLike instruction transparently forwards its single operand at runtime
-/// (the value's carrier is unchanged; it only renames or annotates a type).
-/// Mov is the explicit move; ImplicitMovInst emits no bytecode; and
-/// UnionNarrowTrustedInst is a trusted type narrowing with no runtime effect.
-/// All three carry mov semantics and must be traversed by the use-chain.
-/// (AsNumber/CoerceThisNS and friends convert the value, so they are not
-/// MovLike.)
-bool isMovLike(Instruction *I) {
-  return llvh::isa<MovInst>(I) || llvh::isa<ImplicitMovInst>(I) ||
-      llvh::isa<UnionNarrowTrustedInst>(I);
-}
 
 /// Starting from \p start, traverse MovLike/Phi instructions (and, when
 /// \p followStack is set, the StoreStack -> AllocStack -> LoadStack stack
@@ -68,7 +56,7 @@ bool hasGuardDependentConsumer(
     for (Instruction *user : v->getUsers()) {
       if (user == exclude)
         continue;
-      if (isMovLike(user) || llvh::isa<PhiInst>(user)) {
+      if (isPropagator(user)) {
         wl.push_back(user); // transparent relay, keep tracing
         continue;
       }
@@ -86,42 +74,6 @@ bool hasGuardDependentConsumer(
         return true;
     }
   }
-  return false;
-}
-
-/// Useful-consumer predicate for a shape guard.
-bool objectOperandKnownShape(Instruction *I) {
-  // PrLoad/PrStore derive directly from Instruction (no objOperandShape); they
-  // are typed property accesses and always count as useful consumers.
-  if (llvh::isa<PrLoadInst>(I) || llvh::isa<PrStoreInst>(I))
-    return true;
-  // Generic Load/StoreProperty and HasStaticShape carry an objOperandShape that
-  // must be non-Any (i.e. inferred KnownStaticShape) to be a useful consumer.
-  StaticShapeInfo shape;
-  if (auto *L = llvh::dyn_cast<BaseLoadPropertyInst>(I))
-    shape = L->getObjOperandShape();
-  else if (auto *S = llvh::dyn_cast<BaseStorePropertyInst>(I))
-    shape = S->getObjOperandShape();
-  else if (auto *H = llvh::dyn_cast<HasStaticShapeInst>(I))
-    shape = H->getObjOperandShape();
-  else
-    return false;
-  return shape.status != StaticShapeInfo::AnyShapes;
-}
-
-/// Useful-consumer predicate for a number type guard: the FXXX float families.
-bool isNumericOperation(Instruction *I) {
-  // classof uses HERMES_IR_KIND_IN_CLASS, so isa matches the whole family.
-  if (llvh::isa<FBinaryMathInst>(I) || // FAdd/FSub/FMul/FDiv/FMod
-      llvh::isa<FUnaryMathInst>(I) || // FNegate
-      llvh::isa<FCompareInst>(I)) // FEqual/FNotEqual/F</F<=/F>/F>=
-    return true;
-  // A pure-numeric Math.* CallBuiltin (e.g. Math.floor) consumes its arguments
-  // as doubles, so it is a useful consumer of a number type guard. Without
-  // this, a guard whose only consumer is such a call would be removed and the
-  // SH fast-path would never see the narrowed number type.
-  if (auto *CB = llvh::dyn_cast<CallBuiltinInst>(I))
-    return isPureNumericMathBuiltin(CB->getBuiltinIndex());
   return false;
 }
 
@@ -255,7 +207,7 @@ bool RemoveUselessSpeculativeGuards::runOnModule(Module *M) {
       if (hasGuardDependentConsumer(
               TOI->getArgument(),
               TOI,
-              isNumericOperation,
+              isNumericConsumer,
               /*followStack=*/true))
         continue;
 

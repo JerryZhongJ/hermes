@@ -93,21 +93,24 @@ struct AnnotationDescriptor {
   /// Human-readable detail: type names joined by '|' (e.g. "number|string"),
   /// or the shape name (e.g. "XNumber").
   std::string detail;
-  /// Start position (1-based line:col) of the annotated expression, captured
-  /// at load time so reportMatchStatus needs no SourceErrorManager lookup.
+  /// Source range (1-based, end column EXCLUSIVE — matches annotation JSON)
+  /// of the annotated expression, captured at load time.
   unsigned line = 0;
   unsigned col = 0;
+  unsigned endLine = 0;
+  unsigned endCol = 0;
 };
 
-/// Display label for an annotation kind (e.g. "type", "shape-hint").
+/// Display label for an annotation kind — matches the prompt/JSON terminology
+/// ("type guard", "shape guard", "shape binding").
 inline llvh::StringRef annotationKindLabel(AnnotationDescriptor::Kind k) {
   switch (k) {
     case AnnotationDescriptor::Type:
-      return "type";
+      return "type guard";
     case AnnotationDescriptor::ShapeHint:
-      return "shape-hint";
+      return "shape guard";
     case AnnotationDescriptor::ShapeBinding:
-      return "shape-binding";
+      return "shape binding";
   }
   return "?";
 }
@@ -126,8 +129,9 @@ class Annotations {
   /// Static shape definitions loaded from JSON, keyed by shape name.
   llvh::StringMap<StaticShapeDefinition> shapeDefs_;
 
-  /// Shape hint map: target range -> hint entries. Each hint checks the
-  /// target expression's value against a static shape right after evaluation.
+  /// Shape hint map: guard-after (or target) range -> hint entries. The map
+  /// key is where the HasStaticShape check is inserted; the checked object is
+  /// always the target expression (ShapeGuardEntry.objectRange).
   llvh::DenseMap<
       llvh::SMRange,
       llvh::SmallVector<ShapeGuardEntry, 2>,
@@ -186,10 +190,10 @@ class Annotations {
     return typeGuards_;
   }
 
-  /// Report the match status of every loaded annotation (both matched and
-  /// unmatched) after IRGen. Each annotation id is printed with its kind,
-  /// detail, source position, and whether an IR instruction consumed it.
-  void reportMatchStatus() const;
+  /// After IRGen, warn (via \p sm) about every loaded annotation that no IR
+  /// instruction consumed (unmatched — its target range didn't hit a target
+  /// AST node). Goes through the compiler's standard warning path.
+  void reportMatchStatus(SourceErrorManager &sm) const;
 
   /// Parse a type name string to a Type object.
   static llvh::Optional<Type> parseTypeName(llvh::StringRef typeName);
@@ -207,7 +211,8 @@ class Annotations {
     return shapeDefs_;
   }
 
-  /// Query the shape hints whose target range equals \p range.
+  /// Query the shape hints whose insertion (guard-after, or target) range
+  /// equals \p range.
   void getShapeGuards(
       llvh::SMRange range,
       llvh::SmallVectorImpl<ShapeGuardEntry> &guards) const;

@@ -150,13 +150,12 @@ async def _call(tool, args: dict) -> dict:
     return await tool.handler(args)
 
 
-def test_handler_schema_marks_only_file_required():
+def test_handler_schema_has_no_required_params():
     t = build_fold_tool(Path("."))
     schema = t.input_schema
     assert isinstance(schema, dict)
-    assert schema["required"] == ["file"]
+    assert schema["required"] == []
     assert set(schema["properties"]) == {
-        "file",
         "from_line",
         "to_line",
         "unfold",
@@ -165,8 +164,8 @@ def test_handler_schema_marks_only_file_required():
 
 
 def test_handler_fold_query(solve_file: Path):
-    t = build_fold_tool(solve_file.parent)
-    result = asyncio.run(_call(t, {"file": "solve.js"}))
+    t = build_fold_tool(solve_file)
+    result = asyncio.run(_call(t, {}))
     assert not result.get("is_error")
     text = result["content"][0]["text"]
     assert "function solve(b) {" in text
@@ -174,16 +173,16 @@ def test_handler_fold_query(solve_file: Path):
 
 
 def test_handler_unfold_param(solve_file: Path):
-    t = build_fold_tool(solve_file.parent)
-    result = asyncio.run(_call(t, {"file": "solve.js", "unfold": 2}))
+    t = build_fold_tool(solve_file)
+    result = asyncio.run(_call(t, {"unfold": 2}))
     text = result["content"][0]["text"]
     assert "out.push(p.x)" in text
     assert "folded" not in text
 
 
 def test_handler_unfold_all_string(solve_file: Path):
-    t = build_fold_tool(solve_file.parent)
-    result = asyncio.run(_call(t, {"file": "solve.js", "unfold": "all"}))
+    t = build_fold_tool(solve_file)
+    result = asyncio.run(_call(t, {"unfold": "all"}))
     assert not result.get("is_error")
     text = result["content"][0]["text"]
     assert "out.push(p.x)" in text
@@ -191,53 +190,45 @@ def test_handler_unfold_all_string(solve_file: Path):
 
 
 def test_handler_line_range(solve_file: Path):
-    t = build_fold_tool(solve_file.parent)
-    result = asyncio.run(
-        _call(t, {"file": "solve.js", "from_line": 3, "to_line": 5, "unfold": 1})
-    )
+    t = build_fold_tool(solve_file)
+    result = asyncio.run(_call(t, {"from_line": 3, "to_line": 5, "unfold": 1}))
     text = result["content"][0]["text"]
     assert "for (const p of b.items)" in text
     assert "function solve(b)" not in text
 
 
-def test_handler_path_escape_blocked(tmp_path: Path, solve_file: Path):
-    # workdir is an inner dir; a file outside it must be refused even when
-    # given as an absolute path.
-    t = build_fold_tool(tmp_path / "work")
-    result = asyncio.run(_call(t, {"file": str(solve_file.resolve())}))
-    assert result.get("is_error") is True
-
-
-def test_handler_file_not_found(solve_file: Path):
-    t = build_fold_tool(solve_file.parent)
-    result = asyncio.run(_call(t, {"file": "missing.js"}))
+def test_handler_missing_source_error(tmp_path: Path):
+    # The bound source does not exist -> defensive FileNotFoundError error.
+    t = build_fold_tool(tmp_path / "missing.js")
+    result = asyncio.run(_call(t, {}))
     assert result.get("is_error") is True
 
 
 def test_handler_negative_unfold_error(solve_file: Path):
-    t = build_fold_tool(solve_file.parent)
-    result = asyncio.run(_call(t, {"file": "solve.js", "unfold": -1}))
+    t = build_fold_tool(solve_file)
+    result = asyncio.run(_call(t, {"unfold": -1}))
     assert result.get("is_error") is True
 
 
 def test_handler_empty_file(tmp_path: Path):
-    (tmp_path / "e.js").write_text("")
-    t = build_fold_tool(tmp_path)
-    result = asyncio.run(_call(t, {"file": "e.js"}))
+    empty = tmp_path / "e.js"
+    empty.write_text("")
+    t = build_fold_tool(empty)
+    result = asyncio.run(_call(t, {}))
     assert not result.get("is_error")
     assert result["content"][0]["text"] == "(empty file)"
 
 
 def test_handler_truncation_caps_output(solve_file: Path):
-    t = build_fold_tool(solve_file.parent)
-    result = asyncio.run(_call(t, {"file": "solve.js", "max_output_chars": 20}))
+    t = build_fold_tool(solve_file)
+    result = asyncio.run(_call(t, {"max_output_chars": 20}))
     text = result["content"][0]["text"]
     assert "truncated" in text
     assert len(text) < 100
 
 
 def test_make_fold_server_returns_sdk_config(solve_file: Path):
-    srv = make_fold_server(solve_file.parent)
+    srv = make_fold_server(solve_file)
     assert srv["type"] == "sdk"
     assert srv["name"] == "source-fold"
     assert srv["instance"] is not None

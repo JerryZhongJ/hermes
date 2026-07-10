@@ -66,11 +66,10 @@ bool ESTreeIRGen::tryInsertTypeCheck(Value *val, ESTree::Node *node) {
   llvh::Optional<Type> annotatedType =
       Annotations::parseTypeNames(*typeStrs, &bad);
   if (!annotatedType.hasValue()) {
-    // Fail fast: a type annotation referencing an unknown type name is almost
-    // always a bug in the annotation generator. Surface it as a compile error
-    // (listing the offending names) instead of silently dropping the guard.
-    Mod->getContext().getSourceErrorManager().error(
-        range, "unsupported type annotation: " + bad);
+    // Unsupported type name(s): drop this annotation (can't build a sound
+    // guard), but only warn — don't fail the compile.
+    Mod->getContext().getSourceErrorManager().warning(
+        range, "unsupported type names in annotation: " + bad);
     return false;
   }
 

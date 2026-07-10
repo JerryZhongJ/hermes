@@ -425,6 +425,40 @@ class Impl {
 
  public:
   explicit Impl(Function *F) : F_(F) {}
+
+  /// After convergence: replay transfer and collect every Known shape fact
+  /// each polluting instruction truly killed (polluter + the object whose fact
+  /// died). Reuses the real dataflow (join/pollute/propagator) — precise, not
+  /// approximate: no false positives (a fact dead at a join is already Any, so
+  /// a polluter doesn't count it), no false negatives (a guard's shape reaches
+  /// State via mov-like/phi, so a polluter killing it is recorded).
+  llvh::SmallVector<ShapeKill, 8> collectKills() {
+    llvh::SmallVector<ShapeKill, 8> kills;
+    for (BasicBlock &BB : *F_) {
+      State s = computeIn(&BB);
+      for (Instruction &I : BB) {
+        Instruction *inst = &I;
+        if (polluting(inst)) {
+          for (const auto &kv : s)
+            if (kv.second.status == StaticShapeInfo::KnownStaticShape)
+              kills.push_back({inst, kv.first});
+          transferPolluting(s);
+        }
+        if (!analysisScope_.count(inst))
+          continue;
+        if (auto *phi = llvh::dyn_cast<PhiInst>(inst)) {
+          transferPhi(s, phi);
+          continue;
+        }
+        if (auto *movLike = isMovLikeInst(inst)) {
+          transferMovLike(s, movLike);
+          continue;
+        }
+        transferObjectSource(s, inst);
+      }
+    }
+    return kills;
+  }
 };
 
 } // namespace static_shape_inference
@@ -441,6 +475,10 @@ void StaticShapeInferenceRunner::preIteration() {
 
 bool StaticShapeInferenceRunner::step() {
   return impl_->runToFixpoint();
+}
+
+llvh::SmallVector<ShapeKill, 8> StaticShapeInferenceRunner::collectKills() {
+  return impl_->collectKills();
 }
 
 } // namespace hermes

@@ -29,9 +29,17 @@ def build_prompt(
 guards to `./{annotation_path.name}` — each makes hot JavaScript code run faster by
 inserting a runtime check the compiler can specialize around.
 
+Environment: you are running inside a one-shot Docker container. Your working
+directory is `/work`, which contains the input file `{source_path.name}`. The
+container is destroyed when you finish.
+Pre-installed: `python3` (with `tree_sitter` and `tree_sitter_javascript`),
+`node`, coreutils. Write your annotations to
+`./{annotation_path.name}`.
+
 Basic concepts:
-- target expression — a value the program computes or loads; a function
-  parameter (loaded at entry) is one too. Every guard targets one.
+- target expression — where the value is evaluated and where the guard checks it. 
+  The loading of a parameter (and of `this`) is such an expression too, evaluated 
+  at the function entry.
 - type — what kind of value a target expression holds: a concrete type, a
   union of several, or `any`. Supported concrete types: {", ".join(sorted(SUPPORTED_TYPES))}.
   Use any for any type not listed above (e.g. object, bigint, symbol).
@@ -75,11 +83,17 @@ The three kinds of guard (what each makes the compiler do):
   when its properties are written one by one after construction) — and then
   inserts a shape check like a SHAPE GUARD does. It introduces the write guard above.
 - SHAPE GUARD. Give a target expression and a static shape. The compiler
-  inserts a shape check right after the expression that confirms the object
-  already has that static shape through a SHAPE BINDING; on pass, property accesses on it take the
-  shape fast path. The effect lasts only until the compiler suspects the
-  object's shape may change — if an operation does not actually change it, emit another
-  shape guard after that operation.
+  inserts a shape check that confirms the object already has that static
+  shape through a SHAPE BINDING; on pass, property accesses on it take the
+  shape fast path. By default the check runs right after the target
+  expression; the optional "guard after" delays it until after some other
+  point — same meaning as a SHAPE BINDING's "bind after". For example, 
+  in `obj.x = sideEffect();` target `obj` and set
+  "guard after" to the `sideEffect()` call, because `sideEffect()` will always kill
+  the guard for `obj`. The effect of a guard lasts
+  only until the compiler suspects the object's shape may change — if an
+  operation does not actually change it, emit another shape guard after that
+  operation.
 
 Where to place them:
 Emit a guard only when all three hold:
@@ -91,30 +105,29 @@ Emit a guard only when all three hold:
 - Necessity — only where the compiler can't already derive the type/shape.
 - Usefulness — where it actually pays off: the hottest code — loops, nested
   loops, frequently called functions, core data-structure accesses, repeated
-  property reads/writes, dense numeric/string work. For shape binding, two
-  cost-vs-payoff don'ts:
-  - Don't bind a typed shape to an object that is written often with values
-    whose type the compiler can't determine statically — the write guard
-    accumulates per write and can outweigh the read payoff. If you must bind
-    it, declare such frequently-written properties as `any` in the static shape
-    (any properties don't trigger the write guard).
-  - Don't bind a typed shape to an object that flows outside shape-guard
-    coverage and is written there (those writes are always checked).
+  property reads/writes, dense numeric/string work. For shape binding, weigh
+  the write-guard cost against the payoff (read/writes under a shape guard
+  optimized, and free of the check when the stored type is inferable);
+  declare frequently-written, hard-to-infer properties as `any` to skip the
+  check.
 
 JSON format:
 - Top level: "static shapes" (name -> definition), "shape guards", "shape
   bindings", and optional "type guards".
-- Field names must match exactly: "target range", "bind after" (optional),
-  "shape", and "type". A type is a single string or an array for a union
-  (e.g. ["number", "string"]).
+- Field names must match exactly: "target range", "shape", "type", and the
+  optional "bind after" (shape binding) / "guard after" (shape guard). A
+  type is a single string or an array for a union (e.g. ["number", "string"]).
 - Location fields (each value is a source range, not a single point):
   - "target range" (all guards): the range of the target expression being
     checked.
-  - For a parameter, use its declaration range as the "target range": the
-    parameter itself in the signature. For `this`, use the range of the
-    function body, for example `{{ ... }}`.
-  - "bind after" (shape binding, optional): if omitted, the binding runs right
-    after the target expression; if given, it runs after this point instead.
+  - To specify a parameter loading, use its declaration range as the "target range".
+    For `this` loading, which has no declaration, use the range of the
+    function body like `{{ ... }}`. This is just a format convention.
+  - "bind after" (shape binding) / "guard after" (shape guard), optional,
+    same meaning: if omitted, the operation runs right after the target
+    expression; if given, it runs after this point instead. Use it to defer
+    past a shape-suspect operation — e.g. target `obj` and set "guard after"
+    to the `sideEffect()` call in `obj.x = sideEffect();`.
 - Locations use 1-based line/column. The end column is EXCLUSIVE. "file" is
   optional (defaults to the source file being annotated):
 ```json
@@ -143,6 +156,11 @@ Example (type guard + shape guard + shape binding):
     {{
       "target range": {{"start": {{"line": 10, "column": 8}}, "end": {{"line": 10, "column": 9}}}},
       "shape": "Point"
+    }},
+    {{
+      "target range": {{"start": {{"line": 30, "column": 1}}, "end": {{"line": 30, "column": 4}}}},
+      "guard after": {{"start": {{"line": 30, "column": 9}}, "end": {{"line": 30, "column": 21}}}},
+      "shape": "Point"
     }}
   ],
   "shape bindings": [
@@ -160,18 +178,37 @@ Example (type guard + shape guard + shape binding):
 ```
 
 Tool usage:
-- Create `./{annotation_path.name}` with the Write tool;
+- All source tools (`locate`, `fold`, `dryrun_annotation`, `query_feedback`) act on the file being
+  annotated — there is no `file` argument; they always read {source_path.name}.
 - Use the `locate` tool to get exact source ranges for annotations instead of
   grep/awk or counting columns by hand. Example:
-  locate(file="{source_path.name}", from_line=2, to_line=5, text="abc")
+  locate(from_line=2, to_line=5, text="abc")
   It returns each match as `line:startcol-endline:endcol` — 1-based, EXCLUSIVE
-  end column, cross-line OK — which matches the annotation format. Omit from_line/to_line to search
-  the whole file. Every match comes with a preview; pick the one you mean.
+  end column, cross-line OK — which matches the annotation format, plus a
+  line-numbered context snippet with the match wrapped in »…« so you can tell
+  matches apart at a glance. Omit from_line/to_line to search the whole file.
+  To pin one occurrence among several, add `following` (literal text that must
+  sit just before the match) and/or `followed_by` (literal text just after);
+  only whitespace may sit between. e.g. to locate the `obj` in `obj.x = …`
+  without folding `.x` into the range: text="obj", followed_by=".x".
   Never guess a column.
 - Use the `fold` tool first to get a structural view of large file:
   it folds multi-line blocks into ` … N lines folded …`, and prints
   1-based line numbers. Raise `unfold` (default 0) to expand a region,
-  e.g. fold(file="{source_path.name}", from_line=176, to_line=200, unfold=1).
-- Shell redirection like `>` `<` `<<`, `$()`, and interpreters `python3/node/sh -c` are blocked by
-  the sandbox.
+  e.g. fold(from_line=176, to_line=200, unfold=1).
+- After writing or editing annotations, call `dryrun_annotation` to check their
+  effect — it compiles the file (trimmed pipeline, no execution) and caches the
+  result, returning a whole-file summary (optimized / killed / no-effect).
+  Example: dryrun_annotation(annotation="annotation.json")
+- Then call `query_feedback` to inspect the cached result, optionally narrowed
+  to a line range or a previous run. Per annotation it reports: (1) load
+  failures — fix those first; (2) optimizations produced (type narrowing →
+  typed arithmetic; shape → typed property read/write); (3) instructions that
+  killed shape propagation; (4) "no effect". Out-of-range effects show as
+  "somewhere else". Examples:
+  query_feedback()                                  # latest run, whole file
+  query_feedback(from_line=80, to_line=120)         # focus a region
+  query_feedback(run=-2, from_line=80, to_line=120) # vs the previous run
+  (run: -1/omit = latest, -2 = previous, k>0 = run id k)
+  Iterate until no load failures and no surprising kills.
 """

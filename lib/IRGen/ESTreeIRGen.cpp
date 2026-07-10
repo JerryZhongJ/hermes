@@ -124,23 +124,26 @@ ESTreeIRGen::ESTreeIRGen(
   for (const auto &shapeEntry : ann.getShapeDefs()) {
     const auto &def = shapeEntry.second;
     llvh::SmallVector<StaticShapeProperty, 8> properties;
+    // Build the shape as a whole: an unsupported property type discards the
+    // entire shape (a partial shape would be misleading). Warn, don't error —
+    // a bad shape just means that shape's guards won't bind.
+    bool ok = true;
     for (const auto &prop : def.properties) {
       std::string bad;
       auto type = Annotations::parseTypeNames(prop.typeNames, &bad);
       if (!type.hasValue()) {
-        // Fail fast on unknown type names (see tryInsertTypeCheck). The shape
-        // is still registered without this property, but the error surfaces
-        // the bad name and aborts compilation via the error count.
-        M->getContext().getSourceErrorManager().error(
+        M->getContext().getSourceErrorManager().warning(
             SMRange{},
             "static shape '" + shapeEntry.first().str() +
                 "': property '" + prop.name + "' has unsupported type: " + bad);
-        continue;
+        ok = false;
+        break;
       }
       Identifier iden = M->getContext().getIdentifier(prop.name);
       properties.push_back({iden, type.getValue()});
     }
-    shapeDescsByName_[shapeEntry.first()] = M->createStaticShape(properties);
+    if (ok)
+      shapeDescsByName_[shapeEntry.first()] = M->createStaticShape(properties);
   }
 
   // Pre-register object locations for shape annotations.

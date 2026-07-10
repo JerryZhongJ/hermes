@@ -20,8 +20,9 @@ uv run python -m annotator input.js \
 
 The tool runs the selected agent in a temporary attempt directory. The agent
 writes `annotation.json` there, then this wrapper copies it to `--output` when
-the agent run succeeds. Statistics are written to `<output>.stats.json` by
-default.
+the agent run succeeds. A run record (`<output>.run.json`) — raw agent messages
+plus metadata — is always written, even on failure; statistics are recomputed
+from it offline by `python -m annotator.postprocess`.
 
 ## Code Layout
 
@@ -42,7 +43,6 @@ default.
 ## Options
 
 - `--config PATH` loads agent/model/environment configuration from JSON.
-- `--stats PATH` writes statistics to a custom path.
 - `--agent-timeout SEC` limits each agent attempt. Default: `600`.
 - `--verbose-agent-logs` enables selected SDK messages in the logger.
 - `--keep-workdir` preserves prompts and temporary annotations for debugging.
@@ -70,10 +70,35 @@ wrapper leaves the global shell and CLI config untouched.
 
 `agent` must be either `codex` or `claude`. `codex_config` entries are passed
 to the Codex SDK thread start configuration. For Claude, `claude_settings` is
-passed to the Claude Agent Python SDK. The Claude runner uses bare mode, empty
-setting sources, and an enabled SDK sandbox. Bash remains available inside the
-sandbox; unsandboxed commands are disabled. Stats record only environment
-variable names, not their values.
+passed to the Claude Agent Python SDK. The Claude backend runs the agent inside
+a Docker container (see *Container mode* below) with
+`permission_mode = bypassPermissions` and no in-process sandbox — the container
+is the isolation boundary. `claude_sandbox` in the config is accepted but is now
+a no-op. The optional `docker_image` field overrides the default image tag
+(`annotator-agent:latest`).
+
+## Container mode (claude backend)
+
+The claude backend no longer runs `claude` directly on the host. Per attempt it
+launches the `annotator-agent` Docker image: the attempt directory is
+bind-mounted at `/work`, the prompt + non-secret config are dropped there, and
+the API-key/proxy env is passed via an out-of-volume `--env-file` (so secrets
+never land in a `--keep-workdir` directory). Inside, `annotator.agent_worker`
+runs claude with `bypassPermissions`, the full built-in tool set, and the
+`fold`/`locate` MCP tools, then writes messages/errors back to the volume.
+
+Build the image once (requires Docker on the host):
+
+```sh
+cd tools/annotator
+docker build -t annotator-agent:latest .
+```
+
+The image is based on `python:3.13-slim`, installs `nodejs` (an extra
+interpreter for the agent), and `pip install`s this package — which pulls
+`claude-agent-sdk` (it bundles its own native `claude` binary, so no Node is
+needed to run the CLI), `tree-sitter`, and `tree-sitter-javascript`. The codex
+backend is unchanged and does not use Docker.
 
 ## Tests
 

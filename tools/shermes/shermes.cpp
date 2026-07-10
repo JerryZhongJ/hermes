@@ -976,7 +976,8 @@ bool compileFromCommandLineOptions() {
   generateIRFromESTree(&M, semCtx, flowContext, ast);
 
   // Report each annotation's match status after IRGen.
-  context->getAnnotations().reportMatchStatus();
+  context->getAnnotations().reportMatchStatus(
+      context->getSourceErrorManager());
 
   // Bail out if there were any errors. We can't ensure that the module is in
   // a valid state.

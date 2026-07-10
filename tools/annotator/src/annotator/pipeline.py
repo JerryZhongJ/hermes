@@ -31,7 +31,7 @@ def generate_annotations(
         prompt = prompt + "\n\n" + append_prompt
     LOGGER.info("prompt:\n%s", prompt)
 
-    run = runner.run(prompt, temp_root)
+    run = runner.run(prompt, temp_root, input_path.name)
     if run.errors:
         return run
 

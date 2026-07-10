@@ -171,53 +171,133 @@ async def _call(tool, args: dict) -> dict:
     return await tool.handler(args)
 
 
-def test_handler_schema_marks_from_to_optional():
+def test_handler_schema_marks_only_text_required():
     t = build_locate_tool(Path("."))
     schema = t.input_schema
     assert isinstance(schema, dict)
-    assert schema["required"] == ["file", "text"]
-    assert set(schema["properties"]) == {"file", "text", "from_line", "to_line", "max_matches"}
+    assert schema["required"] == ["text"]
+    assert set(schema["properties"]) == {
+        "text",
+        "from_line",
+        "to_line",
+        "max_matches",
+        "following",
+        "followed_by",
+    }
 
 
 def test_handler_range_query(ascii_file: Path):
-    t = build_locate_tool(ascii_file.parent)
-    result = asyncio.run(_call(t, {"file": "a.js", "from_line": 2, "to_line": 2, "text": "def"}))
+    t = build_locate_tool(ascii_file)
+    result = asyncio.run(_call(t, {"from_line": 2, "to_line": 2, "text": "def"}))
     assert not result.get("is_error")
     assert "2:1-2:4" in result["content"][0]["text"]
     assert "(1 match" in result["content"][0]["text"]
+    assert "»def«" in result["content"][0]["text"]
 
 
 def test_handler_whole_file_query(ascii_file: Path):
-    t = build_locate_tool(ascii_file.parent)
-    result = asyncio.run(_call(t, {"file": "a.js", "text": "def"}))
+    t = build_locate_tool(ascii_file)
+    result = asyncio.run(_call(t, {"text": "def"}))
     assert "2:1-2:4" in result["content"][0]["text"]
+    assert "»def«" in result["content"][0]["text"]
 
 
 def test_handler_empty_needle_error(ascii_file: Path):
-    t = build_locate_tool(ascii_file.parent)
-    result = asyncio.run(_call(t, {"file": "a.js", "text": ""}))
+    t = build_locate_tool(ascii_file)
+    result = asyncio.run(_call(t, {"text": ""}))
     assert result.get("is_error") is True
 
 
-def test_handler_path_escape_blocked(tmp_path: Path, ascii_file: Path):
-    # workdir is an inner dir; a file outside it (ascii_file lives in tmp_path)
-    # must be refused even when given as an absolute path.
-    t = build_locate_tool(tmp_path / "work")
-    result = asyncio.run(_call(t, {"file": str(ascii_file.resolve()), "text": "a"}))
-    assert result.get("is_error") is True
-
-
-def test_handler_file_not_found(ascii_file: Path):
-    t = build_locate_tool(ascii_file.parent)
-    result = asyncio.run(_call(t, {"file": "missing.js", "text": "x"}))
+def test_handler_missing_source_error(tmp_path: Path):
+    # The bound source does not exist -> defensive FileNotFoundError error.
+    t = build_locate_tool(tmp_path / "missing.js")
+    result = asyncio.run(_call(t, {"text": "x"}))
     assert result.get("is_error") is True
 
 
 def test_make_locate_server_returns_sdk_config(ascii_file: Path):
-    srv = make_locate_server(ascii_file.parent)
+    srv = make_locate_server(ascii_file)
     assert srv["type"] == "sdk"
     assert srv["name"] == "source-locate"
     assert srv["instance"] is not None
+
+
+# --- context rendering + following/followed_by filters --------------------
+
+
+def test_context_vertical_surrounds_match_with_highlight(ascii_file: Path):
+    # Whole-file window [1,3]; "def" on line 2 => neighbour lines shown.
+    m = locate_in_file(ascii_file, None, None, b"def")[0]
+    ctx = m["context"]
+    assert "»def«" in ctx
+    assert "1 | abc" in ctx       # preceding neighbour
+    assert ">2 |" in ctx          # match line carries the ">" marker
+    assert "3 | ghi" in ctx       # following neighbour
+
+
+def test_context_cross_line_marks_first_and_last_line(ascii_file: Path):
+    # "c\nd" spans lines 1-2: » sits at the match start (end of line 1), « at
+    # the match end (start of line 2). Window [1,2] clamps out line 3.
+    m = locate_in_file(ascii_file, 1, 2, b"c\nd")[0]
+    ctx = m["context"]
+    assert ">1 | ab»c" in ctx
+    assert ">2 | d«ef" in ctx
+    assert "3 |" not in ctx
+
+
+def test_context_clamped_to_single_line_window(ascii_file: Path):
+    # A one-line window shows only that line, no neighbours.
+    m = locate_in_file(ascii_file, 2, 2, b"def")[0]
+    ctx = m["context"]
+    assert ">2 | »def«" in ctx
+    assert "1 |" not in ctx
+    assert "3 |" not in ctx
+
+
+def test_context_horizontal_truncates_overlong_line(tmp_path: Path):
+    # A single >200-char line: horizontal mode keeps a window around the match.
+    blob = "a" * 250 + "ADD" + "b" * 250
+    p = tmp_path / "m.js"
+    p.write_bytes(blob.encode())
+    m = locate_in_file(p, 1, 1, b"ADD")[0]
+    ctx = m["context"]
+    assert "»ADD«" in ctx
+    assert ctx.count("…") == 2          # truncated on both sides, once each
+    assert "a" * 250 not in ctx         # the bulk is cut
+    assert "b" * 250 not in ctx
+    assert ctx.count("\n") == 0         # only the match line, no neighbours
+
+
+def test_followed_by_keeps_only_adjacent(tmp_path: Path):
+    p = tmp_path / "f.js"
+    p.write_bytes(b"obj .x = 1;\nobj = 2;\nobj.y = 3;\n")
+    res = locate_in_file(p, 1, 3, b"obj", followed_by=b".x")
+    assert len(res) == 1
+    assert res[0]["start"]["line"] == 1   # the one-space gap is allowed
+
+
+def test_followed_by_rejects_non_whitespace_gap(tmp_path: Path):
+    p = tmp_path / "f.js"
+    p.write_bytes(b"foo bar;\nfoo;\n")
+    res = locate_in_file(p, 1, 2, b"foo", followed_by=b";")
+    assert len(res) == 1
+    assert res[0]["start"]["line"] == 2   # line 1 has "bar" in the gap
+
+
+def test_following_keeps_only_preceded(tmp_path: Path):
+    p = tmp_path / "f.js"
+    p.write_bytes(b"var x = foo;\nlet foo;\n")
+    res = locate_in_file(p, 1, 2, b"foo", following=b"var x =")
+    assert len(res) == 1
+    assert res[0]["start"]["line"] == 1
+
+
+def test_following_and_followed_by_combined(tmp_path: Path):
+    p = tmp_path / "f.js"
+    p.write_bytes(b"x = mid = y;\nmid;\n")
+    res = locate_in_file(p, 1, 2, b"mid", following=b"x =", followed_by=b"= y")
+    assert len(res) == 1
+    assert res[0]["start"]["line"] == 1
 
 
 # --- integration: real minified box2d.js (golden regression) --------------
@@ -258,3 +338,11 @@ class TestBox2dRegression:
         res = locate_in_file(BOX2D, 176, 176, b"p", max_matches=0)
         cols = {(m["start"]["column"], m["end"]["column"]) for m in res}
         assert (489, 490) in cols
+
+    def test_add_followed_by_equals_function(self):
+        # "Add" pinned by followed_by="=function" => the prototype assignment
+        # (A.prototype.Add=function). The bare substring "Add" sits at col 476
+        # on L176 (the leading "A" of A.prototype is at 464).
+        res = locate_in_file(BOX2D, 176, 177, b"Add", followed_by=b"=function")
+        assert len(res) == 1
+        assert res[0]["start"] == {"line": 176, "column": 476}

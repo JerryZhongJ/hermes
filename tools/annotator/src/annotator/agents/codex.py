@@ -94,7 +94,8 @@ class CodexSdkRunner:
         self.config = config
         self.timeout_seconds = timeout_seconds
 
-    def run(self, prompt: str, attempt_dir: Path) -> AgentRun:
+    def run(self, prompt: str, attempt_dir: Path, source_name: str) -> AgentRun:
+        # source_name is unused here: codex runs no in-process source tools.
         messages: list[object] = []
         errors: list[str] = []
         try:

@@ -33,7 +33,32 @@ class AgentConfig(BaseModel):
     )
     claude_settings: str | dict[str, Any] | list[Any] | None = None
     claude_sandbox: SandboxSettings = Field(
-        default_factory=lambda: cast(SandboxSettings, dict(DEFAULT_CLAUDE_SANDBOX))
+        default_factory=lambda: cast(SandboxSettings, dict(DEFAULT_CLAUDE_SANDBOX)),
+        description=(
+            "Claude SDK sandbox settings. NOW A NO-OP: the claude backend runs "
+            "the agent in a Docker container with bypassPermissions (the "
+            "container is the isolation boundary), so there is no in-process "
+            "sandbox. Kept only so existing config files still validate under "
+            "extra='forbid'."
+        ),
+    )
+    docker_image: str | None = Field(
+        default=None,
+        description=(
+            "Docker image used by the claude backend to run the in-container "
+            "agent. None resolves to the runner's DEFAULT_IMAGE "
+            "('annotator-agent:latest')."
+        ),
+    )
+    feedback_bin_dir: Path | None = Field(
+        default=None,
+        description=(
+            "Host directory containing the annotation-dryrun binary. The claude "
+            "backend runs a host-side dryrun_service that invokes it (hermes "
+            "stays on the host; the in-container agent reaches it via a file "
+            "protocol over the bind-mount, never directly). None disables the "
+            "dryrun tool."
+        ),
     )
 
     def environment(self) -> dict[str, str]:
@@ -89,7 +114,10 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Append extra TEXT after the built prompt for this run only.",
     )
-    return parser.parse_args()
+    args = parser.parse_args()
+    if args.append_prompt and args.append_prompt.startswith("@"):
+        args.append_prompt = Path(args.append_prompt[1:]).read_text(encoding="utf-8")
+    return args
 
 
 def load_config(path: Path) -> AgentConfig:
