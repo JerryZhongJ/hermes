@@ -25,21 +25,21 @@
 #include "hermes/IR/CFG.h"
 #include "hermes/IR/IR.h"
 #include "hermes/IR/IRVerifier.h"
-#include "hermes/Optimizer/Scalar/SpeculativeGuardUtils.h"
 #include "hermes/IR/Instrs.h"
 #include "hermes/IRGen/AnnotationLoader.h"
 #include "hermes/IRGen/IRGen.h"
 #include "hermes/Optimizer/PassManager/Pipeline.h"
+#include "hermes/Optimizer/Scalar/SpeculativeGuardUtils.h"
 #include "hermes/Runtime/Libhermes.h"
 #include "hermes/Sema/SemContext.h"
 #include "hermes/Sema/SemResolve.h"
 #include "hermes/SourceMap/SourceMapTranslator.h"
 #include "hermes/Support/SourceErrorManager.h"
 
-#include "llvh/Support/JSON.h"
 #include "llvh/Support/Casting.h"
 #include "llvh/Support/CommandLine.h"
 #include "llvh/Support/InitLLVM.h"
+#include "llvh/Support/JSON.h"
 #include "llvh/Support/MemoryBuffer.h"
 #include "llvh/Support/raw_ostream.h"
 
@@ -102,6 +102,9 @@ cl::list<std::string> CustomPasses(
 // 13s→1s 的主因）。关键：标注的对象常经 frame（StoreFrame/LoadFrame），
 // 必须先 frameloadstoreopts + simplemem2reg + scopeelimination 让 shape/
 // 窄化穿透到 property 访问，再跑两轮 shape+type 推断 + simplify 换快路径。
+// lowerbuiltincallsoptimized 紧跟 insertguard 之后：把 Math.sqrt 等全局
+// builtin 调用降为 CallBuiltinInst（同时删掉 TryLoadGlobalProperty+Call），
+// 这样后续 type inference 能把它们认作 numeric、不再误判为 shape blockage。
 // 故意不跑 removeuselessspeculativeguards：保留 guard，③ 的 collectKills 才能
 // 复用 StaticShapeInference 重新注入 shape、定位 polluting 阻挡（guard 被删
 // 则无 edge fact，shape 无法重建）。④ useless 由排除法判定，不靠该 pass。
@@ -109,12 +112,14 @@ cl::list<std::string> CustomPasses(
 static const std::vector<std::string> kFeedbackPasses = {
     "insertguard",
     "simplestackpromotion",
+    "lowerbuiltincallsoptimized",
     "frameloadstoreopts",
     "simplemem2reg",
     "scopeelimination",
     "localtypeandstaticshapeinference",
     "typeinference",
     "instsimplify",
+    "dce",
     "simplifycfg",
     "simplestackpromotion",
     "frameloadstoreopts",
@@ -133,6 +138,7 @@ std::shared_ptr<Context> createContext() {
   auto context = std::make_shared<Context>();
   context->setStrictMode(false);
   context->setDebugInfoSetting(DebugInfoSetting::NONE);
+  context->setStaticBuiltinOptimization(true);
   return context;
 }
 
@@ -150,7 +156,8 @@ ESTree::NodePtr parseJSFiles(
             context.get(),
             SourceMappingCommentMode::Off,
             StaticBuiltinSetting::AutoDetect,
-            context->getSourceErrorManager().addNewSourceBuffer(std::move(fileBuf)),
+            context->getSourceErrorManager().addNewSourceBuffer(
+                std::move(fileBuf)),
             {},
             sourceMapTranslator)) {
       programs.push_back(parsedAST);
@@ -197,13 +204,15 @@ std::string locStr(Instruction *I, SourceErrorManager &sm) {
 
 struct Effect {
   std::string location;
-  std::string instruction; // 原始 IR 指令名（PrLoadInst/BinaryLessThanInst/…）；
-                           // category 分类 + 人类渲染全在 MCP 层
+  std::string
+      instruction; // 原始 IR 指令名（PrLoadInst/BinaryLessThanInst/…）；
+                   // category 分类 + 人类渲染全在 MCP 层
   std::string property; // 仅 PrLoad/PrStore 有
 };
 struct AnnFeedback {
   std::vector<Effect> optimizations; // ②（可多条）
-  std::vector<Effect> blockages;     // ③（可多条，与 optimizations 并列、非互斥）
+  std::vector<Effect> blockages; // ③（可多条，与 optimizations 并列、非互斥）
+  std::vector<Effect> miss;
 };
 
 // 跨所有 function 收集每个标注（按 annotationId）的优化 + 阻挡。
@@ -233,14 +242,22 @@ std::map<int, AnnFeedback> collectAnnotations(
     // object → 影响它的 anns（供 ③ 把 polluting 的 object 关联到 guard）
     llvh::DenseMap<Instruction *, std::set<int>> objToAnns;
 
-    // 出原始 IR 指令名 + 位置 + 属性（仅 PrLoad/PrStore 有 property）；
-    // category 分类 + 渲染由 MCP 层做。
+    // 出原始 IR 指令名 + 位置 + 属性（命名属性访问才有 property；计算式
+    // obj[expr] 无 LiteralString 属性名 → property 留空）。category 分类 +
+    // 渲染由 MCP 层做。
     auto makeEffect = [&](Instruction *C) {
       std::string prop;
       if (auto *pl = llvh::dyn_cast<PrLoadInst>(C))
         prop = pl->getPropName()->getValue().str();
       else if (auto *ps = llvh::dyn_cast<PrStoreInst>(C))
         prop = ps->getPropName()->getValue().str();
+      else if (auto *lp = llvh::dyn_cast<BaseLoadPropertyInst>(C)) {
+        if (auto *n = llvh::dyn_cast<LiteralString>(lp->getProperty()))
+          prop = n->getValue().str();
+      } else if (auto *sp = llvh::dyn_cast<BaseStorePropertyInst>(C)) {
+        if (auto *n = llvh::dyn_cast<LiteralString>(sp->getProperty()))
+          prop = n->getValue().str();
+      }
       return Effect{locStr(C, sm), std::string(C->getKindStr()), prop};
     };
 
@@ -277,7 +294,11 @@ std::map<int, AnnFeedback> collectAnnotations(
           objToAnns[C].insert(ann);
           if (llvh::isa<PrLoadInst>(C) || llvh::isa<PrStoreInst>(C)) {
             anns[ann].optimizations.push_back(makeEffect(C));
+            return;
           }
+          if (llvh::isa<BaseLoadPropertyInst>(C) ||
+              llvh::isa<BaseStorePropertyInst>(C))
+            anns[ann].miss.push_back(makeEffect(C));
         });
       }
     // ③ polluting 阻挡（复用 StaticShapeInference 真实数据流）
@@ -290,6 +311,9 @@ std::map<int, AnnFeedback> collectAnnotations(
         anns[ann].blockages.push_back(e);
     }
   }
+  // 不在此去重：C++ 只产原始数据（含 InsertGuard spec/generic 双路径带来的
+  // 重复）。「一处源码只报一次 / optimized 优先于 miss / blockages 去重」属
+  // 于展示前的整理，统一在 MCP 层（dryrun_tool._dedup）做。
   return anns;
 }
 
@@ -376,7 +400,7 @@ int main(int argc, char **argv) {
             json.attribute("detail", desc->detail);
           }
           auto emitEffects = [&](const char *key,
-                                  const std::vector<Effect> &es) {
+                                 const std::vector<Effect> &es) {
             json.attributeArray(key, [&] {
               for (const auto &e : es)
                 json.object([&] {
@@ -389,6 +413,7 @@ int main(int argc, char **argv) {
           };
           emitEffects("optimizations", fb.optimizations);
           emitEffects("blockages", fb.blockages);
+          emitEffects("miss", fb.miss);
         });
       }
     });

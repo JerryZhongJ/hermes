@@ -59,6 +59,17 @@ def _categorize(inst: str) -> str:
         return "property read (unknown shape)"
     if inst.startswith("StoreProperty") or inst.startswith("StoreOwnProperty"):
         return "property write (unknown shape)"
+    # Global property load/store (Math.sqrt's Math, custom globals, …).
+    # These read/write the global object and conservatively pollute shape facts
+    # (getter side effects / mutable global), so they surface as blockages.
+    if inst.startswith("TryLoadGlobalProperty") or inst.startswith(
+        "LoadGlobalProperty"
+    ):
+        return "global property read"
+    if inst.startswith("TryStoreGlobalProperty") or inst.startswith(
+        "StoreGlobalProperty"
+    ):
+        return "global property write"
     if inst.startswith("Call"):
         return "call"
     # F-prefix = numeric specialization (narrowed); Binary-prefix = generic.
@@ -97,6 +108,17 @@ def _desc(e: dict, optimize: bool) -> str:
     if optimize:
         return f"  ✓ optimized {loc} {cat}{ps}"
     return f"  ! killed by {loc} {cat}{ps}"
+
+
+def _desc_miss(e: dict) -> str:
+    # miss: a property access on the guarded object that stayed on the generic
+    # path (LoadProperty/StoreProperty, not optimized into PrLoad/PrStore).
+    inst = e.get("instruction", "")
+    cat = "property write" if inst.startswith("Store") else "property read"
+    prop = e.get("property")
+    ps = f" .{prop}" if prop else ""
+    loc = e.get("location", "?")
+    return f"  ? {loc} {cat}{ps} not optimized"
 
 
 # --- line-range filtering ---
@@ -140,22 +162,58 @@ def _filter_annotations(
     for a in data.get("annotations", []):
         orig_opt = a.get("optimizations", [])
         orig_blk = a.get("blockages", [])
+        orig_miss = a.get("miss", [])
         opt_in = [o for o in orig_opt if _in_range(o.get("location"), from_line, to_line)]
         blk_in = [b for b in orig_blk if _in_range(b.get("location"), from_line, to_line)]
+        miss_in = [p for p in orig_miss if _in_range(p.get("location"), from_line, to_line)]
         a_in = _in_range(a.get("range"), from_line, to_line)
-        if not (a_in or opt_in or blk_in):
+        if not (a_in or opt_in or blk_in or miss_in):
             continue
         out.append(
             {
                 **a,
                 "opt_in": opt_in,
                 "blk_in": blk_in,
+                "miss_in": miss_in,
                 "opt_out": len(orig_opt) - len(opt_in),
                 "blk_out": len(orig_blk) - len(blk_in),
+                "miss_out": len(orig_miss) - len(miss_in),
                 "had_opt": bool(orig_opt),
+                "had_miss": bool(orig_miss),
             }
         )
     return out
+
+
+def _dedup_effects(
+    effects: list[dict[str, Any]], skip: set[str] | None = None
+) -> list[dict[str, Any]]:
+    """Keep the first effect per source location, dropping any whose location is
+    in ``skip``. The C++ tool scans the whole function (including InsertGuard's
+    spec/generic duplicated paths), so one source point can surface several
+    times — collapse to one."""
+    seen: set[str] = set()
+    out: list[dict[str, Any]] = []
+    for e in effects:
+        loc = e.get("location") or ""
+        if skip and loc in skip:
+            continue
+        if loc in seen:
+            continue
+        seen.add(loc)
+        out.append(e)
+    return out
+
+
+def _dedup(data: dict[str, Any]) -> None:
+    """Presentation-layer cleanup, in place:
+    - blockages: one per source location (spec/generic both pollute);
+    - miss: a location already optimized (PrLoad/PrStore) is not missing, then
+      one per location."""
+    for a in data.get("annotations", []):
+        a["blockages"] = _dedup_effects(a.get("blockages", []))
+        opt_locs = {e.get("location") or "" for e in a.get("optimizations", [])}
+        a["miss"] = _dedup_effects(a.get("miss", []), skip=opt_locs)
 
 
 def _render(filtered: list[dict[str, Any]], stderr: str) -> str:
@@ -167,39 +225,52 @@ def _render(filtered: list[dict[str, Any]], stderr: str) -> str:
             if clean:
                 lines.append("  " + clean)
     # optimized / no-effect are one dimension (per annotation); killed-by is the
-    # other. The two are independent — an annotation can be optimized in some
-    # places and killed in others.
-    no = nb = nu = 0
+    # other; unoptimized is a third (shape guards only). The three are
+    # independent — an annotation can be optimized in some places, killed in
+    # others, and have uncovered properties.
+    no = nb = nu = nmiss = 0
     body: list[str] = []
     for a in filtered:
         opt_in = a["opt_in"]
         blk_in = a["blk_in"]
+        miss_in = a["miss_in"]
         no += len(opt_in)
         nb += len(blk_in)
+        nmiss += len(miss_in)
         body.append(
             f'[{a.get("range", "?")}] {a.get("kind", "?")} "{a.get("detail", "")}":'
         )
         if a["had_opt"]:
             for o in opt_in:
                 body.append(_desc(o, True))
-        else:
+        elif not a["had_miss"]:
+            # only truly idle when it optimized nothing AND found no missing
+            # property; otherwise the guard still revealed coverage info.
             nu += 1
             body.append("  ✗ no effect")
+        for p in miss_in:
+            body.append(_desc_miss(p))
         for b in blk_in:
             body.append(_desc(b, False))
         opt_out = a["opt_out"]
         blk_out = a["blk_out"]
-        if opt_out or blk_out:
+        miss_out = a["miss_out"]
+        if opt_out or blk_out or miss_out:
             parts = []
             if opt_out:
                 parts.append(f"{opt_out} optimized")
+            if miss_out:
+                parts.append(f"{miss_out} unoptimized")
             if blk_out:
                 parts.append(_count(blk_out, "kill"))
             body.append(f"  … {' / '.join(parts)} somewhere else")
     if body:
         lines.append("Effects:")
         lines.extend(body)
-    lines.append(f"Summary: {no} optimized  {_count(nb, 'kill')}  {nu} no-effect")
+    lines.append(
+        f"Summary: {no} optimized  {_count(nb, 'kill')}  "
+        f"{nu} no-effect  {nmiss} unoptimized"
+    )
     return "\n".join(lines)
 
 
@@ -291,8 +362,12 @@ def _full_summary(data: dict[str, Any]) -> str:
     anns = data.get("annotations", [])
     no = sum(len(a.get("optimizations", [])) for a in anns)
     nb = sum(len(a.get("blockages", [])) for a in anns)
-    nu = sum(1 for a in anns if not a.get("optimizations"))
-    return f"{no} optimized  {_count(nb, 'kill')}  {nu} no-effect"
+    nmiss = sum(len(a.get("miss", [])) for a in anns)
+    nu = sum(1 for a in anns if not a.get("optimizations") and not a.get("miss"))
+    return (
+        f"{no} optimized  {_count(nb, 'kill')}  "
+        f"{nu} no-effect  {nmiss} unoptimized"
+    )
 
 
 # --- the two MCP tools ---
@@ -311,9 +386,9 @@ def build_dryrun_tools(workdir: Path) -> list:
     @tool(
         "dryrun_annotation",
         "Compile the source with your annotation file and cache the result. "
-        "Returns a run id + whole-file summary (optimized / kills / no-effect). "
-        "Cheap to re-run after each annotation edit. Use query_feedback to "
-        "inspect a line range or compare against a previous run.",
+        "Returns a run id + whole-file summary (optimized / kills / no-effect / "
+        "unoptimized). Cheap to re-run after each annotation edit. Use "
+        "query_feedback to inspect a line range or compare against a previous run.",
         {
             "type": "object",
             "properties": {
@@ -329,7 +404,7 @@ def build_dryrun_tools(workdir: Path) -> list:
         ann_arg = args.get("annotation")
         if not isinstance(ann_arg, str) or not ann_arg:
             return _err("missing 'annotation'")
-        ann_target, err = resolve_in_workdir(workdir_resolved, ann_arg)
+        err = resolve_in_workdir(workdir_resolved, ann_arg)[1]
         if err is not None:
             return err
 
@@ -347,6 +422,7 @@ def build_dryrun_tools(workdir: Path) -> list:
             data = json.loads(res.get("stdout") or "{}")
         except ValueError:
             return _err("annotation-dryrun produced non-JSON output")
+        _dedup(data)
         stderr = res.get("stderr") or ""
 
         run_id = _next_run_id(cache_dir)
@@ -361,7 +437,10 @@ def build_dryrun_tools(workdir: Path) -> list:
         "query_feedback",
         "Inspect cached dryrun feedback, optionally filtered to a line range. "
         "Per annotation: optimized points (✓), killed-by points (! the polluter), "
-        "or 'no effect'. Out-of-range effects are summarized as 'somewhere else'. "
+        "unoptimized points (? a property access the guard didn't reach — "
+        "generic LoadProperty/StoreProperty), or 'no effect'. "
+        "Out-of-range "
+        "effects are summarized as 'somewhere else'. "
         "run: omit or -1 = latest, -2 = previous run, … k>0 = run id k.",
         {
             "type": "object",
@@ -397,6 +476,7 @@ def build_dryrun_tools(workdir: Path) -> list:
             return _err(
                 f"no cached run for run={run}; call dryrun_annotation first"
             )
+        _dedup(rec["data"])  # idempotent: covers runs cached before _dedup existed
         filtered = _filter_annotations(rec["data"], from_line, to_line)
         body = _render(filtered, rec.get("stderr", ""))
         header = f"run #{rec['run_id']}"
