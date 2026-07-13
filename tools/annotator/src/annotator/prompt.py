@@ -95,6 +95,23 @@ The three kinds of guard (what each makes the compiler do):
   operation does not actually change it, emit another shape guard after that
   operation.
 
+How a shape fact propagates:
+A shape fact reaches a point iff, on every path from the guard to that point,
+no instruction has a side effect that may kill the fact. Such side effects fall 
+into three groups:
+- Removable by annotation: the side effect exists only because an operand
+  type or object shape is unknown, which an annotation can pin down:
+  - Generic operation (+ - * / < == ! ~ ...) on unknown/possibly-object operands:
+    the op may run arbitrary code and modify objects. A type annotation narrowing
+    operands to primitive types makes the op side effect free.
+  - Property access on an unknown-shape object: may trigger a
+    getter/setter and may modify objects. A shape annotation makes the
+    shape known — the access is a direct field read/write without side effect.
+- Not removable by annotation: the side effect always exists
+  - `in` / `instanceof`, function calls, global-property loads.
+- No side effect: pure numeric operation, direct field
+  read/write on a known-shape object, strict equality ===/!==.
+
 Where to place them:
 Emit a guard only when all three hold:
 - Correctness — a guard must be likely true at runtime. For a shape
@@ -203,7 +220,7 @@ Tool usage:
 - Then call `query_feedback` to inspect the cached result, optionally narrowed
   to a line range or a previous run. Per annotation it reports: (1) load
   failures — fix those first; (2) optimizations produced (type narrowing →
-  typed arithmetic; shape → typed property read/write); (3) instructions that
+  typed operation; shape → typed property read/write); (3) instructions that
   killed shape propagation; (4) "no effect". Out-of-range effects show as
   "somewhere else". Examples:
   query_feedback()                                  # latest run, whole file

@@ -72,12 +72,12 @@ def _categorize(inst: str) -> str:
         return "global property write"
     if inst.startswith("Call"):
         return "call"
-    # F-prefix = numeric specialization (narrowed); Binary-prefix = generic.
-    # A generic comparison (which kills shape) must read differently from a
-    # numeric one (which the guard optimized).
+    # arithmetic / comparison / unary — all operations whose side effect
+    # depends on operand types; one "operation" label (matches the prompt).
+    # F-prefix = numeric specialization (side-effect-free); otherwise generic
+    # (may run valueOf/toString, kills shape).
     is_numeric = inst.startswith("F")
-    is_compare = any(k in inst for k in ("Less", "Greater", "Equal", "Compare"))
-    is_arith = any(
+    if any(
         k in inst
         for k in (
             "Add",
@@ -91,12 +91,14 @@ def _categorize(inst: str) -> str:
             "Negate",
             "Minus",
             "Plus",
+            "Less",
+            "Greater",
+            "Equal",
+            "Compare",
+            "UnaryMath",  # FUnaryMathInst: numeric unary (e.g. FNegate)
         )
-    )
-    if is_compare:
-        return "numeric comparison" if is_numeric else "generic comparison"
-    if is_arith:
-        return "numeric arithmetic" if is_numeric else "generic arithmetic"
+    ):
+        return "numeric operation" if is_numeric else "generic operation"
     return inst  # fallback: show raw name
 
 

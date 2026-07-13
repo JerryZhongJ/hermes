@@ -2699,9 +2699,9 @@ class TrySetStaticShapeInst : public Instruction {
   SideEffect getSideEffectImpl() const {
     switch (objOperandShape_.status) {
       case StaticShapeInfo::KnownStaticShape:
-        return SideEffect{}.setIdempotent();
+        return SideEffect{}.setIdempotent().setReadHeap();
       case StaticShapeInfo::AnyShapes:
-        return SideEffect{}.setWriteHeap().setIdempotent();
+        return SideEffect{}.setWriteHeap().setReadHeap().setIdempotent();
       case StaticShapeInfo::NoShape:
         return SideEffect{};
     }
