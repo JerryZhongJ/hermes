@@ -60,10 +60,10 @@ function shapeStatement() {
 // IRGEN-NEXT:       StoreFrameInst %1: environment, undefined: undefined, [%VS2.obj]: any
 // IRGEN-NEXT:  %3 = AllocObjectLiteralInst (:object) empty: any
 // IRGEN-NEXT:       DefineOwnPropertyInst 1: number, %3: object, "x": string, true: boolean
-// IRGEN-NEXT:  %5 = HasStaticShapeInst (:boolean) %3: object, {x: number}: null
+// IRGEN-NEXT:  %5 = HasStaticShapeInst (:boolean) %3: object, {x: number}: null [ann#1]
 // IRGEN-NEXT:       StoreFrameInst %1: environment, %3: object, [%VS2.obj]: any
-// IRGEN-NEXT:       TrySetStaticShapeInst %3: object, {x: number}: null
-// IRGEN-NEXT:  %8 = HasStaticShapeInst (:boolean) %3: object, {x: number}: null
+// IRGEN-NEXT:       TrySetStaticShapeInst %3: object, {x: number}: null [ann#2]
+// IRGEN-NEXT:  %8 = HasStaticShapeInst (:boolean) %3: object, {x: number}: null [ann#2]
 // IRGEN-NEXT:  %9 = LoadFrameInst (:any) %1: environment, [%VS2.obj]: any
 // IRGEN-NEXT:  %10 = LoadPropertyInst (:any) %9: any, "x": string
 // IRGEN-NEXT:        ReturnInst %10: any
@@ -117,7 +117,7 @@ function shapeStatement() {
 // INSERT-NEXT:       StoreFrameInst %1: environment, undefined: undefined, [%VS2.obj]: any
 // INSERT-NEXT:  %3 = AllocObjectLiteralInst (:object) empty: any
 // INSERT-NEXT:       DefineOwnPropertyInst 1: number, %3: object, "x": string, true: boolean
-// INSERT-NEXT:  %5 = HasStaticShapeInst (:boolean) %3: object, {x: number}: null
+// INSERT-NEXT:  %5 = HasStaticShapeInst (:boolean) %3: object, {x: number}: null [ann#1]
 // INSERT-NEXT:       CondBranchInst %5: boolean, %BB3, %BB4
 // INSERT-NEXT:%BB1:
 // INSERT-NEXT:  %7 = LoadFrameInst (:any) %1: environment, [%VS2.obj]: any
@@ -129,13 +129,13 @@ function shapeStatement() {
 // INSERT-NEXT:        ReturnInst %11: any
 // INSERT-NEXT:%BB3:
 // INSERT-NEXT:        StoreFrameInst %1: environment, %3: object, [%VS2.obj]: any
-// INSERT-NEXT:        TrySetStaticShapeInst %3: object, {x: number}: null
-// INSERT-NEXT:  %15 = HasStaticShapeInst (:boolean) %3: object, {x: number}: null
+// INSERT-NEXT:        TrySetStaticShapeInst %3: object, {x: number}: null [ann#2]
+// INSERT-NEXT:  %15 = HasStaticShapeInst (:boolean) %3: object, {x: number}: null [ann#2]
 // INSERT-NEXT:        CondBranchInst %15: boolean, %BB1, %BB2
 // INSERT-NEXT:%BB4:
 // INSERT-NEXT:        StoreFrameInst %1: environment, %3: object, [%VS2.obj]: any
-// INSERT-NEXT:        TrySetStaticShapeInst %3: object, {x: number}: null
-// INSERT-NEXT:  %19 = HasStaticShapeInst (:boolean) %3: object, {x: number}: null
+// INSERT-NEXT:        TrySetStaticShapeInst %3: object, {x: number}: null [ann#2]
+// INSERT-NEXT:  %19 = HasStaticShapeInst (:boolean) %3: object, {x: number}: null [ann#2]
 // INSERT-NEXT:        BranchInst %BB2
 // INSERT-NEXT:function_end
 
@@ -167,13 +167,13 @@ function shapeStatement() {
 // OPT:function shapeStatement(): any
 // OPT-NEXT:%BB0:
 // OPT-NEXT:  %0 = AllocObjectLiteralInst (:object) empty: any, "x": string, 1: number
-// OPT-NEXT:  %1 = HasStaticShapeInst (:boolean) %0: object, {x: number}: null
+// OPT-NEXT:  %1 = HasStaticShapeInst (:boolean) %0: object, {x: number}: null [ann#1]
 // OPT-NEXT:       CondBranchInst %1: boolean, %BB1, %BB2
 // OPT-NEXT:%BB1:
 // OPT-NEXT:  %3 = PrLoadInst (:number) %0: object, 0: number, "x": string
 // OPT-NEXT:       ReturnInst %3: number
 // OPT-NEXT:%BB2:
-// OPT-NEXT:       TrySetStaticShapeInst %0: object, {x: number}: null
+// OPT-NEXT:       TrySetStaticShapeInst %0: object, {x: number}: null [ann#2]
 // OPT-NEXT:  %6 = LoadPropertyInst (:any) %0: object, "x": string
 // OPT-NEXT:       ReturnInst %6: any
 // OPT-NEXT:function_end

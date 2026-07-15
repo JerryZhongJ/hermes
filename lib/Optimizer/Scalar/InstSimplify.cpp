@@ -1047,6 +1047,10 @@ class InstSimplifyImpl {
     int idx = operandShape.desc->getPropertyIndex(propStr->getValue());
     if (idx == -1)
       return nullptr;
+    // Accessor properties must go through the runtime (getter invocation);
+    // PrLoad is a raw slot read that would return the PropertyAccessor cell.
+    if (operandShape.desc->getPropertyKind(idx) == PropertyKind::Accessor)
+      return nullptr;
     return builder_.createPrLoadInst(
         inst->getObject(),
         (size_t)idx,
@@ -1066,6 +1070,10 @@ class InstSimplifyImpl {
       return nullptr;
     int idx = operandShape.desc->getPropertyIndex(propStr->getValue());
     if (idx == -1)
+      return nullptr;
+    // Accessor properties must go through the runtime (setter invocation);
+    // PrStore is a raw slot write that would clobber the PropertyAccessor cell.
+    if (operandShape.desc->getPropertyKind(idx) == PropertyKind::Accessor)
       return nullptr;
     return builder_.createPrStoreInst(
         inst->getStoredValue(),

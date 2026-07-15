@@ -138,23 +138,64 @@ void loadStaticShapes(
         break;
       }
       auto name = propObj->getString("name");
-      auto *typeVal = propObj->get("type");
-      if (!name || !typeVal) {
+      if (!name) {
         sm.warning(llvh::SMLoc{},
-                   "missing name or type in static shape '" + shapeName.str() +
-                       "'");
+                   "missing name in static shape '" + shapeName.str() + "'");
         ok = false;
         break;
       }
-      auto typeStrs = extractTypeStrings(*typeVal);
-      if (typeStrs.empty()) {
-        sm.warning(llvh::SMLoc{},
-                   "invalid type for property \"" + name->str() +
-                       "\" in static shape '" + shapeName.str() + "'");
-        ok = false;
-        break;
+      // "kind" defaults to "data"; "accessor" marks a getter/setter property.
+      bool accessor = false;
+      if (auto kindStr = propObj->getString("kind")) {
+        if (*kindStr == "data") {
+          accessor = false;
+        } else if (*kindStr == "accessor") {
+          accessor = true;
+        } else {
+          sm.warning(llvh::SMLoc{},
+                     "invalid kind '" + kindStr->str() + "' for property \"" +
+                         name->str() + "\" in static shape '" +
+                         shapeName.str() + "' (expected 'data' or 'accessor')");
+          ok = false;
+          break;
+        }
       }
-      def.properties.push_back({name->str(), std::move(typeStrs)});
+      std::vector<std::string> typeStrs;
+      if (accessor) {
+        // Accessor values are untyped: type is always "any". An explicit
+        // non-any type is accepted but overridden with a warning.
+        if (auto *declared = propObj->get("type")) {
+          auto explicitStrs = extractTypeStrings(*declared);
+          bool notAny = false;
+          for (const auto &s : explicitStrs)
+            if (s != "any")
+              notAny = true;
+          if (notAny)
+            sm.warning(llvh::SMLoc{},
+                       "accessor property \"" + name->str() +
+                           "\" in static shape '" + shapeName.str() +
+                           "' must be type 'any'; ignoring declared type");
+        }
+        typeStrs = {"any"};
+      } else {
+        auto *typeVal = propObj->get("type");
+        if (!typeVal) {
+          sm.warning(llvh::SMLoc{},
+                     "missing type in static shape '" + shapeName.str() +
+                         "' for property \"" + name->str() + "\"");
+          ok = false;
+          break;
+        }
+        typeStrs = extractTypeStrings(*typeVal);
+        if (typeStrs.empty()) {
+          sm.warning(llvh::SMLoc{},
+                     "invalid type for property \"" + name->str() +
+                         "\" in static shape '" + shapeName.str() + "'");
+          ok = false;
+          break;
+        }
+      }
+      def.properties.push_back({name->str(), std::move(typeStrs), accessor});
     }
     if (ok)
       defs[shapeName] = std::move(def);

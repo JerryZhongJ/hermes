@@ -55,6 +55,10 @@ struct SMRangeInfo {
 struct StaticShapePropertyDefinition {
   std::string name;
   std::vector<std::string> typeNames;
+  /// True if this is an accessor (getter/setter) property. Accessor properties
+  /// are always treated as type "any" — the getter/setter can produce/accept
+  /// anything, so a static value type is meaningless.
+  bool accessor = false;
 };
 
 /// Static shape definition loaded from JSON. Uses type name strings

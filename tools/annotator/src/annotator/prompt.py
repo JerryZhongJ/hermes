@@ -44,10 +44,10 @@ Basic concepts:
   union of several, or `any`. Supported concrete types: {", ".join(sorted(SUPPORTED_TYPES))}.
   Use any for any type not listed above (e.g. object, bigint, symbol).
 - static shape — a description of an object's own properties (not inherited
-  from its prototype), in order, each carrying a type. As opposed to the actual
+  from its prototype), in order, each carrying a type and a kind (data or accessor). 
+  An accessor property is always typed `any`. As opposed to the actual
   shape an object takes on at runtime which is built dynamically, the static shape
-  is determined statically. Only static shapes whose properties are all data
-  properties (non-accessor) are supported.
+  is determined statically.
 
 How guards work:
 Each guard is a runtime check inserted by the compiler. The check splits the
@@ -84,8 +84,8 @@ The three kinds of guard (what each makes the compiler do):
   inserts a shape check like a SHAPE GUARD does. It introduces the write guard above.
 - SHAPE GUARD. Give a target expression and a static shape. The compiler
   inserts a shape check that confirms the object already has that static
-  shape through a SHAPE BINDING; on pass, property accesses on it take the
-  shape fast path. By default the check runs right after the target
+  shape through a SHAPE BINDING; on pass, **data** property accesses on it take the
+  shape fast path, while accessor property accesses go through the runtime. By default the check runs right after the target
   expression; the optional "guard after" delays it until after some other
   point — same meaning as a SHAPE BINDING's "bind after". For example, 
   in `obj.x = sideEffect();` target `obj` and set
@@ -131,6 +131,8 @@ Emit a guard only when all three hold:
 JSON format:
 - Top level: "static shapes" (name -> definition), "shape guards", "shape
   bindings", and optional "type guards".
+- Static shape property: `{{"name": ..., "type": ..., "kind"?: ...}}`. "kind"
+  is "data" (the default) or "accessor".
 - Field names must match exactly: "target range", "shape", "type", and the
   optional "bind after" (shape binding) / "guard after" (shape guard). A
   type is a single string or an array for a union (e.g. ["number", "string"]).

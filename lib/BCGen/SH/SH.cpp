@@ -253,6 +253,8 @@ class SHStaticShapeTable {
   struct EncodedProp {
     uint32_t nameIndex;
     uint8_t typeCode;
+    /// 0 = data property, 1 = accessor (getter/setter).
+    uint8_t kind;
   };
 
   struct EncodedShape {
@@ -319,9 +321,13 @@ class SHStaticShapeTable {
       Type irType = desc->getPropertyType(i);
       if (irType != Type::createAnyType())
         typed = 1;
+      uint8_t code = getPropertyTypeCode(irType);
+      uint8_t kind =
+          desc->getPropertyKind(i) == PropertyKind::Accessor ? 1 : 0;
       props_.push_back(EncodedProp{
           stringTable.add(desc->getPropertyName(i).str()),
-          getPropertyTypeCode(irType)});
+          code,
+          kind});
     }
     shapes_[shapeIndex].typed = typed;
   }
@@ -361,7 +367,8 @@ class SHStaticShapeTable {
     for (const auto &prop : props_) {
       os.indent(2);
       os << "{ .name_index = " << prop.nameIndex
-         << ", .type = " << static_cast<unsigned>(prop.typeCode) << " },\n";
+         << ", .type = " << static_cast<unsigned>(prop.typeCode)
+         << ", .kind = " << static_cast<unsigned>(prop.kind) << " },\n";
     }
     os << "};\n";
 
@@ -3495,6 +3502,7 @@ static SHNativeFuncInfo s_function_info_table[];
     for (auto &F : *M)
       sortedFuncs[moduleGen.nativeFunctionTable.getIndex(&F)] = &F;
 
+    auto &srcMgr = M->getContext().getSourceErrorManager();
     OS << "\n/* Function call counters */\n";
     OS << "#include <stdio.h>\n";
     OS << "static const char *__fc_names[" << numFuncs << "] = {";
@@ -3514,11 +3522,31 @@ static SHNativeFuncInfo s_function_info_table[];
       OS << "\"";
     }
     OS << "};\n";
+    // Per-function source definition range: "startLine" or "startLine-endLine"
+    // (best-effort, derived from the IR Function's SourceRange). Built from the
+    // same sortedFuncs array as __fc_names, so __fc_loc[i] always matches func#i.
+    OS << "static const char *__fc_loc[" << numFuncs << "] = {";
+    for (unsigned i = 0; i < numFuncs; ++i) {
+      if (i)
+        OS << ", ";
+      std::string locStr = "<unknown>";
+      SourceErrorManager::SourceCoords start, end;
+      const Function *F = sortedFuncs[i];
+      if (srcMgr.findBufferLineAndLoc(F->getSourceRange().Start, start)) {
+        locStr = std::to_string(start.line);
+        if (srcMgr.findBufferLineAndLoc(F->getSourceRange().End, end) &&
+            end.line > start.line)
+          locStr += "-" + std::to_string(end.line);
+      }
+      OS << "\"" << locStr << "\"";
+    }
+    OS << "};\n";
     OS << "static unsigned long long __fc_counters[" << numFuncs << "];\n";
     OS << "static void __fc_print_counters(void) {\n";
     OS << "  for (unsigned i = 0; i < " << numFuncs
        << "; ++i)\n    if (__fc_counters[i])\n      fprintf(stderr, "
-          "\"func#%u %s: count=%llu\\n\", i, __fc_names[i], __fc_counters[i]);\n";
+          "\"func#%u %s @ %s: count=%llu\\n\", i, __fc_names[i], __fc_loc[i], "
+          "__fc_counters[i]);\n";
     OS << "}\n\n";
   }
 

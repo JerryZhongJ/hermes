@@ -9,7 +9,7 @@ function simple(o) {
 // CHECK:function simple(o: any): any
 // CHECK-NEXT:%BB0:
 // CHECK-NEXT:  %0 = LoadParamInst (:any) %o: any
-// CHECK-NEXT:  %1 = HasStaticShapeInst (:boolean) %0: any, {x: number}: null
+// CHECK-NEXT:  %1 = HasStaticShapeInst (:boolean) %0: any, {x: number}: null [ann#0]
 // CHECK-NEXT:       CondBranchInst %1: boolean, %BB1, %BB2
 // CHECK-NEXT:%BB1:
 // CHECK-NEXT:  %3 = PrLoadInst (:number) %0: any, 0: number, "x": string

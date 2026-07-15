@@ -185,7 +185,7 @@ class Impl {
         llvh::isa<TrySetStaticShapeInst>(inst);
   }
 
-  bool isStoreShapeCompatible(
+  bool knownShapeStorePolluting(
       BaseStorePropertyInst *store,
       const StaticShapeDesc *shape) const {
     auto *prop = llvh::dyn_cast<LiteralString>(store->getProperty());
@@ -194,6 +194,10 @@ class Impl {
     Identifier name = prop->getValue();
     int idx = shape->getPropertyIndex(name);
     if (idx < 0)
+      return false;
+    // Writing an accessor property invokes its setter (arbitrary JS), so it is
+    // never a precise, non-polluting slot store.
+    if (shape->getPropertyKind(idx) == PropertyKind::Accessor)
       return false;
     Type expectedType = shape->getPropertyType(idx);
     Type storedType = store->getStoredValue()->getType();
@@ -208,7 +212,7 @@ class Impl {
     if (auto *store = llvh::dyn_cast<BaseStorePropertyInst>(inst)) {
       switch (store->getObjOperandShape().status) {
         case StaticShapeInfo::KnownStaticShape:
-          return !isStoreShapeCompatible(
+          return !knownShapeStorePolluting(
               store, store->getObjOperandShape().desc);
         case StaticShapeInfo::NoShape:
           return false;

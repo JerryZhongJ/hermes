@@ -16,8 +16,8 @@ print(o.x);
 // C: _sh_ljs_has_static_shape(shr,
 // C-SAME: shUnit, 0
 // C: static const SHStaticShapeProp s_static_shape_props[] = {
-// C: { .name_index = {{[0-9]+}}, .type = 1 },
-// C: { .name_index = {{[0-9]+}}, .type = 1 },
+// C: { .name_index = {{[0-9]+}}, .type = 1, .kind = 0 },
+// C: { .name_index = {{[0-9]+}}, .type = 1, .kind = 0 },
 // C: static const SHStaticShapeTableEntry s_static_shape_table[] = {
 // C: { .prop_offset = 0, .num_props = 2, .typed = 1 },
 // C: SHCompressedPointer static_shape_class_cache[1];
@@ -31,10 +31,10 @@ print(o.x);
 // LIR-NEXT:  %1 = LIRAllocObjectFromBufferInst (:object) empty: any, "x": string, 1: number, "y": string, 2: number
 // LIR-NEXT:  %2 = LIRGetGlobalObjectInst (:object)
 // LIR-NEXT:       StorePropertyLooseInst %1: object, %2: object, "o": string
-// LIR-NEXT:       TrySetStaticShapeInst %1: object, {x: number, y: number}: null
+// LIR-NEXT:       TrySetStaticShapeInst %1: object, {x: number, y: number}: null [ann#1]
 // LIR-NEXT:  %5 = TryLoadGlobalPropertyInst (:any) %2: object, "print": string
 // LIR-NEXT:  %6 = LoadPropertyInst (:any) %2: object, "o": string
-// LIR-NEXT:  %7 = HasStaticShapeInst (:boolean) %6: any, {x: number, y: number}: null
+// LIR-NEXT:  %7 = HasStaticShapeInst (:boolean) %6: any, {x: number, y: number}: null [ann#0]
 // LIR-NEXT:       CondBranchInst %7: boolean, %BB1, %BB2
 // LIR-NEXT:%BB1:
 // LIR-NEXT:  %9 = PrLoadInst (:number) %6: any, 0: number, "x": string

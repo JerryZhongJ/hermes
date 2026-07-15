@@ -43,6 +43,8 @@ typedef struct SHStaticShapeProp {
   uint32_t name_index;
   /// PropertyTypeCode encoded as an integer.
   uint8_t type;
+  /// 0 = data property, 1 = accessor (getter/setter).
+  uint8_t kind;
 } SHStaticShapeProp;
 
 /// Encodes one static shape descriptor.

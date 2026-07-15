@@ -240,6 +240,8 @@ void IRPrinter::printValueLabel(Instruction *I, Value *V, unsigned opIndex) {
         os_ << ", ";
       os_ << quoteStr(ctx.toString(desc->getPropertyName(i))) << ": "
           << desc->getPropertyType(i);
+      if (desc->getPropertyKind(i) == PropertyKind::Accessor)
+        os_ << " |accessor";
     }
     os_ << "}";
   } else {

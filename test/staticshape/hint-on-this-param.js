@@ -82,7 +82,7 @@ new Vec(1).mul(3);
 // IRGEN-NEXT:  %1 = CoerceThisNSInst (:object) %0: any
 // IRGEN-NEXT:  %2 = GetParentScopeInst (:environment) %VS0: any, %parentScope: environment
 // IRGEN-NEXT:  %3 = CreateScopeInst (:environment) %VS2: any, %2: environment
-// IRGEN-NEXT:  %4 = HasStaticShapeInst (:boolean) %1: object, {x: number}: null
+// IRGEN-NEXT:  %4 = HasStaticShapeInst (:boolean) %1: object, {x: number}: null [ann#1]
 // IRGEN-NEXT:  %5 = LoadParamInst (:any) %p: any
 // IRGEN-NEXT:  %6 = TypeOfIsInst (:boolean) %5: any, typeOfIs(Number) [ann#0]
 // IRGEN-NEXT:       StoreFrameInst %3: environment, %5: any, [%VS2.p]: any
@@ -151,7 +151,7 @@ new Vec(1).mul(3);
 // INSERT-NEXT:  %1 = CoerceThisNSInst (:object) %0: any
 // INSERT-NEXT:  %2 = GetParentScopeInst (:environment) %VS0: any, %parentScope: environment
 // INSERT-NEXT:  %3 = CreateScopeInst (:environment) %VS2: any, %2: environment
-// INSERT-NEXT:  %4 = HasStaticShapeInst (:boolean) %1: object, {x: number}: null
+// INSERT-NEXT:  %4 = HasStaticShapeInst (:boolean) %1: object, {x: number}: null [ann#1]
 // INSERT-NEXT:       CondBranchInst %4: boolean, %BB7, %BB8
 // INSERT-NEXT:%BB1:
 // INSERT-NEXT:       StoreFrameInst %3: environment, 0: number, [%VS2.p]: any
@@ -231,7 +231,7 @@ new Vec(1).mul(3);
 // OPT:function ""(p: any): undefined
 // OPT-NEXT:%BB0:
 // OPT-NEXT:  %0 = LIRGetThisNSInst (:object)
-// OPT-NEXT:  %1 = HasStaticShapeInst (:boolean) %0: object, {x: number}: null
+// OPT-NEXT:  %1 = HasStaticShapeInst (:boolean) %0: object, {x: number}: null [ann#1]
 // OPT-NEXT:  %2 = LoadParamInst (:any) %p: any
 // OPT-NEXT:       CondBranchInst %1: boolean, %BB3, %BB4
 // OPT-NEXT:%BB1:

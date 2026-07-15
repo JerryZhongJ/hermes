@@ -25,8 +25,8 @@ function crossObject() {
 // OPT:function crossObject(): string|number|bigint
 // OPT-NEXT:%BB0:
 // OPT-NEXT:  %0 = AllocObjectLiteralInst (:object) empty: any, "x": string, 1: number
-// OPT-NEXT:       TrySetStaticShapeInst %0: object, {x: number}: null
-// OPT-NEXT:  %2 = HasStaticShapeInst (:boolean) %0: object, {x: number}: null
+// OPT-NEXT:       TrySetStaticShapeInst %0: object, {x: number}: null [ann#0]
+// OPT-NEXT:  %2 = HasStaticShapeInst (:boolean) %0: object, {x: number}: null [ann#0]
 // OPT-NEXT:       CondBranchInst %2: boolean, %BB3, %BB4
 // OPT-NEXT:%BB1:
 // OPT-NEXT:  %4 = PrLoadInst (:number) %0: object, 0: number, "x": string
@@ -41,11 +41,11 @@ function crossObject() {
 // OPT-NEXT:        ReturnInst %11: string|number|bigint
 // OPT-NEXT:%BB3:
 // OPT-NEXT:  %13 = AllocObjectLiteralInst (:object) empty: any, "y": string, 2: number
-// OPT-NEXT:        TrySetStaticShapeInst %13: object, {y: number}: null
-// OPT-NEXT:  %15 = HasStaticShapeInst (:boolean) %13: object, {y: number}: null
+// OPT-NEXT:        TrySetStaticShapeInst %13: object, {y: number}: null [ann#1]
+// OPT-NEXT:  %15 = HasStaticShapeInst (:boolean) %13: object, {y: number}: null [ann#1]
 // OPT-NEXT:        CondBranchInst %15: boolean, %BB1, %BB2
 // OPT-NEXT:%BB4:
 // OPT-NEXT:  %17 = AllocObjectLiteralInst (:object) empty: any, "y": string, 2: number
-// OPT-NEXT:        TrySetStaticShapeInst %17: object, {y: number}: null
+// OPT-NEXT:        TrySetStaticShapeInst %17: object, {y: number}: null [ann#1]
 // OPT-NEXT:        BranchInst %BB2
 // OPT-NEXT:function_end

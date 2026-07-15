@@ -1,0 +1,18 @@
+{
+  "shape hints": [],
+  "static shapes": {
+    "Obj": {
+      "properties": [
+        {"name": "count", "type": "number"},
+        {"name": "log", "kind": "accessor"}
+      ]
+    }
+  },
+  "shape bindings": [
+    {
+      "target range": {"file": "accessor-shape-store.js", "start": {"line": 14, "column": 11}, "end": {"line": 14, "column": 70}},
+      "bind after": {"file": "accessor-shape-store.js", "start": {"line": 14, "column": 11}, "end": {"line": 14, "column": 70}},
+      "shape": "Obj"
+    }
+  ]
+}

@@ -17,7 +17,7 @@ function loopSame(n, a, b) {
 // CHECK-NEXT:       CondBranchInst %1: boolean, %BB9, %BB10
 // CHECK-NEXT:%BB1:
 // CHECK-NEXT:  %3 = PhiInst (:number) 0: number, %BB7, %17: number, %BB5
-// CHECK-NEXT:  %4 = HasStaticShapeInst (:boolean) %37: any, {x: number}: null
+// CHECK-NEXT:  %4 = HasStaticShapeInst (:boolean) %37: any, {x: number}: null [ann#2]
 // CHECK-NEXT:       CondBranchInst %4: boolean, %BB5, %BB6
 // CHECK-NEXT:%BB2:
 // CHECK-NEXT:  %6 = PhiInst (:any) %36: any, %BB7, %37: any, %BB5
@@ -59,7 +59,7 @@ function loopSame(n, a, b) {
 // CHECK-NEXT:  %35 = UnionNarrowTrustedInst (:number) %0: any
 // CHECK-NEXT:  %36 = LoadParamInst (:any) %a: any
 // CHECK-NEXT:  %37 = LoadParamInst (:any) %b: any
-// CHECK-NEXT:  %38 = HasStaticShapeInst (:boolean) %36: any, {x: number}: null
+// CHECK-NEXT:  %38 = HasStaticShapeInst (:boolean) %36: any, {x: number}: null [ann#1]
 // CHECK-NEXT:        CondBranchInst %38: boolean, %BB7, %BB8
 // CHECK-NEXT:%BB10:
 // CHECK-NEXT:  %40 = LoadParamInst (:any) %a: any

@@ -420,20 +420,29 @@ static_assert(sizeof(Type) == 2, "Type must not be too big");
 // StaticShape
 //===----------------------------------------------------------------------===//
 
-/// A single property in a static shape: its name and expected type.
+/// Whether a static shape property holds a data value or an accessor
+/// (getter/setter). Accessor properties never take the typed PrLoad/PrStore
+/// fast path — reads/writes always go through the runtime, which invokes the
+/// getter/setter.
+enum class PropertyKind : uint8_t { Data, Accessor };
+
+/// A single property in a static shape: its name, expected type, and kind.
 struct StaticShapeProperty {
   Identifier name;
   Type type;
+  PropertyKind kind = PropertyKind::Data;
 };
 
-/// Describes a static shape: an ordered list of data properties with their
+/// Describes a static shape: an ordered list of properties with their
 /// expected types. Property order matters: the same set of properties in
 /// different order defines a different shape.
 struct StaticShapeDesc {
   void addProperty(Identifier name, Type type) {
-    props_.push_back({name, type});
+    props_.push_back({name, type, PropertyKind::Data});
   }
   void addProperty(StaticShapeProperty prop) {
+    if (prop.kind == PropertyKind::Accessor)
+      hasAccessor_ = true;
     props_.push_back(prop);
   }
 
@@ -447,6 +456,16 @@ struct StaticShapeDesc {
 
   Type getPropertyType(size_t i) const {
     return props_[i].type;
+  }
+
+  PropertyKind getPropertyKind(size_t i) const {
+    return props_[i].kind;
+  }
+
+  /// O(1) check: does this shape contain any accessor property? Used to short
+  /// -circuit side-effect queries for the common data-only shapes.
+  bool hasAccessor() const {
+    return hasAccessor_;
   }
 
   bool hasProperty(Identifier name) const {
@@ -466,6 +485,9 @@ struct StaticShapeDesc {
 
  private:
   llvh::SmallVector<StaticShapeProperty, 8> props_;
+  /// Cached: true once any accessor property is added. Kept O(1) because
+  /// getSideEffectImpl() is uncached and called frequently.
+  bool hasAccessor_ = false;
 };
 
 /// The shape status lattice for the object operand in property access or

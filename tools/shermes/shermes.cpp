@@ -303,7 +303,8 @@ static cl::opt<bool> InstrumentGuards(
 static cl::opt<bool> InstrumentFunctionCalls(
     "instrument-function-calls",
     cl::desc(
-        "Instrument each JS function entry with a call counter; dump counts on exit"),
+        "Instrument each JS function entry with a call counter; dump counts on "
+        "exit. Disables inlining so every function keeps a standalone entry"),
     cl::init(false),
     cl::cat(CompilerCategory));
 
@@ -639,8 +640,12 @@ std::shared_ptr<Context> createContext() {
 
   OptimizationSettings optimizationOpts;
 
-  optimizationOpts.inlining =
-      cli::OptimizationLevel != OptLevel::O0 && cli::Inline;
+  // --instrument-function-calls counts each function's entry. Inlining would
+  // delete the inlined functions' standalone entries, making their counts
+  // silently disappear and the instrumentation incomplete. So force inlining
+  // off when call instrumentation is on.
+  optimizationOpts.inlining = cli::OptimizationLevel != OptLevel::O0 &&
+      cli::Inline && !cli::InstrumentFunctionCalls;
   optimizationOpts.inlineMaxSize = cli::InlineMaxSize;
 
   optimizationOpts.reusePropCache = cli::ReusePropCache;

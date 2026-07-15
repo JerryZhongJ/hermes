@@ -2436,8 +2436,13 @@ getStaticShapeClass(Runtime &runtime, SHUnit *unit, uint32_t index) {
         unit->static_shape_props[shape.prop_offset + i];
     assert(prop.name_index < unit->num_symbols && "static shape name OOB");
     PropertyFlags flags = defaultFlags;
+    bool isAccessor = prop.kind;
     if (shape.typed)
       flags.setPropertyType(static_cast<PropertyTypeCode>(prop.type));
+    if (isAccessor) {
+      flags.accessor = 1;
+      flags.writable = 0;  // accessor and writable are mutually exclusive
+    }
     auto addRes = HiddenClass::addProperty(
         clazz,
         runtime,

@@ -1696,7 +1696,29 @@ class BaseStorePropertyInst : public Instruction {
   }
 
   SideEffect getSideEffectImpl() const {
-    return SideEffect::createExecute();
+    switch (objOperandShape_.status) {
+      case StaticShapeInfo::KnownStaticShape: {
+        const StaticShapeDesc *desc = objOperandShape_.desc;
+        // Data-only shape: a precise slot write (no setter invocation).
+        if (!desc->hasAccessor())
+          return SideEffect{}.setWriteHeap().setIdempotent();
+        // A literal-named data property in a mixed shape is still a precise
+        // slot write. Only accessor writes — and unknown-name writes when the
+        // shape has any accessor — invoke a setter (arbitrary JS).
+        if (auto *propStr = llvh::dyn_cast<LiteralString>(getProperty())) {
+          int idx = desc->getPropertyIndex(propStr->getValue());
+          if (idx != -1 &&
+              desc->getPropertyKind(idx) == PropertyKind::Data)
+            return SideEffect{}.setWriteHeap().setIdempotent();
+        }
+        return SideEffect::createExecute();
+      }
+      case StaticShapeInfo::NoShape:
+        return SideEffect{};
+      case StaticShapeInfo::AnyShapes:
+        return SideEffect::createExecute();
+    }
+    llvm_unreachable("unknown StaticShapeInfo status");
   }
 
   static bool classof(const Value *V) {
@@ -2296,8 +2318,22 @@ class BaseLoadPropertyInst : public Instruction {
 
   SideEffect getSideEffectImpl() const {
     switch (objOperandShape_.status) {
-      case StaticShapeInfo::KnownStaticShape:
-        return SideEffect{}.setReadHeap().setIdempotent();
+      case StaticShapeInfo::KnownStaticShape: {
+        const StaticShapeDesc *desc = objOperandShape_.desc;
+        // Data-only shapes: a pure slot read (the common case — zero change).
+        if (!desc->hasAccessor())
+          return SideEffect{}.setReadHeap().setIdempotent();
+        // A literal-named data property in a mixed shape is still a pure slot
+        // read. Only accessor reads — and unknown-name reads when the shape
+        // has any accessor — can execute arbitrary JS via the getter.
+        if (auto *propStr = llvh::dyn_cast<LiteralString>(getProperty())) {
+          int idx = desc->getPropertyIndex(propStr->getValue());
+          if (idx != -1 &&
+              desc->getPropertyKind(idx) == PropertyKind::Data)
+            return SideEffect{}.setReadHeap().setIdempotent();
+        }
+        return SideEffect::createExecute();
+      }
       case StaticShapeInfo::NoShape:
         return SideEffect{};
       case StaticShapeInfo::AnyShapes:

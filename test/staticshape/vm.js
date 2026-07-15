@@ -99,8 +99,8 @@ print("trySetFailure", trySetFailure());
 // OPT:function storePropertyOk(): any
 // OPT-NEXT:%BB0:
 // OPT-NEXT:  %0 = AllocObjectLiteralInst (:object) empty: any, "x": string, 1: number
-// OPT-NEXT:       TrySetStaticShapeInst %0: object, {x: number}: null
-// OPT-NEXT:  %2 = HasStaticShapeInst (:boolean) %0: object, {x: number}: null
+// OPT-NEXT:       TrySetStaticShapeInst %0: object, {x: number}: null [ann#0]
+// OPT-NEXT:  %2 = HasStaticShapeInst (:boolean) %0: object, {x: number}: null [ann#0]
 // OPT-NEXT:       CondBranchInst %2: boolean, %BB1, %BB2
 // OPT-NEXT:%BB1:
 // OPT-NEXT:       PrStoreInst 2: number, %0: object, 0: number, "x": string
@@ -115,8 +115,8 @@ print("trySetFailure", trySetFailure());
 // OPT:function storePropertyBad(): any
 // OPT-NEXT:%BB0:
 // OPT-NEXT:  %0 = AllocObjectLiteralInst (:object) empty: any, "x": string, 1: number
-// OPT-NEXT:       TrySetStaticShapeInst %0: object, {x: number}: null
-// OPT-NEXT:  %2 = HasStaticShapeInst (:boolean) %0: object, {x: number}: null
+// OPT-NEXT:       TrySetStaticShapeInst %0: object, {x: number}: null [ann#1]
+// OPT-NEXT:  %2 = HasStaticShapeInst (:boolean) %0: object, {x: number}: null [ann#1]
 // OPT-NEXT:       CondBranchInst %2: boolean, %BB1, %BB2
 // OPT-NEXT:%BB1:
 // OPT-NEXT:       PrStoreInst "bad": string, %0: object, 0: number, "x": string
@@ -133,8 +133,8 @@ print("trySetFailure", trySetFailure());
 // OPT-NEXT:  %0 = LoadParamInst (:any) %v: any
 // OPT-NEXT:  %1 = AllocObjectLiteralInst (:object) empty: any, "x": string, null: null
 // OPT-NEXT:       PrStoreInst %0: any, %1: object, 0: number, "x": string
-// OPT-NEXT:       TrySetStaticShapeInst %1: object, {x: number}: null
-// OPT-NEXT:  %4 = HasStaticShapeInst (:boolean) %1: object, {x: number}: null
+// OPT-NEXT:       TrySetStaticShapeInst %1: object, {x: number}: null [ann#2]
+// OPT-NEXT:  %4 = HasStaticShapeInst (:boolean) %1: object, {x: number}: null [ann#2]
 // OPT-NEXT:       CondBranchInst %4: boolean, %BB1, %BB2
 // OPT-NEXT:%BB1:
 // OPT-NEXT:       ReturnInst %1: object
@@ -145,8 +145,8 @@ print("trySetFailure", trySetFailure());
 // OPT:function trySetSuccess(): any
 // OPT-NEXT:%BB0:
 // OPT-NEXT:  %0 = AllocObjectLiteralInst (:object) empty: any, "x": string, 4: number
-// OPT-NEXT:       TrySetStaticShapeInst %0: object, {x: number}: null
-// OPT-NEXT:  %2 = HasStaticShapeInst (:boolean) %0: object, {x: number}: null
+// OPT-NEXT:       TrySetStaticShapeInst %0: object, {x: number}: null [ann#3]
+// OPT-NEXT:  %2 = HasStaticShapeInst (:boolean) %0: object, {x: number}: null [ann#3]
 // OPT-NEXT:       CondBranchInst %2: boolean, %BB1, %BB2
 // OPT-NEXT:%BB1:
 // OPT-NEXT:  %4 = PrLoadInst (:number) %0: object, 0: number, "x": string
@@ -159,8 +159,8 @@ print("trySetFailure", trySetFailure());
 // OPT:function trySetFailure(): any
 // OPT-NEXT:%BB0:
 // OPT-NEXT:  %0 = AllocObjectLiteralInst (:object) empty: any, "x": string, "bad": string
-// OPT-NEXT:       TrySetStaticShapeInst %0: object, {x: number}: null
-// OPT-NEXT:  %2 = HasStaticShapeInst (:boolean) %0: object, {x: number}: null
+// OPT-NEXT:       TrySetStaticShapeInst %0: object, {x: number}: null [ann#4]
+// OPT-NEXT:  %2 = HasStaticShapeInst (:boolean) %0: object, {x: number}: null [ann#4]
 // OPT-NEXT:       CondBranchInst %2: boolean, %BB1, %BB2
 // OPT-NEXT:%BB1:
 // OPT-NEXT:  %4 = PrLoadInst (:number) %0: object, 0: number, "x": string

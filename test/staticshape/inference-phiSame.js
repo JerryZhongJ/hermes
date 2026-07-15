@@ -19,10 +19,10 @@ function phiSame(c, a, b) {
 // CHECK-NEXT:  %2 = LoadParamInst (:any) %b: any
 // CHECK-NEXT:       CondBranchInst %0: any, %BB1, %BB2
 // CHECK-NEXT:%BB1:
-// CHECK-NEXT:  %4 = HasStaticShapeInst (:boolean) %1: any, {x: number}: null
+// CHECK-NEXT:  %4 = HasStaticShapeInst (:boolean) %1: any, {x: number}: null [ann#0]
 // CHECK-NEXT:       CondBranchInst %4: boolean, %BB3, %BB4
 // CHECK-NEXT:%BB2:
-// CHECK-NEXT:  %6 = HasStaticShapeInst (:boolean) %2: any, {x: number}: null
+// CHECK-NEXT:  %6 = HasStaticShapeInst (:boolean) %2: any, {x: number}: null [ann#1]
 // CHECK-NEXT:       CondBranchInst %6: boolean, %BB3, %BB4
 // CHECK-NEXT:%BB3:
 // CHECK-NEXT:  %8 = PhiInst (:any) %2: any, %BB2, %1: any, %BB1
