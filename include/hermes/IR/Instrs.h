@@ -6061,21 +6061,23 @@ class LoadParentNoTrapsInst : public Instruction {
   LoadParentNoTrapsInst(const LoadParentNoTrapsInst &) = delete;
   void operator=(const LoadParentNoTrapsInst &) = delete;
 
+  /// Known static shape of getObject() (filled by StaticShapeInference).
+  StaticShapeInfo objOperandShape_{};
+
  public:
   enum { ObjectIdx };
 
   explicit LoadParentNoTrapsInst(Value *object)
       : Instruction(ValueKind::LoadParentNoTrapsInstKind) {
-    assert(
-        object->getType().isObjectType() &&
-        "object input must be of type object");
+    // No isObjectType assert: may be emitted before a shape guard narrows the
+    // type; the runtime guards on _sh_ljs_is_object, so any value is safe.
     setType(*getInherentTypeImpl());
     pushOperand(object);
   }
   explicit LoadParentNoTrapsInst(
       const LoadParentNoTrapsInst *src,
       llvh::ArrayRef<Value *> operands)
-      : Instruction(src, operands) {}
+      : Instruction(src, operands), objOperandShape_(src->objOperandShape_) {}
 
   static llvh::Optional<Type> getInherentTypeImpl() {
     // The parent of an object is either another object or null.
@@ -6088,6 +6090,13 @@ class LoadParentNoTrapsInst : public Instruction {
 
   const Value *getObject() const {
     return getOperand(ObjectIdx);
+  }
+
+  StaticShapeInfo getObjOperandShape() const {
+    return objOperandShape_;
+  }
+  void setObjOperandShape(StaticShapeInfo info) {
+    objOperandShape_ = info;
   }
 
   static bool hasOutput() {

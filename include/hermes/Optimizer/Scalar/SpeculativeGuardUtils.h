@@ -50,7 +50,11 @@ inline bool isNumericConsumer(Instruction *I) {
 /// property accesses), or generic Load/StoreProperty/HasStaticShape with a
 /// non-Any inferred objOperandShape.
 inline bool objectOperandKnownShape(Instruction *I) {
-  if (llvh::isa<PrLoadInst>(I) || llvh::isa<PrStoreInst>(I))
+  // PrLoad/PrStore read a typed slot directly; TypedLoadParent reads
+  // [[Prototype]] with no proxy/null guard, so it relies on its operand being a
+  // static-shape object (the guard's invariant).
+  if (llvh::isa<PrLoadInst>(I) || llvh::isa<PrStoreInst>(I) ||
+      llvh::isa<TypedLoadParentInst>(I))
     return true;
   StaticShapeInfo shape;
   if (auto *L = llvh::dyn_cast<BaseLoadPropertyInst>(I))
@@ -59,6 +63,8 @@ inline bool objectOperandKnownShape(Instruction *I) {
     shape = S->getObjOperandShape();
   else if (auto *H = llvh::dyn_cast<HasStaticShapeInst>(I))
     shape = H->getObjOperandShape();
+  else if (auto *LPN = llvh::dyn_cast<LoadParentNoTrapsInst>(I))
+    shape = LPN->getObjOperandShape();
   else
     return false;
   return shape.status != StaticShapeInfo::AnyShapes;

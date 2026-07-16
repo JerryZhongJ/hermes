@@ -160,32 +160,9 @@ void loadStaticShapes(
           break;
         }
       }
-      std::vector<std::string> typeStrs;
-      if (accessor) {
-        // Accessor values are untyped: type is always "any". An explicit
-        // non-any type is accepted but overridden with a warning.
-        if (auto *declared = propObj->get("type")) {
-          auto explicitStrs = extractTypeStrings(*declared);
-          bool notAny = false;
-          for (const auto &s : explicitStrs)
-            if (s != "any")
-              notAny = true;
-          if (notAny)
-            sm.warning(llvh::SMLoc{},
-                       "accessor property \"" + name->str() +
-                           "\" in static shape '" + shapeName.str() +
-                           "' must be type 'any'; ignoring declared type");
-        }
-        typeStrs = {"any"};
-      } else {
-        auto *typeVal = propObj->get("type");
-        if (!typeVal) {
-          sm.warning(llvh::SMLoc{},
-                     "missing type in static shape '" + shapeName.str() +
-                         "' for property \"" + name->str() + "\"");
-          ok = false;
-          break;
-        }
+      // "type" is optional and defaults to "any".
+      std::vector<std::string> typeStrs = {"any"};
+      if (auto *typeVal = propObj->get("type")) {
         typeStrs = extractTypeStrings(*typeVal);
         if (typeStrs.empty()) {
           sm.warning(llvh::SMLoc{},
@@ -194,6 +171,18 @@ void loadStaticShapes(
           ok = false;
           break;
         }
+      }
+      // Accessor properties are always "any"; warn if a non-any type was given.
+      if (accessor) {
+        for (const auto &s : typeStrs)
+          if (s != "any") {
+            sm.warning(llvh::SMLoc{},
+                       "accessor property \"" + name->str() +
+                           "\" in static shape '" + shapeName.str() +
+                           "' must be type 'any'; ignoring declared type");
+            break;
+          }
+        typeStrs = {"any"};
       }
       def.properties.push_back({name->str(), std::move(typeStrs), accessor});
     }
@@ -348,11 +337,37 @@ void loadShapeGuards(
       insertRange = guardAfterRange.getValue();
     }
 
+    // Optional "prototype shape": defined shape name of the object's direct
+    // prototype (a refinement of "shape", so shape-guard only).
+    std::string protoShapeName;
+    if (auto protoOpt = sa->getString("prototype shape")) {
+      if (shapeDefs.find(*protoOpt) == shapeDefs.end()) {
+        sm.warning(llvh::SMLoc{},
+                   "shape guard at " + at + ": unknown 'prototype shape' '" +
+                       protoOpt->str() + "'");
+        continue;
+      }
+      protoShapeName = protoOpt->str();
+    }
+
+    // Own-shape and prototype-shape get distinct ids (reported separately).
+    // Descriptor push order must match id order (indexed by id).
     unsigned id = nextAnnotationId++;
-    shapeGuards[insertRange].push_back(
-        {targetRange.getValue(), shapeName.getValue(), id});
+    unsigned protoId = id;
+    if (!protoShapeName.empty())
+      protoId = nextAnnotationId++;
     annotationDescriptors.push_back(
         {AnnotationDescriptor::ShapeHint, shapeName.getValue(), line, col, endLine, endCol});
+    if (!protoShapeName.empty())
+      annotationDescriptors.push_back({AnnotationDescriptor::PrototypeShapeHint,
+                                       protoShapeName,
+                                       line,
+                                       col,
+                                       endLine,
+                                       endCol});
+    shapeGuards[insertRange].push_back(
+        {targetRange.getValue(), shapeName.getValue(), std::move(protoShapeName),
+         id, protoId});
   }
 }
 
@@ -547,6 +562,8 @@ void Annotations::getShapeGuards(
   if (it != shapeGuards_.end()) {
     for (const auto &entry : it->second) {
       matchedAnnotationIds_.insert(entry.annotationId);
+      if (!entry.prototypeShapeName.empty())
+        matchedAnnotationIds_.insert(entry.prototypeAnnotationId);
       guards.push_back(entry);
     }
   }

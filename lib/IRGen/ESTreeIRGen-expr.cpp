@@ -132,6 +132,22 @@ bool ESTreeIRGen::tryInsertShapeCheck(ESTree::Node *node) {
     // Carry the guard's source location (the hint-after site) so
     // instrumentation can report where each guard site lives.
     checkInst->setLocation(node->getDebugLoc());
+
+    // Optional "prototype shape": also guard the prototype. LoadParentNoTraps
+    // (not TypedLoadParent) because duplicateFunction copies this into the
+    // general path where the object may be a non-object/proxy.
+    if (!shapeGuard.prototypeShapeName.empty()) {
+      auto protoDescIt = shapeDescsByName_.find(shapeGuard.prototypeShapeName);
+      if (protoDescIt != shapeDescsByName_.end()) {
+        auto *parent = Builder.createLoadParentNoTrapsInst(objectIt->second);
+        auto *protoLitShape =
+            Builder.getLiteralStaticShape(protoDescIt->second);
+        auto *parentCheck =
+            Builder.createHasStaticShapeInst(parent, protoLitShape);
+        parentCheck->setAnnotationId(shapeGuard.prototypeAnnotationId);
+        parentCheck->setLocation(node->getDebugLoc());
+      }
+    }
     applied = true;
   }
   if (applied)

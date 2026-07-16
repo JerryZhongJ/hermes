@@ -1502,8 +1502,15 @@ SHERMES_EXPORT void _sh_check_type_for_prstore(
 /// --instrument-store-property; not on any hot path otherwise.
 SHERMES_EXPORT bool _sh_ljs_is_typed(SHRuntime *shr, SHLegacyValue *target);
 
-/// Check if the object has the static shape class at the given index.
-/// Compares raw compressed pointer values — no decode or read barrier needed.
+/// True iff \p value is an object whose hidden class equals shape S's cached
+/// typed class (static_shape_class_cache[shapeIndex]).
+/// On the spec path (this returns true), TrySet's checks guarantee:
+///  - never a proxy (TrySet refuses proxies),
+///  - own properties are exactly S's (so getPropertyIndex(p)==-1 <=> p is
+///    inherited),
+///  - prototype is non-null (TrySet refuses null-prototype objects), so
+///    _sh_typed_load_parent needs no null guard and the LoadProperty ->
+///    getparent rewrite is safe.
 static inline bool _sh_ljs_has_static_shape(
     SHRuntime *shr,
     SHLegacyValue value,
@@ -1679,13 +1686,21 @@ static inline SHLegacyValue _sh_fastarray_length(
 #endif
 }
 
-/// \return the parent of the legacy, ordinary object \p object. It must not be
-/// a proxy.
+/// \return the [[Prototype]] of \p object:
+///  - undefined if \p object is not an object or is a proxy (invalid input),
+///  - null if the prototype is null (Object.create(null), Object.prototype, ...),
+///  - otherwise the prototype object.
+/// Safe for any value, so IRGen may emit it before a shape guard and InsertGuard
+/// may copy it into the general path. The undefined-vs-null distinction lets
+/// callers tell "bad input" from "prototype chain end".
 static inline SHLegacyValue _sh_ljs_load_parent_no_traps(
     SHRuntime *shr,
     SHLegacyValue object) {
+  if (!_sh_ljs_is_object(object))
+    return _sh_ljs_undefined();
   SHJSObject *objectPtr = (SHJSObject *)_sh_ljs_get_pointer(object);
-  assert(!objectPtr->flags.proxyObject && "proxy is not supported");
+  if (objectPtr->flags.proxyObject)
+    return _sh_ljs_undefined();
   if (objectPtr->parent) {
     SHCompressedPointer parent = {.raw = objectPtr->parent};
     return _sh_ljs_object(_sh_cp_decode_non_null(shr, parent));
@@ -1693,6 +1708,9 @@ static inline SHLegacyValue _sh_ljs_load_parent_no_traps(
   return _sh_ljs_null();
 }
 
+/// [[Prototype]] of a typed (static-shape) object. No null/proxy guard: a
+/// static-shape object (by TrySet's checks — see _sh_ljs_has_static_shape) is
+/// a non-proxy object with a non-null prototype.
 static inline SHLegacyValue _sh_typed_load_parent(
     SHRuntime *shr,
     const SHLegacyValue *object) {

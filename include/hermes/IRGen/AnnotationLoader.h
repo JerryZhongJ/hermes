@@ -84,8 +84,15 @@ struct ShapeGuardEntry {
   llvh::SMRange objectRange;
   /// Name of the static shape in the JSON "static shapes" object.
   std::string shapeName;
-  /// Globally-unique annotation id.
+  /// Optional: static shape name of the object's direct prototype. Empty =
+  /// none. A refinement of "shape" (shape-guard only); when set, IRGen emits
+  /// getparent + HasStaticShape(parent, P).
+  std::string prototypeShapeName;
+  /// Globally-unique annotation id for the object's own shape guard.
   unsigned annotationId;
+  /// Annotation id for the prototype guard; distinct from annotationId so the
+  /// two guards report separately. Equals annotationId when no prototype.
+  unsigned prototypeAnnotationId;
 };
 
 /// Descriptor for a single annotation (type hint / shape hint / shape
@@ -93,7 +100,7 @@ struct ShapeGuardEntry {
 /// so guard instrumentation (SH.cpp) can report each annotation's kind and
 /// detail without re-encoding or reaching back into the loader's maps.
 struct AnnotationDescriptor {
-  enum Kind { Type, ShapeHint, ShapeBinding } kind;
+  enum Kind { Type, ShapeHint, PrototypeShapeHint, ShapeBinding } kind;
   /// Human-readable detail: type names joined by '|' (e.g. "number|string"),
   /// or the shape name (e.g. "XNumber").
   std::string detail;
@@ -113,6 +120,8 @@ inline llvh::StringRef annotationKindLabel(AnnotationDescriptor::Kind k) {
       return "type guard";
     case AnnotationDescriptor::ShapeHint:
       return "shape guard";
+    case AnnotationDescriptor::PrototypeShapeHint:
+      return "prototype shape guard";
     case AnnotationDescriptor::ShapeBinding:
       return "shape binding";
   }

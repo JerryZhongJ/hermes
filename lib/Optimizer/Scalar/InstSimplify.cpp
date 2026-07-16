@@ -1045,8 +1045,18 @@ class InstSimplifyImpl {
     if (!propStr)
       return nullptr;
     int idx = operandShape.desc->getPropertyIndex(propStr->getValue());
-    if (idx == -1)
-      return nullptr;
+    if (idx == -1) {
+      // Not an own property => inherited; read from the prototype, preserving
+      // the receiver (accessor `this`). TypedLoadParent is safe here: spec
+      // path (non-proxy typed object) and not duplicated into the general path.
+      Value *obj = inst->getObject();
+      Value *parent = builder_.createTypedLoadParentInst(obj);
+      Value *receiver = obj;
+      if (auto *lpwr = llvh::dyn_cast<LoadPropertyWithReceiverInst>(inst))
+        receiver = lpwr->getReceiver();
+      return builder_.createLoadPropertyWithReceiverInst(
+          parent, propStr, receiver);
+    }
     // Accessor properties must go through the runtime (getter invocation);
     // PrLoad is a raw slot read that would return the PropertyAccessor cell.
     if (operandShape.desc->getPropertyKind(idx) == PropertyKind::Accessor)
@@ -1056,6 +1066,17 @@ class InstSimplifyImpl {
         (size_t)idx,
         propStr,
         operandShape.desc->getPropertyType(idx));
+  }
+
+  /// Turn LoadParentNoTraps into TypedLoadParent when the object has a known
+  /// static shape (then it's a non-proxy typed object with a non-null
+  /// prototype). Matches the opcode emitted for inherited LoadProperty, so the
+  /// two getparents can coalesce.
+  Value *simplifyLoadParentNoTraps(LoadParentNoTrapsInst *inst) {
+    auto operandShape = inst->getObjOperandShape();
+    if (operandShape.status != StaticShapeInfo::KnownStaticShape)
+      return nullptr;
+    return builder_.createTypedLoadParentInst(inst->getObject());
   }
 
   /// Convert a StoreProperty-like instruction to PrStore when the object has a
@@ -1252,6 +1273,8 @@ class InstSimplifyImpl {
         return simplifyHasStaticShape(cast<HasStaticShapeInst>(I));
       case ValueKind::TrySetStaticShapeInstKind:
         return simplifyTrySetStaticShape(cast<TrySetStaticShapeInst>(I));
+      case ValueKind::LoadParentNoTrapsInstKind:
+        return simplifyLoadParentNoTraps(cast<LoadParentNoTrapsInst>(I));
 
       default:
         // TODO: handle other kinds of instructions.

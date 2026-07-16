@@ -1,0 +1,35 @@
+{
+  "shape hints": [
+    {
+      "target range": {
+        "file": "heap_load_opts.js",
+        "start": {"line": 11, "column": 11},
+        "end": {"line": 11, "column": 12}
+      },
+      "shape": "Point"
+    }
+  ],
+  "static shapes": {
+    "Point": {
+      "properties": [
+        {"name": "x", "type": "number"},
+        {"name": "y", "type": "number"}
+      ]
+    }
+  },
+  "shape bindings": [
+    {
+      "target range": {
+        "file": "heap_load_opts.js",
+        "start": {"line": 16, "column": 11},
+        "end": {"line": 16, "column": 21}
+      },
+      "bind after": {
+        "file": "heap_load_opts.js",
+        "start": {"line": 16, "column": 1},
+        "end": {"line": 16, "column": 22}
+      },
+      "shape": "Point"
+    }
+  ]
+}

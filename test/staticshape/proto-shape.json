@@ -1,0 +1,30 @@
+{
+  "static shapes": {
+    "Proto": {"properties": [{"name": "inherited", "type": "number"}]},
+    "Child": {"properties": [{"name": "own", "type": "number"}]}
+  },
+  "shape bindings": [
+    {
+      "target range": {"file": "proto-shape.js", "start": {"line": 13, "column": 3}, "end": {"line": 13, "column": 18}},
+      "bind after": {"file": "proto-shape.js", "start": {"line": 13, "column": 3}, "end": {"line": 13, "column": 34}},
+      "shape": "Proto"
+    },
+    {
+      "target range": {"file": "proto-shape.js", "start": {"line": 16, "column": 13}, "end": {"line": 16, "column": 24}},
+      "bind after": {"file": "proto-shape.js", "start": {"line": 17, "column": 5}, "end": {"line": 17, "column": 15}},
+      "shape": "Child"
+    }
+  ],
+  "shape hints": [
+    {
+      "target range": {"file": "proto-shape.js", "start": {"line": 21, "column": 17}, "end": {"line": 21, "column": 18}},
+      "shape": "Child",
+      "prototype shape": "Proto"
+    },
+    {
+      "target range": {"file": "proto-shape.js", "start": {"line": 27, "column": 24}, "end": {"line": 27, "column": 25}},
+      "shape": "Child",
+      "prototype shape": "Proto"
+    }
+  ]
+}

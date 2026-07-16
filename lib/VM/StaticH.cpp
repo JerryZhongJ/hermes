@@ -2470,6 +2470,15 @@ extern "C" void _sh_ljs_try_set_static_shape(
   Runtime &runtime = getRuntime(shr);
   GCScopeMarkerRAII marker{runtime};
   auto obj = Handle<JSObject>::vmcast(toPHV(target));
+  // Never switch a proxy to a typed class: it would break the "static-shape
+  // objects are never proxies" invariant (see _sh_ljs_has_static_shape).
+  if (obj->isProxyObject())
+    return;
+  // A static-shape object must have a non-null prototype: _sh_typed_load_parent
+  // reads it without a null guard. Never switchClass an object whose
+  // [[Prototype]] is null (Object.create(null), Object.prototype, ...).
+  if (!obj->getParent(runtime))
+    return;
   HiddenClass *targetClass = getStaticShapeClass(runtime, unit, shapeIndex);
   if (obj->getClass(runtime) == targetClass)
     return;

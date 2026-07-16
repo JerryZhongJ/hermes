@@ -10,9 +10,9 @@
 #include "hermes/Optimizer/PassManager/PassManager.h"
 #include "hermes/Optimizer/Scalar/Auditor.h"
 #include "hermes/Optimizer/Scalar/DCE.h"
-#include "hermes/Optimizer/Scalar/TypeInference.h"
 #include "hermes/Optimizer/Scalar/LocalTypeAndStaticShapeInference.h"
 #include "hermes/Optimizer/Scalar/RemoveUselessSpeculativeGuards.h"
+#include "hermes/Optimizer/Scalar/TypeInference.h"
 
 #include "llvh/Support/Debug.h"
 #include "llvh/Support/raw_ostream.h"
@@ -54,6 +54,7 @@ void hermes::runFullOptimizationPasses(Module &M) {
   // And, remove duplicate type guards right away
   PM.addInsertGuard();
   PM.addSimpleStackPromotion();
+  addMem2Reg();
   PM.addLocalTypeAndStaticShapeInference();
   PM.addTypeInference();
   PM.addInstSimplify();
@@ -77,6 +78,7 @@ void hermes::runFullOptimizationPasses(Module &M) {
   PM.addSimplifyCFG();
   PM.addSimpleStackPromotion();
   PM.addFrameLoadStoreOpts();
+  PM.addHeapLoadStoreOpts();
   addMem2Reg();
   PM.addSimpleStackPromotion();
   PM.addScopeElimination();
@@ -99,6 +101,7 @@ void hermes::runFullOptimizationPasses(Module &M) {
   // to ensure unused functions aren't capturing vars.
   PM.addSimpleStackPromotion();
   PM.addFrameLoadStoreOpts();
+  PM.addHeapLoadStoreOpts();
   addMem2Reg();
   PM.addScopeElimination();
   PM.addFunctionAnalysis();
@@ -114,11 +117,12 @@ void hermes::runFullOptimizationPasses(Module &M) {
 
   PM.addInstSimplify();
   PM.addFuncSigOpts();
-  PM.addDCE();
   if (M.getContext().getOptimizationSettings().removeUselessSpeculativeGuards)
     PM.addRemoveUselessSpeculativeGuards();
+  PM.addDCE();
   PM.addSimplifyCFG();
   PM.addFrameLoadStoreOpts();
+  PM.addHeapLoadStoreOpts();
   addMem2Reg();
   PM.addAuditor();
 
@@ -163,6 +167,7 @@ void hermes::runOptimizationPassesToFixedPoint(Module &M) {
   PM.addSimplifyCFG();
   PM.addSimpleStackPromotion();
   PM.addFrameLoadStoreOpts();
+  PM.addHeapLoadStoreOpts();
   addMem2Reg();
   PM.addScopeElimination();
   PM.addFunctionAnalysis();
