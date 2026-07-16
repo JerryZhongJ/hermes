@@ -2267,6 +2267,10 @@ void HBCISel::generateLoadParentNoTrapsInst(
   BCFGen_->emitLoadParentNoTraps(resultReg, objReg);
 }
 
+void HBCISel::generateLoadParentInst(LoadParentInst *, BasicBlock *) {
+  hermes_fatal("LoadParentInst should have been eliminated before HBC lowering");
+}
+
 void HBCISel::generatePrLoadInst(PrLoadInst *inst, BasicBlock *) {
   auto objReg = encodeValue(inst->getObject());
   auto resReg = encodeValue(inst);

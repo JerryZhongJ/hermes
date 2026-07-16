@@ -21,9 +21,9 @@ namespace hermes {
 
 namespace {
 
-/// Extract type name strings from a JSON value that is either a single string
+/// Extract strings from a JSON value that is either a single string
 /// (e.g. "number") or an array of strings (e.g. ["number", "string"]).
-std::vector<std::string> extractTypeStrings(const llvh::json::Value &val) {
+std::vector<std::string> extractStrings(const llvh::json::Value &val) {
   std::vector<std::string> result;
   if (auto *arr = val.getAsArray()) {
     for (const auto &elem : *arr) {
@@ -160,10 +160,41 @@ void loadStaticShapes(
           break;
         }
       }
+      StaticShapePropertyAttrs attrs;
+      if (auto *flagsOffVal = propObj->get("flags off")) {
+        auto flagsOff = extractStrings(*flagsOffVal);
+        if (flagsOff.empty()) {
+          sm.warning(llvh::SMLoc{},
+                     "invalid 'flags off' for property \"" + name->str() +
+                         "\" in static shape '" + shapeName.str() + "'");
+          ok = false;
+          break;
+        }
+        for (const auto &flag : flagsOff) {
+          if (flag == "writable")
+            attrs.writable = false;
+          else if (flag == "enumerable")
+            attrs.enumerable = false;
+          else if (flag == "configurable")
+            attrs.configurable = false;
+          else {
+            sm.warning(llvh::SMLoc{},
+                       "invalid flag '" + flag + "' in 'flags off' for property \"" +
+                           name->str() + "\" in static shape '" +
+                           shapeName.str() + "'");
+            ok = false;
+            break;
+          }
+        }
+        if (!ok)
+          break;
+      }
+      if (accessor)
+        attrs.writable = false;
       // "type" is optional and defaults to "any".
       std::vector<std::string> typeStrs = {"any"};
       if (auto *typeVal = propObj->get("type")) {
-        typeStrs = extractTypeStrings(*typeVal);
+        typeStrs = extractStrings(*typeVal);
         if (typeStrs.empty()) {
           sm.warning(llvh::SMLoc{},
                      "invalid type for property \"" + name->str() +
@@ -184,7 +215,8 @@ void loadStaticShapes(
           }
         typeStrs = {"any"};
       }
-      def.properties.push_back({name->str(), std::move(typeStrs), accessor});
+      def.properties.push_back(
+          {name->str(), std::move(typeStrs), accessor, attrs});
     }
     if (ok)
       defs[shapeName] = std::move(def);
@@ -250,7 +282,7 @@ void loadTypeGuards(
     // "type": a single type string or an array of type strings (union).
     std::vector<std::string> typeStrs;
     if (auto *v = annot->get("type"))
-      typeStrs = extractTypeStrings(*v);
+      typeStrs = extractStrings(*v);
     if (typeStrs.empty()) {
       sm.warning(llvh::SMLoc{},
                  "type guard at " + at + ": missing or invalid 'type'");

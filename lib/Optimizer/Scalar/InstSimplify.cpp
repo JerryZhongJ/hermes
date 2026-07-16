@@ -1068,11 +1068,11 @@ class InstSimplifyImpl {
         operandShape.desc->getPropertyType(idx));
   }
 
-  /// Turn LoadParentNoTraps into TypedLoadParent when the object has a known
-  /// static shape (then it's a non-proxy typed object with a non-null
-  /// prototype). Matches the opcode emitted for inherited LoadProperty, so the
-  /// two getparents can coalesce.
-  Value *simplifyLoadParentNoTraps(LoadParentNoTrapsInst *inst) {
+  /// Turn LoadParent into TypedLoadParent when the object has a known static
+  /// shape (then it's a non-proxy typed object with a non-null prototype).
+  /// This consumes the IR-only marker before lowering. Matches the opcode
+  /// emitted for inherited LoadProperty, so the two getparents can coalesce.
+  Value *simplifyLoadParent(LoadParentInst *inst) {
     auto operandShape = inst->getObjOperandShape();
     if (operandShape.status != StaticShapeInfo::KnownStaticShape)
       return nullptr;
@@ -1273,8 +1273,8 @@ class InstSimplifyImpl {
         return simplifyHasStaticShape(cast<HasStaticShapeInst>(I));
       case ValueKind::TrySetStaticShapeInstKind:
         return simplifyTrySetStaticShape(cast<TrySetStaticShapeInst>(I));
-      case ValueKind::LoadParentNoTrapsInstKind:
-        return simplifyLoadParentNoTraps(cast<LoadParentNoTrapsInst>(I));
+      case ValueKind::LoadParentInstKind:
+        return simplifyLoadParent(cast<LoadParentInst>(I));
 
       default:
         // TODO: handle other kinds of instructions.

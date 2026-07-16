@@ -1698,11 +1698,11 @@ bool Verifier::visitLoadParentNoTrapsInst(const LoadParentNoTrapsInst &Inst) {
   return true;
 }
 
+bool Verifier::visitLoadParentInst(const LoadParentInst &Inst) {
+  return true;
+}
+
 bool Verifier::visitTypedLoadParentInst(const TypedLoadParentInst &Inst) {
-  AssertIWithMsg(
-      Inst,
-      Inst.getObject()->getType().isObjectType(),
-      "input object value must be of object type");
   return true;
 }
 

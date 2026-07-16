@@ -41,7 +41,7 @@
 // OPT-NEXT:  %0 = CreateFunctionInst (:object) empty: any, empty: any, %Proto(): functionCode
 // OPT-NEXT:  %1 = LoadPropertyInst (:any) %0: object, "prototype": string
 // OPT-NEXT:       StorePropertyLooseInst 42: number, %1: any, "inherited": string
-// OPT-NEXT:       TrySetStaticShapeInst %1: any, {inherited: number}: null [ann#4]
+// OPT-NEXT:       TrySetStaticShapeInst %1: any, {constructor: any, inherited: number}: null [ann#4]
 // OPT-NEXT:  %4 = TryLoadGlobalPropertyInst (:any) globalObject: object, "print": string
 // OPT-NEXT:  %5 = LoadPropertyInst (:any) %0: object, "prototype": string
 // OPT-NEXT:  %6 = AllocObjectLiteralInst (:object) %5: any
@@ -71,7 +71,7 @@
 // OPT-NEXT:        ReturnInst undefined: undefined
 // OPT-NEXT:%BB5:
 // OPT-NEXT:  %27 = TypedLoadParentInst (:object) %17: object
-// OPT-NEXT:  %28 = HasStaticShapeInst (:boolean) %27: object, {inherited: number}: null [ann#3]
+// OPT-NEXT:  %28 = HasStaticShapeInst (:boolean) %27: object, {constructor: any, inherited: number}: null [ann#3]
 // OPT-NEXT:        CondBranchInst %28: boolean, %BB6, %BB3
 // OPT-NEXT:%BB6:
 // OPT-NEXT:  %30 = TypedLoadParentInst (:object) %27: object
@@ -79,10 +79,10 @@
 // OPT-NEXT:        BranchInst %BB4
 // OPT-NEXT:%BB7:
 // OPT-NEXT:  %33 = TypedLoadParentInst (:object) %6: object
-// OPT-NEXT:  %34 = HasStaticShapeInst (:boolean) %33: object, {inherited: number}: null [ann#1]
+// OPT-NEXT:  %34 = HasStaticShapeInst (:boolean) %33: object, {constructor: any, inherited: number}: null [ann#1]
 // OPT-NEXT:        CondBranchInst %34: boolean, %BB8, %BB1
 // OPT-NEXT:%BB8:
-// OPT-NEXT:  %36 = PrLoadInst (:number) %33: object, 0: number, "inherited": string
+// OPT-NEXT:  %36 = PrLoadInst (:number) %33: object, 1: number, "inherited": string
 // OPT-NEXT:        BranchInst %BB2
 // OPT-NEXT:function_end
 

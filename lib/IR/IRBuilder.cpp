@@ -1332,6 +1332,12 @@ LoadParentNoTrapsInst *IRBuilder::createLoadParentNoTrapsInst(Value *object) {
   return inst;
 }
 
+LoadParentInst *IRBuilder::createLoadParentInst(Value *object) {
+  auto *inst = new LoadParentInst(object);
+  insert(inst);
+  return inst;
+}
+
 TypedLoadParentInst *IRBuilder::createTypedLoadParentInst(Value *object) {
   auto *inst = new TypedLoadParentInst(object);
   insert(inst);

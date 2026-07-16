@@ -63,8 +63,8 @@ inline bool objectOperandKnownShape(Instruction *I) {
     shape = S->getObjOperandShape();
   else if (auto *H = llvh::dyn_cast<HasStaticShapeInst>(I))
     shape = H->getObjOperandShape();
-  else if (auto *LPN = llvh::dyn_cast<LoadParentNoTrapsInst>(I))
-    shape = LPN->getObjOperandShape();
+  else if (auto *LP = llvh::dyn_cast<LoadParentInst>(I))
+    shape = LP->getObjOperandShape();
   else
     return false;
   return shape.status != StaticShapeInfo::AnyShapes;

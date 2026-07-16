@@ -104,12 +104,11 @@ print("trySetFailure", trySetFailure());
 // OPT-NEXT:       CondBranchInst %2: boolean, %BB1, %BB2
 // OPT-NEXT:%BB1:
 // OPT-NEXT:       PrStoreInst 2: number, %0: object, 0: number, "x": string
-// OPT-NEXT:  %5 = PrLoadInst (:number) %0: object, 0: number, "x": string
-// OPT-NEXT:       ReturnInst %5: number
+// OPT-NEXT:       ReturnInst 2: number
 // OPT-NEXT:%BB2:
 // OPT-NEXT:       StorePropertyLooseInst 2: number, %0: object, "x": string
-// OPT-NEXT:  %8 = LoadPropertyInst (:any) %0: object, "x": string
-// OPT-NEXT:       ReturnInst %8: any
+// OPT-NEXT:  %7 = LoadPropertyInst (:any) %0: object, "x": string
+// OPT-NEXT:       ReturnInst %7: any
 // OPT-NEXT:function_end
 
 // OPT:function storePropertyBad(): any

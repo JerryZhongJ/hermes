@@ -2430,12 +2430,14 @@ getStaticShapeClass(Runtime &runtime, SHUnit *unit, uint32_t index) {
     rootSlot = HiddenClass::createTypedRoot(runtime);
   MutableHandle<HiddenClass> clazz{runtime, rootSlot};
 
-  auto defaultFlags = PropertyFlags::defaultNewNamedPropertyFlags();
   for (uint32_t i = 0; i != shape.num_props; ++i) {
     const SHStaticShapeProp &prop =
         unit->static_shape_props[shape.prop_offset + i];
     assert(prop.name_index < unit->num_symbols && "static shape name OOB");
-    PropertyFlags flags = defaultFlags;
+    PropertyFlags flags;
+    flags.writable = (prop.attrs & SH_STATIC_SHAPE_ATTR_WRITABLE) != 0;
+    flags.enumerable = (prop.attrs & SH_STATIC_SHAPE_ATTR_ENUMERABLE) != 0;
+    flags.configurable = (prop.attrs & SH_STATIC_SHAPE_ATTR_CONFIGURABLE) != 0;
     bool isAccessor = prop.kind;
     if (shape.typed)
       flags.setPropertyType(static_cast<PropertyTypeCode>(prop.type));

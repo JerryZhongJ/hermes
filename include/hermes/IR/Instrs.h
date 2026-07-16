@@ -6061,27 +6061,79 @@ class LoadParentNoTrapsInst : public Instruction {
   LoadParentNoTrapsInst(const LoadParentNoTrapsInst &) = delete;
   void operator=(const LoadParentNoTrapsInst &) = delete;
 
-  /// Known static shape of getObject() (filled by StaticShapeInference).
-  StaticShapeInfo objOperandShape_{};
-
  public:
   enum { ObjectIdx };
 
   explicit LoadParentNoTrapsInst(Value *object)
       : Instruction(ValueKind::LoadParentNoTrapsInstKind) {
-    // No isObjectType assert: may be emitted before a shape guard narrows the
-    // type; the runtime guards on _sh_ljs_is_object, so any value is safe.
+    assert(
+        object->getType().isObjectType() &&
+        "object input must be of type object");
     setType(*getInherentTypeImpl());
     pushOperand(object);
   }
   explicit LoadParentNoTrapsInst(
       const LoadParentNoTrapsInst *src,
       llvh::ArrayRef<Value *> operands)
-      : Instruction(src, operands), objOperandShape_(src->objOperandShape_) {}
+      : Instruction(src, operands) {}
 
   static llvh::Optional<Type> getInherentTypeImpl() {
     // The parent of an object is either another object or null.
     return Type::unionTy(Type::createObject(), Type::createNull());
+  }
+
+  Value *getObject() {
+    return getOperand(ObjectIdx);
+  }
+
+  const Value *getObject() const {
+    return getOperand(ObjectIdx);
+  }
+
+  static bool hasOutput() {
+    return true;
+  }
+  static bool isTyped() {
+    return false;
+  }
+
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == ObjectIdx;
+  }
+
+  SideEffect getSideEffectImpl() const {
+    return SideEffect{}.setReadHeap().setIdempotent();
+  }
+
+  static bool classof(const Value *V) {
+    return V->getKind() == ValueKind::LoadParentNoTrapsInstKind;
+  }
+};
+
+class LoadParentInst : public Instruction {
+  LoadParentInst(const LoadParentInst &) = delete;
+  void operator=(const LoadParentInst &) = delete;
+
+  /// Known static shape of getObject() (filled by StaticShapeInference).
+  StaticShapeInfo objOperandShape_{};
+
+ public:
+  enum { ObjectIdx };
+
+  explicit LoadParentInst(Value *object)
+      : Instruction(ValueKind::LoadParentInstKind) {
+    setType(*getInherentTypeImpl());
+    pushOperand(object);
+  }
+  explicit LoadParentInst(
+      const LoadParentInst *src,
+      llvh::ArrayRef<Value *> operands)
+      : Instruction(src, operands), objOperandShape_(src->objOperandShape_) {}
+
+  static llvh::Optional<Type> getInherentTypeImpl() {
+    return Type::unionTy(
+        Type::unionTy(Type::createObject(), Type::createNull()),
+        Type::createUndefined());
   }
 
   Value *getObject() {
@@ -6115,7 +6167,7 @@ class LoadParentNoTrapsInst : public Instruction {
   }
 
   static bool classof(const Value *V) {
-    return V->getKind() == ValueKind::LoadParentNoTrapsInstKind;
+    return V->getKind() == ValueKind::LoadParentInstKind;
   }
 };
 

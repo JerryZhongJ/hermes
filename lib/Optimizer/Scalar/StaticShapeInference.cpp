@@ -60,8 +60,8 @@ static void setStaticShapeInfo(Instruction *inst, StaticShapeInfo shape) {
     H->setObjOperandShape(shape);
   else if (auto *T = llvh::dyn_cast<TrySetStaticShapeInst>(inst))
     T->setObjOperandShape(shape);
-  else if (auto *LPN = llvh::dyn_cast<LoadParentNoTrapsInst>(inst))
-    LPN->setObjOperandShape(shape);
+  else if (auto *LP = llvh::dyn_cast<LoadParentInst>(inst))
+    LP->setObjOperandShape(shape);
 }
 
 /// edge 上 ShapeGuard 注入的 shape（CondBranch 真分支）。
@@ -185,7 +185,7 @@ class Impl {
         llvh::isa<BaseStorePropertyInst>(inst) ||
         llvh::isa<HasStaticShapeInst>(inst) ||
         llvh::isa<TrySetStaticShapeInst>(inst) ||
-        llvh::isa<LoadParentNoTrapsInst>(inst);
+        llvh::isa<LoadParentInst>(inst);
   }
 
   bool knownShapeStorePolluting(
@@ -377,8 +377,8 @@ class Impl {
       obj = llvh::dyn_cast<Instruction>(hss->getArgument());
     else if (auto *tss = llvh::dyn_cast<TrySetStaticShapeInst>(inst))
       obj = llvh::dyn_cast<Instruction>(tss->getObject());
-    else if (auto *lpn = llvh::dyn_cast<LoadParentNoTrapsInst>(inst))
-      obj = llvh::dyn_cast<Instruction>(lpn->getObject());
+    else if (auto *lp = llvh::dyn_cast<LoadParentInst>(inst))
+      obj = llvh::dyn_cast<Instruction>(lp->getObject());
     setStaticShapeInfo(inst, s.get(obj));
   }
 

@@ -16,6 +16,7 @@
 #include "hermes/Optimizer/Scalar/Utils.h"
 #include "hermes/Support/Statistic.h"
 #include "llvh/ADT/DenseMap.h"
+#include "llvh/ADT/MapVector.h"
 #include "llvh/ADT/STLExtras.h"
 #include "llvh/Support/Debug.h"
 
@@ -391,8 +392,10 @@ class GuardInserter {
     llvh::DenseMap<DominanceInfoNode *, unsigned> domTreeLevels;
     computeDomTreeLevels(&DT, domTreeLevels);
 
-    // Collect broken uses: key = broken inst, value = vector of <user, opIdx>
-    llvh::DenseMap<
+    // Collect broken uses: key = broken inst, value = vector of <user, opIdx>.
+    // MapVector (not DenseMap): deterministic iteration order keeps per-block
+    // PHI ordering stable across runs.
+    llvh::MapVector<
         Instruction *,
         llvh::SmallVector<std::pair<Instruction *, unsigned>, 4>>
         brokenUses;
@@ -507,7 +510,7 @@ class GuardInserter {
 
   /// Collect broken uses by finding general insts and their uses.
   void collectBrokenUses(
-      llvh::DenseMap<
+      llvh::MapVector<
           Instruction *,
           llvh::SmallVector<std::pair<Instruction *, unsigned>, 4>> &brokenUses,
       DominanceInfo &DT) {

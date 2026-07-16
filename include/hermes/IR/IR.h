@@ -18,6 +18,7 @@
 #include "hermes/Sema/SemContext.h"
 #include "hermes/Support/Conversions.h"
 #include "hermes/Support/ScopeChain.h"
+#include "hermes/Support/StaticShapePropertyFlags.h"
 
 #include "llvh/ADT/Hashing.h"
 #include "llvh/ADT/Optional.h"
@@ -32,6 +33,7 @@
 #include "llvh/Support/MathExtras.h"
 #include "llvh/Support/raw_ostream.h"
 
+#include <cstdint>
 #include <deque>
 #include <unordered_map>
 #include <vector>
@@ -426,11 +428,13 @@ static_assert(sizeof(Type) == 2, "Type must not be too big");
 /// getter/setter.
 enum class PropertyKind : uint8_t { Data, Accessor };
 
-/// A single property in a static shape: its name, expected type, and kind.
+/// A single property in a static shape: its name, expected type, kind, and JS
+/// descriptor attributes.
 struct StaticShapeProperty {
   Identifier name;
   Type type;
   PropertyKind kind = PropertyKind::Data;
+  StaticShapePropertyAttrs attrs;
 };
 
 /// Describes a static shape: an ordered list of properties with their
@@ -438,7 +442,7 @@ struct StaticShapeProperty {
 /// different order defines a different shape.
 struct StaticShapeDesc {
   void addProperty(Identifier name, Type type) {
-    props_.push_back({name, type, PropertyKind::Data});
+    props_.push_back({name, type, PropertyKind::Data, {}});
   }
   void addProperty(StaticShapeProperty prop) {
     if (prop.kind == PropertyKind::Accessor)
@@ -460,6 +464,10 @@ struct StaticShapeDesc {
 
   PropertyKind getPropertyKind(size_t i) const {
     return props_[i].kind;
+  }
+
+  StaticShapePropertyAttrs getPropertyAttrs(size_t i) const {
+    return props_[i].attrs;
   }
 
   /// O(1) check: does this shape contain any accessor property? Used to short

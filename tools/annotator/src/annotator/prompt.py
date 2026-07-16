@@ -14,11 +14,9 @@ SUPPORTED_TYPES = {
 }
 
 
-def location_schema() -> str:
-    return """{
-  "start": {"line": 1, "column": 1},
-  "end": {"line": 1, "column": 2}
-}"""
+def concrete_type_union() -> str:
+    """TypeScript union of supported concrete types, e.g. '"number" | "string" | ...'."""
+    return " | ".join(f'"{t}"' for t in sorted(SUPPORTED_TYPES))
 
 
 def build_prompt(
@@ -44,10 +42,13 @@ Basic concepts:
   union of several, or `any`. Supported concrete types: {", ".join(sorted(SUPPORTED_TYPES))}.
   Use any for any type not listed above (e.g. object, bigint, symbol).
 - static shape — a description of an object's own properties (not inherited
-  from its prototype), in order, each carrying a type and a kind (data or accessor). 
-  An accessor property is always typed `any`. As opposed to the actual
-  shape an object takes on at runtime which is built dynamically, the static shape
-  is determined statically.
+  from its prototype), in order, each carrying a type, a kind (data or
+  accessor) and flags (writable/enumeable/configurable). As opposed to the actual shape an object takes on at runtime
+  which is built dynamically, the static shape is determined statically.
+  Notice that:
+    - An accessor property is always typed `any`.
+    - By JS default, a prototype object's shape starts with a non-enumerable `constructor`
+      data property that should be typed 'any'.
 
 How guards work:
 Each guard is a runtime check inserted by the compiler. The check splits the
@@ -82,10 +83,13 @@ The three kinds of guard (what each makes the compiler do):
   after "bind after" if given (use it to wait until the shape is fixed, e.g.
   when its properties are written one by one after construction) — and then
   inserts a shape check like a SHAPE GUARD does. It introduces the write guard above.
-- SHAPE GUARD. Give a target expression and a static shape. The compiler
-  inserts a shape check that confirms the object already has that static
-  shape through a SHAPE BINDING; on pass, **data** property accesses on it take the
-  shape fast path, while accessor property accesses go through the runtime. By default the check runs right after the target
+- SHAPE GUARD. Give a target expression, a static shape, and optionally the
+  static shape of the object's direct prototype. The compiler inserts a shape
+  check that confirms the object already has that static shape through a
+  SHAPE BINDING, and checks the prototype's shape in the same manner if one is
+  given; on pass, **data** property accesses on it (and on its direct
+  prototype, if a prototype shape is given) take the shape fast path, while
+  accessor property accesses go through the runtime. By default the check runs right after the target
   expression; the optional "guard after" delays it until after some other
   point — same meaning as a SHAPE BINDING's "bind after". For example, 
   in `obj.x = sideEffect();` target `obj` and set
@@ -128,31 +132,24 @@ Emit a guard only when all three hold:
   declare frequently-written, hard-to-infer properties as `any` to skip the
   check.
 
-JSON format:
-- Top level: "static shapes" (name -> definition), "shape guards", "shape
-  bindings", and optional "type guards".
-- Static shape property: `{{"name": ..., "type": ..., "kind"?: ...}}`. "kind"
-  is "data" (the default) or "accessor".
-- Field names must match exactly: "target range", "shape", "type", and the
-  optional "bind after" (shape binding) / "guard after" (shape guard). A
-  type is a single string or an array for a union (e.g. ["number", "string"]).
-- Location fields (each value is a source range, not a single point):
-  - "target range" (all guards): the range of the target expression being
-    checked.
-  - To specify a parameter loading, use its declaration range as the "target range".
-    For `this` loading, which has no declaration, use the range of the
-    function body like `{{ ... }}`. This is just a format convention.
-  - "bind after" (shape binding) / "guard after" (shape guard), optional,
-    same meaning: if omitted, the operation runs right after the target
-    expression; if given, it runs after this point instead. Use it to defer
-    past a shape-suspect operation — e.g. target `obj` and set "guard after"
-    to the `sideEffect()` call in `obj.x = sideEffect();`.
-- Locations use 1-based line/column. The end column is EXCLUSIVE. "file" is
-  optional (defaults to the source file being annotated):
-```json
-{location_schema()}
-```
+Output format:
 - Output must be pure JSON.
+- Top level: "static shapes" (name -> definition), "shape guards", "shape
+  bindings", and "type guards".
+- The "shape" / "prototype shape" fields name a shape defined under "static shapes".
+- `SourceRange` — a 1-based, half-open `[start, end)` span (the end column is
+  EXCLUSIVE): {{"start": {{"line": number, "column": number}}, "end": {{"line": number, "column": number}}}}.
+- `TypeName` — one of the concrete types ({concrete_type_union()}), `"any"`, or
+  an array of concrete types for a union (e.g. ["number", "string"]).
+- Static shape: {{"name": string, "type"?: TypeName, "kind"?: "data" | "accessor", "flags off"?: ["writable" | "enumerable" | "configurable"]}}.
+  ("type" defaults to "any", "kind" to "data"; JS descriptor flags default to on, so list only the flags to turn off. Accessor properties have no writable flag.)
+- Type guard: {{"target range": SourceRange, "type": TypeName}}.
+- Shape guard: {{"target range": SourceRange, "shape": string, "guard after"?: SourceRange, "prototype shape"?: string}}.
+- Shape binding: {{"target range": SourceRange, "shape": string, "bind after"?: SourceRange}}.
+- "target range" (all guards): a source range (not a single point) covering the
+  target expression. For a parameter loading, use its declaration range; for
+  `this` (which has no declaration), use the function body range — just a format
+  convention.
 
 Example (type guard + shape guard + shape binding):
 ```json
@@ -162,6 +159,12 @@ Example (type guard + shape guard + shape binding):
       "properties": [
         {{"name": "x", "type": "number"}},
         {{"name": "y", "type": "number"}}
+      ]
+    }},
+    "PointProto": {{
+      "properties": [
+        {{"name": "constructor", "flags off": ["enumerable"]}},
+        {{"name": "norm", "type": "number"}}
       ]
     }}
   }},
@@ -179,7 +182,8 @@ Example (type guard + shape guard + shape binding):
     {{
       "target range": {{"start": {{"line": 30, "column": 1}}, "end": {{"line": 30, "column": 4}}}},
       "guard after": {{"start": {{"line": 30, "column": 9}}, "end": {{"line": 30, "column": 21}}}},
-      "shape": "Point"
+      "shape": "Point",
+      "prototype shape": "PointProto"
     }}
   ],
   "shape bindings": [

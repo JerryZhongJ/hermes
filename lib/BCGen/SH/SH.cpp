@@ -255,6 +255,8 @@ class SHStaticShapeTable {
     uint8_t typeCode;
     /// 0 = data property, 1 = accessor (getter/setter).
     uint8_t kind;
+    /// SH_STATIC_SHAPE_ATTR_* bitset for JS descriptor attributes.
+    uint8_t attrs;
   };
 
   struct EncodedShape {
@@ -266,6 +268,22 @@ class SHStaticShapeTable {
   llvh::DenseMap<const StaticShapeDesc *, uint32_t> shapeIndices_{};
   std::vector<EncodedProp> props_{};
   std::vector<EncodedShape> shapes_{};
+
+  static uint8_t encodeAttrs(StaticShapePropertyAttrs attrs) {
+    enum : uint8_t {
+      Writable = 1u << 0,
+      Enumerable = 1u << 1,
+      Configurable = 1u << 2,
+    };
+    uint8_t result = 0;
+    if (attrs.writable)
+      result |= Writable;
+    if (attrs.enumerable)
+      result |= Enumerable;
+    if (attrs.configurable)
+      result |= Configurable;
+    return result;
+  }
 
   static uint8_t getPropertyTypeCode(Type type) {
     enum : uint8_t {
@@ -327,7 +345,8 @@ class SHStaticShapeTable {
       props_.push_back(EncodedProp{
           stringTable.add(desc->getPropertyName(i).str()),
           code,
-          kind});
+          kind,
+          encodeAttrs(desc->getPropertyAttrs(i))});
     }
     shapes_[shapeIndex].typed = typed;
   }
@@ -368,7 +387,8 @@ class SHStaticShapeTable {
       os.indent(2);
       os << "{ .name_index = " << prop.nameIndex
          << ", .type = " << static_cast<unsigned>(prop.typeCode)
-         << ", .kind = " << static_cast<unsigned>(prop.kind) << " },\n";
+         << ", .kind = " << static_cast<unsigned>(prop.kind)
+         << ", .attrs = " << static_cast<unsigned>(prop.attrs) << " },\n";
     }
     os << "};\n";
 
@@ -1791,6 +1811,9 @@ class InstrGen {
     os_ << " = _sh_ljs_load_parent_no_traps(shr, ";
     generateRegister(*inst.getObject());
     os_ << ");\n";
+  }
+  void generateLoadParentInst(LoadParentInst &) {
+    hermes_fatal("LoadParentInst should have been eliminated before SH lowering");
   }
   void generateTypedLoadParentInst(TypedLoadParentInst &inst) {
     os_.indent(2);

@@ -876,6 +876,9 @@ class TypeInferenceImpl {
   Type inferLoadParentNoTrapsInst(LoadParentNoTrapsInst *inst) {
     return *inst->getInherentType();
   }
+  Type inferLoadParentInst(LoadParentInst *inst) {
+    return *inst->getInherentType();
+  }
   Type inferPrLoadInst(PrLoadInst *inst) {
     hermes_fatal("typed instruction");
   }

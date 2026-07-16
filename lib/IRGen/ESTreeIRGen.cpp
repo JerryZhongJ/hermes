@@ -142,10 +142,9 @@ ESTreeIRGen::ESTreeIRGen(
       Identifier iden = M->getContext().getIdentifier(prop.name);
       // Accessor properties have no static value type (the getter/setter can
       // produce/accept anything), so force any regardless of the parsed type.
-      Type propType =
-          prop.accessor ? Type::createAnyType() : type.getValue();
+      Type propType = prop.accessor ? Type::createAnyType() : type.getValue();
       auto kind = prop.accessor ? PropertyKind::Accessor : PropertyKind::Data;
-      properties.push_back({iden, propType, kind});
+      properties.push_back({iden, propType, kind, prop.attrs});
     }
     if (ok)
       shapeDescsByName_[shapeEntry.first()] = M->createStaticShape(properties);

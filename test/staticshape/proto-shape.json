@@ -1,6 +1,6 @@
 {
   "static shapes": {
-    "Proto": {"properties": [{"name": "inherited", "type": "number"}]},
+    "Proto": {"properties": [{"name": "constructor", "flags off": ["enumerable"]}, {"name": "inherited", "type": "number"}]},
     "Child": {"properties": [{"name": "own", "type": "number"}]}
   },
   "shape bindings": [

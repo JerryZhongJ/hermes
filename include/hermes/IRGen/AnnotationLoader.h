@@ -10,6 +10,7 @@
 
 #include "hermes/Parser/PreParser.h"
 #include "hermes/Support/SourceErrorManager.h"
+#include "hermes/Support/StaticShapePropertyFlags.h"
 
 #include "llvh/ADT/DenseMap.h"
 #include "llvh/ADT/DenseSet.h"
@@ -59,6 +60,9 @@ struct StaticShapePropertyDefinition {
   /// are always treated as type "any" — the getter/setter can produce/accept
   /// anything, so a static value type is meaningless.
   bool accessor = false;
+  /// JS descriptor attributes. JSON defaults them to on and lists only attrs to
+  /// turn off; no VM bit encoding is implied here.
+  StaticShapePropertyAttrs attrs;
 };
 
 /// Static shape definition loaded from JSON. Uses type name strings

@@ -20,6 +20,7 @@
 #include <setjmp.h>
 #include <stdbool.h>
 #include <stddef.h>
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -37,6 +38,12 @@ typedef struct SHShapeTableEntry {
   uint32_t num_props;
 } SHShapeTableEntry;
 
+enum {
+  SH_STATIC_SHAPE_ATTR_WRITABLE = 1u << 0,
+  SH_STATIC_SHAPE_ATTR_ENUMERABLE = 1u << 1,
+  SH_STATIC_SHAPE_ATTR_CONFIGURABLE = 1u << 2,
+};
+
 /// Encodes one static shape property.
 typedef struct SHStaticShapeProp {
   /// Index into SHUnit::symbols for the property name.
@@ -45,6 +52,8 @@ typedef struct SHStaticShapeProp {
   uint8_t type;
   /// 0 = data property, 1 = accessor (getter/setter).
   uint8_t kind;
+  /// SH_STATIC_SHAPE_ATTR_* bitset for JS descriptor attributes.
+  uint8_t attrs;
 } SHStaticShapeProp;
 
 /// Encodes one static shape descriptor.
@@ -1686,21 +1695,13 @@ static inline SHLegacyValue _sh_fastarray_length(
 #endif
 }
 
-/// \return the [[Prototype]] of \p object:
-///  - undefined if \p object is not an object or is a proxy (invalid input),
-///  - null if the prototype is null (Object.create(null), Object.prototype, ...),
-///  - otherwise the prototype object.
-/// Safe for any value, so IRGen may emit it before a shape guard and InsertGuard
-/// may copy it into the general path. The undefined-vs-null distinction lets
-/// callers tell "bad input" from "prototype chain end".
+/// \return the parent of the legacy, ordinary object \p object. It must not be
+/// a proxy.
 static inline SHLegacyValue _sh_ljs_load_parent_no_traps(
     SHRuntime *shr,
     SHLegacyValue object) {
-  if (!_sh_ljs_is_object(object))
-    return _sh_ljs_undefined();
   SHJSObject *objectPtr = (SHJSObject *)_sh_ljs_get_pointer(object);
-  if (objectPtr->flags.proxyObject)
-    return _sh_ljs_undefined();
+  assert(!objectPtr->flags.proxyObject && "proxy is not supported");
   if (objectPtr->parent) {
     SHCompressedPointer parent = {.raw = objectPtr->parent};
     return _sh_ljs_object(_sh_cp_decode_non_null(shr, parent));

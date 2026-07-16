@@ -235,29 +235,29 @@ new Vec(1).mul(3);
 // OPT-NEXT:  %2 = LoadParamInst (:any) %p: any
 // OPT-NEXT:       CondBranchInst %1: boolean, %BB3, %BB4
 // OPT-NEXT:%BB1:
-// OPT-NEXT:  %4 = LIRLoadConstInst (:number) 0: number
 // OPT-NEXT:       BranchInst %BB2
 // OPT-NEXT:%BB2:
-// OPT-NEXT:  %6 = PhiInst (:any) %4: number, %BB1, %20: any, %BB6
-// OPT-NEXT:  %7 = LoadPropertyInst (:any) %0: object, "x": string
-// OPT-NEXT:  %8 = BinaryMultiplyInst (:number|bigint) %7: any, %6: any
-// OPT-NEXT:       StorePropertyLooseInst %8: number|bigint, %0: object, "x": string
-// OPT-NEXT:        ReturnInst %21: undefined
+// OPT-NEXT:  %5 = PhiInst (:any) %19: any, %BB1, %20: number, %BB6
+// OPT-NEXT:  %6 = LoadPropertyInst (:any) %0: object, "x": string
+// OPT-NEXT:  %7 = BinaryMultiplyInst (:number|bigint) %6: any, %5: any
+// OPT-NEXT:       StorePropertyLooseInst %7: number|bigint, %0: object, "x": string
+// OPT-NEXT:       ReturnInst %21: undefined
 // OPT-NEXT:%BB3:
-// OPT-NEXT:  %11 = TypeOfIsInst (:boolean) %2: any, typeOfIs(Number) [ann#0]
-// OPT-NEXT:        CondBranchInst %11: boolean, %BB5, %BB6
+// OPT-NEXT:  %10 = TypeOfIsInst (:boolean) %2: any, typeOfIs(Number) [ann#0]
+// OPT-NEXT:        CondBranchInst %10: boolean, %BB5, %BB6
 // OPT-NEXT:%BB4:
 // OPT-NEXT:        BranchInst %BB6
 // OPT-NEXT:%BB5:
-// OPT-NEXT:  %14 = PrLoadInst (:number) %0: object, 0: number, "x": string
-// OPT-NEXT:  %15 = UnionNarrowTrustedInst (:number) %2: any
-// OPT-NEXT:  %16 = FMultiplyInst (:number) %14: number, %15: number
-// OPT-NEXT:        PrStoreInst %16: number, %0: object, 0: number, "x": string
-// OPT-NEXT:  %18 = LIRLoadConstInst (:undefined) undefined: undefined
-// OPT-NEXT:        ReturnInst %18: undefined
+// OPT-NEXT:  %13 = PrLoadInst (:number) %0: object, 0: number, "x": string
+// OPT-NEXT:  %14 = UnionNarrowTrustedInst (:number) %2: any
+// OPT-NEXT:  %15 = FMultiplyInst (:number) %13: number, %14: number
+// OPT-NEXT:        PrStoreInst %15: number, %0: object, 0: number, "x": string
+// OPT-NEXT:  %17 = LIRLoadConstInst (:undefined) undefined: undefined
+// OPT-NEXT:        ReturnInst %17: undefined
 // OPT-NEXT:%BB6:
-// OPT-NEXT:  %20 = PhiInst (:any) %2: any, %BB4, %2: any, %BB3
+// OPT-NEXT:  %19 = PhiInst (:any) %2: any, %BB4, %2: any, %BB3
+// OPT-NEXT:  %20 = LIRLoadConstInst (:number) 0: number
 // OPT-NEXT:  %21 = LIRLoadConstInst (:undefined) undefined: undefined
-// OPT-NEXT:  %22 = BinaryStrictlyEqualInst (:boolean) %20: any, %21: undefined
-// OPT-NEXT:        CondBranchInst %22: boolean, %BB1, %BB2
+// OPT-NEXT:  %22 = BinaryStrictlyEqualInst (:boolean) %19: any, %21: undefined
+// OPT-NEXT:        CondBranchInst %22: boolean, %BB2, %BB1
 // OPT-NEXT:function_end
