@@ -221,6 +221,19 @@ static SMRange getFunctionRange(
   return functionNode->getSourceRange();
 }
 
+void ESTreeIRGen::applyClosureTarget(
+    ESTree::FunctionLikeNode *functionNode,
+    Function *newFunc,
+    ESTree::Node *parentNode) {
+  // Use getFunctionRange (same as createFunction) for consistent exact-match.
+  llvh::SMRange range = getFunctionRange(functionNode, parentNode);
+  if (auto it = closureRangeToProps_.find(range);
+      it != closureRangeToProps_.end()) {
+    for (const auto &entry : it->second)
+      entry.first->setPropertyTargetFunc(entry.second, newFunc);
+  }
+}
+
 NormalFunction *ESTreeIRGen::genCapturingFunction(
     Identifier originalName,
     ESTree::FunctionLikeNode *functionNode,
@@ -234,6 +247,8 @@ NormalFunction *ESTreeIRGen::genCapturingFunction(
       ESTree::isStrict(functionNode->strictness),
       functionNode->getSemInfo()->customDirectives,
       getFunctionRange(functionNode, parentNode));
+
+  applyClosureTarget(functionNode, newFunc, parentNode);
 
   if (llvh::isa<flow::TypedFunctionType>(
           flowContext_.getNodeTypeOrAny(functionNode)->info)) {
@@ -362,6 +377,8 @@ NormalFunction *ESTreeIRGen::genBasicFunction(
             functionNode->getSemInfo()->customDirectives,
             getFunctionRange(functionNode, parentNode),
             /* insertBefore */ nullptr));
+
+  applyClosureTarget(functionNode, newFunction, parentNode);
 
   if (llvh::isa<flow::TypedFunctionType>(
           flowContext_.getNodeTypeOrAny(functionNode)->info)) {

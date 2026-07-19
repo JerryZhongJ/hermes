@@ -498,3 +498,23 @@ def make_dryrun_server(workdir: Path):
         name="dryrun",
         tools=build_dryrun_tools(workdir),
     )
+
+
+def host_setup(attempt_dir: Path, source_name: str, config, stop_event) -> list:
+    """Host-side: start the dryrun feedback service if its binary is configured.
+
+    Returns a list with one un-started Thread (the orchestrator starts/joins it),
+    or [] when feedback_bin_dir / annotation-dryrun is absent.
+    """
+    import threading
+    from ..dryrun_service import serve
+    d = getattr(config, "feedback_bin_dir", None)
+    if d is None:
+        return []
+    binary = Path(d) / "annotation-dryrun"
+    if not binary.exists():
+        return []
+    return [threading.Thread(
+        target=serve, args=(attempt_dir, source_name, binary, stop_event),
+        daemon=True, name="dryrun_service",
+    )]

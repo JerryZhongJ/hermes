@@ -28,6 +28,12 @@ enum class PropertyTypeCode : uint8_t {
   Boolean = 4,
   NumberOrNullish = 5,
   Object = 6,
+  /// The slot holds a specific function F (a closure) and must not be
+  /// overwritten with a different function/value. F's identity is recorded
+  /// separately (SHStaticShapeProp.target_func) since 4 bits cannot encode a
+  /// pointer; "is F" is verified in _sh_ljs_try_set_static_shape and the write
+  /// guard compares functionPtr. This code only carries the constraint marker.
+  Closure = 7,
   Any = 15,
 };
 

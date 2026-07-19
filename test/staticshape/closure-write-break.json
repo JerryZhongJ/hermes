@@ -1,0 +1,40 @@
+{
+  "static shapes": {
+    "MS": {
+      "properties": [
+        {
+          "name": "method",
+          "closure": {
+            "start": { "line": 14, "column": 1 },
+            "end": { "line": 16, "column": 2 }
+          }
+        }
+      ]
+    }
+  },
+  "shape bindings": [
+    {
+      "target range": {
+        "file": "closure-write-break.js",
+        "start": { "line": 23, "column": 11 },
+        "end": { "line": 23, "column": 31 }
+      },
+      "bind after": {
+        "file": "closure-write-break.js",
+        "start": { "line": 23, "column": 3 },
+        "end": { "line": 23, "column": 32 }
+      },
+      "shape": "MS"
+    }
+  ],
+  "shape hints": [
+    {
+      "target range": {
+        "file": "closure-write-break.js",
+        "start": { "line": 29, "column": 10 },
+        "end": { "line": 29, "column": 11 }
+      },
+      "shape": "MS"
+    }
+  ]
+}

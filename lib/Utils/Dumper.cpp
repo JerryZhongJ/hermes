@@ -242,6 +242,9 @@ void IRPrinter::printValueLabel(Instruction *I, Value *V, unsigned opIndex) {
           << desc->getPropertyType(i);
       if (desc->getPropertyKind(i) == PropertyKind::Accessor)
         os_ << " |accessor";
+      // Closure marker: targetFunc carries the closure-ness (type stays Any).
+      if (Function *tf = desc->getPropertyTargetFunc(i))
+        os_ << " |closure:" << tf->getInternalNameStr();
     }
     os_ << "}";
   } else {

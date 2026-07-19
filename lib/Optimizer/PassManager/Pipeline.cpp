@@ -83,6 +83,7 @@ void hermes::runFullOptimizationPasses(Module &M) {
   PM.addSimpleStackPromotion();
   PM.addScopeElimination();
   PM.addFunctionAnalysis();
+  PM.addPinClosureShapeGuards();
   PM.addInlining();
   PM.addDCE();
   PM.addObjectMergeNewStores();
@@ -94,6 +95,7 @@ void hermes::runFullOptimizationPasses(Module &M) {
   PM.addDCE();
   addMem2Reg();
   PM.addFunctionAnalysis();
+  PM.addPinClosureShapeGuards();
   PM.addMetroRequire();
   PM.addInlining();
   PM.addDCE();

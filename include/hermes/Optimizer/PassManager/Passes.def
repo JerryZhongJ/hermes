@@ -64,6 +64,7 @@ PASS(
     "removeuselessspeculativeguards",
     "Remove speculative guards/try-set-shape with no useful consumer")
 PASS(FunctionAnalysis, "functionanalysis", "Function analysis")
+PASS(PinClosureShapeGuards, "pinclosureshapeguards", "Pin shape guards that drive closure inlining")
 PASS(Inlining, "inlining", "Inlining")
 PASS(ResolveStaticRequire, "staticrequire", "Resolve static require")
 PASS(MetroRequire, "metrorequire", "Optimize Metro require calls")

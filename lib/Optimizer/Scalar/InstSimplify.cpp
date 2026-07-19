@@ -1061,11 +1061,17 @@ class InstSimplifyImpl {
     // PrLoad is a raw slot read that would return the PropertyAccessor cell.
     if (operandShape.desc->getPropertyKind(idx) == PropertyKind::Accessor)
       return nullptr;
-    return builder_.createPrLoadInst(
+    // If this slot holds a known closure, record it (an inherent attribute of
+    // the PrLoad) so FunctionAnalysis can resolve method calls (obj.method())
+    // through the static shape and the Inliner can inline them.
+    Function *targetFunc = operandShape.desc->getPropertyTargetFunc(idx);
+    auto *prLoad = builder_.createPrLoadInst(
         inst->getObject(),
         (size_t)idx,
         propStr,
-        operandShape.desc->getPropertyType(idx));
+        operandShape.desc->getPropertyType(idx),
+        targetFunc);
+    return prLoad;
   }
 
   /// Turn LoadParent into TypedLoadParent when the object has a known static
@@ -1096,12 +1102,18 @@ class InstSimplifyImpl {
     // PrStore is a raw slot write that would clobber the PropertyAccessor cell.
     if (operandShape.desc->getPropertyKind(idx) == PropertyKind::Accessor)
       return nullptr;
-    return builder_.createPrStoreInst(
+    // Closure slots must re-check function identity at every store so a write
+    // of a different function degrades the class instead of silently breaking
+    // the inlined call. targetFunc is an inherent attribute of the PrStore.
+    Function *tf = operandShape.desc->getPropertyTargetFunc(idx);
+    auto *prStore = builder_.createPrStoreInst(
         inst->getStoredValue(),
         inst->getObject(),
         (size_t)idx,
         propStr,
-        operandShape.desc->getPropertyType(idx));
+        operandShape.desc->getPropertyType(idx),
+        tf);
+    return prStore;
   }
 
   /// Simplify HasStaticShapeInst:

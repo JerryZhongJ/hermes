@@ -22,9 +22,18 @@ namespace hermes {
 /// value at runtime (Mov, ImplicitMov, UnionNarrowTrusted). Shape/type
 /// narrowing propagates through these. (AsNumber/CoerceThisNS convert the
 /// value, so they are NOT MovLike.)
+///
+/// asMovLike returns the instruction as SingleOperandInst* (so callers can
+/// reach its forwarded operand); isMovLike is the boolean form.
+inline SingleOperandInst *asMovLike(Instruction *I) {
+  if (llvh::isa<MovInst>(I) || llvh::isa<ImplicitMovInst>(I) ||
+      llvh::isa<UnionNarrowTrustedInst>(I))
+    return static_cast<SingleOperandInst *>(I);
+  return nullptr;
+}
+
 inline bool isMovLike(Instruction *I) {
-  return llvh::isa<MovInst>(I) || llvh::isa<ImplicitMovInst>(I) ||
-      llvh::isa<UnionNarrowTrustedInst>(I);
+  return asMovLike(I) != nullptr;
 }
 
 /// Propagator: MovLike + Phi. Shape/type narrowing propagates through these.

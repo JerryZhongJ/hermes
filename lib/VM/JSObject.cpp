@@ -78,6 +78,16 @@ void JSObjectBuildMeta(const GCCell *cell, Metadata::Builder &mb) {
   }
 }
 
+bool closureSlotValueMatches(HermesValue current, HermesValue newValue) {
+  // Closure invariant: the slot must keep the same function. Both values must
+  // be NativeJSFunctions sharing the same functionPtr. (The "is F" identity was
+  // established at TrySet; here we only preserve "unchanged".)
+  auto *curFunc = dyn_vmcast_or_null<NativeJSFunction>(current);
+  auto *newFunc = dyn_vmcast_or_null<NativeJSFunction>(newValue);
+  return curFunc && newFunc &&
+      curFunc->getFunctionPtr() == newFunc->getFunctionPtr();
+}
+
 void JSObject::checkTypedPropertyStore(
     Handle<JSObject> selfHandle,
     Runtime &runtime,
@@ -89,7 +99,10 @@ void JSObject::checkTypedPropertyStore(
   if (!clazzHandle->isTyped())
     return;
 
-  if (typedPropertyValueMatches(desc.flags.getPropertyType(), *valueHandle))
+  auto currentSlot = getNamedSlotValueUnsafe(selfHandle.get(), runtime, desc.slot)
+                         .unboxToHV(runtime);
+  if (typedPropertyValueMatches(
+          desc.flags.getPropertyType(), *valueHandle, currentSlot))
     return;
 
   if (!pos) {
@@ -119,7 +132,10 @@ void JSObject::checkTypedPropertyStoreBySlot(
       HiddenClass::findPropertyBySlot(clazzHandle, runtime, slot);
   assert(foundBySlot && "typed store target slot must exist");
   auto desc = foundBySlot->second;
-  if (typedPropertyValueMatches(desc.flags.getPropertyType(), *valueHandle))
+  PropertyTypeCode ptc = desc.flags.getPropertyType();
+  auto currentSlot = getNamedSlotValueUnsafe(selfHandle.get(), runtime, slot)
+                         .unboxToHV(runtime);
+  if (typedPropertyValueMatches(ptc, *valueHandle, currentSlot))
     return;
 
   desc.flags.setPropertyType(PropertyTypeCode::None);
@@ -128,7 +144,7 @@ void JSObject::checkTypedPropertyStoreBySlot(
   selfHandle->updateClass(runtime, *newClazz);
 }
 
-bool JSObject::switchClass(
+bool JSObject::trySwitchToCompatibleClass(
     Handle<JSObject> selfHandle,
     Runtime &runtime,
     HiddenClass *clazz) {
@@ -174,7 +190,8 @@ bool JSObject::switchClass(
     if (targetClass->isTyped()) {
       auto value = getNamedSlotValueUnsafe(selfHandle.get(), runtime, slot)
                        .unboxToHV(runtime);
-      if (!typedPropertyValueMatches(targetDesc.flags.getPropertyType(), value))
+      if (!typedPropertyValueMatches(
+              targetDesc.flags.getPropertyType(), value, value))
         return false;
     }
   }

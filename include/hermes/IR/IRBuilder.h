@@ -729,15 +729,18 @@ class IRBuilder {
       Value *object,
       size_t propIndex,
       LiteralString *propName,
-      Type checkedType);
+      Type checkedType,
+      Function *targetFunc = nullptr);
 
   /// \param expectedType the expected type of the destination property.
+  /// \param targetFunc for a closure slot, the function it must keep.
   PrStoreInst *createPrStoreInst(
       Value *storedValue,
       Value *object,
       size_t propIndex,
       LiteralString *propName,
-      Type expectedType);
+      Type expectedType,
+      Function *targetFunc = nullptr);
 
   FastArrayLoadInst *
   createFastArrayLoadInst(Value *array, Value *index, Type checkedType);

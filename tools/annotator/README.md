@@ -38,7 +38,77 @@ from it offline by `python -m annotator.postprocess`.
 - `src/annotator/agents/`: runner interface/factory plus separate Claude and
   Codex SDK adapters.
 - `tests/`: unit tests for CLI behavior, stats, and config handling.
-- `deepseek-v4.json`: sample agent configuration.
+- `naive.json`: sample agent configuration.
+
+## Jelly static-analysis tools (call graph, heat, data flow)
+
+The agent can optionally use call-graph, heat-estimation and data-flow
+information produced by [Jelly](https://github.com/cs-au-dk/jelly), exposed as
+two in-process MCP servers (`jelly`, `jelly-dataflow`) alongside `fold` /
+`locate` / `dryrun`. They are not built from the source file: the host must run
+Jelly and drop its output into the attempt workdir first.
+
+Host setup (per target), from a Jelly checkout:
+
+```sh
+mkdir -p .jelly
+jelly -b <project-root> -j .jelly/cg.json <entry-files...>          # call graph
+jelly -b <project-root> --dataflow-json .jelly/df.json \
+      --dataflow-source <rel-file>:<line>:<col> <entry-files...>   # data flow
+```
+
+All Jelly artifacts live under a single `.jelly/` directory in the attempt
+workdir (just like `.feedback/`):
+
+```
+.jelly/
+├── cg.json       # call graph (host pre-gen + priors_service regen)
+├── df.json       # data-flow report (host gen per query_dataflow source)
+├── req.json      # reanalyze: agent → host (call-edge override rules)
+├── prior.json    # reanalyze: host → jelly (--call-edge-priors input)
+├── res.json      # reanalyze: host → agent (ok / stderr)
+├── df_req.json   # dataflow: agent → host (source file:line:col)
+└── df_res.json   # dataflow: host → agent (ok / stderr)
+```
+
+Loading and re-analysis are AUTOMATIC — there is no load or re-run tool. Query
+tools auto-load `.jelly/cg.json` on first use; if it is absent they reply
+"暂无调用图" (not an error) and the agent proceeds without.
+
+`jelly` server (call graph + heat):
+
+- `view_callgraph`, `get_callers`, `get_callees`, `list_call_edge_overrides`
+- `add_call_edges`, `delete_call_edges`, `clear_call_edge_overrides` — edit
+  edges; updates the view immediately AND triggers an async host re-run (below)
+  so the change reaches points-to
+- `view_hot_value`, `set_hot_value`, `set_exec_expt`, `set_target_prob` — heat;
+  `set_target_prob` with prob 0 also triggers the async re-run (== delete edge)
+
+`jelly-dataflow` server:
+
+- `query_dataflow` with `source` = `file:line:col` (1-based column) — traces
+  where the source expression's value may flow. The host re-runs Jelly for that
+  source (`--dataflow-json .jelly/df.json --dataflow-source <source>`); the tool
+  returns the source-level points reached (variable / return / this / arguments).
+  Abstract object and internal nodes are hidden.
+
+Loop depth for heat is parsed in-process with tree-sitter-javascript from the
+source tree under `root` (defaults to the workdir).
+
+### Async re-analysis with call-edge priors (host)
+
+`add_call_edges` / `delete_call_edges` / `clear_call_edge_overrides` /
+`set_target_prob(..., 0)` write the session overrides to `.jelly/req.json` and
+return immediately. A host `priors_service` re-runs Jelly with
+`--call-edge-priors` to regenerate `.jelly/cg.json`. While that is in flight,
+queries return "分析未完成,稍后再查"; on completion the tool reloads the new
+graph (revision bump) and clears the session overrides (the host has applied
+them). Set `jelly_bin` (path to the Jelly executable) in the agent config to
+enable the host service (claude backend); a `dataflow_service` runs alongside it
+for `query_dataflow`. `force_exclude` drops edges throughout analysis (including
+finalization backfill); `force_include` injects callees and propagates
+args/this/return. require/import/interop/native-invoke force-include is not
+supported (no call-site callee variable).
 
 ## Options
 
@@ -121,7 +191,10 @@ The generated JSON must follow the schema loaded by `AnnotationLoader`:
 The prompt asks the agent to optimize hot code first: loops, nested loops,
 frequently called functions, core data structure accesses, and repeated
 property reads/writes. Shape definitions must exactly match object construction,
-including property order, because typed shapes are order-sensitive. Shape names
+including property order and JS descriptor flags, because typed shapes are
+order-sensitive. Property `type` defaults to `any`, `kind` defaults to `data`,
+and descriptor flags default to on; list disabled descriptor flags with
+`"flags off"` (allowed: `writable`, `enumerable`, `configurable`). Shape names
 are only stable identifiers used by guards and bindings.
 
 ## Statistics

@@ -12,8 +12,8 @@ var o = {x:1, y:2};
 print(o.x);
 
 // C: static const SHStaticShapeProp s_static_shape_props[] = {
-// C: { .name_index = {{[0-9]+}}, .type = 15, .kind = 0, .attrs = 7 },
-// C: { .name_index = {{[0-9]+}}, .type = 15, .kind = 0, .attrs = 7 },
+// C: { .name_index = {{[0-9]+}}, .type = 15, .kind = 0, .attrs = 7, .target_func = NULL },
+// C: { .name_index = {{[0-9]+}}, .type = 15, .kind = 0, .attrs = 7, .target_func = NULL },
 // C: static const SHStaticShapeTableEntry s_static_shape_table[] = {
 // C: { .prop_offset = 0, .num_props = 2, .typed = 0 },
 // C: SHCompressedPointer static_shape_class_cache[1];

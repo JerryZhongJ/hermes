@@ -215,8 +215,49 @@ void loadStaticShapes(
           }
         typeStrs = {"any"};
       }
-      def.properties.push_back(
-          {name->str(), std::move(typeStrs), accessor, attrs});
+      // "closure" marks a closure-typed property carrying a known function,
+      // identified by the source range of its definition (same format as the
+      // other ranges). Mutually exclusive with accessor.
+      llvh::SMRange closureRange;
+      if (auto *closureVal = propObj->get("closure")) {
+        if (accessor) {
+          sm.warning(llvh::SMLoc{},
+                     "property \"" + name->str() + "\" in static shape '" +
+                         shapeName.str() +
+                         "' cannot be both accessor and closure");
+          ok = false;
+          break;
+        }
+        auto closureObj = closureVal->getAsObject();
+        if (!closureObj) {
+          sm.warning(llvh::SMLoc{},
+                     "invalid 'closure' range for property \"" + name->str() +
+                         "\" in static shape '" + shapeName.str() + "'");
+          ok = false;
+          break;
+        }
+        auto resolved = resolveLocation(closureObj, sm);
+        if (!resolved) {
+          sm.warning(llvh::SMLoc{},
+                     "unresolved 'closure' range for property \"" + name->str() +
+                         "\" in static shape '" + shapeName.str() + "'");
+          ok = false;
+          break;
+        }
+        closureRange = *resolved;
+        // Closure-ness is carried by targetFunc, not the type; force any.
+        for (const auto &s : typeStrs)
+          if (s != "any") {
+            sm.warning(llvh::SMLoc{},
+                       "closure property \"" + name->str() +
+                           "\" in static shape '" + shapeName.str() +
+                           "' must be type 'any'; ignoring declared type");
+            break;
+          }
+        typeStrs = {"any"};
+      }
+      def.properties.push_back({name->str(), std::move(typeStrs), accessor,
+                                attrs, closureRange});
     }
     if (ok)
       defs[shapeName] = std::move(def);

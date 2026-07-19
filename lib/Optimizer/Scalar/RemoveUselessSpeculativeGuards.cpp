@@ -9,10 +9,10 @@
 
 #include "hermes/Optimizer/Scalar/RemoveUselessSpeculativeGuards.h"
 
-#include "hermes/Optimizer/Scalar/SpeculativeGuardUtils.h"
 #include "hermes/IR/IRBuilder.h"
 #include "hermes/IR/Instrs.h"
 #include "hermes/IRGen/AnnotationLoader.h"
+#include "hermes/Optimizer/Scalar/SpeculativeGuardUtils.h"
 #include "hermes/Support/Statistic.h"
 
 #include "llvh/ADT/DenseMap.h"
@@ -174,6 +174,10 @@ bool RemoveUselessSpeculativeGuards::runOnModule(Module *M) {
     IRBuilder::InstructionDestroyer destroyer;
 
     for (HasStaticShapeInst *HTS : shapeGuards) {
+      // Pinned by PinClosureShapeGuards: drives a closure inline whose PrLoad
+      // consumer was DCE'd. Removing it would make the inline unconditional.
+      if (HTS->isPinned())
+        continue;
       if (hasGuardDependentConsumer(
               HTS->getArgument(),
               HTS,

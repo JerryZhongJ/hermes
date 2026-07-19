@@ -435,6 +435,9 @@ struct StaticShapeProperty {
   Type type;
   PropertyKind kind = PropertyKind::Data;
   StaticShapePropertyAttrs attrs;
+  /// Non-null for closure properties: the function this slot must hold.
+  /// mutable: filled during IRGen, not part of descriptor identity.
+  mutable Function *targetFunc = nullptr;
 };
 
 /// Describes a static shape: an ordered list of properties with their
@@ -468,6 +471,14 @@ struct StaticShapeDesc {
 
   StaticShapePropertyAttrs getPropertyAttrs(size_t i) const {
     return props_[i].attrs;
+  }
+
+  Function *getPropertyTargetFunc(size_t i) const {
+    return props_[i].targetFunc;
+  }
+
+  void setPropertyTargetFunc(size_t i, Function *F) const {
+    props_[i].targetFunc = F;
   }
 
   /// O(1) check: does this shape contain any accessor property? Used to short

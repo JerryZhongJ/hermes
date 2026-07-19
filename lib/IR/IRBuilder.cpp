@@ -1264,9 +1264,11 @@ PrLoadInst *IRBuilder::createPrLoadInst(
     Value *object,
     size_t propIndex,
     LiteralString *propName,
-    Type checkedType) {
+    Type checkedType,
+    Function *targetFunc) {
   auto *I = new PrLoadInst(
-      object, getLiteralNumber((double)propIndex), propName, checkedType);
+      object, getLiteralNumber((double)propIndex), propName, checkedType,
+      targetFunc);
   insert(I);
   return I;
 }
@@ -1276,13 +1278,15 @@ PrStoreInst *IRBuilder::createPrStoreInst(
     Value *object,
     size_t propIndex,
     LiteralString *propName,
-    Type expectedType) {
+    Type expectedType,
+    Function *targetFunc) {
   auto *I = new PrStoreInst(
       storedValue,
       object,
       getLiteralNumber((double)propIndex),
       propName,
-      expectedType);
+      expectedType,
+      targetFunc);
   insert(I);
   return I;
 }

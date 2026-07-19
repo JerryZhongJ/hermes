@@ -60,6 +60,28 @@ class AgentConfig(BaseModel):
             "dryrun tool."
         ),
     )
+    jelly_bin: Path | None = Field(
+        default=None,
+        description=(
+            "Host path to the Jelly executable (e.g. `jelly`, or "
+            "`node /path/to/jelly/lib/main.js`). When set, the claude backend "
+            "runs a host-side priors_service so the agent's reanalyze_call_graph "
+            "tool can re-run Jelly with call-edge priors (--call-edge-priors), "
+            "making manual edge overrides actually affect points-to. None "
+            "disables it (the in-session edge views still work, just not re-analysis)."
+        ),
+    )
+    enabled_tools: list[str] | None = Field(
+        default=None,
+        description=(
+            "Which in-process MCP tool servers to enable for the agent. None "
+            "(default) = the core set ['source-fold', 'source-locate', 'dryrun']. "
+            "Add 'jelly' (call graph + heat) and 'jelly-dataflow' (forward may-flow) "
+            "to opt into the Jelly tools; 'jelly' benefits from jelly_bin for "
+            "re-analysis. Tools and annotator stay decoupled: the core set has no "
+            "Jelly dependency, and Jelly tools are only loaded when listed here."
+        ),
+    )
 
     def environment(self) -> dict[str, str]:
         env = system_proxy_env()

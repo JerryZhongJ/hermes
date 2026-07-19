@@ -1707,8 +1707,7 @@ class BaseStorePropertyInst : public Instruction {
         // shape has any accessor — invoke a setter (arbitrary JS).
         if (auto *propStr = llvh::dyn_cast<LiteralString>(getProperty())) {
           int idx = desc->getPropertyIndex(propStr->getValue());
-          if (idx != -1 &&
-              desc->getPropertyKind(idx) == PropertyKind::Data)
+          if (idx != -1 && desc->getPropertyKind(idx) == PropertyKind::Data)
             return SideEffect{}.setWriteHeap().setIdempotent();
         }
         return SideEffect::createExecute();
@@ -2328,8 +2327,7 @@ class BaseLoadPropertyInst : public Instruction {
         // has any accessor — can execute arbitrary JS via the getter.
         if (auto *propStr = llvh::dyn_cast<LiteralString>(getProperty())) {
           int idx = desc->getPropertyIndex(propStr->getValue());
-          if (idx != -1 &&
-              desc->getPropertyKind(idx) == PropertyKind::Data)
+          if (idx != -1 && desc->getPropertyKind(idx) == PropertyKind::Data)
             return SideEffect{}.setReadHeap().setIdempotent();
         }
         return SideEffect::createExecute();
@@ -3228,6 +3226,10 @@ class HasStaticShapeInst : public Instruction {
 
   int annotationId_ = -1;
   StaticShapeInfo objOperandShape_{};
+  /// If true, RemoveUselessSpeculativeGuards keeps this guard regardless of
+  /// consumer reachability (e.g. the consumer PrLoad drove an inline and was
+  /// DCE'd). Set by PinClosureShapeGuards.
+  bool pinned_ = false;
 
  public:
   enum { ArgumentIdx, ShapeIdx };
@@ -3243,7 +3245,8 @@ class HasStaticShapeInst : public Instruction {
       llvh::ArrayRef<Value *> operands)
       : Instruction(src, operands),
         annotationId_(src->annotationId_),
-        objOperandShape_(src->objOperandShape_) {}
+        objOperandShape_(src->objOperandShape_),
+        pinned_(src->pinned_) {}
 
   Value *getArgument() const {
     return getOperand(ArgumentIdx);
@@ -3281,6 +3284,13 @@ class HasStaticShapeInst : public Instruction {
   }
   static llvh::Optional<Type> getInherentTypeImpl() {
     return Type::createBoolean();
+  }
+
+  bool isPinned() const {
+    return pinned_;
+  }
+  void setPinned(bool v) {
+    pinned_ = v;
   }
 
   static bool classof(const Value *V) {
@@ -5717,6 +5727,13 @@ class UnreachableInst : public TerminatorInst {
 };
 
 class PrLoadInst : public Instruction {
+  /// For closure-typed slots: the function this load is known to return, an
+  /// inherent attribute set at construction (no setter). InstSimplify passes it
+  /// from the operand shape's slot target_func; FunctionAnalysis consumes it to
+  /// set call targets so a method call through a static shape (obj.method())
+  /// can be inlined. Nullptr for non-closure slots.
+  Function *targetFunc_ = nullptr;
+
  public:
   enum { ObjectIdx, PropIndexIdx, PropNameIdx };
 
@@ -5724,15 +5741,20 @@ class PrLoadInst : public Instruction {
       Value *object,
       LiteralNumber *propIndex,
       LiteralString *propName,
-      Type checkedType)
-      : Instruction(ValueKind::PrLoadInstKind) {
+      Type checkedType,
+      Function *targetFunc = nullptr)
+      : Instruction(ValueKind::PrLoadInstKind), targetFunc_(targetFunc) {
     setType(checkedType);
     pushOperand(object);
     pushOperand(propIndex);
     pushOperand(propName);
   }
   explicit PrLoadInst(const PrLoadInst *src, llvh::ArrayRef<Value *> operands)
-      : Instruction(src, operands) {}
+      : Instruction(src, operands), targetFunc_(src->targetFunc_) {}
+
+  Function *getTargetFunc() const {
+    return targetFunc_;
+  }
 
   static bool classof(const Value *V) {
     return V->getKind() == ValueKind::PrLoadInstKind;
@@ -5764,6 +5786,10 @@ class PrLoadInst : public Instruction {
 
 class PrStoreInst : public Instruction {
   Type expectedType_;
+  /// Closure slot: the function this slot must keep, an inherent attribute set
+  /// at construction (no setter); forces a runtime type check. Nullptr for
+  /// non-closure slots.
+  Function *targetFunc_ = nullptr;
 
  public:
   enum { StoredValueIdx, ObjectIdx, PropIndexIdx, PropNameIdx };
@@ -5774,8 +5800,11 @@ class PrStoreInst : public Instruction {
       Value *object,
       LiteralNumber *propIndex,
       LiteralString *propName,
-      Type expectedType)
-      : Instruction(ValueKind::PrStoreInstKind), expectedType_(expectedType) {
+      Type expectedType,
+      Function *targetFunc = nullptr)
+      : Instruction(ValueKind::PrStoreInstKind),
+        expectedType_(expectedType),
+        targetFunc_(targetFunc) {
     setType(Type::createNoType());
     pushOperand(storedValue);
     pushOperand(object);
@@ -5783,7 +5812,9 @@ class PrStoreInst : public Instruction {
     pushOperand(propName);
   }
   explicit PrStoreInst(const PrStoreInst *src, llvh::ArrayRef<Value *> operands)
-      : Instruction(src, operands), expectedType_(src->expectedType_) {}
+      : Instruction(src, operands),
+        expectedType_(src->expectedType_),
+        targetFunc_(src->targetFunc_) {}
 
   static bool classof(const Value *V) {
     return V->getKind() == ValueKind::PrStoreInstKind;
@@ -5820,6 +5851,9 @@ class PrStoreInst : public Instruction {
   }
   Type getExpectedType() const {
     return expectedType_;
+  }
+  Function *getTargetFunc() const {
+    return targetFunc_;
   }
 };
 

@@ -83,7 +83,7 @@ def _build_options(cfg: dict[str, Any]) -> ClaudeAgentOptions:
         model=cfg.get("model"),
         permission_mode="bypassPermissions",
         # tools= omitted -> CLI default full set (Bash/Edit/Read/Write/Glob/...).
-        mcp_servers=build_source_mcp_servers(source, WORK),
+        mcp_servers=build_source_mcp_servers(source, WORK, cfg.get("enabled_tools")),
         # setting_sources= omitted -> no isolation (fresh image has no user
         # config anyway, and the container is the boundary).
         settings=(

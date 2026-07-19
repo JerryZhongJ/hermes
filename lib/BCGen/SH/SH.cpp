@@ -257,6 +257,8 @@ class SHStaticShapeTable {
     uint8_t kind;
     /// SH_STATIC_SHAPE_ATTR_* bitset for JS descriptor attributes.
     uint8_t attrs;
+    /// Closure target function (non-null for closure-typed data properties).
+    Function *targetFunc = nullptr;
   };
 
   struct EncodedShape {
@@ -337,16 +339,22 @@ class SHStaticShapeTable {
 
     for (size_t i = 0, e = desc->size(); i < e; ++i) {
       Type irType = desc->getPropertyType(i);
-      if (irType != Type::createAnyType())
+      Function *targetFunc = desc->getPropertyTargetFunc(i);
+      // A closure-typed property (targetFunc != nullptr) carries a value
+      // constraint, so it makes the shape typed.
+      if (irType != Type::createAnyType() || targetFunc)
         typed = 1;
-      uint8_t code = getPropertyTypeCode(irType);
+      // Closure property type code is 7 (PropertyTypeCode::Closure); the
+      // internal enum in getPropertyTypeCode does not include it.
+      uint8_t code = targetFunc ? 7u : getPropertyTypeCode(irType);
       uint8_t kind =
           desc->getPropertyKind(i) == PropertyKind::Accessor ? 1 : 0;
       props_.push_back(EncodedProp{
           stringTable.add(desc->getPropertyName(i).str()),
           code,
           kind,
-          encodeAttrs(desc->getPropertyAttrs(i))});
+          encodeAttrs(desc->getPropertyAttrs(i)),
+          targetFunc});
     }
     shapes_[shapeIndex].typed = typed;
   }
@@ -381,14 +389,24 @@ class SHStaticShapeTable {
     return props_.size();
   }
 
-  void generate(llvh::raw_ostream &os) const {
+  void generate(llvh::raw_ostream &os,
+                llvh::function_ref<void(Function *, llvh::raw_ostream &)>
+                    emitFuncLabel) const {
     os << "static const SHStaticShapeProp s_static_shape_props[] = {\n";
     for (const auto &prop : props_) {
       os.indent(2);
       os << "{ .name_index = " << prop.nameIndex
          << ", .type = " << static_cast<unsigned>(prop.typeCode)
          << ", .kind = " << static_cast<unsigned>(prop.kind)
-         << ", .attrs = " << static_cast<unsigned>(prop.attrs) << " },\n";
+         << ", .attrs = " << static_cast<unsigned>(prop.attrs)
+         << ", .target_func = ";
+      if (prop.targetFunc) {
+        os << "&";
+        emitFuncLabel(prop.targetFunc, os);
+      } else {
+        os << "NULL";
+      }
+      os << " },\n";
     }
     os << "};\n";
 
@@ -2573,7 +2591,9 @@ class InstrGen {
     os_.indent(2);
     const char *suffix = "";
     Type storedValueType = inst.getStoredValue()->getType();
-    bool noCheckType = storedValueType.isSubsetOf(inst.getExpectedType());
+    // Closure slots always need a runtime function-identity check.
+    bool noCheckType = !inst.getTargetFunc() &&
+        storedValueType.isSubsetOf(inst.getExpectedType());
     bool passNonPtr = false;
     if (noCheckType) {
       if (storedValueType.isNumberType()) {
@@ -3658,7 +3678,10 @@ static SHNativeFuncInfo s_function_info_table[];
 
   if (options.format == DumpBytecode || options.format == EmitBundle) {
     moduleGen.literalBuffers.generate(OS);
-    moduleGen.staticShapeTable.generate(OS);
+    moduleGen.staticShapeTable.generate(
+        OS, [&moduleGen](Function *F, llvh::raw_ostream &os) {
+          moduleGen.nativeFunctionTable.generateFunctionLabel(F, os);
+        });
     moduleGen.srcLocationTable.generate(
         OS, M->getContext().getSourceErrorManager());
     moduleGen.nativeFunctionTable.generate(OS);

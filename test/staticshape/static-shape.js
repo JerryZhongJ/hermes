@@ -16,8 +16,8 @@ print(o.x);
 // C: _sh_ljs_has_static_shape(shr,
 // C-SAME: shUnit, 0
 // C: static const SHStaticShapeProp s_static_shape_props[] = {
-// C: { .name_index = {{[0-9]+}}, .type = 1, .kind = 0, .attrs = 7 },
-// C: { .name_index = {{[0-9]+}}, .type = 1, .kind = 0, .attrs = 7 },
+// C: { .name_index = {{[0-9]+}}, .type = 1, .kind = 0, .attrs = 7, .target_func = NULL },
+// C: { .name_index = {{[0-9]+}}, .type = 1, .kind = 0, .attrs = 7, .target_func = NULL },
 // C: static const SHStaticShapeTableEntry s_static_shape_table[] = {
 // C: { .prop_offset = 0, .num_props = 2, .typed = 1 },
 // C: SHCompressedPointer static_shape_class_cache[1];

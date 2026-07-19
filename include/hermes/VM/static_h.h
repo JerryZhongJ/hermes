@@ -54,6 +54,11 @@ typedef struct SHStaticShapeProp {
   uint8_t kind;
   /// SH_STATIC_SHAPE_ATTR_* bitset for JS descriptor attributes.
   uint8_t attrs;
+  /// For closure-typed properties (type == 7 / PropertyTypeCode::Closure): the
+  /// target function this slot must hold. Verified against the actual value's
+  /// functionPtr in _sh_ljs_try_set_static_shape, and maintained by the write
+  /// guard. NULL for non-closure properties.
+  SHLegacyValue (*target_func)(SHRuntime *);
 } SHStaticShapeProp;
 
 /// Encodes one static shape descriptor.

@@ -27,12 +27,12 @@ namespace {
 ///        null if the scope is not available.
 void registerCallsite(
     BaseCallInst *call,
-    BaseCreateCallableInst *callee,
+    Function *callee,
     bool isAlwaysClosure,
     Instruction *scope) {
   // Set the target/env operands if possible.
   if (llvh::isa<EmptySentinel>(call->getTarget())) {
-    call->setTarget(callee->getFunctionCode());
+    call->setTarget(callee);
   }
 
   // If we have determined that no type check is needed, set that on the call.
@@ -43,7 +43,7 @@ void registerCallsite(
 
   // Check if the function uses its parent scope, and populate it if possible.
   if (scope && llvh::isa<EmptySentinel>(call->getEnvironment()) &&
-      callee->getFunctionCode()->getParentScopeParam()->hasUsers())
+      callee->getParentScopeParam()->hasUsers())
     call->setEnvironment(scope);
 }
 
@@ -134,11 +134,19 @@ std::pair<bool, bool> isAnalyzableVariable(Variable *V, Value *val) {
 /// by the \p create instruction and register them.
 /// Looks at calls that use \p create as an operand themselves as well as
 /// calls that load \p create via a variable which is stored to once.
-void analyzeCreateCallable(BaseCreateCallableInst *create) {
-  Function *F = create->getFunctionCode();
+/// Propagate the fact that \p source produces a value that is a closure of
+/// \p F, registering callsites reached through the def-use chain (casts,
+/// single-store variables). \p initialScope is the parent scope known at the
+/// source (null for a method-slot load, whose parent scope lives inside the
+/// loaded closure and is read at inline time via GetClosureScopeInst).
+/// \p closureVarScope is F's lexical VariableScope (null when unknown).
+void analyzeClosureSource(
+    Instruction *source,
+    Function *F,
+    Instruction *initialScope,
+    VariableScope *closureVarScope) {
   Module *M = F->getParent();
   IRBuilder builder(M);
-  auto *closureVarScope = llvh::dyn_cast<VariableScope>(create->getVarScope());
 
   // Class constructors do not expect `this` to be allocated by the caller.
   bool funcExpectsThisInConstruct = F->getDefinitionKind() !=
@@ -181,11 +189,7 @@ void analyzeCreateCallable(BaseCreateCallableInst *create) {
   // to avoid going back and forth between the corresponding loads.
   llvh::SmallPtrSet<Instruction *, 2> visited{};
 
-  worklist.push_back(
-      {create,
-       true,
-       llvh::dyn_cast<Instruction>(create->getScope()),
-       closureVarScope});
+  worklist.push_back({source, true, initialScope, closureVarScope});
   while (!worklist.empty()) {
     // Instruction whose only possible closure value is the one being analyzed.
     Instruction *closureInst = worklist.back().maybeClosure;
@@ -221,7 +225,7 @@ void analyzeCreateCallable(BaseCreateCallableInst *create) {
             callScope = builder.createResolveScopeInst(
                 closureVarScope, startVarScope, startScope);
           }
-          registerCallsite(call, create, isAlwaysClosure, callScope);
+          registerCallsite(call, F, isAlwaysClosure, callScope);
         }
         continue;
       }
@@ -424,6 +428,14 @@ void analyzeCreateCallable(BaseCreateCallableInst *create) {
   }
 }
 
+void analyzeCreateCallable(BaseCreateCallableInst *create) {
+  analyzeClosureSource(
+      create,
+      create->getFunctionCode(),
+      llvh::dyn_cast<Instruction>(create->getScope()),
+      llvh::dyn_cast<VariableScope>(create->getVarScope()));
+}
+
 /// Find and register any callsites that can be found which call \p F.
 void analyzeFunctionCallsites(Function *F) {
   Module *M = F->getParent();
@@ -505,6 +517,24 @@ Pass *createFunctionAnalysis() {
     bool runOnModule(Module *M) override {
       for (Function &F : *M) {
         analyzeFunctionCallsites(&F);
+      }
+      // A PrLoad whose static-shape slot holds a known function (targetFunc)
+      // is a "value = F" definition point, just like CreateFunctionInst.
+      // Propagate from it through the same def-use chain so calls reached via
+      // it get target=F (and get inlined, reading the parent scope from the
+      // callee via GetClosureScopeInst, since the source scope is null).
+      for (Function &F : *M) {
+        for (BasicBlock &BB : F) {
+          for (Instruction &I : BB) {
+            auto *prLoad = llvh::dyn_cast<PrLoadInst>(&I);
+            if (!prLoad)
+              continue;
+            Function *targetFunc = prLoad->getTargetFunc();
+            if (!targetFunc)
+              continue;
+            analyzeClosureSource(prLoad, targetFunc, nullptr, nullptr);
+          }
+        }
       }
       return true;
     }

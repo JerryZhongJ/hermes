@@ -23,9 +23,16 @@
 namespace hermes {
 namespace vm {
 
+/// Closure slot identity check used by typedPropertyValueMatches for the
+/// Closure case: both values must be NativeJSFunctions sharing the same
+/// functionPtr. Defined in the .cpp — JSObject.h cannot depend on the
+/// Callable layer (NativeJSFunction).
+bool closureSlotValueMatches(HermesValue current, HermesValue newValue);
+
 inline bool typedPropertyValueMatches(
     PropertyTypeCode type,
-    HermesValue value) {
+    HermesValue value,
+    HermesValue currentValue) {
   switch (type) {
     case PropertyTypeCode::None:
       return false;
@@ -39,6 +46,12 @@ inline bool typedPropertyValueMatches(
       return value.isBool();
     case PropertyTypeCode::Object:
       return value.isObject();
+    case PropertyTypeCode::Closure:
+      // A closure slot must keep the same function. The "is F" target was
+      // established at TrySet; here we preserve "unchanged" — the new value
+      // must be a NativeJSFunction whose functionPtr equals the current
+      // slot's. Delegated to closureSlotValueMatches (.cpp, Callable layer).
+      return closureSlotValueMatches(currentValue, value);
     case PropertyTypeCode::Nullish:
       return value.isNull() || value.isUndefined();
     case PropertyTypeCode::NumberOrNullish:
@@ -768,12 +781,16 @@ class JSObject : public GCCell {
       SlotIndex slot,
       Handle<> valueHandle);
 
-  /// If \p clazz describes the same named property layout as \p selfHandle,
-  /// replace the object's current HiddenClass with \p clazz and return true.
-  /// Class flags must match except for the typed bit, descriptor flags must
-  /// match except for the property type, and typed target classes additionally
-  /// require existing slot values to match the target descriptor types.
-  static bool switchClass(
+  /// Validate that \p clazz describes the same named property layout as \p
+  /// selfHandle, and if so replace the object's current HiddenClass with \p
+  /// clazz and return true; otherwise return false and leave the object
+  /// unchanged. Class flags must match except for the typed bit, descriptor
+  /// flags must match except for the property type, and typed target classes
+  /// additionally require existing slot values to match the target descriptor
+  /// types. Despite the generic-looking name this is currently used only by
+  /// the static-shape path (_sh_ljs_try_set_static_shape); closure-target
+  /// identity ("is F") is verified by the caller, not here.
+  static bool trySwitchToCompatibleClass(
       Handle<JSObject> selfHandle,
       Runtime &runtime,
       HiddenClass *clazz);

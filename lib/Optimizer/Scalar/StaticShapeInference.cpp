@@ -11,6 +11,7 @@
 
 #include "hermes/IR/CFG.h"
 #include "hermes/IR/Instrs.h"
+#include "hermes/Optimizer/Scalar/SpeculativeGuardUtils.h"
 #include "llvh/ADT/DenseMap.h"
 #include "llvh/ADT/DenseSet.h"
 #include "llvh/ADT/Optional.h"
@@ -41,14 +42,6 @@ static inline StaticShapeInfo operator|(StaticShapeInfo a, StaticShapeInfo b) {
   if (a.desc == b.desc) // 均 KnownStaticShape
     return a;
   return StaticShapeInfo::createAnyShapes();
-}
-
-/// mov-like：单一 operand 的纯值传递，不写堆；shape 沿 operand 链传播。
-static inline SingleOperandInst *isMovLikeInst(Instruction *inst) {
-  if (llvh::isa<MovInst>(inst) || llvh::isa<ImplicitMovInst>(inst) ||
-      llvh::isa<UnionNarrowTrustedInst>(inst))
-    return static_cast<SingleOperandInst *>(inst);
-  return nullptr;
 }
 
 static void setStaticShapeInfo(Instruction *inst, StaticShapeInfo shape) {
@@ -280,7 +273,7 @@ class Impl {
         continue;
       for (auto *U : v->getUsers()) {
         auto *user = llvh::dyn_cast<Instruction>(U);
-        if (user && (isMovLikeInst(user) || llvh::isa<PhiInst>(user)))
+        if (user && isPropagator(user))
           wl.push_back(user);
       }
     }
@@ -399,7 +392,7 @@ class Impl {
         transferPhi(s, phi);
         continue;
       }
-      if (auto *movLike = isMovLikeInst(inst)) {
+      if (auto *movLike = asMovLike(inst)) {
         transferMovLike(s, movLike);
         continue;
       }
@@ -459,7 +452,7 @@ class Impl {
           transferPhi(s, phi);
           continue;
         }
-        if (auto *movLike = isMovLikeInst(inst)) {
+        if (auto *movLike = asMovLike(inst)) {
           transferMovLike(s, movLike);
           continue;
         }

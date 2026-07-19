@@ -34,6 +34,7 @@ add_hermes_library(hermesOptimizer
   Optimizer/Scalar/FuncSigOpts.cpp
   Optimizer/Scalar/Utils.cpp
   Optimizer/Scalar/FunctionAnalysis.cpp
+  Optimizer/Scalar/PinClosureShapeGuards.cpp
   Optimizer/Scalar/Inlining.cpp
   Optimizer/Scalar/InstructionEscapeAnalysis.cpp
   Optimizer/Scalar/TDZDedup.cpp

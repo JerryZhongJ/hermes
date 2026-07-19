@@ -26,7 +26,7 @@ import threading
 from pathlib import Path
 
 from ..config import AgentConfig
-from ..dryrun_service import serve as serve_feedback
+from ..tools import run_host_setups
 from . import AgentRun
 
 LOGGER = logging.getLogger("claude_code")
@@ -100,15 +100,6 @@ class ClaudeSdkRunner:
     def _image(self) -> str:
         return self.config.docker_image or DEFAULT_IMAGE
 
-    def _feedback_binary(self) -> Path | None:
-        """Path to the host annotation-dryrun binary, or None to disable the
-        dryrun tool. Resolves ``feedback_bin_dir / annotation-dryrun``."""
-        d = self.config.feedback_bin_dir
-        if d is None:
-            return None
-        binary = Path(d) / "annotation-dryrun"
-        return binary if binary.exists() else None
-
     def _write_prompt(self, attempt_dir: Path, prompt: str) -> None:
         (attempt_dir / ".prompt.txt").write_text(prompt, encoding="utf-8")
 
@@ -122,6 +113,7 @@ class ClaudeSdkRunner:
             "model": self.config.model,
             "claude_settings": self.config.claude_settings,
             "source": source_name,
+            "enabled_tools": self.config.enabled_tools,
         }
         (attempt_dir / ".agent_config.json").write_text(
             json.dumps(payload, indent=2) + "\n", encoding="utf-8"
@@ -163,27 +155,19 @@ class ClaudeSdkRunner:
             "-m",
             "annotator.agent_worker",
         ]
-        # Host feedback service: while docker runs, concurrently poll
-        # attempt_dir/.feedback/req.json and run annotation-dryrun (which stays
-        # on the host — the in-container agent never touches hermes). The
-        # in-container dryrun MCP talks to it over the bind-mount.
-        binary = self._feedback_binary()
+        # Host-side tool setup: each enabled tool runs its own host_setup (start its
+        # own service thread / pre-generate its own data / find its own binary). The
+        # orchestrator only starts and joins the returned threads around the docker
+        # run — it knows no specific tool (no dryrun/jelly/feedback here).
         stop_event = threading.Event()
-        feedback_thread: threading.Thread | None = None
-        if binary is not None:
-            feedback_thread = threading.Thread(
-                target=serve_feedback,
-                args=(attempt_dir, source_name, binary, stop_event),
-                daemon=True,
-                name="dryrun_service",
-            )
-            feedback_thread.start()
-            LOGGER.info("dryrun_service started (binary=%s)", binary)
+        host_threads = run_host_setups(
+            attempt_dir, source_name, self.config, stop_event, self.config.enabled_tools,
+        )
+        for t in host_threads:
+            t.start()
         LOGGER.info(
-            "docker run image=%s timeout=%ss work=%s",
-            self._image(),
-            self.timeout_seconds,
-            attempt_dir,
+            "docker run image=%s timeout=%ss work=%s (host threads: %d)",
+            self._image(), self.timeout_seconds, attempt_dir, len(host_threads),
         )
         try:
             return subprocess.run(
@@ -194,8 +178,8 @@ class ClaudeSdkRunner:
             )
         finally:
             stop_event.set()
-            if feedback_thread is not None:
-                feedback_thread.join(timeout=5)
+            for t in host_threads:
+                t.join(timeout=5)
 
     # --- result collection ---
 

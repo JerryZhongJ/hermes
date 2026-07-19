@@ -13,7 +13,6 @@ SUPPORTED_TYPES = {
     "undefined",
 }
 
-
 def concrete_type_union() -> str:
     """TypeScript union of supported concrete types, e.g. '"number" | "string" | ...'."""
     return " | ".join(f'"{t}"' for t in sorted(SUPPORTED_TYPES))
@@ -22,7 +21,16 @@ def concrete_type_union() -> str:
 def build_prompt(
     source_path: Path,
     annotation_path: Path,
+    enabled: list[str] | None = None,
 ) -> str:
+    # Tool sections are assembled from the registry (open/closed): adding a tool
+    # only adds a REGISTRY entry — build_prompt never lists specific tools here.
+    from .tools import REGISTRY, resolve_enabled
+    tool_sections = [
+        REGISTRY[n].prompt for n in resolve_enabled(enabled)
+        if n in REGISTRY and REGISTRY[n].prompt
+    ]
+    tools_text = "\n".join(tool_sections)
     return f"""Read `./{source_path.name}`, analyze it, and write speculative optimization
 guards to `./{annotation_path.name}` — each makes hot JavaScript code run faster by
 inserting a runtime check the compiler can specialize around.
@@ -201,37 +209,6 @@ Example (type guard + shape guard + shape binding):
 ```
 
 Tool usage:
-- All source tools (`locate`, `fold`, `dryrun_annotation`, `query_feedback`) act on the file being
-  annotated — there is no `file` argument; they always read {source_path.name}.
-- Use the `locate` tool to get exact source ranges for annotations instead of
-  grep/awk or counting columns by hand. Example:
-  locate(from_line=2, to_line=5, text="abc")
-  It returns each match as `line:startcol-endline:endcol` — 1-based, EXCLUSIVE
-  end column, cross-line OK — which matches the annotation format, plus a
-  line-numbered context snippet with the match wrapped in »…« so you can tell
-  matches apart at a glance. Omit from_line/to_line to search the whole file.
-  To pin one occurrence among several, add `following` (literal text that must
-  sit just before the match) and/or `followed_by` (literal text just after);
-  only whitespace may sit between. e.g. to locate the `obj` in `obj.x = …`
-  without folding `.x` into the range: text="obj", followed_by=".x".
-  Never guess a column.
-- Use the `fold` tool first to get a structural view of large file:
-  it folds multi-line blocks into ` … N lines folded …`, and prints
-  1-based line numbers. Raise `unfold` (default 0) to expand a region,
-  e.g. fold(from_line=176, to_line=200, unfold=1).
-- After writing or editing annotations, call `dryrun_annotation` to check their
-  effect — it compiles the file (trimmed pipeline, no execution) and caches the
-  result, returning a whole-file summary (optimized / killed / no-effect).
-  Example: dryrun_annotation(annotation="annotation.json")
-- Then call `query_feedback` to inspect the cached result, optionally narrowed
-  to a line range or a previous run. Per annotation it reports: (1) load
-  failures — fix those first; (2) optimizations produced (type narrowing →
-  typed operation; shape → typed property read/write); (3) instructions that
-  killed shape propagation; (4) "no effect". Out-of-range effects show as
-  "somewhere else". Examples:
-  query_feedback()                                  # latest run, whole file
-  query_feedback(from_line=80, to_line=120)         # focus a region
-  query_feedback(run=-2, from_line=80, to_line=120) # vs the previous run
-  (run: -1/omit = latest, -2 = previous, k>0 = run id k)
-  Iterate until no load failures and no surprising kills.
+- All enabled tools act on the file being annotated (there's only one file; no `file` argument).
+{tools_text}
 """

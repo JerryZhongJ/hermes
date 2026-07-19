@@ -128,7 +128,8 @@ ESTreeIRGen::ESTreeIRGen(
     // entire shape (a partial shape would be misleading). Warn, don't error —
     // a bad shape just means that shape's guards won't bind.
     bool ok = true;
-    for (const auto &prop : def.properties) {
+    for (size_t pi = 0, pe = def.properties.size(); pi < pe; ++pi) {
+      const auto &prop = def.properties[pi];
       std::string bad;
       auto type = Annotations::parseTypeNames(prop.typeNames, &bad);
       if (!type.hasValue()) {
@@ -146,8 +147,16 @@ ESTreeIRGen::ESTreeIRGen(
       auto kind = prop.accessor ? PropertyKind::Accessor : PropertyKind::Data;
       properties.push_back({iden, propType, kind, prop.attrs});
     }
-    if (ok)
-      shapeDescsByName_[shapeEntry.first()] = M->createStaticShape(properties);
+    if (ok) {
+      const StaticShapeDesc *desc = M->createStaticShape(properties);
+      shapeDescsByName_[shapeEntry.first()] = desc;
+      // Record closure target ranges for genFunction interception.
+      for (size_t pi = 0, pe = def.properties.size(); pi < pe; ++pi) {
+        const auto &cr = def.properties[pi].closureRange;
+        if (cr.isValid())
+          closureRangeToProps_[cr].push_back({desc, pi});
+      }
+    }
   }
 
   // Pre-register object locations for shape annotations.

@@ -2393,8 +2393,8 @@ extern "C" void _sh_check_type_for_prstore(
 /// Probe used only by --instrument-store-property: report whether \p target is
 /// an object whose HiddenClass is typed. Ordinary roots are untyped (see
 /// HiddenClass::createRoot), so an empty object {} reports false directly via
-/// isTyped(); only objects whose class lives in a typed hierarchy (static shape)
-/// report true.
+/// isTyped(); only objects whose class lives in a typed hierarchy (static
+/// shape) report true.
 LLVM_ATTRIBUTE_NOINLINE
 extern "C" bool _sh_ljs_is_typed(SHRuntime *shr, SHLegacyValue *target) {
   if (!_sh_ljs_is_object(*target))
@@ -2421,14 +2421,8 @@ getStaticShapeClass(Runtime &runtime, SHUnit *unit, uint32_t index) {
       shape.prop_offset + shape.num_props <= unit->static_shape_props_count &&
       "static shape prop range OOB");
 
-  // All static shape classes in this unit share a single typed root, lazily
-  // created and stored on SHUnitExt (marked as a strong root in
-  // sh_unit_mark_roots). This roots the whole hierarchy in one place rather
-  // than rebuilding a fresh root on every cache miss.
-  HiddenClass *&rootSlot = unit->runtime_ext->staticShapeRootClass;
-  if (!rootSlot)
-    rootSlot = HiddenClass::createTypedRoot(runtime);
-  MutableHandle<HiddenClass> clazz{runtime, rootSlot};
+  MutableHandle<HiddenClass> clazz{
+      runtime, HiddenClass::createTypedRoot(runtime)};
 
   for (uint32_t i = 0; i != shape.num_props; ++i) {
     const SHStaticShapeProp &prop =
@@ -2443,7 +2437,7 @@ getStaticShapeClass(Runtime &runtime, SHUnit *unit, uint32_t index) {
       flags.setPropertyType(static_cast<PropertyTypeCode>(prop.type));
     if (isAccessor) {
       flags.accessor = 1;
-      flags.writable = 0;  // accessor and writable are mutually exclusive
+      flags.writable = 0; // accessor and writable are mutually exclusive
     }
     auto addRes = HiddenClass::addProperty(
         clazz,
@@ -2484,7 +2478,22 @@ extern "C" void _sh_ljs_try_set_static_shape(
   HiddenClass *targetClass = getStaticShapeClass(runtime, unit, shapeIndex);
   if (obj->getClass(runtime) == targetClass)
     return;
-  JSObject::switchClass(obj, runtime, targetClass);
+  const SHStaticShapeTableEntry &shape = unit->static_shape_table[shapeIndex];
+  if (obj->getClass(runtime)->getNumProperties() < shape.num_props)
+    return;
+  for (uint32_t i = 0; i != shape.num_props; ++i) {
+    const SHStaticShapeProp &prop =
+        unit->static_shape_props[shape.prop_offset + i];
+    if (!prop.target_func)
+      continue;
+    HermesValue value = JSObject::getNamedSlotValueUnsafe(
+                            obj.get(), runtime, static_cast<SlotIndex>(i))
+                            .unboxToHV(runtime);
+    auto *func = dyn_vmcast_or_null<NativeJSFunction>(value);
+    if (!func || func->getFunctionPtr() != prop.target_func)
+      return;
+  }
+  JSObject::trySwitchToCompatibleClass(obj, runtime, targetClass);
 }
 
 LLVM_ATTRIBUTE_NOINLINE

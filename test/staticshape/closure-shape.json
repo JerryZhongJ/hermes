@@ -1,0 +1,40 @@
+{
+  "shape hints": [
+    {
+      "target range": {
+        "file": "closure-shape.js",
+        "start": { "line": 25, "column": 10 },
+        "end": { "line": 25, "column": 11 }
+      },
+      "shape": "MS"
+    }
+  ],
+  "static shapes": {
+    "MS": {
+      "properties": [
+        {
+          "name": "method",
+          "closure": {
+            "start": { "line": 15, "column": 1 },
+            "end": { "line": 17, "column": 2 }
+          }
+        }
+      ]
+    }
+  },
+  "shape bindings": [
+    {
+      "target range": {
+        "file": "closure-shape.js",
+        "start": { "line": 20, "column": 11 },
+        "end": { "line": 20, "column": 31 }
+      },
+      "bind after": {
+        "file": "closure-shape.js",
+        "start": { "line": 20, "column": 3 },
+        "end": { "line": 20, "column": 32 }
+      },
+      "shape": "MS"
+    }
+  ]
+}

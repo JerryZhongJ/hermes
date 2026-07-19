@@ -526,6 +526,14 @@ class ESTreeIRGen {
   /// Pre-registered static shape descriptors, keyed by JSON shape name.
   llvh::StringMap<const StaticShapeDesc *> shapeDescsByName_;
 
+  /// Maps a closure range to the (desc, prop index) pairs whose targetFunc it
+  /// fills. Exact-match (SMRangeInfo). Consumed by applyClosureTarget.
+  llvh::DenseMap<
+      llvh::SMRange,
+      llvh::SmallVector<std::pair<const StaticShapeDesc *, unsigned>, 2>,
+      SMRangeInfo>
+      closureRangeToProps_;
+
   /// Map from annotated AST node ranges to the IR Value* produced for them.
   /// Pre-filled with nullptr for known object locations, then filled with real
   /// values inside tryApplyAnnotation().
@@ -1265,6 +1273,13 @@ class ESTreeIRGen {
           Function::DefinitionKind::ES5Function,
       Variable *homeObject = nullptr,
       ESTree::Node *parentNode = nullptr);
+
+  /// Fill a closure property's targetFunc when its range matches this
+  /// function's. Called after IR function creation.
+  void applyClosureTarget(
+      ESTree::FunctionLikeNode *functionNode,
+      Function *newFunc,
+      ESTree::Node *parentNode);
 
   /// Generate the IR for two functions: an outer GeneratorFunction and an inner
   /// GeneratorInnerFunction. The outer function runs CreateGenerator on the

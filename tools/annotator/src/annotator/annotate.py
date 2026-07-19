@@ -41,6 +41,7 @@ def main() -> int:
             output_path,
             temp_root,
             append_prompt=args.append_prompt,
+            enabled_tools=agent_config.enabled_tools,
         )
         # Always dump the run record — even on failure the partial transcript
         # has value, and all stats are recomputed offline from this file.

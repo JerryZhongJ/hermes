@@ -63,6 +63,11 @@ struct StaticShapePropertyDefinition {
   /// JS descriptor attributes. JSON defaults them to on and lists only attrs to
   /// turn off; no VM bit encoding is implied here.
   StaticShapePropertyAttrs attrs;
+  /// For closure properties: source range of the target function definition
+  /// (same format as target range). Invalid for non-closure properties.
+  /// Resolved to a Function* after IRGen (Module::resolveStaticShapeTargetFuncs)
+  /// by matching Function::getSourceRange.
+  llvh::SMRange closureRange;
 };
 
 /// Static shape definition loaded from JSON. Uses type name strings
