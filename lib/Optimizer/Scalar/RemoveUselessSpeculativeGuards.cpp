@@ -208,10 +208,13 @@ bool RemoveUselessSpeculativeGuards::runOnModule(Module *M) {
       // Only the pure-number case is handled; compare TypeOfIsTypes directly.
       if (TOI->getTypes()->getData() != TypeOfIsTypes().withNumber(true))
         continue;
+      const Type guardType = Type::createNumber();
       if (hasGuardDependentConsumer(
               TOI->getArgument(),
               TOI,
-              isNumericConsumer,
+              [guardType](Instruction *I) {
+                return isTypeGuardConsumer(I, guardType);
+              },
               /*followStack=*/true))
         continue;
 

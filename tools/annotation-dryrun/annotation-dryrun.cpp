@@ -263,7 +263,7 @@ std::map<int, AnnFeedback> collectAnnotations(
       return Effect{locStr(C, sm), std::string(C->getKindStr()), prop};
     };
 
-    // ② type guards → 窄化后的特化算术（FXX）
+    // ② type guards → 窄化后的特化算术（FXX）或免运行时类型检查的 PrStore
     for (BasicBlock &BB : F)
       for (Instruction &I : BB) {
         auto *toi = llvh::dyn_cast<TypeOfIsInst>(&I);
@@ -273,8 +273,11 @@ std::map<int, AnnFeedback> collectAnnotations(
         if (!isReportable(annotations, ann))
           continue;
         anns[ann]; // 确保 entry（即使无优化/阻挡 → 渲染为 useless）
+        auto guardType = typeOfIsTypesToIRType(toi->getTypes()->getData());
+        if (!guardType)
+          continue;
         walkReachableConsumers(toi->getArgument(), [&](Instruction *C) {
-          if (!isNumericConsumer(C))
+          if (!isTypeGuardConsumer(C, *guardType))
             return;
           anns[ann].optimizations.push_back(makeEffect(C));
         });
@@ -317,6 +320,30 @@ std::map<int, AnnFeedback> collectAnnotations(
   // 重复）。「一处源码只报一次 / optimized 优先于 miss / blockages 去重」属
   // 于展示前的整理，统一在 MCP 层（dryrun_tool._dedup）做。
   return anns;
+}
+
+// Pre-pipeline: shape guards (Has) whose shape has no TrySet binding anywhere
+// can never pass. Must run before the pipeline (which may remove/fold guards),
+// mirroring InsertGuard::collectTrySetShapes. Returns the annotation ids of
+// such guards; the shape name comes from the descriptor at emit time.
+std::set<int> collectMissingBindingIds(Module &M) {
+  llvh::SmallPtrSet<const StaticShapeDesc *, 8> bound;
+  for (Function &F : M.getFunctionList())
+    for (BasicBlock &BB : F)
+      for (Instruction &I : BB)
+        if (auto *tss = llvh::dyn_cast<TrySetStaticShapeInst>(&I))
+          bound.insert(tss->getShape()->getData());
+  std::set<int> out;
+  for (Function &F : M.getFunctionList())
+    for (BasicBlock &BB : F)
+      for (Instruction &I : BB) {
+        auto *hss = llvh::dyn_cast<HasStaticShapeInst>(&I);
+        if (!hss || hss->getAnnotationId() < 0)
+          continue;
+        if (!bound.count(hss->getShape()->getData()))
+          out.insert(hss->getAnnotationId());
+      }
+  return out;
 }
 
 } // namespace
@@ -370,6 +397,11 @@ int main(int argc, char **argv) {
     return 1;
   }
 
+  // Pre-pipeline: find shape guards whose shape has no TrySet binding anywhere
+  // (they can never pass). Must run before the pipeline, which may remove/fold
+  // the guards. Mirrors InsertGuard::collectTrySetShapes.
+  std::set<int> missingBindingIds = collectMissingBindingIds(M);
+
   // 裁剪 pipeline（前半段，跳过 inlining）。
   if (!runCustomOptimizationPasses(M, getPassList())) {
     llvh::errs() << "error: unknown pass name in feedback pipeline\n";
@@ -381,6 +413,10 @@ int main(int argc, char **argv) {
   auto &annotationLoader = context->getAnnotations();
   annotationLoader.reportMatchStatus(sm);
   auto anns = collectAnnotations(M, sm, annotationLoader);
+  // Ensure unbound shape guards (whose Has the pipeline may have removed) still
+  // get an entry so their missingBinding is emitted below.
+  for (int id : missingBindingIds)
+    anns[id];
   llvh::json::OStream json(llvh::outs());
   json.object([&] {
     json.attribute("file", InputFilenames[0]);
@@ -416,6 +452,9 @@ int main(int argc, char **argv) {
           emitEffects("optimizations", fb.optimizations);
           emitEffects("blockages", fb.blockages);
           emitEffects("miss", fb.miss);
+          if (missingBindingIds.count(id))
+            json.attribute(
+                "missingBinding", desc ? desc->detail : std::string{});
         });
       }
     });

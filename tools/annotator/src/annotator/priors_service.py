@@ -21,11 +21,14 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import shlex
 import subprocess
 import threading
 import time
 from pathlib import Path
+
+from .tools.utils import atomic_write_json
 
 LOGGER = logging.getLogger("priors_service")
 
@@ -36,6 +39,55 @@ PRIOR_FILE = "prior.json"
 CG_FILE = "cg.json"
 POLL_INTERVAL_S = 0.1
 RUN_TIMEOUT_S = 120
+
+
+def _publish_output(temp_path: Path, output_path: Path) -> bool:
+    """Atomically publish a successful Jelly JSON result to container readers."""
+    if not temp_path.exists():
+        return False
+    try:
+        os.replace(temp_path, output_path)
+        return True
+    except OSError as exc:
+        LOGGER.error("could not publish %s: %s", output_path, exc)
+        return False
+
+
+def prewarm_callgraph(
+    attempt_dir: Path,
+    source_name: str,
+    jelly_bin: str,
+    stop_event: threading.Event,
+    root: Path | None = None,
+    callgraph: str = CG_FILE,
+) -> None:
+    """Generate the initial graph in a background thread and publish atomically."""
+    if stop_event.is_set():
+        return
+    root = root or attempt_dir
+    pd = attempt_dir / JELLY_SUBDIR
+    pd.mkdir(parents=True, exist_ok=True)
+    output_path = pd / callgraph
+    if output_path.exists():
+        return
+    temp_path = pd / f".{Path(callgraph).stem}.prewarm.json"
+    cmd = shlex.split(str(jelly_bin)) + [
+        "-b", str(root), "--ignore-dependencies", "-j", str(temp_path), source_name,
+    ]
+    try:
+        proc = subprocess.run(
+            cmd, capture_output=True, text=True, timeout=RUN_TIMEOUT_S, cwd=str(attempt_dir)
+        )
+    except subprocess.TimeoutExpired:
+        LOGGER.error("initial Jelly callgraph timed out after %ss", RUN_TIMEOUT_S)
+        return
+    except OSError as exc:
+        LOGGER.error("initial Jelly callgraph failed: %s", exc)
+        return
+    if proc.returncode != 0:
+        LOGGER.error("initial Jelly callgraph failed: %s", proc.stderr[-2000:])
+        return
+    _publish_output(temp_path, output_path)
 
 
 def serve(
@@ -71,12 +123,20 @@ def serve(
             LOGGER.error("dropping bad priors req.json: %s", exc)
             req_path.unlink(missing_ok=True)
             continue
-        res = _run(req, jelly_bin, root, source_name, prior_path, cg_path, attempt_dir)
+        temp_cg_path = cg_path.with_name(
+            f".{cg_path.stem}.{req.get('req_id', 'refresh')}.json"
+        )
+        res = _run(req, jelly_bin, root, source_name, prior_path, temp_cg_path, attempt_dir)
+        if res.get("ok") and not _publish_output(temp_cg_path, cg_path):
+            res = {**res, "ok": False, "stderr": "could not atomically publish refreshed cg.json"}
+        # Release the one request slot before publishing the response: the MCP
+        # side may immediately coalesce and submit a new request after consuming
+        # this response, which must not be unlinked by this completed job.
+        req_path.unlink(missing_ok=True)
         try:
-            res_path.write_text(json.dumps(res), encoding="utf-8")
+            atomic_write_json(res_path, res)
         except OSError as exc:
             LOGGER.error("could not write priors res.json: %s", exc)
-        req_path.unlink(missing_ok=True)
 
 
 def _run(
@@ -140,12 +200,16 @@ def serve_dataflow(
             LOGGER.error("dropping bad df_req.json: %s", exc)
             req_path.unlink(missing_ok=True)
             continue
-        res = _run_dataflow(req, jelly_bin, root, source_name, df_path, attempt_dir)
+        req_id = req.get("req_id")
+        temp_df_path = jd / f"df.{req_id}.json" if isinstance(req_id, str) else df_path
+        res = _run_dataflow(req, jelly_bin, root, source_name, temp_df_path, attempt_dir)
+        # As with callgraph refreshes, free the one request slot before the
+        # response lets the MCP side enqueue the next keyed analysis.
+        req_path.unlink(missing_ok=True)
         try:
-            res_path.write_text(json.dumps(res), encoding="utf-8")
+            atomic_write_json(res_path, res)
         except OSError as exc:
             LOGGER.error("could not write df_res.json: %s", exc)
-        req_path.unlink(missing_ok=True)
 
 
 def _run_dataflow(
@@ -162,7 +226,9 @@ def _run_dataflow(
         return {"req_id": req_id, "ok": False, "stderr": "missing 'source' in df_req.json"}
     cmd = shlex.split(str(jelly_bin)) + [
         "-b", str(root), "--ignore-dependencies",
-        "--dataflow-json", str(df_path), "--dataflow-source", source, source_name,
+        "--dataflow-json", str(df_path), "--dataflow-source", source,
+        "--dataflow-direction", req.get("direction", "both"),
+        source_name,
     ]
     try:
         proc = subprocess.run(

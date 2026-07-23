@@ -4,15 +4,14 @@ overrides and heat estimation.
 The agent does NOT load or re-run anything manually — loading and re-analysis
 are automatic:
 
-- **Auto-load**: the first query reads ``.jelly/cg.json`` (the host pre-generates
-  it). If it is absent the tool returns text "暂无调用图" (not an error).
+- **Auto-load**: the first query reads ``.jelly/cg.json`` after the host's
+  background prewarm publishes it. Until then it returns ``not yet ready``
+  without blocking.
 - **Auto-reanalyze (async)**: ``add_call_edges`` / ``delete_call_edges`` /
-  ``clear_call_edge_overrides`` / ``set_target_prob(..., 0)`` write the session
-  overrides to ``.jelly/req.json`` and return immediately. A host
-  ``priors_service`` re-runs Jelly with ``--call-edge-priors`` and rewrites
-  ``.jelly/cg.json``. While that is in flight, queries return "分析未完成,稍后再查";
-  on completion the tool reloads the new graph and clears the session overrides
-  (the host has already applied them to points-to).
+  ``clear_call_edge_overrides`` / ``set_target_prob(..., 0)`` return immediately.
+  While Jelly refreshes, queries keep serving the last completed graph with a
+  stale marker and the local override overlay. A later mutation is coalesced into
+  one follow-up refresh instead of overwriting the in-flight request.
 
 Heat-only changes (``set_hot_value`` / ``set_exec_expt`` / non-zero
 ``set_target_prob``) do not trigger a host re-run — they only reshape the
@@ -21,7 +20,8 @@ in-process heat estimate.
 Loop depth is extracted with tree-sitter-javascript from the source tree under
 ``root`` (matches Jelly's basedir). All tools return
 ``{"content": [{"type": "text", ...}]}``; genuine argument errors add
-``is_error: true``. "暂无调用图" / "分析未完成" are informational text, not errors.
+``is_error: true``. ``not yet ready`` and stale-result notices are informational,
+not errors.
 """
 
 from __future__ import annotations
@@ -43,7 +43,7 @@ from .callgraph import (
     compute_heat,
     compute_loop_depths,
 )
-from .utils import _err, resolve_in_workdir
+from .utils import _err, atomic_write_json, resolve_in_workdir
 
 DEFAULT_VIEW_LIMIT = 50
 DEFAULT_HEAT_LIMIT = 30
@@ -66,6 +66,8 @@ class _Session:
         self.cg_root: Path | None = None
         self.cg_include_deps: bool = False
         self.pending_cg_req: str | None = None  # host reanalyze req_id in flight
+        self.refresh_dirty = False  # later override arrived while one refresh ran
+        self.refresh_error: str | None = None
 
 
 def _fun_ref(model: CallGraphModel, fun_index: int) -> dict[str, Any]:
@@ -135,47 +137,52 @@ def build_callgraph_tools(source: Path, workdir: Path):
         root = session.cg_root or workdir_resolved
         return _load_cg_from(session.cg_file, root, session.cg_include_deps)
 
-    def _check_pending() -> str | None:
-        """If a host reanalyze is in flight, absorb its result. Returns a status
-        message when the caller should NOT proceed (still running / failed), or
-        None when OK to query."""
+    def _check_pending() -> None:
+        """Absorb a completed host refresh without blocking stale-model queries."""
         if not session.pending_cg_req:
-            return None
+            return
         res_path = workdir_resolved / JELLY_DIR / "res.json"
-        pending = "分析未完成,稍后再查(host 正在重跑 Jelly)"
         if not res_path.exists():
-            return pending
+            return
         try:
             res = json.loads(res_path.read_text(encoding="utf-8"))
         except (OSError, ValueError):
-            return pending
+            return
         if res.get("req_id") != session.pending_cg_req:
-            return pending
-        # finished — consume
+            return
         res_path.unlink(missing_ok=True)
         session.pending_cg_req = None
         if not res.get("ok"):
-            return f"上一次重分析失败: {(res.get('stderr') or '')[:200]}"
+            session.refresh_error = (res.get("stderr") or "Jelly refresh failed")[:200]
+            if session.refresh_dirty:
+                session.refresh_dirty = False
+                _trigger_reanalyze()
+            return
         if not _reload_cg():
-            return "暂无调用图(重分析后 .jelly/cg.json 不可读)"
-        # host has applied the overrides to points-to; clear session copy so we
-        # don't double-apply them on top of the regenerated graph.
+            session.refresh_error = "Jelly refresh completed but cg.json is unreadable"
+            return
+        session.refresh_error = None
+        if session.refresh_dirty:
+            session.refresh_dirty = False
+            _trigger_reanalyze()
+            return
+        # Host has applied precisely the current override set. Do not overlay it
+        # a second time over the confirmed model.
         session.overrides.clear()
-        return None
 
     def _ensure_loaded() -> str | None:
-        msg = _check_pending()
-        if msg is not None:
-            return msg
+        _check_pending()
         if session.model is not None:
             return None
         if _load_cg_from(CG_DEFAULT, workdir_resolved, False):
             return None
-        return "暂无调用图(未生成 .jelly/cg.json)。host 需先跑 `jelly -j .jelly/cg.json ...`。"
+        return "not yet ready: Jelly call graph is still being prepared; retry in a few seconds"
 
     def _trigger_reanalyze() -> str | None:
-        """Write session overrides to .jelly/req.json for the host priors_service.
-        Returns None on success (sets session.pending_cg_req) or an error message."""
+        """Request one asynchronous host refresh, coalescing later mutations."""
+        if session.pending_cg_req:
+            session.refresh_dirty = True
+            return None
         req_id = uuid.uuid4().hex
         fb = workdir_resolved / JELLY_DIR
         # session overrides use file-less range keys; Jelly priors are file-prefixed.
@@ -184,30 +191,34 @@ def build_callgraph_tools(source: Path, workdir: Path):
             for r in session.overrides.list()
         ]
         try:
-            fb.mkdir(parents=True, exist_ok=True)
-            (fb / "req.json").write_text(
-                json.dumps({"req_id": req_id, "rules": rules}),
-                encoding="utf-8",
-            )
+            atomic_write_json(fb / "req.json", {"req_id": req_id, "rules": rules})
         except OSError as exc:
             return f"无法请求重分析(host priors_service 可能未运行): {exc}"
         session.pending_cg_req = req_id
         return None
 
-    def _model_or_info() -> CallGraphModel | None | dict[str, Any]:
-        """Ensure loaded; return model or an info result dict to return."""
+    def _model_or_info() -> CallGraphModel | dict[str, Any]:
+        """Ensure loaded; return model or an informational result dict."""
         msg = _ensure_loaded()
         if msg is not None:
             return _info(msg)
+        assert session.model is not None
         return session.model
+
+    def _staleness_note() -> str:
+        if session.pending_cg_req:
+            return " [stale: refresh pending; local overrides applied; retry in a few seconds]"
+        if session.refresh_error:
+            return f" [stale: last refresh failed: {session.refresh_error}]"
+        return ""
 
     # ----- view_callgraph ----- #
     @tool(
         "view_callgraph",
         "Browse the call graph: call site -> callee(s). Call graph and manual "
         "edge overrides are loaded/applied automatically (no separate load step). "
-        "If a re-analysis is running the result says '分析未完成'; if no graph "
-        "exists yet it says '暂无调用图'. Each row carries callsite/callee "
+        "While a re-analysis runs, the last completed result is marked stale; if "
+        "no graph exists yet it says 'not yet ready'. Each row carries callsite/callee "
         "`loc_key` strings for the other tools.",
         {
             "type": "object",
@@ -229,7 +240,8 @@ def build_callgraph_tools(source: Path, workdir: Path):
     async def view_callgraph(args: dict[str, Any]) -> dict[str, Any]:
         model = _model_or_info()
         if not isinstance(model, CallGraphModel):
-            return model  # type: ignore[return-value]
+            assert isinstance(model, dict)
+            return model
         effective = session.overrides.effective_edges(model)
         file_filter = args.get("file")
         fl = args.get("from_line")
@@ -281,38 +293,38 @@ def build_callgraph_tools(source: Path, workdir: Path):
 
         total = len(rows)
         shown = rows if limit <= 0 else rows[:limit]
-        pend = f" [revision {session.revision}; 重分析中]" if session.pending_cg_req else f" [revision {session.revision}]"
+        pend = f" [revision {session.revision}]" + _staleness_note()
         lines = [f"{total} call site(s){pend}" + (f" (showing {len(shown)})" if limit and total > len(shown) else "")]
         for r in shown:
             caller = r["caller"]
-            caller_s = f"caller {caller['file']}:{caller['line']}" if caller else "(caller unknown)"
+            caller_s = f"in {caller['loc_key']}" if caller else "(caller unknown)"
             tag = " [forced]" if r["forced"] else ""
-            lines.append(f"\n@ {r['call']['file']}:{r['call']['line']}  {caller_s}{tag}")
-            lines.append(f"    callsite {r['call']['loc_key']}")
+            lines.append(f"\ncallsite {r['call']['loc_key']}  {caller_s}{tag}")
             for c in r["callees"]:
-                lines.append(f"    -> {c['file']}:{c['line']}  callee {c['loc_key']}")
+                lines.append(f"    -> {c['loc_key']}")
         return {"content": [{"type": "text", "text": "\n".join(lines)}]}
 
     # ----- get_callers ----- #
     @tool(
         "get_callers",
         "Reverse lookup: every call site and caller function that may reach the "
-        "given callee function. `callee` is a callee loc_key from view_callgraph "
+        "given callee function. `callee` is a callee range from view_callgraph "
         "/ view_hot_value.",
         {
             "type": "object",
-            "properties": {"callee": {"type": "string", "description": "callee function loc_key"}},
+            "properties": {"callee": {"type": "string", "description": "callee function range"}},
             "required": ["callee"],
         },
     )
     async def get_callers(args: dict[str, Any]) -> dict[str, Any]:
         model = _model_or_info()
         if not isinstance(model, CallGraphModel):
-            return model  # type: ignore[return-value]
+            assert isinstance(model, dict)
+            return model
         callee_loc = args.get("callee")
         callee_idx = model.fun_by_loc_key.get(callee_loc) if isinstance(callee_loc, str) else None
         if callee_idx is None:
-            return _err(f"unknown callee loc_key: {callee_loc!r}")
+            return _err(f"unknown callee range: {callee_loc!r}")
         effective = session.overrides.effective_edges(model)
         out: list[dict[str, Any]] = []
         for call_index, callees in effective.call2fun_by_call.items():
@@ -328,44 +340,45 @@ def build_callgraph_tools(source: Path, workdir: Path):
         lines = [f"{len(out)} caller(s) of {callee_loc}"]
         for r in out:
             caller = r["caller"]
-            caller_s = f"{caller['file']}:{caller['line']} ({caller['loc_key']})" if caller else "(unknown)"
-            lines.append(f"  {r['call']['file']}:{r['call']['line']} from {caller_s}  callsite {r['call']['loc_key']}")
+            caller_s = f"from {caller['loc_key']}" if caller else "(unknown)"
+            lines.append(f"  {r['call']['loc_key']}  {caller_s}")
         return {"content": [{"type": "text", "text": "\n".join(lines)}]}
 
     # ----- get_callees ----- #
     @tool(
         "get_callees",
         "Forward lookup from a function or a single call site. Give `caller` (a "
-        "function loc_key) for every callee of that function, or `callsite` (a "
-        "call site loc_key) for that one site's callees.",
+        "function range) for every callee of that function, or `callsite` (a "
+        "call site range) for that one site's callees.",
         {
             "type": "object",
             "properties": {
-                "caller": {"type": "string", "description": "caller function loc_key"},
-                "callsite": {"type": "string", "description": "call site loc_key"},
+                "caller": {"type": "string", "description": "caller function range"},
+                "callsite": {"type": "string", "description": "call site range"},
             },
         },
     )
     async def get_callees(args: dict[str, Any]) -> dict[str, Any]:
         model = _model_or_info()
         if not isinstance(model, CallGraphModel):
-            return model  # type: ignore[return-value]
+            assert isinstance(model, dict)
+            return model
         effective = session.overrides.effective_edges(model)
         if isinstance(args.get("callsite"), str):
             call_idx = model.call_by_loc_key.get(args["callsite"])
             if call_idx is None:
-                return _err(f"unknown callsite loc_key: {args['callsite']!r}")
+                return _err(f"unknown callsite range: {args['callsite']!r}")
             callees = effective.call2fun_by_call.get(call_idx, set())
             refs = [_fun_ref(model, f) for f in sorted(callees)]
             lines = [f"{len(refs)} callee(s) at {args['callsite']}"]
             for c in refs:
-                lines.append(f"  -> {c['file']}:{c['line']}  {c['loc_key']}")
+                lines.append(f"  -> {c['loc_key']}")
             return {"content": [{"type": "text", "text": "\n".join(lines)}]}
 
         caller_loc = args.get("caller")
         caller_idx = model.fun_by_loc_key.get(caller_loc) if isinstance(caller_loc, str) else None
         if caller_idx is None:
-            return _err("provide 'callsite' or a known 'caller' loc_key")
+            return _err("provide 'callsite' or a known 'caller' range")
         callees: set[int] = set()
         sites: list[int] = []
         for call_index, cs in effective.call2fun_by_call.items():
@@ -384,8 +397,8 @@ def build_callgraph_tools(source: Path, workdir: Path):
         "Force call site -> callee edge(s) into the graph. This triggers an "
         "asynchronous host Jelly re-run with the overrides as --call-edge-priors "
         "(the edge then propagates args/this/return in points-to). The in-session "
-        "view updates immediately; the re-analyzed graph is picked up on the next "
-        "query once the host finishes ('分析未完成' meanwhile).",
+        "view updates immediately; completed queries keep serving the prior graph "
+        "with a stale marker until the host refresh finishes.",
         {
             "type": "object",
             "properties": {
@@ -445,7 +458,8 @@ def build_callgraph_tools(source: Path, workdir: Path):
         del args
         model = _model_or_info()
         if not isinstance(model, CallGraphModel):
-            return model  # type: ignore[return-value]
+            assert isinstance(model, dict)
+            return model
         rules = session.overrides.list()
         effective = session.overrides.effective_edges(model)
         unresolved = {f"{r['callsite']}|{r['callee']}" for r in effective.unresolved_includes}
@@ -491,7 +505,8 @@ def build_callgraph_tools(source: Path, workdir: Path):
     async def view_hot_value(args: dict[str, Any]) -> dict[str, Any]:
         model = _model_or_info()
         if not isinstance(model, CallGraphModel):
-            return model  # type: ignore[return-value]
+            assert isinstance(model, dict)
+            return model
         effective = session.overrides.effective_edges(model)
         try:
             heat = compute_heat(
@@ -531,7 +546,7 @@ def build_callgraph_tools(source: Path, workdir: Path):
             f"overrides={heat['override_stats']} hot_overrides={heat['assumptions']['hot_value_overrides']}"
         )
         body = [
-            f"{'rank':>4}  {'hot':>11}  {'inDeg':>5}  {'loop':>4}  {'entry':>5}  {'reach':>5}  {'st':>6}  file:line  loc_key"
+            f"{'rank':>4}  {'hot':>11}  {'inDeg':>5}  {'loop':>4}  {'entry':>5}  {'reach':>5}  {'st':>6}  range"
         ]
         for r in shown:
             entry = "ENTRY" if r["is_entry"] else "    "
@@ -540,7 +555,7 @@ def build_callgraph_tools(source: Path, workdir: Path):
             body.append(
                 f"{r['rank']:>4}  {_fmt_num(r['hot']):>11}  {r['in_degree']:>5}  "
                 f"{r['max_loop_depth']:>4}  {entry:>5}  {reach:>5}  {st:>6}  "
-                f"{r['file']}:{r['line'] or '?'}  {r['loc_key']}"
+                f"{r['loc_key']}"
             )
         body.append("(st: fin=converged, cap=hit iteration cap, DIV=divergent cycle)")
         return {"content": [{"type": "text", "text": header + "\n" + "\n".join(body)}]}
@@ -551,12 +566,12 @@ def build_callgraph_tools(source: Path, workdir: Path):
         "Hard-override a function's heat to a fixed value: the function is pinned "
         "to that value and its outbound contributions propagate from it (inbound "
         "to it is ignored). Useful to inject a known runtime call count. This is "
-        "heat-only — no host re-run. `func` is a loc_key from view_callgraph / "
+        "heat-only — no host re-run. `func` is a range from view_callgraph / "
         "view_hot_value.",
         {
             "type": "object",
             "properties": {
-                "func": {"type": "string", "description": "function loc_key"},
+                "func": {"type": "string", "description": "function range"},
                 "value": {"type": "number", "description": "fixed heat value (>= 0)"},
             },
             "required": ["func", "value"],
@@ -565,10 +580,11 @@ def build_callgraph_tools(source: Path, workdir: Path):
     async def set_hot_value(args: dict[str, Any]) -> dict[str, Any]:
         model = _model_or_info()
         if not isinstance(model, CallGraphModel):
-            return model  # type: ignore[return-value]
+            assert isinstance(model, dict)
+            return model
         func_loc = args.get("func")
         if not isinstance(func_loc, str) or func_loc not in model.fun_by_loc_key:
-            return _err(f"unknown function loc_key: {func_loc!r}")
+            return _err(f"unknown function range: {func_loc!r}")
         try:
             value = float(args["value"])
         except (KeyError, TypeError, ValueError):
@@ -583,11 +599,11 @@ def build_callgraph_tools(source: Path, workdir: Path):
         "set_exec_expt",
         "Set the expected number of executions of a call site per execution of "
         "its caller (overrides the default loopWeight^loopDepth estimate). "
-        "Heat-only — no host re-run. `callsite` is a call site loc_key.",
+        "Heat-only — no host re-run. `callsite` is a call site range.",
         {
             "type": "object",
             "properties": {
-                "callsite": {"type": "string", "description": "call site loc_key"},
+                "callsite": {"type": "string", "description": "call site range"},
                 "value": {"type": "number", "description": "expected executions per caller execution (>= 0)"},
             },
             "required": ["callsite", "value"],
@@ -596,10 +612,11 @@ def build_callgraph_tools(source: Path, workdir: Path):
     async def set_exec_expt(args: dict[str, Any]) -> dict[str, Any]:
         model = _model_or_info()
         if not isinstance(model, CallGraphModel):
-            return model  # type: ignore[return-value]
+            assert isinstance(model, dict)
+            return model
         cs = args.get("callsite")
         if not isinstance(cs, str) or cs not in model.call_by_loc_key:
-            return _err(f"unknown callsite loc_key: {cs!r}")
+            return _err(f"unknown callsite range: {cs!r}")
         try:
             value = float(args["value"])
         except (KeyError, TypeError, ValueError):
@@ -620,8 +637,8 @@ def build_callgraph_tools(source: Path, workdir: Path):
         {
             "type": "object",
             "properties": {
-                "callsite": {"type": "string", "description": "call site loc_key"},
-                "callee": {"type": "string", "description": "callee function loc_key"},
+                "callsite": {"type": "string", "description": "call site range"},
+                "callee": {"type": "string", "description": "callee function range"},
                 "prob": {"type": "number", "description": "probability in [0, 1]"},
             },
             "required": ["callsite", "callee", "prob"],
@@ -630,13 +647,14 @@ def build_callgraph_tools(source: Path, workdir: Path):
     async def set_target_prob(args: dict[str, Any]) -> dict[str, Any]:
         model = _model_or_info()
         if not isinstance(model, CallGraphModel):
-            return model  # type: ignore[return-value]
+            assert isinstance(model, dict)
+            return model
         cs = args.get("callsite")
         callee = args.get("callee")
         if not isinstance(cs, str) or cs not in model.call_by_loc_key:
-            return _err(f"unknown callsite loc_key: {cs!r}")
+            return _err(f"unknown callsite range: {cs!r}")
         if not isinstance(callee, str) or callee not in model.fun_by_loc_key:
-            return _err(f"unknown callee loc_key: {callee!r}")
+            return _err(f"unknown callee range: {callee!r}")
         try:
             prob = float(args["prob"])
         except (KeyError, TypeError, ValueError):
@@ -656,7 +674,8 @@ def build_callgraph_tools(source: Path, workdir: Path):
     def _apply_overrides(args: dict[str, Any], mode: str) -> dict[str, Any]:
         model = _model_or_info()
         if not isinstance(model, CallGraphModel):
-            return model  # type: ignore[return-value]
+            assert isinstance(model, dict)
+            return model
         edges = args.get("edges")
         if not isinstance(edges, list) or not edges:
             return _err("'edges' must be a non-empty list of {callsite, callee}")
@@ -712,34 +731,28 @@ def make_callgraph_server(source: Path, workdir: Path):
 
 
 def host_setup(attempt_dir: Path, source_name: str, config, stop_event) -> list:
-    """Host-side: pre-generate .jelly/cg.json and start the priors service.
+    """Start background callgraph prewarm and priors refresh workers.
 
-    The initial cg.json is produced synchronously (before the docker run) so the
-    agent's first view_callgraph finds a graph; failure is best-effort —
-    _ensure_loaded reports "暂无调用图" if it didn't produce. Returns one
-    un-started Thread (priors_service), or [] when jelly_bin is absent.
+    Setup returns immediately so agent startup never waits for Jelly. Until the
+    prewarm atomically publishes ``cg.json``, queries report ``not yet ready``.
     """
-    import shlex
-    import subprocess
     import threading
-    from ..priors_service import serve
+    from ..priors_service import prewarm_callgraph, serve
+
     jelly_bin = getattr(config, "jelly_bin", None)
     if not jelly_bin:
         return []
-    try:
-        (attempt_dir / JELLY_DIR).mkdir(parents=True, exist_ok=True)
-        cg = attempt_dir / JELLY_DIR / "cg.json"
-        if not cg.exists():
-            subprocess.run(
-                shlex.split(str(jelly_bin)) + [
-                    "-b", str(attempt_dir), "--ignore-dependencies",
-                    "-j", str(cg), source_name,
-                ],
-                cwd=str(attempt_dir), capture_output=True, text=True, timeout=180,
-            )
-    except Exception:
-        pass  # best-effort; the tool's _ensure_loaded degrades gracefully
-    return [threading.Thread(
-        target=serve, args=(attempt_dir, source_name, str(jelly_bin), stop_event),
-        daemon=True, name="priors_service",
-    )]
+    return [
+        threading.Thread(
+            target=prewarm_callgraph,
+            args=(attempt_dir, source_name, str(jelly_bin), stop_event),
+            daemon=True,
+            name="callgraph_prewarm",
+        ),
+        threading.Thread(
+            target=serve,
+            args=(attempt_dir, source_name, str(jelly_bin), stop_event),
+            daemon=True,
+            name="priors_service",
+        ),
+    ]

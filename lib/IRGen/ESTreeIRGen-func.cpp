@@ -227,8 +227,8 @@ void ESTreeIRGen::applyClosureTarget(
     ESTree::Node *parentNode) {
   // Use getFunctionRange (same as createFunction) for consistent exact-match.
   llvh::SMRange range = getFunctionRange(functionNode, parentNode);
-  if (auto it = closureRangeToProps_.find(range);
-      it != closureRangeToProps_.end()) {
+  if (auto it = targetFuncRangeToProps_.find(range);
+      it != targetFuncRangeToProps_.end()) {
     for (const auto &entry : it->second)
       entry.first->setPropertyTargetFunc(entry.second, newFunc);
   }

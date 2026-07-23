@@ -101,16 +101,22 @@ def test_full_flow(jelly):
     v = _text(_run(cg["view_callgraph"], {}))
     assert "call site(s)" in v
     callsite = re.search(r"callsite (\d+:\d+:\d+:\d+)", v)
-    callee = re.search(r"callee (\d+:\d+:\d+:\d+)", v)
+    callee = re.search(r"-> (\d+:\d+:\d+:\d+)", v)
     assert callsite and callee, v
     cs, ce = callsite.group(1), callee.group(1)
 
     # 2. heat
     assert "Heat" in _text(_run(cg["view_hot_value"], {}))
 
-    # 3. dataflow from the callsite (service reruns Jelly with --dataflow-source)
-    dr = _text(_run(df["query_dataflow"], {"source": cs}))
-    assert "source:" in dr  # service produced a report (reached or none)
+    # 3. Dataflow queues work without blocking; retry until its keyed cache is ready.
+    deadline = time.time() + 90
+    dr = ""
+    while time.time() < deadline:
+        dr = _text(_run(df["query_dataflow"], {"source": cs}))
+        if "not yet ready" not in dr:
+            break
+        time.sleep(0.5)
+    assert "source:" in dr
 
     # 4. delete edge -> async reanalyze (service reruns Jelly with --call-edge-priors)
     _run(cg["delete_call_edges"], {"edges": [{"callsite": cs, "callee": ce}]})
@@ -118,8 +124,8 @@ def test_full_flow(jelly):
     last = ""
     while time.time() < deadline:
         last = _text(_run(cg["view_callgraph"], {}))
-        if "分析未完成" not in last:
+        if "stale: refresh pending" not in last:
             break
         time.sleep(0.5)
-    assert "分析未完成" not in last, "reanalyze did not complete in time"
+    assert "stale: refresh pending" not in last, "reanalyze did not complete in time"
     assert "revision 2" in last  # reloaded graph after reanalyze

@@ -1,27 +1,15 @@
-"""In-process MCP dataflow tool: forward may-flow from an agent-chosen source.
+"""In-process non-blocking Jelly dataflow tools.
 
-The agent calls ``query_dataflow`` with a ``source`` expression location
-(``file:line:col``, 1-based column). That triggers a host Jelly re-run with
-``--dataflow-json <file> --dataflow-source <source>`` to produce the forward
-may-flow report for that exact source, then this tool loads it and reports the
-**source expressions** the value may flow to — abstract object nodes
-(``.property``) and internal analysis nodes are hidden, only reachable source
-points (variable / return / this / arguments) with a location are shown.
-
-Same in-process MCP pattern as the other tools. The host roundtrip is
-synchronous (the agent asked a question and wants the answer), unlike call-edge
-re-analysis which is async. Requires the host dataflow service (jelly_bin
-configured).
-
-Communication: ``.jelly/df_req.json`` (agent → host, carries the source) /
-``.jelly/df_res.json`` (host → agent) / ``.jelly/df.json`` (the regenerated
-report), mirroring the call-graph priors protocol under ``.jelly/``.
+A dataflow result is keyed by source range and direction. The first query queues
+an asynchronous host analysis and returns ``not yet ready`` immediately. Later
+queries return the last completed report for that same key; while a refresh is
+in flight the report is explicitly marked stale. No MCP handler polls or waits
+for Jelly.
 """
 
 from __future__ import annotations
 
 import json
-import time
 import uuid
 from collections import deque
 from pathlib import Path
@@ -29,29 +17,19 @@ from typing import Any
 
 from claude_agent_sdk import create_sdk_mcp_server, tool
 
-from .utils import _err
+from .utils import _err, atomic_write_json
 
 EDGE_KINDS = (
-    "store-property",
-    "load-property",
-    "argument",
-    "return",
-    "call-result",
-    "assignment",
-    "external-escape",
+    "store-property", "load-property", "argument", "return",
+    "call-result", "assignment", "external-escape",
 )
 DEFAULT_MAX_RESULTS = 100
 JELLY_DIR = ".jelly"
-DF_TIMEOUT_S = 120
-
-# node kinds that represent source-level points an agent cares about (the value
-# "flowed to this expression"). Abstract object / internal nodes are traversed
-# but not shown.
 SHOWN_KINDS = frozenset({"variable", "return", "this", "arguments"})
+DIRECTIONS = ("forward", "reverse", "both")
 
 
 def _loc_str(report: dict[str, Any], loc: str | None) -> str:
-    """Render a Jelly LocationJSON ``"fileIdx:sl:sc:el:ec"`` as ``file:line``."""
     if not loc:
         return "?"
     parts = loc.split(":")
@@ -78,84 +56,141 @@ def _parse_kinds(args: dict[str, Any]) -> tuple[set[str] | None, set[str] | None
 
 
 def build_dataflow_tools(source: Path, workdir: Path):
-    """Build the dataflow MCP tool, bound to ``workdir`` (where ``.jelly/`` lives).
-    Exposed for tests to drive the handler directly."""
     source_name = source.name
     workdir_resolved = workdir.resolve()
+    reports: dict[tuple[str, str], dict[str, Any]] = {}
+    pending_req: str | None = None
+    pending_key: tuple[str, str] | None = None
+    queued: deque[tuple[str, str]] = deque()
+    queued_set: set[tuple[str, str]] = set()
 
     def _info(msg: str) -> dict[str, Any]:
         return {"content": [{"type": "text", "text": msg}]}
 
-    def _run_dataflow(source_range: str) -> tuple[dict[str, Any] | None, str | None]:
-        """Trigger a host Jelly dataflow re-run for ``source_range`` and wait for
-        the report. ``source_range`` is a range ``sl:sc:el:ec`` (like loc_key);
-        Jelly's expLocationIndex keys expressions by full range, so we pass the
-        range through. Returns (report, None) or (None, error_message)."""
+    def _enqueue(key: tuple[str, str]) -> None:
+        if key == pending_key or key in queued_set:
+            return
+        queued.append(key)
+        queued_set.add(key)
+
+    def _start_next() -> str | None:
+        nonlocal pending_req, pending_key
+        if pending_req is not None or not queued:
+            return None
+        key = queued.popleft()
+        queued_set.remove(key)
         req_id = uuid.uuid4().hex
         fb = workdir_resolved / JELLY_DIR
         try:
-            fb.mkdir(parents=True, exist_ok=True)
-            # Jelly --dataflow-source wants file:sl:sc:el:ec (range); prepend the (only) file.
-            (fb / "df_req.json").write_text(
-                json.dumps({"req_id": req_id, "source": f"{source_name}:{source_range}"}), encoding="utf-8"
+            atomic_write_json(
+                fb / "df_req.json",
+                {
+                    "req_id": req_id,
+                    "source": f"{source_name}:{key[0]}",
+                    "direction": key[1],
+                },
             )
         except OSError as exc:
-            return None, f"could not request dataflow: {exc}"
+            return f"could not request dataflow: {exc}"
+        pending_req = req_id
+        pending_key = key
+        return None
+
+    def _poll() -> str | None:
+        """Consume a completed response, cache its keyed report, then queue next."""
+        nonlocal pending_req, pending_key
+        if pending_req is None:
+            return _start_next()
+        fb = workdir_resolved / JELLY_DIR
         res_path = fb / "df_res.json"
-        deadline = time.time() + DF_TIMEOUT_S
-        while time.time() < deadline:
-            if res_path.exists():
-                try:
-                    res = json.loads(res_path.read_text(encoding="utf-8"))
-                except (OSError, ValueError):
-                    time.sleep(0.1)
-                    continue
-                if res.get("req_id") == req_id:
-                    res_path.unlink(missing_ok=True)
-                    if not res.get("ok"):
-                        return None, "dataflow 失败: " + (res.get("stderr") or "")[:200]
-                    break
-            time.sleep(0.1)
-        else:
-            return None, "host dataflow 超时(未配置 jelly_bin 或 host 未运行?)"
+        if not res_path.exists():
+            return None
         try:
-            report = json.loads((fb / "df.json").read_text(encoding="utf-8"))
-        except (OSError, ValueError) as exc:
-            return None, f".jelly/df.json 不可读: {exc}"
-        return report, None
+            response = json.loads(res_path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            return None
+        if response.get("req_id") != pending_req:
+            return None
+        res_path.unlink(missing_ok=True)
+        key = pending_key
+        req_id = pending_req
+        pending_req = None
+        pending_key = None
+        if not response.get("ok"):
+            error = "dataflow refresh failed: " + (response.get("stderr") or "unknown error")[:200]
+        else:
+            try:
+                report = json.loads((fb / f"df.{req_id}.json").read_text(encoding="utf-8"))
+            except (OSError, ValueError) as exc:
+                error = f"dataflow result is unreadable: {exc}"
+            else:
+                if key is not None:
+                    reports[key] = report
+                error = None
+        next_error = _start_next()
+        return error or next_error
+
+    def _report_for(source_range: str, direction: str) -> tuple[dict[str, Any] | None, str]:
+        key = (source_range, direction)
+        refresh_error = _poll()
+        if key not in reports:
+            _enqueue(key)
+            request_error = _start_next()
+            if request_error:
+                return None, request_error
+            if refresh_error and pending_key != key:
+                return None, refresh_error
+            return None, "not yet ready: dataflow analysis was queued; retry in a few seconds"
+        stale = key == pending_key or key in queued_set
+        if stale:
+            return reports[key], " [stale: refresh pending; retry in a few seconds]"
+        if refresh_error:
+            return reports[key], f" [stale: {refresh_error}]"
+        return reports[key], ""
+
+    def _extract(report: dict, nodes: dict, include: set | None, exclude: set | None):
+        """Extract forward-reached and reverse-source nodes from Jelly's BFS edges."""
+        fwd: list[dict] = []
+        rev: list[dict] = []
+        seen_f: set[int] = set()
+        seen_r: set[int] = set()
+        for edge in report.get("edges", []):
+            kind = edge.get("kind")
+            if include is not None and kind not in include:
+                continue
+            if exclude is not None and kind in exclude:
+                continue
+            if edge.get("direction", "forward") == "forward":
+                nid = edge.get("to")
+                if nid in seen_f:
+                    continue
+                node = nodes.get(nid)
+                if node and node.get("kind") in SHOWN_KINDS and node.get("location"):
+                    fwd.append(node)
+                    seen_f.add(nid)
+            else:
+                nid = edge.get("from")
+                if nid in seen_r:
+                    continue
+                node = nodes.get(nid)
+                if node and node.get("kind") in SHOWN_KINDS and node.get("location"):
+                    rev.append(node)
+                    seen_r.add(nid)
+        return fwd, rev
 
     @tool(
         "query_dataflow",
-        "Trace where a source expression's value may flow. Give `source` as a "
-        "range `sl:sc:el:ec` (same format view_callgraph returns). The host re-runs Jelly with "
-        "--dataflow-source=<source> to build the forward may-flow report, then "
-        "this returns the source-level points the value reaches (variable / "
-        "return / this / arguments) — abstract object and internal nodes are "
-        "hidden. Filter by edge kind with include_kinds/exclude_kinds "
-        "(store-property, load-property, argument, return, call-result, "
-        "assignment, external-escape). Requires the host dataflow service "
-        "(jelly_bin).",
+        "Trace possible data flow for a source range without blocking. The first "
+        "query queues host analysis and returns 'not yet ready'; later queries return "
+        "the cached report for this exact source/direction, marked stale while refreshing.",
         {
             "type": "object",
             "properties": {
-                "source": {
-                    "type": "string",
-                    "description": "source range sl:sc:el:ec (same format view_callgraph returns)",
-                },
-                "include_kinds": {
-                    "type": "array",
-                    "items": {"type": "string", "enum": list(EDGE_KINDS)},
-                    "description": "only traverse these edge kinds",
-                },
-                "exclude_kinds": {
-                    "type": "array",
-                    "items": {"type": "string", "enum": list(EDGE_KINDS)},
-                    "description": "do not traverse these edge kinds",
-                },
-                "max_results": {
-                    "type": "integer",
-                    "description": f"cap on reached points (default {DEFAULT_MAX_RESULTS}; 0 = unlimited)",
-                },
+                "source": {"type": "string", "description": "source range sl:sc:el:ec"},
+                "direction": {"type": "string", "enum": list(DIRECTIONS)},
+                "include_kinds": {"type": "array", "items": {"type": "string", "enum": list(EDGE_KINDS)}},
+                "exclude_kinds": {"type": "array", "items": {"type": "string", "enum": list(EDGE_KINDS)}},
+                "max_results": {"type": "integer", "description": f"cap per direction (default {DEFAULT_MAX_RESULTS})"},
             },
             "required": ["source"],
         },
@@ -163,7 +198,10 @@ def build_dataflow_tools(source: Path, workdir: Path):
     async def query_dataflow(args: dict[str, Any]) -> dict[str, Any]:
         source_range = args.get("source")
         if not isinstance(source_range, str) or not source_range:
-            return _err("missing 'source' (a range sl:sc:el:ec, like the ones view_callgraph returns)")
+            return _err("missing 'source' (a range sl:sc:el:ec)")
+        direction = args.get("direction", "both")
+        if direction not in DIRECTIONS:
+            return _err(f"direction must be one of {DIRECTIONS}")
         include, exclude, bad = _parse_kinds(args)
         if bad is not None:
             return _err(bad)
@@ -171,73 +209,74 @@ def build_dataflow_tools(source: Path, workdir: Path):
             max_results = int(args.get("max_results", DEFAULT_MAX_RESULTS))
         except (TypeError, ValueError):
             max_results = DEFAULT_MAX_RESULTS
-
-        report, err = _run_dataflow(source_range)
-        if err is not None:
-            return _err(err)
+        report, state = _report_for(source_range, direction)
         if report is None:
-            return _err("internal: no dataflow report")
-
-        nodes = {n["id"]: n for n in report.get("nodes", [])}
-        # adjacency filtered by edge kind; property/internal nodes are traversed
-        # as intermediates (kept in the graph) but only SHOWN_KINDS are reported.
-        adj: dict[int, list[int]] = {}
-        for e in report.get("edges", []):
-            k = e.get("kind")
-            if include is not None and k not in include:
-                continue
-            if exclude is not None and k in exclude:
-                continue
-            adj.setdefault(e["from"], []).append(e["to"])
-
-        start = 0  # df.json node 0 is the source (dataflowToJSON addNode first)
-        visited: set[int] = {start}
-        dq: deque[int] = deque([start])
-        endpoints: list[dict[str, Any]] = []
-        while dq:
-            n = dq.popleft()
-            for m in adj.get(n, []):
-                if m in visited:
-                    continue
-                visited.add(m)
-                dq.append(m)
-                node = nodes.get(m)
-                if node and node.get("kind") in SHOWN_KINDS and node.get("location"):
-                    endpoints.append(node)
-
-        shown = endpoints if max_results <= 0 else endpoints[:max_results]
+            return _info(state)
+        nodes = {node["id"]: node for node in report.get("nodes", [])}
+        fwd, rev = _extract(report, nodes, include, exclude)
+        fwd = fwd if max_results <= 0 else fwd[:max_results]
+        rev = rev if max_results <= 0 else rev[:max_results]
         src = report.get("source", {})
         lines = [
             f"source: {source_range} -> {src.get('var', '?')}"
-            + (f" (resolved: {src.get('kind', '?')})" if src.get("resolved") else " (UNRESOLVED)"),
-            f"reached {len(endpoints)} source point(s)"
-            + (f" (showing {len(shown)})" if max_results and len(endpoints) > len(shown) else "")
-            + f"; completeness: aborted={report.get('completeness', {}).get('aborted')} timeout={report.get('completeness', {}).get('timeout')}"
-            + (" [TRUNCATED]" if report.get("truncated") else ""),
+            + (f" (resolved: {src.get('kind', '?')})" if src.get("resolved") else " (UNRESOLVED)")
+            + state,
         ]
-        for n in shown:
-            label = n.get("label") or n.get("kind")
-            lines.append(f"  {_loc_str(report, n.get('location'))}  {n.get('kind')} {label}")
+        declaration = src.get("declaration")
+        if declaration:
+            lines.append(f"  defined at: {declaration}")
+        if direction in ("forward", "both"):
+            lines.append(f"→ flows out: {len(fwd)} point(s)")
+            for node in fwd:
+                lines.append(f"  → {_loc_str(report, node.get('location'))}  {node.get('kind')} {node.get('label') or ''}")
+        if direction in ("reverse", "both"):
+            lines.append(f"← flows in: {len(rev)} point(s)")
+            for node in rev:
+                lines.append(f"  ← {_loc_str(report, node.get('location'))}  {node.get('kind')} {node.get('label') or ''}")
+        lines.append(
+            f"completeness: aborted={report.get('completeness', {}).get('aborted')} "
+            f"timeout={report.get('completeness', {}).get('timeout')}"
+            + (" [TRUNCATED]" if report.get("truncated") else "")
+        )
         return _info("\n".join(lines))
 
-    return [query_dataflow]
+    @tool(
+        "get_definition",
+        "Resolve an identifier through the same non-blocking keyed dataflow cache. "
+        "Returns 'not yet ready' until its first dataflow result completes.",
+        {
+            "type": "object",
+            "properties": {"source": {"type": "string", "description": "identifier range sl:sc:el:ec"}},
+            "required": ["source"],
+        },
+    )
+    async def get_definition(args: dict[str, Any]) -> dict[str, Any]:
+        source_range = args.get("source")
+        if not isinstance(source_range, str) or not source_range:
+            return _err("missing 'source'")
+        report, state = _report_for(source_range, "forward")
+        if report is None:
+            return _info(state)
+        src = report.get("source", {})
+        declaration = src.get("declaration")
+        if declaration:
+            return _info(f"{src.get('var', '?')} defined at {declaration}{state}")
+        if not src.get("resolved"):
+            return _info(f"unresolved: no expression at {source_range}{state}")
+        return _info(f"{src.get('var', '?')}: not an identifier (no declaration){state}")
+
+    return [query_dataflow, get_definition]
 
 
 def make_dataflow_server(source: Path, workdir: Path):
-    """Build an in-process MCP server exposing query_dataflow."""
-    return create_sdk_mcp_server(
-        name="jelly-dataflow",
-        tools=build_dataflow_tools(source, workdir),
-    )
+    return create_sdk_mcp_server(name="jelly-dataflow", tools=build_dataflow_tools(source, workdir))
 
 
 def host_setup(attempt_dir: Path, source_name: str, config, stop_event) -> list:
-    """Host-side: start the dataflow service (jelly re-run per query_dataflow source).
-
-    Returns one un-started Thread, or [] when jelly_bin is absent.
-    """
     import threading
+
     from ..priors_service import serve_dataflow
+
     jelly_bin = getattr(config, "jelly_bin", None)
     if not jelly_bin:
         return []

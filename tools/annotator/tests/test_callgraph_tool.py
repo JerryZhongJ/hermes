@@ -21,6 +21,7 @@ from annotator.tools.callgraph import (
     build_model,
     compute_heat,
 )
+from annotator.tools import callgraph_tool
 from annotator.tools.callgraph_tool import build_callgraph_tools, make_callgraph_server
 
 
@@ -142,10 +143,10 @@ def test_view_auto_loads(workdir, tools):
     assert "2 call site(s)" in _text(res)
 
 
-def test_view_no_callgraph(tmp_path):
+def test_view_no_callgraph_is_not_ready(tmp_path):
     tools = {t.name: t for t in build_callgraph_tools(tmp_path / "a.js", tmp_path)}
     res = _run(tools["view_callgraph"], {})
-    assert "暂无调用图" in _text(res)
+    assert "not yet ready" in _text(res)
     assert not res.get("is_error")  # informational, not an error
 
 
@@ -217,10 +218,52 @@ def test_delete_triggers_async_reanalyze(workdir, tools):
         "edges": [{"callsite": model.calls[0].loc_key, "callee": model.functions[2].loc_key}]
     })
     assert "已请求 host 重分析" in _text(res)
-    # while the host has not answered, queries report "分析未完成"
+    # While the host has not answered, queries still serve the stable graph with
+    # the local override overlay and identify the result as stale.
     pending = _run(tools["view_callgraph"], {})
-    assert "分析未完成" in _text(pending)
+    assert "2 call site(s)" in _text(pending)
+    assert "stale: refresh pending" in _text(pending)
     assert not pending.get("is_error")
+
+
+def test_reanalyze_request_is_atomically_published(workdir, tools, monkeypatch):
+    published: list[tuple[Path, dict[str, Any]]] = []
+
+    def capture(path: Path, value: dict[str, Any]) -> None:
+        published.append((path, value))
+
+    monkeypatch.setattr(callgraph_tool, "atomic_write_json", capture)
+    model = build_model(_cg())
+    _run(tools["delete_call_edges"], {
+        "edges": [{"callsite": model.calls[0].loc_key, "callee": model.functions[2].loc_key}]
+    })
+
+    assert len(published) == 1
+    path, request = published[0]
+    assert path == workdir / ".jelly" / "req.json"
+    assert isinstance(request["req_id"], str)
+    assert len(request["rules"]) == 1
+
+
+def test_second_mutation_is_coalesced_into_followup_refresh(workdir, tools):
+    model = build_model(_cg())
+    _run(tools["delete_call_edges"], {
+        "edges": [{"callsite": model.calls[0].loc_key, "callee": model.functions[2].loc_key}]
+    })
+    first_req = json.loads((workdir / ".jelly" / "req.json").read_text(encoding="utf-8"))
+    _run(tools["add_call_edges"], {
+        "edges": [{"callsite": model.calls[0].loc_key, "callee": model.functions[1].loc_key}]
+    })
+    # A pending request is never overwritten; the second mutation remains local
+    # until the first host response is consumed.
+    assert json.loads((workdir / ".jelly" / "req.json").read_text(encoding="utf-8")) == first_req
+    (workdir / ".jelly" / "res.json").write_text(
+        json.dumps({"req_id": first_req["req_id"], "ok": True}), encoding="utf-8"
+    )
+    _run(tools["view_callgraph"], {})
+    second_req = json.loads((workdir / ".jelly" / "req.json").read_text(encoding="utf-8"))
+    assert second_req["req_id"] != first_req["req_id"]
+    assert len(second_req["rules"]) == 2
 
 
 def test_reanalyze_completion_reloads_and_clears_overrides(workdir, tools):

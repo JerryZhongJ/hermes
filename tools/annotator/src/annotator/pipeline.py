@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any, TextIO
 
 from .agents import AgentRun, AgentRunner
-from .prompt import build_prompt
+from .prompt import ABOUT_ANNOTATIONS_FILENAME, build_about_annotations_markdown, build_prompt
 
 LOGGER = logging.getLogger(__name__)
 
@@ -24,10 +24,16 @@ def generate_annotations(
     append_prompt: str | None = None,
     enabled_tools: list[str] | None = None,
 ) -> AgentRun:
-    annotation_path = temp_root / "annotation.json"
+    # The agent maintains the annotation document IN MEMORY via the annotation
+    # MCP tools; the worker flushes it to .annotations.json at run end. That
+    # flushed file is the real product — promoted to output below.
+    source_annotations = temp_root / ".annotations.json"
     shutil.copyfile(input_path, temp_root / input_path.name)
+    (temp_root / ABOUT_ANNOTATIONS_FILENAME).write_text(
+        build_about_annotations_markdown(), encoding="utf-8"
+    )
 
-    prompt = build_prompt(input_path, annotation_path, enabled_tools)
+    prompt = build_prompt(input_path, enabled_tools)
     if append_prompt:
         prompt = prompt + "\n\n" + append_prompt
     LOGGER.info("prompt:\n%s", prompt)
@@ -36,9 +42,39 @@ def generate_annotations(
     if run.errors:
         return run
 
+    # Promote the flushed in-memory document to the output, validating first so
+    # we never publish a malformed annotation file.
+    try:
+        document = _load_and_validate(source_annotations)
+    except (OSError, ValueError) as exc:
+        return AgentRun(
+            errors=[f"annotation document invalid: {exc}"], messages=run.messages
+        )
+
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(annotation_path, output_path)
+    output_path.write_text(
+        json.dumps(document, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
     return run
+
+
+def _load_and_validate(path: Path) -> dict:
+    """Load the flushed annotation document and sanity-check its top-level
+    shape. Field-level validation already happened in add_annotation; this is
+    a defense-in-depth gate before publishing."""
+    import json as _json
+
+    raw = path.read_text(encoding="utf-8")
+    doc = _json.loads(raw)
+    if not isinstance(doc, dict):
+        raise ValueError("top level is not an object")
+    shapes = doc.get("static shapes")
+    if not isinstance(shapes, dict):
+        raise ValueError("'static shapes' missing or not an object")
+    for key in ("shape guards", "shape bindings", "type guards"):
+        if not isinstance(doc.get(key), list):
+            raise ValueError(f"{key!r} missing or not an array")
+    return doc
 
 
 def write_messages(

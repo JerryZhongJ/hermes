@@ -37,6 +37,9 @@ DEFAULT_IMAGE = "annotator-agent:latest"
 # Bind-mount target inside the container; must match agent_worker.WORK.
 CONTAINER_WORK = "/work"
 
+# Project directory mount point (for live code updates without rebuilding).
+CONTAINER_PROJECT = "/app"
+
 # Seconds the outer `timeout` waits after SIGTERM before SIGKILL.
 KILL_GRACE = 10
 
@@ -133,6 +136,10 @@ class ClaudeSdkRunner:
     def _run_container(
         self, attempt_dir: Path, env_file: str, source_name: str
     ) -> subprocess.CompletedProcess[str]:
+        # Mount the project directory for live code updates.
+        # The agent code lives at tools/annotator/src/annotator/agents/, so we
+        # need to go up 4 levels to reach the project root (tools/annotator).
+        project_root = Path(__file__).resolve().parents[3]
         cmd = [
             "timeout",
             "-k",
@@ -148,8 +155,15 @@ class ClaudeSdkRunner:
             f"{os.getuid()}:{os.getgid()}",
             "--env-file",
             env_file,
+            # Mount attempt directory for working files.
             "-v",
             f"{attempt_dir}:{CONTAINER_WORK}",
+            # Mount project directory for live code updates (no rebuild needed).
+            "-v",
+            f"{project_root}:{CONTAINER_PROJECT}",
+            # Set PYTHONPATH so container uses mounted source code.
+            "-e",
+            f"PYTHONPATH={CONTAINER_PROJECT}/src:$PYTHONPATH",
             self._image(),
             "python",
             "-m",

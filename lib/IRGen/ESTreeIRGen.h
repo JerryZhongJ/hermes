@@ -526,13 +526,14 @@ class ESTreeIRGen {
   /// Pre-registered static shape descriptors, keyed by JSON shape name.
   llvh::StringMap<const StaticShapeDesc *> shapeDescsByName_;
 
-  /// Maps a closure range to the (desc, prop index) pairs whose targetFunc it
-  /// fills. Exact-match (SMRangeInfo). Consumed by applyClosureTarget.
+  /// Maps a target function range to the (desc, prop index) pairs whose
+  /// targetFunc it fills. Exact-match (SMRangeInfo). Consumed by
+  /// applyClosureTarget.
   llvh::DenseMap<
       llvh::SMRange,
       llvh::SmallVector<std::pair<const StaticShapeDesc *, unsigned>, 2>,
       SMRangeInfo>
-      closureRangeToProps_;
+      targetFuncRangeToProps_;
 
   /// Map from annotated AST node ranges to the IR Value* produced for them.
   /// Pre-filled with nullptr for known object locations, then filled with real

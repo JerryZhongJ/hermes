@@ -74,12 +74,15 @@ class AgentConfig(BaseModel):
     enabled_tools: list[str] | None = Field(
         default=None,
         description=(
-            "Which in-process MCP tool servers to enable for the agent. None "
-            "(default) = the core set ['source-fold', 'source-locate', 'dryrun']. "
-            "Add 'jelly' (call graph + heat) and 'jelly-dataflow' (forward may-flow) "
-            "to opt into the Jelly tools; 'jelly' benefits from jelly_bin for "
-            "re-analysis. Tools and annotator stay decoupled: the core set has no "
-            "Jelly dependency, and Jelly tools are only loaded when listed here."
+            "Which additional in-process MCP tool servers to enable for the agent. "
+            "The five-stage workflow servers 'chunk', 'comments', and 'coverage' "
+            "are always enabled. The 'annotations' server (list/add/delete_annotation) "
+            "is also always enabled and is not listed here — the agent maintains the "
+            "annotation set through it, never by writing a file. Opt into "
+            "'source-fold', 'source-locate', 'dryrun' (reads the live annotation "
+            "document), and the Jelly tools 'jelly' / 'jelly-dataflow' by listing "
+            "them; 'jelly' benefits from jelly_bin for re-analysis. Unknown names "
+            "are ignored."
         ),
     )
 

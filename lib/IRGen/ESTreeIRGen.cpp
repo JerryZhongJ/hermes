@@ -152,9 +152,9 @@ ESTreeIRGen::ESTreeIRGen(
       shapeDescsByName_[shapeEntry.first()] = desc;
       // Record closure target ranges for genFunction interception.
       for (size_t pi = 0, pe = def.properties.size(); pi < pe; ++pi) {
-        const auto &cr = def.properties[pi].closureRange;
+        const auto &cr = def.properties[pi].targetFuncRange;
         if (cr.isValid())
-          closureRangeToProps_[cr].push_back({desc, pi});
+          targetFuncRangeToProps_[cr].push_back({desc, pi});
       }
     }
   }

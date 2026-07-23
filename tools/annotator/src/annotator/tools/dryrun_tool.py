@@ -29,12 +29,16 @@ from typing import Any
 
 from claude_agent_sdk import create_sdk_mcp_server, tool
 
-from .utils import _err, resolve_in_workdir
+from .utils import _err
 
 FEEDBACK_SUBDIR = ".feedback"
 CACHE_SUBDIR = ".feedback/cache"
 REQ_FILE = "req.json"
 RES_FILE = "res.json"
+# Fixed filename under .feedback/ where the in-memory annotation snapshot is
+# flushed for each dryrun request. The host dryrun_service resolves it under
+# the attempt dir, so annotation-dryrun always sees the live document.
+ANNOTATION_FILE = "annotation.json"
 POLL_INTERVAL_S = 0.1
 # Host poll latency (0.1s) + worst-case annotation-dryrun run (30s) + slack.
 TIMEOUT_S = 60
@@ -242,7 +246,11 @@ def _render(filtered: list[dict[str, Any]], stderr: str) -> str:
         body.append(
             f'[{a.get("range", "?")}] {a.get("kind", "?")} "{a.get("detail", "")}":'
         )
-        if a["had_opt"]:
+        if a.get("missingBinding"):
+            body.append(
+                f'  ⚠ no shape binding for "{a["missingBinding"]}" — guard always fails'
+            )
+        elif a["had_opt"]:
             for o in opt_in:
                 body.append(_desc(o, True))
         elif not a["had_miss"]:
@@ -374,44 +382,45 @@ def _full_summary(data: dict[str, Any]) -> str:
 
 # --- the two MCP tools ---
 
-def build_dryrun_tools(workdir: Path) -> list:
+def build_dryrun_tools(workdir: Path, doc) -> list:
     """Build ``dryrun_annotation`` + ``query_feedback``, bound to ``workdir``
-    (cache + request dropbox). The source file is NOT bound here — it is fixed
-    at the host dryrun_service; the request carries only the annotation.
+    (cache + request dropbox) and the shared in-memory ``doc``.
+
+    The source file is NOT bound here — it is fixed at the host dryrun_service.
+    The annotation is NOT read from disk: it comes from the live ``doc``
+    snapshot, flushed to ``.feedback/annotation.json`` per request so the host
+    ``annotation-dryrun`` binary sees exactly what the agent last added/deleted.
 
     Exposed for tests to drive handlers directly with a fake host service.
     """
-    workdir_resolved = workdir.resolve()
     fb = workdir / FEEDBACK_SUBDIR
     cache_dir = workdir / CACHE_SUBDIR
+    # Relative path the host service resolves under the attempt dir.
+    annotation_rel = f"{FEEDBACK_SUBDIR}/{ANNOTATION_FILE}"
 
     @tool(
         "dryrun_annotation",
-        "Compile the source with your annotation file and cache the result. "
-        "Returns a run id + whole-file summary (optimized / kills / no-effect / "
-        "unoptimized). Cheap to re-run after each annotation edit. Use "
-        "query_feedback to inspect a line range or compare against a previous run.",
+        "Compile the source against the CURRENT in-memory annotation document "
+        "and cache the result. Takes no annotation argument — the document is "
+        "the one maintained via list/add/delete_annotation. Returns a run id + "
+        "whole-file summary (optimized / kills / no-effect / unoptimized). "
+        "Cheap to re-run after each add/delete. Use query_feedback to inspect a "
+        "line range or compare against a previous run.",
         {
             "type": "object",
-            "properties": {
-                "annotation": {
-                    "type": "string",
-                    "description": "annotation JSON filename relative to the workdir",
-                },
-            },
-            "required": ["annotation"],
+            "properties": {},
         },
     )
     async def dryrun_annotation(args: dict[str, Any]) -> dict[str, Any]:
-        ann_arg = args.get("annotation")
-        if not isinstance(ann_arg, str) or not ann_arg:
-            return _err("missing 'annotation'")
-        err = resolve_in_workdir(workdir_resolved, ann_arg)[1]
-        if err is not None:
-            return err
+        # Flush the live in-memory snapshot to the per-request annotation file.
+        try:
+            fb.mkdir(parents=True, exist_ok=True)
+            (fb / ANNOTATION_FILE).write_text(doc.to_json(), encoding="utf-8")
+        except OSError as exc:
+            return _err(f"could not flush annotation snapshot: {exc}")
 
         try:
-            res = _request(fb, ann_arg)
+            res = _request(fb, annotation_rel)
         except RuntimeError as exc:
             return _err(str(exc))
         if res is None:
@@ -428,7 +437,7 @@ def build_dryrun_tools(workdir: Path) -> list:
         stderr = res.get("stderr") or ""
 
         run_id = _next_run_id(cache_dir)
-        _save_run(cache_dir, run_id, data, stderr, ann_arg)
+        _save_run(cache_dir, run_id, data, stderr, annotation_rel)
         text = (
             f"run #{run_id} cached. Summary: {_full_summary(data)}.\n"
             f"Use query_feedback to inspect (optionally run= / from_line= / to_line=)."
@@ -492,11 +501,20 @@ def build_dryrun_tools(workdir: Path) -> list:
     return [dryrun_annotation, query_feedback]
 
 
-def make_dryrun_server(workdir: Path):
-    """Build an in-process MCP server exposing dryrun_annotation + query_feedback."""
+def make_dryrun_server(workdir: Path, doc=None):
+    """Build an in-process MCP server exposing dryrun_annotation + query_feedback.
+
+    ``doc`` is the shared in-memory ``AnnotationDocument``; dryrun_annotation
+    flushes its snapshot per request. Kept optional only so legacy callers /
+    tests that pass just a workdir don't break — without a doc, dryrun fails
+    at run time with a clear error.
+    """
+    if doc is None:
+        from .annotation_tool import AnnotationDocument
+        doc = AnnotationDocument.empty()
     return create_sdk_mcp_server(
         name="dryrun",
-        tools=build_dryrun_tools(workdir),
+        tools=build_dryrun_tools(workdir, doc),
     )
 
 

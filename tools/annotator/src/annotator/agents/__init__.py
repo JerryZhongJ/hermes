@@ -37,10 +37,16 @@ def run_async_with_timeout(awaitable: Awaitable[T], timeout_seconds: int) -> T:
 
 
 def create_runner(config: AgentConfig, timeout_seconds: int) -> AgentRunner:
+    # The annotation document is maintained through the in-process annotation
+    # MCP, which only the Claude backend supports (the Codex SDK has no
+    # equivalent in-process MCP hook). Refuse codex rather than silently
+    # falling back to the old "agent writes annotation.json" path.
     if config.agent == "codex":
-        from .codex import CodexSdkRunner
-
-        return CodexSdkRunner(config, timeout_seconds)
+        raise ValueError(
+            "agent 'codex' is not supported: annotations are now maintained "
+            "via the in-process annotation MCP, which only the claude backend "
+            "provides. Use agent 'claude'."
+        )
     if config.agent == "claude":
         from .claude import ClaudeSdkRunner
 

@@ -63,11 +63,12 @@ struct StaticShapePropertyDefinition {
   /// JS descriptor attributes. JSON defaults them to on and lists only attrs to
   /// turn off; no VM bit encoding is implied here.
   StaticShapePropertyAttrs attrs;
-  /// For closure properties: source range of the target function definition
-  /// (same format as target range). Invalid for non-closure properties.
-  /// Resolved to a Function* after IRGen (Module::resolveStaticShapeTargetFuncs)
-  /// by matching Function::getSourceRange.
-  llvh::SMRange closureRange;
+  /// For closure-typed properties: source range of the target function
+  /// definition (loaded from the JSON "target function" field, same format as
+  /// target range). Invalid for non-closure properties. Resolved to a
+  /// Function* during IRGen (ESTreeIRGen::applyClosureTarget) by matching
+  /// Function::getSourceRange.
+  llvh::SMRange targetFuncRange;
 };
 
 /// Static shape definition loaded from JSON. Uses type name strings
@@ -119,6 +120,15 @@ struct AnnotationDescriptor {
   unsigned col = 0;
   unsigned endLine = 0;
   unsigned endCol = 0;
+  /// True when a shape guard/binding carries a "guard after"/"bind after"
+  /// point. In that case the match key is the after range (not the target
+  /// range), so reportMatchStatus locates the unmatched warning at
+  /// insertLine/insertCol instead of the target range.
+  bool hasAfterPoint = false;
+  /// Report location: start of the after range when hasAfterPoint, else the
+  /// target range start (== line/col).
+  unsigned insertLine = 0;
+  unsigned insertCol = 0;
 };
 
 /// Display label for an annotation kind — matches the prompt/JSON terminology

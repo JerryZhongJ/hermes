@@ -55,6 +55,18 @@ inline bool isNumericConsumer(Instruction *I) {
   return false;
 }
 
+/// A useful consumer of a type guard: numeric consumers for a number guard, or
+/// a non-closure PrStore whose expected type contains the guard type. The
+/// latter lets SH omit the property's runtime type check.
+inline bool isTypeGuardConsumer(Instruction *I, Type guardType) {
+  if (guardType.isNumberType() && isNumericConsumer(I))
+    return true;
+  if (auto *store = llvh::dyn_cast<PrStoreInst>(I))
+    return !store->getTargetFunc() &&
+        guardType.isSubsetOf(store->getExpectedType());
+  return false;
+}
+
 /// A useful consumer of a shape guard: PrLoad/PrStore (always useful — typed
 /// property accesses), or generic Load/StoreProperty/HasStaticShape with a
 /// non-Any inferred objOperandShape.

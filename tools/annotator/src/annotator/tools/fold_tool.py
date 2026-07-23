@@ -26,7 +26,7 @@ import tree_sitter_javascript as tjs
 from claude_agent_sdk import create_sdk_mcp_server, tool
 from tree_sitter import Language, Parser
 
-from .utils import _err, build_line_starts
+from .utils import _err, build_line_starts, resolve_line_window
 
 # Delimiter blocks worth folding. We fold the block node *itself* (its header
 # line carries the opener, its last line the matching close) rather than the
@@ -185,15 +185,10 @@ def render(
 def _resolve_range(
     n: int, from_line: int | None, to_line: int | None
 ) -> tuple[int, int]:
-    """Validate and normalize the 1-based inclusive line window. Both None
-    means the whole file; exactly one None is an error (mirrors ``locate``)."""
-    if from_line is None and to_line is None:
-        return 1, n
-    if from_line is None or to_line is None:
-        raise ValueError("specify both from_line and to_line, or neither for whole file")
-    if from_line < 1 or to_line < from_line or to_line > n:
-        raise ValueError(f"line range [{from_line},{to_line}] invalid; file has {n} line(s)")
-    return from_line, to_line
+    """Validate and normalize the 1-based inclusive line window (delegates to
+    the shared :func:`resolve_line_window`). Kept so the module's own tests and
+    call sites stay unchanged after the helper moved to :mod:`utils`."""
+    return resolve_line_window(n, from_line, to_line)
 
 
 def fold_source(

@@ -16,6 +16,7 @@
 #include "hermes/Optimizer/Scalar/Utils.h"
 #include "hermes/Support/Statistic.h"
 #include "llvh/ADT/DenseMap.h"
+#include "llvh/ADT/DenseSet.h"
 #include "llvh/ADT/MapVector.h"
 #include "llvh/ADT/STLExtras.h"
 #include "llvh/Support/Debug.h"
@@ -49,6 +50,12 @@ class GuardInserter {
   llvh::SmallVector<TypeOfIsInst *, 4> collectedTypeChecks_;
   llvh::SmallVector<HasStaticShapeInst *, 4> collectedShapeChecks_;
 
+  /// Static shapes that have at least one TrySetStaticShapeInst somewhere in
+  /// the module. A Has guard whose shape isn't in this set can never pass (the
+  /// shape was never bound), so we skip duplicating a speculative path for it.
+  /// Collected once per function from the whole module (see collectTrySetShapes).
+  llvh::DenseSet<const StaticShapeDesc *> trySetShapes_;
+
  public:
   explicit GuardInserter(Function *F) : F_(F), Builder_(F) {}
 
@@ -63,6 +70,7 @@ class GuardInserter {
     }
 
     // Step 2: Collect all instructions with guards.
+    collectTrySetShapes();
     collectChecks();
 
     if (collectedTypeChecks_.empty() && collectedShapeChecks_.empty())
@@ -121,6 +129,17 @@ class GuardInserter {
     return genToSpecBBMap_.find(BB) != genToSpecBBMap_.end();
   }
 
+  /// Collect every static shape that has at least one TrySetStaticShapeInst in
+  /// the module. A Has guard whose shape was never bound can never pass, so we
+  /// don't duplicate a speculative path for it (see collectChecks).
+  void collectTrySetShapes() {
+    for (auto &F : *F_->getParent())
+      for (auto &BB : F)
+        for (auto &I : BB)
+          if (auto *TSS = llvh::dyn_cast<TrySetStaticShapeInst>(&I))
+            trySetShapes_.insert(TSS->getShape()->getData());
+  }
+
   /// Collect all annotation check instructions.
   void collectChecks() {
     for (auto &BB : *F_) {
@@ -140,6 +159,14 @@ class GuardInserter {
           int annotId = HTS->getAnnotationId();
           if (annotId < 0)
             continue;
+          // Skip guards whose shape was never bound (no TrySet anywhere): they
+          // can never pass, so duplicating a speculative path is wasted work.
+          if (!trySetShapes_.count(HTS->getShape()->getData())) {
+            LLVM_DEBUG(
+                dbgs() << "  Skipping shape guard [ann#" << annotId
+                       << "]: shape has no TrySet binding\n");
+            continue;
+          }
           LLVM_DEBUG(
               dbgs() << "  Shape guard check inst=" << HTS << " [ann#"
                      << annotId << "]\n");
