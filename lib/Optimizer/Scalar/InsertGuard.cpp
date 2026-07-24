@@ -299,8 +299,8 @@ class GuardInserter {
 
     BasicBlock *specBBContinue = insertGuardImpl(checkInst, checkInstGen);
     Builder_.setInsertionPoint(&specBBContinue->front());
-    auto *narrowInst =
-        Builder_.createUnionNarrowTrustedInst(nullptr, *expectedType);
+    auto *narrowInst = Builder_.createUnionNarrowTrustedInst(
+        nullptr, Type::intersectTy(*expectedType, Type::createAnyType()));
 
     // Fast path: when the operand immediately precedes the guard, every other
     // user of guardInst executes after the check (in the typed continuation),

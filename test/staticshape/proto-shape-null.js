@@ -39,14 +39,11 @@
 // OPT-NEXT:  %8 = LoadPropertyInst (:any) %3: any, "inherited": string
 // OPT-NEXT:       BranchInst %BB2
 // OPT-NEXT:%BB2:
-// OPT-NEXT:  %10 = PhiInst (:any) %8: any, %BB1, %16: number, %BB4
+// OPT-NEXT:  %10 = PhiInst (:any) %8: any, %BB1, %14: any, %BB3
 // OPT-NEXT:  %11 = CallInst (:any) %0: any, empty: any, false: boolean, empty: any, undefined: undefined, undefined: undefined, %10: any
 // OPT-NEXT:        ReturnInst undefined: undefined
 // OPT-NEXT:%BB3:
 // OPT-NEXT:  %13 = TypedLoadParentInst (:object) %3: any
-// OPT-NEXT:  %14 = HasStaticShapeInst (:boolean) %13: object, {inherited: number}: null [ann#1]
-// OPT-NEXT:        CondBranchInst %14: boolean, %BB4, %BB1
-// OPT-NEXT:%BB4:
-// OPT-NEXT:  %16 = PrLoadInst (:number) %13: object, 0: number, "inherited": string
+// OPT-NEXT:  %14 = LoadPropertyWithReceiverInst (:any) %13: object, "inherited": string, %3: any
 // OPT-NEXT:        BranchInst %BB2
 // OPT-NEXT:function_end

@@ -152,17 +152,19 @@ new Vec(1).mul(3);
 // INSERT-NEXT:  %2 = GetParentScopeInst (:environment) %VS0: any, %parentScope: environment
 // INSERT-NEXT:  %3 = CreateScopeInst (:environment) %VS2: any, %2: environment
 // INSERT-NEXT:  %4 = HasStaticShapeInst (:boolean) %1: object, {x: number}: null [ann#1]
-// INSERT-NEXT:       CondBranchInst %4: boolean, %BB7, %BB8
+// INSERT-NEXT:  %5 = LoadParamInst (:any) %p: any
+// INSERT-NEXT:  %6 = TypeOfIsInst (:boolean) %5: any, typeOfIs(Number) [ann#0]
+// INSERT-NEXT:       CondBranchInst %6: boolean, %BB7, %BB8
 // INSERT-NEXT:%BB1:
 // INSERT-NEXT:       StoreFrameInst %3: environment, 0: number, [%VS2.p]: any
 // INSERT-NEXT:       BranchInst %BB3
 // INSERT-NEXT:%BB2:
-// INSERT-NEXT:       BranchInst %BB3
+// INSERT-NEXT:        BranchInst %BB3
 // INSERT-NEXT:%BB3:
-// INSERT-NEXT:  %9 = LoadPropertyInst (:any) %1: object, "x": string
-// INSERT-NEXT:  %10 = LoadFrameInst (:any) %3: environment, [%VS2.p]: any
-// INSERT-NEXT:  %11 = BinaryMultiplyInst (:any) %9: any, %10: any
-// INSERT-NEXT:        StorePropertyLooseInst %11: any, %1: object, "x": string
+// INSERT-NEXT:  %11 = LoadPropertyInst (:any) %1: object, "x": string
+// INSERT-NEXT:  %12 = LoadFrameInst (:any) %3: environment, [%VS2.p]: any
+// INSERT-NEXT:  %13 = BinaryMultiplyInst (:any) %11: any, %12: any
+// INSERT-NEXT:        StorePropertyLooseInst %13: any, %1: object, "x": string
 // INSERT-NEXT:        ReturnInst undefined: undefined
 // INSERT-NEXT:%BB4:
 // INSERT-NEXT:        StoreFrameInst %3: environment, 0: number, [%VS2.p]: any
@@ -170,31 +172,22 @@ new Vec(1).mul(3);
 // INSERT-NEXT:%BB5:
 // INSERT-NEXT:        BranchInst %BB6
 // INSERT-NEXT:%BB6:
-// INSERT-NEXT:  %17 = LoadPropertyInst (:any) %1: object, "x": string
-// INSERT-NEXT:  %18 = LoadFrameInst (:any) %3: environment, [%VS2.p]: any
-// INSERT-NEXT:  %19 = BinaryMultiplyInst (:any) %17: any, %18: any
-// INSERT-NEXT:        StorePropertyLooseInst %19: any, %1: object, "x": string
+// INSERT-NEXT:  %19 = LoadPropertyInst (:any) %1: object, "x": string
+// INSERT-NEXT:  %20 = LoadFrameInst (:any) %3: environment, [%VS2.p]: any
+// INSERT-NEXT:  %21 = BinaryMultiplyInst (:any) %19: any, %20: any
+// INSERT-NEXT:        StorePropertyLooseInst %21: any, %1: object, "x": string
 // INSERT-NEXT:        ReturnInst undefined: undefined
 // INSERT-NEXT:%BB7:
-// INSERT-NEXT:  %22 = LoadParamInst (:any) %p: any
-// INSERT-NEXT:  %23 = TypeOfIsInst (:boolean) %22: any, typeOfIs(Number) [ann#0]
-// INSERT-NEXT:        CondBranchInst %23: boolean, %BB9, %BB10
+// INSERT-NEXT:  %24 = UnionNarrowTrustedInst (:number) %5: any
+// INSERT-NEXT:        StoreFrameInst %3: environment, %24: number, [%VS2.p]: any
+// INSERT-NEXT:  %26 = LoadFrameInst (:any) %3: environment, [%VS2.p]: any
+// INSERT-NEXT:  %27 = BinaryStrictlyEqualInst (:boolean) %26: any, undefined: undefined
+// INSERT-NEXT:        CondBranchInst %27: boolean, %BB1, %BB2
 // INSERT-NEXT:%BB8:
-// INSERT-NEXT:  %25 = LoadParamInst (:any) %p: any
-// INSERT-NEXT:  %26 = TypeOfIsInst (:boolean) %25: any, typeOfIs(Number) [ann#0]
-// INSERT-NEXT:        BranchInst %BB10
-// INSERT-NEXT:%BB9:
-// INSERT-NEXT:  %28 = UnionNarrowTrustedInst (:number) %22: any
-// INSERT-NEXT:        StoreFrameInst %3: environment, %28: number, [%VS2.p]: any
+// INSERT-NEXT:        StoreFrameInst %3: environment, %5: any, [%VS2.p]: any
 // INSERT-NEXT:  %30 = LoadFrameInst (:any) %3: environment, [%VS2.p]: any
 // INSERT-NEXT:  %31 = BinaryStrictlyEqualInst (:boolean) %30: any, undefined: undefined
-// INSERT-NEXT:        CondBranchInst %31: boolean, %BB1, %BB2
-// INSERT-NEXT:%BB10:
-// INSERT-NEXT:  %33 = PhiInst (:any) %25: any, %BB8, %22: any, %BB7
-// INSERT-NEXT:        StoreFrameInst %3: environment, %33: any, [%VS2.p]: any
-// INSERT-NEXT:  %35 = LoadFrameInst (:any) %3: environment, [%VS2.p]: any
-// INSERT-NEXT:  %36 = BinaryStrictlyEqualInst (:boolean) %35: any, undefined: undefined
-// INSERT-NEXT:        CondBranchInst %36: boolean, %BB4, %BB5
+// INSERT-NEXT:        CondBranchInst %31: boolean, %BB4, %BB5
 // INSERT-NEXT:function_end
 
 // OPT:function global(): any [noReturn]
@@ -231,33 +224,10 @@ new Vec(1).mul(3);
 // OPT:function ""(p: any): undefined
 // OPT-NEXT:%BB0:
 // OPT-NEXT:  %0 = LIRGetThisNSInst (:object)
-// OPT-NEXT:  %1 = HasStaticShapeInst (:boolean) %0: object, {x: number}: null [ann#1]
+// OPT-NEXT:  %1 = LoadPropertyInst (:any) %0: object, "x": string
 // OPT-NEXT:  %2 = LoadParamInst (:any) %p: any
-// OPT-NEXT:       CondBranchInst %1: boolean, %BB3, %BB4
-// OPT-NEXT:%BB1:
-// OPT-NEXT:       BranchInst %BB2
-// OPT-NEXT:%BB2:
-// OPT-NEXT:  %5 = PhiInst (:any) %19: any, %BB1, %20: number, %BB6
-// OPT-NEXT:  %6 = LoadPropertyInst (:any) %0: object, "x": string
-// OPT-NEXT:  %7 = BinaryMultiplyInst (:number|bigint) %6: any, %5: any
-// OPT-NEXT:       StorePropertyLooseInst %7: number|bigint, %0: object, "x": string
-// OPT-NEXT:       ReturnInst %21: undefined
-// OPT-NEXT:%BB3:
-// OPT-NEXT:  %10 = TypeOfIsInst (:boolean) %2: any, typeOfIs(Number) [ann#0]
-// OPT-NEXT:        CondBranchInst %10: boolean, %BB5, %BB6
-// OPT-NEXT:%BB4:
-// OPT-NEXT:        BranchInst %BB6
-// OPT-NEXT:%BB5:
-// OPT-NEXT:  %13 = PrLoadInst (:number) %0: object, 0: number, "x": string
-// OPT-NEXT:  %14 = UnionNarrowTrustedInst (:number) %2: any
-// OPT-NEXT:  %15 = FMultiplyInst (:number) %13: number, %14: number
-// OPT-NEXT:        PrStoreInst %15: number, %0: object, 0: number, "x": string
-// OPT-NEXT:  %17 = LIRLoadConstInst (:undefined) undefined: undefined
-// OPT-NEXT:        ReturnInst %17: undefined
-// OPT-NEXT:%BB6:
-// OPT-NEXT:  %19 = PhiInst (:any) %2: any, %BB4, %2: any, %BB3
-// OPT-NEXT:  %20 = LIRLoadConstInst (:number) 0: number
-// OPT-NEXT:  %21 = LIRLoadConstInst (:undefined) undefined: undefined
-// OPT-NEXT:  %22 = BinaryStrictlyEqualInst (:boolean) %19: any, %21: undefined
-// OPT-NEXT:        CondBranchInst %22: boolean, %BB2, %BB1
+// OPT-NEXT:  %3 = BinaryMultiplyInst (:number) %1: any, %2: any
+// OPT-NEXT:       StorePropertyLooseInst %3: number, %0: object, "x": string
+// OPT-NEXT:  %5 = LIRLoadConstInst (:undefined) undefined: undefined
+// OPT-NEXT:       ReturnInst %5: undefined
 // OPT-NEXT:function_end

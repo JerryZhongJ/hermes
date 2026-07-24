@@ -4,7 +4,8 @@
       "properties": [
         {
           "name": "method",
-          "closure": {
+          "type": "closure",
+          "target function": {
             "start": { "line": 14, "column": 1 },
             "end": { "line": 16, "column": 2 }
           }

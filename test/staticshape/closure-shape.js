@@ -61,8 +61,8 @@ print(use(make()));
 // OPT-NEXT:  %0 = AllocObjectLiteralInst (:object) empty: any, "method": string, null: null
 // OPT-NEXT:  %1 = LoadPropertyInst (:any) globalObject: object, "methodFunc": string
 // OPT-NEXT:       PrStoreInst %1: any, %0: object, 0: number, "method": string
-// OPT-NEXT:       TrySetStaticShapeInst %0: object, {method: any |closure:methodFunc}: null [ann#1]
-// OPT-NEXT:  %4 = HasStaticShapeInst (:boolean) %0: object, {method: any |closure:methodFunc}: null [ann#1]
+// OPT-NEXT:       TrySetStaticShapeInst %0: object, {method: object |closure:methodFunc}: null [ann#1]
+// OPT-NEXT:  %4 = HasStaticShapeInst (:boolean) %0: object, {method: object |closure:methodFunc}: null [ann#1]
 // OPT-NEXT:       CondBranchInst %4: boolean, %BB1, %BB2
 // OPT-NEXT:%BB1:
 // OPT-NEXT:       ReturnInst %0: object
@@ -73,7 +73,7 @@ print(use(make()));
 // OPT:function use(o: any): any
 // OPT-NEXT:%BB0:
 // OPT-NEXT:  %0 = LoadParamInst (:any) %o: any
-// OPT-NEXT:  %1 = HasStaticShapeInst (:boolean) %0: any, {method: any |closure:methodFunc}: null [ann#0]
+// OPT-NEXT:  %1 = HasStaticShapeInst (:boolean) %0: any, {method: object |closure:methodFunc}: null [ann#0]
 // OPT-NEXT:       CondBranchInst %1: boolean, %BB2, %BB1
 // OPT-NEXT:%BB1:
 // OPT-NEXT:  %3 = LoadPropertyInst (:any) %0: any, "method": string

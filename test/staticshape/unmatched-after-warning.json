@@ -1,0 +1,19 @@
+{
+  "static shapes": {
+    "X": {"properties": [{"name": "x", "type": "number"}]}
+  },
+  "shape hints": [
+    {
+      "target range": {"start": {"line": 15, "column": 11}, "end": {"line": 15, "column": 17}},
+      "guard after": {"start": {"line": 15, "column": 1}, "end": {"line": 15, "column": 3}},
+      "shape": "X"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {"start": {"line": 15, "column": 11}, "end": {"line": 15, "column": 17}},
+      "bind after": {"start": {"line": 15, "column": 1}, "end": {"line": 15, "column": 3}},
+      "shape": "X"
+    }
+  ]
+}
