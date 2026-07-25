@@ -64,12 +64,10 @@ _EXAMPLE_CALLS = "\n".join(
             {"name": "n", "type": "number"},
         ]}, shape="Inner"),
         _call("shape_binding", {
-            "target range": {"start": {"line": 1, "column": 22}, "end": {"line": 1, "column": 49}},
-            "bind after": {"start": {"line": 1, "column": 36}, "end": {"line": 1, "column": 46}},
+            "target range": {"start": {"line": 1, "column": 36}, "end": {"line": 1, "column": 40}},
             "shape": "Point"}),
         _call("shape_binding", {
             "target range": {"start": {"line": 3, "column": 1}, "end": {"line": 3, "column": 16}},
-            "bind after": {"start": {"line": 3, "column": 1}, "end": {"line": 3, "column": 66}},
             "shape": "PointProto"}),
         _call("shape_binding", {
             "target range": {"start": {"line": 5, "column": 14}, "end": {"line": 5, "column": 60}},
@@ -123,11 +121,12 @@ Shapes
   `+` into `r` take the number fast path.
 
 Bindings (one-time cost each; every later guard on the same object benefits)
-- `this` → Point, bind after `this.y = y`: the constructor writes this.x then
-  this.y one by one, so the shape is fixed only after the last write; `bind
-  after` waits for that.
-- Point.prototype → PointProto: bound at the L3 assignment so a prototype-shape
-  guard on Point instances can pass.
+- The `this` receiver in the final `this.y = y` write → Point: the constructor
+  writes this.x then this.y one by one, so select the object expression in the
+  write that completes the shape, not the whole assignment.
+- The `Point.prototype` receiver in the L3 method write → PointProto: select the
+  object expression in the write that completes the prototype shape, so a later
+  prototype-shape guard on Point instances can pass.
 - `opts` → Opts: a plain object literal (not `this`, not a prototype) bound so
   its fields can be shape-accessed.
 - `opts.inner` → Inner: the nested literal {n:3} is bound too, so a shape guard
@@ -173,14 +172,15 @@ guard is therefore safe but useless, not a correctness failure.
 
 ## Concepts
 
-- **Target expression** is where a value is evaluated and a guard checks it.
-  Parameter loads and `this` at function entry are target expressions too.
+- **Target expression** identifies the value an annotation describes. Parameter
+  declarations and actual `this` expressions can be targets too.
 - **Type** is a concrete type, a union, or `any`. Concrete types are
   {", ".join(sorted(SUPPORTED_TYPES))}. `any` means unknown, not absent.
   `closure` represents one known target function and cannot be in a union.
 - **Static shape** describes an object's own properties, in order: their type,
   data/accessor kind, descriptor flags, and a target function for a closure.
-  It never describes inherited properties.
+  It does NOT cover inherited properties — those live on the prototype object
+  and need their own prototype shape (see Prototype shapes below).
 - At runtime a static shape corresponds to a hidden class. A known shape fixes
   data-property slot offsets and bypasses inline caches even when every property
   type is `any`. Concrete property types additionally enable typed operations,
@@ -192,23 +192,23 @@ A **shape binding** is the only operation that attempts to give an object a
 static shape. It validates the object then sets its matching hidden class. A
 binding is a one-time cost that can benefit later consumers of the same object.
 A binding automatically creates its immediate shape guard; never rely on a bare
-binding as a fast-path fact.
+binding as a fast-path fact. The target range always covers the expression that
+produces the object, never an enclosing assignment. When construction is
+completed by a property write, target that write's receiver; do not put bindings
+on receivers that are only read.
 
 A **shape guard** verifies that an object already has a shape established by a
-binding. It cannot create a shape: guarding an unbound object always fails.
-Guard facts are local to their containing function. A callee needs its own guard
-even when the caller guarded the corresponding argument. A binding, conversely,
-changes the object's hidden class and can be consumed in any later function.
+binding. Given a `prototype shape`, it additionally verifies the object's
+direct prototype carries that prototype's shape — so the prototype must be
+bound too, or the prototype half always fails. A guard cannot create a shape:
+guarding an unbound object always fails. Guard facts are local to their
+containing function: a callee needs its own guard even when the caller guarded
+the corresponding argument. A binding, conversely, changes the object's hidden
+class and can be consumed in any later function.
 
 A **type guard** is independent of shapes. It narrows a target expression so
 arithmetic, string, and comparison operations can avoid generic dispatch and
 coercion.
-
-`bind after` delays a binding until the write that completes the object's
-runtime shape, such as the last property initialization in a constructor.
-`guard after` delays a guard until after an expression that could kill a shape
-fact between object evaluation and its use, such as a call on the RHS of a
-property store.
 
 ## Shape facts, effects, and costs
 
@@ -218,10 +218,20 @@ side-effecting. Unknown generic operations and unknown-shape property accesses
 can become side-effect-free only after suitable type/shape knowledge. A later
 guard may re-establish a fact after a compiler-conservative kill.
 
-A shape guard enables direct data-property slot access. Accessors still invoke
+A shape guard enables direct data-property slot access — on the object, and on
+its direct prototype when a `prototype shape` is given. Accessors still invoke
 their getter/setter. Concrete property types also let downstream operations use
-typed paths. A `closure` property carrying its target function can inline the
-call, eliminating dispatch and exposing the callee to optimization.
+typed paths.
+
+A `closure` property is the highest-value annotation: it carries one known
+target function, so a call to that property can be **inlined**. Inlining
+removes the call entirely (no dispatch, no argument shuffling, no frame setup)
+and folds the callee body into the caller, so constant folding, CSE,
+dead-code elimination, and register allocation all cross the old call
+boundary. For hot small helpers — math/vector ops, getters, predicate
+callbacks — this is often the largest win any annotation can buy, and a type
+guard alone can never produce it. So prefer `closure` whenever a property
+holds a function whose definition is statically known.
 
 A binding creates a write guard only if its shape has at least one non-`any`
 property (`closure` counts). A fully-`any` shape still gets direct slot access
@@ -237,10 +247,35 @@ per-write cost.
 - A prototype shape begins with a non-enumerable `constructor` data property of
   type `any`.
 - A known closure property must be `data`, type `closure`, and name its target
-  function range.
-- Give a shape guard a `prototype shape` only if guarded code reads a data
-  property on the direct prototype and that prototype itself has a binding. A
-  deeper chain is unsupported.
+  function range. A method assigned as `Cls.prototype.m = function (...) {...}`
+  is exactly a `data`/`closure` property — its `target function` is the range of
+  that function expression.
+- Add a `prototype shape` to a guard only when the guarded code reads a data
+  property (including a `closure` method) on the object's DIRECT prototype, and
+  that prototype has its own binding to the prototype shape. Omit it when only
+  own properties are touched; chains deeper than the direct prototype are
+  unsupported.
+
+## Prototype shapes and method inlining
+
+A prototype object (`Cls.prototype`, `Cls.prototype.sub = {...}`, etc.) is just
+another object — it gets its own `static_shape` and `shape_binding`. The recipe
+for a prototype with a method `m`:
+
+1. Define the prototype shape: a non-enumerable `constructor` property (type
+   `any`), then each hot method as `{{"name": "m", "type": "closure",
+   "target function": <range of the function expression>}}`.
+2. Bind it with a `shape_binding` targeting the expression that produces the
+   prototype object. For `Cls.prototype.m = function...`, target the LHS receiver
+   `Cls.prototype`, not the whole assignment; the binding is applied after the
+   method store. For `Cls.prototype = {...}`, target the object literal.
+3. Guard hot instances with both `shape` (the instance shape) and
+   `prototype shape`. On pass, prototype property reads become direct slot
+   access and calls to `closure` methods inline.
+
+This is what makes prototype method dispatch on hot instances fast — look for
+`X.prototype.method = function` patterns (very common in ported/compiled JS)
+and apply the recipe to the hot ones.
 
 ## Annotation schema
 
@@ -248,10 +283,9 @@ Each `add_annotation` call takes a kind and one annotation body:
 
 - `static_shape`: `{{"properties": [Property, ...]}}`; pass the shape name as
   the separate `shape` argument. Add the shape before references to it.
-- `shape_binding`: `{{"target range": SourceRange, "shape": string,
-  "bind after"?: SourceRange}}`.
+- `shape_binding`: `{{"target range": SourceRange, "shape": string}}`.
 - `shape_guard`: `{{"target range": SourceRange, "shape": string,
-  "guard after"?: SourceRange, "prototype shape"?: string}}`.
+  "prototype shape"?: string}}`.
 - `type_guard`: `{{"target range": SourceRange, "type": TypeName}}`.
 
 `SourceRange` is 1-based and half-open: `{{"start": {{"line": number,
@@ -262,9 +296,9 @@ of concrete types. `Property` supports `name`, optional `type`, optional
 for a `closure`. Types default to `any`, kinds default to `data`, and descriptor
 flags default to enabled.
 
-For a parameter target range use its declaration. For `this`, use the function
-body range from its opening `{{` through one column after its closing `}}`.
-Use source-tool ranges exactly: end columns are exclusive.
+For a parameter target range use its declaration. For `this`, target an actual
+`this` expression at the operation you want to optimize. Use source-tool ranges
+exactly: end columns are exclusive.
 
 ## Worked example
 
@@ -308,8 +342,12 @@ Each stage may read ALL completed earlier-phase comments, not only the directly
 previous phase; prefer direct upstream evidence when it exists.
 
 1. PLAN: call `chunk_index()` to get the function universe (loc_keys) and chunk
-   plan. Spawn chunk subagents in batches of about six and wait at every phase
-   barrier.
+   plan. Default strategy `auto` re-slices any oversize chunk on fixed line
+   windows (a function split across a window is owned by every window it
+   intersects); pass `strategy="function-boundary"` to keep function bodies
+   intact, or `strategy="fixed-lines"` for pure line windows. Spawn chunk
+   subagents in batches that fit your concurrency budget and wait at every
+   phase barrier.
 2. PHASE 1 — GENERAL UNDERSTANDING (parallel): for every chunk spawn
    `understand-chunk` with its chunk_id (for example, "understand chunk_003").
    It records phase1 comments about semantic roles, input/output data,
@@ -325,7 +363,10 @@ previous phase; prefer direct upstream evidence when it exists.
    shapes, frequent writes, and uncertainty. Wait for all subagents.
 4. PHASE 3 — CANONICAL STATIC SHAPES: after the phase2 barrier, spawn ONE
    `shape-review` subagent with the instruction `perform phase3`. It reads EVERY
-   phase1 and phase2 comment, reconciles cross-chunk evidence, creates canonical
+   phase1 and phase2 comment, REVIEWS each for correctness across ALL chunks
+   (writing a phase3 verdict only for notes it finds doubtful or wrong, which
+   phase4 treats as a logical deletion), reconciles cross-chunk
+   evidence, creates canonical
    `static_shape` annotations, and writes phase3 decisions. Wait for it before
    starting phase4; do not make canonical-shape decisions yourself.
 5. PHASE 4 — SOURCE ANNOTATIONS (parallel): for every chunk spawn

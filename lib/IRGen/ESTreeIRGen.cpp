@@ -70,13 +70,17 @@ void LReference::emitStore(Value *value) {
   switch (kind_) {
     case Kind::Empty:
       return;
-    case Kind::Member:
-      return irgen_->emitMemberStore(
-          llvh::cast<ESTree::MemberExpressionNode>(ast_),
-          value,
-          base_,
-          property_,
-          thisValue_);
+    case Kind::Member: {
+      auto *mem = llvh::cast<ESTree::MemberExpressionNode>(ast_);
+      if (!llvh::isa<ESTree::SuperNode>(mem->_object) &&
+          !llvh::isa<ESTree::PrivateNameNode>(mem->_property))
+        irgen_->tryInsertShapeCheck(base_, mem->_object);
+      irgen_->emitMemberStore(mem, value, base_, property_, thisValue_);
+      if (!llvh::isa<ESTree::SuperNode>(mem->_object) &&
+          !llvh::isa<ESTree::PrivateNameNode>(mem->_property))
+        irgen_->tryInsertTrySetStaticShape(base_, mem->_object);
+      return;
+    }
     case Kind::VarOrGlobal:
       irgen_->emitStore(value, base_, declInit_);
       return;
@@ -158,23 +162,18 @@ ESTreeIRGen::ESTreeIRGen(
       }
     }
   }
-
-  // Pre-register object locations for shape annotations.
-  for (const auto &range : ann.getShapeAnnotationObjectRanges())
-    smRangeToIR_.insert({range, nullptr});
 }
 
-bool ESTreeIRGen::tryInsertTrySetStaticShape(ESTree::Node *node) {
-  auto range = node->getSourceRange();
-  if (!range.isValid() || appliedShapeBindings_.count(range))
+bool ESTreeIRGen::tryInsertTrySetStaticShape(
+    Value *object,
+    ESTree::Node *targetNode) {
+  auto range = targetNode->getSourceRange();
+  if (!range.isValid())
     return false;
 
-  auto entry = Mod->getContext().getAnnotations().getShapeBinding(range);
+  auto &annotations = Mod->getContext().getAnnotations();
+  auto entry = annotations.getShapeBinding(range);
   if (!entry.hasValue())
-    return false;
-
-  auto it = smRangeToIR_.find(entry->objectRange);
-  if (it == smRangeToIR_.end() || !it->second)
     return false;
 
   auto shapeDescIt = shapeDescsByName_.find(entry->shapeName);
@@ -183,16 +182,16 @@ bool ESTreeIRGen::tryInsertTrySetStaticShape(ESTree::Node *node) {
 
   const StaticShapeDesc *desc = shapeDescIt->second;
   auto *litShape = Builder.getLiteralStaticShape(desc);
-  auto *trySetInst = Builder.createTrySetStaticShapeInst(it->second, litShape);
+  auto *trySetInst = Builder.createTrySetStaticShapeInst(object, litShape);
   // Tag the TrySet with the same annotation id as its Has guard so both halves
   // of a shape binding can be reported as one annotation when removed.
   trySetInst->setAnnotationId(entry->annotationId);
   // Guard the binding: after setting the shape, emit a Has check so the
   // binding also acts as a shape hint (InsertGuard tracks Has, not TrySet).
-  auto *guardInst = Builder.createHasStaticShapeInst(it->second, litShape);
+  auto *guardInst = Builder.createHasStaticShapeInst(object, litShape);
   guardInst->setAnnotationId(entry->annotationId);
-  guardInst->setLocation(node->getDebugLoc());
-  appliedShapeBindings_.insert(range);
+  guardInst->setLocation(getAnnotationLocation(entry->annotationId));
+  annotations.markAnnotationMatched(entry->annotationId);
   return true;
 }
 
@@ -563,7 +562,7 @@ LReference ESTreeIRGen::createLRef(ESTree::Node *node, bool declInit) {
       Value *homeObjectVal = Builder.createLoadFrameInst(RSI, homeObjectVar);
       obj = Builder.createLoadParentNoTrapsInst(homeObjectVal);
     } else {
-      obj = genExpression(ME->_object);
+      obj = genMemberObjectExpression(ME->_object);
     }
 
     Value *prop = genMemberExpressionProperty(ME);

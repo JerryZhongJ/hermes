@@ -229,8 +229,6 @@ void ESTreeIRGen::_genStatementImpl(ESTree::Node *stmt) {
 
 void ESTreeIRGen::genStatement(ESTree::Node *stmt) {
   _genStatementImpl(stmt);
-  tryInsertTrySetStaticShape(stmt);
-  tryInsertShapeCheck(stmt);
 }
 
 void ESTreeIRGen::genExpressionWrapper(ESTree::Node *expr) {

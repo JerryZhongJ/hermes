@@ -79,8 +79,6 @@ struct StaticShapeDefinition {
 
 /// Entry in the shape bindings array.
 struct ShapeBindingEntry {
-  /// Source range of the expression that produces the object.
-  llvh::SMRange objectRange;
   /// Name of the static shape in the JSON "static shapes" object.
   std::string shapeName;
   /// Globally-unique annotation id; tags the Has guard emitted after the
@@ -90,8 +88,6 @@ struct ShapeBindingEntry {
 
 /// Entry in the shape hints array.
 struct ShapeGuardEntry {
-  /// Source range of the expression that produces the object to hint.
-  llvh::SMRange objectRange;
   /// Name of the static shape in the JSON "static shapes" object.
   std::string shapeName;
   /// Optional: static shape name of the object's direct prototype. Empty =
@@ -120,15 +116,6 @@ struct AnnotationDescriptor {
   unsigned col = 0;
   unsigned endLine = 0;
   unsigned endCol = 0;
-  /// True when a shape guard/binding carries a "guard after"/"bind after"
-  /// point. In that case the match key is the after range (not the target
-  /// range), so reportMatchStatus locates the unmatched warning at
-  /// insertLine/insertCol instead of the target range.
-  bool hasAfterPoint = false;
-  /// Report location: start of the after range when hasAfterPoint, else the
-  /// target range start (== line/col).
-  unsigned insertLine = 0;
-  unsigned insertCol = 0;
 };
 
 /// Display label for an annotation kind — matches the prompt/JSON terminology
@@ -161,16 +148,14 @@ class Annotations {
   /// Static shape definitions loaded from JSON, keyed by shape name.
   llvh::StringMap<StaticShapeDefinition> shapeDefs_;
 
-  /// Shape hint map: guard-after (or target) range -> hint entries. The map
-  /// key is where the HasStaticShape check is inserted; the checked object is
-  /// always the target expression (ShapeGuardEntry.objectRange).
+  /// Shape hint map: target expression range -> hint entries.
   llvh::DenseMap<
       llvh::SMRange,
       llvh::SmallVector<ShapeGuardEntry, 2>,
       SMRangeInfo>
       shapeGuards_;
 
-  /// Shape binding map: bind-after (or target) range -> binding entry.
+  /// Shape binding map: target expression range -> binding entry.
   llvh::DenseMap<llvh::SMRange, ShapeBindingEntry, SMRangeInfo>
       shapeBindings_;
 
@@ -243,19 +228,19 @@ class Annotations {
     return shapeDefs_;
   }
 
-  /// Query the shape hints whose insertion (guard-after, or target) range
-  /// equals \p range.
+  /// Query the shape hints whose target expression range equals \p range.
   void getShapeGuards(
       llvh::SMRange range,
       llvh::SmallVectorImpl<ShapeGuardEntry> &guards) const;
 
-  /// Query the shape binding whose insertion (bind-after, or target) range
-  /// equals \p range. Returns None if not found.
-  llvh::Optional<ShapeBindingEntry> getShapeBinding(
-      llvh::SMRange bindRange) const;
+  /// Query the shape binding whose target expression range equals \p range.
+  /// Returns None if not found.
+  llvh::Optional<ShapeBindingEntry> getShapeBinding(llvh::SMRange range) const;
 
-  /// Return all expression ranges referenced by shape annotations.
-  llvh::SmallVector<llvh::SMRange, 4> getShapeAnnotationObjectRanges() const;
+  /// Mark an annotation as having successfully emitted IR.
+  void markAnnotationMatched(unsigned id) const {
+    matchedAnnotationIds_.insert(id);
+  }
 };
 
 } // namespace hermes

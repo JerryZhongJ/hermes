@@ -6,7 +6,8 @@ drops the prompt + non-secret config there, writes the API-key/proxy env to an
 OUT-OF-VOLUME temp file, and launches the annotator Docker image. The
 in-container worker (:mod:`annotator.agent_worker`) runs claude with
 ``bypassPermissions`` and no in-process sandbox, then writes the collected
-messages + errors back into the volume for us to read.
+a small worker-status sidecar into the volume. Claude Code's native transcript,
+kept under an isolated per-attempt config directory, is the telemetry source.
 
 The container is the sole isolation boundary — that is why every old
 in-process restriction (SDK sandbox, ``can_use_tool`` path fence,
@@ -27,7 +28,7 @@ from pathlib import Path
 
 from ..config import AgentConfig
 from ..tools import run_host_setups
-from . import AgentRun
+from . import AgentRun, TraceSource
 
 LOGGER = logging.getLogger("claude_code")
 
@@ -39,6 +40,9 @@ CONTAINER_WORK = "/work"
 
 # Project directory mount point (for live code updates without rebuilding).
 CONTAINER_PROJECT = "/app"
+CONTAINER_CLAUDE_CONFIG = "/claude-config"
+CLAUDE_CONFIG_DIR = ".claude_config"
+WORKER_STATUS_FILE = ".worker_status.json"
 
 # Seconds the outer `timeout` waits after SIGTERM before SIGKILL.
 KILL_GRACE = 10
@@ -74,17 +78,23 @@ class ClaudeSdkRunner:
 
         self._write_prompt(attempt_dir, prompt)
         self._write_config(attempt_dir, source_name)
+        (attempt_dir / CLAUDE_CONFIG_DIR).mkdir()
         env_file = self._write_env_file()
         try:
             completed = self._run_container(attempt_dir, env_file, source_name)
         except subprocess.TimeoutExpired:
-            return AgentRun(errors=["agent timed out"])
+            return AgentRun(
+                errors=["agent timed out"],
+                trace_source=self._find_trace(attempt_dir, None),
+                timed_out=True,
+            )
         finally:
             self._unlink_quiet(env_file)
 
         self._log_container_output(completed)
 
-        messages, errors = self._read_results(attempt_dir)
+        errors, worker_completed, session_id = self._read_worker_status(attempt_dir)
+        trace_source = self._find_trace(attempt_dir, session_id)
         # returncode 124 = coreutils `timeout` killed the run; <0 = the process
         # was terminated by a signal (happens when docker is slow to tear down a
         # SIGKILL'd container and the Python subprocess guard then kills it).
@@ -93,10 +103,23 @@ class ClaudeSdkRunner:
         if completed.returncode == TIMEOUT_EXIT or completed.returncode < 0:
             if not errors:
                 errors = ["agent timed out"]
-            return AgentRun(errors=errors, messages=messages)
+            return AgentRun(
+                errors=errors,
+                trace_source=trace_source,
+                timed_out=True,
+                container_exit_code=completed.returncode,
+                worker_completed=worker_completed,
+            )
         if completed.returncode != 0 and not errors:
             errors = [f"agent worker exited with code {completed.returncode}"]
-        return AgentRun(errors=errors, messages=messages)
+        if trace_source is None and not errors:
+            errors = ["Claude Code transcript not found"]
+        return AgentRun(
+            errors=errors,
+            trace_source=trace_source,
+            container_exit_code=completed.returncode,
+            worker_completed=worker_completed,
+        )
 
     # --- run preparation ---
 
@@ -158,9 +181,14 @@ class ClaudeSdkRunner:
             # Mount attempt directory for working files.
             "-v",
             f"{attempt_dir}:{CONTAINER_WORK}",
+            # Isolate and persist Claude Code's native transcripts per attempt.
+            "-v",
+            f"{attempt_dir / CLAUDE_CONFIG_DIR}:{CONTAINER_CLAUDE_CONFIG}",
             # Mount project directory for live code updates (no rebuild needed).
             "-v",
             f"{project_root}:{CONTAINER_PROJECT}",
+            "-e",
+            f"CLAUDE_CONFIG_DIR={CONTAINER_CLAUDE_CONFIG}",
             # Set PYTHONPATH so container uses mounted source code.
             "-e",
             f"PYTHONPATH={CONTAINER_PROJECT}/src:$PYTHONPATH",
@@ -197,24 +225,39 @@ class ClaudeSdkRunner:
 
     # --- result collection ---
 
-    def _read_results(self, attempt_dir: Path) -> tuple[list[object], list[str]]:
-        messages: list[object] = []
-        errors: list[str] = []
-        messages_path = attempt_dir / ".messages.json"
-        errors_path = attempt_dir / ".errors.json"
+    def _read_worker_status(
+        self, attempt_dir: Path
+    ) -> tuple[list[str], bool, str | None]:
+        status_path = attempt_dir / WORKER_STATUS_FILE
         try:
-            loaded = json.loads(messages_path.read_text(encoding="utf-8"))
-            if isinstance(loaded, list):
-                messages = loaded
+            loaded = json.loads(status_path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
-            LOGGER.warning("missing or invalid %s", messages_path)
-        try:
-            loaded = json.loads(errors_path.read_text(encoding="utf-8"))
-            if isinstance(loaded, list):
-                errors = [str(item) for item in loaded]
-        except (OSError, json.JSONDecodeError):
-            LOGGER.warning("missing or invalid %s", errors_path)
-        return messages, errors
+            LOGGER.warning("missing or invalid %s", status_path)
+            return [], False, None
+        if not isinstance(loaded, dict):
+            return [], False, None
+        errors = loaded.get("errors")
+        session_id = loaded.get("session_id")
+        return (
+            [str(item) for item in errors] if isinstance(errors, list) else [],
+            loaded.get("completed") is True,
+            session_id if isinstance(session_id, str) and session_id else None,
+        )
+
+    def _find_trace(
+        self, attempt_dir: Path, session_id: str | None = None
+    ) -> TraceSource | None:
+        projects = attempt_dir / CLAUDE_CONFIG_DIR / "projects"
+        candidates = sorted(projects.glob(f"*/{session_id}.jsonl")) if session_id else []
+        if not candidates:
+            candidates = sorted(projects.glob("*/*.jsonl"))
+        if not candidates:
+            return None
+        if len(candidates) > 1:
+            LOGGER.warning("multiple Claude transcripts found; using newest: %s", candidates)
+            candidates.sort(key=lambda path: path.stat().st_mtime)
+        main = candidates[-1]
+        return TraceSource(main=main, session_id=main.stem)
 
     def _log_container_output(self, completed: subprocess.CompletedProcess[str]) -> None:
         for line in completed.stdout.splitlines():

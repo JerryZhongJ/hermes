@@ -1,0 +1,431 @@
+"""Prompt construction for agent-generated annotations."""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+
+SUPPORTED_TYPES = {
+    "number",
+    "string",
+    "boolean",
+    "null",
+    "undefined",
+    "closure",
+}
+
+ABOUT_ANNOTATIONS_FILENAME = ".about_annotations.md"
+ABOUT_ANNOTATIONS_PATH = f"/work/{ABOUT_ANNOTATIONS_FILENAME}"
+
+
+def concrete_type_union() -> str:
+    """TypeScript union of supported concrete types, e.g. '"number" | "string" | ...'."""
+    return " | ".join(f'"{t}"' for t in sorted(SUPPORTED_TYPES))
+
+
+_EXAMPLE_SOURCE = """\
+  L1:  function Point(x, y) { this.x = x; this.y = y; }
+  L3:  Point.prototype.scale = function(k) { this.x *= k; this.y *= k; };
+  L5:  const opts = { get tag() { return "p"; }, inner: { n: 3 } };
+  L7:  function process(p, k, cb) {
+  L8:    p.scale(k);
+  L9:    const r = p.x + opts.inner.n;
+  L10:   if (cb) cb(r);
+  L11:   return opts.tag + r;
+  L12: }"""
+
+def _call(kind: str, body: dict, shape: str | None = None) -> str:
+    """Render one add_annotation call as a compact one-liner for the example."""
+    args = {"kind": kind, "annotation": body}
+    if shape is not None:
+        args["shape"] = shape
+    return "add_annotation(" + json.dumps(args, ensure_ascii=False) + ")"
+
+
+# The worked example as a sequence of add_annotation calls — shapes first (each
+# before any guard/binding that names it), then bindings, guards, type guards.
+_EXAMPLE_CALLS = "\n".join(
+    [
+        _call("static_shape", {"properties": [
+            {"name": "x", "type": "number"},
+            {"name": "y", "type": "number"},
+        ]}, shape="Point"),
+        _call("static_shape", {"properties": [
+            {"name": "constructor", "flags off": ["enumerable"]},
+            {"name": "scale", "type": "closure", "target function": {
+                "start": {"line": 3, "column": 25}, "end": {"line": 3, "column": 66}}},
+        ]}, shape="PointProto"),
+        _call("static_shape", {"properties": [
+            {"name": "tag", "kind": "accessor"},
+            {"name": "inner"},
+        ]}, shape="Opts"),
+        _call("static_shape", {"properties": [
+            {"name": "n", "type": "number"},
+        ]}, shape="Inner"),
+        _call("shape_binding", {
+            "target range": {"start": {"line": 1, "column": 22}, "end": {"line": 1, "column": 49}},
+            "bind after": {"start": {"line": 1, "column": 36}, "end": {"line": 1, "column": 46}},
+            "shape": "Point"}),
+        _call("shape_binding", {
+            "target range": {"start": {"line": 3, "column": 1}, "end": {"line": 3, "column": 16}},
+            "bind after": {"start": {"line": 3, "column": 1}, "end": {"line": 3, "column": 66}},
+            "shape": "PointProto"}),
+        _call("shape_binding", {
+            "target range": {"start": {"line": 5, "column": 14}, "end": {"line": 5, "column": 60}},
+            "shape": "Opts"}),
+        _call("shape_binding", {
+            "target range": {"start": {"line": 5, "column": 50}, "end": {"line": 5, "column": 58}},
+            "shape": "Inner"}),
+        _call("shape_guard", {
+            "target range": {"start": {"line": 7, "column": 18}, "end": {"line": 7, "column": 19}},
+            "shape": "Point", "prototype shape": "PointProto"}),
+        _call("shape_guard", {
+            "target range": {"start": {"line": 9, "column": 13}, "end": {"line": 9, "column": 14}},
+            "shape": "Point", "prototype shape": "PointProto"}),
+        _call("shape_guard", {
+            "target range": {"start": {"line": 9, "column": 17}, "end": {"line": 9, "column": 21}},
+            "shape": "Opts"}),
+        _call("shape_guard", {
+            "target range": {"start": {"line": 9, "column": 17}, "end": {"line": 9, "column": 27}},
+            "shape": "Inner"}),
+        _call("type_guard", {
+            "target range": {"start": {"line": 3, "column": 34}, "end": {"line": 3, "column": 35}},
+            "type": "number"}),
+        _call("type_guard", {
+            "target range": {"start": {"line": 7, "column": 24}, "end": {"line": 7, "column": 26}},
+            "type": ["null", "undefined"]}),
+        _call("type_guard", {
+            "target range": {"start": {"line": 11, "column": 8}, "end": {"line": 11, "column": 16}},
+            "type": "string"}),
+    ]
+)
+
+_EXAMPLE_EXPLANATION = """\
+This scenario exercises most features. Here is why each annotation is written
+the way it is, and what it buys:
+
+Shapes
+- Point {x:number, y:number}: a 2D point; typing x/y `number` lets arithmetic
+  on them (e.g. `*=` in `scale`) skip ToPrimitive and take the number fast path.
+- PointProto (the prototype object):
+  - `constructor`: typed `any` (not on a hot arithmetic path) with `flags off:
+    ["enumerable"]`, since every prototype has a non-enumerable constructor by
+    JS default.
+  - `scale`: typed `closure` with its target function (the L3 definition), so
+    `p.scale(k)` can be inlined.
+- Opts {tag:accessor, inner:any}: an all-`any` shape (no write guard, since no
+  property is non-`any`). `tag` is a getter, hence `accessor` (accessors are always `any`);
+  `inner` is another object with its own shape (Inner). Field accesses still go
+  through the shape fast path (direct slot offset) even with every property
+  `any`.
+- Inner {n:number}: the object nested inside `opts`; typing `n` number lets the
+  `+` into `r` take the number fast path.
+
+Bindings (one-time cost each; every later guard on the same object benefits)
+- `this` → Point, bind after `this.y = y`: the constructor writes this.x then
+  this.y one by one, so the shape is fixed only after the last write; `bind
+  after` waits for that.
+- Point.prototype → PointProto: bound at the L3 assignment so a prototype-shape
+  guard on Point instances can pass.
+- `opts` → Opts: a plain object literal (not `this`, not a prototype) bound so
+  its fields can be shape-accessed.
+- `opts.inner` → Inner: the nested literal {n:3} is bound too, so a shape guard
+  on `opts.inner` can pass.
+
+Type guards
+- `k` (scale's parameter): number — lets `*=` inside `scale` take the number
+  fast path.
+- `cb`: ["null","undefined"] — cb is an optional callback, usually absent/null;
+  this lets `if (cb)` (L10) be folded away on the no-callback path (both falsy).
+- `opts.tag`: string — `tag` is an accessor (a getter), so its value is `any`
+  in the shape (accessors always are) and unknown to the compiler; the guard
+  narrows the getter's return at this use so the `+ r` concat takes the string
+  fast path.
+
+Shape guards
+- `p` (L7) → Point + PointProto: verifies p's hidden class is Point's; on pass,
+  `p.scale(k)` (L8) takes the shape fast path and `scale` can inline.
+- `p` (L9) → Point + PointProto: the `p.scale(k)` call on L8 kills the shape
+  fact (a call may mutate shape), so the `p.x` read on L9 needs its own fresh
+  guard here to stay fast.
+- `opts` (L9) → Opts (no prototype shape): on pass, the `inner` field is a
+  direct slot read (`tag` is an accessor, so it still runs the getter).
+- `opts.inner` (L9) → Inner: `inner` holds another object with its own shape,
+  so reading `opts.inner.n` needs this SECOND guard — the one on `opts` only
+  yields the `inner` reference, not its fields. Note its target is the
+  expression `opts.inner`; a shape guard can target any expression that
+  evaluates to the object."""
+
+
+def build_prompt(
+    source_path: Path,
+    enabled: list[str] | None = None,
+) -> str:
+    # Tool sections are assembled from the registry (open/closed): adding a tool
+    # only adds a REGISTRY entry — build_prompt never lists specific tools here.
+    from .tools import REGISTRY, resolve_enabled
+    tool_sections = [
+        REGISTRY[n].prompt for n in resolve_enabled(enabled)
+        if n in REGISTRY and REGISTRY[n].prompt
+    ]
+    tools_text = "\n".join(tool_sections)
+    return f"""# Protocol (map-reduce-review)
+
+This file may be large. Do NOT annotate it end-to-end yourself. Drive a
+map-reduce pipeline with subagents, then review:
+
+1. PLAN: call `chunk_index()` to get the function universe (loc_keys) and the
+   chunk plan.
+2. MAP (parallel): for each chunk, spawn a `map-chunk` subagent and PASS IT THE
+   chunk_id (e.g. prompt: "understand chunk_003"). Each reads its chunk via
+   `read_chunk(chunk_id)` and writes line-range-anchored understanding notes to
+   `.chunks/comments.json`. Wait for all to finish.
+3. REDUCE (parallel): for each chunk, spawn a `reduce-chunk` subagent and PASS
+   IT THE chunk_id (e.g. "annotate chunk_003"). Each reads its chunk via
+   `read_chunk`, notes via `list_comments(from_line, to_line)`, and adds
+   annotations directly via `add_annotation` (shared live doc) plus
+   `record_skip` for unfit functions. Wait for all.
+4. REVIEW (you, the main agent):
+   - `coverage()` — see what is uncovered; spawn more `reduce-chunk` subagents
+     for uncovered loc_keys, or close small gaps yourself via `add_annotation`
+     / `record_skip`.
+   - `dryrun_annotation` + `query_feedback` — validate; fix miss / no-effect by
+     `delete_annotation` + `add_annotation`.
+   - Iterate until `coverage()` shows uncovered → 0. A function that is
+     genuinely unanalyzable statically MUST be `record_skip`'d with a real
+     reason, never left silent.
+
+Coverage goal: EVERY function is EITHER annotated OR explicitly skipped. Spawn
+subagents in batches of ~6 in parallel. Subagents return only one-line
+summaries — full details live in the sidecars, which you read via the tools.
+
+---
+
+Read `./{source_path.name}`, analyze it, and build speculative optimization
+guards — each makes hot JavaScript code run faster by inserting a runtime check
+the compiler can specialize around.
+
+Environment (one-shot Docker container, destroyed when you finish):
+- Working directory: `/work`, containing the input `{source_path.name}`.
+- Pre-installed: `python3` (with `tree_sitter` and `tree_sitter_javascript`),
+  `node`, coreutils.
+
+How you produce annotations:
+- You build the annotation set ONLY through the `annotations` MCP tools:
+  `list_annotations`, `add_annotation`, `delete_annotation`. Each call adds,
+  removes, or reviews one annotation.
+- Build it up step by step: `add_annotation` each shape (before any guard or
+  binding that uses it), then each binding/guard/type guard; use
+  `list_annotations` to review, and `delete_annotation` to correct mistakes.
+- The `annotation` argument of `add_annotation` is one annotation body in the
+  schema below.
+
+# Concepts
+
+- **target expression** — where a value is evaluated and where a guard checks
+  it. Loading a parameter (and `this`) is such an expression too, evaluated at
+  function entry.
+- **type** — what kind of value a target expression holds: a concrete type, a
+  union of several, or `any`. Concrete types: {", ".join(sorted(SUPPORTED_TYPES))}.
+  - `any` covers anything else (e.g. bigint, symbol) and means "the type isn't
+    pinned down", NOT "no value".
+  - `closure` marks a property holding a closure with a known target function
+    (full constraints in the rules below).
+- **static shape** — a description of an object's OWN properties (not
+  inherited), in order, each carrying a type, a kind (data or accessor), flags
+  (writable/enumerable/configurable), and a target function if it stores a
+  closure. Unlike the actual shape an object takes on at runtime (built
+  dynamically), the static shape is determined statically.
+  - At runtime a static shape is realized as the object's hidden class, which
+    fixes each property's slot offset — so every property access becomes a
+    direct slot read/write that skips the inline cache. This is type-independent
+    and holds even when every property is `any`.
+  - Declaring concrete (non-`any`) types adds more on top: the hidden class also
+    records each property's declared type, enabling the write guard, closure
+    inlining, and typed arithmetic (see Effects & costs).
+  - JS objects carry **own** properties (defined on the object) and
+    **inherited** properties (resolved up the prototype chain). A static shape
+    covers ONLY own properties; inherited ones are described by a static shape
+    of the prototype object (see SHAPE GUARD).
+- **guard** — a runtime check the compiler inserts (see Mechanics).
+
+Rules about static shapes (they recur below; stated once here):
+- An accessor property is always typed `any`.
+- A prototype object's shape starts with a non-enumerable `constructor` data
+  property, typed `any` (JS default).
+- A property holding a closure with a known target function must be `data` and
+  typed `closure` (with its target function). `closure` is always a single type,
+  never part of a union.
+
+# Mechanics
+
+A guard is a runtime check the compiler inserts at the target point. It splits
+the guarded code into two paths:
+- on **pass**, the value is known to have the assumed type/shape and the fast
+  path runs;
+- on **fail**, control falls through to the ordinary, unoptimized path that
+  behaves exactly as if no guard were present — no throw, no deopt. **A wrong
+  guard never breaks correctness; it just fails the check and runs the normal
+  code.** Every failure mode below is harmless for this reason.
+
+The two shape constructs form a chain, not parallel tools:
+- A **SHAPE BINDING** is the ONLY way an object acquires a static shape. Right
+  after the binding the compiler tries to set the object's hidden class to the
+  AOT-precompiled one for that shape — typed if the shape has any non-`any`
+  property, untyped otherwise (slot offsets are fixed either way). The set is
+  gated by a full shape check, so a binding on an object whose actual shape
+  doesn't match simply doesn't take.
+- The shape then persists for the object's lifetime (the write guard keeps it
+  intact), so a binding is a one-time cost that every later shape guard on that
+  object benefits from.
+- Every binding automatically emits a **SHAPE GUARD** right after itself — that
+  guard, not the set, is what lets subsequent accesses take the fast path. So
+  never emit a bare binding, and never treat a shape guard as a substitute for
+  a binding. Put bindings where shapes are constructed; put shape guards at the
+  hot sites that consume them.
+- A **SHAPE GUARD** only checks that an object ALREADY has a static shape — one
+  established by some SHAPE BINDING (and optionally its direct prototype's
+  shape). A shape guard on an object that was never bound ALWAYS fails (useless);
+  the same holds per-prototype.
+- A **TYPE GUARD** is separate and self-contained — it checks a value's type
+  and depends on neither binding nor shape guard.
+
+`bind after` (on a SHAPE BINDING) and `guard after` (on a SHAPE GUARD) both
+mean delaying the operation (binding or guard) until after an expression or statement.
+They apply in different situations:
+
+- `bind after` — the object's runtime shape at the target does not match the one to be bound.
+  Point it at the write that completes the shape: a constructor that sets
+  properties one by one (`this.x = x; this.y = y;`) is complete only after the
+  last write, so before it the check would fail. 
+
+- `guard after` — a side effect between evaluating the object and using it
+  would kill the shape fact. Its main case is a write `obj.x = rhs`: the object
+  is evaluated first, then `rhs`, then the store, so evaluation and use are
+  separated. If `rhs` can kill the fact (e.g. a function call), a guard at the
+  evaluation point is already dead by the store; point `guard after` at `rhs`
+  so the check runs after it and the store takes the fast path. A read that 
+  uses the object at once needs no guard after — guard it directly.
+
+# Effects & costs
+
+A guard's optimization is **local to the function containing it** — the
+compiler specializes only code in that same function; a callee does NOT inherit
+it and needs its own guard on its own parameters/locals. A binding is the
+opposite: it sets the object's hidden class, which the object carries across
+calls, so any function can later shape-guard that already-bound object (the
+shape is global to the object; the guard that consumes it is per-function).
+
+On pass, a guard enables:
+- **TYPE GUARD** — arithmetic, string, and comparison ops on the target value
+  take the typed fast path (no ToPrimitive, no generic dispatch).
+- **SHAPE GUARD** — two layers:
+  - Layer 1 (type-independent): **data** property accesses on the target object
+    (and on its direct prototype, if a prototype shape is given) become direct
+    slot reads/writes at the now-known offset, skipping the inline cache — this
+    holds even for `any`-typed properties. Accessor accesses still go through
+    the runtime.
+  - Layer 2 (typed): when the shape declares concrete (non-`any`) property
+    types, the hidden class records them. Two consequences:
+    - reads of such a property yield values of known type, so operations on
+      them get the same typed fast path a TYPE GUARD gives (typed
+      arithmetic/string/comparison);
+    - **a `closure`-typed property carries its target function, so a call to it
+      can be INLINED — the biggest win a guard can buy.** Inlining removes the
+      call entirely (no dispatch, no argument shuffling, no frame setup) and
+      folds the callee body into the caller so every downstream optimization
+      — constant folding, CSE, dead-code elimination, register allocation —
+      crosses the old call boundary; for hot small helpers (math/vector ops)
+      this is often an order-of-magnitude win, and a TYPE GUARD alone can never
+      give it.
+
+The main cost comes from the write guard:
+- **Write guard: introduced by a SHAPE BINDING only when
+  the shape has at least one non-`any` property,in other words, a fully-`any` shape never
+  triggers it; `closure` counts as non-`any`. Once bound, the object is typed
+  at runtime and writes to its properties are checked **per property**: a
+  non-`any` property is checked that the
+  stored value's type matches — and a mismatch does not throw, it silently
+  degrades that property to untyped (later reads of it lose the fast path); an
+  `any` property is not checked. The check can be skipped only when BOTH hold:
+  the write is inside a region covered by a shape guard, AND the stored value's
+  type can be statically proven to match. Writes outside shape-guard coverage
+  are always checked (cost grows with the number of writes).
+
+
+How a shape fact propagates — a shape guard's effect reaches a point iff, on
+every path to it, nothing kills the fact. Side effects fall into three groups:
+- **Removable by annotation** — the side effect exists only because an operand
+  type or object shape is unknown, which an annotation can pin down:
+  - generic op (+ - * / < == ! ~ ...) on unknown/possibly-object operands: may
+    run arbitrary code and modify objects; a type annotation narrowing operands
+    to primitives makes it side-effect-free;
+  - property access on an unknown-shape object: may trigger a getter/setter and
+    modify objects; a shape annotation makes the shape known — for a data
+    property it becomes a direct field read/write (no side effect; an accessor
+    still runs its getter/setter).
+- **Not removable by annotation** — always exists: `in` / `instanceof`,
+  function calls, global-property loads.
+- **No side effect** — pure numeric op, direct field read/write on a
+  known-shape object, strict equality ===/!==.
+If an operation does NOT actually change the shape but the compiler suspects it
+might, emit another shape guard after that operation to re-establish the fact.
+
+# Annotation schema (the `annotation` argument of `add_annotation`)
+
+Each `add_annotation` call takes a `kind` and one annotation `body`. The body
+shapes by kind:
+- `static_shape` — `{{"properties": [Property, ...]}}` (pass the shape name as
+  the separate `shape` argument). Define a shape BEFORE any guard/binding that
+  names it.
+- `shape_binding` — `{{"target range": SourceRange, "shape": string,
+  "bind after"?: SourceRange}}`.
+- `shape_guard` — `{{"target range": SourceRange, "shape": string,
+  "guard after"?: SourceRange, "prototype shape"?: string}}`.
+- `type_guard` — `{{"target range": SourceRange, "type": TypeName}}`.
+
+Shared field types:
+- `SourceRange` — a 1-based, half-open `[start, end)` span (the end column is
+  EXCLUSIVE): {{"start": {{"line": number, "column": number}}}}, "end": {{"line": number, "column": number}}}}.
+- `TypeName` — one of the concrete types ({concrete_type_union()}), `"any"`, or
+  an array of concrete types for a union (e.g. ["number", "string"]).
+- `Property` (shape property): {{"name": string, "type"?: TypeName, "kind"?: "data" | "accessor", "flags off"?: ["writable" | "enumerable" | "configurable"], "target function"?: SourceRange}}.
+  - `"type"` defaults to `"any"`; `"kind"` defaults to `"data"`.
+  - JS descriptor flags default to on, so list only the flags to turn off;
+    accessor properties have no `writable` flag.
+  - `"target function"` is required and allowed only when `"type"` is
+    `"closure"`; it gives the range of the target function definition.
+- `"shape"` / `"prototype shape"` name a shape you already added.
+
+`"target range"` (all guards) — a source range (not a single point) covering
+the target expression:
+- for a parameter loading, use its declaration range;
+- for `this` (which has no declaration), use the function body range — from the
+  `{{` that opens the body to the `}}` that closes it (half-open: the end column
+  is one past the `}}`) — the loader's convention for binding `this`.
+
+When to add a `"prototype shape"` to a SHAPE GUARD — only when BOTH hold:
+1. the guarded code accesses a **data** property defined on the object's
+   **direct** prototype (deeper chain not supported; if only own properties are
+   touched, omit it);
+2. that direct prototype has its own SHAPE BINDING to the matching prototype
+   shape (otherwise the prototype check always fails).
+(A `closure`-typed prototype method is a `data` property too, so condition 1
+includes it.)
+
+# Worked example — most features exercised (breakdown below). Source:
+{_EXAMPLE_SOURCE}
+Build the annotation set for this source with this sequence of `add_annotation`
+calls (shapes first, then bindings, guards, type guards):
+```
+{_EXAMPLE_CALLS}
+```
+{_EXAMPLE_EXPLANATION}
+
+# Tool usage
+
+- All enabled tools act on the file being annotated (there's only one file; no
+  `file` argument).
+{tools_text}
+"""

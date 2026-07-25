@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import asyncio
 from collections.abc import Awaitable
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Protocol, TypeVar
 
@@ -15,11 +15,30 @@ T = TypeVar("T")
 
 
 @dataclass(frozen=True)
+class TraceSource:
+    """Claude Code transcript still located in the attempt directory."""
+
+    main: Path
+    session_id: str
+
+
+@dataclass(frozen=True)
+class TraceArtifact:
+    """Published immutable transcript directory referenced by run.json."""
+
+    directory: Path
+    session_id: str
+    complete: bool
+
+
+@dataclass(frozen=True)
 class AgentRun:
     errors: list[str]
-    # Raw SDK messages for post-hoc analysis (thinking_tokens already
-    # filtered). Lets stats be recomputed offline instead of inline.
-    messages: list[object] = field(default_factory=list)
+    trace_source: TraceSource | None = None
+    trace: TraceArtifact | None = None
+    timed_out: bool = False
+    container_exit_code: int | None = None
+    worker_completed: bool = False
 
 
 class AgentRunner(Protocol):

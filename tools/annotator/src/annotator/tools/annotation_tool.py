@@ -1,9 +1,10 @@
-"""In-process MCP annotation tools: list / add / delete over an in-memory doc.
+"""In-process MCP annotation tools over an in-memory document.
 
 Unlike ``locate`` / ``fold`` / ``dryrun`` (read-only views), this module owns
 the annotation document the agent is building. The agent NEVER writes
-``annotation.json`` — it maintains the document through three MCP tools. The
-document lives in memory for the whole agent run; the orchestrator flushes it
+``annotation.json`` — it maintains the document through the list, add, delete,
+and update MCP tools. The document lives in memory for the whole agent run; the
+orchestrator flushes it
 to disk once the run is over (see :mod:`annotator.agent_worker` /
 :mod:`annotator.pipeline`). ``dryrun_annotation`` reads the current snapshot
 in-process via :meth:`AnnotationDocument.to_dict` instead of parsing the file.
@@ -88,7 +89,7 @@ class AnnotationDocument:
         return cls()
 
     def to_dict(self) -> dict[str, Any]:
-        """Snapshot in the persisted schema (deep enough for JSON dump)."""
+        """Return an independent snapshot in the persisted schema."""
         return {
             SHAPES_KEY: _deep_copy_shapes(self.static_shapes),
             SHAPE_GUARDS_KEY: _deep_copy_list(self.shape_guards),
@@ -102,20 +103,61 @@ class AnnotationDocument:
         return json.dumps(self.to_dict(), indent=2) + "\n"
 
     def load_from_dict(self, document: dict[str, Any]) -> None:
-        """Replace all sections from a loader-shaped dict, skipping per-item
-        validation. This is retained for trusted in-process restoration and
-        tests; normal annotation runs mutate through the MCP tools only."""
-        shapes = document.get(SHAPES_KEY, {})
+        """Validate and atomically replace all persisted document sections."""
+        document = _require_dict(document, "annotation document")
+        expected_keys = {
+            SHAPES_KEY,
+            SHAPE_GUARDS_KEY,
+            SHAPE_BINDINGS_KEY,
+            TYPE_GUARDS_KEY,
+        }
+        extra = set(document) - expected_keys
+        if extra:
+            raise AnnotationError(
+                f"annotation document has unknown section(s): {sorted(extra)}"
+            )
+
+        shapes = document.get(SHAPES_KEY)
         if not isinstance(shapes, dict):
-            raise AnnotationError("load: 'static shapes' must be an object")
+            raise AnnotationError("load: 'static shapes' missing or not an object")
 
-        def _arr(v: Any) -> list[dict[str, Any]]:
-            return list(v) if isinstance(v, list) else []
+        raw_arrays: dict[str, list[Any]] = {}
+        for key in (SHAPE_BINDINGS_KEY, SHAPE_GUARDS_KEY, TYPE_GUARDS_KEY):
+            value = document.get(key)
+            if not isinstance(value, list):
+                raise AnnotationError(f"load: {key!r} missing or not an array")
+            raw_arrays[key] = value
 
-        self.static_shapes = _deep_copy_shapes(shapes)
-        self.shape_bindings = _deep_copy_list(_arr(document.get(SHAPE_BINDINGS_KEY)))
-        self.shape_guards = _deep_copy_list(_arr(document.get(SHAPE_GUARDS_KEY)))
-        self.type_guards = _deep_copy_list(_arr(document.get(TYPE_GUARDS_KEY)))
+        normalized_shapes: dict[str, dict[str, Any]] = {}
+        for name, definition in shapes.items():
+            if not isinstance(name, str) or not name:
+                raise AnnotationError("load: static shape names must be non-empty strings")
+            normalized_shapes[name] = _normalize_shape_definition(
+                _require_dict(definition, f"shape {name!r}"), name
+            )
+
+        known_shapes = set(normalized_shapes)
+        normalized_arrays: dict[str, list[dict[str, Any]]] = {}
+        for kind, key in _ARRAY_KINDS.items():
+            normalized: list[dict[str, Any]] = []
+            seen: set[tuple] = set()
+            for item in raw_arrays[key]:
+                validated = _validate_array_item(
+                    kind,
+                    _require_dict(item, f"{kind} annotation"),
+                    known_shapes,
+                )
+                canonical = _canonical_key(kind, validated)
+                if canonical in seen:
+                    raise AnnotationError(f"load: duplicate {kind} already present")
+                seen.add(canonical)
+                normalized.append(validated)
+            normalized_arrays[key] = normalized
+
+        self.static_shapes = normalized_shapes
+        self.shape_bindings = normalized_arrays[SHAPE_BINDINGS_KEY]
+        self.shape_guards = normalized_arrays[SHAPE_GUARDS_KEY]
+        self.type_guards = normalized_arrays[TYPE_GUARDS_KEY]
         self.revision += 1
 
     # --- introspection used by list / delete ----------------------------- #
@@ -180,6 +222,69 @@ class AnnotationDocument:
         self.revision += 1
         return {_ARRAY_KINDS[kind]: removed}
 
+    def update_array_item(self, kind: str, index: int, patch: dict[str, Any]) -> int:
+        """Merge a partial patch into one binding/guard/type_guard in place.
+
+        Re-validates the merged result and rejects duplicates (excluding self).
+        Patch fields override existing ones; field removal still needs delete+add.
+        """
+        array = self._array_for(kind)
+        if array is None:
+            raise AnnotationError(f"unknown array kind {kind!r}")
+        if not 0 <= index < len(array):
+            raise AnnotationError(f"no {kind} at index {index}")
+        merged = {**dict(array[index]), **_item_ranges_to_dict(patch)}
+        validated = _validate_array_item(kind, merged, self.shape_names())
+        canonical = _canonical_key(kind, validated)
+        for i, existing in enumerate(array):
+            if i != index and _canonical_key(kind, existing) == canonical:
+                raise AnnotationError(f"duplicate {kind} already present")
+        array[index] = validated
+        self.revision += 1
+        return self.revision
+
+    def update_shape(self, name: str, patch: dict[str, Any]) -> int:
+        """Patch a static_shape in place.
+
+        ``patch`` may carry ``properties`` (replace the whole list) and/or
+        ``property`` (``{name, ...fields}`` merged into one property by name —
+        the common case for fixing a closure's ``target function`` range).
+        """
+        if name not in self.static_shapes:
+            raise AnnotationError(f"no static shape named {name!r}")
+        current = _deep_copy_shape_def(self.static_shapes[name])
+        properties = current.get("properties", [])
+
+        if "properties" in patch:
+            raw = patch["properties"]
+            if not isinstance(raw, list):
+                raise AnnotationError(f"shape {name!r} 'properties' must be an array")
+            properties = [_coerce_property_ranges(p) for p in raw]
+
+        if "property" in patch:
+            pp = patch["property"]
+            if not isinstance(pp, dict) or not isinstance(pp.get("name"), str):
+                raise AnnotationError("property patch requires a string 'name'")
+            pname = pp["name"]
+            properties = [dict(p) for p in properties]
+            for p in properties:
+                if p.get("name") == pname:
+                    p.update(_coerce_property_ranges(pp))
+                    break
+            else:
+                raise AnnotationError(f"shape {name!r} has no property {pname!r}")
+
+        if "properties" not in patch and "property" not in patch:
+            raise AnnotationError(
+                f"shape {name!r} patch requires 'properties' or 'property'"
+            )
+
+        self.static_shapes[name] = _normalize_shape_definition(
+            {"properties": properties}, name
+        )
+        self.revision += 1
+        return self.revision
+
 
 # --- helpers: deep copy / lookup ----------------------------------------- #
 
@@ -201,12 +306,41 @@ def _deep_copy_shape_def(defn: dict[str, Any]) -> dict[str, Any]:
     out = dict(defn)
     props = out.get("properties")
     if isinstance(props, list):
-        out["properties"] = [dict(p) for p in props]
+        out["properties"] = []
+        for prop in props:
+            copied = dict(prop)
+            target = copied.get("target function")
+            if isinstance(target, dict):
+                copied["target function"] = _copy_range(target)
+            prop_type = copied.get("type")
+            if isinstance(prop_type, list):
+                copied["type"] = list(prop_type)
+            flags = copied.get("flags off")
+            if isinstance(flags, list):
+                copied["flags off"] = list(flags)
+            out["properties"].append(copied)
     return out
 
 
 def _deep_copy_list(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    return [dict(item) for item in items]
+    copied_items: list[dict[str, Any]] = []
+    for item in items:
+        copied = dict(item)
+        target = copied.get("target range")
+        if isinstance(target, dict):
+            copied["target range"] = _copy_range(target)
+        item_type = copied.get("type")
+        if isinstance(item_type, list):
+            copied["type"] = list(item_type)
+        copied_items.append(copied)
+    return copied_items
+
+
+def _copy_range(rng: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "start": dict(rng["start"]),
+        "end": dict(rng["end"]),
+    }
 
 
 # --- validation ----------------------------------------------------------- #
@@ -235,7 +369,7 @@ def _validate_range(value: Any, what: str) -> dict[str, Any]:
     # Half-open [start, end): end must be after start in source order.
     if (start["line"], start["column"]) >= (end["line"], end["column"]):
         raise AnnotationError(f"{what} end must be after start (half-open range)")
-    return rng
+    return _copy_range(rng)
 
 
 def _validate_type(value: Any, what: str) -> Any:
@@ -340,7 +474,7 @@ def _validate_array_item(
         _reject_unknown_keys(kind, item, {"target range", "type"})
         return out
 
-    # shape guard / shape binding share 'shape' (+ optional range fields).
+    # Shape guards and shape bindings share the required 'shape' field.
     shape = item.get("shape")
     if not isinstance(shape, str) or not shape:
         raise AnnotationError(f"{kind} requires a string 'shape'")
@@ -350,11 +484,6 @@ def _validate_array_item(
 
     allowed = {"target range", "shape"}
     if kind == KIND_SHAPE_GUARD:
-        if "guard after" in item:
-            out["guard after"] = _validate_range(
-                item["guard after"], "shape guard 'guard after'"
-            )
-            allowed.add("guard after")
         proto = item.get("prototype shape")
         if proto is not None:
             if not isinstance(proto, str) or not proto:
@@ -365,12 +494,6 @@ def _validate_array_item(
                 )
             out["prototype shape"] = proto
             allowed.add("prototype shape")
-    else:  # shape binding
-        if "bind after" in item:
-            out["bind after"] = _validate_range(
-                item["bind after"], "shape binding 'bind after'"
-            )
-            allowed.add("bind after")
     _reject_unknown_keys(kind, item, allowed)
     return out
 
@@ -397,15 +520,8 @@ def _canonical_key(kind: str, item: dict[str, Any]) -> tuple:
     if kind == KIND_TYPE_GUARD:
         t = item["type"]
         key += (tuple(t) if isinstance(t, list) else (t,))
-    else:
-        key += (item["shape"],)
-        if kind == KIND_SHAPE_GUARD:
-            key += (
-                _canonical_range(item["guard after"]) if "guard after" in item else None,
-                item.get("prototype shape"),
-            )
-        else:
-            key += (_canonical_range(item["bind after"]) if "bind after" in item else None,)
+    elif kind == KIND_SHAPE_GUARD:
+        key += (item["shape"], item.get("prototype shape"))
     return key
 
 
@@ -524,7 +640,7 @@ def _coerce_range(v: Any) -> Any:
 
 def _item_ranges_to_dict(item: dict[str, Any]) -> dict[str, Any]:
     out = dict(item)
-    for fld in ("target range", "bind after", "guard after"):
+    for fld in ("target range",):
         if fld in out:
             out[fld] = _coerce_range(out[fld])
     return out
@@ -534,18 +650,20 @@ def _shape_ranges_to_dict(shape_annotation: dict[str, Any]) -> dict[str, Any]:
     out = dict(shape_annotation)
     props = out.get("properties")
     if isinstance(props, list):
-        new_props = []
-        for p in props:
-            if isinstance(p, dict) and "target function" in p:
-                p = {**p, "target function": _coerce_range(p["target function"])}
-            new_props.append(p)
-        out["properties"] = new_props
+        out["properties"] = [_coerce_property_ranges(p) for p in props]
     return out
+
+
+def _coerce_property_ranges(prop: Any) -> Any:
+    """Coerce a single shape property's ``target function`` loc_key to a dict."""
+    if isinstance(prop, dict) and "target function" in prop:
+        return {**prop, "target function": _coerce_range(prop["target function"])}
+    return prop
 
 
 def _item_ranges_to_loc_key(item: dict[str, Any]) -> dict[str, Any]:
     out = dict(item)
-    for fld in ("target range", "bind after", "guard after"):
+    for fld in ("target range",):
         if fld in out and isinstance(out[fld], dict):
             out[fld] = format_loc_key(out[fld])
     return out
@@ -574,8 +692,9 @@ def _shape_ranges_to_loc_key(shape_def: dict[str, Any]) -> dict[str, Any]:
 def build_annotation_tools(
     source: Path, workdir: Path, doc: AnnotationDocument
 ) -> list:
-    """Build ``list_annotations`` / ``add_annotation`` / ``delete_annotation``,
-    all bound to the shared in-memory ``doc``. The tools own no file I/O — the
+    """Build the annotation list/add/delete/update tools bound to ``doc``.
+
+    The tools own no file I/O — the
     orchestrator flushes ``doc`` after the run. Exposed for tests to drive
     handlers directly."""
 
@@ -801,7 +920,63 @@ def build_annotation_tools(
         text = f"deleted {kind} (revision {doc.revision})."
         return {"content": [{"type": "text", "text": text, "removed": removed}]}  # type: ignore[dict-item]
 
-    return [list_annotations, add_annotation, delete_annotation]
+    @tool(
+        "update_annotation",
+        "Patch one annotation in place by id (prefer this to delete+add for "
+        "corrections). The id embeds the revision it was issued at; if the "
+        "document changed since, it is stale — re-list for a fresh id. The "
+        "patch merges into the existing body, re-validates, and rejects "
+        "duplicates. For shape_binding/shape_guard/type_guard, patch top-level "
+        "fields (target range, prototype shape, type). "
+        "For static_shape, patch 'properties' (replace the whole list) or "
+        "'property' ({name, ...fields} merged into one property — use this to "
+        "fix a closure's 'target function' range). Field removal still needs "
+        "delete+add.",
+        {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "id from a recent list_annotations (kind:index:revision)",
+                },
+                "patch": {
+                    "type": "object",
+                    "description": "partial body to merge into the annotation",
+                },
+            },
+            "required": ["id", "patch"],
+        },
+    )
+    async def update_annotation(args: dict[str, Any]) -> dict[str, Any]:
+        doc_id = args.get("id")
+        if not isinstance(doc_id, str) or not doc_id:
+            return _err("missing 'id'")
+        patch = args.get("patch")
+        if not isinstance(patch, dict):
+            return _err("'patch' must be an object")
+        try:
+            kind, where, revision = _parse_id(doc_id)
+        except AnnotationError as exc:
+            return _err(str(exc))
+        if revision != doc.revision:
+            return _err(
+                f"id is stale (revision {revision} != current {doc.revision}); "
+                "re-list for a fresh id"
+            )
+        try:
+            if kind == KIND_STATIC_SHAPE:
+                name = where
+                if not isinstance(name, str):
+                    return _err("malformed static_shape id")
+                doc.update_shape(name, patch)
+            else:
+                doc.update_array_item(kind, where, patch)  # type: ignore[arg-type]
+        except AnnotationError as exc:
+            return _err(str(exc))
+        text = f"updated {kind} (revision {doc.revision}). Use list_annotations to confirm."
+        return {"content": [{"type": "text", "text": text}]}
+
+    return [list_annotations, add_annotation, delete_annotation, update_annotation]
 
 
 def _format_listing(results: list[dict[str, Any]]) -> list[str]:

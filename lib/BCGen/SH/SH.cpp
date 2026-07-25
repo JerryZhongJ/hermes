@@ -3468,7 +3468,6 @@ static SHNativeFuncInfo s_function_info_table[];
   // guard's globally-unique annotation id, so each annotation's success/fail
   // counts land in a distinct slot.
   if (options.instrumentGuards) {
-    auto &srcMgr = M->getContext().getSourceErrorManager();
     auto &ann = M->getContext().getAnnotations();
     // Size the counter array by the total number of loaded annotations; each
     // one's id is its counter index (unmatched ones keep a zero/empty slot).
@@ -3484,25 +3483,20 @@ static SHNativeFuncInfo s_function_info_table[];
           if (annotId < 0)
             continue;
 
-          // Resolve the guard's source location to an escaped "file:line:col".
-          std::string locStr = "<unknown>";
-          SourceErrorManager::SourceCoords coords;
-          Instruction *checkInst = llvh::dyn_cast<Instruction>(cond);
-          if (checkInst &&
-              srcMgr.findBufferLineAndLoc(checkInst->getLocation(), coords)) {
-            locStr.clear();
-            llvh::StringRef fname = srcMgr.getBufferFileName(coords.bufId);
-            for (char c : fname) {
-              if (c == '\\' || c == '"')
-                locStr.push_back('\\');
-              locStr.push_back(c);
-            }
-            locStr += ":" + std::to_string(coords.line) + ":" +
-                std::to_string(coords.col);
-          }
-
           const AnnotationDescriptor *desc =
               ann.getAnnotationDescriptor(static_cast<unsigned>(annotId));
+
+          // Multiple guard sites may share one annotation id. Label the
+          // aggregated counter with the complete half-open JSON target range,
+          // not a generated guard instruction's debug location.
+          std::string locStr = "<unknown>";
+          if (desc) {
+            locStr = std::to_string(desc->line) + ":" +
+                std::to_string(desc->col) + "-" +
+                std::to_string(desc->endLine) + ":" +
+                std::to_string(desc->endCol);
+          }
+
           std::string kindStr =
               desc ? annotationKindLabel(desc->kind).str() : "?";
           std::string detail = desc ? desc->detail : std::string{};

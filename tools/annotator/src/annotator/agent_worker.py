@@ -4,9 +4,10 @@ Runs INSIDE the annotator Docker image as ``python -m annotator.agent_worker``.
 The host orchestrator (:mod:`annotator.agents.claude`) prepares the attempt
 directory (bind-mounted at :data:`WORK`), drops the prompt + non-secret config
 there, and passes API-key/proxy env via ``docker run --env-file``. This module
-reads those inputs, runs the Claude agent with **no internal restrictions**
-(the container is the only isolation boundary), and writes the collected
-messages + errors back into the volume for the host to pick up.
+reads those inputs and runs the Claude agent with **no internal restrictions**
+(the container is the only isolation boundary). Claude Code owns execution
+telemetry through its native transcript; this worker writes only annotations
+and a small worker-status sidecar.
 
 The annotation document is maintained IN MEMORY by the agent through the
 mandatory ``annotations`` MCP tools (``list``/``add``/``delete``). The agent
@@ -35,13 +36,7 @@ from collections.abc import Callable
 from typing import Any
 
 from claude_agent_sdk import ClaudeAgentOptions, ClaudeSDKClient
-from claude_agent_sdk.types import (
-    AssistantMessage,
-    ResultMessage,
-    StreamEvent,
-    SystemMessage,
-    UserMessage,
-)
+from claude_agent_sdk.types import ResultMessage, SystemMessage
 
 from .subagents_def import (
     ANNOTATE_CHUNK_AGENT,
@@ -49,8 +44,8 @@ from .subagents_def import (
     SHAPE_REVIEW_AGENT,
     UNDERSTAND_CHUNK_AGENT,
 )
-from .metrics import to_jsonable
 from .stream_capture import OVERFLOW_FILE, install as install_stream_capture
+from .tools.utils import atomic_write_json
 from .tools import build_source_mcp_servers
 from .tools.annotation_tool import AnnotationDocument
 
@@ -61,8 +56,7 @@ TERMINAL_TASK_STATUSES = frozenset(("completed", "failed", "stopped", "killed"))
 WORK = Path("/work")
 PROMPT_FILE = WORK / ".prompt.txt"
 CONFIG_FILE = WORK / ".agent_config.json"
-MESSAGES_FILE = WORK / ".messages.json"
-ERRORS_FILE = WORK / ".errors.json"
+WORKER_STATUS_FILE = WORK / ".worker_status.json"
 # The in-memory annotation document is flushed here when the run ends. The
 # host pipeline reads this file as the final annotation product (the agent
 # never writes annotation.json — it maintains the doc via the annotation MCP).
@@ -72,21 +66,6 @@ ANNOTATIONS_FILE = WORK / ".annotations.json"
 # the session terminates, so the culprit is identifiable post-hoc. Idempotent
 # and layout-guarded; safe to install at import.
 install_stream_capture(WORK / OVERFLOW_FILE)
-
-
-def _message_kind(message: object) -> str:
-    """Stable string tag for an SDK message (its ``.type`` is lost in to_jsonable)."""
-    if isinstance(message, AssistantMessage):
-        return "assistant"
-    if isinstance(message, UserMessage):
-        return "user"
-    if isinstance(message, SystemMessage):
-        return "system"
-    if isinstance(message, ResultMessage):
-        return "result"
-    if isinstance(message, StreamEvent):
-        return "stream"
-    return type(message).__name__
 
 
 def _build_options(cfg: dict[str, Any]) -> tuple[ClaudeAgentOptions, AnnotationDocument]:
@@ -113,6 +92,13 @@ def _build_options(cfg: dict[str, Any]) -> tuple[ClaudeAgentOptions, AnnotationD
         # env={} adds nothing and overwrites nothing.
         env={},
         model=cfg.get("model"),
+        # A Task/Agent tool result carries the subagent's FULL transcript
+        # (every tool_use + result, including the comment text it wrote) back to
+        # the parent as a single NDJSON line. A hard-working phase2/4 subagent
+        # easily exceeds the SDK's 1 MiB default — confirmed by .buffer-overflow
+        # capture (a 1.05 MiB tool_result). Raise the framing cap so these
+        # legitimate messages parse; stream_capture still logs anything bigger.
+        max_buffer_size=64 * 1024 * 1024,
         permission_mode="bypassPermissions",
         # tools= omitted -> CLI default full set (Bash/Edit/Read/Write/Glob/...).
         # The agent maintains annotations ONLY via the in-process annotation
@@ -141,17 +127,15 @@ def _build_options(cfg: dict[str, Any]) -> tuple[ClaudeAgentOptions, AnnotationD
     return options, doc
 
 
-def _record_message(message: object, messages: list[object]) -> None:
-    """Normalize one SDK message into the persisted run record."""
-    if isinstance(message, SystemMessage) and message.subtype == "thinking_tokens":
-        return
-    LOGGER.info("claude 1: %r", message)
-    entry = to_jsonable(message)
-    if isinstance(entry, dict):
-        # to_jsonable drops the SDK's `type` field; restore it so post-hoc tools
-        # can tell assistant/user/system/result apart.
-        entry["type"] = _message_kind(message)
-    messages.append(entry)
+def _message_session_id(message: object) -> str | None:
+    session_id = getattr(message, "session_id", None)
+    if isinstance(session_id, str) and session_id:
+        return session_id
+    if isinstance(message, SystemMessage):
+        value = message.data.get("session_id")
+        if isinstance(value, str) and value:
+            return value
+    return None
 
 
 def _update_task_status(message: object, statuses: dict[str, str]) -> None:
@@ -187,11 +171,16 @@ def _result_error(result: ResultMessage) -> str:
 async def _collect(
     prompt: str,
     options: ClaudeAgentOptions,
-    messages: list[object],
+    doc: AnnotationDocument,
     *,
     client_factory: Callable[..., ClaudeSDKClient] = ClaudeSDKClient,
 ) -> None:
-    """Drive one persistent SDK session until its background tasks finish."""
+    """Drive one persistent SDK session until its background tasks finish.
+
+    The annotation document is flushed on every top-level turn boundary so a
+    timeout (or any kill) still leaves the latest annotations on disk in the
+    kept workdir, instead of losing the whole run.
+    """
     task_statuses: dict[str, str] = {}
     result: ResultMessage | None = None
     completed = False
@@ -199,7 +188,14 @@ async def _collect(
     async with client_factory(options=options) as client:
         await client.query(prompt)
         async for message in client.receive_messages():
-            _record_message(message, messages)
+            LOGGER.info(
+                "claude message type=%s subtype=%s",
+                type(message).__name__,
+                getattr(message, "subtype", None),
+            )
+            session_id = _message_session_id(message)
+            if session_id:
+                _write_worker_status(completed=False, errors=[], session_id=session_id)
             _update_task_status(message, task_statuses)
             # Only a ResultMessage is a real turn boundary. A background task
             # completing fires a task_updated/task_notification that will itself
@@ -209,6 +205,10 @@ async def _collect(
             # no future event can re-prompt the agent — the session is done.
             if isinstance(message, ResultMessage):
                 result = message
+                # Incremental checkpoint: persist what the agent has built so
+                # far. Cheap (small file) and makes a timeout non-destructive.
+                _flush_annotations(doc)
+                _write_worker_status(completed=False, errors=[])
                 if not any(
                     status not in TERMINAL_TASK_STATUSES
                     for status in task_statuses.values()
@@ -233,20 +233,29 @@ async def _collect(
         raise RuntimeError(_result_error(result))
 
 
-def _write_results(messages: list[object], errors: list[str]) -> None:
-    """Flush messages + errors into the volume (defensive: best-effort)."""
+def _write_worker_status(
+    *, completed: bool, errors: list[str], session_id: str | None = None
+) -> None:
+    """Publish only worker state not guaranteed to exist in the transcript."""
     try:
-        MESSAGES_FILE.write_text(
-            json.dumps(messages, indent=2) + "\n", encoding="utf-8"
+        previous_session_id = None
+        try:
+            previous = json.loads(WORKER_STATUS_FILE.read_text(encoding="utf-8"))
+            if isinstance(previous, dict):
+                previous_session_id = previous.get("session_id")
+        except (OSError, json.JSONDecodeError):
+            pass
+        atomic_write_json(
+            WORKER_STATUS_FILE,
+            {
+                "started": True,
+                "completed": completed,
+                "errors": errors,
+                "session_id": session_id or previous_session_id,
+            },
         )
     except OSError as exc:
-        LOGGER.error("could not write %s: %s", MESSAGES_FILE, exc)
-    try:
-        ERRORS_FILE.write_text(
-            json.dumps(errors, indent=2) + "\n", encoding="utf-8"
-        )
-    except OSError as exc:
-        LOGGER.error("could not write %s: %s", ERRORS_FILE, exc)
+        LOGGER.error("could not write %s: %s", WORKER_STATUS_FILE, exc)
 
 
 def main() -> int:
@@ -255,12 +264,12 @@ def main() -> int:
     prompt = PROMPT_FILE.read_text(encoding="utf-8")
     cfg = json.loads(CONFIG_FILE.read_text(encoding="utf-8"))
 
-    messages: list[object] = []
     errors: list[str] = []
     doc: AnnotationDocument | None = None
+    _write_worker_status(completed=False, errors=[])
     try:
         options, doc = _build_options(cfg)
-        asyncio.run(_collect(prompt, options, messages))
+        asyncio.run(_collect(prompt, options, doc))
     except Exception as exc:  # noqa: BLE001 — worker must still flush results.
         errors = [f"{type(exc).__name__}: {exc}"]
         LOGGER.error("%s: %s", type(exc).__name__, exc)
@@ -269,7 +278,7 @@ def main() -> int:
     # annotation MCP. Always written (even on failure an empty/partial doc has
     # value); the host pipeline validates before promoting it to the output.
     _flush_annotations(doc)
-    _write_results(messages, errors)
+    _write_worker_status(completed=not errors, errors=errors)
     return 0 if not errors else 1
 
 
@@ -278,7 +287,7 @@ def _flush_annotations(doc: AnnotationDocument | None) -> None:
     if doc is None:
         return
     try:
-        ANNOTATIONS_FILE.write_text(doc.to_json(), encoding="utf-8")
+        atomic_write_json(ANNOTATIONS_FILE, json.loads(doc.to_json()))
     except OSError as exc:
         LOGGER.error("could not write %s: %s", ANNOTATIONS_FILE, exc)
 

@@ -14,7 +14,7 @@ context snippet that wraps the match in ``»…«`` so the agent can tell
 occurrences apart without re-reading the file. Optional ``following`` /
 ``followed_by`` lookbehind/lookahead filters keep only matches textually
 adjacent to given neighbours (only whitespace may sit between) — the
-programmatic "pick the one you mean" for ``bind after`` / ``guard after`` work.
+programmatic "pick the expression you mean" for annotation work.
 
 Column semantics deliberately mirror ``SourceErrorManager::findForCoordsImpl``
 in ``lib/Support/SourceErrorManager.cpp``: 1-based line, 1-based column, where
@@ -323,7 +323,7 @@ def build_locate_tool(source: Path):
         "Use this instead of grep/awk or counting columns by hand. Returns ranges "
         "in annotation format: 1-based line/column (column counts Unicode chars), "
         "EXCLUSIVE end column, cross-line OK. Copy the range straight into "
-        "'target range' / 'bind after'. Every match comes with a line-numbered "
+        "'target range'. Every match comes with a line-numbered "
         "context snippet with the match wrapped in »…« so you can tell matches "
         "apart at a glance. Optional 'following'/'followed_by' (literal text, only "
         "whitespace may sit between) keep just matches adjacent to a neighbour — "

@@ -41,10 +41,17 @@ Value *ESTreeIRGen::enforceExprType(hermes::Value *value, ESTree::Node *expr) {
   return cast;
 }
 
-Value *ESTreeIRGen::genExpression(ESTree::Node *expr, Identifier nameHint) {
+Value *ESTreeIRGen::genExpression(
+    ESTree::Node *expr,
+    Identifier nameHint,
+    ShapeAnnotationMode shapeMode) {
   Value *val = enforceExprType(_genExpressionImpl(expr, nameHint), expr);
-  tryApplyAnnotation(val, expr);
+  tryApplyAnnotation(val, expr, shapeMode);
   return val;
+}
+
+Value *ESTreeIRGen::genMemberObjectExpression(ESTree::Node *expr) {
+  return genExpression(expr, Identifier{}, ShapeAnnotationMode::DeferCurrent);
 }
 
 bool ESTreeIRGen::tryInsertTypeCheck(Value *val, ESTree::Node *node) {
@@ -104,10 +111,22 @@ bool ESTreeIRGen::tryInsertTypeCheck(Value *val, ESTree::Node *node) {
   return true;
 }
 
-bool ESTreeIRGen::tryInsertShapeCheck(ESTree::Node *node) {
+SMLoc ESTreeIRGen::getAnnotationLocation(unsigned annotationId) {
+  auto &context = Mod->getContext();
+  const auto *desc =
+      context.getAnnotations().getAnnotationDescriptor(annotationId);
+  if (!desc)
+    return SMLoc{};
+  return context.getSourceErrorManager().findSMLocFromCoords(
+      SourceErrorManager::SourceCoords(2, desc->line, desc->col));
+}
+
+bool ESTreeIRGen::tryInsertShapeCheck(
+    Value *object,
+    ESTree::Node *targetNode) {
   const Annotations &ann = Mod->getContext().getAnnotations();
-  auto range = node->getSourceRange();
-  if (!range.isValid() || appliedShapeGuards_.count(range))
+  auto range = targetNode->getSourceRange();
+  if (!range.isValid())
     return false;
 
   llvh::SmallVector<ShapeGuardEntry, 2> shapeGuards;
@@ -121,17 +140,11 @@ bool ESTreeIRGen::tryInsertShapeCheck(ESTree::Node *node) {
     if (shapeDescIt == shapeDescsByName_.end())
       continue;
 
-    auto objectIt = smRangeToIR_.find(shapeGuard.objectRange);
-    if (objectIt == smRangeToIR_.end() || !objectIt->second)
-      continue;
-
     auto *litShape = Builder.getLiteralStaticShape(shapeDescIt->second);
     auto *checkInst =
-        Builder.createHasStaticShapeInst(objectIt->second, litShape);
+        Builder.createHasStaticShapeInst(object, litShape);
     checkInst->setAnnotationId(shapeGuard.annotationId);
-    // Carry the guard's source location (the hint-after site) so
-    // instrumentation can report where each guard site lives.
-    checkInst->setLocation(node->getDebugLoc());
+    checkInst->setLocation(getAnnotationLocation(shapeGuard.annotationId));
 
     // Optional "prototype shape": also guard the prototype. LoadParent (not
     // TypedLoadParent) is safe after duplicateFunction copies it into the
@@ -139,33 +152,35 @@ bool ESTreeIRGen::tryInsertShapeCheck(ESTree::Node *node) {
     if (!shapeGuard.prototypeShapeName.empty()) {
       auto protoDescIt = shapeDescsByName_.find(shapeGuard.prototypeShapeName);
       if (protoDescIt != shapeDescsByName_.end()) {
-        auto *parent = Builder.createLoadParentInst(objectIt->second);
+        auto *parent = Builder.createLoadParentInst(object);
         auto *protoLitShape =
             Builder.getLiteralStaticShape(protoDescIt->second);
         auto *parentCheck =
             Builder.createHasStaticShapeInst(parent, protoLitShape);
         parentCheck->setAnnotationId(shapeGuard.prototypeAnnotationId);
-        parentCheck->setLocation(node->getDebugLoc());
+        parentCheck->setLocation(
+            getAnnotationLocation(shapeGuard.prototypeAnnotationId));
+        ann.markAnnotationMatched(shapeGuard.prototypeAnnotationId);
       }
     }
+    ann.markAnnotationMatched(shapeGuard.annotationId);
     applied = true;
   }
-  if (applied)
-    appliedShapeGuards_.insert(range);
   return applied;
 }
 
-void ESTreeIRGen::tryApplyAnnotation(Value *val, ESTree::Node *node) {
+void ESTreeIRGen::tryApplyAnnotation(
+    Value *val,
+    ESTree::Node *node,
+    ShapeAnnotationMode shapeMode) {
   if (!node)
     return;
-  auto range = node->getSourceRange();
-  auto it = smRangeToIR_.find(range);
-  if (it != smRangeToIR_.end())
-    it->second = val;
 
   tryInsertTypeCheck(val, node);
-  tryInsertTrySetStaticShape(node);
-  tryInsertShapeCheck(node);
+  if (shapeMode == ShapeAnnotationMode::Apply) {
+    tryInsertTrySetStaticShape(val, node);
+    tryInsertShapeCheck(val, node);
+  }
 }
 
 Value *ESTreeIRGen::_genExpressionImpl(
@@ -1054,12 +1069,13 @@ ESTreeIRGen::MemberExpressionResult ESTreeIRGen::genMemberExpression(
     return MemberExpressionResult{propVal, nullptr, thisValue};
   }
 
-  Value *baseValue = genExpression(mem->_object);
+  Value *baseValue = genMemberObjectExpression(mem->_object);
   Value *prop = genMemberExpressionProperty(mem);
   switch (op) {
     case MemberExpressionOperation::Load:
       return emitMemberLoad(mem, baseValue, prop);
     case MemberExpressionOperation::Delete:
+      tryInsertShapeCheck(baseValue, mem->_object);
       return MemberExpressionResult{
           Builder.createDeletePropertyInst(baseValue, prop),
           nullptr,
@@ -1072,6 +1088,8 @@ ESTreeIRGen::MemberExpressionResult ESTreeIRGen::emitMemberLoad(
     ESTree::MemberExpressionNode *mem,
     Value *baseValue,
     Value *propValue) {
+  tryInsertShapeCheck(baseValue, mem->_object);
+
   if (auto *classType = llvh::dyn_cast<flow::ClassType>(
           flowContext_.getNodeTypeOrAny(mem->_object)->info)) {
     if (!mem->_computed) {
@@ -1372,18 +1390,25 @@ ESTreeIRGen::MemberExpressionResult ESTreeIRGen::genOptionalMemberExpression(
   }
 
   Value *baseValue = nullptr;
+  bool baseBypassedExpressionWrapper = false;
   if (ESTree::OptionalMemberExpressionNode *ome =
           llvh::dyn_cast<ESTree::OptionalMemberExpressionNode>(mem->_object)) {
     baseValue = genOptionalMemberExpression(
                     ome, shortCircuitBB, MemberExpressionOperation::Load)
                     .result;
+    baseBypassedExpressionWrapper = true;
   } else if (
       ESTree::OptionalCallExpressionNode *oce =
           llvh::dyn_cast<ESTree::OptionalCallExpressionNode>(mem->_object)) {
     baseValue = genOptionalCallExpr(oce, shortCircuitBB);
+    baseBypassedExpressionWrapper = true;
   } else {
-    baseValue = genExpression(mem->_object);
+    baseValue = genMemberObjectExpression(mem->_object);
   }
+
+  if (baseBypassedExpressionWrapper)
+    tryApplyAnnotation(
+        baseValue, mem->_object, ShapeAnnotationMode::DeferCurrent);
 
   if (mem->_optional) {
     BasicBlock *evalRHSBB = Builder.createBasicBlock(Builder.getFunction());
@@ -1406,6 +1431,7 @@ ESTreeIRGen::MemberExpressionResult ESTreeIRGen::genOptionalMemberExpression(
   Value *result = nullptr;
   switch (op) {
     case MemberExpressionOperation::Load:
+      tryInsertShapeCheck(baseValue, mem->_object);
       if (auto *PN =
               llvh::dyn_cast<ESTree::PrivateNameNode>(getProperty(mem))) {
         result = emitPrivateLookup(baseValue, prop, PN);
@@ -1414,6 +1440,7 @@ ESTreeIRGen::MemberExpressionResult ESTreeIRGen::genOptionalMemberExpression(
       }
       break;
     case MemberExpressionOperation::Delete:
+      tryInsertShapeCheck(baseValue, mem->_object);
       result = Builder.createDeletePropertyInst(baseValue, prop);
       break;
   }
@@ -2470,7 +2497,7 @@ Value *ESTreeIRGen::genAssignmentExpr(ESTree::AssignmentExpressionNode *AE) {
   // https://es5.github.io/#x11.13.1
   Value *V = lref.emitLoad();
   V = enforceExprType(V, left);
-  tryApplyAnnotation(V, left);
+  tryApplyAnnotation(V, left, ShapeAnnotationMode::Apply);
   Value *RHS = genExpression(AE->_right, nameHint);
   Value *result;
   result = Builder.createBinaryOperatorInst(V, RHS, AssignmentKind);
@@ -3039,11 +3066,10 @@ Value *ESTreeIRGen::genTaggedTemplateExpr(
   Value *thisVal;
   // Tag function is a member expression.
   if (auto *Mem = llvh::dyn_cast<ESTree::MemberExpressionNode>(Expr->_tag)) {
-    Value *obj = genExpression(Mem->_object);
-    Value *prop = genMemberExpressionProperty(Mem);
-    // Call the callee with obj as the 'this'.
-    thisVal = obj;
-    callee = Builder.createLoadPropertyInst(obj, prop);
+    auto member = genMemberExpression(Mem, MemberExpressionOperation::Load);
+    // Call the callee with the member base as the 'this'.
+    thisVal = member.base;
+    callee = member.result;
   } else {
     thisVal = Builder.getLiteralUndefined();
     callee = genExpression(Expr->_tag);

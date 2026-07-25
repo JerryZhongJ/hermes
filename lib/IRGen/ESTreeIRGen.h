@@ -535,17 +535,6 @@ class ESTreeIRGen {
       SMRangeInfo>
       targetFuncRangeToProps_;
 
-  /// Map from annotated AST node ranges to the IR Value* produced for them.
-  /// Pre-filled with nullptr for known object locations, then filled with real
-  /// values inside tryApplyAnnotation().
-  llvh::DenseMap<llvh::SMRange, Value *, SMRangeInfo> smRangeToIR_;
-
-  /// Shape annotation source ranges that have already been successfully
-  /// applied. These prevent duplicate insertion when the same source range is
-  /// visited both as an expression and as a statement.
-  llvh::DenseSet<llvh::SMRange, SMRangeInfo> appliedShapeBindings_;
-  llvh::DenseSet<llvh::SMRange, SMRangeInfo> appliedShapeGuards_;
-
   /// Semantic resolution tables.
   sema::SemContext &semCtx_;
   /// Keywords to avoid string content comparisons.
@@ -873,6 +862,11 @@ class ESTreeIRGen {
   /// manually in some rare cases.
   Value *enforceExprType(Value *value, ESTree::Node *expr);
 
+  enum class ShapeAnnotationMode {
+    Apply,
+    DeferCurrent,
+  };
+
   /// Generate IR for the expression \p Expr. Emit a checked cast if the Flow
   /// type of the expression doesn't match the compiled IR type.
   /// \p nameHint is used to provide names for anonymous functions.
@@ -882,17 +876,31 @@ class ESTreeIRGen {
   /// WARNING: Do not call this for function expressions that are methods on
   /// classes or object literals, because it passes nullptr as the parent of the
   /// FunctionExpressionNode.
-  Value *genExpression(ESTree::Node *expr, Identifier nameHint = Identifier{});
+  Value *genExpression(
+      ESTree::Node *expr,
+      Identifier nameHint = Identifier{},
+      ShapeAnnotationMode shapeMode = ShapeAnnotationMode::Apply);
+
+  /// Generate a property receiver while deferring only its own shape annotation
+  /// to the surrounding member operation.
+  Value *genMemberObjectExpression(ESTree::Node *expr);
 
   /// A helper called only from \c genExpression. It performs the actual work.
   Value *_genExpressionImpl(ESTree::Node *expr, Identifier nameHint);
 
   bool tryInsertTypeCheck(Value *val, ESTree::Node *node);
-  bool tryInsertShapeCheck(ESTree::Node *node);
-  void tryApplyAnnotation(Value *val, ESTree::Node *node);
 
-  /// Try to insert a TrySetStaticShapeInst after a node is generated.
-  bool tryInsertTrySetStaticShape(ESTree::Node *node);
+  /// Return the JSON target range start for an annotation.
+  SMLoc getAnnotationLocation(unsigned annotationId);
+
+  bool tryInsertShapeCheck(Value *object, ESTree::Node *targetNode);
+  void tryApplyAnnotation(
+      Value *val,
+      ESTree::Node *node,
+      ShapeAnnotationMode shapeMode);
+
+  /// Try to insert a TrySetStaticShapeInst for a target object.
+  bool tryInsertTrySetStaticShape(Value *object, ESTree::Node *targetNode);
 
   /// Generate an expression and perform a conditional branch depending on
   /// whether it evaluates to true or false (or optionally, nullish).

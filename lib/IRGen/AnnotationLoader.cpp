@@ -278,8 +278,7 @@ void loadStaticShapes(
           sm.warning(
               llvh::SMLoc{},
               "unresolved 'target function' range for property \"" +
-                  name->str() + "\" in static shape '" + shapeName.str() +
-                  "'");
+                  name->str() + "\" in static shape '" + shapeName.str() + "'");
           ok = false;
           break;
         }
@@ -386,16 +385,12 @@ void loadTypeGuards(
          line,
          col,
          endLine,
-         endCol,
-         /*hasAfterPoint*/ false,
-         /*insertLine*/ line,
-         /*insertCol*/ col});
+         endCol});
   }
 }
 
 /// Load shape hints from the "shape hints" JSON array. Each hint checks the
-/// target expression right after evaluation, or after the optional "guard
-/// after" point if given.
+/// target expression at its context-sensitive use point during IRGen.
 void loadShapeGuards(
     const llvh::json::Array &arr,
     SourceErrorManager &sm,
@@ -430,10 +425,13 @@ void loadShapeGuards(
     readPos(targetLoc, "end", endLine, endCol);
     std::string at = std::to_string(line) + ":" + std::to_string(col);
 
-    // The reportMatchStatus location follows the guard insertion point: the
-    // optional "guard after" range when present, else the target range.
-    bool hasAfterPoint = false;
-    unsigned insertLine = line, insertCol = col;
+    if (sa->get("guard after")) {
+      sm.warning(
+          llvh::SMLoc{},
+          "shape guard at " + at +
+              ": legacy 'guard after' is unsupported; annotation skipped");
+      continue;
+    }
 
     auto shapeName =
         resolveShapeName(*sa, shapeDefs, "shape guard at " + at, sm);
@@ -446,23 +444,6 @@ void loadShapeGuards(
       sm.warning(
           llvh::SMLoc{}, "shape guard at " + at + ": target range unresolved");
       continue;
-    }
-
-    // The checked object is always the target expression. The insertion point
-    // (map key) is the optional "guard after" location; if omitted the guard
-    // runs right after the target expression.
-    llvh::SMRange insertRange = targetRange.getValue();
-    if (const llvh::json::Object *guardAfter = sa->getObject("guard after")) {
-      auto guardAfterRange = resolveLocation(guardAfter, sm);
-      if (!guardAfterRange.hasValue()) {
-        sm.warning(
-            llvh::SMLoc{},
-            "shape guard at " + at + ": 'guard after' unresolved");
-        continue;
-      }
-      insertRange = guardAfterRange.getValue();
-      readPos(guardAfter, "start", insertLine, insertCol);
-      hasAfterPoint = true;
     }
 
     // Optional "prototype shape": defined shape name of the object's direct
@@ -491,10 +472,7 @@ void loadShapeGuards(
          line,
          col,
          endLine,
-         endCol,
-         hasAfterPoint,
-         insertLine,
-         insertCol});
+         endCol});
     if (!protoShapeName.empty())
       annotationDescriptors.push_back(
           {AnnotationDescriptor::PrototypeShapeHint,
@@ -502,22 +480,15 @@ void loadShapeGuards(
            line,
            col,
            endLine,
-           endCol,
-           hasAfterPoint,
-           insertLine,
-           insertCol});
-    shapeGuards[insertRange].push_back(
-        {targetRange.getValue(),
-         shapeName.getValue(),
-         std::move(protoShapeName),
-         id,
-         protoId});
+           endCol});
+    shapeGuards[targetRange.getValue()].push_back(
+        {shapeName.getValue(), std::move(protoShapeName), id, protoId});
   }
 }
 
 /// Load shape bindings from the "shape bindings" JSON array. A binding sets a
-/// static shape on an object and then guards it; the binding runs right after
-/// the target expression, or after the optional "bind after" point.
+/// static shape on an object and then guards it at its context-sensitive use
+/// point during IRGen.
 void loadShapeBindings(
     const llvh::json::Array &arr,
     SourceErrorManager &sm,
@@ -550,10 +521,13 @@ void loadShapeBindings(
     readPos(targetLoc, "end", endLine, endCol);
     std::string at = std::to_string(line) + ":" + std::to_string(col);
 
-    // The reportMatchStatus location follows the binding insertion point: the
-    // optional "bind after" range when present, else the target range.
-    bool hasAfterPoint = false;
-    unsigned insertLine = line, insertCol = col;
+    if (sp->get("bind after")) {
+      sm.warning(
+          llvh::SMLoc{},
+          "shape binding at " + at +
+              ": legacy 'bind after' is unsupported; annotation skipped");
+      continue;
+    }
 
     auto shapeName =
         resolveShapeName(*sp, shapeDefs, "shape binding at " + at, sm);
@@ -569,36 +543,23 @@ void loadShapeBindings(
       continue;
     }
 
-    // The bound object is always the target expression. The insertion point
-    // (map key) is the optional "bind after" location; if omitted the binding
-    // runs right after the target expression.
-    llvh::SMRange insertRange = targetRange.getValue();
-    if (const llvh::json::Object *bindAfter = sp->getObject("bind after")) {
-      auto bindAfterRange = resolveLocation(bindAfter, sm);
-      if (!bindAfterRange.hasValue()) {
-        sm.warning(
-            llvh::SMLoc{},
-            "shape binding at " + at + ": 'bind after' unresolved");
-        continue;
-      }
-      insertRange = bindAfterRange.getValue();
-      readPos(bindAfter, "start", insertLine, insertCol);
-      hasAfterPoint = true;
+    if (shapeBindings.count(targetRange.getValue())) {
+      sm.warning(
+          llvh::SMLoc{},
+          "shape binding at " + at +
+              ": duplicate target range; annotation skipped");
+      continue;
     }
 
     unsigned id = nextAnnotationId++;
-    shapeBindings.insert(
-        {insertRange, {targetRange.getValue(), shapeName.getValue(), id}});
+    shapeBindings.insert({targetRange.getValue(), {shapeName.getValue(), id}});
     annotationDescriptors.push_back(
         {AnnotationDescriptor::ShapeBinding,
          shapeName.getValue(),
          line,
          col,
          endLine,
-         endCol,
-         hasAfterPoint,
-         insertLine,
-         insertCol});
+         endCol});
   }
 }
 
@@ -739,75 +700,35 @@ void Annotations::getShapeGuards(
     llvh::SMRange range,
     llvh::SmallVectorImpl<ShapeGuardEntry> &guards) const {
   auto it = shapeGuards_.find(range);
-  if (it != shapeGuards_.end()) {
-    for (const auto &entry : it->second) {
-      matchedAnnotationIds_.insert(entry.annotationId);
-      if (!entry.prototypeShapeName.empty())
-        matchedAnnotationIds_.insert(entry.prototypeAnnotationId);
-      guards.push_back(entry);
-    }
-  }
+  if (it != shapeGuards_.end())
+    guards.append(it->second.begin(), it->second.end());
 }
 
 llvh::Optional<ShapeBindingEntry> Annotations::getShapeBinding(
-    llvh::SMRange bindRange) const {
-  auto it = shapeBindings_.find(bindRange);
-  if (it != shapeBindings_.end()) {
-    matchedAnnotationIds_.insert(it->second.annotationId);
-    return it->second;
-  }
-  return llvh::None;
-}
-
-llvh::SmallVector<llvh::SMRange, 4>
-Annotations::getShapeAnnotationObjectRanges() const {
-  llvh::SmallVector<llvh::SMRange, 4> ranges;
-  for (const auto &kv : shapeBindings_)
-    ranges.push_back(kv.second.objectRange);
-  for (const auto &kv : shapeGuards_)
-    for (const auto &entry : kv.second)
-      ranges.push_back(entry.objectRange);
-  return ranges;
+    llvh::SMRange range) const {
+  auto it = shapeBindings_.find(range);
+  return it != shapeBindings_.end()
+      ? llvh::Optional<ShapeBindingEntry>(it->second)
+      : llvh::None;
 }
 
 void Annotations::reportMatchStatus(SourceErrorManager &sm) const {
-  // Warn about annotations that loaded OK but produced no IR guard — their
-  // insertion range didn't hit a target AST node. For shape guard/binding the
-  // insertion range is the "bind/guard after" range when given, else the
-  // target range; the warning is located and worded accordingly so the user
-  // fixes the range that actually failed to match. Goes through the compiler's
-  // standard warning path so annotation-dryrun / shermes surface it like other
-  // diagnostics. bufId 2 = main source buffer (matches resolveLocation).
-  //
-  // Note: an annotation can be counted as matched yet still emit no IR when
-  // its insertion range hit an AST node but ESTreeIRGen couldn't resolve the
-  // target object's Value* (ESTreeIRGen.cpp tryInsertTrySetStaticShape /
-  // ESTreeIRGen-expr.cpp tryInsertShapeCheck). Detecting that needs the match
-  // flag moved from the query point to the emit point; tracked as future work.
+  // Warn about annotations that loaded OK but produced no IR guard. Goes
+  // through the compiler's standard warning path so annotation-dryrun /
+  // shermes surface it like other diagnostics. bufId 2 = main source buffer
+  // (matches resolveLocation).
   unsigned total = annotationDescriptors_.size();
   for (unsigned id = 0; id < total; ++id) {
     const auto &desc = annotationDescriptors_[id];
     if (matchedAnnotationIds_.count(id))
       continue;
-    unsigned line = desc.hasAfterPoint ? desc.insertLine : desc.line;
-    unsigned col = desc.hasAfterPoint ? desc.insertCol : desc.col;
-    llvh::SMLoc loc =
-        sm.findSMLocFromCoords(SourceErrorManager::SourceCoords(2, line, col));
-
-    // With a "bind/guard after" point the match key is the after range (not
-    // the target range), so that is the one that may have missed — point there.
-    const char *missed;
-    if (desc.hasAfterPoint) {
-      bool isBind = desc.kind == AnnotationDescriptor::ShapeBinding;
-      missed = isBind ? "'bind after' range" : "'guard after' range";
-    } else {
-      missed = "target range";
-    }
+    llvh::SMLoc loc = sm.findSMLocFromCoords(
+        SourceErrorManager::SourceCoords(2, desc.line, desc.col));
     sm.warning(
         loc,
         "annotation [" + std::string(annotationKindLabel(desc.kind)) + " \"" +
-            desc.detail + "\"] unmatched: " + missed +
-            " didn't hit a target AST node");
+            desc.detail +
+            "\"] unmatched: target range didn't emit annotation IR");
   }
 }
 

@@ -113,8 +113,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output-run",
         type=Path,
-        help="Agent run record JSON (meta + raw messages, thinking_tokens "
-        "filtered) for post-hoc analysis. Defaults to <output>.run.json",
+        help="Agent run manifest JSON referencing the native Claude transcript. "
+        "Defaults to <output>.run.json",
     )
     parser.add_argument(
         "--keep-workdir",

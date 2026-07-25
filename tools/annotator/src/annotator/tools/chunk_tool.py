@@ -1,11 +1,22 @@
-"""In-process MCP ``chunk`` tool: function universe + fixed-line-window
-chunking for the five-stage annotation protocol (phase 1).
+"""In-process MCP ``chunk`` tool: function universe + pluggable chunking for
+the five-stage annotation protocol (phase 1).
 
-It splits the single JS source into chunks along **function boundaries**
-(function bodies are never cut). Each chunk is the *produce-scope* of one
-map/reduce subagent: a subagent may READ the whole file, but every
-comment/annotation/skip it produces must have a ``loc_key`` falling inside its
-own chunk (one producer per loc_key → no write conflicts, no double coverage).
+It splits the single JS source into chunks and each chunk is the
+*produce-scope* of one map/reduce subagent: a subagent may READ the whole file,
+but every comment/annotation/skip it produces should target a ``loc_key``
+claimed by its own chunk. Three strategies (see ``STRATEGIES``):
+
+- ``function-boundary``: split only between top-level function subtrees
+  (function bodies are never cut; a single oversize subtree is flagged).
+- ``fixed-lines``: cut fixed line windows; a function whose body crosses a
+  window edge is owned by EVERY window it intersects (multi-ownership).
+- ``auto`` (default): function-boundary, then re-slice any oversize chunk with
+  fixed-lines.
+
+Multi-ownership is safe: coverage is a loc_key set operation, and annotation
+collisions on the same target range are rejected by canonical-key dedup; a
+function's ``chunk_id`` stays single-valued (first claiming chunk) for
+record_skip / coverage.
 
 Three tools, bound to the single ``source`` and writing sidecars under
 ``workdir/.chunks/``:
@@ -42,6 +53,21 @@ CHUNKS_SUBDIR = ".chunks"
 INDEX_FILE = "index.json"
 DEFAULT_LINES_PER_CHUNK = 500
 READ_CHUNK_MAX_CHARS = 32_768
+
+# Chunking strategies. ``function-boundary`` is the legacy behaviour (root
+# subtrees are indivisible). ``fixed-lines`` cuts at fixed line windows and a
+# function whose body crosses a window boundary is owned by EVERY window it
+# intersects (multi-ownership) — safe because coverage is a loc_key set
+# operation and annotation duplicates are rejected by canonical-key range.
+# ``auto`` (default) keeps function-boundary, then re-slices any oversize chunk
+# with fixed-lines so a single giant IIFE no longer collapses into one chunk.
+STRATEGY_FUNCTION_BOUNDARY = "function-boundary"
+STRATEGY_FIXED_LINES = "fixed-lines"
+STRATEGY_AUTO = "auto"
+STRATEGIES = frozenset(
+    {STRATEGY_FUNCTION_BOUNDARY, STRATEGY_FIXED_LINES, STRATEGY_AUTO}
+)
+DEFAULT_STRATEGY = STRATEGY_AUTO
 
 # Explicit "does not fit" categories. `unanalyzable-dynamic` covers the
 # pure-static ceiling (dynamic dispatch / eval / host-bound objects).
@@ -161,11 +187,20 @@ def extract_functions(data: bytes) -> list[dict[str, Any]]:
     return funcs
 
 
-def _close_chunk(
-    funcs: list[dict[str, Any]], lines_per_chunk: int, root_count: int
+def _make_chunk(
+    from_line: int,
+    to_line: int,
+    funcs: list[dict[str, Any]],
+    *,
+    oversize: bool,
 ) -> dict[str, Any]:
-    from_line = min(f["start_line"] for f in funcs)
-    to_line = max(f["end_line"] for f in funcs)
+    """Assemble a chunk dict from an explicit line window and its owner funcs.
+
+    Unlike the function-boundary closer, ``from_line``/``to_line`` here are the
+    window edges (which may fall inside a function body under fixed-lines), not
+    derived from min/max of the funcs. ``function_loc_keys`` is the produce-
+    scope and may overlap across chunks under multi-ownership.
+    """
     span = to_line - from_line + 1
     return {
         "from_line": from_line,
@@ -173,21 +208,33 @@ def _close_chunk(
         "line_span": span,
         "function_count": len(funcs),
         "function_loc_keys": [f["loc_key"] for f in funcs],
-        # A root function subtree is the indivisible planning unit. It may
-        # contain nested functions, yet must still be marked oversize when it
-        # alone exceeds the target window.
-        "oversize": span > lines_per_chunk and root_count == 1,
+        "oversize": oversize,
     }
 
 
-def plan_chunks(
-    funcs: list[dict[str, Any]], lines_per_chunk: int = DEFAULT_LINES_PER_CHUNK
+def _close_chunk(
+    funcs: list[dict[str, Any]], lines_per_chunk: int, root_count: int
+) -> dict[str, Any]:
+    from_line = min(f["start_line"] for f in funcs)
+    to_line = max(f["end_line"] for f in funcs)
+    span = to_line - from_line + 1
+    # A root function subtree is the indivisible planning unit. It may
+    # contain nested functions, yet must still be marked oversize when it
+    # alone exceeds the target window.
+    return _make_chunk(
+        from_line, to_line, funcs, oversize=span > lines_per_chunk and root_count == 1
+    )
+
+
+def _plan_function_boundary(
+    funcs: list[dict[str, Any]], lines_per_chunk: int
 ) -> list[dict[str, Any]]:
-    """Split only between top-level function subtrees.
+    """Split only between top-level function subtrees (legacy strategy).
 
     A root function and all of its nested descendants share one producer chunk.
-    This avoids overlapping chunk ranges, while preserving every function in the
-    universe for coverage and explicit skips.
+    A chunk whose single root subtree exceeds the window is marked oversize so
+    ``auto`` can re-slice it. Returns chunks without ids; the caller numbers
+    them after any re-slicing.
     """
     by_loc = {f["loc_key"]: f for f in funcs}
 
@@ -231,29 +278,145 @@ def plan_chunks(
             root_count += 1
     if cur:
         chunks.append(_close_chunk(cur, lines_per_chunk, root_count))
+    return chunks
+
+
+def _plan_fixed_lines(
+    funcs: list[dict[str, Any]],
+    lines_per_chunk: int,
+    *,
+    range_from: int,
+    range_to: int,
+) -> list[dict[str, Any]]:
+    """Cut fixed line windows over ``[range_from, range_to]`` (direct slice).
+
+    Ownership is by interval intersection: a function whose body crosses a
+    window edge is owned by EVERY window it intersects (multi-ownership). This
+    is safe — coverage is a loc_key set operation, and annotation collisions on
+    the same target range are rejected by canonical-key dedup. Windows are
+    seamless (``win_from = win_to + 1``) so read_chunk slicing and the comment
+    line-range check are unaffected; empty windows (no owner) are skipped.
+    Returns chunks without ids, all ``oversize=False``.
+    """
+    if lines_per_chunk < 1 or range_to < range_from or not funcs:
+        return []
+    chunks: list[dict[str, Any]] = []
+    win_from = range_from
+    while win_from <= range_to:
+        win_to = min(win_from + lines_per_chunk - 1, range_to)
+        owners = [
+            f
+            for f in funcs
+            if f["start_line"] <= win_to and f["end_line"] >= win_from
+        ]
+        if owners:
+            chunks.append(_make_chunk(win_from, win_to, owners, oversize=False))
+        win_from = win_to + 1
+    return chunks
+
+
+def _auto_refine(
+    boundary_chunks: list[dict[str, Any]],
+    by_loc: dict[str, dict[str, Any]],
+    lines_per_chunk: int,
+) -> list[dict[str, Any]]:
+    """Re-slice any chunk whose span exceeds the window; keep the rest as-is.
+
+    The decision is by ``line_span > lines_per_chunk``, NOT by the chunk's
+    ``oversize`` flag: that flag is only set for a single indivisible root
+    subtree, so a large multi-root chunk (e.g. box2d's ~3000-line chunk with
+    224 functions) would be flagged ``oversize=False`` yet still be the worst
+    hot spot — auto must slice it too. The re-slice range is the chunk's own
+    ``from_line/to_line`` so replacement windows cover the same span seamlessly.
+    """
+    refined: list[dict[str, Any]] = []
+    for ch in boundary_chunks:
+        if ch["line_span"] <= lines_per_chunk:
+            refined.append(ch)
+            continue
+        members = [by_loc[lk] for lk in ch["function_loc_keys"] if lk in by_loc]
+        if not members:
+            refined.append(ch)
+            continue
+        refined.extend(
+            _plan_fixed_lines(
+                members,
+                lines_per_chunk,
+                range_from=ch["from_line"],
+                range_to=ch["to_line"],
+            )
+        )
+    return refined
+
+
+def plan_chunks(
+    funcs: list[dict[str, Any]],
+    lines_per_chunk: int = DEFAULT_LINES_PER_CHUNK,
+    strategy: str = DEFAULT_STRATEGY,
+    num_lines: int | None = None,
+) -> list[dict[str, Any]]:
+    """Plan chunks per ``strategy``, then number them chunk_001.. by from_line.
+
+    - ``function-boundary``: legacy root-subtree split (oversize flagged).
+    - ``fixed-lines``: fixed line windows with multi-ownership.
+    - ``auto`` (default): function-boundary, then re-slice oversize chunks.
+
+    ``num_lines`` (when known) extends the fixed-lines top-level range past the
+    last function so trailing non-function source is also covered by a window.
+    """
+    if strategy not in STRATEGIES:
+        raise ValueError(
+            f"unknown strategy {strategy!r}; one of {sorted(STRATEGIES)}"
+        )
+    if strategy == STRATEGY_FIXED_LINES:
+        max_end = max((f["end_line"] for f in funcs), default=0)
+        range_to = max(max_end, num_lines or 0)
+        chunks = _plan_fixed_lines(
+            funcs, lines_per_chunk, range_from=1, range_to=range_to
+        )
+    else:
+        by_loc = {f["loc_key"]: f for f in funcs}
+        boundary = _plan_function_boundary(funcs, lines_per_chunk)
+        chunks = (
+            _auto_refine(boundary, by_loc, lines_per_chunk)
+            if strategy == STRATEGY_AUTO
+            else boundary
+        )
+    chunks.sort(key=lambda c: (c["from_line"], c["to_line"]))
     for i, chunk in enumerate(chunks, 1):
         chunk["id"] = f"chunk_{i:03d}"
     return chunks
 
 
 def build_index(
-    source: Path, workdir: Path, lines_per_chunk: int = DEFAULT_LINES_PER_CHUNK
+    source: Path,
+    workdir: Path,
+    lines_per_chunk: int = DEFAULT_LINES_PER_CHUNK,
+    strategy: str = DEFAULT_STRATEGY,
 ) -> dict[str, Any]:
     """Parse the source, plan chunks, tag each function with its chunk_id, and
-    persist ``workdir/.chunks/index.json``. Returns the index dict."""
+    persist ``workdir/.chunks/index.json``. Returns the index dict.
+
+    Under multi-ownership (fixed-lines / auto re-slice) a function may appear in
+    several chunks' ``function_loc_keys``; its ``chunk_id`` is the FIRST claiming
+    chunk (lowest from_line) so record_skip / coverage stay single-valued."""
     data = source.read_bytes()
     funcs = extract_functions(data)
-    chunks = plan_chunks(funcs, lines_per_chunk)
+    num_lines = len(_split_lines(data))
+    chunks = plan_chunks(funcs, lines_per_chunk, strategy, num_lines=num_lines)
     by_loc = {f["loc_key"]: f for f in funcs}
-    for ch in chunks:
+    for f in funcs:
+        f["chunk_id"] = None
+    for ch in chunks:  # already sorted by from_line -> first claimant wins
         for lk in ch["function_loc_keys"]:
             f = by_loc.get(lk)
-            if f is not None:
+            if f is not None and not f["chunk_id"]:
                 f["chunk_id"] = ch["id"]
     index = {
         "source": source.name,
-        "num_lines": len(_split_lines(data)),
+        "num_lines": num_lines,
         "lines_per_chunk": lines_per_chunk,
+        "strategy": strategy,
         "function_universe": funcs,
         "chunks": chunks,
     }
@@ -261,17 +424,35 @@ def build_index(
     return index
 
 
-def load_index(source: Path, workdir: Path) -> dict[str, Any]:
+def load_index(
+    source: Path, workdir: Path, *, expected_strategy: str | None = None
+) -> dict[str, Any]:
     """Load the chunk index. Reads ``workdir/.chunks/index.json`` if present
-    (written by chunk_index, possibly with a non-default lines_per_chunk); else
-    builds one with the default window."""
+    (written by chunk_index, possibly with a non-default lines_per_chunk /
+    strategy); else builds one with defaults.
+
+    If ``expected_strategy`` is given and differs from the on-disk strategy,
+    the on-disk index is treated as stale and rebuilt with the requested
+    strategy (preserving the on-disk lines_per_chunk). Callers that must honour
+    the on-disk truth — read_chunk / record_skip / coverage / comment
+    validation — pass nothing."""
     idx_path = workdir / CHUNKS_SUBDIR / INDEX_FILE
+    index: dict[str, Any] | None = None
     if idx_path.exists():
         try:
-            return json.loads(idx_path.read_text(encoding="utf-8"))
+            index = json.loads(idx_path.read_text(encoding="utf-8"))
         except (OSError, ValueError):
-            pass
-    return build_index(source, workdir)
+            index = None
+    if index is not None and (
+        expected_strategy is None or index.get("strategy") == expected_strategy
+    ):
+        return index
+    lpc = (
+        index.get("lines_per_chunk", DEFAULT_LINES_PER_CHUNK)
+        if index
+        else DEFAULT_LINES_PER_CHUNK
+    )
+    return build_index(source, workdir, lpc, expected_strategy or DEFAULT_STRATEGY)
 
 
 def _skips_path(workdir: Path, chunk_id: str) -> Path:
@@ -298,19 +479,27 @@ def build_chunk_tools(source: Path, workdir: Path) -> list:
 
     @tool(
         "chunk_index",
-        "Split the file into chunks along function boundaries (function "
-        "bodies are never cut) and return the function universe + chunk plan. "
-        "Each function has a `loc_key` (startLine:startCol:endLine:endCol, "
-        "1-based, exclusive end) — the unified key for chunk/annotation/"
-        "comment/skip. Call this FIRST in the five-stage protocol to plan"
-        "subagent work. Persisted to .chunks/index.json.",
+        "Split the file into chunks and return the function universe + chunk "
+        "plan. Strategy (default 'auto'): 'function-boundary' never cuts "
+        "function bodies; 'fixed-lines' cuts at fixed line windows (a function "
+        "whose body crosses a window edge is owned by every window it "
+        "intersects); 'auto' uses function-boundary then re-slices any oversize "
+        "chunk with fixed-lines. Each function has a `loc_key` "
+        "(startLine:startCol:endLine:endCol, 1-based, exclusive end) — the "
+        "unified key for chunk/annotation/comment/skip. Call this FIRST in the "
+        "five-stage protocol to plan subagent work. Persisted to "
+        ".chunks/index.json.",
         {
             "type": "object",
             "properties": {
                 "lines_per_chunk": {
                     "type": "integer",
-                    "description": f"target lines per chunk (default {DEFAULT_LINES_PER_CHUNK}); "
-                    "split points still align to function boundaries",
+                    "description": f"target lines per chunk (default {DEFAULT_LINES_PER_CHUNK})",
+                },
+                "strategy": {
+                    "type": "string",
+                    "enum": sorted(STRATEGIES),
+                    "description": f"chunking strategy (default {DEFAULT_STRATEGY})",
                 },
             },
         },
@@ -323,8 +512,11 @@ def build_chunk_tools(source: Path, workdir: Path) -> list:
             return _err("lines_per_chunk must be an integer")
         if lpc < 1:
             return _err("lines_per_chunk must be >= 1")
+        strategy = args.get("strategy") or DEFAULT_STRATEGY
+        if strategy not in STRATEGIES:
+            return _err(f"strategy must be one of {sorted(STRATEGIES)}")
         try:
-            index = build_index(source_resolved, workdir_resolved, lpc)
+            index = build_index(source_resolved, workdir_resolved, lpc, strategy)
         except FileNotFoundError:
             return _err(f"source file not found: {source_resolved}")
         except OSError as exc:
@@ -334,7 +526,8 @@ def build_chunk_tools(source: Path, workdir: Path) -> list:
         universe = index["function_universe"]
         out: list[str] = [
             f"{len(universe)} functions, {len(chunks)} chunk(s) "
-            f"(~{index['lines_per_chunk']} lines/chunk, file {index['num_lines']} lines)",
+            f"(strategy {index['strategy']}, ~{index['lines_per_chunk']} "
+            f"lines/chunk, file {index['num_lines']} lines)",
             "Chunks:",
         ]
         for c in chunks:

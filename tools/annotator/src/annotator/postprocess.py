@@ -1,9 +1,8 @@
-"""Post-hoc stats from run.json — no inline metric accumulation.
+"""Post-hoc stats from versioned run manifests.
 
-annotator now saves only a run record (meta + raw messages, thinking_tokens
-filtered); this recomputes token/tool/event stats offline. Dispatches on
-``meta.agent`` because claude (SDK Message stream) and codex (notification
-stream) have different shapes. Reuses ``AgentMetrics`` from metrics.py.
+Version 2 manifests point to Claude Code's native main/subagent JSONL
+transcripts. Legacy manifests with inline SDK ``messages`` remain readable.
+Both paths normalize into ``AgentMetrics`` for aggregate reporting.
 
 Usage:
     uv run python -m annotator.postprocess <run.json | dir> [-o agg.json]
@@ -17,6 +16,7 @@ from pathlib import Path
 from typing import Any
 
 from .metrics import AgentMetrics, json_get_int
+from .transcript import read_trace
 
 
 def _walk(value: Any):
@@ -85,7 +85,7 @@ def recompute(path: Path) -> dict:
     data = json.loads(path.read_text(encoding="utf-8"))
     meta = data.get("meta") or {}
     agent = meta.get("agent", "claude")
-    metrics = _EXTRACTORS.get(agent, _extract_claude)(data)
+    metrics, provenance = _metrics_for(data, meta, agent, path)
     return {
         "file": str(path),
         "agent": agent,
@@ -93,19 +93,53 @@ def recompute(path: Path) -> dict:
         "duration_seconds": meta.get("duration_seconds", 0.0),
         "errors": meta.get("errors", []),
         "metrics": metrics.to_json(),
+        "provenance": provenance,
     }
 
 
+def _metrics_for(
+    data: dict, meta: dict, agent: str, path: Path
+) -> tuple[AgentMetrics, dict[str, object]]:
+    if data.get("schema_version") == 2:
+        trace = data.get("trace")
+        if not isinstance(trace, dict):
+            # A v2 manifest without a transcript is a legitimate failed run
+            # (docker missing, worker startup failure, timeout before Claude
+            # created a session). Post-process it as empty, not a schema error.
+            if meta.get("errors"):
+                return AgentMetrics(), {
+                    "format": "claude-code-jsonl",
+                    "complete": False,
+                    "warnings": ["transcript unavailable for failed run"],
+                }
+            raise ValueError(f"run manifest has no transcript: {path}")
+        trace_path = trace.get("path")
+        if not isinstance(trace_path, str):
+            raise ValueError(f"run manifest trace.path is invalid: {path}")
+        directory = (path.parent / trace_path).resolve()
+        read = read_trace(directory, str(trace.get("main") or "session.jsonl"))
+        provenance = read.provenance()
+        provenance["complete"] = trace.get("complete") is True and not read.warnings
+        return read.metrics, provenance
+    if "messages" in data:
+        return _EXTRACTORS.get(agent, _extract_claude)(data), {
+            "format": "legacy-sdk-messages",
+            "complete": True,
+            "warnings": [],
+        }
+    raise ValueError(f"unsupported run manifest schema: {path}")
+
+
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Recompute annotator stats from messages.json")
-    ap.add_argument("input", help="messages.json file or directory (recursed for *.messages.json)")
+    ap = argparse.ArgumentParser(description="Recompute annotator stats from run manifests")
+    ap.add_argument("input", help="run.json file or directory (recursed for *.run.json)")
     ap.add_argument("-o", "--output", help="write aggregate JSON to this path")
     args = ap.parse_args()
 
     src = Path(args.input)
     files = [src] if src.is_file() else sorted(src.rglob("*.run.json"))
     if not files:
-        print(f"no messages.json under {src}", file=sys.stderr)
+        print(f"no run.json under {src}", file=sys.stderr)
         return 1
 
     rows = [recompute(f) for f in files]

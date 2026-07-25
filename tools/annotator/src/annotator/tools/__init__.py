@@ -120,19 +120,22 @@ REGISTRY: dict[str, ToolSpec] = {
         lambda s, w, d: make_annotation_server(s, w, d), _no_host_setup,
         prompt=(
             "- Build the annotation set ONLY through `list_annotations`, `add_annotation`, "
-            "and `delete_annotation`. There is no annotation file — the set is held in memory "
-            "and finalized for you when the run ends.\n"
+            "`update_annotation`, and `delete_annotation`. There is no annotation file — the set "
+            "is held in memory and finalized for you when the run ends.\n"
             "- `list_annotations(kinds?, shape?, from_line?, to_line?)` shows current annotations; "
             "filter by kind (static_shape/shape_binding/shape_guard/type_guard), by shape name, or "
             "by a 1-based inclusive line window (both from_line and to_line, or neither). Each row "
-            "carries an `id` (kind:index:revision) for delete_annotation. Static shapes have no "
+            "carries an `id` (kind:index:revision) for update/delete. Static shapes have no "
             "source range, so a line filter hides them.\n"
             "- `add_annotation(kind, annotation, shape?)` appends one annotation; duplicates and "
             "references to unknown shapes are rejected. Always add the static shape BEFORE any "
             "guard/binding that uses it.\n"
-            "- `delete_annotation(id)` removes one annotation by a fresh id from list_annotations "
-            "(the id embeds the revision; a stale id after a mutation is rejected). A static shape "
-            "still used by a guard/binding cannot be deleted."
+            "- `update_annotation(id, patch)` merges a partial body into one annotation in place — "
+            "PREFER this over delete+add for corrections (e.g. fixing a range or a closure `target "
+            "function`). For static_shape, patch `property` {name, ...fields} to fix one property. "
+            "The id embeds the revision; a stale id after a mutation is rejected (re-list).\n"
+            "- `delete_annotation(id)` removes one annotation by a fresh id from list_annotations. "
+            "A static shape still used by a guard/binding cannot be deleted."
         ),
     ),
     "dryrun": ToolSpec(

@@ -110,7 +110,7 @@ class CodexSdkRunner:
             LOGGER.error("%s: %s", type(exc).__name__, exc)
             errors = [f"agent failed: {type(exc).__name__}: {exc}"]
 
-        return AgentRun(errors=errors, messages=messages)
+        return AgentRun(errors=errors)
 
     async def _run_codex_sdk(
         self, prompt: str, attempt_dir: Path, messages: list[object]
