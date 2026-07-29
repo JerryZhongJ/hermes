@@ -44,6 +44,13 @@ typedef struct SHPrivateNameCacheEntry {
   uint32_t slot;
 } SHPrivateNameCacheEntry;
 
+/// Cache entry for a TrySetStaticShape call site. A matching source HiddenClass
+/// has already been proven structurally compatible with the call site's target
+/// static shape. Instance values must still be checked on every use.
+typedef struct SHTrySetStaticShapeCacheEntry {
+  SHCompressedPointerRawType sourceClazz;
+} SHTrySetStaticShapeCacheEntry;
+
 /// Struct mirroring the layout of GCCell.
 typedef struct SHGCCell {
   SHCompressedPointerRawType kindAndSize;

@@ -144,60 +144,57 @@ void JSObject::checkTypedPropertyStoreBySlot(
   selfHandle->updateClass(runtime, *newClazz);
 }
 
-bool JSObject::trySwitchToCompatibleClass(
-    Handle<JSObject> selfHandle,
+bool JSObject::areClassesStructurallyCompatible(
+    Handle<HiddenClass> sourceClass,
     Runtime &runtime,
-    HiddenClass *clazz) {
-  assert(clazz && "expected target HiddenClass");
-  auto currentClass = runtime.makeHandle(selfHandle->getClass(runtime));
-  auto targetClass = runtime.makeHandle(clazz);
-
-  if (currentClass->isDictionary() != targetClass->isDictionary())
+    Handle<HiddenClass> targetClass) {
+  if (sourceClass->isDictionary() != targetClass->isDictionary())
     return false;
-  if (currentClass->isDictionaryNoCache() != targetClass->isDictionaryNoCache())
+  if (sourceClass->isDictionaryNoCache() !=
+      targetClass->isDictionaryNoCache())
     return false;
-  if (currentClass->getHasIndexLikeProperties() !=
+  if (sourceClass->getHasIndexLikeProperties() !=
       targetClass->getHasIndexLikeProperties())
     return false;
-  if (currentClass->getMayHaveAccessor() != targetClass->getMayHaveAccessor())
+  if (sourceClass->getMayHaveAccessor() !=
+      targetClass->getMayHaveAccessor())
     return false;
 
-  unsigned numProperties = currentClass->getNumProperties();
+  unsigned numProperties = sourceClass->getNumProperties();
   if (numProperties != targetClass->getNumProperties())
     return false;
 
   for (SlotIndex slot = 0; slot != numProperties; ++slot) {
-    auto currentProperty =
-        HiddenClass::findPropertyBySlot(currentClass, runtime, slot);
+    auto sourceProperty =
+        HiddenClass::findPropertyBySlot(sourceClass, runtime, slot);
     auto targetProperty =
         HiddenClass::findPropertyBySlot(targetClass, runtime, slot);
-    if (!currentProperty || !targetProperty)
+    if (!sourceProperty || !targetProperty)
       return false;
 
-    const NamedPropertyDescriptor &currentDesc = currentProperty->second;
+    const NamedPropertyDescriptor &sourceDesc = sourceProperty->second;
     const NamedPropertyDescriptor &targetDesc = targetProperty->second;
-    if (currentProperty->first != targetProperty->first)
+    if (sourceProperty->first != targetProperty->first)
       return false;
-    if (currentDesc.slot != targetDesc.slot || targetDesc.slot != slot)
+    if (sourceDesc.slot != targetDesc.slot || targetDesc.slot != slot)
       return false;
-    PropertyFlags currentFlags = currentDesc.flags;
+    PropertyFlags sourceFlags = sourceDesc.flags;
     PropertyFlags targetFlags = targetDesc.flags;
-    currentFlags.setPropertyType(PropertyTypeCode::None);
+    sourceFlags.setPropertyType(PropertyTypeCode::None);
     targetFlags.setPropertyType(PropertyTypeCode::None);
-    if (currentFlags != targetFlags)
+    if (sourceFlags != targetFlags)
       return false;
-
-    if (targetClass->isTyped()) {
-      auto value = getNamedSlotValueUnsafe(selfHandle.get(), runtime, slot)
-                       .unboxToHV(runtime);
-      if (!typedPropertyValueMatches(
-              targetDesc.flags.getPropertyType(), value, value))
-        return false;
-    }
   }
 
-  selfHandle->updateClass(runtime, clazz);
   return true;
+}
+
+void JSObject::setClassForStaticShape(
+    Handle<JSObject> selfHandle,
+    Runtime &runtime,
+    HiddenClass *targetClass) {
+  assert(targetClass && "expected target HiddenClass");
+  selfHandle->updateClass(runtime, targetClass);
 }
 
 PseudoHandle<JSObject> JSObject::create(

@@ -136,6 +136,13 @@ struct PrivateNameCacheEntry {
   SlotIndex slot{0};
 };
 
+/// Cache entry for a TrySetStaticShape call site. A matching source HiddenClass
+/// has already been proven structurally compatible with the call site's target
+/// static shape. Instance values must still be checked on every use.
+struct TrySetStaticShapeCacheEntry {
+  WeakRoot<HiddenClass> sourceClazz{nullptr};
+};
+
 /// A cache entry for adding a property and transitioning the HiddenClass.
 /// Stored in a list in RuntimeModule to save memory in WritePropertyCacheEntry.
 /// In order to hit this cache entry:
@@ -206,6 +213,12 @@ static_assert(
 static_assert(
     offsetof(SHPrivateNameCacheEntry, slot) ==
     offsetof(PrivateNameCacheEntry, slot));
+static_assert(
+    sizeof(SHTrySetStaticShapeCacheEntry) ==
+    sizeof(TrySetStaticShapeCacheEntry));
+static_assert(
+    offsetof(SHTrySetStaticShapeCacheEntry, sourceClazz) ==
+    offsetof(TrySetStaticShapeCacheEntry, sourceClazz));
 
 } // namespace vm
 } // namespace hermes

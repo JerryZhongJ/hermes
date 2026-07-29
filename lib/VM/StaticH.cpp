@@ -7,6 +7,8 @@
 
 #include "SHUnitExt.h"
 #include "hermes/BCGen/SerializedLiteralParser.h"
+#include "hermes/Support/JSONEmitter.h"
+#include "hermes/Support/Statistic.h"
 #include "hermes/VM/ArrayStorage.h"
 #include "hermes/VM/Callable.h"
 #include "hermes/VM/FastArray.h"
@@ -21,6 +23,7 @@
 #include "hermes/VM/JSTypedArray.h"
 #include "hermes/VM/ModuleExportsCache-inline.h"
 #include "hermes/VM/PropertyAccessor.h"
+#include "hermes/VM/PropertyCache.h"
 #include "hermes/VM/SerializedLiteralOperations.h"
 #include "hermes/VM/StackFrame-inline.h"
 #include "hermes/VM/StaticHUtils.h"
@@ -28,10 +31,41 @@
 
 #include "JSLib/JSLibInternal.h"
 
+#define DEBUG_TYPE "static-h"
+
+#include <algorithm>
 #include <cstdarg>
+#include <map>
+#include <mutex>
+#include <string>
+#include <tuple>
+#include <utility>
+#include <vector>
 
 using namespace hermes;
 using namespace hermes::vm;
+
+HERMES_SLOW_STATISTIC(
+    NumTrySetStaticShapeCalls,
+    "NumTrySetStaticShapeCalls: total TrySetStaticShape runtime calls.");
+HERMES_SLOW_STATISTIC(
+    NumTrySetStaticShapeCacheHits,
+    "NumTrySetStaticShapeCacheHits: TrySetStaticShape structural cache hits.");
+HERMES_SLOW_STATISTIC(
+    NumTrySetStaticShapeCacheMisses,
+    "NumTrySetStaticShapeCacheMisses: TrySetStaticShape structural cache misses.");
+HERMES_SLOW_STATISTIC(
+    NumTrySetStaticShapeStructuralMatches,
+    "NumTrySetStaticShapeStructuralMatches: structurally compatible classes.");
+HERMES_SLOW_STATISTIC(
+    NumTrySetStaticShapeStructuralMismatches,
+    "NumTrySetStaticShapeStructuralMismatches: structurally incompatible classes.");
+HERMES_SLOW_STATISTIC(
+    NumTrySetStaticShapeValueMismatches,
+    "NumTrySetStaticShapeValueMismatches: incompatible instance values.");
+HERMES_SLOW_STATISTIC(
+    NumTrySetStaticShapeCommits,
+    "NumTrySetStaticShapeCommits: successful static shape switches.");
 
 extern "C" void _SH_MODEL(void) {}
 
@@ -2453,14 +2487,306 @@ getStaticShapeClass(Runtime &runtime, SHUnit *unit, uint32_t index) {
   return clazz.get();
 }
 
+struct GuardDetailPropertySnapshot {
+  uint32_t slot;
+  std::string name;
+  uint16_t rawFlags;
+  uint8_t propertyType;
+
+  bool operator<(const GuardDetailPropertySnapshot &other) const {
+    return std::tie(slot, name, rawFlags, propertyType) <
+        std::tie(other.slot, other.name, other.rawFlags, other.propertyType);
+  }
+};
+
+struct GuardDetailClassSnapshot {
+  bool typed;
+  bool dictionary;
+  bool dictionaryNoCache;
+  bool indexLike;
+  bool accessor;
+  uint32_t numProperties;
+  std::vector<GuardDetailPropertySnapshot> properties;
+
+  bool operator<(const GuardDetailClassSnapshot &other) const {
+    return std::tie(
+               typed,
+               dictionary,
+               dictionaryNoCache,
+               indexLike,
+               accessor,
+               numProperties,
+               properties) <
+        std::tie(
+               other.typed,
+               other.dictionary,
+               other.dictionaryNoCache,
+               other.indexLike,
+               other.accessor,
+               other.numProperties,
+               other.properties);
+  }
+};
+
+enum class GuardDetailReason : uint8_t {
+  NonObject,
+  TargetCacheEmpty,
+  IdentityMismatchStructurallyCompatible,
+  StructurallyIncompatible,
+};
+
+const char *guardDetailReasonName(GuardDetailReason reason) {
+  switch (reason) {
+    case GuardDetailReason::NonObject:
+      return "non_object";
+    case GuardDetailReason::TargetCacheEmpty:
+      return "target_cache_empty";
+    case GuardDetailReason::IdentityMismatchStructurallyCompatible:
+      return "identity_mismatch_structurally_compatible";
+    case GuardDetailReason::StructurallyIncompatible:
+      return "structurally_incompatible";
+  }
+  llvm_unreachable("invalid guard detail reason");
+}
+
+struct GuardDetailKey {
+  uint32_t annotationId;
+  uint32_t targetShapeIndex;
+  GuardDetailReason reason;
+  llvh::Optional<GuardDetailClassSnapshot> actual;
+  llvh::Optional<GuardDetailClassSnapshot> target;
+
+  bool operator<(const GuardDetailKey &other) const {
+    return std::tie(
+               annotationId, targetShapeIndex, reason, actual, target) <
+        std::tie(
+               other.annotationId,
+               other.targetShapeIndex,
+               other.reason,
+               other.actual,
+               other.target);
+  }
+};
+
+using GuardDetailCounts = std::map<GuardDetailKey, uint64_t>;
+
+struct GuardDetailRegistry {
+  std::mutex mutex;
+  std::map<SHRuntime *, GuardDetailCounts> runtimes;
+};
+
+GuardDetailRegistry &guardDetailRegistry() {
+  static auto *registry = new GuardDetailRegistry();
+  return *registry;
+}
+
+GuardDetailClassSnapshot snapshotClass(
+    Handle<HiddenClass> clazz,
+    Runtime &runtime) {
+  GuardDetailClassSnapshot snapshot{
+      clazz->isTyped(),
+      clazz->isDictionary(),
+      clazz->isDictionaryNoCache(),
+      clazz->getHasIndexLikeProperties(),
+      clazz->getMayHaveAccessor(),
+      clazz->getNumProperties(),
+      {}};
+  snapshot.properties.reserve(snapshot.numProperties);
+  HiddenClass::forEachProperty(
+      clazz,
+      runtime,
+      [&snapshot, &runtime](SymbolID name, NamedPropertyDescriptor desc) {
+        snapshot.properties.push_back(
+            GuardDetailPropertySnapshot{
+                desc.slot,
+                runtime.convertSymbolToUTF8(name),
+                desc.flags._flags,
+                static_cast<uint8_t>(desc.flags.getPropertyType())});
+      });
+  assert(
+      snapshot.properties.size() == snapshot.numProperties &&
+      "HiddenClass property count must match its property map");
+  std::sort(snapshot.properties.begin(), snapshot.properties.end());
+  return snapshot;
+}
+
+void recordGuardDetail(SHRuntime *shr, GuardDetailKey key) {
+  GuardDetailRegistry &registry = guardDetailRegistry();
+  std::lock_guard<std::mutex> lock{registry.mutex};
+  ++registry.runtimes[shr][std::move(key)];
+}
+
+void emitGuardDetailClass(
+    JSONEmitter &json,
+    const GuardDetailClassSnapshot &snapshot) {
+  json.openDict();
+  json.emitKeyValue("typed", snapshot.typed);
+  json.emitKeyValue("dictionary", snapshot.dictionary);
+  json.emitKeyValue("dictionaryNoCache", snapshot.dictionaryNoCache);
+  json.emitKeyValue("indexLike", snapshot.indexLike);
+  json.emitKeyValue("accessor", snapshot.accessor);
+  json.emitKeyValue("numProperties", snapshot.numProperties);
+  json.emitKey("properties");
+  json.openArray();
+  for (const auto &property : snapshot.properties) {
+    json.openDict();
+    json.emitKeyValue("slot", property.slot);
+    json.emitKeyValue("name", property.name);
+    json.emitKeyValue("rawPropertyFlags", property.rawFlags);
+    json.emitKeyValue("propertyType", property.propertyType);
+    json.closeDict();
+  }
+  json.closeArray();
+  json.closeDict();
+}
+
+void emitGuardDetail(
+    llvh::raw_ostream &os,
+    const GuardDetailKey &key,
+    uint64_t count) {
+  os << "HERMES_GUARD_DETAIL ";
+  JSONEmitter json{os};
+  json.openDict();
+  json.emitKeyValue("version", 1);
+  json.emitKeyValue("annotationId", key.annotationId);
+  json.emitKeyValue("targetShapeIndex", key.targetShapeIndex);
+  json.emitKeyValue("reason", guardDetailReasonName(key.reason));
+  json.emitKeyValue("count", count);
+  json.emitKey("actual");
+  if (key.actual)
+    emitGuardDetailClass(json, *key.actual);
+  else
+    json.emitNullValue();
+  json.emitKey("target");
+  if (key.target)
+    emitGuardDetailClass(json, *key.target);
+  else
+    json.emitNullValue();
+  json.closeDict();
+  json.endJSONL();
+}
+
+bool staticShapeValuesMatch(
+    Handle<JSObject> obj,
+    Runtime &runtime,
+    SHUnit *unit,
+    const SHStaticShapeTableEntry &shape) {
+  for (uint32_t i = 0; i != shape.num_props; ++i) {
+    const SHStaticShapeProp &prop =
+        unit->static_shape_props[shape.prop_offset + i];
+    HermesValue value = JSObject::getNamedSlotValueUnsafe(
+                            obj.get(), runtime, static_cast<SlotIndex>(i))
+                            .unboxToHV(runtime);
+
+    if (prop.target_func) {
+      auto *func = dyn_vmcast_or_null<NativeJSFunction>(value);
+      if (!func || func->getFunctionPtr() != prop.target_func)
+        return false;
+      continue;
+    }
+
+    if (shape.typed &&
+        !typedPropertyValueMatches(
+            static_cast<PropertyTypeCode>(prop.type), value, value))
+      return false;
+  }
+  return true;
+}
+
 } // namespace
+
+LLVM_ATTRIBUTE_NOINLINE
+extern "C" void _sh_record_guard_detail(
+    SHRuntime *shr,
+    SHLegacyValue value,
+    SHUnit *unit,
+    uint32_t targetShapeIndex,
+    uint32_t annotationId) {
+  if (!_sh_ljs_is_object(value)) {
+    recordGuardDetail(
+        shr,
+        GuardDetailKey{
+            annotationId,
+            targetShapeIndex,
+            GuardDetailReason::NonObject,
+            llvh::None,
+            llvh::None});
+    return;
+  }
+
+  assert(
+      targetShapeIndex < unit->static_shape_table_count &&
+      "static shape index OOB");
+  Runtime &runtime = getRuntime(shr);
+  GCScopeMarkerRAII marker{runtime};
+  auto actualObject = Handle<JSObject>::vmcast(
+      runtime.makeHandle(HermesValue::fromRaw(value.raw)));
+  auto actualClass = runtime.makeHandle(actualObject->getClass(runtime));
+  GuardDetailClassSnapshot actualSnapshot = snapshotClass(actualClass, runtime);
+
+  auto *targetCacheEntry = reinterpret_cast<WeakRoot<HiddenClass> *>(
+      &unit->static_shape_class_cache[targetShapeIndex]);
+  if (!*targetCacheEntry) {
+    recordGuardDetail(
+        shr,
+        GuardDetailKey{
+            annotationId,
+            targetShapeIndex,
+            GuardDetailReason::TargetCacheEmpty,
+            std::move(actualSnapshot),
+            llvh::None});
+    return;
+  }
+
+  auto targetClass = runtime.makeHandle(
+      targetCacheEntry->getNonNull(runtime, runtime.getHeap()));
+  GuardDetailClassSnapshot targetSnapshot = snapshotClass(targetClass, runtime);
+  bool structurallyCompatible = JSObject::areClassesStructurallyCompatible(
+      actualClass, runtime, targetClass);
+  recordGuardDetail(
+      shr,
+      GuardDetailKey{
+          annotationId,
+          targetShapeIndex,
+          structurallyCompatible
+              ? GuardDetailReason::IdentityMismatchStructurallyCompatible
+              : GuardDetailReason::StructurallyIncompatible,
+          std::move(actualSnapshot),
+          std::move(targetSnapshot)});
+}
+
+LLVM_ATTRIBUTE_NOINLINE
+extern "C" void _sh_dump_clear_guard_details(SHRuntime *shr) {
+  GuardDetailCounts details;
+  {
+    GuardDetailRegistry &registry = guardDetailRegistry();
+    std::lock_guard<std::mutex> lock{registry.mutex};
+    auto it = registry.runtimes.find(shr);
+    if (it == registry.runtimes.end())
+      return;
+    details = std::move(it->second);
+    registry.runtimes.erase(it);
+  }
+
+  std::string output;
+  llvh::raw_string_ostream outputStream{output};
+  for (const auto &entry : details)
+    emitGuardDetail(outputStream, entry.first, entry.second);
+  outputStream.flush();
+
+  static std::mutex outputMutex;
+  std::lock_guard<std::mutex> outputLock{outputMutex};
+  llvh::errs() << output;
+}
 
 LLVM_ATTRIBUTE_NOINLINE
 extern "C" void _sh_ljs_try_set_static_shape(
     SHRuntime *shr,
     SHLegacyValue *target,
     SHUnit *unit,
-    uint32_t shapeIndex) {
+    uint32_t shapeIndex,
+    SHTrySetStaticShapeCacheEntry *cacheEntryRaw) {
+  ++NumTrySetStaticShapeCalls;
   if (!_sh_ljs_is_object(*target))
     return;
   Runtime &runtime = getRuntime(shr);
@@ -2475,25 +2801,46 @@ extern "C" void _sh_ljs_try_set_static_shape(
   // [[Prototype]] is null (Object.create(null), Object.prototype, ...).
   if (!obj->getParent(runtime))
     return;
-  HiddenClass *targetClass = getStaticShapeClass(runtime, unit, shapeIndex);
-  if (obj->getClass(runtime) == targetClass)
+
+  auto targetClass =
+      runtime.makeHandle(getStaticShapeClass(runtime, unit, shapeIndex));
+  auto sourceClass = runtime.makeHandle(obj->getClass(runtime));
+  if (sourceClass.get() == targetClass.get())
     return;
+
   const SHStaticShapeTableEntry &shape = unit->static_shape_table[shapeIndex];
-  if (obj->getClass(runtime)->getNumProperties() < shape.num_props)
+  if (sourceClass->getNumProperties() < shape.num_props)
     return;
-  for (uint32_t i = 0; i != shape.num_props; ++i) {
-    const SHStaticShapeProp &prop =
-        unit->static_shape_props[shape.prop_offset + i];
-    if (!prop.target_func)
-      continue;
-    HermesValue value = JSObject::getNamedSlotValueUnsafe(
-                            obj.get(), runtime, static_cast<SlotIndex>(i))
-                            .unboxToHV(runtime);
-    auto *func = dyn_vmcast_or_null<NativeJSFunction>(value);
-    if (!func || func->getFunctionPtr() != prop.target_func)
+
+  auto *cacheEntry =
+      reinterpret_cast<TrySetStaticShapeCacheEntry *>(cacheEntryRaw);
+  CompressedPointer sourceClassPtr{obj->getClassGCPtr()};
+  bool structureMatches =
+      cacheEntry && cacheEntry->sourceClazz == sourceClassPtr;
+  if (structureMatches) {
+    ++NumTrySetStaticShapeCacheHits;
+  } else {
+    ++NumTrySetStaticShapeCacheMisses;
+    structureMatches = JSObject::areClassesStructurallyCompatible(
+        sourceClass, runtime, targetClass);
+    if (!structureMatches) {
+      ++NumTrySetStaticShapeStructuralMismatches;
       return;
+    }
+    ++NumTrySetStaticShapeStructuralMatches;
+
+    if (cacheEntry && !sourceClass->isDictionary() &&
+        !sourceClass->isDictionaryNoCache() && !sourceClass->isTyped())
+      cacheEntry->sourceClazz.set(runtime, sourceClass.get());
   }
-  JSObject::trySwitchToCompatibleClass(obj, runtime, targetClass);
+
+  if (!staticShapeValuesMatch(obj, runtime, unit, shape)) {
+    ++NumTrySetStaticShapeValueMismatches;
+    return;
+  }
+
+  JSObject::setClassForStaticShape(obj, runtime, targetClass.get());
+  ++NumTrySetStaticShapeCommits;
 }
 
 LLVM_ATTRIBUTE_NOINLINE

@@ -125,6 +125,7 @@ typedef struct SHUnit {
   uint32_t num_read_prop_cache_entries;
   uint32_t num_write_prop_cache_entries;
   uint32_t num_private_name_cache_entries;
+  uint32_t num_try_set_static_shape_cache_entries;
 
   /// Pool of ASCII strings.
   const char *ascii_pool;
@@ -156,6 +157,10 @@ typedef struct SHUnit {
   /// `num_private_name_cache_entries` elements.  Must be zeroed
   /// initially.
   SHPrivateNameCacheEntry *private_name_cache;
+  /// TrySetStaticShape structural cache. Points to an array with
+  /// `num_try_set_static_shape_cache_entries` elements. Must be zeroed
+  /// initially.
+  SHTrySetStaticShapeCacheEntry *try_set_static_shape_cache;
 
   /// Object key buffer.
   const unsigned char *obj_key_buffer;
@@ -1542,7 +1547,20 @@ SHERMES_EXPORT void _sh_ljs_try_set_static_shape(
     SHRuntime *shr,
     SHLegacyValue *target,
     SHUnit *unit,
-    uint32_t shapeIndex);
+    uint32_t shapeIndex,
+    SHTrySetStaticShapeCacheEntry *cacheEntry);
+
+/// Record details for a failed static-shape guard. This diagnostic helper does
+/// not materialize an empty target weak cache entry.
+SHERMES_EXPORT void _sh_record_guard_detail(
+    SHRuntime *shr,
+    SHLegacyValue value,
+    SHUnit *unit,
+    uint32_t targetShapeIndex,
+    uint32_t annotationId);
+
+/// Dump this runtime's aggregated guard details to stderr and clear them.
+SHERMES_EXPORT void _sh_dump_clear_guard_details(SHRuntime *shr);
 
 SHERMES_EXPORT void _sh_unreachable() __attribute__((noreturn));
 

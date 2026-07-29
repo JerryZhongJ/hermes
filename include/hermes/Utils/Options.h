@@ -10,6 +10,9 @@
 
 #include "llvh/ADT/StringRef.h"
 
+#include <algorithm>
+#include <vector>
+
 namespace hermes {
 
 enum OutputFormatKind {
@@ -92,8 +95,27 @@ struct BytecodeGenerationOptions {
   // Emit asserts in the bytecode.
   bool emitAsserts = false;
 
-  // Instrument type/shape guard branches with success/fail counters.
+  // Instrument type/shape guard branches.
   bool instrumentGuards = false;
+
+  // Record shape miss details only for these annotation IDs.
+  std::vector<unsigned> instrumentGuardDetailIDs;
+
+  bool isGuardCountingEnabled() const {
+    return instrumentGuards || !instrumentGuardDetailIDs.empty();
+  }
+
+  bool isGuardDetailsEnabled() const {
+    return !instrumentGuardDetailIDs.empty();
+  }
+
+  bool shouldRecordGuardDetails(int annotationId) const {
+    return annotationId >= 0 &&
+        std::binary_search(
+               instrumentGuardDetailIDs.begin(),
+               instrumentGuardDetailIDs.end(),
+               static_cast<unsigned>(annotationId));
+  }
 
   // Instrument each JS function entry with a call counter; dump on exit.
   bool instrumentFunctionCalls = false;

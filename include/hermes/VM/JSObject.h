@@ -781,19 +781,21 @@ class JSObject : public GCCell {
       SlotIndex slot,
       Handle<> valueHandle);
 
-  /// Validate that \p clazz describes the same named property layout as \p
-  /// selfHandle, and if so replace the object's current HiddenClass with \p
-  /// clazz and return true; otherwise return false and leave the object
-  /// unchanged. Class flags must match except for the typed bit, descriptor
-  /// flags must match except for the property type, and typed target classes
-  /// additionally require existing slot values to match the target descriptor
-  /// types. Despite the generic-looking name this is currently used only by
-  /// the static-shape path (_sh_ljs_try_set_static_shape); closure-target
-  /// identity ("is F") is verified by the caller, not here.
-  static bool trySwitchToCompatibleClass(
+  /// Return true if \p sourceClass and \p targetClass describe the same named
+  /// property layout. Class flags must match except for the typed bit, and
+  /// descriptor flags must match except for the property type. This does not
+  /// inspect object values or modify either class.
+  static bool areClassesStructurallyCompatible(
+      Handle<HiddenClass> sourceClass,
+      Runtime &runtime,
+      Handle<HiddenClass> targetClass);
+
+  /// Install \p targetClass after the caller has validated both structural and
+  /// instance-value compatibility for a static shape.
+  static void setClassForStaticShape(
       Handle<JSObject> selfHandle,
       Runtime &runtime,
-      HiddenClass *clazz);
+      HiddenClass *targetClass);
 
   /// Load a value using a named descriptor. Read the value either from
   /// named storage or indexed storage depending on the presence of the

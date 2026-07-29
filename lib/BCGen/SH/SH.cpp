@@ -694,6 +694,7 @@ class InstrGen {
       uint32_t &nextWriteCacheIdx,
       uint32_t &nextReadCacheIdx,
       uint32_t &nextPrivateNameCacheIdx,
+      uint32_t &nextTrySetStaticShapeCacheIdx,
       const llvh::MapVector<TryStartInst *, uint32_t> &tryIDs)
       : os_(os),
         ra_(ra),
@@ -705,6 +706,7 @@ class InstrGen {
         nextWriteCacheIdx_(nextWriteCacheIdx),
         nextReadCacheIdx_(nextReadCacheIdx),
         nextPrivateNameCacheIdx_(nextPrivateNameCacheIdx),
+        nextTrySetStaticShapeCacheIdx_(nextTrySetStaticShapeCacheIdx),
         tryIDs_(tryIDs) {
     (void)options_;
     if (!tryIDs_.empty())
@@ -753,6 +755,7 @@ class InstrGen {
   uint32_t &nextWriteCacheIdx_;
   uint32_t &nextReadCacheIdx_;
   uint32_t &nextPrivateNameCacheIdx_;
+  uint32_t &nextTrySetStaticShapeCacheIdx_;
 
   /// Map from TryStart to an ID for the try/catch.
   /// Set the tryState to the ID when entering the try, restore it when leaving.
@@ -762,6 +765,18 @@ class InstrGen {
   /// If empty, there's no try in the entire function.
   /// If there is any try in the function, this will have an entry for every BB.
   llvh::DenseMap<BasicBlock *, TryStartInst *> enclosingTrys_{};
+
+  /// Saved operands for annotated shape guards in details mode. The operand's
+  /// RA register need only remain live through HasStaticShapeInst, so the later
+  /// CondBranch must use this dedicated C temporary instead.
+  llvh::DenseMap<const HasStaticShapeInst *, unsigned> shapeGuardDetailIDs_{};
+  unsigned nextShapeGuardDetailID_{0};
+
+  void generateShapeGuardDetailName(const HasStaticShapeInst &inst) {
+    auto it = shapeGuardDetailIDs_.find(&inst);
+    assert(it != shapeGuardDetailIDs_.end() && "missing shape guard detail id");
+    os_ << "__hss_arg_" << it->second;
+  }
 
   void unimplemented(Instruction &inst) {
     std::string err{"Unimplemented "};
@@ -2050,7 +2065,8 @@ class InstrGen {
     os_ << "_sh_ljs_try_set_static_shape(shr, ";
     generateRegisterPtr(*inst.getObject());
     os_ << ", shUnit, " << moduleGen_.staticShapeTable.getIndex(inst.getShape())
-        << ");\n";
+        << ", get_try_set_static_shape_cache(shUnit) + "
+        << nextTrySetStaticShapeCacheIdx_++ << ");\n";
   }
   void generateCreateArgumentsLooseInst(CreateArgumentsLooseInst &inst) {
     hermes_fatal("CreateArgumentsLooseInst should have been lowered.");
@@ -2251,7 +2267,7 @@ class InstrGen {
     // A guard branch's counter index is its annotation id (see
     // getGuardAnnotationId); -1 means this CondBranch is not an annotated
     // guard and emits plain gotos.
-    int tgCounterIdx = options_.instrumentGuards
+    int tgCounterIdx = options_.isGuardCountingEnabled()
         ? getGuardAnnotationId(inst.getCondition())
         : -1;
 
@@ -2277,7 +2293,18 @@ class InstrGen {
     if (tgCounterIdx >= 0) {
       os_ << "{ ++__tg_counters[" << tgCounterIdx << "].success; goto ";
       generateBasicBlockLabel(inst.getTrueDest(), os_, bbMap_);
-      os_ << "; }\n  { ++__tg_counters[" << tgCounterIdx << "].fail; goto ";
+      os_ << "; }\n  { ++__tg_counters[" << tgCounterIdx << "].fail; ";
+      if (options_.shouldRecordGuardDetails(tgCounterIdx)) {
+        if (auto *shapeGuard =
+                llvh::dyn_cast<HasStaticShapeInst>(inst.getCondition())) {
+          os_ << "_sh_record_guard_detail(shr, ";
+          generateShapeGuardDetailName(*shapeGuard);
+          os_ << ", shUnit, "
+              << moduleGen_.staticShapeTable.getIndex(shapeGuard->getShape())
+              << ", " << tgCounterIdx << "); ";
+        }
+      }
+      os_ << "goto ";
       generateBasicBlockLabel(inst.getFalseDest(), os_, bbMap_);
       os_ << "; }\n";
     } else {
@@ -2776,10 +2803,29 @@ class InstrGen {
     os_ << ");\n";
   }
   void generateHasStaticShapeInst(HasStaticShapeInst &inst) {
+    bool saveDetailArgument =
+        options_.shouldRecordGuardDetails(inst.getAnnotationId());
+    if (saveDetailArgument) {
+      bool inserted = shapeGuardDetailIDs_
+                          .try_emplace(&inst, nextShapeGuardDetailID_++)
+                          .second;
+      assert(inserted && "HasStaticShapeInst emitted more than once");
+      (void)inserted;
+      os_.indent(2);
+      os_ << "SHLegacyValue ";
+      generateShapeGuardDetailName(inst);
+      os_ << " = ";
+      generateValue(*inst.getArgument());
+      os_ << ";\n";
+    }
+
     os_.indent(2);
     generateRegister(inst);
     os_ << " = _sh_ljs_bool(_sh_ljs_has_static_shape(shr, ";
-    generateValue(*inst.getArgument());
+    if (saveDetailArgument)
+      generateShapeGuardDetailName(inst);
+    else
+      generateValue(*inst.getArgument());
     os_ << ", shUnit, " << moduleGen_.staticShapeTable.getIndex(inst.getShape())
         << "));\n";
   }
@@ -3035,6 +3081,7 @@ void generateFunction(
     uint32_t &nextWriteCacheIdx,
     uint32_t &nextReadCacheIdx,
     uint32_t &nextPrivateNameCacheIdx,
+    uint32_t &nextTrySetStaticShapeCacheIdx,
     BytecodeGenerationOptions options) {
   // Split unlikely edges where the target has PHI nodes, so that lowerPhis
   // places MOVs for the cold path in the new intermediate block instead of
@@ -3124,6 +3171,7 @@ void generateFunction(
       nextWriteCacheIdx,
       nextReadCacheIdx,
       nextPrivateNameCacheIdx,
+      nextTrySetStaticShapeCacheIdx,
       tryIDs);
 
   // Number of registers stored in the `locals` struct below.
@@ -3426,6 +3474,7 @@ void generateModule(
   uint32_t nextWriteCacheIdx = 0;
   uint32_t nextReadCacheIdx = 0;
   uint32_t nextPrivateNameCacheIdx = 0;
+  uint32_t nextTrySetStaticShapeCacheIdx = 0;
   ModuleGen moduleGen{M, options.optimizationEnabled};
 
   if (options.format == DumpBytecode || options.format == EmitBundle) {
@@ -3447,6 +3496,7 @@ static inline SHSymbolID* get_symbols(SHUnit *);
 static inline SHWritePropertyCacheEntry* get_write_prop_cache(SHUnit *);
 static inline SHReadPropertyCacheEntry* get_read_prop_cache(SHUnit *);
 static inline SHPrivateNameCacheEntry* get_private_name_cache(SHUnit *);
+static inline SHTrySetStaticShapeCacheEntry* get_try_set_static_shape_cache(SHUnit *);
 static const SHSrcLoc s_source_locations[];
 static SHNativeFuncInfo s_function_info_table[];
 )";
@@ -3467,7 +3517,7 @@ static SHNativeFuncInfo s_function_info_table[];
   // Guard instrumentation (type + shape guards). The counter index is the
   // guard's globally-unique annotation id, so each annotation's success/fail
   // counts land in a distinct slot.
-  if (options.instrumentGuards) {
+  if (options.isGuardCountingEnabled()) {
     auto &ann = M->getContext().getAnnotations();
     // Size the counter array by the total number of loaded annotations; each
     // one's id is its counter index (unmatched ones keep a zero/empty slot).
@@ -3667,6 +3717,7 @@ static SHNativeFuncInfo s_function_info_table[];
         nextWriteCacheIdx,
         nextReadCacheIdx,
         nextPrivateNameCacheIdx,
+        nextTrySetStaticShapeCacheIdx,
         options);
   }
 
@@ -3696,6 +3747,8 @@ static SHNativeFuncInfo s_function_info_table[];
        << "];\n"
        << "  SHPrivateNameCacheEntry private_name_cache_data["
        << nextPrivateNameCacheIdx << "];\n"
+       << "  SHTrySetStaticShapeCacheEntry try_set_static_shape_cache_data["
+       << nextTrySetStaticShapeCacheIdx << "];\n"
        << "  SHCompressedPointer object_literal_class_cache["
        << moduleGen.literalBuffers.objShapeTable.size() << "];\n"
        << "  SHCompressedPointer static_shape_class_cache["
@@ -3707,11 +3760,15 @@ static SHNativeFuncInfo s_function_info_table[];
        << ".num_symbols =" << moduleGen.stringTable.size()
        << ", .num_write_prop_cache_entries = " << nextWriteCacheIdx
        << ", .num_read_prop_cache_entries = " << nextReadCacheIdx
+       << ", .num_try_set_static_shape_cache_entries = "
+       << nextTrySetStaticShapeCacheIdx
        << ", .ascii_pool = s_ascii_pool, .u16_pool = s_u16_pool,"
        << ".strings = s_strings, .symbols = unit_data->symbol_data,"
        << ".write_prop_cache = unit_data->write_prop_cache_data,"
        << ".read_prop_cache = unit_data->read_prop_cache_data, "
        << ".private_name_cache = unit_data->private_name_cache_data, "
+       << ".try_set_static_shape_cache = "
+          "unit_data->try_set_static_shape_cache_data, "
        << ".obj_key_buffer = s_obj_key_buffer, .obj_key_buffer_size = "
        << moduleGen.literalBuffers.objKeyBuffer.size() << ", "
        << ".literal_val_buffer = s_literal_val_buffer, .literal_val_buffer_size = "
@@ -3747,6 +3804,9 @@ SHReadPropertyCacheEntry *get_read_prop_cache(SHUnit *unit) {
 SHPrivateNameCacheEntry *get_private_name_cache(SHUnit *unit) {
   return ((struct UnitData *)unit)->private_name_cache_data;
 }
+SHTrySetStaticShapeCacheEntry *get_try_set_static_shape_cache(SHUnit *unit) {
+  return ((struct UnitData *)unit)->try_set_static_shape_cache_data;
+}
 )";
     if (options.emitMain) {
       OS << R"(
@@ -3763,7 +3823,7 @@ bool run_event_loop(
 int main(int argc, char **argv) {
   SHRuntime *shr = _sh_init(argc, argv);
 )";
-      if (options.instrumentGuards &&
+      if (options.isGuardCountingEnabled() &&
           !moduleGen.guardCounterInfo.empty()) {
         OS << "  atexit(__tg_print_counters);\n";
       }
@@ -3779,7 +3839,11 @@ int main(int argc, char **argv) {
     _sh_initialize_units(shr, 1, CREATE_THIS_UNIT) &&
     run_event_loop(shr, consoleContext);
   free_console_context(consoleContext);
-  _sh_done(shr);
+)";
+      if (options.isGuardDetailsEnabled()) {
+        OS << "  _sh_dump_clear_guard_details(shr);\n";
+      }
+      OS << R"(  _sh_done(shr);
   return success ? 0 : 1;
 }
 )";
