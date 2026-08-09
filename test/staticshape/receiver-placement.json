@@ -1,0 +1,28 @@
+{
+  "static shapes": {
+    "X": {"properties": [{"name": "x"}]},
+    "M": {"properties": [{"name": "m"}]}
+  },
+  "shape hints": [
+    {"target range": {"start": {"line": 8, "column": 3}, "end": {"line": 8, "column": 6}}, "shape": "X"},
+    {"target range": {"start": {"line": 12, "column": 3}, "end": {"line": 12, "column": 6}}, "shape": "X"},
+    {"target range": {"start": {"line": 16, "column": 3}, "end": {"line": 16, "column": 6}}, "shape": "X"},
+    {"target range": {"start": {"line": 20, "column": 3}, "end": {"line": 20, "column": 6}}, "shape": "X"},
+    {"target range": {"start": {"line": 24, "column": 10}, "end": {"line": 24, "column": 13}}, "shape": "M"},
+    {"target range": {"start": {"line": 28, "column": 11}, "end": {"line": 28, "column": 23}}, "shape": "X"},
+    {"target range": {"start": {"line": 32, "column": 10}, "end": {"line": 32, "column": 13}}, "shape": "X"},
+    {"target range": {"start": {"line": 36, "column": 3}, "end": {"line": 36, "column": 6}}, "shape": "X"},
+    {"target range": {"start": {"line": 40, "column": 10}, "end": {"line": 40, "column": 13}}, "shape": "X"},
+    {"target range": {"start": {"line": 44, "column": 10}, "end": {"line": 44, "column": 13}}, "shape": "M"},
+    {"target range": {"start": {"line": 50, "column": 12}, "end": {"line": 50, "column": 15}}, "shape": "X"},
+    {"target range": {"start": {"line": 55, "column": 17}, "end": {"line": 55, "column": 20}}, "shape": "X"},
+    {"target range": {"start": {"line": 59, "column": 17}, "end": {"line": 59, "column": 23}}, "shape": "X"}
+  ],
+  "shape bindings": [
+    {"target range": {"start": {"line": 8, "column": 3}, "end": {"line": 8, "column": 6}}, "shape": "X"},
+    {"target range": {"start": {"line": 12, "column": 3}, "end": {"line": 12, "column": 6}}, "shape": "X"},
+    {"target range": {"start": {"line": 16, "column": 3}, "end": {"line": 16, "column": 6}}, "shape": "X"},
+    {"target range": {"start": {"line": 20, "column": 3}, "end": {"line": 20, "column": 6}}, "shape": "X"},
+    {"target range": {"start": {"line": 36, "column": 3}, "end": {"line": 36, "column": 6}}, "shape": "X"}
+  ]
+}

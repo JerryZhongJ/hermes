@@ -77,6 +77,17 @@ struct StaticShapeDefinition {
   llvh::SmallVector<StaticShapePropertyDefinition, 8> properties;
 };
 
+/// Entry in the type guards array.
+struct TypeGuardEntry {
+  /// Scalar type name or union members (e.g. ["number", "string"]).
+  std::vector<std::string> typeNames;
+  /// For a scalar "closure" guard: exact source range of its target function.
+  /// Invalid for every other type guard.
+  llvh::SMRange targetFuncRange;
+  /// Globally-unique annotation id.
+  unsigned annotationId;
+};
+
 /// Entry in the shape bindings array.
 struct ShapeBindingEntry {
   /// Name of the static shape in the JSON "static shapes" object.
@@ -138,12 +149,8 @@ inline llvh::StringRef annotationKindLabel(AnnotationDescriptor::Kind k) {
 /// Annotation ids are globally unique across all three categories.
 class Annotations {
  private:
-  /// Type hint map: SMRange -> type strings (e.g., ["number", "string"]).
-  llvh::DenseMap<llvh::SMRange, std::vector<std::string>, SMRangeInfo>
-      typeGuards_;
-
-  /// Type hint index map: SMRange -> globally-unique annotation id.
-  llvh::DenseMap<llvh::SMRange, unsigned, SMRangeInfo> typeGuardIds_;
+  /// Type guard map: target expression range -> guard entry.
+  llvh::DenseMap<llvh::SMRange, TypeGuardEntry, SMRangeInfo> typeGuards_;
 
   /// Static shape definitions loaded from JSON, keyed by shape name.
   llvh::StringMap<StaticShapeDefinition> shapeDefs_;
@@ -175,13 +182,8 @@ class Annotations {
   /// Load type hints, shape hints, and shape bindings from a JSON file.
   bool loadFromFile(llvh::StringRef jsonPath, SourceErrorManager &sm);
 
-  /// Query the type hint strings for a given source range.
-  llvh::Optional<std::vector<std::string>> getTypeGuard(
-      llvh::SMRange range) const;
-
-  /// Query the type hint index for a given source range.
-  /// Returns -1 if not found.
-  int getTypeGuardId(llvh::SMRange range) const;
+  /// Query the type guard for a given source range.
+  llvh::Optional<TypeGuardEntry> getTypeGuard(llvh::SMRange range) const;
 
   /// Total number of annotations loaded (== one past the largest annotation
   /// id). Used by guard instrumentation to size the counter array.
@@ -202,7 +204,7 @@ class Annotations {
   }
 
   /// Get all type hints (for debugging).
-  const llvh::DenseMap<llvh::SMRange, std::vector<std::string>, SMRangeInfo> &
+  const llvh::DenseMap<llvh::SMRange, TypeGuardEntry, SMRangeInfo> &
   getAnnotations() const {
     return typeGuards_;
   }

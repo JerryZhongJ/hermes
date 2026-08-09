@@ -694,6 +694,9 @@ class TypeInferenceImpl {
   Type inferHasStaticShapeInst(HasStaticShapeInst *inst) {
     return *inst->getInherentType();
   }
+  Type inferHasClosureTargetInst(HasClosureTargetInst *inst) {
+    return *inst->getInherentType();
+  }
   Type inferThrowIfInst(ThrowIfInst *inst) {
     Type type = inst->getCheckedValue()->getType();
     assert(!type.isNoType() && "input to throwIfEmpty cannot be NoType");

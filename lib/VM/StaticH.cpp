@@ -2666,6 +2666,13 @@ void emitGuardDetail(
   json.endJSONL();
 }
 
+bool closureTargetMatches(
+    HermesValue value,
+    NativeJSFunctionPtr expectedTarget) {
+  auto *func = dyn_vmcast_or_null<NativeJSFunction>(value);
+  return func && func->getFunctionPtr() == expectedTarget;
+}
+
 bool staticShapeValuesMatch(
     Handle<JSObject> obj,
     Runtime &runtime,
@@ -2679,8 +2686,7 @@ bool staticShapeValuesMatch(
                             .unboxToHV(runtime);
 
     if (prop.target_func) {
-      auto *func = dyn_vmcast_or_null<NativeJSFunction>(value);
-      if (!func || func->getFunctionPtr() != prop.target_func)
+      if (!closureTargetMatches(value, prop.target_func))
         return false;
       continue;
     }
@@ -2694,6 +2700,15 @@ bool staticShapeValuesMatch(
 }
 
 } // namespace
+
+LLVM_ATTRIBUTE_NOINLINE
+extern "C" bool _sh_ljs_has_closure_target(
+    SHRuntime *shr,
+    SHLegacyValue value,
+    NativeJSFunctionPtr expectedTarget) {
+  (void)shr;
+  return closureTargetMatches(HermesValue::fromRaw(value.raw), expectedTarget);
+}
 
 LLVM_ATTRIBUTE_NOINLINE
 extern "C" void _sh_record_guard_detail(

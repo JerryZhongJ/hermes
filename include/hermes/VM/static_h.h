@@ -1543,6 +1543,13 @@ static inline bool _sh_ljs_has_static_shape(
   return obj->clazz == cachedClass.raw;
 }
 
+/// Return true iff \p value is exactly a NativeJSFunction whose native code
+/// pointer equals \p expectedTarget.
+SHERMES_EXPORT bool _sh_ljs_has_closure_target(
+    SHRuntime *shr,
+    SHLegacyValue value,
+    NativeJSFunctionPtr expectedTarget);
+
 SHERMES_EXPORT void _sh_ljs_try_set_static_shape(
     SHRuntime *shr,
     SHLegacyValue *target,

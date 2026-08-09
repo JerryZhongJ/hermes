@@ -255,6 +255,7 @@ bool Verifier::visitFunction(const Function &F) {
         llvh::isa<BaseCallInst>(user) ||
             llvh::isa<BaseCreateLexicalChildInst>(user) ||
             llvh::isa<GetClosureScopeInst>(user) ||
+            llvh::isa<HasClosureTargetInst>(user) ||
             llvh::isa<CreateThisInst>(user),
         "Function can only be an operand to certain instructions");
   }
@@ -851,6 +852,22 @@ bool Verifier::visitHasStaticShapeInst(const HasStaticShapeInst &Inst) {
       llvh::isa<LiteralStaticShape>(
           Inst.getOperand(HasStaticShapeInst::ShapeIdx)),
       "HasStaticShapeInst::Shape must be a LiteralStaticShape");
+  return true;
+}
+
+bool Verifier::visitHasClosureTargetInst(const HasClosureTargetInst &Inst) {
+  AssertIWithMsg(
+      Inst,
+      llvh::isa<Function>(
+          Inst.getOperand(HasClosureTargetInst::ClosureTargetIdx)),
+      "closure target must be a Function");
+  AssertIWithMsg(
+      Inst,
+      llvh::isa<EmptySentinel>(
+          Inst.getOperand(HasClosureTargetInst::TargetIdx)) ||
+          llvh::isa<Function>(
+              Inst.getOperand(HasClosureTargetInst::TargetIdx)),
+      "inferred closure target must be a Function or EmptySentinel");
   return true;
 }
 
@@ -1765,6 +1782,10 @@ bool Verifier::visitHBCStringConcatInst(const HBCStringConcatInst &Inst) {
 }
 
 bool Verifier::visitUnionNarrowTrustedInst(const UnionNarrowTrustedInst &Inst) {
+  AssertIWithMsg(
+      Inst,
+      !Inst.getClosureTarget() || Inst.getSavedResultType().canBeObject(),
+      "closure target requires saved result type to allow object");
   return true;
 }
 bool Verifier::visitCheckedTypeCastInst(const CheckedTypeCastInst &Inst) {

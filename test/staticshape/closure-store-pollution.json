@@ -1,0 +1,31 @@
+{
+  "static shapes": {
+    "ClosureSlot": {
+      "properties": [
+        {
+          "name": "method",
+          "type": "closure",
+          "target function": {
+            "start": {"line": 16, "column": 1},
+            "end": {"line": 18, "column": 2}
+          }
+        },
+        {
+          "name": "n",
+          "type": "number"
+        }
+      ]
+    }
+  },
+  "shape bindings": [
+    {
+      "target range": {
+        "file": "closure-store-pollution.js",
+        "start": {"line": 21, "column": 11},
+        "end": {"line": 21, "column": 36}
+      },
+      "shape": "ClosureSlot"
+    }
+  ],
+  "shape hints": []
+}

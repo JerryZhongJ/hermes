@@ -602,15 +602,16 @@ class SHNativeJSFunctionTable {
   }
 };
 
-/// If \p cond is a guard check instruction (TypeOfIsInst / HasStaticShapeInst)
-/// originating from an annotation, return its annotation id, which doubles as
-/// the guard-instrumentation counter index. Returns -1 otherwise (a non-guard
-/// CondBranch, or a guard not derived from an annotation).
+/// If \p cond is an annotation-derived guard check, return its annotation id,
+/// which doubles as the guard-instrumentation counter index. Returns -1 for a
+/// non-guard CondBranch or a guard not derived from an annotation.
 static int getGuardAnnotationId(Value *cond) {
   if (auto *TOI = llvh::dyn_cast<TypeOfIsInst>(cond))
     return TOI->getAnnotationId();
   if (auto *HTS = llvh::dyn_cast<HasStaticShapeInst>(cond))
     return HTS->getAnnotationId();
+  if (auto *HCT = llvh::dyn_cast<HasClosureTargetInst>(cond))
+    return HCT->getAnnotationId();
   return -1;
 }
 
@@ -631,8 +632,9 @@ struct ModuleGen {
   /// Table of JS native functions
   SHNativeJSFunctionTable nativeFunctionTable;
 
-  /// Guard instrumentation labels (type + shape guards), indexed by the
-  /// globally-unique annotation id (which doubles as the counter index). Built
+  /// Guard instrumentation labels (type, shape, and closure-target guards),
+  /// indexed by the globally-unique annotation id (which doubles as the counter
+  /// index). Built
   /// at scan time, consumed only to emit the __tg_print_counters fprintf
   /// calls. Each entry is a self-describing string such as
   /// "ann#1 [shape-hint XNumber] @file:7:5"; empty entries mark annotations
@@ -2802,6 +2804,16 @@ class InstrGen {
     generateRegister(*inst.getDerivedClassCheckedThis());
     os_ << ");\n";
   }
+  void generateHasClosureTargetInst(HasClosureTargetInst &inst) {
+    os_.indent(2);
+    generateRegister(inst);
+    os_ << " = _sh_ljs_bool(_sh_ljs_has_closure_target(shr, ";
+    generateValue(*inst.getArgument());
+    os_ << ", &";
+    moduleGen_.nativeFunctionTable.generateFunctionLabel(
+        inst.getClosureTarget(), os_);
+    os_ << "));\n";
+  }
   void generateHasStaticShapeInst(HasStaticShapeInst &inst) {
     bool saveDetailArgument =
         options_.shouldRecordGuardDetails(inst.getAnnotationId());
@@ -3514,8 +3526,9 @@ static SHNativeFuncInfo s_function_info_table[];
     }
   }
 
-  // Guard instrumentation (type + shape guards). The counter index is the
-  // guard's globally-unique annotation id, so each annotation's success/fail
+  // Guard instrumentation (type, shape, and closure-target guards). The counter
+  // index is the guard's globally-unique annotation id, so each annotation's
+  // success/fail
   // counts land in a distinct slot.
   if (options.isGuardCountingEnabled()) {
     auto &ann = M->getContext().getAnnotations();
@@ -3560,7 +3573,8 @@ static SHNativeFuncInfo s_function_info_table[];
     unsigned numCounters = moduleGen.guardCounterInfo.size();
     if (numCounters > 0 &&
         (options.format == DumpBytecode || options.format == EmitBundle)) {
-      OS << "\n/* Guard instrumentation counters (type + shape) */\n";
+      OS << "\n/* Guard instrumentation counters "
+            "(type, shape, and closure-target) */\n";
       OS << "#include <stdio.h>\n";
       OS << "static struct { unsigned long long success; unsigned long long fail; }"
          << " __tg_counters[" << numCounters << "];\n";

@@ -190,7 +190,8 @@ Value *ESTreeIRGen::genArrowFunctionExpression(
             nameHint,
             AF,
             curFunction()->curScope()->getVariableScope(),
-            curFunction()->capturedState));
+            curFunction()->capturedState,
+            parentNode));
   }
 
   auto *newFunc = genCapturingFunction(
@@ -227,10 +228,33 @@ void ESTreeIRGen::applyClosureTarget(
     ESTree::Node *parentNode) {
   // Use getFunctionRange (same as createFunction) for consistent exact-match.
   llvh::SMRange range = getFunctionRange(functionNode, parentNode);
+  // Generator/async lowering creates inner functions with the same source range.
+  // The first function registered is the user-visible closure target; never let
+  // an implementation-detail inner function overwrite it.
+  auto insertedTarget = targetFuncsByRange_.insert({range, newFunc});
+  if (!insertedTarget.second)
+    return;
+
   if (auto it = targetFuncRangeToProps_.find(range);
       it != targetFuncRangeToProps_.end()) {
     for (const auto &entry : it->second)
       entry.first->setPropertyTargetFunc(entry.second, newFunc);
+  }
+
+  if (auto it = pendingClosureTypeGuards_.find(range);
+      it != pendingClosureTypeGuards_.end()) {
+    for (const auto &guard : it->second) {
+      Instruction *value =
+          llvh::cast<Instruction>(guard.valueHolder->getSingleOperand());
+      insertClosureTypeCheck(
+          value,
+          newFunc,
+          guard.expressionRange,
+          guard.annotationId,
+          guard.valueHolder);
+      guard.valueHolder->eraseFromParent();
+    }
+    pendingClosureTypeGuards_.erase(it);
   }
 }
 
@@ -553,6 +577,7 @@ Function *ESTreeIRGen::genGeneratorFunction(
       functionNode->getSemInfo()->customDirectives,
       getFunctionRange(functionNode, parentNode),
       /* insertBefore */ nullptr);
+  applyClosureTarget(functionNode, outerFn, parentNode);
 
   auto *body = ESTree::getBlockStatement(functionNode);
   if (body->isLazyFunctionBody) {
@@ -682,6 +707,7 @@ Function *ESTreeIRGen::genAsyncFunction(
       functionNode->getSemInfo()->customDirectives,
       getFunctionRange(functionNode, parentNode),
       /* insertBefore */ nullptr);
+  applyClosureTarget(functionNode, asyncFn, parentNode);
 
   bool isAsyncArrow =
       llvh::isa<ESTree::ArrowFunctionExpressionNode>(functionNode);
@@ -704,7 +730,8 @@ Function *ESTreeIRGen::genAsyncFunction(
                       originalName,
                       parentScope,
                       capturedState,
-                      isAsyncArrow]() {
+                      isAsyncArrow,
+                      parentNode]() {
     FunctionContext asyncFnContext{this, asyncFn, functionNode->getSemInfo()};
     Function::ScopedLexicalScopeChange lexScopeChange(
         curFunction()->function,
@@ -735,7 +762,8 @@ Function *ESTreeIRGen::genAsyncFunction(
         genAnonymousLabelName(originalName.isValid() ? originalName.str() : ""),
         functionNode,
         curFunction()->curScope()->getVariableScope(),
-        capturedState.homeObject);
+        capturedState.homeObject,
+        parentNode);
 
     auto *genClosure =
         Builder.createCreateFunctionInst(curFunction()->curScope(), gen);

@@ -1029,7 +1029,11 @@ class InstSimplifyImpl {
   ///   - nullptr if the instruction cannot be simplified.
   ///   - a new value to replace the original one
   OptValue<Value *> simplifyUnionNarrowTrusted(UnionNarrowTrustedInst *UNT) {
-    if (UNT->getSingleOperand()->getType().isSubsetOf(UNT->getType()))
+    // A closure-target UNT carries a runtime-proven function identity even when
+    // its type narrowing is otherwise a no-op. Keep it until FunctionAnalysis
+    // consumes that identity.
+    if (!UNT->getClosureTarget() &&
+        UNT->getSingleOperand()->getType().isSubsetOf(UNT->getType()))
       return UNT->getSingleOperand();
     return nullptr;
   }
@@ -1132,6 +1136,15 @@ class InstSimplifyImpl {
     }
 
     return nullptr;
+  }
+
+  /// If the closure target is known, compare it with the expected target.
+  Value *simplifyHasClosureTarget(HasClosureTargetInst *inst) {
+    auto *target = llvh::dyn_cast<Function>(inst->getTarget());
+    if (!target)
+      return nullptr;
+
+    return builder_.getLiteralBool(target == inst->getClosureTarget());
   }
 
   /// If the object's static shape is known, the TrySet is dead:
@@ -1283,6 +1296,8 @@ class InstSimplifyImpl {
         return simplifyStoreProperty(cast<StorePropertyInst>(I));
       case ValueKind::HasStaticShapeInstKind:
         return simplifyHasStaticShape(cast<HasStaticShapeInst>(I));
+      case ValueKind::HasClosureTargetInstKind:
+        return simplifyHasClosureTarget(cast<HasClosureTargetInst>(I));
       case ValueKind::TrySetStaticShapeInstKind:
         return simplifyTrySetStaticShape(cast<TrySetStaticShapeInst>(I));
       case ValueKind::LoadParentInstKind:

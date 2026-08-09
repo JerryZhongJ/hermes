@@ -25,8 +25,8 @@ print(f(obj));
 // IR-NEXT:  %2 = CreateFunctionInst (:object) empty: any, empty: any, %f(): functionCode
 // IR-NEXT:       StorePropertyLooseInst %2: object, globalObject: object, "f": string
 // IR-NEXT:  %4 = AllocObjectLiteralInst (:object) empty: any, "x": string, 1: number, "y": string, 2: number
-// IR-NEXT:       StorePropertyLooseInst %4: object, globalObject: object, "obj": string
 // IR-NEXT:       TrySetStaticShapeInst %4: object, {x: number, y: number}: null [ann#1]
+// IR-NEXT:       StorePropertyLooseInst %4: object, globalObject: object, "obj": string
 // IR-NEXT:  %7 = TryLoadGlobalPropertyInst (:any) globalObject: object, "print": string
 // IR-NEXT:  %8 = LoadPropertyInst (:any) globalObject: object, "f": string
 // IR-NEXT:  %9 = LoadPropertyInst (:any) globalObject: object, "obj": string

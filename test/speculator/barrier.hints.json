@@ -1,0 +1,28 @@
+{
+  "shape hints": [
+    {
+      "target range": {
+        "file": "barrier.js",
+        "start": {
+          "line": 15,
+          "column": 3
+        },
+        "end": {
+          "line": 15,
+          "column": 4
+        }
+      },
+      "shape": "S"
+    }
+  ],
+  "static shapes": {
+    "S": {
+      "properties": [
+        {
+          "name": "x",
+          "type": "number"
+        }
+      ]
+    }
+  }
+}

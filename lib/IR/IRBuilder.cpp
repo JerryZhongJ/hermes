@@ -879,6 +879,15 @@ HasStaticShapeInst *IRBuilder::createHasStaticShapeInst(
   return inst;
 }
 
+HasClosureTargetInst *IRBuilder::createHasClosureTargetInst(
+    Value *value,
+    Function *closureTarget) {
+  auto *inst =
+      new HasClosureTargetInst(value, closureTarget, getEmptySentinel());
+  insert(inst);
+  return inst;
+}
+
 UnaryOperatorInst *
 IRBuilder::createUnaryOperatorInst(Value *value, ValueKind kind, Type type) {
   auto UOI = new UnaryOperatorInst(kind, value, type);
@@ -1396,8 +1405,9 @@ HBCStringConcatInst *IRBuilder::createHBCStringConcatInst(
 
 UnionNarrowTrustedInst *IRBuilder::createUnionNarrowTrustedInst(
     Value *value,
-    Type type) {
-  auto *inst = new UnionNarrowTrustedInst(value, type);
+    Type type,
+    Function *closureTarget) {
+  auto *inst = new UnionNarrowTrustedInst(value, type, closureTarget);
   insert(inst);
   return inst;
 }

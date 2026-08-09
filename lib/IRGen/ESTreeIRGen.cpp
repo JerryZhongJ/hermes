@@ -288,6 +288,7 @@ void ESTreeIRGen::doIt(llvh::StringRef topLevelFunctionName) {
   emitFunctionEpilogue(retVal);
 
   drainCompilationQueue();
+  reportUnresolvedClosureTypeGuards();
 }
 
 Function *ESTreeIRGen::doItInScope(EvalCompilationDataInst *evalDataInst) {
@@ -366,6 +367,7 @@ Function *ESTreeIRGen::doItInScope(EvalCompilationDataInst *evalDataInst) {
   emitFunctionEpilogue(retVal);
 
   drainCompilationQueue();
+  reportUnresolvedClosureTypeGuards();
 
   return newFunc;
 }
@@ -392,6 +394,7 @@ void ESTreeIRGen::doCJSModule(
   Function *newFunc = genBasicFunction(functionName, func, nullptr);
 
   drainCompilationQueue();
+  reportUnresolvedClosureTypeGuards();
 
   Builder.getModule()->addCJSModule(
       segmentID, id, Builder.createIdentifier(filename), newFunc);
@@ -473,6 +476,7 @@ Function *ESTreeIRGen::doLazyFunction(Function *lazyFunc) {
   }
 
   drainCompilationQueue();
+  reportUnresolvedClosureTypeGuards();
 
   // The lazyFunc will be destroyed when the BytecodeFunction
   // is destroyed.

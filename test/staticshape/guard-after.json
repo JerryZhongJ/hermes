@@ -2,16 +2,15 @@
   "static shapes": {
     "YNum": {"properties": [{"name": "y", "type": "number"}]}
   },
-  "shape bindings": [
+  "shape hints": [
     {
-      "target range": {"file": "guard-after.js", "start": {"line": 7, "column": 11}, "end": {"line": 7, "column": 17}},
+      "target range": {"file": "guard-after.js", "start": {"line": 7, "column": 3}, "end": {"line": 7, "column": 4}},
       "shape": "YNum"
     }
   ],
-  "shape hints": [
+  "shape bindings": [
     {
-      "target range": {"file": "guard-after.js", "start": {"line": 7, "column": 11}, "end": {"line": 7, "column": 17}},
-      "guard after": {"file": "guard-after.js", "start": {"line": 8, "column": 3}, "end": {"line": 8, "column": 13}},
+      "target range": {"file": "guard-after.js", "start": {"line": 7, "column": 3}, "end": {"line": 7, "column": 4}},
       "shape": "YNum"
     }
   ]

@@ -43,6 +43,8 @@ print("trySetFailure", trySetFailure());
 
 // CHECK:storePropertyOk 2
 // CHECK-NEXT:storePropertyBad bad
+// These two calls share the same TrySet call site and ordinary source HC. The
+// second call must still reject its string value after a structural cache hit.
 // CHECK-NEXT:prStoreOk 3
 // CHECK-NEXT:prStoreBad bad
 // CHECK-NEXT:trySetSuccess 4

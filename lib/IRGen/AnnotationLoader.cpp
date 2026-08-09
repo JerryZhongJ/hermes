@@ -15,6 +15,8 @@
 #include "llvh/Support/MemoryBuffer.h"
 #include "llvh/Support/raw_ostream.h"
 
+#include <algorithm>
+
 #define DEBUG_TYPE "annotation-loader"
 
 namespace hermes {
@@ -328,9 +330,7 @@ llvh::Optional<std::string> resolveShapeName(
 void loadTypeGuards(
     const llvh::json::Array &arr,
     SourceErrorManager &sm,
-    llvh::DenseMap<llvh::SMRange, std::vector<std::string>, SMRangeInfo>
-        &typeGuards,
-    llvh::DenseMap<llvh::SMRange, unsigned, SMRangeInfo> &typeGuardIds,
+    llvh::DenseMap<llvh::SMRange, TypeGuardEntry, SMRangeInfo> &typeGuards,
     unsigned &nextAnnotationId,
     std::vector<AnnotationDescriptor> &annotationDescriptors) {
   for (unsigned i = 0, e = arr.size(); i < e; ++i) {
@@ -367,6 +367,48 @@ void loadTypeGuards(
       continue;
     }
 
+    // A closure guard identifies one exact function and therefore must be the
+    // scalar string "closure", never an array/union. Its target is forbidden on
+    // every other type guard.
+    auto scalarType = annot->getString("type");
+    bool isClosureType = scalarType && *scalarType == "closure";
+    if (!isClosureType &&
+        std::find(typeStrs.begin(), typeStrs.end(), "closure") !=
+            typeStrs.end()) {
+      sm.warning(
+          llvh::SMLoc{},
+          "type guard at " + at +
+              ": 'closure' must be a scalar type and cannot be in a union");
+      continue;
+    }
+
+    llvh::SMRange targetFuncRange;
+    if (auto *targetFuncVal = annot->get("target function")) {
+      if (!isClosureType) {
+        sm.warning(
+            llvh::SMLoc{},
+            "type guard at " + at +
+                ": 'target function' is only valid for type 'closure'");
+        continue;
+      }
+      auto *targetFuncObj = targetFuncVal->getAsObject();
+      auto resolved = targetFuncObj
+          ? resolveLocation(targetFuncObj, sm)
+          : llvh::Optional<llvh::SMRange>{};
+      if (!resolved) {
+        sm.warning(
+            llvh::SMLoc{},
+            "type guard at " + at + ": invalid 'target function' range");
+        continue;
+      }
+      targetFuncRange = *resolved;
+    } else if (isClosureType) {
+      sm.warning(
+          llvh::SMLoc{},
+          "closure type guard at " + at + " is missing 'target function'");
+      continue;
+    }
+
     auto range = resolveLocation(loc, sm);
     if (!range.hasValue()) {
       sm.warning(
@@ -374,11 +416,19 @@ void loadTypeGuards(
       continue;
     }
 
+    if (typeGuards.count(range.getValue())) {
+      sm.warning(
+          llvh::SMLoc{},
+          "type guard at " + at +
+              ": duplicate target range; annotation skipped");
+      continue;
+    }
+
     // Assign a globally-unique id shared across all annotation categories.
     unsigned id = nextAnnotationId++;
     std::string detail = llvh::join(typeStrs, "|");
-    typeGuards.insert({range.getValue(), std::move(typeStrs)});
-    typeGuardIds.insert({range.getValue(), id});
+    typeGuards.insert(
+        {range.getValue(), {std::move(typeStrs), targetFuncRange, id}});
     annotationDescriptors.push_back(
         {AnnotationDescriptor::Type,
          std::move(detail),
@@ -651,7 +701,6 @@ bool Annotations::loadFromFile(
         *arr,
         sm,
         typeGuards_,
-        typeGuardIds_,
         nextAnnotationId_,
         annotationDescriptors_);
 
@@ -678,22 +727,11 @@ bool Annotations::loadFromFile(
   return true;
 }
 
-llvh::Optional<std::vector<std::string>> Annotations::getTypeGuard(
+llvh::Optional<TypeGuardEntry> Annotations::getTypeGuard(
     llvh::SMRange range) const {
   auto it = typeGuards_.find(range);
-  if (it != typeGuards_.end()) {
-    matchedAnnotationIds_.insert(typeGuardIds_.find(range)->second);
-    return it->second;
-  }
-  return llvh::None;
-}
-
-int Annotations::getTypeGuardId(llvh::SMRange range) const {
-  auto it = typeGuardIds_.find(range);
-  if (it != typeGuardIds_.end()) {
-    return static_cast<int>(it->second);
-  }
-  return -1;
+  return it != typeGuards_.end() ? llvh::Optional<TypeGuardEntry>(it->second)
+                                : llvh::None;
 }
 
 void Annotations::getShapeGuards(

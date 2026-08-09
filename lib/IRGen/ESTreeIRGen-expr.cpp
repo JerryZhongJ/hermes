@@ -55,32 +55,16 @@ Value *ESTreeIRGen::genMemberObjectExpression(ESTree::Node *expr) {
 }
 
 bool ESTreeIRGen::tryInsertTypeCheck(Value *val, ESTree::Node *node) {
-  const Annotations &typeAnnotations = Mod->getContext().getAnnotations();
+  const Annotations &annotations = Mod->getContext().getAnnotations();
   auto range = node->getSourceRange();
-  if (typeAnnotations.empty() || !range.isValid()) {
+  if (annotations.empty() || !range.isValid())
     return false;
-  }
 
-  llvh::Optional<std::vector<std::string>> typeStrs =
-      typeAnnotations.getTypeGuard(range);
-  if (!typeStrs.hasValue()) {
+  auto guard = annotations.getTypeGuard(range);
+  if (!guard)
     return false;
-  }
 
-  int annotId = typeAnnotations.getTypeGuardId(range);
-
-  std::string bad;
-  llvh::Optional<Type> annotatedType =
-      Annotations::parseTypeNames(*typeStrs, &bad);
-  if (!annotatedType.hasValue()) {
-    // Unsupported type name(s): drop this annotation (can't build a sound
-    // guard), but only warn — don't fail the compile.
-    Mod->getContext().getSourceErrorManager().warning(
-        range, "unsupported type names in annotation: " + bad);
-    return false;
-  }
-
-  // Only apply type guard to instruction results
+  // Only apply type guards to instruction results.
   auto *inst = llvh::dyn_cast<Instruction>(val);
   if (!inst) {
     LLVM_DEBUG(
@@ -89,13 +73,41 @@ bool ESTreeIRGen::tryInsertTypeCheck(Value *val, ESTree::Node *node) {
     return false;
   }
 
+  if (guard->targetFuncRange.isValid()) {
+    // A closure guard must not degrade to a generic Object guard: only emit it
+    // once the exact target Function has been resolved.
+    auto targetIt = targetFuncsByRange_.find(guard->targetFuncRange);
+    if (targetIt != targetFuncsByRange_.end()) {
+      // The target is already known, so emit at the current annotation point.
+      insertClosureTypeCheck(
+          inst, targetIt->second, range, guard->annotationId);
+    } else {
+      auto *valueHolder = Builder.createMovInst(inst);
+      pendingClosureTypeGuards_[guard->targetFuncRange].push_back(
+          {valueHolder, range, guard->annotationId});
+    }
+    return true;
+  }
+
+  std::string bad;
+  llvh::Optional<Type> annotatedType =
+      Annotations::parseTypeNames(guard->typeNames, &bad);
+  if (!annotatedType) {
+    // Unsupported type name(s): drop this annotation (can't build a sound
+    // guard), but only warn — don't fail the compile.
+    Mod->getContext().getSourceErrorManager().warning(
+        range, "unsupported type names in annotation: " + bad);
+    return false;
+  }
+
   auto *typeLit =
       Builder.getLiteralTypeOfIsTypes(irTypeToTypeOfIsTypes(*annotatedType));
   auto *checkInst = Builder.createTypeOfIsInst(inst, typeLit);
-  checkInst->setAnnotationId(annotId);
+  checkInst->setAnnotationId(guard->annotationId);
   // Carry the guard's source location so instrumentation can report where
   // each guard site lives (see SH backend __tg_print_counters).
   checkInst->setLocation(node->getDebugLoc());
+  annotations.markAnnotationMatched(guard->annotationId);
 
   SourceErrorManager::SourceCoords coords;
   if (Mod->getContext().getSourceErrorManager().findBufferLineAndLoc(
@@ -109,6 +121,54 @@ bool ESTreeIRGen::tryInsertTypeCheck(Value *val, ESTree::Node *node) {
   }
 
   return true;
+}
+
+void ESTreeIRGen::insertClosureTypeCheck(
+    Instruction *value,
+    Function *target,
+    llvh::SMRange expressionRange,
+    unsigned annotationId,
+    Instruction *insertionAnchor) {
+  IRBuilder *builder = &Builder;
+  IRBuilder pendingBuilder{Mod};
+  if (insertionAnchor) {
+    // A late target must preserve the original semantic annotation point, not
+    // move the guard back next to the instruction that defined the value.
+    pendingBuilder.setInsertionPointAfter(insertionAnchor);
+    builder = &pendingBuilder;
+  }
+  auto *checkInst = builder->createHasClosureTargetInst(value, target);
+  checkInst->setAnnotationId(annotationId);
+  checkInst->setLocation(getAnnotationLocation(annotationId));
+  Mod->getContext().getAnnotations().markAnnotationMatched(annotationId);
+
+  LLVM_DEBUG(
+      SourceErrorManager::SourceCoords coords;
+      if (Mod->getContext().getSourceErrorManager().findBufferLineAndLoc(
+              expressionRange.Start, coords)) {
+        llvh::dbgs() << "Applied closure target annotation at " << coords.line
+                     << ":" << coords.col << " to " << value->getKindStr()
+                     << " target=" << target->getInternalName() << "\n";
+      });
+}
+
+void ESTreeIRGen::reportUnresolvedClosureTypeGuards() {
+  auto &context = Mod->getContext();
+  auto &annotations = context.getAnnotations();
+  auto &sm = context.getSourceErrorManager();
+  for (const auto &pendingEntry : pendingClosureTypeGuards_) {
+    for (const auto &guard : pendingEntry.second) {
+      sm.warning(
+          guard.expressionRange,
+          "closure type guard target function range did not match a generated "
+          "function; guard skipped");
+      // This guard did match its expression. Suppress the less-specific generic
+      // unmatched warning after reporting the unresolved target precisely.
+      annotations.markAnnotationMatched(guard.annotationId);
+      guard.valueHolder->eraseFromParent();
+    }
+  }
+  pendingClosureTypeGuards_.clear();
 }
 
 SMLoc ESTreeIRGen::getAnnotationLocation(unsigned annotationId) {
@@ -645,6 +705,10 @@ Value *ESTreeIRGen::genCallExpr(ESTree::CallExpressionNode *call) {
       target = memResult.resultFn;
       calleeIsAlwaysClosure = true;
     }
+    // Member-expression callees bypass genExpression (and therefore
+    // tryApplyAnnotation), so apply a type annotation on the callee member
+    // expression here, against the just-loaded callee value.
+    tryInsertTypeCheck(callee, Mem);
   } else if (
       auto *Mem =
           llvh::dyn_cast<ESTree::OptionalMemberExpressionNode>(call->_callee)) {
@@ -654,6 +718,8 @@ Value *ESTreeIRGen::genCallExpr(ESTree::CallExpressionNode *call) {
     // Call the callee with obj as the 'this' pointer.
     thisVal = memResult.base;
     callee = memResult.result;
+    // See above: optional member callees also bypass genExpression.
+    tryInsertTypeCheck(callee, Mem);
   } else if (llvh::isa<ESTree::SuperNode>(call->_callee)) {
     if (curFunction()->hasLegacyClassContext()) {
       return genLegacyDirectSuper(call);

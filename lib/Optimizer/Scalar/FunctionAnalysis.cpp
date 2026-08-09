@@ -302,6 +302,14 @@ void analyzeClosureSource(
         continue;
       }
 
+      if (auto *HCT = llvh::dyn_cast<HasClosureTargetInst>(closureUser)) {
+        assert(HCT->getArgument() == closureInst && "unexpected operand");
+        if (isAlwaysClosure && llvh::isa<EmptySentinel>(HCT->getTarget()))
+          HCT->setTarget(F);
+        // Checking the closure target does not leak the closure.
+        continue;
+      }
+
       // UnionNarrowTrustedInst is a cast, the result is the same as its input.
       // That means we can add it to the worklist to follow it.
       if (llvh::isa<UnionNarrowTrustedInst>(closureUser)) {
@@ -477,6 +485,13 @@ void analyzeFunctionCallsites(Function *F) {
       continue;
     }
 
+    if (auto *HCT = llvh::dyn_cast<HasClosureTargetInst>(user)) {
+      assert(
+          (HCT->getClosureTarget() == F || HCT->getTarget() == F) &&
+          "invalid use of Function as closure target");
+      continue;
+    }
+
     if (auto *CTI = llvh::dyn_cast<CreateThisInst>(user)) {
       // Ignore uses in CreateThisInst.
       (void)CTI;
@@ -518,21 +533,23 @@ Pass *createFunctionAnalysis() {
       for (Function &F : *M) {
         analyzeFunctionCallsites(&F);
       }
-      // A PrLoad whose static-shape slot holds a known function (targetFunc)
-      // is a "value = F" definition point, just like CreateFunctionInst.
-      // Propagate from it through the same def-use chain so calls reached via
-      // it get target=F (and get inlined, reading the parent scope from the
-      // callee via GetClosureScopeInst, since the source scope is null).
+      // A PrLoad whose static-shape slot holds a known function and a trusted
+      // narrow whose closure-target guard proved F are both "value = F"
+      // definition points. Propagate from them through the same def-use chain
+      // so reached calls get target=F. Neither source proves a fixed closure
+      // environment, so inline code must read the scope from the actual callee.
       for (Function &F : *M) {
         for (BasicBlock &BB : F) {
           for (Instruction &I : BB) {
-            auto *prLoad = llvh::dyn_cast<PrLoadInst>(&I);
-            if (!prLoad)
+            if (auto *prLoad = llvh::dyn_cast<PrLoadInst>(&I)) {
+              if (Function *targetFunc = prLoad->getTargetFunc())
+                analyzeClosureSource(prLoad, targetFunc, nullptr, nullptr);
               continue;
-            Function *targetFunc = prLoad->getTargetFunc();
-            if (!targetFunc)
-              continue;
-            analyzeClosureSource(prLoad, targetFunc, nullptr, nullptr);
+            }
+            if (auto *UNT = llvh::dyn_cast<UnionNarrowTrustedInst>(&I)) {
+              if (Function *targetFunc = UNT->getClosureTarget())
+                analyzeClosureSource(UNT, targetFunc, nullptr, nullptr);
+            }
           }
         }
       }

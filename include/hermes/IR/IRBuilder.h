@@ -565,6 +565,9 @@ class IRBuilder {
   HasStaticShapeInst *createHasStaticShapeInst(
       Value *input,
       LiteralStaticShape *shape);
+  HasClosureTargetInst *createHasClosureTargetInst(
+      Value *value,
+      Function *closureTarget);
 
   UnaryOperatorInst *createUnaryOperatorInst(
       Value *value,
@@ -769,7 +772,10 @@ class IRBuilder {
   StringConcatInst *createStringConcatInst(llvh::ArrayRef<Value *> operands);
   HBCStringConcatInst *createHBCStringConcatInst(Value *left, Value *right);
 
-  UnionNarrowTrustedInst *createUnionNarrowTrustedInst(Value *value, Type type);
+  UnionNarrowTrustedInst *createUnionNarrowTrustedInst(
+      Value *value,
+      Type type,
+      Function *closureTarget = nullptr);
   CheckedTypeCastInst *createCheckedTypeCastInst(Value *value, Type type);
 
   LIRDeadValueInst *createLIRDeadValueInst(Type type);

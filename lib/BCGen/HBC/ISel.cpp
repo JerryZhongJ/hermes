@@ -2482,6 +2482,11 @@ void HBCISel::generateUnionNarrowTrustedInst(
 void HBCISel::generateHasStaticShapeInst(HasStaticShapeInst *, BasicBlock *) {
   hermes_fatal("HasStaticShapeInst not supported in HBC backend");
 }
+void HBCISel::generateHasClosureTargetInst(
+    HasClosureTargetInst *,
+    BasicBlock *) {
+  hermes_fatal("HasClosureTargetInst not supported in HBC backend");
+}
 void HBCISel::generateCreateArgumentsLooseInst(
     CreateArgumentsLooseInst *,
     BasicBlock *) {

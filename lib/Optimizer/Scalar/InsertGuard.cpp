@@ -28,6 +28,9 @@ using llvh::dbgs;
 
 STATISTIC(NumTypeGuardsInserted, "Number of TypeGuard instructions inserted");
 STATISTIC(NumShapeGuardsInserted, "Number of ShapeGuard instructions inserted");
+STATISTIC(
+    NumClosureTargetGuardsInserted,
+    "Number of ClosureTargetGuard instructions inserted");
 STATISTIC(NumFunctionsDuplicated, "Number of functions with duplicated paths");
 
 namespace {
@@ -49,6 +52,7 @@ class GuardInserter {
 
   llvh::SmallVector<TypeOfIsInst *, 4> collectedTypeChecks_;
   llvh::SmallVector<HasStaticShapeInst *, 4> collectedShapeChecks_;
+  llvh::SmallVector<HasClosureTargetInst *, 4> collectedClosureTargetChecks_;
 
   /// Static shapes that have at least one TrySetStaticShapeInst somewhere in
   /// the module. A Has guard whose shape isn't in this set can never pass (the
@@ -73,24 +77,32 @@ class GuardInserter {
     collectTrySetShapes();
     collectChecks();
 
-    if (collectedTypeChecks_.empty() && collectedShapeChecks_.empty())
+    if (collectedTypeChecks_.empty() && collectedShapeChecks_.empty() &&
+        collectedClosureTargetChecks_.empty())
       return false;
 
     LLVM_DEBUG(
         dbgs() << "InsertGuard: " << F_->getInternalName() << " with "
                << collectedTypeChecks_.size() << " type guards, "
-               << collectedShapeChecks_.size() << " shape guards\n");
+               << collectedShapeChecks_.size() << " shape guards, "
+               << collectedClosureTargetChecks_.size()
+               << " closure target guards\n");
 
     // Step 4: Duplicate all instructions and basic blocks
     // Original becomes speculative (stays in place), copy becomes general
     if (!duplicateFunction())
       return false;
 
-    // Step 5: Insert guards. Each guard is erased before insertion so updates
-    // to remaining collected guards never visit the current entry.
+    // Step 5: Insert guards. Each guard is removed from its collection before
+    // insertion so updates to remaining collected guards never visit it.
     while (!collectedShapeChecks_.empty()) {
       HasStaticShapeInst *checkInst = collectedShapeChecks_.pop_back_val();
       NumShapeGuardsInserted += insertShapeGuard(checkInst);
+    }
+    while (!collectedClosureTargetChecks_.empty()) {
+      HasClosureTargetInst *checkInst =
+          collectedClosureTargetChecks_.pop_back_val();
+      NumClosureTargetGuardsInserted += insertClosureTargetGuard(checkInst);
     }
     while (!collectedTypeChecks_.empty()) {
       TypeOfIsInst *checkInst = collectedTypeChecks_.pop_back_val();
@@ -171,6 +183,17 @@ class GuardInserter {
               dbgs() << "  Shape guard check inst=" << HTS << " [ann#"
                      << annotId << "]\n");
           collectedShapeChecks_.push_back(HTS);
+          continue;
+        }
+
+        if (auto *HCT = llvh::dyn_cast<HasClosureTargetInst>(&I)) {
+          int annotId = HCT->getAnnotationId();
+          if (annotId < 0)
+            continue;
+          LLVM_DEBUG(
+              dbgs() << "  Closure target guard check inst=" << HCT << " [ann#"
+                     << annotId << "]\n");
+          collectedClosureTargetChecks_.push_back(HCT);
         }
       }
     }
@@ -282,14 +305,59 @@ class GuardInserter {
     return specBB_continue;
   }
 
+  /// Create a trusted narrow at the start of a guard's successful continuation
+  /// and redirect only uses dominated by that continuation. Uses before the
+  /// guard must retain the original value to avoid use-before-def.
+  UnionNarrowTrustedInst *insertTrustedNarrow(
+      Instruction *checkInst,
+      Value *checkedValue,
+      BasicBlock *specBBContinue,
+      Type narrowedType,
+      Function *closureTarget = nullptr) {
+    Builder_.setInsertionPoint(&specBBContinue->front());
+    auto *narrowInst =
+        Builder_.createUnionNarrowTrustedInst(nullptr, narrowedType);
+    narrowInst->setClosureTarget(closureTarget);
+
+    auto *checkedInst = llvh::dyn_cast<Instruction>(checkedValue);
+    if (checkedInst && &*(--checkInst->getIterator()) == checkedInst) {
+      // Fast path: every other use executes after the adjacent guard, so replace
+      // them all and then restore the guard's own checked-value operand.
+      checkedInst->replaceAllUsesWith(narrowInst);
+      for (unsigned i = 0, e = checkInst->getNumOperands(); i < e; ++i) {
+        if (checkInst->getOperand(i) == narrowInst)
+          checkInst->setOperand(checkedValue, i);
+      }
+    } else {
+      // Slow path: preserve uses between the value and its guard. Redirect only
+      // users dominated by the successful continuation to avoid use-before-def.
+      DominanceInfo DT(F_);
+      llvh::SmallVector<std::pair<Instruction *, unsigned>, 8> toReplace;
+      for (auto *userInst : checkedValue->getUsers()) {
+        if (!userInst || userInst == checkInst || userInst == narrowInst)
+          continue;
+        if (!DT.dominates(specBBContinue, userInst->getParent()))
+          continue;
+        for (unsigned i = 0, e = userInst->getNumOperands(); i < e; ++i) {
+          if (userInst->getOperand(i) == checkedValue)
+            toReplace.push_back({userInst, i});
+        }
+      }
+      for (auto [userInst, idx] : toReplace)
+        userInst->setOperand(narrowInst, idx);
+    }
+
+    narrowInst->setOperand(
+        checkedValue, UnionNarrowTrustedInst::SingleOperandIdx);
+    return narrowInst;
+  }
+
   /// Insert TypeGuard branch for an existing TypeOfIsInst in the speculative
   /// path.
   bool insertTypeGuard(TypeOfIsInst *checkInst) {
-    auto *guardInst = llvh::dyn_cast<Instruction>(checkInst->getArgument());
-    assert(guardInst && "TypeOfIsInst argument must be an Instruction");
-
     llvh::Optional<Type> expectedType =
         typeOfIsTypesToIRType(checkInst->getTypes()->getData());
+    assert(expectedType && "annotated TypeOfIsInst must map to an IR type");
 
     auto it = specToGenInstMap_.find(checkInst);
     assert(
@@ -298,40 +366,30 @@ class GuardInserter {
     auto *checkInstGen = llvh::cast<TypeOfIsInst>(it->second);
 
     BasicBlock *specBBContinue = insertGuardImpl(checkInst, checkInstGen);
-    Builder_.setInsertionPoint(&specBBContinue->front());
-    auto *narrowInst = Builder_.createUnionNarrowTrustedInst(
-        nullptr, Type::intersectTy(*expectedType, Type::createAnyType()));
+    insertTrustedNarrow(
+        checkInst,
+        checkInst->getArgument(),
+        specBBContinue,
+        Type::intersectTy(*expectedType, Type::createAnyType()));
+    return true;
+  }
 
-    // Fast path: when the operand immediately precedes the guard, every other
-    // user of guardInst executes after the check (in the typed continuation),
-    // so a blanket replaceAllUsesWith is sound.
-    if (&*(--checkInst->getIterator()) == guardInst) {
-      guardInst->replaceAllUsesWith(narrowInst);
-      checkInst->setOperand(guardInst, TypeOfIsInst::ArgumentIdx);
-    } else {
-      // Slow path: an instruction sits between operand and guard (e.g. the
-      // StoreFrame writeback of `--lc`). Replacing that earlier user with
-      // narrowInst would be use-before-def, since narrowInst lives in the
-      // post-check block. Use the dominator tree to redirect only the users
-      // that the typed continuation dominates; earlier users (and the guard
-      // itself) keep the original operand.
-      DominanceInfo DT(F_);
-      llvh::SmallVector<std::pair<Instruction *, unsigned>, 8> toReplace;
-      for (auto *userInst : guardInst->getUsers()) {
-        if (!userInst || userInst == checkInst)
-          continue;
-        if (!DT.dominates(specBBContinue, userInst->getParent()))
-          continue;
-        for (unsigned i = 0, e = userInst->getNumOperands(); i < e; ++i) {
-          if (userInst->getOperand(i) == guardInst)
-            toReplace.push_back({userInst, i});
-        }
-      }
-      for (auto [userInst, idx] : toReplace)
-        userInst->setOperand(narrowInst, idx);
-    }
+  /// Insert ClosureTargetGuard and attach its proven function identity to the
+  /// trusted object value in the successful continuation.
+  bool insertClosureTargetGuard(HasClosureTargetInst *checkInst) {
+    auto it = specToGenInstMap_.find(checkInst);
+    assert(
+        it != specToGenInstMap_.end() &&
+        "checkInst must be in specToGenInstMap_");
+    auto *checkInstGen = llvh::cast<HasClosureTargetInst>(it->second);
 
-    narrowInst->setOperand(guardInst, UnionNarrowTrustedInst::SingleOperandIdx);
+    BasicBlock *specBBContinue = insertGuardImpl(checkInst, checkInstGen);
+    insertTrustedNarrow(
+        checkInst,
+        checkInst->getArgument(),
+        specBBContinue,
+        Type::createObject(),
+        checkInst->getClosureTarget());
     return true;
   }
 

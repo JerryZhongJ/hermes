@@ -519,7 +519,8 @@ bool Instruction::isIdenticalTo(const Instruction *RHS) const {
   // fields to properly handle comparison (e.g., ThrowIfInst, LIRDeadValueInst).
   if (auto *LHSUNT = llvh::dyn_cast<UnionNarrowTrustedInst>(this)) {
     auto *RHSUNT = cast<UnionNarrowTrustedInst>(RHS);
-    if (LHSUNT->getSavedResultType() != RHSUNT->getSavedResultType())
+    if (LHSUNT->getSavedResultType() != RHSUNT->getSavedResultType() ||
+        LHSUNT->getClosureTarget() != RHSUNT->getClosureTarget())
       return false;
   }
 

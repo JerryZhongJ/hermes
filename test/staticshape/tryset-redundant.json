@@ -5,13 +5,11 @@
   },
   "shape bindings": [
     {
-      "target range": {"file": "tryset-redundant.js", "start": {"line": 6, "column": 11}, "end": {"line": 6, "column": 14}},
-      "bind after": {"file": "tryset-redundant.js", "start": {"line": 6, "column": 3}, "end": {"line": 6, "column": 17}},
+      "target range": {"file": "tryset-redundant.js", "start": {"line": 6, "column": 3}, "end": {"line": 6, "column": 6}},
       "shape": "XNumber"
     },
     {
-      "target range": {"file": "tryset-redundant.js", "start": {"line": 7, "column": 11}, "end": {"line": 7, "column": 14}},
-      "bind after": {"file": "tryset-redundant.js", "start": {"line": 7, "column": 3}, "end": {"line": 7, "column": 17}},
+      "target range": {"file": "tryset-redundant.js", "start": {"line": 7, "column": 3}, "end": {"line": 7, "column": 6}},
       "shape": "YNumber"
     }
   ]

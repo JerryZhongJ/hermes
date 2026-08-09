@@ -6,12 +6,10 @@
   "shape bindings": [
     {
       "target range": {"file": "tryset-no-pollute.js", "start": {"line": 4, "column": 11}, "end": {"line": 4, "column": 17}},
-      "bind after": {"file": "tryset-no-pollute.js", "start": {"line": 4, "column": 3}, "end": {"line": 4, "column": 18}},
       "shape": "XNumber"
     },
     {
       "target range": {"file": "tryset-no-pollute.js", "start": {"line": 5, "column": 11}, "end": {"line": 5, "column": 17}},
-      "bind after": {"file": "tryset-no-pollute.js", "start": {"line": 5, "column": 3}, "end": {"line": 5, "column": 18}},
       "shape": "YNumber"
     }
   ]

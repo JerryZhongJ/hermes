@@ -535,6 +535,23 @@ class ESTreeIRGen {
       SMRangeInfo>
       targetFuncRangeToProps_;
 
+  /// Exact function-range resolver shared by closure properties and closure type
+  /// guards. Guards can be generated before or after their target Function.
+  llvh::DenseMap<llvh::SMRange, Function *, SMRangeInfo>
+      targetFuncsByRange_;
+  struct PendingClosureTypeGuard {
+    /// A temporary Mov keeps the expression value alive until the target is
+    /// resolved. It is erased when the real guard is inserted or abandoned.
+    MovInst *valueHolder;
+    llvh::SMRange expressionRange;
+    unsigned annotationId;
+  };
+  llvh::DenseMap<
+      llvh::SMRange,
+      llvh::SmallVector<PendingClosureTypeGuard, 2>,
+      SMRangeInfo>
+      pendingClosureTypeGuards_;
+
   /// Semantic resolution tables.
   sema::SemContext &semCtx_;
   /// Keywords to avoid string content comparisons.
@@ -889,6 +906,18 @@ class ESTreeIRGen {
   Value *_genExpressionImpl(ESTree::Node *expr, Identifier nameHint);
 
   bool tryInsertTypeCheck(Value *val, ESTree::Node *node);
+
+  /// Insert a closure-target guard at the current annotation point, or after
+  /// \p insertionAnchor when resolving a pending guard.
+  void insertClosureTypeCheck(
+      Instruction *value,
+      Function *target,
+      llvh::SMRange expressionRange,
+      unsigned annotationId,
+      Instruction *insertionAnchor = nullptr);
+
+  /// Warn about closure guards whose exact target function never resolved.
+  void reportUnresolvedClosureTypeGuards();
 
   /// Return the JSON target range start for an annotation.
   SMLoc getAnnotationLocation(unsigned annotationId);
@@ -1283,8 +1312,9 @@ class ESTreeIRGen {
       Variable *homeObject = nullptr,
       ESTree::Node *parentNode = nullptr);
 
-  /// Fill a closure property's targetFunc when its range matches this
-  /// function's. Called after IR function creation.
+  /// Register an exact function range, fill matching closure properties, and
+  /// materialize any pending closure type guards. Called after IR function
+  /// creation.
   void applyClosureTarget(
       ESTree::FunctionLikeNode *functionNode,
       Function *newFunc,

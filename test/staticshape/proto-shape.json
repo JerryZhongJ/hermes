@@ -6,12 +6,10 @@
   "shape bindings": [
     {
       "target range": {"file": "proto-shape.js", "start": {"line": 13, "column": 3}, "end": {"line": 13, "column": 18}},
-      "bind after": {"file": "proto-shape.js", "start": {"line": 13, "column": 3}, "end": {"line": 13, "column": 34}},
       "shape": "Proto"
     },
     {
-      "target range": {"file": "proto-shape.js", "start": {"line": 16, "column": 13}, "end": {"line": 16, "column": 24}},
-      "bind after": {"file": "proto-shape.js", "start": {"line": 17, "column": 5}, "end": {"line": 17, "column": 15}},
+      "target range": {"file": "proto-shape.js", "start": {"line": 17, "column": 5}, "end": {"line": 17, "column": 6}},
       "shape": "Child"
     }
   ],

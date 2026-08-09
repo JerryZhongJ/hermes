@@ -3,20 +3,16 @@
 function sideCall() {
   return 1;
 }
-function guardAfter() {
-  var b = {y: 2};
-  sideCall();
+function guardAfter(b) {
+  b.y = sideCall();
   return b.y;
 }
 
-// A shape hint with "guard after" is the only way to re-establish a static
-// shape fact after a point where StaticShapeInference must conservatively drop
-// it — here, after the cross-function call sideCall() on line 8. b carries a
-// shape binding so it obtains the {y:number} shape, but the call may mutate the
-// heap so the fact is dropped at the return; the delayed hint guard (guard
-// after = the sideCall() expression) re-checks b and its spec edge drives the
-// PrLoad on b.y. Unlike a hint that runs right after the target, this one
-// survives because the binding's static fact is gone by then.
+// A shape hint on a property-store receiver is placed after all operands are
+// evaluated but immediately before the store. The sideCall() may conservatively
+// kill shape facts, so placing the guard when b is first evaluated would not
+// protect the store. IRGen handles this placement automatically; the annotation
+// only identifies the receiver expression b.
 
 // Auto-generated content below. Please do not modify manually.
 
@@ -36,25 +32,26 @@ function guardAfter() {
 // OPT-NEXT:       ReturnInst 1: number
 // OPT-NEXT:function_end
 
-// OPT:function guardAfter(): any
+// OPT:function guardAfter(b: any): any
 // OPT-NEXT:%BB0:
-// OPT-NEXT:  %0 = AllocObjectLiteralInst (:object) empty: any, "y": string, 2: number
-// OPT-NEXT:       TrySetStaticShapeInst %0: object, {y: number}: null [ann#1]
-// OPT-NEXT:  %2 = HasStaticShapeInst (:boolean) %0: object, {y: number}: null [ann#1]
-// OPT-NEXT:       CondBranchInst %2: boolean, %BB3, %BB4
+// OPT-NEXT:  %0 = LoadParamInst (:any) %b: any
+// OPT-NEXT:  %1 = LoadPropertyInst (:any) globalObject: object, "sideCall": string
+// OPT-NEXT:  %2 = CallInst (:any) %1: any, empty: any, false: boolean, empty: any, undefined: undefined, undefined: undefined
+// OPT-NEXT:  %3 = HasStaticShapeInst (:boolean) %0: any, {y: number}: null [ann#0]
+// OPT-NEXT:       CondBranchInst %3: boolean, %BB3, %BB4
 // OPT-NEXT:%BB1:
-// OPT-NEXT:  %4 = PrLoadInst (:number) %0: object, 0: number, "y": string
-// OPT-NEXT:       ReturnInst %4: number
+// OPT-NEXT:  %5 = PrLoadInst (:number) %0: any, 0: number, "y": string
+// OPT-NEXT:       ReturnInst %5: number
 // OPT-NEXT:%BB2:
-// OPT-NEXT:  %6 = LoadPropertyInst (:any) %0: object, "y": string
-// OPT-NEXT:       ReturnInst %6: any
+// OPT-NEXT:  %7 = LoadPropertyInst (:any) %0: any, "y": string
+// OPT-NEXT:       ReturnInst %7: any
 // OPT-NEXT:%BB3:
-// OPT-NEXT:  %8 = LoadPropertyInst (:any) globalObject: object, "sideCall": string
-// OPT-NEXT:  %9 = CallInst (:any) %8: any, empty: any, false: boolean, empty: any, undefined: undefined, undefined: undefined
-// OPT-NEXT:  %10 = HasStaticShapeInst (:boolean) %0: object, {y: number}: null [ann#0]
-// OPT-NEXT:        CondBranchInst %10: boolean, %BB1, %BB2
+// OPT-NEXT:       PrStoreInst %2: any, %0: any, 0: number, "y": string
+// OPT-NEXT:        TrySetStaticShapeInst %0: any, {y: number}: null [ann#1]
+// OPT-NEXT:  %11 = HasStaticShapeInst (:boolean) %0: any, {y: number}: null [ann#1]
+// OPT-NEXT:        CondBranchInst %11: boolean, %BB1, %BB2
 // OPT-NEXT:%BB4:
-// OPT-NEXT:  %12 = LoadPropertyInst (:any) globalObject: object, "sideCall": string
-// OPT-NEXT:  %13 = CallInst (:any) %12: any, empty: any, false: boolean, empty: any, undefined: undefined, undefined: undefined
+// OPT-NEXT:        StorePropertyLooseInst %2: any, %0: any, "y": string
+// OPT-NEXT:        TrySetStaticShapeInst %0: any, {y: number}: null [ann#1]
 // OPT-NEXT:        BranchInst %BB2
 // OPT-NEXT:function_end

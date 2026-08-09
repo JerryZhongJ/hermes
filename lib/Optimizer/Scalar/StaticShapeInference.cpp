@@ -195,6 +195,11 @@ class Impl {
     // never a precise, non-polluting slot store.
     if (shape->getPropertyKind(idx) == PropertyKind::Accessor)
       return false;
+    // A closure slot also requires function-identity compatibility. Generic
+    // stores carry no proof that the stored closure has the same target, so be
+    // conservative even when its IR type is compatible.
+    if (shape->getPropertyTargetFunc(idx))
+      return false;
     Type expectedType = shape->getPropertyType(idx);
     Type storedType = store->getStoredValue()->getType();
     return storedType.isSubsetOf(expectedType);
@@ -217,8 +222,9 @@ class Impl {
       }
     }
     if (auto *store = llvh::dyn_cast<PrStoreInst>(inst))
-      return !store->getStoredValue()->getType().isSubsetOf(
-          store->getExpectedType());
+      return store->getTargetFunc() ||
+          !store->getStoredValue()->getType().isSubsetOf(
+              store->getExpectedType());
     // TrySet switches obj's hidden class to a static shape's class only — it
     // touches no other object and invalidates no existing static shape fact, so
     // it never pollutes.

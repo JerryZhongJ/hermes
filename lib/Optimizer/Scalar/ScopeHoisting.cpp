@@ -92,6 +92,10 @@ static bool hoistFunctionToTopLevel(Function *F) {
       changed = true;
     } else if (llvh::isa<CreateThisInst>(U)) {
       // Do nothing, CreateThisInst is not affected by the parent scope.
+    } else if (llvh::isa<HasClosureTargetInst>(U)) {
+      // A closure-target guard only reads F's identity to test a value; it
+      // neither depends on nor escapes F's parent scope, so hoisting is
+      // unaffected.
     } else {
       assert(llvh::isa<GetClosureScopeInst>(U) && "Unknown user of function.");
       assert(!U->hasUsers() && "Trying to eliminate parent that is used.");
@@ -196,6 +200,10 @@ static bool tryHoistFunction(Function *F) {
           newParentVarScope, oldParentVarScope, env));
     } else if (llvh::isa<CreateThisInst>(U)) {
       // Do nothing, CreateThisInst is not affected by the parent scope.
+    } else if (llvh::isa<HasClosureTargetInst>(U)) {
+      // A closure-target guard only reads F's identity to test a value; it
+      // neither depends on nor escapes F's parent scope, so hoisting is
+      // unaffected.
     } else {
       // The only other known user is GetClosureScopeInst. Update it to produce
       // the new parent.

@@ -348,18 +348,28 @@ void IRPrinter::printInstruction(Instruction *I) {
 
   const auto &codeGenOpts = I->getContext().getCodeGenerationSettings();
 
-  // Print annotation ID for speculation instructions derived from a
-  // type/shape annotation (TypeOfIs / HasStaticShape / TrySetStaticShape),
-  // so the surviving annotations can be tracked in -dump-ir output.
+  // Print annotation ID for speculation instructions derived from an
+  // annotation (TypeOfIs / HasStaticShape / HasClosureTarget /
+  // TrySetStaticShape), so surviving annotations can be tracked in -dump-ir.
   int annId = -1;
   if (auto *TOI = llvh::dyn_cast<TypeOfIsInst>(I))
     annId = TOI->getAnnotationId();
   else if (auto *HSS = llvh::dyn_cast<HasStaticShapeInst>(I))
     annId = HSS->getAnnotationId();
+  else if (auto *HCT = llvh::dyn_cast<HasClosureTargetInst>(I))
+    annId = HCT->getAnnotationId();
   else if (auto *TSS = llvh::dyn_cast<TrySetStaticShapeInst>(I))
     annId = TSS->getAnnotationId();
   if (annId >= 0)
     os_ << " [ann#" << annId << "]";
+
+  Function *closureTarget = nullptr;
+  if (auto *HCT = llvh::dyn_cast<HasClosureTargetInst>(I))
+    closureTarget = HCT->getClosureTarget();
+  else if (auto *UNT = llvh::dyn_cast<UnionNarrowTrustedInst>(I))
+    closureTarget = UNT->getClosureTarget();
+  if (closureTarget)
+    os_ << " [closure:" << closureTarget->getInternalNameStr() << "]";
 
   // Print the use list if there is any user for the instruction.
   if (!codeGenOpts.dumpUseList || I->getUsers().empty())

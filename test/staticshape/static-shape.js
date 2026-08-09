@@ -12,7 +12,7 @@ var o = {x:1, y:2};
 print(o.x);
 
 // C: _sh_ljs_try_set_static_shape(shr,
-// C-SAME: shUnit, 0
+// C-SAME: shUnit, 0, get_try_set_static_shape_cache(shUnit) + 0
 // C: _sh_ljs_has_static_shape(shr,
 // C-SAME: shUnit, 0
 // C: static const SHStaticShapeProp s_static_shape_props[] = {
@@ -20,8 +20,11 @@ print(o.x);
 // C: { .name_index = {{[0-9]+}}, .type = 1, .kind = 0, .attrs = 7, .target_func = NULL },
 // C: static const SHStaticShapeTableEntry s_static_shape_table[] = {
 // C: { .prop_offset = 0, .num_props = 2, .typed = 1 },
+// C: SHTrySetStaticShapeCacheEntry try_set_static_shape_cache_data[1];
 // C: SHCompressedPointer static_shape_class_cache[1];
-// C: .static_shape_table_count = 1
+// C: .num_try_set_static_shape_cache_entries = 1
+// C-SAME: .try_set_static_shape_cache = unit_data->try_set_static_shape_cache_data
+// C-SAME: .static_shape_table_count = 1
 
 // Auto-generated content below. Please do not modify manually.
 
@@ -29,11 +32,11 @@ print(o.x);
 // LIR-NEXT:%BB0:
 // LIR-NEXT:       DeclareGlobalVarInst "o": string
 // LIR-NEXT:  %1 = LIRAllocObjectFromBufferInst (:object) empty: any, "x": string, 1: number, "y": string, 2: number
-// LIR-NEXT:  %2 = LIRGetGlobalObjectInst (:object)
-// LIR-NEXT:       StorePropertyLooseInst %1: object, %2: object, "o": string
 // LIR-NEXT:       TrySetStaticShapeInst %1: object, {x: number, y: number}: null [ann#1]
-// LIR-NEXT:  %5 = TryLoadGlobalPropertyInst (:any) %2: object, "print": string
-// LIR-NEXT:  %6 = LoadPropertyInst (:any) %2: object, "o": string
+// LIR-NEXT:  %3 = LIRGetGlobalObjectInst (:object)
+// LIR-NEXT:       StorePropertyLooseInst %1: object, %3: object, "o": string
+// LIR-NEXT:  %5 = TryLoadGlobalPropertyInst (:any) %3: object, "print": string
+// LIR-NEXT:  %6 = LoadPropertyInst (:any) %3: object, "o": string
 // LIR-NEXT:  %7 = HasStaticShapeInst (:boolean) %6: any, {x: number, y: number}: null [ann#0]
 // LIR-NEXT:       CondBranchInst %7: boolean, %BB1, %BB2
 // LIR-NEXT:%BB1:

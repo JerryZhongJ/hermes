@@ -52,11 +52,6 @@
         "start": {"line": 13, "column": 11},
         "end": {"line": 13, "column": 17}
       },
-      "bind after": {
-        "file": "type-guard-prstore.js",
-        "start": {"line": 13, "column": 3},
-        "end": {"line": 13, "column": 18}
-      },
       "shape": "NumberSlot"
     },
     {
@@ -65,11 +60,6 @@
         "start": {"line": 21, "column": 11},
         "end": {"line": 21, "column": 18}
       },
-      "bind after": {
-        "file": "type-guard-prstore.js",
-        "start": {"line": 21, "column": 3},
-        "end": {"line": 21, "column": 19}
-      },
       "shape": "StringSlot"
     },
     {
@@ -77,11 +67,6 @@
         "file": "type-guard-prstore.js",
         "start": {"line": 33, "column": 11},
         "end": {"line": 33, "column": 34}
-      },
-      "bind after": {
-        "file": "type-guard-prstore.js",
-        "start": {"line": 33, "column": 3},
-        "end": {"line": 33, "column": 35}
       },
       "shape": "ClosureSlot"
     }

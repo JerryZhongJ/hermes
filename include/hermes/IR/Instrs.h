@@ -3298,6 +3298,75 @@ class HasStaticShapeInst : public Instruction {
   }
 };
 
+/// Checks whether a value is a closure for a specific function.
+class HasClosureTargetInst : public Instruction {
+  HasClosureTargetInst(const HasClosureTargetInst &) = delete;
+  void operator=(const HasClosureTargetInst &) = delete;
+
+  int annotationId_ = -1;
+
+ public:
+  enum { ArgumentIdx, ClosureTargetIdx, TargetIdx };
+
+  explicit HasClosureTargetInst(
+      Value *value,
+      Function *closureTarget,
+      Value *target)
+      : Instruction(ValueKind::HasClosureTargetInstKind) {
+    setType(*getInherentTypeImpl());
+    pushOperand(value);
+    pushOperand(closureTarget);
+    pushOperand(target);
+  }
+  explicit HasClosureTargetInst(
+      const HasClosureTargetInst *src,
+      llvh::ArrayRef<Value *> operands)
+      : Instruction(src, operands), annotationId_(src->annotationId_) {}
+
+  Value *getArgument() const {
+    return getOperand(ArgumentIdx);
+  }
+  Function *getClosureTarget() const {
+    return llvh::cast<Function>(getOperand(ClosureTargetIdx));
+  }
+  /// \return the inferred IR Function represented by the argument, or
+  /// EmptySentinel if it is not known at this time.
+  Value *getTarget() const {
+    return getOperand(TargetIdx);
+  }
+  void setTarget(Function *target) {
+    setOperand(target, TargetIdx);
+  }
+
+  int getAnnotationId() const {
+    return annotationId_;
+  }
+  void setAnnotationId(int id) {
+    annotationId_ = id;
+  }
+
+  static bool hasOutput() {
+    return true;
+  }
+  static bool isTyped() {
+    return false;
+  }
+  bool shUseSafelyImpl(unsigned idx) const {
+    return idx == ArgumentIdx;
+  }
+
+  SideEffect getSideEffectImpl() const {
+    return SideEffect{}.setReadHeap().setIdempotent();
+  }
+  static llvh::Optional<Type> getInherentTypeImpl() {
+    return Type::createBoolean();
+  }
+
+  static bool classof(const Value *V) {
+    return V->getKind() == ValueKind::HasClosureTargetInstKind;
+  }
+};
+
 class BinaryOperatorInst : public Instruction {
  public:
   // A list of textual representation of the operators above.
@@ -6530,17 +6599,27 @@ class UnionNarrowTrustedInst : public SingleOperandInst {
   /// Also see the comment in ThrowIfInst.
   Type savedResultType_;
 
+  /// If non-null, the narrowed object is known to be a closure for this
+  /// function. This is metadata rather than an operand to keep this a
+  /// SingleOperandInst.
+  Function *closureTarget_ = nullptr;
+
  public:
-  explicit UnionNarrowTrustedInst(Value *src, Type type)
+  explicit UnionNarrowTrustedInst(
+      Value *src,
+      Type type,
+      Function *closureTarget = nullptr)
       : SingleOperandInst(ValueKind::UnionNarrowTrustedInstKind, src),
-        savedResultType_(type) {
+        savedResultType_(type),
+        closureTarget_(closureTarget) {
     setType(type);
   }
   explicit UnionNarrowTrustedInst(
       const UnionNarrowTrustedInst *src,
       llvh::ArrayRef<Value *> operands)
       : SingleOperandInst(src, operands),
-        savedResultType_(src->savedResultType_) {}
+        savedResultType_(src->savedResultType_),
+        closureTarget_(src->closureTarget_) {}
 
   static bool hasOutput() {
     return true;
@@ -6577,6 +6656,13 @@ class UnionNarrowTrustedInst : public SingleOperandInst {
   /// \return the original result type that was set before TypeInference.
   Type getSavedResultType() const {
     return savedResultType_;
+  }
+
+  Function *getClosureTarget() const {
+    return closureTarget_;
+  }
+  void setClosureTarget(Function *closureTarget) {
+    closureTarget_ = closureTarget;
   }
 };
 

@@ -1,0 +1,23 @@
+{
+  "static shapes": {
+    "X": {"properties": [{"name": "x"}]}
+  },
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {"line": 8, "column": 12},
+        "end": {"line": 8, "column": 18}
+      },
+      "shape": "X"
+    }
+  ],
+  "shape hints": [
+    {
+      "target range": {
+        "start": {"line": 5, "column": 10},
+        "end": {"line": 5, "column": 11}
+      },
+      "shape": "X"
+    }
+  ]
+}
