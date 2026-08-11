@@ -13,15 +13,12 @@
 #include "hermes/IR/CFG.h"
 #include "hermes/IR/IRBuilder.h"
 #include "hermes/IR/Instrs.h"
-#include "hermes/Optimizer/Scalar/Utils.h"
 #include "hermes/Support/Statistic.h"
 #include "llvh/ADT/DenseMap.h"
 #include "llvh/ADT/DenseSet.h"
 #include "llvh/ADT/MapVector.h"
-#include "llvh/ADT/STLExtras.h"
+#include "llvh/ADT/SetVector.h"
 #include "llvh/Support/Debug.h"
-
-#include <queue>
 
 using namespace hermes;
 using llvh::dbgs;
@@ -444,38 +441,9 @@ class GuardInserter {
     }
   }
 
-  bool simplifyPhiInsts() {
-    bool changed = false;
-    bool localChanged;
-    do {
-      localChanged = false;
-      for (auto &BB : *F_) {
-        IRBuilder::InstructionDestroyer destroyer;
-        for (auto &I : BB) {
-          auto *P = llvh::dyn_cast<PhiInst>(&I);
-          if (!P)
-            break;
-
-          // The PHI has a single incoming value. Replace all uses of the PHI
-          // with the incoming value.
-          if (auto *incoming = getSinglePhiValue(P)) {
-            localChanged = true;
-            P->replaceAllUsesWith(incoming);
-            destroyer.add(P);
-          }
-        }
-      }
-      changed |= localChanged;
-    } while (localChanged);
-
-    return changed;
-  }
-  /// Fix dominance invariants by inserting PHI nodes
+  /// Fix dominance invariants by inserting only the PHIs needed by broken uses.
   void fixDominanceInvariants() {
     DominanceInfo DT(F_);
-
-    llvh::DenseMap<DominanceInfoNode *, unsigned> domTreeLevels;
-    computeDomTreeLevels(&DT, domTreeLevels);
 
     // Collect broken uses: key = broken inst, value = vector of <user, opIdx>.
     // MapVector (not DenseMap): deterministic iteration order keeps per-block
@@ -490,10 +458,8 @@ class GuardInserter {
         dbgs() << "  Fixed " << brokenUses.size()
                << " broken dominance relations\n");
 
-    for (auto &pair : brokenUses) {
-      fixBrokenInst(pair.first, pair.second, DT, domTreeLevels);
-    }
-    simplifyPhiInsts();
+    for (auto &pair : brokenUses)
+      fixBrokenInst(pair.first, pair.second, DT);
   }
 
   /// Handle AllocStackInst dominance issues.
@@ -569,30 +535,6 @@ class GuardInserter {
     }
   }
 
-  /// Compute dominator tree levels (DFS traversal)
-  void computeDomTreeLevels(
-      DominanceInfo *DT,
-      llvh::DenseMap<DominanceInfoNode *, unsigned> &domTreeLevels) {
-    llvh::SmallVector<DominanceInfoNode *, 32> worklist;
-    DominanceInfoNode *root = DT->getRootNode();
-
-    // Root starts at zero
-    domTreeLevels[root] = 0;
-    worklist.push_back(root);
-
-    // DFS traverse the dominator tree
-    while (!worklist.empty()) {
-      DominanceInfoNode *node = worklist.pop_back_val();
-      unsigned childLevel = domTreeLevels[node] + 1;
-
-      // Assign level to children
-      for (auto &child : *node) {
-        domTreeLevels[child] = childLevel;
-        worklist.push_back(child);
-      }
-    }
-  }
-
   /// Collect broken uses by finding general insts and their uses.
   void collectBrokenUses(
       llvh::MapVector<
@@ -635,214 +577,118 @@ class GuardInserter {
     }
   }
 
-  /// Compute dominance frontier and insert PHIs for a logical value
-  /// (both general inst and its spec inst, like multiple stores to same stack)
-  void insertPhisForInst(
-      Instruction *generalInst,
-      llvh::DenseMap<BasicBlock *, PhiInst *> &phiMap,
-      DominanceInfo &DT,
-      llvh::DenseMap<DominanceInfoNode *, unsigned> &domTreeLevels) {
-    using NodePriorityQueue = std::priority_queue<
-        std::pair<DominanceInfoNode *, unsigned>,
-        std::vector<std::pair<DominanceInfoNode *, unsigned>>,
-        llvh::less_second>;
+  /// Reconstruct one logical value from its general/speculative definitions.
+  /// PHIs are created backwards from actual broken uses, like SimpleMem2Reg,
+  /// instead of across the definitions' complete dominance frontier.
+  class UseDrivenSSA {
+    IRBuilder &builder_;
+    DominanceInfo &DT_;
+    Type type_;
 
-    NodePriorityQueue PQ;
-    llvh::SmallPtrSet<DominanceInfoNode *, 32> visited;
-    llvh::SmallPtrSet<BasicBlock *, 16> phiBlocks;
-    llvh::SmallVector<DominanceInfoNode *, 32> worklist;
+    /// Concrete definitions determine a block's live-out value. A separate map
+    /// for live-in PHIs is required because a concrete definition may occur
+    /// after a use in the same block.
+    llvh::DenseMap<BasicBlock *, Instruction *> concreteDefs_;
+    llvh::DenseMap<BasicBlock *, Value *> liveOutDefs_;
+    llvh::DenseMap<BasicBlock *, PhiInst *> liveInPhis_;
+    llvh::SmallVector<PhiInst *, 8> phis_;
 
-    // Add general inst definition point to PQ
-    if (auto *genDefNode = DT.getNode(generalInst->getParent()))
-      PQ.push({genDefNode, domTreeLevels[genDefNode]});
+    void addConcreteDefinition(Instruction *inst) {
+      if (!inst || !DT_.getNode(inst->getParent()))
+        return;
 
-    // Also add spec inst definition point to PQ
-    auto specIt = genToSpecInstMap_.find(generalInst);
-    if (specIt != genToSpecInstMap_.end()) {
-      if (auto *specDefNode = DT.getNode(specIt->second->getParent()))
-        PQ.push({specDefNode, domTreeLevels[specDefNode]});
+      BasicBlock *BB = inst->getParent();
+      auto [it, inserted] = concreteDefs_.try_emplace(BB, inst);
+      if (!inserted && DT_.properlyDominates(it->second, inst))
+        it->second = inst;
+      liveOutDefs_[BB] = it->second;
     }
 
-    if (PQ.empty())
-      return;
-
-    // Compute dominance frontier using Sreedhar-Gao algorithm
-    while (!PQ.empty()) {
-      DominanceInfoNode *root = PQ.top().first;
-      unsigned rootLevel = PQ.top().second;
-      PQ.pop();
-
-      // Traverse dominator tree subtree rooted at root
-      worklist.clear();
-      worklist.push_back(root);
-
-      while (!worklist.empty()) {
-        DominanceInfoNode *node = worklist.pop_back_val();
-        BasicBlock *BB = node->getBlock();
-
-        // Check each CFG successor
-        for (auto *succ : successors(BB)) {
-          DominanceInfoNode *succNode = DT.getNode(succ);
-          if (!succNode)
-            continue;
-
-          // Skip D-edges (dominator tree edges)
-          if (succNode->getIDom() == node)
-            continue;
-
-          // Only process J-edges with level <= rootLevel
-          unsigned succLevel = domTreeLevels[succNode];
-          if (succLevel > rootLevel)
-            continue;
-
-          // Avoid duplicate visits
-          if (!visited.insert(succNode).second)
-            continue;
-
-          // succ is on dominance frontier, insert PHI
-          if (phiBlocks.insert(succ).second) {
-            PQ.push({succNode, succLevel}); // Recursively process new PHI
-          }
-        }
-
-        // Add dominator tree children to worklist
-        for (auto &child : *node) {
-          if (!visited.count(child))
-            worklist.push_back(child);
-        }
-      }
+   public:
+    UseDrivenSSA(
+        IRBuilder &builder,
+        DominanceInfo &DT,
+        Instruction *generalInst,
+        Instruction *specInst)
+        : builder_(builder), DT_(DT), type_(generalInst->getType()) {
+      addConcreteDefinition(generalInst);
+      addConcreteDefinition(specInst);
     }
 
-    // Create PHI nodes
-    createPhisForInst(generalInst, phiBlocks, phiMap, DT);
-  }
+    Value *getLiveIn(BasicBlock *BB) {
+      if (!DT_.getNode(BB))
+        return builder_.getLiteralUndefined();
 
-  /// Create and populate PHI nodes
-  void createPhisForInst(
-      Instruction *inst,
-      llvh::SmallPtrSet<BasicBlock *, 16> &phiBlocks,
-      llvh::DenseMap<BasicBlock *, PhiInst *> &phiMap,
-      DominanceInfo &DT) {
-    // Create PHI nodes
-    for (auto *BB : phiBlocks) {
-      Builder_.setInsertionPoint(&BB->front());
-      auto *phi = Builder_.createPhiInst();
-      phi->setType(inst->getType());
-      phiMap[BB] = phi;
-    }
-
-    // Populate PHI incoming values
-    for (auto *BB : phiBlocks) {
-      auto *phi = phiMap[BB];
-
-      llvh::SmallVector<BasicBlock *, 4> preds(predecessors(BB));
-      llvh::SmallPtrSet<BasicBlock *, 4> processed;
-
-      for (auto *pred : preds) {
-        if (!processed.insert(pred).second)
-          continue; // Skip duplicate predecessors
-
-        // Get live-out value from predecessor
-        Value *val = getLiveOutValue(pred, inst, phiMap, DT);
-        phi->addEntry(val, pred);
-      }
-    }
-  }
-
-  /// Find the live-out value of originalInst at BB
-  Value *getLiveOutValue(
-      BasicBlock *BB,
-      Instruction *originalInst,
-      llvh::DenseMap<BasicBlock *, PhiInst *> &phiMap,
-      DominanceInfo &DT) {
-    // Walk up the dominator tree to find the nearest definition
-    for (DominanceInfoNode *node = DT.getNode(BB); node;
-         node = node->getIDom()) {
-      BasicBlock *currBB = node->getBlock();
-
-      // Priority 1: If speculative definition exists in currBB, return it
-      auto instIt = genToSpecInstMap_.find(originalInst);
-      if (instIt != genToSpecInstMap_.end() &&
-          instIt->second->getParent() == currBB)
-        return instIt->second;
-
-      // Priority 2: If this is original definition's block, return original
-      if (originalInst->getParent() == currBB)
-        return originalInst;
-
-      // Priority 3: If currBB has PHI definition, return PHI
-      auto phiIt = phiMap.find(currBB);
-      if (phiIt != phiMap.end())
+      auto phiIt = liveInPhis_.find(BB);
+      if (phiIt != liveInPhis_.end())
         return phiIt->second;
+
+      // No predecessor means no definition can reach this block.
+      if (pred_begin(BB) == pred_end(BB))
+        return builder_.getLiteralUndefined();
+
+      builder_.setInsertionPoint(&BB->front());
+      auto *phi = builder_.createPhiInst();
+      phi->setType(type_);
+      liveInPhis_[BB] = phi;
+      phis_.push_back(phi);
+      return phi;
     }
 
-    // Definition not found (unreachable code or parameter)
-    return Builder_.getLiteralUndefined();
-  }
+    Value *getLiveOut(BasicBlock *BB) {
+      auto outIt = liveOutDefs_.find(BB);
+      if (outIt != liveOutDefs_.end())
+        return outIt->second;
 
-  /// Find the live-in value of originalInst at BB
-  Value *getLiveInValue(
-      BasicBlock *BB,
-      Instruction *originalInst,
-      llvh::DenseMap<BasicBlock *, PhiInst *> &phiMap,
-      DominanceInfo &DT) {
-    // If BB itself has PHI definition, return PHI
-    auto phiIt = phiMap.find(BB);
-    if (phiIt != phiMap.end())
-      return phiIt->second;
-
-    // Otherwise find live-out value from idom
-    auto *node = DT.getNode(BB);
-    if (!node) {
-      return Builder_.getLiteralUndefined();
+      Value *value = getLiveIn(BB);
+      liveOutDefs_[BB] = value;
+      return value;
     }
 
-    auto *idom = node->getIDom();
-    if (!idom) {
-      return Builder_.getLiteralUndefined();
+    Value *getValueBefore(Instruction *user) {
+      auto defIt = concreteDefs_.find(user->getParent());
+      if (defIt != concreteDefs_.end() &&
+          DT_.properlyDominates(defIt->second, user))
+        return defIt->second;
+      return getLiveIn(user->getParent());
     }
 
-    return getLiveOutValue(idom->getBlock(), originalInst, phiMap, DT);
-  }
-
-  /// Replace all uses of a single broken instruction
-  void replaceUsesOfInst(
-      Instruction *generalInst,
-      llvh::SmallVector<std::pair<Instruction *, unsigned>, 4> &uses,
-      llvh::DenseMap<BasicBlock *, PhiInst *> &phiMap,
-      DominanceInfo &DT) {
-    for (auto &usePair : uses) {
-      Instruction *user = usePair.first;
-      unsigned idx = usePair.second;
-
-      Value *replacement;
-
-      if (auto *phi = llvh::dyn_cast<PhiInst>(user)) {
-        // PHI special handling: idx is entry index (not operand index!)
-        // Use incoming block's live-out value
-        auto entry = phi->getEntry(idx);
-        BasicBlock *incomingBlock = entry.second;
-        replacement = getLiveOutValue(incomingBlock, generalInst, phiMap, DT);
-        // Use updateEntry to correctly update value while preserving block
-        phi->updateEntry(idx, replacement, incomingBlock);
-      } else {
-        // Regular instruction: idx is operand index
-        replacement =
-            getLiveInValue(user->getParent(), generalInst, phiMap, DT);
-        user->setOperand(replacement, idx);
+    void populatePhis() {
+      // getLiveOut() may append predecessor PHIs, so process this as a queue.
+      for (size_t i = 0; i < phis_.size(); ++i) {
+        PhiInst *phi = phis_[i];
+        BasicBlock *BB = phi->getParent();
+        llvh::SmallSetVector<BasicBlock *, 4> preds;
+        preds.insert(pred_begin(BB), pred_end(BB));
+        for (BasicBlock *pred : preds)
+          phi->addEntry(getLiveOut(pred), pred);
       }
     }
-  }
+  };
 
-  /// Fix dominance violations for a single broken instruction
+  /// Fix dominance violations for a single logical value.
   void fixBrokenInst(
       Instruction *generalInst,
       llvh::SmallVector<std::pair<Instruction *, unsigned>, 4> &uses,
-      DominanceInfo &DT,
-      llvh::DenseMap<DominanceInfoNode *, unsigned> &domTreeLevels) {
-    llvh::DenseMap<BasicBlock *, PhiInst *> phiMap;
-    insertPhisForInst(generalInst, phiMap, DT, domTreeLevels);
-    replaceUsesOfInst(generalInst, uses, phiMap, DT);
+      DominanceInfo &DT) {
+    auto specIt = genToSpecInstMap_.find(generalInst);
+    Instruction *specInst = specIt == genToSpecInstMap_.end()
+        ? nullptr
+        : specIt->second;
+    UseDrivenSSA ssa(Builder_, DT, generalInst, specInst);
+
+    for (auto [user, idx] : uses) {
+      if (auto *phi = llvh::dyn_cast<PhiInst>(user)) {
+        // A PHI operand is used on its incoming edge, not in the PHI's block.
+        auto entry = phi->getEntry(idx);
+        BasicBlock *incomingBlock = entry.second;
+        phi->updateEntry(idx, ssa.getLiveOut(incomingBlock), incomingBlock);
+      } else {
+        user->setOperand(ssa.getValueBefore(user), idx);
+      }
+    }
+
+    ssa.populatePhis();
   }
 
   /// Split a basic block before the given instruction

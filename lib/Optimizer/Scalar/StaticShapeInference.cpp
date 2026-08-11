@@ -44,17 +44,27 @@ static inline StaticShapeInfo operator|(StaticShapeInfo a, StaticShapeInfo b) {
   return StaticShapeInfo::createAnyShapes();
 }
 
-static void setStaticShapeInfo(Instruction *inst, StaticShapeInfo shape) {
-  if (auto *L = llvh::dyn_cast<BaseLoadPropertyInst>(inst))
+static bool setStaticShapeInfo(Instruction *inst, StaticShapeInfo shape) {
+  StaticShapeInfo old;
+  if (auto *L = llvh::dyn_cast<BaseLoadPropertyInst>(inst)) {
+    old = L->getObjOperandShape();
     L->setObjOperandShape(shape);
-  else if (auto *S = llvh::dyn_cast<BaseStorePropertyInst>(inst))
+  } else if (auto *S = llvh::dyn_cast<BaseStorePropertyInst>(inst)) {
+    old = S->getObjOperandShape();
     S->setObjOperandShape(shape);
-  else if (auto *H = llvh::dyn_cast<HasStaticShapeInst>(inst))
+  } else if (auto *H = llvh::dyn_cast<HasStaticShapeInst>(inst)) {
+    old = H->getObjOperandShape();
     H->setObjOperandShape(shape);
-  else if (auto *T = llvh::dyn_cast<TrySetStaticShapeInst>(inst))
+  } else if (auto *T = llvh::dyn_cast<TrySetStaticShapeInst>(inst)) {
+    old = T->getObjOperandShape();
     T->setObjOperandShape(shape);
-  else if (auto *LP = llvh::dyn_cast<LoadParentInst>(inst))
+  } else if (auto *LP = llvh::dyn_cast<LoadParentInst>(inst)) {
+    old = LP->getObjOperandShape();
     LP->setObjOperandShape(shape);
+  } else {
+    llvm_unreachable("instruction has no static shape info");
+  }
+  return old != shape;
 }
 
 /// edge 上 ShapeGuard 注入的 shape（CondBranch 真分支）。
@@ -366,7 +376,7 @@ class Impl {
   }
 
   /// 关键指令：把 s[object] 同步到指令成员 objOperandShape_（只读 State）。
-  void syncObjOperandShape(Instruction *inst, const State &s) const {
+  bool syncObjOperandShape(Instruction *inst, const State &s) const {
     Instruction *obj = nullptr;
     if (auto *load = llvh::dyn_cast<BaseLoadPropertyInst>(inst))
       obj = llvh::dyn_cast<Instruction>(load->getObject());
@@ -378,15 +388,15 @@ class Impl {
       obj = llvh::dyn_cast<Instruction>(tss->getObject());
     else if (auto *lp = llvh::dyn_cast<LoadParentInst>(inst))
       obj = llvh::dyn_cast<Instruction>(lp->getObject());
-    setStaticShapeInfo(inst, s.get(obj));
+    return setStaticShapeInfo(inst, s.get(obj));
   }
 
   /// OUT[b] = transfer(IN[b])。
-  State transfer(BasicBlock *BB, State s) {
+  State transfer(BasicBlock *BB, State s, bool &shapeChanged) {
     for (auto &I : *BB) {
       Instruction *inst = &I;
       if (isTargetInst(inst))
-        syncObjOperandShape(inst, s);
+        shapeChanged |= syncObjOperandShape(inst, s);
       // pollute 对每条指令都判（写堆的不止关键指令，如 CallBuiltin）。
       if (polluting(inst))
         transferPolluting(s);
@@ -411,6 +421,7 @@ class Impl {
   /// 不可达块永不被处理，其 out_ 保持空(全 NoShape)。
   bool runToFixpoint() {
     bool changed = false;
+    bool shapeChanged = false;
     llvh::SmallVector<BasicBlock *, 16> wl;
     // 全量入队：保证首轮覆盖所有 BB（含循环 back-edge pred），避免因处理
     // 顺序使首轮 IN 基于未更新的 pred OUT。
@@ -419,7 +430,7 @@ class Impl {
     while (!wl.empty()) {
       auto *BB = wl.pop_back_val();
       State newIn = computeIn(BB);
-      State newOut = transfer(BB, std::move(newIn));
+      State newOut = transfer(BB, std::move(newIn), shapeChanged);
       auto itOut = out_.find(BB); // 预填保证命中
       if (itOut->second != newOut) {
         itOut->second = std::move(newOut);
@@ -428,7 +439,7 @@ class Impl {
           wl.push_back(succ);
       }
     }
-    return changed;
+    return changed || shapeChanged;
   }
 
  public:
