@@ -179,7 +179,17 @@ SideEffect BinaryOperatorInst::getBinarySideEffect(
       return SideEffect{}.setIdempotent();
 
     case ValueKind::BinaryEqualInstKind:
-    case ValueKind::BinaryNotEqualInstKind:
+    case ValueKind::BinaryNotEqualInstKind: {
+      // If either operand can only be null or undefined, IsLooselyEqual
+      // returns false (or true for null vs undefined) without coercing the
+      // other operand, so no user code can run.
+      const Type nullOrUndefined =
+          Type::unionTy(Type::createNull(), Type::createUndefined());
+      if (leftTy.isSubsetOf(nullOrUndefined) ||
+          rightTy.isSubsetOf(nullOrUndefined))
+        return SideEffect{}.setIdempotent();
+      [[fallthrough]];
+    }
     case ValueKind::BinaryLessThanInstKind:
     case ValueKind::BinaryLessThanOrEqualInstKind:
     case ValueKind::BinaryGreaterThanInstKind:
