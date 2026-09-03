@@ -93,11 +93,11 @@ struct ShapeBindingEntry {
   /// Name of the static shape in the JSON "static shapes" object.
   std::string shapeName;
   /// Globally-unique annotation id; tags the Has guard emitted after the
-  /// TrySet so the binding is tracked like a shape hint.
+  /// TrySet so the binding is tracked like a shape guard.
   unsigned annotationId;
 };
 
-/// Entry in the shape hints array.
+/// Entry in the shape guards array.
 struct ShapeGuardEntry {
   /// Name of the static shape in the JSON "static shapes" object.
   std::string shapeName;
@@ -112,12 +112,12 @@ struct ShapeGuardEntry {
   unsigned prototypeAnnotationId;
 };
 
-/// Descriptor for a single annotation (type hint / shape hint / shape
+/// Descriptor for a single annotation (type guard / shape guard / shape
 /// binding), indexed by its globally-unique annotation id. Built at load time
 /// so guard instrumentation (SH.cpp) can report each annotation's kind and
 /// detail without re-encoding or reaching back into the loader's maps.
 struct AnnotationDescriptor {
-  enum Kind { Type, ShapeHint, PrototypeShapeHint, ShapeBinding } kind;
+  enum Kind { Type, ShapeGuard, PrototypeShapeGuard, ShapeBinding } kind;
   /// Human-readable detail: type names joined by '|' (e.g. "number|string"),
   /// or the shape name (e.g. "XNumber").
   std::string detail;
@@ -135,9 +135,9 @@ inline llvh::StringRef annotationKindLabel(AnnotationDescriptor::Kind k) {
   switch (k) {
     case AnnotationDescriptor::Type:
       return "type guard";
-    case AnnotationDescriptor::ShapeHint:
+    case AnnotationDescriptor::ShapeGuard:
       return "shape guard";
-    case AnnotationDescriptor::PrototypeShapeHint:
+    case AnnotationDescriptor::PrototypeShapeGuard:
       return "prototype shape guard";
     case AnnotationDescriptor::ShapeBinding:
       return "shape binding";
@@ -145,8 +145,8 @@ inline llvh::StringRef annotationKindLabel(AnnotationDescriptor::Kind k) {
   return "?";
 }
 
-/// Stores type hints, shape hints, and shape bindings loaded from a JSON file.
-/// Annotation ids are globally unique across all three categories.
+/// Stores type guards, shape guards, and shape bindings loaded from a JSON
+/// file. Annotation ids are globally unique across all three categories.
 class Annotations {
  private:
   /// Type guard map: target expression range -> guard entry.
@@ -155,7 +155,7 @@ class Annotations {
   /// Static shape definitions loaded from JSON, keyed by shape name.
   llvh::StringMap<StaticShapeDefinition> shapeDefs_;
 
-  /// Shape hint map: target expression range -> hint entries.
+  /// Shape guard map: target expression range -> guard entries.
   llvh::DenseMap<
       llvh::SMRange,
       llvh::SmallVector<ShapeGuardEntry, 2>,
@@ -167,7 +167,7 @@ class Annotations {
       shapeBindings_;
 
   /// Global counter assigning globally-unique annotation ids across all
-  /// categories (type hints, shape hints, shape bindings). Replaces the old
+  /// categories (type guards, shape guards, shape bindings). Replaces the old
   /// per-category JSON array index, which could collide across categories.
   unsigned nextAnnotationId_ = 0;
 
@@ -179,7 +179,7 @@ class Annotations {
   mutable llvh::DenseSet<unsigned> matchedAnnotationIds_;
 
  public:
-  /// Load type hints, shape hints, and shape bindings from a JSON file.
+  /// Load type guards, shape guards, and shape bindings from a JSON file.
   bool loadFromFile(llvh::StringRef jsonPath, SourceErrorManager &sm);
 
   /// Query the type guard for a given source range.
@@ -198,12 +198,12 @@ class Annotations {
                                               : nullptr;
   }
 
-  /// Check if there are any type hints.
+  /// Check if there are any type guards.
   bool empty() const {
     return typeGuards_.empty();
   }
 
-  /// Get all type hints (for debugging).
+  /// Get all type guards (for debugging).
   const llvh::DenseMap<llvh::SMRange, TypeGuardEntry, SMRangeInfo> &
   getAnnotations() const {
     return typeGuards_;
@@ -230,7 +230,7 @@ class Annotations {
     return shapeDefs_;
   }
 
-  /// Query the shape hints whose target expression range equals \p range.
+  /// Query the shape guards whose target expression range equals \p range.
   void getShapeGuards(
       llvh::SMRange range,
       llvh::SmallVectorImpl<ShapeGuardEntry> &guards) const;

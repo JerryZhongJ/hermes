@@ -296,8 +296,16 @@ static cl::opt<std::string> TypeAnnotationFile(
 
 static cl::opt<bool> InstrumentGuards(
     "instrument-guards",
-    cl::desc("Instrument type/shape guard branches with success/fail counters"),
+    cl::desc("Instrument guards and count success/fail"),
     cl::init(false),
+    cl::cat(CompilerCategory));
+
+static cl::list<unsigned> InstrumentGuardDetails(
+    "instrument-guards-details",
+    cl::CommaSeparated,
+    cl::desc(
+        "Count all guards and record shape miss HiddenClasses only for the "
+        "comma-separated annotation IDs"),
     cl::cat(CompilerCategory));
 
 static cl::opt<bool> InstrumentFunctionCalls(
@@ -906,6 +914,11 @@ bool compileFromCommandLineOptions() {
     return false;
   }
   if (!cli::ExportedUnit.empty()) {
+    if (!cli::InstrumentGuardDetails.empty()) {
+      llvh::errs() << "Error: -instrument-guards-details is not supported with "
+                      "-exported-unit.\n";
+      return false;
+    }
     if (cli::OutputLevel == OutputLevelKind::Run ||
         cli::OutputLevel == OutputLevelKind::Executable) {
       llvh::errs()
@@ -1065,6 +1078,14 @@ bool compileFromCommandLineOptions() {
 
   genOptions.smallC = cli::SmallC;
   genOptions.instrumentGuards = cli::InstrumentGuards;
+  genOptions.instrumentGuardDetailIDs.assign(
+      cli::InstrumentGuardDetails.begin(), cli::InstrumentGuardDetails.end());
+  llvh::sort(genOptions.instrumentGuardDetailIDs);
+  genOptions.instrumentGuardDetailIDs.erase(
+      std::unique(
+          genOptions.instrumentGuardDetailIDs.begin(),
+          genOptions.instrumentGuardDetailIDs.end()),
+      genOptions.instrumentGuardDetailIDs.end());
   genOptions.instrumentFunctionCalls = cli::InstrumentFunctionCalls;
   genOptions.instrumentStoreProperty = cli::InstrumentStoreProperty;
 

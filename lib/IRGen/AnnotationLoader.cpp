@@ -91,9 +91,9 @@ bool readPos(
 }
 
 /// Look up a JSON array under \p key, falling back to \p alias when \p key is
-/// absent. Annotation JSON accepts both "type hints" and its alias "type
-/// guards" (likewise "shape hints" / "shape guards"); the primary key wins
-/// when both happen to be present.
+/// absent. Annotation JSON accepts both "type guards" and its legacy alias
+/// "type hints" (likewise "shape guards" / "shape hints"); the primary key
+/// wins when both happen to be present.
 const llvh::json::Array *getArrayWithAlias(
     const llvh::json::Object &obj,
     llvh::StringRef key,
@@ -326,7 +326,7 @@ llvh::Optional<std::string> resolveShapeName(
   return shapeName->str();
 }
 
-/// Load type hints from the "type hints" JSON array.
+/// Load type guards from the "type guards" JSON array.
 void loadTypeGuards(
     const llvh::json::Array &arr,
     SourceErrorManager &sm,
@@ -439,7 +439,7 @@ void loadTypeGuards(
   }
 }
 
-/// Load shape hints from the "shape hints" JSON array. Each hint checks the
+/// Load shape guards from the "shape guards" JSON array. Each guard checks the
 /// target expression at its context-sensitive use point during IRGen.
 void loadShapeGuards(
     const llvh::json::Array &arr,
@@ -517,7 +517,7 @@ void loadShapeGuards(
     if (!protoShapeName.empty())
       protoId = nextAnnotationId++;
     annotationDescriptors.push_back(
-        {AnnotationDescriptor::ShapeHint,
+        {AnnotationDescriptor::ShapeGuard,
          shapeName.getValue(),
          line,
          col,
@@ -525,7 +525,7 @@ void loadShapeGuards(
          endCol});
     if (!protoShapeName.empty())
       annotationDescriptors.push_back(
-          {AnnotationDescriptor::PrototypeShapeHint,
+          {AnnotationDescriptor::PrototypeShapeGuard,
            protoShapeName,
            line,
            col,
@@ -695,8 +695,8 @@ bool Annotations::loadFromFile(
   if (auto *shapesObj = root->getObject("static shapes"))
     loadStaticShapes(*shapesObj, shapeDefs_, sm);
 
-  // 2. Type hints (alias: "type guards")
-  if (auto *arr = getArrayWithAlias(*root, "type hints", "type guards"))
+  // 2. Type guards (legacy alias: "type hints")
+  if (auto *arr = getArrayWithAlias(*root, "type guards", "type hints"))
     loadTypeGuards(
         *arr,
         sm,
@@ -704,8 +704,8 @@ bool Annotations::loadFromFile(
         nextAnnotationId_,
         annotationDescriptors_);
 
-  // 3. Shape hints (alias: "shape guards")
-  if (auto *arr = getArrayWithAlias(*root, "shape hints", "shape guards"))
+  // 3. Shape guards (legacy alias: "shape hints")
+  if (auto *arr = getArrayWithAlias(*root, "shape guards", "shape hints"))
     loadShapeGuards(
         *arr,
         sm,

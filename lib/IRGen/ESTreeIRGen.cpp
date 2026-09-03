@@ -187,7 +187,7 @@ bool ESTreeIRGen::tryInsertTrySetStaticShape(
   // of a shape binding can be reported as one annotation when removed.
   trySetInst->setAnnotationId(entry->annotationId);
   // Guard the binding: after setting the shape, emit a Has check so the
-  // binding also acts as a shape hint (InsertGuard tracks Has, not TrySet).
+  // binding also acts as a shape guard (InsertGuard tracks Has, not TrySet).
   auto *guardInst = Builder.createHasStaticShapeInst(object, litShape);
   guardInst->setAnnotationId(entry->annotationId);
   guardInst->setLocation(getAnnotationLocation(entry->annotationId));

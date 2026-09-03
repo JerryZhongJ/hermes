@@ -83,6 +83,27 @@ static void initTest262Bindings(facebook::hermes::HermesRuntime &hrt) {
   definePropertyFn.call(hrt, global, "console", descriptor);
 }
 
+/// Define the global `performance` object with a high-resolution `now()`,
+/// mirroring the W3C High Resolution Time spec (and d8's full-precision
+/// behavior): a monotonic clock with microsecond resolution, in milliseconds.
+static void initPerformanceBindings(facebook::jsi::Runtime &rt) {
+  facebook::jsi::Object performance{rt};
+  auto nowFn = facebook::jsi::Function::createFromHostFunction(
+      rt,
+      facebook::jsi::PropNameID::forAscii(rt, "now"),
+      0,
+      [](facebook::jsi::Runtime &,
+         const facebook::jsi::Value &,
+         const facebook::jsi::Value *,
+         size_t) -> facebook::jsi::Value {
+        auto us = std::chrono::duration_cast<std::chrono::microseconds>(
+            std::chrono::steady_clock::now().time_since_epoch());
+        return facebook::jsi::Value((double)us.count() / 1000.0);
+      });
+  performance.setProperty(rt, "now", nowFn);
+  rt.global().setProperty(rt, "performance", performance);
+}
+
 /// The JS library that implements the event loop.
 static const char *s_jslib =
 #include "ConsoleBindings.js.inc"
@@ -95,6 +116,7 @@ extern "C" SHERMES_EXPORT SHConsoleContext *init_console_bindings(
   using namespace facebook;
   auto &hrt = *_sh_get_hermes_runtime(shr);
   initTest262Bindings(hrt);
+  initPerformanceBindings(hrt);
 
   auto consoleContext = std::make_unique<SHConsoleContext>(
       hrt.evaluateJavaScript(
