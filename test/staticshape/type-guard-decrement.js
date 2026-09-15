@@ -7,6 +7,8 @@
 
 // RUN: %shermes -exec -O -annotation-file=%S/type-guard-decrement.json %s | %FileCheck %s --check-prefix=EXEC
 // RUN: %shermes -O0 -Xcustom-opt=insertguard -dump-ir -verify-ir -annotation-file=%S/type-guard-decrement.json %s | %FileCheck %s --check-prefix=INSERT --match-full-lines
+// RUN: %shermes -O0 -Xcustom-opt=insertguard -dump-ir -verify-ir -annotation-file=%S/type-guard-decrement.json %s | %FileCheck %s --check-prefix=PHI
+// RUN: %shermes -O0 -Xcustom-opt=insertguard,instsimplify,dce -dump-ir -verify-ir -annotation-file=%S/type-guard-decrement.json %s | %FileCheck %s --check-prefix=PHI
 
 // Regression: a type hint on a prefix decrement `--n`. IRGen emits
 // UnaryDec -> StoreFrame(writeback) -> TypeOfIsInst, so the guard does NOT
@@ -36,3 +38,8 @@ print(dec(10));
 // INSERT-NEXT:       StoreFrameInst {{%[0-9]+}}: environment, [[DEC]]: number|bigint, {{.*}}
 // INSERT-NEXT:  [[CHK:%[0-9]+]] = TypeOfIsInst (:boolean) [[DEC]]: number|bigint, typeOfIs(Number) [ann#0]
 // INSERT-NEXT:        CondBranchInst [[CHK]]: boolean, {{%BB[0-9]+}}, {{%BB[0-9]+}}
+
+// The bailout loop needs one non-trivial Phi to merge the decremented value
+// arriving from its general backedge with the speculative bailout value.
+// PHI-COUNT-1: PhiInst
+// PHI: PhiInst (:number|bigint)

@@ -7,6 +7,7 @@ in flight the report is explicitly marked stale. No MCP handler polls or waits
 for Jelly.
 """
 
+
 from __future__ import annotations
 
 import json
@@ -18,6 +19,10 @@ from typing import Any
 from claude_agent_sdk import create_sdk_mcp_server, tool
 
 from .utils import _err, atomic_write_json
+
+PROMPT = (
+    "- Data flow: `query_dataflow(source=\"sl:sc:el:ec\", direction=\"forward|reverse|both\")` — may-flow from static analysis (possible, not certain; conservative over-approximation). Pass a range (startLine:startCol-endLine:endCol); forward shows where the value goes, reverse shows where it comes from. `get_definition(source)` resolves an identifier to its declaration."
+)
 
 EDGE_KINDS = (
     "store-property", "load-property", "argument", "return",
@@ -275,7 +280,7 @@ def make_dataflow_server(source: Path, workdir: Path):
 def host_setup(attempt_dir: Path, source_name: str, config, stop_event) -> list:
     import threading
 
-    from ..priors_service import serve_dataflow
+    from .services.callgraph_service import serve_dataflow
 
     jelly_bin = getattr(config, "jelly_bin", None)
     if not jelly_bin:

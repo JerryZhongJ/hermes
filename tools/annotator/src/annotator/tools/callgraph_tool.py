@@ -24,6 +24,7 @@ Loop depth is extracted with tree-sitter-javascript from the source tree under
 not errors.
 """
 
+
 from __future__ import annotations
 
 import json
@@ -43,7 +44,15 @@ from .callgraph import (
     compute_heat,
     compute_loop_depths,
 )
+from .functions import ScopeSelection, resolve_scope
 from .utils import _err, atomic_write_json, resolve_in_workdir
+
+PROMPT = (
+    "Jelly tools come from static analysis — results are conservative over-approximations (call graph may have spurious edges; heat is an estimate, not a measurement). Trust dryrun_feedback for ground truth.\n"
+    "Functions / call sites are identified by their **range** (startLine:startCol-endLine:endCol, 1-based, no filename — there's only one file); copy a range from one tool's output into another's argument.\n"
+    "- Call graph: `view_callgraph(scope=)` lists call sites and their callees (scope: a function loc_key like \"31:1\" means that function's DIRECT call sites only — nested functions are independent scopes, pass their own loc_keys; \"<top-level>\" for module-level call sites; a list of them; a line range like \"31-45\"; or \"file\"); `get_callers(callee=)` / `get_callees(caller=)` or `get_callees(callsite=)` look one up; `add_call_edges(edges=[{callsite, callee}])` / `delete_call_edges(...)` fix an edge Jelly got wrong.\n"
+    "- Heat: `view_hot_value()` ranks functions by expected call frequency — annotate the hottest first; `set_hot_value(func=, value=)`, `set_exec_expt(callsite=, value=)`, `set_target_prob(callsite=, callee=, prob=)` calibrate with known runtime numbers."
+)
 
 DEFAULT_VIEW_LIMIT = 50
 DEFAULT_HEAT_LIMIT = 30
@@ -90,6 +99,25 @@ def _fmt_num(x: float | None) -> str:
     return f"{x:.2f}"
 
 
+def _hot_row_selected(selection: ScopeSelection, r: dict[str, Any]) -> bool:
+    """A hot row (function or synthetic ENTRY) vs the scope, by its start
+    point's owner.
+
+    A row's 4-seg loc_key opens with the 1-based start line:col — the same
+    format as a tree-sitter loc_key — so ownership works unchanged. The
+    synthetic ENTRY (module entry, line 1 col 1) resolves to module top level
+    and thus only shows under "<top-level>" / "file" / a covering window.
+    Rows with no known location only match the whole-file scope.
+    """
+    parts = str(r.get("loc_key", "")).split(":")
+    if len(parts) >= 2:
+        try:
+            return selection.owns(int(parts[0]), int(parts[1]))
+        except ValueError:
+            pass
+    return selection.is_whole_file
+
+
 def build_callgraph_tools(source: Path, workdir: Path):
     """Build the Jelly call-graph MCP tools, bound to ``source`` (the JS file
     being annotated) and ``workdir`` (where ``.jelly/cg.json`` lives).
@@ -105,6 +133,27 @@ def build_callgraph_tools(source: Path, workdir: Path):
 
     def _info(msg: str) -> dict[str, Any]:
         return {"content": [{"type": "text", "text": msg}]}
+
+    def _scope_selection(
+        args: dict[str, Any],
+    ) -> tuple[ScopeSelection, dict[str, Any] | None]:
+        """Resolve the shared ``scope`` argument to a :class:`ScopeSelection`.
+
+        Returns (selection, None), or (selection, error payload) so handlers
+        can return the error verbatim. The whole-file default carries the
+        empty selection (everything selected).
+        """
+        scope = args.get("scope")
+        if scope is None or scope == "file":
+            return ScopeSelection(), None
+        try:
+            return resolve_scope(scope, source.read_bytes()), None
+        except ValueError:
+            return ScopeSelection(), _err(f"unknown or malformed scope {scope!r}")
+        except OSError:
+            return ScopeSelection(), _err(
+                "could not read the source file for scope resolution"
+            )
 
     def _load_cg_from(cg_file: str, root: Path, include_deps: bool) -> bool:
         cg_path, err = resolve_in_workdir(workdir_resolved, cg_file)
@@ -193,7 +242,7 @@ def build_callgraph_tools(source: Path, workdir: Path):
         try:
             atomic_write_json(fb / "req.json", {"req_id": req_id, "rules": rules})
         except OSError as exc:
-            return f"无法请求重分析(host priors_service 可能未运行): {exc}"
+            return f"无法请求重分析(host callgraph_service 可能未运行): {exc}"
         session.pending_cg_req = req_id
         return None
 
@@ -224,8 +273,11 @@ def build_callgraph_tools(source: Path, workdir: Path):
             "type": "object",
             "properties": {
                 "file": {"type": "string", "description": "restrict to this source file (relative path)"},
-                "from_line": {"type": "integer", "description": "1-based start line (inclusive)"},
-                "to_line": {"type": "integer", "description": "1-based end line (inclusive)"},
+                "scope": {
+                    "type": ["string", "array"],
+                    "description": "\"file\" (default), ONE function loc_key like \"31:1\" (that function's DIRECT statements only — nested functions are independent scopes, pass their own loc_keys), \"<top-level>\" for module-level code, a list of loc_keys like [\"31:1\", \"35:1\"], or an inclusive line range like \"31-45\" (items whose own line falls inside)",
+                    "items": {"type": "string"},
+                },
                 "min_callees": {"type": "integer", "description": "only call sites with >= this many callees"},
                 "max_callees": {"type": "integer", "description": "only call sites with <= this many callees"},
                 "sort": {
@@ -244,8 +296,9 @@ def build_callgraph_tools(source: Path, workdir: Path):
             return model
         effective = session.overrides.effective_edges(model)
         file_filter = args.get("file")
-        fl = args.get("from_line")
-        tl = args.get("to_line")
+        selection, scope_err = _scope_selection(args)
+        if scope_err is not None:
+            return scope_err
         min_c = args.get("min_callees")
         max_c = args.get("max_callees")
         sort = args.get("sort", "file-line")
@@ -261,10 +314,10 @@ def build_callgraph_tools(source: Path, workdir: Path):
                 continue
             if isinstance(file_filter, str) and ce.file != file_filter:
                 continue
-            line = ce.start["line"]
-            if isinstance(fl, int) and line < fl:
-                continue
-            if isinstance(tl, int) and line > tl:
+            # Ownership: the innermost tree-sitter function owning the call
+            # site's start decides (Jelly start columns are 0-based;
+            # ownership compares 1-based columns, hence +1).
+            if not selection.owns(ce.start["line"], ce.start["column"] + 1):
                 continue
             n = len(callees)
             if isinstance(min_c, int) and n < min_c:
@@ -308,11 +361,11 @@ def build_callgraph_tools(source: Path, workdir: Path):
     @tool(
         "get_callers",
         "Reverse lookup: every call site and caller function that may reach the "
-        "given callee function. `callee` is a callee range from view_callgraph "
-        "/ view_hot_value.",
+        "given callee function. `callee` is a callee function loc_key (4-seg "
+        "range 'sl:sc:el:ec') from view_callgraph / view_hot_value.",
         {
             "type": "object",
-            "properties": {"callee": {"type": "string", "description": "callee function range"}},
+            "properties": {"callee": {"type": "string", "description": "callee function loc_key — a 4-seg range 'sl:sc:el:ec', copy from view_callgraph / view_hot_value rows"}},
             "required": ["callee"],
         },
     )
@@ -347,14 +400,14 @@ def build_callgraph_tools(source: Path, workdir: Path):
     # ----- get_callees ----- #
     @tool(
         "get_callees",
-        "Forward lookup from a function or a single call site. Give `caller` (a "
-        "function range) for every callee of that function, or `callsite` (a "
-        "call site range) for that one site's callees.",
+        "Forward lookup from a function or a single call site. Give `caller` (a function loc_key, 4-seg "
+        "range 'sl:sc:el:ec') for every callee of that function, or `callsite` (a "
+        "call site loc_key, 4-seg range) for that one site's callees.",
         {
             "type": "object",
             "properties": {
-                "caller": {"type": "string", "description": "caller function range"},
-                "callsite": {"type": "string", "description": "call site range"},
+                "caller": {"type": "string", "description": "caller function loc_key — a 4-seg range 'sl:sc:el:ec', copy from view_callgraph rows"},
+                "callsite": {"type": "string", "description": "call site loc_key — a 4-seg range 'sl:sc:el:ec', copy from view_callgraph rows"},
             },
         },
     )
@@ -489,14 +542,20 @@ def build_callgraph_tools(source: Path, workdir: Path):
         "view_hot_value",
         "Estimate per-function heat (expected calls per entry execution) on the "
         "override-adjusted graph, ranked hot-first. Each row carries a `loc_key` "
-        "for set_hot_value. Status flags divergence/cap from recursive cycles. "
-        "Filter by file/line range and minimum heat.",
+        "for set_hot_value. The ENTRY row is a synthetic whole-file module "
+        "entry (heat 1 per execution), NOT a function loc_key — do not use it "
+        "as a scope; address module-level code with \"<top-level>\" instead. "
+        "Status flags divergence/cap from recursive cycles. "
+        "Filter by file, scope, and minimum heat.",
         {
             "type": "object",
             "properties": {
                 "file": {"type": "string", "description": "restrict to this source file"},
-                "from_line": {"type": "integer"},
-                "to_line": {"type": "integer"},
+                "scope": {
+                    "type": ["string", "array"],
+                    "description": "\"file\" (default), ONE function loc_key like \"31:1\" (that function's DIRECT statements only — nested functions are independent scopes, pass their own loc_keys), \"<top-level>\" for module-level code, a list of loc_keys like [\"31:1\", \"35:1\"], or an inclusive line range like \"31-45\" (items whose own line falls inside)",
+                    "items": {"type": "string"},
+                },
                 "min_hot": {"type": "number", "description": "only functions with heat >= this"},
                 "limit": {"type": "integer", "description": f"cap on rows (default {DEFAULT_HEAT_LIMIT}; 0 = unlimited)"},
             },
@@ -515,8 +574,9 @@ def build_callgraph_tools(source: Path, workdir: Path):
         except ValueError as exc:
             return _err(str(exc))
         file_filter = args.get("file")
-        fl = args.get("from_line")
-        tl = args.get("to_line")
+        selection, scope_err = _scope_selection(args)
+        if scope_err is not None:
+            return scope_err
         min_hot = args.get("min_hot")
         try:
             limit = int(args.get("limit", DEFAULT_HEAT_LIMIT))
@@ -528,10 +588,7 @@ def build_callgraph_tools(source: Path, workdir: Path):
         for r in rows:
             if isinstance(file_filter, str) and r["file"] != file_filter:
                 continue
-            line = r["line"]
-            if isinstance(fl, int) and (line is None or line < fl):
-                continue
-            if isinstance(tl, int) and (line is None or line > tl):
+            if not _hot_row_selected(selection, r):
                 continue
             if isinstance(min_hot, (int, float)) and (r["hot"] is None or r["hot"] < min_hot):
                 continue
@@ -558,6 +615,10 @@ def build_callgraph_tools(source: Path, workdir: Path):
                 f"{r['loc_key']}"
             )
         body.append("(st: fin=converged, cap=hit iteration cap, DIV=divergent cycle)")
+        body.append(
+            "(ENTRY = synthetic whole-file module entry, not a function "
+            'loc_key — module-level scope is "<top-level>")'
+        )
         return {"content": [{"type": "text", "text": header + "\n" + "\n".join(body)}]}
 
     # ----- set_hot_value ----- #
@@ -566,12 +627,12 @@ def build_callgraph_tools(source: Path, workdir: Path):
         "Hard-override a function's heat to a fixed value: the function is pinned "
         "to that value and its outbound contributions propagate from it (inbound "
         "to it is ignored). Useful to inject a known runtime call count. This is "
-        "heat-only — no host re-run. `func` is a range from view_callgraph / "
-        "view_hot_value.",
+        "heat-only — no host re-run. `func` is a function loc_key (4-seg range "
+        "'sl:sc:el:ec') from view_callgraph / view_hot_value.",
         {
             "type": "object",
             "properties": {
-                "func": {"type": "string", "description": "function range"},
+                "func": {"type": "string", "description": "function loc_key — a 4-seg range 'sl:sc:el:ec', copy from view_hot_value rows"},
                 "value": {"type": "number", "description": "fixed heat value (>= 0)"},
             },
             "required": ["func", "value"],
@@ -599,11 +660,11 @@ def build_callgraph_tools(source: Path, workdir: Path):
         "set_exec_expt",
         "Set the expected number of executions of a call site per execution of "
         "its caller (overrides the default loopWeight^loopDepth estimate). "
-        "Heat-only — no host re-run. `callsite` is a call site range.",
+        "Heat-only — no host re-run. `callsite` is a call site loc_key (4-seg range).",
         {
             "type": "object",
             "properties": {
-                "callsite": {"type": "string", "description": "call site range"},
+                "callsite": {"type": "string", "description": "call site loc_key — a 4-seg range 'sl:sc:el:ec', copy from view_callgraph rows"},
                 "value": {"type": "number", "description": "expected executions per caller execution (>= 0)"},
             },
             "required": ["callsite", "value"],
@@ -637,8 +698,8 @@ def build_callgraph_tools(source: Path, workdir: Path):
         {
             "type": "object",
             "properties": {
-                "callsite": {"type": "string", "description": "call site range"},
-                "callee": {"type": "string", "description": "callee function range"},
+                "callsite": {"type": "string", "description": "call site loc_key — a 4-seg range 'sl:sc:el:ec', copy from view_callgraph rows"},
+                "callee": {"type": "string", "description": "callee function loc_key — a 4-seg range 'sl:sc:el:ec', copy from view_callgraph / view_hot_value rows"},
                 "prob": {"type": "number", "description": "probability in [0, 1]"},
             },
             "required": ["callsite", "callee", "prob"],
@@ -737,7 +798,7 @@ def host_setup(attempt_dir: Path, source_name: str, config, stop_event) -> list:
     prewarm atomically publishes ``cg.json``, queries report ``not yet ready``.
     """
     import threading
-    from ..priors_service import prewarm_callgraph, serve
+    from .services.callgraph_service import prewarm_callgraph, serve
 
     jelly_bin = getattr(config, "jelly_bin", None)
     if not jelly_bin:
@@ -753,6 +814,6 @@ def host_setup(attempt_dir: Path, source_name: str, config, stop_event) -> list:
             target=serve,
             args=(attempt_dir, source_name, str(jelly_bin), stop_event),
             daemon=True,
-            name="priors_service",
+            name="callgraph_service",
         ),
     ]

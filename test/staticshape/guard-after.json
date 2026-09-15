@@ -2,7 +2,7 @@
   "static shapes": {
     "YNum": {"properties": [{"name": "y", "type": "number"}]}
   },
-  "shape hints": [
+  "shape guards": [
     {
       "target range": {"file": "guard-after.js", "start": {"line": 7, "column": 3}, "end": {"line": 7, "column": 4}},
       "shape": "YNum"

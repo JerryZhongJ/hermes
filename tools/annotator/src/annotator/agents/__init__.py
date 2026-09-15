@@ -2,24 +2,27 @@
 
 from __future__ import annotations
 
-import asyncio
-from collections.abc import Awaitable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Protocol, TypeVar
+from typing import Protocol
+
+from ..workflows import AnnotationRequest
 
 from ..config import AgentConfig
 
 
-T = TypeVar("T")
-
-
 @dataclass(frozen=True)
 class TraceSource:
-    """Claude Code transcript still located in the attempt directory."""
+    """Claude Code transcript still located in the attempt directory.
+
+    ``main`` is the coordinator session. ``others`` carries every OTHER
+    session jsonl of the same run (the workers' subagent sessions) so their
+    transcripts survive the attempt-dir teardown too.
+    """
 
     main: Path
     session_id: str
+    others: tuple[Path, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -39,35 +42,28 @@ class AgentRun:
     timed_out: bool = False
     container_exit_code: int | None = None
     worker_completed: bool = False
+    workflow: str = "annotate-hotspot-functions"
+    targets: tuple[str, ...] = ()
+    output_published: bool = False
+    output_sha256: str | None = None
 
 
 class AgentRunner(Protocol):
-    def run(self, prompt: str, attempt_dir: Path, source_name: str) -> AgentRun:
+    def run(
+        self,
+        attempt_dir: Path,
+        source_name: str,
+        request: AnnotationRequest,
+        append_prompt: str | None = None,
+    ) -> AgentRun:
         ...
-
-
-def run_async_with_timeout(awaitable: Awaitable[T], timeout_seconds: int) -> T:
-    async def run() -> T:
-        if timeout_seconds > 0:
-            return await asyncio.wait_for(awaitable, timeout=timeout_seconds)
-        return await awaitable
-
-    return asyncio.run(run())
 
 
 def create_runner(config: AgentConfig, timeout_seconds: int) -> AgentRunner:
     # The annotation document is maintained through the in-process annotation
-    # MCP, which only the Claude backend supports (the Codex SDK has no
-    # equivalent in-process MCP hook). Refuse codex rather than silently
-    # falling back to the old "agent writes annotation.json" path.
-    if config.agent == "codex":
-        raise ValueError(
-            "agent 'codex' is not supported: annotations are now maintained "
-            "via the in-process annotation MCP, which only the claude backend "
-            "provides. Use agent 'claude'."
-        )
+    # MCP, which only the Claude backend supports.
     if config.agent == "claude":
-        from .claude import ClaudeSdkRunner
+        from ..docker_runner import DockerRunner
 
-        return ClaudeSdkRunner(config, timeout_seconds)
+        return DockerRunner(config, timeout_seconds)
     raise ValueError(f"unsupported agent: {config.agent}")

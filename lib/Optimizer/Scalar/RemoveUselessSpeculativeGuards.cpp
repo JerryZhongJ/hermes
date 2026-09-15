@@ -77,6 +77,32 @@ bool hasGuardDependentConsumer(
   return false;
 }
 
+/// A type guard TypeOfIsInst may be CSE'd with the user's own source-level
+/// `typeof x === "number"` check (the param hint and the canonicalized source
+/// check become the same instruction). Such a shared TOI still feeds the
+/// original branch, so folding it to true would redirect the source check on
+/// guard failure and change program behavior. Only a TOI whose sole user is
+/// InsertGuard's own deopt CondBranch is pure guard machinery and safe to
+/// fold; anything else — a second branch or a value consumer — means the
+/// boolean is observable beyond the guard. The single CondBranch user is
+/// taken to be the guard's deopt branch; when the source branch is shared
+/// it shows up as a second branch or value user instead.
+bool isSharedWithSourceCheck(TypeOfIsInst *TOI) {
+  if (!TOI->tracksUsers())
+    return false;
+  bool sawBranch = false;
+  for (Instruction *user : TOI->getUsers()) {
+    if (llvh::isa<CondBranchInst>(user)) {
+      if (sawBranch)
+        return true;
+      sawBranch = true;
+      continue;
+    }
+    return true; // non-branch consumer reads the check's value
+  }
+  return false;
+}
+
 /// Find the single UnionNarrowTrustedInst among the users of \p TOI's argument.
 ///
 /// Tolerates other non-UNT users of the operand (e.g. the deopt-branch
@@ -207,6 +233,11 @@ bool RemoveUselessSpeculativeGuards::runOnModule(Module *M) {
     for (TypeOfIsInst *TOI : typeGuards) {
       // Only the pure-number case is handled; compare TypeOfIsTypes directly.
       if (TOI->getTypes()->getData() != TypeOfIsTypes().withNumber(true))
+        continue;
+      // The check must be pure guard machinery. If it is shared with the
+      // source's own typeof check, folding it to true would miscompile the
+      // original branch when the guard fails at runtime.
+      if (isSharedWithSourceCheck(TOI))
         continue;
       const Type guardType = Type::createNumber();
       if (hasGuardDependentConsumer(

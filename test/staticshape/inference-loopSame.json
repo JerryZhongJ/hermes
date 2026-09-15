@@ -1,5 +1,5 @@
 {
-  "type hints": [
+  "type guards": [
     {
       "target range": {
         "file": "inference-loopSame.js",
@@ -9,7 +9,7 @@
       "type": "number"
     }
   ],
-  "shape hints": [
+  "shape guards": [
     {
       "target range": {
         "file": "inference-loopSame.js",

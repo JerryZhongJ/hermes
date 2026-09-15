@@ -49,6 +49,7 @@
 #include "llvh/ADT/SmallPtrSet.h"
 #include "llvh/ADT/SmallVector.h"
 
+#include <algorithm>
 #include <map>
 #include <set>
 #include <string>
@@ -69,7 +70,7 @@ cl::list<std::string> InputFilenames(
 cl::opt<std::string> AnnotationFile(
     "annotation-file",
     cl::desc(
-        "JSON annotation file (static shapes / type hints / shape hints / shape bindings)"),
+        "JSON annotation file (static shapes / type guards / shape guards / shape bindings)"),
     cl::init(""),
     cl::cat(DryrunCategory));
 
@@ -98,13 +99,16 @@ cl::list<std::string> CustomPasses(
     cl::cat(DryrunCategory));
 
 // 标注效果反馈 pipeline：让标注产生的 guard 真正生效（type 窄化→FXX、
-// shape→PrLoad/PrStore），但不跑 inlining/cse/scopehoisting（大文件
-// 13s→1s 的主因）。关键：标注的对象常经 frame（StoreFrame/LoadFrame），
-// 必须先 frameloadstoreopts + simplemem2reg + scopeelimination 让 shape/
-// 窄化穿透到 property 访问，再跑两轮 shape+type 推断 + simplify 换快路径。
-// lowerbuiltincallsoptimized 紧跟 insertguard 之后：把 Math.sqrt 等全局
-// builtin 调用降为 CallBuiltinInst（同时删掉 TryLoadGlobalProperty+Call），
-// 这样后续 type inference 能把它们认作 numeric、不再误判为 shape blockage。
+// shape→PrLoad/PrStore、closure target→call 直连），但不跑
+// inlining/cse/scopehoisting（大文件 13s→1s 的主因）。关键：标注的对象常经
+// frame（StoreFrame/LoadFrame），必须先 frameloadstoreopts + simplemem2reg +
+// scopeelimination 让 shape/窄化穿透到 property 访问，再跑两轮 shape+type
+// 推断 + simplify 换快路径。lowerbuiltincallsoptimized 紧跟 insertguard 之后：
+// 把 Math.sqrt 等全局 builtin 调用降为 CallBuiltinInst（同时删掉
+// TryLoadGlobalProperty+Call），这样后续 type inference 能把它们认作
+// numeric、不再误判为 shape blockage。尾部 functionanalysis 让 closure
+// target guard 证明的函数身份传播到 call（target 直连，不内联本体），
+// coverage 才能把这类 call 记为 optimized。
 // 故意不跑 removeuselessspeculativeguards：保留 guard，③ 的 collectKills 才能
 // 复用 StaticShapeInference 重新注入 shape、定位 polluting 阻挡（guard 被删
 // 则无 edge fact，shape 无法重建）。④ useless 由排除法判定，不靠该 pass。
@@ -128,6 +132,19 @@ static const std::vector<std::string> kFeedbackPasses = {
     "localtypeandstaticshapeinference",
     "typeinference",
     "instsimplify",
+    // Tail propagation round: without CSE + one more inference sweep the
+    // coverage report under-counts guards whose facts only reach their
+    // consumers through the later full-pipeline rounds (e.g. entry guards
+    // covering reads deep inside loops). Still no RemoveUselessSpeculative
+    // Guards: collectKills must see every guard.
+    "cse",
+    "localtypeandstaticshapeinference",
+    "typeinference",
+    "instsimplify",
+    // Closure target guards: propagate the proven function identity from the
+    // guarded UnionNarrowTrusted to its calls (target direct-connect). No
+    // inlining follows, so this stays cheap.
+    "functionanalysis",
 };
 
 std::vector<std::string> getPassList() {
@@ -217,6 +234,293 @@ struct AnnFeedback {
   std::vector<Effect> miss;
 };
 
+// --- compiler-derived opportunity inventory + coverage (report v2) -------- //
+//
+// The tool's only job: (1) which generic instructions could be optimized by an
+// annotation, and (2) after annotating, are those positions still generic.
+// It does NOT model "attempted", which annotations to place, or how they
+// combine — that reasoning belongs to the agent.
+
+enum class OppOutcome { NotOptimized, Optimized };
+
+enum class OppKind { Arithmetic, PropertyLoad, PropertyStore, Call };
+
+const char *oppKindLabel(OppKind k) {
+  switch (k) {
+    case OppKind::Arithmetic:
+      return "arithmetic";
+    case OppKind::PropertyLoad:
+      return "property_load";
+    case OppKind::PropertyStore:
+      return "property_store";
+    case OppKind::Call:
+      return "call";
+  }
+  return "unknown";
+}
+
+struct OppRecord {
+  OppKind kind;
+  std::string location; // "line:col" instruction start point
+  std::string property; // named property, empty otherwise
+  OppOutcome outcome = OppOutcome::NotOptimized;
+  // True when the instruction sits in a bailout (guard-fail) reachable BB:
+  // generic copies there are the cold path by design and don't count.
+  bool bailout = false;
+};
+
+// Is this instruction a generic arithmetic/comparison op that annotations
+// could specialize to a fast numeric form (FAdd/FCompare/...)?
+bool isGenericArithmetic(Instruction &I) {
+  switch (I.getKind()) {
+    case ValueKind::BinaryAddInstKind:
+    case ValueKind::BinarySubtractInstKind:
+    case ValueKind::BinaryMultiplyInstKind:
+    case ValueKind::BinaryDivideInstKind:
+    case ValueKind::BinaryModuloInstKind:
+    case ValueKind::BinaryLessThanInstKind:
+    case ValueKind::BinaryLessThanOrEqualInstKind:
+    case ValueKind::BinaryGreaterThanInstKind:
+    case ValueKind::BinaryGreaterThanOrEqualInstKind:
+    case ValueKind::BinaryEqualInstKind:
+    case ValueKind::BinaryNotEqualInstKind:
+    case ValueKind::BinaryStrictlyEqualInstKind:
+    case ValueKind::BinaryStrictlyNotEqualInstKind:
+    case ValueKind::UnaryMinusInstKind:
+      return true;
+    default:
+      return false;
+  }
+}
+
+// Is this instruction a specialized numeric fast-path op (FAdd/FCompare/...)?
+bool isSpecializedArithmetic(Instruction &I) {
+  return llvh::isa<FBinaryMathInst>(&I) || llvh::isa<FUnaryMathInst>(&I) ||
+      llvh::isa<FCompareInst>(&I);
+}
+
+// Is this instruction a generic named-property access that annotations could
+// specialize to a typed slot access (PrLoad/PrStore)?
+bool isGenericPropertyAccess(Instruction &I, OppKind *kind, std::string *prop) {
+  if (auto *lp = llvh::dyn_cast<BaseLoadPropertyInst>(&I)) {
+    if (auto *n = llvh::dyn_cast<LiteralString>(lp->getProperty())) {
+      *kind = OppKind::PropertyLoad;
+      *prop = n->getValue().str();
+      return true;
+    }
+  }
+  if (auto *sp = llvh::dyn_cast<BaseStorePropertyInst>(&I)) {
+    if (auto *n = llvh::dyn_cast<LiteralString>(sp->getProperty())) {
+      *kind = OppKind::PropertyStore;
+      *prop = n->getValue().str();
+      return true;
+    }
+  }
+  return false;
+}
+
+bool isSpecializedPropertyAccess(Instruction &I, std::string *prop) {
+  if (auto *pl = llvh::dyn_cast<PrLoadInst>(&I)) {
+    *prop = pl->getPropName()->getValue().str();
+    return true;
+  }
+  if (auto *ps = llvh::dyn_cast<PrStoreInst>(&I)) {
+    *prop = ps->getPropName()->getValue().str();
+    return true;
+  }
+  return false;
+}
+
+// Best-effort callee name for a CallInst: the callee operand is usually the
+// result of a named-property load (obj.method) or a global load immediately
+// before the call. Walk the defining instructions backwards a few positions.
+std::string guessCalleeName(CallInst &call) {
+  Value *callee = call.getCallee();
+  if (auto *I = llvh::dyn_cast<Instruction>(callee)) {
+    if (auto *lp = llvh::dyn_cast<BaseLoadPropertyInst>(I)) {
+      if (auto *n = llvh::dyn_cast<LiteralString>(lp->getProperty()))
+        return n->getValue().str();
+    }
+    if (auto *tp = llvh::dyn_cast<TryLoadGlobalPropertyInst>(I)) {
+      if (auto *n = llvh::dyn_cast<LiteralString>(tp->getProperty()))
+        return n->getValue().str();
+    }
+  }
+  return "";
+}
+
+// Mark bailout-only BBs per function: BBs reachable from entry ONLY by
+// crossing some guard's FAIL edge. Instructions there are the cold/generic
+// path by design; coverage judgment only looks at the speculative copies.
+//
+// Algorithm: walk from the entry over all CFG edges EXCEPT guard fail edges;
+// every BB not reached this way has all its entry paths going through a bail,
+// i.e. it is bailout-only. (Guard branches: CondBranchInst whose condition is
+// a HasStaticShapeInst/TypeOfIsInst/HasClosureTargetInst; true edge =
+// speculative, false = bail.)
+llvh::DenseSet<const BasicBlock *> collectBailoutBBs(Function &F) {
+  // Collect guard fail edges.
+  llvh::DenseSet<std::pair<const BasicBlock *, const BasicBlock *>> failEdges;
+  for (BasicBlock &BB : F) {
+    auto *br = llvh::dyn_cast<CondBranchInst>(BB.getTerminator());
+    if (!br || !br->getCondition())
+      continue;
+    auto *cond = br->getCondition();
+    if (!llvh::isa<HasStaticShapeInst>(cond) && !llvh::isa<TypeOfIsInst>(cond) &&
+        !llvh::isa<HasClosureTargetInst>(cond))
+      continue;
+    // InsertGuard layout: true edge = guarded (speculative), false = bail.
+    if (br->getFalseDest())
+      failEdges.insert({&BB, br->getFalseDest()});
+  }
+  if (failEdges.empty())
+    return {};
+
+  // Reachability from entry avoiding fail edges.
+  llvh::DenseSet<const BasicBlock *> speculative;
+  std::vector<const BasicBlock *> worklist{&F.front()};
+  speculative.insert(&F.front());
+  while (!worklist.empty()) {
+    const BasicBlock *bb = worklist.back();
+    worklist.pop_back();
+    auto *term = bb->getTerminator();
+    if (!term)
+      continue;
+    for (unsigned i = 0, e = term->getNumSuccessors(); i != e; ++i) {
+      const BasicBlock *succ = term->getSuccessor(i);
+      if (failEdges.count({bb, succ}))
+        continue; // crossing a bail edge: leaves the speculative domain
+      if (speculative.insert(succ).second)
+        worklist.push_back(succ);
+    }
+  }
+
+  llvh::DenseSet<const BasicBlock *> bailout;
+  for (BasicBlock &BB : F)
+    if (!speculative.count(&BB))
+      bailout.insert(&BB);
+  return bailout;
+}
+
+// One IR scan collecting (location, kind, property) sites by category.
+// category: 0 = generic arithmetic, 1 = generic property, 2 = specialized
+// arithmetic, 3 = specialized property, 4 = call (generic → direct/inline).
+// `bailoutBBs` per-function (empty for the pre-pipeline baseline scan).
+std::vector<OppRecord> scanSites(
+    Module &M,
+    SourceErrorManager &sm,
+    const llvh::DenseMap<Function *, llvh::DenseSet<const BasicBlock *>>
+        &bailoutBBs) {
+  std::vector<OppRecord> out;
+  for (Function &F : M.getFunctionList()) {
+    auto it = bailoutBBs.find(&F);
+    const llvh::DenseSet<const BasicBlock *> empty;
+    const auto &bail = it == bailoutBBs.end() ? empty : it->second;
+    for (BasicBlock &BB : F)
+      for (Instruction &I : BB) {
+        std::string loc = locStr(&I, sm);
+        if (loc.empty())
+          continue;
+        bool inBailout = bail.count(&BB) != 0;
+        if (isGenericArithmetic(I)) {
+          out.push_back(
+              {OppKind::Arithmetic, loc, "", OppOutcome::NotOptimized, inBailout});
+        } else if (isSpecializedArithmetic(I)) {
+          out.push_back(
+              {OppKind::Arithmetic, loc, "", OppOutcome::Optimized, inBailout});
+        } else if (llvh::isa<CallInst>(&I)) {
+          // A plain CallInst with a resolved target is the direct-connect
+          // form FunctionAnalysis produces from closure target guards
+          // (insertguard's spec-path calls); untargeted stays generic.
+          auto &call = llvh::cast<CallInst>(I);
+          bool direct = !llvh::isa<EmptySentinel>(call.getTarget());
+          out.push_back({OppKind::Call, loc, guessCalleeName(call),
+                         direct ? OppOutcome::Optimized
+                                : OppOutcome::NotOptimized,
+                         inBailout});
+        } else if (llvh::isa<CallBuiltinInst>(&I)) {
+          // Builtin calls (fbuiltins lowering) are not opportunities at all:
+          // neither baseline nor post scan records them.
+          continue;
+        } else if (llvh::isa<BaseCallInst>(&I)) {
+          // Any other call form (native calls, and calls whose target got
+          // resolved to a Function by inlining prep) counts as optimized
+          // when the target is a known IR Function.
+          auto &call = llvh::cast<BaseCallInst>(I);
+          bool direct = !llvh::isa<EmptySentinel>(call.getTarget());
+          out.push_back({OppKind::Call, loc, "",
+                         direct ? OppOutcome::Optimized : OppOutcome::NotOptimized,
+                         inBailout});
+        } else {
+          OppKind kind;
+          std::string prop;
+          if (isGenericPropertyAccess(I, &kind, &prop)) {
+            out.push_back(
+                {kind, loc, prop, OppOutcome::NotOptimized, inBailout});
+          } else if (isSpecializedPropertyAccess(I, &prop)) {
+            // Re-scan generic categories for the matching kind; the
+            // specialized instruction itself tells load vs store.
+            OppKind k = llvh::isa<PrLoadInst>(&I) ? OppKind::PropertyLoad
+                                                  : OppKind::PropertyStore;
+            out.push_back({k, loc, prop, OppOutcome::Optimized, inBailout});
+          }
+        }
+      }
+  }
+  return out;
+}
+
+// Build the report's opportunity list: baseline generic sites, each marked by
+// what happened to the SPECULATIVE (non-bailout) copies at the same
+// (location, kind[, property]) in the post-pipeline scan:
+//
+//   optimized  — strength reduction: a specialized form exists speculatively,
+//                OR elimination: no speculative copy remains at all (CSE
+//                merged it into a sibling, folded, inlined). Bailout-path
+//                generic copies don't count: the cold path is generic by
+//                design and is not what we're optimizing.
+//   not-optimized — a generic copy still executes on the speculative path.
+std::vector<OppRecord> diffOpportunities(
+    const std::vector<OppRecord> &genericSites,
+    const std::vector<OppRecord> &postSites) {
+  // Per key: does a specialized / generic copy exist OUTSIDE bailout BBs?
+  std::set<std::string> specialized, genericSpeculative;
+  for (const auto &s : postSites) {
+    if (s.bailout)
+      continue; // cold path: irrelevant either way
+    std::string key = s.location + "|" + oppKindLabel(s.kind);
+    if (!s.property.empty())
+      key += "|" + s.property;
+    if (s.outcome == OppOutcome::Optimized)
+      specialized.insert(key);
+    else
+      genericSpeculative.insert(key);
+  }
+  std::vector<OppRecord> out;
+  std::set<std::string> seen;
+  for (const auto &g : genericSites) {
+    if (g.outcome == OppOutcome::Optimized)
+      continue; // baseline pass: only generic sites are opportunities
+    std::string key = g.location + "|" + oppKindLabel(g.kind);
+    if (!g.property.empty())
+      key += "|" + g.property;
+    if (!seen.insert(key).second)
+      continue; // InsertGuard duplication: same site twice
+    OppRecord rec = g;
+    if (specialized.count(key) || !genericSpeculative.count(key))
+      // strength reduction, or the speculative copy was eliminated
+      rec.outcome = OppOutcome::Optimized;
+    out.push_back(rec);
+  }
+  std::sort(
+      out.begin(),
+      out.end(),
+      [](const OppRecord &a, const OppRecord &b) {
+        return a.location < b.location;
+      });
+  return out;
+}
+
 // 跨所有 function 收集每个标注（按 annotationId）的优化 + 阻挡。
 // 优化与阻挡是同一标注的并列列表（不互斥）；useless = optimizations 空。
 // annotationId 仅内部归因；main 输出时转成标注位置/内容（agent 可识别）。
@@ -305,6 +609,39 @@ std::map<int, AnnFeedback> collectAnnotations(
               llvh::isa<BaseStorePropertyInst>(C))
             anns[ann].miss.push_back(makeEffect(C));
         });
+      }
+    // ② closure target guards → call 直连（FunctionAnalysis 从带
+    // closureTarget 的 UnionNarrowTrusted 传播身份，call target 解析为
+    // Function）。注意 UNT 的操作数是被检查的值而非 check 结果，与
+    // HasClosureTargetInst 无 def-use 边，按 target 函数身份匹配。
+    // 只认 callee 是 guarded 值的 call（walkReachableConsumers 的访问者不
+    // 携带来源链，单独校验 call->getCallee()）：闭包仅作为参数传入的 call
+    // 不归功于本 guard。bailout 路径不扫描。
+    std::vector<UnionNarrowTrustedInst *> closureNarrows;
+    for (BasicBlock &BB : F)
+      for (Instruction &I : BB)
+        if (auto *UNT = llvh::dyn_cast<UnionNarrowTrustedInst>(&I);
+            UNT && UNT->getClosureTarget())
+          closureNarrows.push_back(UNT);
+    for (BasicBlock &BB : F)
+      for (Instruction &I : BB) {
+        auto *hct = llvh::dyn_cast<HasClosureTargetInst>(&I);
+        if (!hct || hct->getAnnotationId() < 0)
+          continue;
+        int ann = hct->getAnnotationId();
+        if (!isReportable(annotations, ann))
+          continue;
+        anns[ann];
+        for (UnionNarrowTrustedInst *UNT : closureNarrows) {
+          if (UNT->getClosureTarget() != hct->getClosureTarget())
+            continue;
+          walkReachableConsumers(UNT, [&](Instruction *C) {
+            if (auto *call = llvh::dyn_cast<BaseCallInst>(C);
+                call && call->getCallee() == UNT &&
+                !llvh::isa<EmptySentinel>(call->getTarget()))
+              anns[ann].optimizations.push_back(makeEffect(C));
+          });
+        }
       }
     // ③ polluting 阻挡（复用 StaticShapeInference 真实数据流）
     for (const auto &k : runner.collectKills()) {
@@ -397,6 +734,13 @@ int main(int argc, char **argv) {
     return 1;
   }
 
+  auto &sm = context->getSourceErrorManager();
+
+  // Report v2 baseline: scan the pre-pipeline IR for generic instructions an
+  // annotation could specialize (arithmetic ops, named property accesses).
+  llvh::DenseMap<Function *, llvh::DenseSet<const BasicBlock *>> noBailouts;
+  auto baselineSites = scanSites(M, sm, noBailouts);
+
   // Pre-pipeline: find shape guards whose shape has no TrySet binding anywhere
   // (they can never pass). Must run before the pipeline, which may remove/fold
   // the guards. Mirrors InsertGuard::collectTrySetShapes.
@@ -408,8 +752,6 @@ int main(int argc, char **argv) {
     return 1;
   }
 
-  auto &sm = context->getSourceErrorManager();
-
   auto &annotationLoader = context->getAnnotations();
   annotationLoader.reportMatchStatus(sm);
   auto anns = collectAnnotations(M, sm, annotationLoader);
@@ -417,9 +759,46 @@ int main(int argc, char **argv) {
   // get an entry so their missingBinding is emitted below.
   for (int id : missingBindingIds)
     anns[id];
+
+  // Post-pipeline scan: which baseline positions got optimized on the
+  // speculative path? Bailout (guard-fail) BBs are marked first so generic
+  // copies there are excluded from the judgment.
+  llvh::DenseMap<Function *, llvh::DenseSet<const BasicBlock *>> bailoutBBs;
+  for (Function &F : M.getFunctionList())
+    bailoutBBs[&F] = collectBailoutBBs(F);
+  auto postSites = scanSites(M, sm, bailoutBBs);
+  auto opportunities = diffOpportunities(baselineSites, postSites);
+
   llvh::json::OStream json(llvh::outs());
   json.object([&] {
+    json.attribute("schema_version", 3);
     json.attribute("file", InputFilenames[0]);
+    unsigned optimized = 0, notOptimized = 0;
+    for (const auto &rec : opportunities) {
+      if (rec.outcome == OppOutcome::Optimized)
+        ++optimized;
+      else
+        ++notOptimized;
+    }
+    json.attributeObject("summary", [&] {
+      json.attribute("opportunities", (unsigned)opportunities.size());
+      json.attribute("optimized", optimized);
+      json.attribute("not_optimized", notOptimized);
+    });
+    json.attributeArray("opportunities", [&] {
+      for (const auto &rec : opportunities) {
+        json.object([&] {
+          json.attribute("kind", oppKindLabel(rec.kind));
+          json.attribute("location", rec.location);
+          if (!rec.property.empty())
+            json.attribute("property", rec.property);
+          json.attribute(
+              "outcome",
+              rec.outcome == OppOutcome::Optimized ? "optimized"
+                                                   : "not-optimized");
+        });
+      }
+    });
     json.attributeArray("annotations", [&] {
       for (const auto &kv : anns) {
         const int id = kv.first;

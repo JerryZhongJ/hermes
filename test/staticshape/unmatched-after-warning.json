@@ -2,7 +2,7 @@
   "static shapes": {
     "X": {"properties": [{"name": "x", "type": "number"}]}
   },
-  "shape hints": [
+  "shape guards": [
     {
       "target range": {"start": {"line": 15, "column": 11}, "end": {"line": 15, "column": 17}},
       "guard after": {"start": {"line": 15, "column": 1}, "end": {"line": 15, "column": 3}},

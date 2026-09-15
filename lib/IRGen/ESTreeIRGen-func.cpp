@@ -1185,13 +1185,15 @@ void ESTreeIRGen::emitParameters(ESTree::FunctionLikeNode *funcNode) {
 
     Instruction *formalParam = Builder.createLoadParamInst(jsParam);
     formalParam->setLocation(param->getDebugLoc());
-    // Apply type annotation to parameter using TypeAssertInst
-    tryApplyAnnotation(formalParam, param, ShapeAnnotationMode::Apply);
 
     curFunction()->jsParams.push_back(formalParam);
-    createLRef(param, true)
-        .emitStore(
-            emitOptionalInitialization(formalParam, init, formalParamName));
+    // Apply annotations after optional initialization so a guard on a defaulted
+    // parameter checks the post-default value, not the raw (possibly
+    // undefined) parameter.
+    Value *paramValue =
+        emitOptionalInitialization(formalParam, init, formalParamName);
+    tryApplyAnnotation(paramValue, param, ShapeAnnotationMode::Apply);
+    createLRef(param, true).emitStore(paramValue);
   }
 }
 

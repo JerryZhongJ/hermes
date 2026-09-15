@@ -3,7 +3,7 @@
     "X": {"properties": [{"name": "x"}]},
     "M": {"properties": [{"name": "m"}]}
   },
-  "shape hints": [
+  "shape guards": [
     {"target range": {"start": {"line": 8, "column": 3}, "end": {"line": 8, "column": 6}}, "shape": "X"},
     {"target range": {"start": {"line": 12, "column": 3}, "end": {"line": 12, "column": 6}}, "shape": "X"},
     {"target range": {"start": {"line": 16, "column": 3}, "end": {"line": 16, "column": 6}}, "shape": "X"},

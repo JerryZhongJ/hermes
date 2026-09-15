@@ -7,18 +7,18 @@ orchestrator (claude.py / agent_worker.py) only reads the registry +
 ``resolve_enabled`` — it does not know any specific tool (no dryrun/jelly/
 feedback literals here).
 
-The **annotation tools** (``list_annotations`` / ``add_annotation`` /
-``delete_annotation``) are MANDATORY: they are always enabled regardless of
-``config.enabled_tools`` and cannot be turned off. They own the in-memory
-``AnnotationDocument`` for the run; the agent maintains the document only
-through them (never by writing ``annotation.json``). ``dryrun`` shares the
-same document instance so ``dryrun_annotation`` reads the live snapshot
-in-process instead of parsing the file.
+The **annotation tools** (including ``list_annotations``, ``add_annotation``,
+``batch_add_guards``, ``update_annotation``, and ``delete_annotation``)
+are MANDATORY: they are always enabled regardless of
+``config.enabled_tools`` and cannot be turned off. They operate on the named
+drafts of the shared :mod:`annotator.annotation_drafts` store (the
+construction-time argument is simply the list of draft names this agent may
+use, plus the default for the omitted ``draft`` argument); the agent maintains
+a draft only through them (never by writing ``annotation.json``). ``dryrun``
+snapshots the same drafts by name.
 
-The five-stage workflow servers (``chunk``, ``comments``, and ``coverage``) are
-also mandatory: they remain enabled regardless of ``config.enabled_tools``.
-Every other tool defaults to OFF; opt into fold/locate/dryrun/Jelly by listing
-it in ``config.enabled_tools``.
+Every tool defaults to OFF; opt into fold/locate/dryrun/Jelly by listing it in
+``config.enabled_tools`` or through a workflow's ``required_tools``.
 """
 
 from __future__ import annotations
@@ -28,12 +28,9 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Callable
 
-from .annotation_tool import AnnotationDocument, make_annotation_server
-from .chunk_tool import make_chunk_server
-from .comment_tool import make_comment_server
-from .coverage_tool import make_coverage_server
-from .fold_tool import make_fold_server
-from .locate_tool import make_locate_server
+from . import annotation_tool, callgraph_tool, dataflow_tool, dryrun_tool
+from . import fold_tool, locate_tool, checklist_tool
+
 
 if TYPE_CHECKING:
     from ..config import AgentConfig
@@ -43,12 +40,12 @@ if TYPE_CHECKING:
 class ToolSpec:
     """A registered tool: container-side MCP factory + host-side setup hook.
 
-    ``make_server`` receives the shared ``AnnotationDocument`` so the annotation
-    and dryrun tools can read/write the same in-memory state. Tools that don't
-    need it simply ignore the argument.
+    ``make_server`` receives the per-agent drafts access ``(names, default)``
+    (or None) and optional workflow workspace. Tools that don't need either
+    simply ignore them.
     """
 
-    make_server: Callable[[Path, Path, AnnotationDocument], Any]
+    make_server: Callable[[Path, Path, Any, Any | None], Any]
     host_setup: Callable[[Path, str, "AgentConfig", threading.Event], list[threading.Thread]]
     prompt: str
 
@@ -59,6 +56,34 @@ def _no_host_setup(*_args: Any, **_kwargs: Any) -> list[threading.Thread]:
     return []
 
 
+def _fold_make(source: Path, _workdir: Path, _view: Any, _workspace: Any | None) -> Any:
+    from .fold_tool import make_fold_server
+
+    return make_fold_server(source)
+
+
+def _locate_make(source: Path, _workdir: Path, _view: Any, _workspace: Any | None) -> Any:
+    from .locate_tool import make_locate_server
+
+    return make_locate_server(source)
+
+
+def _annotations_make(
+    source: Path, workdir: Path, drafts_access: Any, _workspace: Any | None
+) -> Any:
+    from .annotation_tool import make_annotation_server
+
+    if drafts_access is None:
+        return make_annotation_server(source, workdir, None, None)
+    return make_annotation_server(source, workdir, *drafts_access)
+
+
+def _dryrun_make(
+    _source: Path, workdir: Path, drafts_access: Any, _workspace: Any | None
+) -> Any:
+    return _make_dryrun_with_doc(workdir, drafts_access)
+
+
 def _dryrun_host_setup(
     attempt_dir: Path, source_name: str, config: "AgentConfig", stop_event: threading.Event,
 ) -> list[threading.Thread]:
@@ -66,7 +91,7 @@ def _dryrun_host_setup(
     return host_setup(attempt_dir, source_name, config, stop_event)
 
 
-def _jelly_make(source: Path, workdir: Path, doc: AnnotationDocument) -> dict[str, Any]:
+def _jelly_make(source: Path, workdir: Path, _view: Any, _workspace: Any | None) -> Any:
     from .callgraph_tool import make_callgraph_server
     return make_callgraph_server(source, workdir)
 
@@ -78,7 +103,9 @@ def _jelly_host_setup(
     return host_setup(attempt_dir, source_name, config, stop_event)
 
 
-def _jelly_dataflow_make(source: Path, workdir: Path, doc: AnnotationDocument) -> dict[str, Any]:
+def _jelly_dataflow_make(
+    source: Path, workdir: Path, _view: Any, _workspace: Any | None
+) -> dict[str, Any]:
     from .dataflow_tool import make_dataflow_server
     return make_dataflow_server(source, workdir)
 
@@ -90,6 +117,22 @@ def _jelly_dataflow_host_setup(
     return host_setup(attempt_dir, source_name, config, stop_event)
 
 
+def _checklist_make(
+    source: Path, workdir: Path, drafts_access: Any, _workspace: Any | None
+) -> Any:
+    from .dryrun_tool import run_dryrun_sync
+    from .checklist_tool import make_checklist_server
+
+    if drafts_access is None:
+        # Open access: no default — every call passes draft= explicitly.
+        return make_checklist_server(source, run_dryrun_sync(workdir, None), None)
+    names, default = drafts_access
+    # Freshness/reasons follow the agent's default draft (its own).
+    return make_checklist_server(
+        source, run_dryrun_sync(workdir, default or (names[0] if names else None)), default
+    )
+
+
 # The single registry. Add a tool = add one entry; the orchestrator
 # (claude/agent_worker/prompt) never changes. Each entry carries its own prompt
 # section (open/closed: build_prompt just joins). The annotation tools are not
@@ -97,170 +140,158 @@ def _jelly_dataflow_host_setup(
 # build_source_mcp_servers.
 REGISTRY: dict[str, ToolSpec] = {
     "source-fold": ToolSpec(
-        lambda s, w, d: make_fold_server(s), _no_host_setup,
-        prompt=(
-            "- Use the `fold` tool first to get a structural view of large files: it folds "
-            "multi-line blocks into ` … N lines folded …` and prints 1-based line numbers. "
-            "Raise `unfold` (default 0) to expand a region, e.g. fold(from_line=176, to_line=200, unfold=1)."
-        ),
+        _fold_make, _no_host_setup,
+        prompt=fold_tool.PROMPT,
     ),
     "source-locate": ToolSpec(
-        lambda s, w, d: make_locate_server(s), _no_host_setup,
-        prompt=(
-            "- Use the `locate` tool to get exact source ranges for annotations instead of "
-            "grep/awk or counting columns by hand. Example: locate(from_line=2, to_line=5, text=\"abc\"). "
-            "It returns each match as `line:startcol-endline:endcol` — 1-based, EXCLUSIVE end column, "
-            "cross-line OK — which matches the annotation format, plus a line-numbered context snippet "
-            "with the match wrapped in »…«. Omit from_line/to_line to search the whole file. "
-            "Pin one occurrence with `following`/`followed_by` (literal text, only whitespace between). "
-            "Never guess a column."
-        ),
+        _locate_make, _no_host_setup,
+        prompt=locate_tool.PROMPT,
     ),
     "annotations": ToolSpec(
-        lambda s, w, d: make_annotation_server(s, w, d), _no_host_setup,
-        prompt=(
-            "- Build the annotation set ONLY through `list_annotations`, `add_annotation`, "
-            "`update_annotation`, and `delete_annotation`. There is no annotation file — the set "
-            "is held in memory and finalized for you when the run ends.\n"
-            "- `list_annotations(kinds?, shape?, from_line?, to_line?)` shows current annotations; "
-            "filter by kind (static_shape/shape_binding/shape_guard/type_guard), by shape name, or "
-            "by a 1-based inclusive line window (both from_line and to_line, or neither). Each row "
-            "carries an `id` (kind:index:revision) for update/delete. Static shapes have no "
-            "source range, so a line filter hides them.\n"
-            "- `add_annotation(kind, annotation, shape?)` appends one annotation; duplicates and "
-            "references to unknown shapes are rejected. Always add the static shape BEFORE any "
-            "guard/binding that uses it.\n"
-            "- `update_annotation(id, patch)` merges a partial body into one annotation in place — "
-            "PREFER this over delete+add for corrections (e.g. fixing a range or a closure `target "
-            "function`). For static_shape, patch `property` {name, ...fields} to fix one property. "
-            "The id embeds the revision; a stale id after a mutation is rejected (re-list).\n"
-            "- `delete_annotation(id)` removes one annotation by a fresh id from list_annotations. "
-            "A static shape still used by a guard/binding cannot be deleted."
-        ),
+        _annotations_make, _no_host_setup,
+        prompt=annotation_tool.PROMPT,
     ),
     "dryrun": ToolSpec(
-        lambda s, w, d: _make_dryrun_with_doc(w, d), _dryrun_host_setup,
-        prompt=(
-            "- After changing annotations via add_annotation/delete_annotation, call "
-            "`dryrun_annotation` to check their effect — it compiles the file (trimmed pipeline, "
-            "no execution) against the CURRENT in-memory document and caches the result, returning "
-            "a whole-file summary (optimized / killed / no-effect).\n"
-            "- Then call `query_feedback` to inspect the cached result (optionally narrowed to a "
-            "line range or a previous run). Per annotation it reports load failures, optimizations, "
-            "kills, and no-effects; out-of-range effects show as \"somewhere else\". Iterate until "
-            "no load failures and no surprising kills."
-        ),
+        _dryrun_make, _dryrun_host_setup,
+        prompt=dryrun_tool.PROMPT,
     ),
     "jelly": ToolSpec(
         _jelly_make, _jelly_host_setup,
-        prompt=(
-            "Jelly tools come from static analysis — results are conservative over-approximations "
-            "(call graph may have spurious edges; heat is an estimate, not a measurement). "
-            "Trust dryrun_feedback for ground truth.\n"
-            "Functions / call sites are identified by their **range** "
-            "(startLine:startCol-endLine:endCol, 1-based, no filename — there's only one file); "
-            "copy a range from one tool's output into another's argument.\n"
-            "- Call graph: `view_callgraph(from_line=, to_line=)` lists call sites and their callees; "
-            "`get_callers(callee=)` / `get_callees(caller=)` or `get_callees(callsite=)` look one up; "
-            "`add_call_edges(edges=[{callsite, callee}])` / `delete_call_edges(...)` fix an edge Jelly got wrong.\n"
-            "- Heat: `view_hot_value()` ranks functions by expected call frequency — annotate the hottest first; "
-            "`set_hot_value(func=, value=)`, `set_exec_expt(callsite=, value=)`, "
-            "`set_target_prob(callsite=, callee=, prob=)` calibrate with known runtime numbers."
-        ),
+        prompt=callgraph_tool.PROMPT,
     ),
     "jelly-dataflow": ToolSpec(
         _jelly_dataflow_make, _jelly_dataflow_host_setup,
-        prompt=(
-            "- Data flow: `query_dataflow(source=\"sl:sc:el:ec\", direction=\"forward|reverse|both\")` — "
-            "may-flow from static analysis (possible, not certain; conservative over-approximation). "
-            "Pass a range (startLine:startCol-endLine:endCol); forward shows where the value goes, "
-            "reverse shows where it comes from. `get_definition(source)` resolves an identifier to "
-            "its declaration."
-        ),
+        prompt=dataflow_tool.PROMPT,
     ),
-    "chunk": ToolSpec(
-        lambda s, w, d: make_chunk_server(s, w), _no_host_setup,
-        prompt=(
-            "- `chunk_index()` splits the file into chunks along function boundaries and "
-            "returns the function universe (loc_keys) + chunk plan. `read_chunk(chunk_id)` "
-            "reads one chunk's source. `record_skip(loc_key, category, reason)` marks a "
-            "function 'does not fit' so it still counts as covered. loc_key is "
-            "startLine:startCol:endLine:endCol (1-based, exclusive end)."
-        ),
-    ),
-    "comments": ToolSpec(
-        lambda s, w, d: make_comment_server(s, w), _no_host_setup,
-        prompt=(
-            "- `write_comment(phase, from_line, to_line, comment, chunk_id?)` records a staged "
-            "note. phase1/phase2/phase4 notes require their producing chunk_id and must stay inside "
-            "that chunk; phase3/phase5 main-agent decisions may omit it. The comments MCP serializes "
-            "writers and atomically publishes the shared sidecar; never write it directly. "
-            "`list_comments(phase?, chunk_id?, from_line?, to_line?)` filters prior notes; without "
-            "filters it lists all completed-stage notes."
-        ),
-    ),
-    "coverage": ToolSpec(
-        lambda s, w, d: make_coverage_server(s, w, d), _no_host_setup,
-        prompt=(
-            "- `coverage()`: report function coverage (annotated ∪ skipped over the universe) "
-            "+ the uncovered loc_key list so you can close gaps. Goal: uncovered → 0."
-        ),
+    "checklist": ToolSpec(
+        _checklist_make,
+        _no_host_setup,
+        prompt=checklist_tool.PROMPT,
     ),
 }
 
 
-def _make_dryrun_with_doc(workdir: Path, doc: AnnotationDocument) -> dict[str, Any]:
-    """Build the dryrun server bound to the shared document (live snapshot)."""
+def _make_dryrun_with_doc(workdir: Path, drafts_access: Any) -> dict[str, Any]:
+    """Build the dryrun server bound to the agent's drafts (live snapshot)."""
     from .dryrun_tool import make_dryrun_server
-    return make_dryrun_server(workdir, doc)
+    if drafts_access is None:
+        return make_dryrun_server(workdir, None, None)
+    return make_dryrun_server(workdir, *drafts_access)
 
 
-WORKFLOW_TOOLS = ("chunk", "comments", "coverage")
+DEFAULT_REQUIRED_TOOLS: tuple[str, ...] = ()
 
 
-def resolve_enabled(enabled: list[str] | None) -> list[str]:
-    """Return mandatory workflow tools plus configured optional tools.
+def resolve_enabled(
+    enabled: list[str] | None,
+    required_tools: tuple[str, ...] | list[str] | None = None,
+) -> list[str]:
+    """Return required workflow tools plus configured optional tools.
 
+    Omitting ``required_tools`` preserves the historical full-workflow default.
     The annotation tools are injected separately by
     :func:`build_source_mcp_servers`. Preserve first occurrence order so prompt
     sections and server setup have a deterministic, shared tool order.
     """
-    names = [*WORKFLOW_TOOLS, *(enabled or [])]
+    required = DEFAULT_REQUIRED_TOOLS if required_tools is None else required_tools
+    unknown_required = [name for name in required if name not in REGISTRY]
+    if unknown_required:
+        raise ValueError(
+            "unknown required tool(s): " + ", ".join(unknown_required)
+        )
+    names = [*required, *(enabled or [])]
     return list(dict.fromkeys(names))
 
 
-def build_source_mcp_servers(
+def resolve_host_setup_tools(
+    enabled: list[str] | None,
+    required_tools: tuple[str, ...] | list[str] | None = None,
+) -> list[str]:
+    """Deduplicate host-side service setup across tool specs.
+
+    Two specs may share one host service (``dryrun`` and ``checklist``
+    both consume the annotation-dryrun service): start it once per run, not
+    once per spec.
+    """
+    resolved: list[str] = []
+    for name in resolve_enabled(enabled, required_tools):
+        if name in resolved:
+            continue
+        # checklist has no host setup of its own; it shares dryrun's.
+        if name == "checklist":
+            continue
+        resolved.append(name)
+    return resolved
+
+
+def render_tool_sections(
+    enabled: list[str] | None,
+    required_tools: tuple[str, ...] | list[str] | None = None,
+) -> str:
+    """Join the enabled tools' prompt sections for a run prompt.
+
+    The one sanctioned bridge from tool registry to prompt construction: the
+    workflow prompt layer calls this instead of walking REGISTRY itself.
+    """
+    return "\n".join(
+        spec.prompt
+        for name in resolve_enabled(enabled, required_tools)
+        if (spec := REGISTRY.get(name)) is not None and spec.prompt
+    )
+
+
+def build_mcp_servers(
     source: Path,
     workdir: Path,
-    doc: AnnotationDocument,
+    drafts_access: Any,
     enabled: list[str] | None = None,
+    required_tools: tuple[str, ...] | list[str] | None = None,
+    workspace: Any | None = None,
 ) -> dict[str, Any]:
     """Container-side: build the MCP servers.
 
-    The annotation server is always present (mandatory) and shares ``doc``.
-    Each enabled optional tool that wants the live document (dryrun) gets the
-    same ``doc``; the rest ignore it.
+    ``drafts_access`` is the per-agent draft access over the process-wide
+    drafts store, in one of two forms:
+
+    - ``(names, default)`` — the agent may use the named drafts; ``default``
+      is used when a tool's optional ``draft`` argument is omitted.
+    - ``None`` — open access: any draft in the store by name (the parallel
+      coordinators and their workers, whose draft names are only known at
+      fan-out time).
+
+    Each enabled optional tool that wants the live drafts (dryrun/checklist)
+    gets the same access; the rest ignore it.
     """
-    servers: dict[str, Any] = {"annotations": make_annotation_server(source, workdir, doc)}
-    for name in resolve_enabled(enabled):
+    servers: dict[str, Any] = {}
+    if drafts_access is None:
+        # Open access: no enum, no default — every tool call passes draft=.
+        access: tuple[Any, ...] = (None, None)
+    else:
+        access = tuple(drafts_access)
+    from .annotation_tool import make_annotation_server
+
+    servers["annotations"] = make_annotation_server(source, workdir, *access)
+    for name in resolve_enabled(enabled, required_tools):
         spec = REGISTRY.get(name)
         if spec is None:
             continue
-        servers[name] = spec.make_server(source, workdir, doc)
+        servers[name] = spec.make_server(source, workdir, drafts_access, workspace)
     return servers
 
 
 def run_host_setups(
     attempt_dir: Path, source_name: str, config: "AgentConfig", stop_event: threading.Event,
     enabled: list[str] | None = None,
+    required_tools: tuple[str, ...] | list[str] | None = None,
 ) -> list[threading.Thread]:
     """Host-side: run each enabled tool's host_setup, return un-started Threads.
 
     The orchestrator starts/joins them around the docker run (single lifecycle).
-    The annotation tools have no host needs.
+    The annotation tools have no host needs. Tools sharing one host service
+    (dryrun/checklist) get it started exactly once.
     """
     threads: list[threading.Thread] = []
-    for name in resolve_enabled(enabled):
+    for name in resolve_host_setup_tools(enabled, required_tools):
         spec = REGISTRY.get(name)
         if spec is not None:
             threads.extend(spec.host_setup(attempt_dir, source_name, config, stop_event))

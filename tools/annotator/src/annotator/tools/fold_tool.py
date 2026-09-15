@@ -16,6 +16,7 @@ are folded. Output is original source lines plus placeholder lines: no text is
 ever reconstructed, so the view can never misrepresent the code.
 """
 
+
 from __future__ import annotations
 
 import bisect
@@ -26,7 +27,11 @@ import tree_sitter_javascript as tjs
 from claude_agent_sdk import create_sdk_mcp_server, tool
 from tree_sitter import Language, Parser
 
-from .utils import _err, build_line_starts, resolve_line_window
+from .utils import _err, build_line_starts, parse_scope_window, resolve_line_window
+
+PROMPT = (
+    "- Use the `fold` tool first to get a structural view of large files: it folds multi-line blocks into ` … N lines folded …` and prints 1-based line numbers. Raise `unfold` (default 0) to expand a region, e.g. fold(scope=\"176-200\", unfold=1). The scope is a function loc_key (e.g. \"31:1\" — identifies ONE function, an ID not a coordinate range), a list of them, a line range (e.g. \"31-45\", for any arbitrary region), or \"file\"."
+)
 
 # Delimiter blocks worth folding. We fold the block node *itself* (its header
 # line carries the opener, its last line the matching close) rather than the
@@ -247,13 +252,10 @@ def build_fold_tool(source: Path):
         {
             "type": "object",
             "properties": {
-                "from_line": {
-                    "type": "integer",
-                    "description": "1-based start line (inclusive); omit to fold the whole file",
-                },
-                "to_line": {
-                    "type": "integer",
-                    "description": "1-based end line (inclusive); omit to fold the whole file",
+                "scope": {
+                    "type": ["string", "array"],
+                    "description": "\"file\" (default), ONE function loc_key like \"31:1\", a list of loc_keys, or an inclusive line range like \"31-45\". NOTE: fold is the ONE tool where a loc_key means the function's whole line extents as a TEXT VIEW (nested functions' lines stay visible, which is the point of a fold view) — every other tool uses ownership semantics (that function's direct statements only)",
+                    "items": {"type": "string"},
                 },
                 "unfold": {
                     "type": ["integer", "string"],
@@ -275,13 +277,10 @@ def build_fold_tool(source: Path):
         except OSError as exc:
             return _err(f"cannot read {source_resolved!r}: {exc}")
 
-        fl_raw = args.get("from_line")
-        tl_raw = args.get("to_line")
         try:
-            from_line = int(fl_raw) if fl_raw is not None else None
-            to_line = int(tl_raw) if tl_raw is not None else None
-        except (TypeError, ValueError):
-            return _err("from_line/to_line must be integers")
+            from_line, to_line = parse_scope_window(args.get("scope", "file"), data)
+        except ValueError:
+            return _err(f"unknown or malformed scope {args.get('scope')!r}")
 
         unfold_raw = args.get("unfold", 0)
         unfold_all = isinstance(unfold_raw, str) and unfold_raw.lower() == "all"

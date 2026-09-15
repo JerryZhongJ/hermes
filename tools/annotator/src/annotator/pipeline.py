@@ -11,14 +11,17 @@ import tempfile
 import time
 from dataclasses import replace
 from pathlib import Path
-from typing import Any, TextIO
+from typing import Any, TextIO, TypeVar
+
 
 from .agents import AgentRun, AgentRunner, TraceArtifact
-from .prompt import ABOUT_ANNOTATIONS_FILENAME, build_about_annotations_markdown, build_prompt
-from .tools.annotation_tool import AnnotationDocument
+from .prompt import ABOUT_ANNOTATIONS_FILENAME, build_about_annotations_markdown
 from .tools.utils import atomic_write_json
+from .workflows import AnnotationRequest
 
 LOGGER = logging.getLogger(__name__)
+
+T = TypeVar("T")
 
 
 def generate_annotations(
@@ -27,46 +30,64 @@ def generate_annotations(
     output_path: Path,
     temp_root: Path,
     append_prompt: str | None = None,
-    enabled_tools: list[str] | None = None,
+    request: AnnotationRequest | None = None,
 ) -> AgentRun:
-    # The agent maintains the annotation document IN MEMORY via the annotation
-    # MCP tools; the worker flushes it to .annotations.json at run end. That
-    # flushed file is the real product — promoted to output below.
-    source_annotations = temp_root / ".annotations.json"
+    # The agent saves its own product via save_annotations into the workdir;
+    # promotion ships the whole workdir unchanged (file mover, not curator).
     shutil.copyfile(input_path, temp_root / input_path.name)
     (temp_root / ABOUT_ANNOTATIONS_FILENAME).write_text(
         build_about_annotations_markdown(), encoding="utf-8"
     )
 
-    prompt = build_prompt(input_path, enabled_tools)
-    if append_prompt:
-        prompt = prompt + "\n\n" + append_prompt
-    LOGGER.info("prompt:\n%s", prompt)
-
-    run = runner.run(prompt, temp_root, input_path.name)
+    annotation_request = request or AnnotationRequest(source_path=input_path)
+    if annotation_request.source_path != input_path:
+        raise ValueError(
+            "annotation request source_path must match input_path: "
+            f"{annotation_request.source_path} != {input_path}"
+        )
+    # The workflow owns its prompt (built inside the container from cfg);
+    # the host only forwards the optional prompt appendix through the run
+    # config.
+    run = runner.run(temp_root, input_path.name, annotation_request, append_prompt)
+    run = replace(
+        run,
+        workflow=annotation_request.workflow,
+        targets=annotation_request.targets,
+    )
     if run.errors:
         return run
 
-    # Promote the flushed in-memory document to the output, validating first so
-    # we never publish a malformed annotation file.
+    # One promotion path for every workflow: ship the whole attempt workdir.
+    return _promote_workdir(run, temp_root, output_path)
+
+
+def _promote_workdir(run: AgentRun, temp_root: Path, output_path: Path) -> AgentRun:
+    """Ship the whole attempt workdir as the run's output.
+
+    There is no artifact protocol: the agent saved its product(s) via
+    ``save_annotations`` (``main.json`` for annotate-file, ``hotspot:*.json``
+    for hotspot runs), and everything else (transcripts, job workdirs,
+    status) ships with them — the host is a file mover, not a curator: it
+    never parses, validates, or rewrites a product. At least one saved
+    product file is required, otherwise the run fails.
+    """
+    products = sorted(temp_root.glob("hotspot:*.json")) or [
+        temp_root / "main.json"
+    ]
+    if not products[0].is_file():
+        return replace(
+            run,
+            errors=["no annotation product was saved (missing save_annotations)"],
+        )
     try:
-        document = _load_and_validate(source_annotations)
-    except (OSError, ValueError) as exc:
-        return replace(run, errors=[f"annotation document invalid: {exc}"])
-
-    atomic_write_json(output_path, document)
-    return run
-
-
-def _load_and_validate(path: Path) -> dict[str, Any]:
-    """Load and fully validate a flushed annotation document before publishing."""
-    import json as _json
-
-    raw = path.read_text(encoding="utf-8")
-    document = _json.loads(raw)
-    doc = AnnotationDocument.empty()
-    doc.load_from_dict(document)
-    return doc.to_dict()
+        shutil.copytree(temp_root, output_path, dirs_exist_ok=True)
+    except OSError as exc:
+        return replace(run, errors=[f"could not publish workdir: {exc}"])
+    return replace(
+        run,
+        output_published=True,
+        output_sha256=_sha256(products[0]),
+    )
 
 
 def publish_trace(run_path: Path, run: AgentRun) -> AgentRun:
@@ -85,6 +106,19 @@ def publish_trace(run_path: Path, run: AgentRun) -> AgentRun:
         source_subagents = source_session_dir / "subagents"
         if source_subagents.is_dir():
             shutil.copytree(source_subagents, staging / "subagents")
+        # Every other session of this run (hotspot target agents), each as
+        # sessions/<session_id>.jsonl plus its own subagents/ if present.
+        if source.others:
+            sessions_dir = staging / "sessions"
+            sessions_dir.mkdir()
+            for other in source.others:
+                shutil.copy2(other, sessions_dir / other.name)
+                other_subagents = other.with_suffix("") / "subagents"
+                if other_subagents.is_dir():
+                    shutil.copytree(
+                        other_subagents,
+                        sessions_dir / other.stem / "subagents",
+                    )
         if final_dir.exists():
             raise FileExistsError(f"trace already exists: {final_dir}")
         os.replace(staging, final_dir)
@@ -114,13 +148,13 @@ def write_run_manifest(
             "path": os.path.relpath(run.trace.directory, path.parent),
             "main": "session.jsonl",
             "subagents": "subagents",
+            "sessions": "sessions",
             "session_id": run.trace.session_id,
             "complete": run.trace.complete,
         }
-    # output sha256 lets a consumer detect that the fixed annotation path was
-    # overwritten by a later run (annotation + manifest cannot be published as
-    # one cross-file transaction while the compiler expects a fixed path).
-    output_sha256 = _sha256(output_path)
+    # Publication provenance comes from this run, not from whether a stale fixed
+    # output path happens to exist from an earlier run.
+    output_sha256 = run.output_sha256
     atomic_write_json(
         path,
         {
@@ -134,9 +168,14 @@ def write_run_manifest(
                 "container_exit_code": run.container_exit_code,
                 "worker_completed": run.worker_completed,
             },
+            "workflow": {
+                "name": run.workflow,
+                "targets": list(run.targets),
+            },
             "output": {
                 "path": str(output_path),
-                "published": output_path.exists(),
+                "kind": "directory" if output_path.is_dir() else "file",
+                "published": run.output_published,
                 "sha256": output_sha256,
             },
             "trace": trace,
@@ -162,7 +201,11 @@ def report_result(
     run: AgentRun,
 ) -> int:
     if not run.errors:
-        print(f"Wrote annotations to {output_path}")
+        if output_path.is_dir():
+            fragments = sorted(output_path.glob("hotspot:*.json"))
+            print(f"Wrote {len(fragments)} annotation fragment(s) to {output_path}")
+        else:
+            print(f"Wrote annotations to {output_path}")
         print(f"Wrote run manifest to {run_path}")
         print_kept_workdir(temp_root, keep_workdir, sys.stdout)
         return 0

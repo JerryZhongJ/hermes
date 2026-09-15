@@ -2,10 +2,10 @@
   "static shapes": {
     "Vec": {"properties": [{"name": "x", "type": "number"}]}
   },
-  "shape hints": [
+  "shape guards": [
     {"target range": {"start": {"line": 14, "column": 17}, "end": {"line": 16, "column": 2}}, "shape": "Vec"}
   ],
-  "type hints": [
+  "type guards": [
     {"target range": {"start": {"line": 14, "column": 14}, "end": {"line": 14, "column": 15}}, "type": "number"}
   ]
 }

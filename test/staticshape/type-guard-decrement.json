@@ -1,21 +1,21 @@
 {
-  "type hints": [
+  "type guards": [
     {
       "target range": {
         "file": "type-guard-decrement.js",
         "start": {
-          "line": 20,
+          "line": 22,
           "column": 10
         },
         "end": {
-          "line": 20,
+          "line": 22,
           "column": 13
         }
       },
       "type": "number"
     }
   ],
-  "shape hints": [],
+  "shape guards": [],
   "static shapes": {},
   "shape bindings": []
 }

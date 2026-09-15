@@ -20,17 +20,9 @@ DEFAULT_CLAUDE_SANDBOX: SandboxSettings = {
 class AgentConfig(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
-    agent: Literal["claude", "codex"]
+    agent: Literal["claude"]
     model: str | None = None
     env: dict[str, Any] = Field(default_factory=dict)
-    codex_config: dict[str, Any] = Field(
-        default_factory=dict,
-        description=(
-            "Top-level contents of codex's config.toml for this run "
-            "(e.g. model, model_provider, model_providers.<name>). Serialized "
-            "into an isolated CODEX_HOME so the user's ~/.codex is never loaded."
-        ),
-    )
     claude_settings: str | dict[str, Any] | list[Any] | None = None
     claude_sandbox: SandboxSettings = Field(
         default_factory=lambda: cast(SandboxSettings, dict(DEFAULT_CLAUDE_SANDBOX)),
@@ -65,24 +57,30 @@ class AgentConfig(BaseModel):
         description=(
             "Host path to the Jelly executable (e.g. `jelly`, or "
             "`node /path/to/jelly/lib/main.js`). When set, the claude backend "
-            "runs a host-side priors_service so the agent's reanalyze_call_graph "
+            "runs a host-side callgraph_service so the agent's reanalyze_call_graph "
             "tool can re-run Jelly with call-edge priors (--call-edge-priors), "
             "making manual edge overrides actually affect points-to. None "
             "disables it (the in-session edge views still work, just not re-analysis)."
+        ),
+    )
+    workflow: str = Field(
+        default="annotate-hotspot-functions",
+        description=(
+            "Deprecated config-level run selector, superseded by the CLI "
+            "--workflow flag; kept only so existing config files still validate "
+            "under extra='forbid'. Never set it in new configs."
         ),
     )
     enabled_tools: list[str] | None = Field(
         default=None,
         description=(
             "Which additional in-process MCP tool servers to enable for the agent. "
-            "The five-stage workflow servers 'chunk', 'comments', and 'coverage' "
-            "are always enabled. The 'annotations' server (list/add/delete_annotation) "
-            "is also always enabled and is not listed here — the agent maintains the "
-            "annotation set through it, never by writing a file. Opt into "
-            "'source-fold', 'source-locate', 'dryrun' (reads the live annotation "
-            "document), and the Jelly tools 'jelly' / 'jelly-dataflow' by listing "
-            "them; 'jelly' benefits from jelly_bin for re-analysis. Unknown names "
-            "are ignored."
+            "The 'annotations' server (list/add/delete_annotation) is always "
+            "enabled and is not listed here — the agent maintains the annotation "
+            "set through it, never by writing a file. Opt into 'source-fold', "
+            "'source-locate', 'dryrun' (reads the live annotation document), and "
+            "the Jelly tools 'jelly' / 'jelly-dataflow' by listing them; 'jelly' "
+            "benefits from jelly_bin for re-analysis. Unknown names are ignored."
         ),
     )
 
@@ -96,13 +94,20 @@ class AgentConfig(BaseModel):
         return env
 
 
-def parse_args() -> argparse.Namespace:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Generate Hermes typed-shape annotation JSON with an agent."
     )
     parser.add_argument("input", type=Path, help="JavaScript input file")
     parser.add_argument(
-        "-o", "--output", type=Path, required=True, help="Annotation JSON output"
+        "-o",
+        "--output",
+        type=Path,
+        required=True,
+        help="Output DIRECTORY receiving the whole attempt workdir — "
+        "saved annotation products (main.json for annotate-file, "
+        "hotspot:*.json for hotspot runs), transcripts, and status "
+        "(must not already exist)",
     )
     parser.add_argument(
         "--config",
@@ -115,6 +120,24 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         help="Agent run manifest JSON referencing the native Claude transcript. "
         "Defaults to <output>.run.json",
+    )
+    parser.add_argument(
+        "--workflow",
+        default="annotate-hotspot-functions",
+        metavar="NAME",
+        help="Run one registered workflow (default: annotate-hotspot-functions; "
+        "also: annotate-file, annotate-file-parallel).",
+    )
+    parser.add_argument(
+        "--target-function",
+        action="append",
+        default=[],
+        metavar="LOC_KEY",
+        help=(
+            "Exact function loc_key sl:sc (the function's start point). "
+            "Repeat for multiple targets; "
+            "valid for annotate-hotspot-functions."
+        ),
     )
     parser.add_argument(
         "--keep-workdir",
@@ -139,7 +162,7 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Append extra TEXT after the built prompt for this run only.",
     )
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     if args.append_prompt and args.append_prompt.startswith("@"):
         args.append_prompt = Path(args.append_prompt[1:]).read_text(encoding="utf-8")
     return args
@@ -147,11 +170,63 @@ def parse_args() -> argparse.Namespace:
 
 def load_config(path: Path) -> AgentConfig:
     try:
-        return AgentConfig.model_validate_json(path.read_text(encoding="utf-8"))
+        config = AgentConfig.model_validate_json(path.read_text(encoding="utf-8"))
+        from .workflows import resolve_workflow_factory
+
+        resolve_workflow_factory(config.workflow)
+        return config
     except FileNotFoundError:
         raise ValueError(f"config file not found: {path}") from None
     except ValidationError as exc:
         raise ValueError(str(exc)) from None
+
+
+def effective_config(
+    config: AgentConfig,
+    *,
+    workflow_override: str | None = None,
+) -> AgentConfig:
+    """Return the immutable per-run config after applying CLI overrides."""
+    if workflow_override is not None:
+        from .workflows import resolve_workflow_factory
+
+        resolve_workflow_factory(workflow_override)
+        return config.model_copy(update={"workflow": workflow_override})
+    return config
+
+
+def validate_workflow_targets(
+    workflow: str, targets: list[str], source_path: Path
+) -> tuple[str, ...]:
+    """Validate workflow/target compatibility and exact function identities.
+
+    This pure pre-Docker gate is shared by the CLI and tests. Targets are
+    deduplicated in first-seen order after exact matching against the function
+    universe produced by ``extract_functions``.
+    """
+    from .workflows import resolve_workflow_factory
+
+    resolved = resolve_workflow_factory(workflow)
+    unique = tuple(dict.fromkeys(targets))
+    if not resolved.accepts_targets:
+        if unique:
+            raise ValueError(f"run {workflow!r} does not accept target functions")
+        return ()
+    if not unique:
+        raise ValueError(
+            f"run {workflow!r} requires at least one --target-function"
+        )
+
+    from .tools.functions import extract_functions
+
+    available = {item["loc_key"] for item in extract_functions(source_path.read_bytes())}
+    missing = [target for target in unique if target not in available]
+    if missing:
+        raise ValueError(
+            "target function loc_key(s) not found exactly in source: "
+            + ", ".join(missing)
+        )
+    return unique
 
 
 def system_proxy_env() -> dict[str, str]:

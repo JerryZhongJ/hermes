@@ -1,14 +1,17 @@
 """Shared helpers for the in-process MCP source tools (``locate``, ``fold``).
 
 Only the bits both tools need live here: a uniform MCP error result, the
-workdir-confined file resolver, and the byte-offset line table. Tool-specific
-helpers stay in their own modules.
+workdir-confined file resolver, the byte-offset line table, and the fold-only
+scope-to-window resolution (the ownership-based scope contract the selecting
+tools share lives in :func:`functions.resolve_scope`). Tool-specific helpers
+stay in their own modules.
 """
 
 from __future__ import annotations
 
 import json
 import os
+import re
 import tempfile
 from pathlib import Path
 from typing import Any
@@ -78,6 +81,62 @@ def resolve_line_window(
     if from_line < 1 or to_line < from_line or to_line > n:
         raise ValueError(f"line range [{from_line},{to_line}] invalid; file has {n} line(s)")
     return from_line, to_line
+
+
+# The ONE shared scope vocabulary. Ownership semantics (a function loc_key
+# means that function's direct statements only) are implemented in
+# functions.resolve_scope; this text is the error every malformed scope
+# surfaces verbatim.
+SCOPE_HELP = (
+    "scope must be one of: \"file\" (whole file; also the default when "
+    "omitted) | a function loc_key like \"31:1\" (identifies ONE "
+    "function; an ID copied from fold/list_checklist output, not an "
+    "arbitrary coordinate range — it means that function's DIRECT "
+    "statements only, nested functions are independent scopes, pass "
+    "their own loc_keys) | a list of loc_keys like "
+    "[\"31:1\", \"35:1\"] | \"<top-level>\" for module-level code | "
+    "an inclusive line range like \"31-45\" (selects items whose own "
+    "line falls inside)"
+)
+
+
+def parse_scope_window(
+    scope: Any,
+    source_data: bytes,
+) -> tuple[int, int]:
+    """Resolve a ``scope`` to a literal 1-based inclusive line window —
+    FOLD-ONLY.
+
+    ``fold`` is a visual text view: a function loc_key here means that
+    function's whole line extents (nested functions' lines stay visible,
+    which is the point of a fold view), NOT the ownership selection every
+    other tool uses (:func:`functions.resolve_scope`). Do not wire new
+    selecting tools to this.
+
+    - ``"file"`` or None — the whole file (``[1, num_lines]``)
+    - ``"12-40"`` — an inclusive line range
+    - one loc_key (``"12:1"``) or a list of them — the union of the
+      owning functions' line extents (contiguous window from the earliest
+      start to the latest end)
+
+    Raises ValueError with the shared ``SCOPE_HELP`` message.
+    """
+    if scope is None or scope == "file":
+        return 1, len(build_line_starts(source_data))
+    keys = [scope] if isinstance(scope, str) else scope
+    if not isinstance(keys, list) or not keys:
+        raise ValueError(SCOPE_HELP)
+    if len(keys) == 1 and isinstance(keys[0], str) and re.fullmatch(r"^\d+-\d+$", keys[0]):
+        a, b = keys[0].split("-")
+        return resolve_line_window(len(build_line_starts(source_data)), int(a), int(b))
+    # function loc_keys: union of line extents
+    from .functions import extract_functions  # local import: tree-sitter pull
+
+    known = {fn["loc_key"]: fn for fn in extract_functions(source_data)}
+    if not all(isinstance(k, str) and k in known for k in keys):
+        raise ValueError(SCOPE_HELP)
+    spans = [(known[k]["start_line"], known[k]["end_line"]) for k in keys]
+    return min(s for s, _ in spans), max(e for _, e in spans)
 
 
 def build_line_starts(data: bytes) -> list[int]:

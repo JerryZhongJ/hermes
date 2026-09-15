@@ -54,6 +54,7 @@ _FUNC_TYPES = frozenset(
         "arrow_function",
         "method_definition",
         "generator_function_declaration",
+        "generator_function",
     }
 )
 
@@ -280,18 +281,6 @@ def build_model(cg: dict[str, Any]) -> CallGraphModel:
             "exclude_packages": cg.get("excludePackages"),
         },
     )
-
-
-def summarize(model: CallGraphModel) -> dict[str, int]:
-    return {
-        "files": len(model.file_names),
-        "functions": len(model.functions),
-        "calls": len(model.calls),
-        "fun2fun": len(model.fun2fun),
-        "call2fun": sum(len(s) for s in model.call2fun_by_call.values()),
-        "entries": len(model.entries),
-        "module_functions": len(model.module_funs),
-    }
 
 
 # --------------------------------------------------------------------------- #
