@@ -8,7 +8,7 @@ import time
 from pathlib import Path
 from typing import Any
 
-from annotator import priors_service
+from annotator.tools.services import callgraph_service
 
 
 def _wait_for(calls: list[tuple[Path, dict[str, Any]]]) -> None:
@@ -29,15 +29,15 @@ def test_callgraph_response_is_atomically_published(tmp_path: Path, monkeypatch)
         published.append((path, value))
         stop.set()
 
-    monkeypatch.setattr(priors_service, "atomic_write_json", capture)
-    monkeypatch.setattr(priors_service, "_publish_output", lambda *_args: True)
+    monkeypatch.setattr(callgraph_service, "atomic_write_json", capture)
+    monkeypatch.setattr(callgraph_service, "_publish_output", lambda *_args: True)
     monkeypatch.setattr(
-        priors_service,
+        callgraph_service,
         "_run",
         lambda *_args: {"req_id": "callgraph", "ok": True, "stderr": ""},
     )
     worker = threading.Thread(
-        target=priors_service.serve,
+        target=callgraph_service.serve,
         args=(tmp_path, "input.js", "jelly", stop),
         daemon=True,
     )
@@ -61,14 +61,14 @@ def test_dataflow_response_is_atomically_published(tmp_path: Path, monkeypatch):
         published.append((path, value))
         stop.set()
 
-    monkeypatch.setattr(priors_service, "atomic_write_json", capture)
+    monkeypatch.setattr(callgraph_service, "atomic_write_json", capture)
     monkeypatch.setattr(
-        priors_service,
+        callgraph_service,
         "_run_dataflow",
         lambda *_args: {"req_id": "dataflow", "ok": True, "stderr": ""},
     )
     worker = threading.Thread(
-        target=priors_service.serve_dataflow,
+        target=callgraph_service.serve_dataflow,
         args=(tmp_path, "input.js", "jelly", stop),
         daemon=True,
     )

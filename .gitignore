@@ -47,3 +47,6 @@ benchmarks/*results*
 profiling_results/
 results_*/
 test/**/Output/
+benchmarks/speculative/results/
+.claude/
+.recovery/

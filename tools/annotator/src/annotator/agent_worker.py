@@ -22,6 +22,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from .sdk_compat import install as install_sdk_compat
 from .stream_capture import OVERFLOW_FILE, install as install_stream_capture
 from .tools.utils import atomic_write_json
 from .workflows import WorkflowFactory, resolve_workflow_factory
@@ -115,6 +116,7 @@ def validate_config(cfg: dict[str, Any], work: Path) -> tuple[WorkflowFactory, t
 
 def main() -> int:
     logging.basicConfig(format="%(message)s", level=logging.INFO, stream=sys.stderr)
+    install_sdk_compat()
 
     cfg = json.loads(CONFIG_FILE.read_text(encoding="utf-8"))
 

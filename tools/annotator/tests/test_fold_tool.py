@@ -156,8 +156,7 @@ def test_handler_schema_has_no_required_params():
     assert isinstance(schema, dict)
     assert schema["required"] == []
     assert set(schema["properties"]) == {
-        "from_line",
-        "to_line",
+        "scope",
         "unfold",
         "max_output_chars",
     }
@@ -191,7 +190,7 @@ def test_handler_unfold_all_string(solve_file: Path):
 
 def test_handler_line_range(solve_file: Path):
     t = build_fold_tool(solve_file)
-    result = asyncio.run(_call(t, {"from_line": 3, "to_line": 5, "unfold": 1}))
+    result = asyncio.run(_call(t, {"scope": "3-5", "unfold": 1}))
     text = result["content"][0]["text"]
     assert "for (const p of b.items)" in text
     assert "function solve(b)" not in text

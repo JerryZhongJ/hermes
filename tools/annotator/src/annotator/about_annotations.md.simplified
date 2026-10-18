@@ -1,0 +1,156 @@
+# About annotations
+
+These annotations insert runtime checks that let the compiler specialize hot
+JavaScript. On a pass the specialized fast path runs; on a fail normal
+unoptimized behavior runs. A wrong guard is therefore safe but useless, not a
+correctness failure.
+
+## Concepts
+
+- **Target expression** identifies the value an annotation describes.
+  Parameter declarations and actual `this` expressions can be targets too.
+- **Type**: a concrete type (boolean, closure, null, number, string,
+  undefined), a union, or `any`. `any` means unknown, not absent. `closure`
+  represents one known target function and cannot be in a union.
+- **Static shape** describes an object's OWN properties, in order: type,
+  data/accessor kind, descriptor flags, and a target function for a closure.
+  Inherited properties are NOT covered — they live on the prototype object and
+  need their own prototype shape.
+- At runtime a static shape is a hidden class: slot offsets are fixed and
+  inline caches are bypassed even when every property is `any`; concrete types
+  additionally enable typed operations and closure inlining.
+
+## Mechanisms
+
+**shape binding** — the only operation that GIVES an object a shape: it
+validates the object and sets its hidden class. One-time cost; later consumers
+of the same object benefit in any function. Rules:
+- A binding automatically creates its immediate shape guard.
+- The target range covers the expression that PRODUCES the object, never an
+  enclosing assignment. When construction is completed by a property write,
+  target that write's receiver; never bind a receiver that is only read.
+- A write guard appears only when the shape has at least one non-`any`
+  property (`closure` counts). Typed writes are checked unless covered and
+  proven compatible; a mismatch silently degrades that property to untyped.
+
+**shape guard** — verifies the object already has a binding-established shape.
+Rules:
+- A guard cannot create a shape: guarding an unbound object always fails
+  (feedback shows `no shape binding`).
+- Guard facts are LOCAL to their containing function: a callee needs its own
+  guard even when the caller guarded the argument. Bindings, by contrast,
+  carry across functions.
+- With `prototype shape` it also verifies the direct prototype's shape — the
+  prototype must be bound too, or that half always fails. Add it only when
+  reading a data property (incl. a `closure` method) on the DIRECT prototype;
+  deeper chains are unsupported.
+- Shape checks are cheap; add enough guards and let the compiler remove
+  redundancy.
+
+**type guard** — narrows a target expression, independent of shapes, so
+arithmetic, string, and comparison operations avoid generic dispatch and
+coercion. A `closure` type guard additionally carries the exact `target
+function` range; it guards function identity and may enable inlining.
+`closure` is forbidden in unions; non-closure guards must not carry
+`target function`.
+
+## When operations take the fast path
+
+A fact reaches a use only when every path to that use preserves it. Function
+calls, global-property loads, `in`, and `instanceof` always stay
+side-effecting; a later guard may re-establish a killed fact.
+
+A binary comparison (`=== !== < <= > >=`) or arithmetic op takes the numeric
+fast path only when **every operand** is provably number (string likewise for
+concat). Guarding one side of `a === b` is a no-effect: guard EACH operand at
+its definition — the parameter, the property load, or the element expression
+that feeds the operation — not the comparison expression itself.
+
+A `closure` property is the highest-value annotation: a call to it can be
+**inlined**, removing dispatch, argument shuffling, and frame setup entirely,
+so constant folding, CSE, and DCE cross the old call boundary. A type guard
+alone can never produce this. Prefer `closure` whenever a property holds a
+function whose definition is statically known.
+
+Accessors always have type `any` and still invoke their getter/setter on the
+fast path; a type guard at the use site narrows the getter's return.
+
+## Prototype recipe
+
+A prototype object is just another object with its own `static_shape` and
+`shape_binding`. For a prototype with method `m`:
+
+1. Define the shape: a non-enumerable `constructor` property (type `any`),
+   then each hot method as `{"name": "m", "type": "closure",
+   "target function": <range of the function expression>}`. A method assigned
+   as `Cls.prototype.m = function...` is exactly a `data`/`closure` property.
+2. Bind it, targeting the expression that produces the prototype: the LHS
+   receiver `Cls.prototype` for `Cls.prototype.m = ...` (not the whole
+   assignment; the binding applies after the method store), or the object
+   literal for `Cls.prototype = {...}`.
+3. Guard hot instances with both `shape` and `prototype shape`: prototype
+   reads become direct slot access and `closure` method calls inline.
+
+Look for `X.prototype.method = function` patterns (very common in
+ported/compiled JS) and apply this to the hot ones.
+
+## Schema
+
+Each `add_annotation(kind, annotation, shape?)` body:
+
+- `static_shape`: `{"properties": [Property, ...]}`, shape name in `shape`.
+  Add the shape before anything referencing it.
+- `shape_binding`: `{"target range": RangeKey, "shape": string}`.
+- `shape_guard`: `{"target range": RangeKey, "shape": string,
+  "prototype shape"?: string}`.
+- `type_guard`: `{"target range": RangeKey, "type": TypeName,
+  "target function"?: RangeKey}` — `target function` exactly when `type`
+  is `"closure"`.
+
+`RangeKey` (all range fields) is the string `"sl:sc:el:ec"` (e.g. `"3:25:3:66"`)
+— 1-based, half-open (end column exclusive). Not a function loc_key `"31:1"`
+(two parts, a function ID) and not a `{start, end}` object. `TypeName` is a concrete
+type, `"any"`, or an array of concrete types. `Property`: `name`, optional
+`type`, `kind` (`data`/`accessor`), `flags off`, and `target function` for
+closures. For a parameter use its declaration; for `this` use an actual
+`this` expression at the operation. Use source-tool ranges exactly.
+
+## Worked example
+
+Source:
+```
+L1:  function Point(x, y) { this.x = x; this.y = y; }
+L3:  Point.prototype.scale = function(k) { this.x *= k; this.y *= k; };
+L5:  const opts = { get tag() { return "p"; }, inner: { n: 3 } };
+L7:  function process(p, k, cb) {
+L8:    p.scale(k);
+L9:    const r = p.x + opts.inner.n;
+L10:   if (cb) cb(r);
+L11:   return opts.tag + r;
+L12: }
+```
+
+Annotations (shapes first, then bindings, guards, type guards):
+- Shape `Point` {x:number, y:number} — `this.x = x` in L1 completes the shape,
+  so bind the `this` receiver of that write (not the whole assignment).
+- Shape `PointProto` {constructor (any, non-enumerable), scale: closure → L3}.
+  Bind the `Cls.prototype` receiver of the L3 method write.
+- Shape `Opts` {tag:accessor, inner:any} + shape `Inner` {n:number} — bind
+  `opts` (L5) and `opts.inner` (the nested literal).
+- Guard `p` (L7) → Point+PointProto: `p.scale(k)` takes the shape fast path
+  and `scale` inlines.
+- Guard `p` (L9) again: the L8 call kills the shape fact (a call may mutate
+  shape), so the `p.x` read needs a fresh guard.
+- Guard `opts` (L9) → Opts: `inner` becomes a direct slot read (`tag` is an
+  accessor and still runs its getter).
+- Guard `opts.inner` (L9) → Inner: the guard on `opts` only yields the
+  `inner` reference, not its fields — a second guard targets the expression
+  `opts.inner` so `.n` takes the typed path.
+- type guard `k` (L3) number: `*=` takes the number fast path.
+- type guard `cb` (L7) [null, undefined]: `if (cb)` folds away on the
+  no-callback path.
+- type guard `cb` (L10) closure → L3: on the callback-present path `cb(r)`
+  becomes directly analyzable and inlineable.
+- type guard `opts.tag` (L11) string: the getter's return is unknown to the
+  compiler (accessors are `any`); this narrows it so `+ r` concatenates on
+  the string fast path.
