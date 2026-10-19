@@ -1,0 +1,2376 @@
+{
+  "static shapes": {
+    "Nei": {
+      "properties": [
+        {
+          "name": "x",
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "type": "number"
+        },
+        {
+          "name": "z",
+          "type": "number"
+        },
+        {
+          "name": "number",
+          "type": "number"
+        },
+        {
+          "name": "offset",
+          "type": "number"
+        }
+      ]
+    },
+    "Box": {
+      "properties": [
+        {
+          "name": "x",
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "type": "number"
+        },
+        {
+          "name": "z",
+          "type": "number"
+        },
+        {
+          "name": "number",
+          "type": "number"
+        },
+        {
+          "name": "offset",
+          "type": "number"
+        },
+        {
+          "name": "nn",
+          "type": "number"
+        },
+        {
+          "name": "nei"
+        }
+      ]
+    },
+    "SpaceMem": {
+      "properties": [
+        {
+          "name": "v",
+          "type": "number"
+        },
+        {
+          "name": "x",
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "type": "number"
+        },
+        {
+          "name": "z",
+          "type": "number"
+        }
+      ]
+    },
+    "Dim": {
+      "properties": [
+        {
+          "name": "cores_arg",
+          "type": "number"
+        },
+        {
+          "name": "boxes1d_arg",
+          "type": "number"
+        },
+        {
+          "name": "number_boxes",
+          "type": "number"
+        },
+        {
+          "name": "space_elem",
+          "type": "number"
+        }
+      ]
+    },
+    "Par": {
+      "properties": [
+        {
+          "name": "alpha",
+          "type": "number"
+        }
+      ]
+    },
+    "Dim2": {
+      "properties": [
+        {
+          "name": "cores_arg",
+          "type": "number"
+        },
+        {
+          "name": "boxes1d_arg",
+          "type": "number"
+        }
+      ]
+    },
+    "Dim3": {
+      "properties": [
+        {
+          "name": "cores_arg",
+          "type": "number"
+        },
+        {
+          "name": "boxes1d_arg",
+          "type": "number"
+        },
+        {
+          "name": "number_boxes",
+          "type": "number"
+        }
+      ]
+    },
+    "Result": {
+      "properties": [
+        {
+          "name": "status",
+          "type": "number"
+        },
+        {
+          "name": "options",
+          "type": "string"
+        },
+        {
+          "name": "time",
+          "type": "number"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 257,
+          "column": 21
+        },
+        "end": {
+          "line": 257,
+          "column": 24
+        }
+      },
+      "shape": "Par"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 257,
+          "column": 26
+        },
+        "end": {
+          "line": 257,
+          "column": 29
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 272,
+          "column": 19
+        },
+        "end": {
+          "line": 272,
+          "column": 25
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 275,
+          "column": 23
+        },
+        "end": {
+          "line": 275,
+          "column": 29
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 280,
+          "column": 27
+        },
+        "end": {
+          "line": 280,
+          "column": 33
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 283,
+          "column": 23
+        },
+        "end": {
+          "line": 283,
+          "column": 35
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 280,
+          "column": 27
+        },
+        "end": {
+          "line": 280,
+          "column": 42
+        }
+      },
+      "shape": "Nei"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 287,
+          "column": 26
+        },
+        "end": {
+          "line": 287,
+          "column": 39
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 291,
+          "column": 30
+        },
+        "end": {
+          "line": 291,
+          "column": 43
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 292,
+          "column": 30
+        },
+        "end": {
+          "line": 292,
+          "column": 43
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 293,
+          "column": 30
+        },
+        "end": {
+          "line": 293,
+          "column": 43
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 287,
+          "column": 44
+        },
+        "end": {
+          "line": 287,
+          "column": 57
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 291,
+          "column": 49
+        },
+        "end": {
+          "line": 291,
+          "column": 62
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 292,
+          "column": 49
+        },
+        "end": {
+          "line": 292,
+          "column": 62
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 293,
+          "column": 49
+        },
+        "end": {
+          "line": 293,
+          "column": 62
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 299,
+          "column": 21
+        },
+        "end": {
+          "line": 299,
+          "column": 34
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 300,
+          "column": 21
+        },
+        "end": {
+          "line": 300,
+          "column": 34
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 301,
+          "column": 21
+        },
+        "end": {
+          "line": 301,
+          "column": 34
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 302,
+          "column": 21
+        },
+        "end": {
+          "line": 302,
+          "column": 34
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 142,
+          "column": 8
+        },
+        "end": {
+          "line": 142,
+          "column": 15
+        }
+      },
+      "shape": "Dim2"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 146,
+          "column": 61
+        },
+        "end": {
+          "line": 146,
+          "column": 68
+        }
+      },
+      "shape": "Dim2"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 146,
+          "column": 80
+        },
+        "end": {
+          "line": 146,
+          "column": 87
+        }
+      },
+      "shape": "Dim2"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 153,
+          "column": 5
+        },
+        "end": {
+          "line": 153,
+          "column": 12
+        }
+      },
+      "shape": "Dim2"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 153,
+          "column": 28
+        },
+        "end": {
+          "line": 153,
+          "column": 35
+        }
+      },
+      "shape": "Dim2"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 153,
+          "column": 50
+        },
+        "end": {
+          "line": 153,
+          "column": 57
+        }
+      },
+      "shape": "Dim2"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 153,
+          "column": 72
+        },
+        "end": {
+          "line": 153,
+          "column": 79
+        }
+      },
+      "shape": "Dim2"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 156,
+          "column": 26
+        },
+        "end": {
+          "line": 156,
+          "column": 33
+        }
+      },
+      "shape": "Dim3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 159,
+          "column": 36
+        },
+        "end": {
+          "line": 159,
+          "column": 43
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 164,
+          "column": 16
+        },
+        "end": {
+          "line": 164,
+          "column": 23
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 166,
+          "column": 20
+        },
+        "end": {
+          "line": 166,
+          "column": 27
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 168,
+          "column": 24
+        },
+        "end": {
+          "line": 168,
+          "column": 31
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 187,
+          "column": 113
+        },
+        "end": {
+          "line": 187,
+          "column": 120
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 187,
+          "column": 142
+        },
+        "end": {
+          "line": 187,
+          "column": 149
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 195,
+          "column": 114
+        },
+        "end": {
+          "line": 195,
+          "column": 121
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 213,
+          "column": 37
+        },
+        "end": {
+          "line": 213,
+          "column": 44
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 214,
+          "column": 16
+        },
+        "end": {
+          "line": 214,
+          "column": 23
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 222,
+          "column": 31
+        },
+        "end": {
+          "line": 222,
+          "column": 38
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 223,
+          "column": 16
+        },
+        "end": {
+          "line": 223,
+          "column": 23
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 228,
+          "column": 37
+        },
+        "end": {
+          "line": 228,
+          "column": 44
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 232,
+          "column": 25
+        },
+        "end": {
+          "line": 232,
+          "column": 32
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 236,
+          "column": 20
+        },
+        "end": {
+          "line": 236,
+          "column": 27
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 247,
+          "column": 69
+        },
+        "end": {
+          "line": 247,
+          "column": 76
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 171,
+          "column": 17
+        },
+        "end": {
+          "line": 171,
+          "column": 28
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 172,
+          "column": 17
+        },
+        "end": {
+          "line": 172,
+          "column": 28
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 173,
+          "column": 17
+        },
+        "end": {
+          "line": 173,
+          "column": 28
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 174,
+          "column": 17
+        },
+        "end": {
+          "line": 174,
+          "column": 28
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 175,
+          "column": 17
+        },
+        "end": {
+          "line": 175,
+          "column": 28
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 178,
+          "column": 17
+        },
+        "end": {
+          "line": 178,
+          "column": 28
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 191,
+          "column": 33
+        },
+        "end": {
+          "line": 191,
+          "column": 44
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 191,
+          "column": 49
+        },
+        "end": {
+          "line": 191,
+          "column": 60
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 192,
+          "column": 33
+        },
+        "end": {
+          "line": 192,
+          "column": 44
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 192,
+          "column": 49
+        },
+        "end": {
+          "line": 192,
+          "column": 60
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 193,
+          "column": 33
+        },
+        "end": {
+          "line": 193,
+          "column": 44
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 193,
+          "column": 49
+        },
+        "end": {
+          "line": 193,
+          "column": 60
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 194,
+          "column": 33
+        },
+        "end": {
+          "line": 194,
+          "column": 44
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 194,
+          "column": 49
+        },
+        "end": {
+          "line": 194,
+          "column": 60
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 194,
+          "column": 75
+        },
+        "end": {
+          "line": 194,
+          "column": 86
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 194,
+          "column": 91
+        },
+        "end": {
+          "line": 194,
+          "column": 102
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 195,
+          "column": 78
+        },
+        "end": {
+          "line": 195,
+          "column": 89
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 195,
+          "column": 94
+        },
+        "end": {
+          "line": 195,
+          "column": 105
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 196,
+          "column": 78
+        },
+        "end": {
+          "line": 196,
+          "column": 89
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 196,
+          "column": 94
+        },
+        "end": {
+          "line": 196,
+          "column": 105
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 197,
+          "column": 33
+        },
+        "end": {
+          "line": 197,
+          "column": 44
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 197,
+          "column": 49
+        },
+        "end": {
+          "line": 197,
+          "column": 60
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 197,
+          "column": 74
+        },
+        "end": {
+          "line": 197,
+          "column": 85
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 197,
+          "column": 90
+        },
+        "end": {
+          "line": 197,
+          "column": 101
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 200,
+          "column": 33
+        },
+        "end": {
+          "line": 200,
+          "column": 44
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 200,
+          "column": 50
+        },
+        "end": {
+          "line": 200,
+          "column": 61
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 191,
+          "column": 33
+        },
+        "end": {
+          "line": 191,
+          "column": 64
+        }
+      },
+      "shape": "Nei"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 192,
+          "column": 33
+        },
+        "end": {
+          "line": 192,
+          "column": 64
+        }
+      },
+      "shape": "Nei"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 193,
+          "column": 33
+        },
+        "end": {
+          "line": 193,
+          "column": 64
+        }
+      },
+      "shape": "Nei"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 194,
+          "column": 33
+        },
+        "end": {
+          "line": 194,
+          "column": 64
+        }
+      },
+      "shape": "Nei"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 194,
+          "column": 75
+        },
+        "end": {
+          "line": 194,
+          "column": 106
+        }
+      },
+      "shape": "Nei"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 195,
+          "column": 78
+        },
+        "end": {
+          "line": 195,
+          "column": 109
+        }
+      },
+      "shape": "Nei"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 196,
+          "column": 78
+        },
+        "end": {
+          "line": 196,
+          "column": 109
+        }
+      },
+      "shape": "Nei"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 197,
+          "column": 33
+        },
+        "end": {
+          "line": 197,
+          "column": 64
+        }
+      },
+      "shape": "Nei"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 197,
+          "column": 74
+        },
+        "end": {
+          "line": 197,
+          "column": 105
+        }
+      },
+      "shape": "Nei"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 215,
+          "column": 9
+        },
+        "end": {
+          "line": 215,
+          "column": 18
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 216,
+          "column": 9
+        },
+        "end": {
+          "line": 216,
+          "column": 18
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 217,
+          "column": 9
+        },
+        "end": {
+          "line": 217,
+          "column": 18
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 218,
+          "column": 9
+        },
+        "end": {
+          "line": 218,
+          "column": 18
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 237,
+          "column": 22
+        },
+        "end": {
+          "line": 237,
+          "column": 31
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 238,
+          "column": 22
+        },
+        "end": {
+          "line": 238,
+          "column": 31
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 239,
+          "column": 22
+        },
+        "end": {
+          "line": 239,
+          "column": 31
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 240,
+          "column": 22
+        },
+        "end": {
+          "line": 240,
+          "column": 31
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 237,
+          "column": 13
+        },
+        "end": {
+          "line": 237,
+          "column": 16
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 238,
+          "column": 13
+        },
+        "end": {
+          "line": 238,
+          "column": 16
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 239,
+          "column": 13
+        },
+        "end": {
+          "line": 239,
+          "column": 16
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 240,
+          "column": 13
+        },
+        "end": {
+          "line": 240,
+          "column": 16
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 23
+        },
+        "end": {
+          "line": 242,
+          "column": 26
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 62
+        },
+        "end": {
+          "line": 242,
+          "column": 65
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 101
+        },
+        "end": {
+          "line": 242,
+          "column": 104
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 140
+        },
+        "end": {
+          "line": 242,
+          "column": 143
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 244,
+          "column": 40
+        },
+        "end": {
+          "line": 244,
+          "column": 43
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 244,
+          "column": 55
+        },
+        "end": {
+          "line": 244,
+          "column": 58
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 244,
+          "column": 70
+        },
+        "end": {
+          "line": 244,
+          "column": 73
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 244,
+          "column": 85
+        },
+        "end": {
+          "line": 244,
+          "column": 88
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 194,
+          "column": 111
+        },
+        "end": {
+          "line": 194,
+          "column": 118
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 315,
+          "column": 16
+        },
+        "end": {
+          "line": 315,
+          "column": 22
+        }
+      },
+      "shape": "Result"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 316,
+          "column": 22
+        },
+        "end": {
+          "line": 316,
+          "column": 28
+        }
+      },
+      "shape": "Result"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 316,
+          "column": 38
+        },
+        "end": {
+          "line": 316,
+          "column": 44
+        }
+      },
+      "shape": "Result"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 319,
+          "column": 18
+        },
+        "end": {
+          "line": 319,
+          "column": 24
+        }
+      },
+      "shape": "Result"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 85,
+          "column": 14
+        },
+        "end": {
+          "line": 85,
+          "column": 15
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 85,
+          "column": 16
+        },
+        "end": {
+          "line": 85,
+          "column": 17
+        }
+      },
+      "shape": "SpaceMem"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 99,
+          "column": 12
+        },
+        "end": {
+          "line": 103,
+          "column": 6
+        }
+      },
+      "shape": "Nei"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 108,
+          "column": 12
+        },
+        "end": {
+          "line": 115,
+          "column": 6
+        }
+      },
+      "shape": "Box"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 119,
+          "column": 12
+        },
+        "end": {
+          "line": 121,
+          "column": 6
+        }
+      },
+      "shape": "SpaceMem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 156,
+          "column": 5
+        },
+        "end": {
+          "line": 156,
+          "column": 12
+        }
+      },
+      "shape": "Dim"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 149,
+          "column": 5
+        },
+        "end": {
+          "line": 149,
+          "column": 12
+        }
+      },
+      "shape": "Par"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 140,
+          "column": 5
+        },
+        "end": {
+          "line": 140,
+          "column": 12
+        }
+      },
+      "shape": "Dim2"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 153,
+          "column": 5
+        },
+        "end": {
+          "line": 153,
+          "column": 12
+        }
+      },
+      "shape": "Dim3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 252,
+          "column": 12
+        },
+        "end": {
+          "line": 254,
+          "column": 44
+        }
+      },
+      "shape": "Result"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 285,
+          "column": 24
+        },
+        "end": {
+          "line": 285,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 286,
+          "column": 28
+        },
+        "end": {
+          "line": 286,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 299,
+          "column": 41
+        },
+        "end": {
+          "line": 299,
+          "column": 54
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 300,
+          "column": 41
+        },
+        "end": {
+          "line": 300,
+          "column": 54
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 301,
+          "column": 41
+        },
+        "end": {
+          "line": 301,
+          "column": 54
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 302,
+          "column": 41
+        },
+        "end": {
+          "line": 302,
+          "column": 54
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 156,
+          "column": 49
+        },
+        "end": {
+          "line": 156,
+          "column": 67
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 175,
+          "column": 43
+        },
+        "end": {
+          "line": 175,
+          "column": 61
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 197,
+          "column": 115
+        },
+        "end": {
+          "line": 197,
+          "column": 133
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 215,
+          "column": 24
+        },
+        "end": {
+          "line": 215,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 39,
+          "column": 12
+        },
+        "end": {
+          "line": 48,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 216,
+          "column": 24
+        },
+        "end": {
+          "line": 216,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 39,
+          "column": 12
+        },
+        "end": {
+          "line": 48,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 217,
+          "column": 24
+        },
+        "end": {
+          "line": 217,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 39,
+          "column": 12
+        },
+        "end": {
+          "line": 48,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 218,
+          "column": 24
+        },
+        "end": {
+          "line": 218,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 39,
+          "column": 12
+        },
+        "end": {
+          "line": 48,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 224,
+          "column": 22
+        },
+        "end": {
+          "line": 224,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 39,
+          "column": 12
+        },
+        "end": {
+          "line": 48,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 251,
+          "column": 29
+        },
+        "end": {
+          "line": 251,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 251,
+          "column": 35
+        },
+        "end": {
+          "line": 251,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 89,
+          "column": 31
+        },
+        "end": {
+          "line": 89,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 33
+        },
+        "end": {
+          "line": 242,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 72
+        },
+        "end": {
+          "line": 242,
+          "column": 86
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 111
+        },
+        "end": {
+          "line": 242,
+          "column": 125
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 150
+        },
+        "end": {
+          "line": 242,
+          "column": 164
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 12
+        },
+        "end": {
+          "line": 242,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 51
+        },
+        "end": {
+          "line": 242,
+          "column": 68
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 90
+        },
+        "end": {
+          "line": 242,
+          "column": 107
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 129
+        },
+        "end": {
+          "line": 242,
+          "column": 146
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 92,
+          "column": 18
+        },
+        "end": {
+          "line": 92,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 122,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 230,
+          "column": 13
+        },
+        "end": {
+          "line": 230,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 250,
+          "column": 13
+        },
+        "end": {
+          "line": 250,
+          "column": 25
+        }
+      },
+      "type": "number"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "139:23",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "cores_arg"
+    },
+    {
+      "location": "140:25",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "boxes1d_arg"
+    },
+    {
+      "location": "149:19",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "alpha"
+    },
+    {
+      "location": "153:26",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "number_boxes"
+    },
+    {
+      "location": "156:24",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "space_elem"
+    },
+    {
+      "location": "143:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "143:14",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "146:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "146:10",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "243:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "243:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "247:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "247:14",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "251:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "251:10",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "319:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "319:6",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "242:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "242:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "round"
+    },
+    {
+      "location": "242:51",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "242:61",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "round"
+    },
+    {
+      "location": "242:90",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "242:100",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "round"
+    },
+    {
+      "location": "242:129",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "242:139",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "round"
+    },
+    {
+      "location": "244:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "244:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "222:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Float64Array"
+    },
+    {
+      "location": "222:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Float64Array"
+    },
+    {
+      "location": "316:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Number"
+    },
+    {
+      "location": "316:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isFinite"
+    },
+    {
+      "location": "316:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "isFinite"
+    },
+    {
+      "location": "317:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "317:20",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "7:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "8:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "8:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "230:23",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "250:23",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "92:17",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "92:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "243:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation: the compiler does not turn `+` of a known string and a known number into a fast path; string/number type guards on the operands (already present for numbers) have no effect on the concat op itself"
+    },
+    {
+      "location": "244:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation: the compiler does not turn `+` of a known string and a known number into a fast path; string/number type guards on the operands (already present for numbers) have no effect on the concat op itself"
+    },
+    {
+      "location": "251:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation: the compiler does not turn `+` of a known string and a known number into a fast path; string/number type guards on the operands (already present for numbers) have no effect on the concat op itself"
+    },
+    {
+      "location": "253:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation: the compiler does not turn `+` of a known string and a known number into a fast path; string/number type guards on the operands (already present for numbers) have no effect on the concat op itself"
+    },
+    {
+      "location": "319:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation: the compiler does not turn `+` of a known string and a known number into a fast path; string/number type guards on the operands (already present for numbers) have no effect on the concat op itself"
+    },
+    {
+      "location": "187:33",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "loose equality of the boolean && chain against a true/false literal; boolean type guards on the chain expressions matched but had no effect, and the comparison op itself is not specialized by the compiler"
+    },
+    {
+      "location": "187:77",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "loose equality of the boolean && chain against a true/false literal; boolean type guards on the chain expressions matched but had no effect, and the comparison op itself is not specialized by the compiler"
+    },
+    {
+      "location": "188:37",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "loose equality of the boolean && chain against a true/false literal; boolean type guards on the chain expressions matched but had no effect, and the comparison op itself is not specialized by the compiler"
+    },
+    {
+      "location": "187:78",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "only the first Dim shape guard on dim_cpu within this statement survives redundant-guard deduplication: placing it at 187:84 optimizes this comparison/load pair but leaves the later loads 187:120 and 187:149 generic, while placing it at 187:113 (current) optimizes those two and leaves this pair generic. The sites are mutually exclusive under the compiler's one-guard-per-object-per-statement behavior."
+    },
+    {
+      "location": "187:91",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "boxes1d_arg",
+      "note": "only the first Dim shape guard on dim_cpu within this statement survives redundant-guard deduplication: placing it at 187:84 optimizes this comparison/load pair but leaves the later loads 187:120 and 187:149 generic, while placing it at 187:113 (current) optimizes those two and leaves this pair generic. The sites are mutually exclusive under the compiler's one-guard-per-object-per-statement behavior."
+    },
+    {
+      "location": "194:140",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "boxes1d_arg",
+      "note": "only the first Dim shape guard on dim_cpu within statement 194 survives deduplication; the existing guard at 194:111 optimizes the first load (194:118) but not this second one, and moving the guard to this receiver optimizes this load while making the earlier one generic. Mutually exclusive under one-guard-per-object-per-statement."
+    },
+    {
+      "location": "228:44",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "space_elem",
+      "note": "dim_cpu.space_elem is an argument of the createArray call on the same line; dryrun shows the Dim shape fact established by the temporary guard at the receiver (228:37) is killed by the 228:25 call before the slot read, and no later guard can be placed inside the argument list"
+    },
+    {
+      "location": "235:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "expectedAns holds an array or undefined from an object-literal lookup; no concrete scalar type is expressible for a type guard over an array value, so the !== undefined comparison cannot be narrowed"
+    },
+    {
+      "location": "254:20",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "number type guards on time1/time0 at this use and on the (time1 - time0) subexpression had no effect inside the shape-bound return object literal; the very same guards do optimize the identical subtraction and division in the print argument at 251"
+    },
+    {
+      "location": "254:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "number type guards on time1/time0 at this use and on the (time1 - time0) subexpression had no effect inside the shape-bound return object literal; the very same guards do optimize the identical subtraction and division in the print argument at 251"
+    }
+  ]
+}

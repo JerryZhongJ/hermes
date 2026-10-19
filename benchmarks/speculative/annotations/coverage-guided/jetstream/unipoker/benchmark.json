@@ -1,0 +1,3422 @@
+{
+  "static shapes": {
+    "CardDeckInst": {
+      "properties": [
+        {
+          "name": "_cards"
+        }
+      ]
+    },
+    "PlayerInst": {
+      "properties": [
+        {
+          "name": "_cards"
+        },
+        {
+          "name": "_rank",
+          "type": "number"
+        },
+        {
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "name": "_wins",
+          "type": "number"
+        },
+        {
+          "name": "_handTypeCounts"
+        }
+      ]
+    },
+    "BenchmarkInst": {
+      "properties": [
+        {
+          "name": "_players"
+        }
+      ]
+    },
+    "PlayerExpectationInst": {
+      "properties": [
+        {
+          "name": "_wins",
+          "type": "number"
+        },
+        {
+          "name": "_handTypeCounts"
+        }
+      ]
+    },
+    "CardDeckStatics": {
+      "properties": [
+        {
+          "name": "length",
+          "type": "number",
+          "flags off": [
+            "enumerable",
+            "writable"
+          ]
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "flags off": [
+            "enumerable",
+            "writable"
+          ]
+        },
+        {
+          "name": "prototype",
+          "flags off": [
+            "enumerable",
+            "writable",
+            "configurable"
+          ]
+        },
+        {
+          "name": "cardRank",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 107,
+              "column": 3
+            },
+            "end": {
+              "line": 117,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "cardName",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 119,
+              "column": 3
+            },
+            "end": {
+              "line": 122,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "_rankNames"
+        },
+        {
+          "name": "_newDeck"
+        }
+      ]
+    },
+    "PlayerExpectationStatics": {
+      "properties": [
+        {
+          "name": "length",
+          "type": "number",
+          "flags off": [
+            "enumerable",
+            "writable"
+          ]
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "flags off": [
+            "enumerable",
+            "writable"
+          ]
+        },
+        {
+          "name": "prototype",
+          "flags off": [
+            "enumerable",
+            "writable",
+            "configurable"
+          ]
+        },
+        {
+          "name": "_handTypes"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 97,
+          "column": 22
+        },
+        "end": {
+          "line": 97,
+          "column": 26
+        }
+      },
+      "shape": "CardDeckInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 104,
+          "column": 12
+        },
+        "end": {
+          "line": 104,
+          "column": 16
+        }
+      },
+      "shape": "CardDeckInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 208,
+          "column": 5
+        },
+        "end": {
+          "line": 208,
+          "column": 9
+        }
+      },
+      "shape": "PlayerInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 213,
+          "column": 5
+        },
+        "end": {
+          "line": 213,
+          "column": 9
+        }
+      },
+      "shape": "PlayerInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 324,
+          "column": 12
+        },
+        "end": {
+          "line": 324,
+          "column": 16
+        }
+      },
+      "shape": "PlayerInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 328,
+          "column": 12
+        },
+        "end": {
+          "line": 328,
+          "column": 16
+        }
+      },
+      "shape": "PlayerInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 385,
+          "column": 5
+        },
+        "end": {
+          "line": 385,
+          "column": 9
+        }
+      },
+      "shape": "PlayerInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 389,
+          "column": 5
+        },
+        "end": {
+          "line": 389,
+          "column": 9
+        }
+      },
+      "shape": "PlayerInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 393,
+          "column": 12
+        },
+        "end": {
+          "line": 393,
+          "column": 16
+        }
+      },
+      "shape": "PlayerInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 401,
+          "column": 12
+        },
+        "end": {
+          "line": 401,
+          "column": 16
+        }
+      },
+      "shape": "PlayerInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 405,
+          "column": 12
+        },
+        "end": {
+          "line": 405,
+          "column": 16
+        }
+      },
+      "shape": "PlayerInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 583,
+          "column": 15
+        },
+        "end": {
+          "line": 583,
+          "column": 19
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 589,
+          "column": 9
+        },
+        "end": {
+          "line": 589,
+          "column": 13
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 590,
+          "column": 78
+        },
+        "end": {
+          "line": 590,
+          "column": 82
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 592,
+          "column": 46
+        },
+        "end": {
+          "line": 592,
+          "column": 50
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 479,
+          "column": 24
+        },
+        "end": {
+          "line": 479,
+          "column": 28
+        }
+      },
+      "shape": "PlayerExpectationInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 480,
+          "column": 55
+        },
+        "end": {
+          "line": 480,
+          "column": 59
+        }
+      },
+      "shape": "PlayerExpectationInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 483,
+          "column": 9
+        },
+        "end": {
+          "line": 483,
+          "column": 13
+        }
+      },
+      "shape": "PlayerExpectationInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 488,
+          "column": 9
+        },
+        "end": {
+          "line": 488,
+          "column": 13
+        }
+      },
+      "shape": "PlayerExpectationInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 493,
+          "column": 45
+        },
+        "end": {
+          "line": 493,
+          "column": 49
+        }
+      },
+      "shape": "PlayerExpectationInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 494,
+          "column": 11
+        },
+        "end": {
+          "line": 494,
+          "column": 15
+        }
+      },
+      "shape": "PlayerExpectationInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 499,
+          "column": 11
+        },
+        "end": {
+          "line": 499,
+          "column": 15
+        }
+      },
+      "shape": "PlayerExpectationInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 98,
+          "column": 7
+        },
+        "end": {
+          "line": 98,
+          "column": 11
+        }
+      },
+      "shape": "CardDeckInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 98,
+          "column": 28
+        },
+        "end": {
+          "line": 98,
+          "column": 32
+        }
+      },
+      "shape": "CardDeckInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 99,
+          "column": 7
+        },
+        "end": {
+          "line": 99,
+          "column": 11
+        }
+      },
+      "shape": "CardDeckInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 576,
+          "column": 5
+        },
+        "end": {
+          "line": 576,
+          "column": 9
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 577,
+          "column": 5
+        },
+        "end": {
+          "line": 577,
+          "column": 9
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 578,
+          "column": 5
+        },
+        "end": {
+          "line": 578,
+          "column": 9
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 579,
+          "column": 5
+        },
+        "end": {
+          "line": 579,
+          "column": 9
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 121,
+          "column": 12
+        },
+        "end": {
+          "line": 121,
+          "column": 16
+        }
+      },
+      "shape": "CardDeckStatics"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 85,
+          "column": 19
+        },
+        "end": {
+          "line": 85,
+          "column": 27
+        }
+      },
+      "shape": "CardDeckStatics"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 219,
+          "column": 14
+        },
+        "end": {
+          "line": 219,
+          "column": 22
+        }
+      },
+      "shape": "CardDeckStatics"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 219,
+          "column": 37
+        },
+        "end": {
+          "line": 219,
+          "column": 45
+        }
+      },
+      "shape": "CardDeckStatics"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 501,
+          "column": 11
+        },
+        "end": {
+          "line": 501,
+          "column": 28
+        }
+      },
+      "shape": "PlayerExpectationStatics"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 85,
+          "column": 5
+        },
+        "end": {
+          "line": 85,
+          "column": 9
+        }
+      },
+      "shape": "CardDeckInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 379,
+          "column": 5
+        },
+        "end": {
+          "line": 379,
+          "column": 9
+        }
+      },
+      "shape": "PlayerInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 575,
+          "column": 5
+        },
+        "end": {
+          "line": 575,
+          "column": 9
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 475,
+          "column": 5
+        },
+        "end": {
+          "line": 475,
+          "column": 9
+        }
+      },
+      "shape": "PlayerExpectationInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 1
+        },
+        "end": {
+          "line": 143,
+          "column": 9
+        }
+      },
+      "shape": "CardDeckStatics"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 510,
+          "column": 1
+        },
+        "end": {
+          "line": 510,
+          "column": 18
+        }
+      },
+      "shape": "PlayerExpectationStatics"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 472,
+          "column": 15
+        },
+        "end": {
+          "line": 472,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 472,
+          "column": 27
+        },
+        "end": {
+          "line": 472,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 475,
+          "column": 48
+        },
+        "end": {
+          "line": 475,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 592,
+          "column": 7
+        },
+        "end": {
+          "line": 592,
+          "column": 45
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 478,
+          "column": 3
+        },
+        "end": {
+          "line": 507,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 479,
+          "column": 9
+        },
+        "end": {
+          "line": 479,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 219,
+          "column": 14
+        },
+        "end": {
+          "line": 219,
+          "column": 31
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 107,
+          "column": 3
+        },
+        "end": {
+          "line": 117,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 219,
+          "column": 37
+        },
+        "end": {
+          "line": 219,
+          "column": 54
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 107,
+          "column": 3
+        },
+        "end": {
+          "line": 117,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 80,
+          "column": 5
+        },
+        "end": {
+          "line": 80,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 83,
+          "column": 3
+        },
+        "end": {
+          "line": 86,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 89,
+          "column": 5
+        },
+        "end": {
+          "line": 89,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 83,
+          "column": 3
+        },
+        "end": {
+          "line": 86,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 93,
+          "column": 36
+        },
+        "end": {
+          "line": 93,
+          "column": 47
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 36,
+          "column": 17
+        },
+        "end": {
+          "line": 44,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 93,
+          "column": 36
+        },
+        "end": {
+          "line": 93,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 383,
+          "column": 5
+        },
+        "end": {
+          "line": 383,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 216,
+          "column": 3
+        },
+        "end": {
+          "line": 321,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 397,
+          "column": 12
+        },
+        "end": {
+          "line": 397,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 327,
+          "column": 3
+        },
+        "end": {
+          "line": 329,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 583,
+          "column": 5
+        },
+        "end": {
+          "line": 583,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 409,
+          "column": 1
+        },
+        "end": {
+          "line": 438,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 588,
+          "column": 32
+        },
+        "end": {
+          "line": 588,
+          "column": 53
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 523,
+          "column": 1
+        },
+        "end": {
+          "line": 542,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 204,
+          "column": 5
+        },
+        "end": {
+          "line": 204,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 207,
+          "column": 3
+        },
+        "end": {
+          "line": 210,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 473,
+          "column": 33
+        },
+        "end": {
+          "line": 473,
+          "column": 54
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 475,
+          "column": 57
+        },
+        "end": {
+          "line": 475,
+          "column": 61
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 475,
+          "column": 64
+        },
+        "end": {
+          "line": 475,
+          "column": 70
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 483,
+          "column": 40
+        },
+        "end": {
+          "line": 483,
+          "column": 67
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 219,
+          "column": 14
+        },
+        "end": {
+          "line": 219,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 219,
+          "column": 37
+        },
+        "end": {
+          "line": 219,
+          "column": 57
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 610,
+          "column": 5
+        },
+        "end": {
+          "line": 610,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 582,
+          "column": 3
+        },
+        "end": {
+          "line": 584,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 589,
+          "column": 9
+        },
+        "end": {
+          "line": 589,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 589,
+          "column": 33
+        },
+        "end": {
+          "line": 589,
+          "column": 58
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 591,
+          "column": 41
+        },
+        "end": {
+          "line": 591,
+          "column": 66
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 612,
+          "column": 30
+        },
+        "end": {
+          "line": 612,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 612,
+          "column": 36
+        },
+        "end": {
+          "line": 612,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 617,
+          "column": 44
+        },
+        "end": {
+          "line": 617,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 617,
+          "column": 50
+        },
+        "end": {
+          "line": 617,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 483,
+          "column": 9
+        },
+        "end": {
+          "line": 483,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 493,
+          "column": 45
+        },
+        "end": {
+          "line": 493,
+          "column": 72
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 494,
+          "column": 11
+        },
+        "end": {
+          "line": 494,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 494,
+          "column": 48
+        },
+        "end": {
+          "line": 494,
+          "column": 81
+        }
+      },
+      "type": "number"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "14:17",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "14:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "14:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "14:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "14:69",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "15:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "15:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "15:17",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "15:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "15:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "16:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "16:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "mark"
+    },
+    {
+      "location": "16:18",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "mark"
+    },
+    {
+      "location": "17:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "17:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "measure"
+    },
+    {
+      "location": "17:21",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "measure"
+    },
+    {
+      "location": "18:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "18:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "timeOrigin"
+    },
+    {
+      "location": "18:24",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "timeOrigin"
+    },
+    {
+      "location": "20:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "20:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "20:39",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "30:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "30:23",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "isInBrowser"
+    },
+    {
+      "location": "31:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "31:16",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "isD8"
+    },
+    {
+      "location": "31:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Realm"
+    },
+    {
+      "location": "4:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "getPlayerExpectations"
+    },
+    {
+      "location": "4:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "playHands"
+    },
+    {
+      "location": "36:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "36:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "45:27",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "45:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "45:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "5:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Proxy"
+    },
+    {
+      "location": "9:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "9:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "5:12",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Proxy"
+    },
+    {
+      "location": "9:24",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "9:44",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "String"
+    },
+    {
+      "location": "14:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing/assignment on engine-global properties (or concatenation of an unknown builtin String() result) has no bindable object shape or numeric type; no annotation can supply a fact."
+    },
+    {
+      "location": "15:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing/assignment on engine-global properties (or concatenation of an unknown builtin String() result) has no bindable object shape or numeric type; no annotation can supply a fact."
+    },
+    {
+      "location": "16:18",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing/assignment on engine-global properties (or concatenation of an unknown builtin String() result) has no bindable object shape or numeric type; no annotation can supply a fact."
+    },
+    {
+      "location": "17:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing/assignment on engine-global properties (or concatenation of an unknown builtin String() result) has no bindable object shape or numeric type; no annotation can supply a fact."
+    },
+    {
+      "location": "18:24",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing/assignment on engine-global properties (or concatenation of an unknown builtin String() result) has no bindable object shape or numeric type; no annotation can supply a fact."
+    },
+    {
+      "location": "9:25",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing/assignment on engine-global properties (or concatenation of an unknown builtin String() result) has no bindable object shape or numeric type; no annotation can supply a fact."
+    },
+    {
+      "location": "79:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "80:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "newDeck"
+    },
+    {
+      "location": "89:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "newDeck"
+    },
+    {
+      "location": "203:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "204:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "clear"
+    },
+    {
+      "location": "104:29",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "shift"
+    },
+    {
+      "location": "104:29",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "shift"
+    },
+    {
+      "location": "111:38",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "codePointAt"
+    },
+    {
+      "location": "111:38",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "codePointAt"
+    },
+    {
+      "location": "120:57",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "codePointAt"
+    },
+    {
+      "location": "120:57",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "codePointAt"
+    },
+    {
+      "location": "85:42",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "slice"
+    },
+    {
+      "location": "85:42",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "slice"
+    },
+    {
+      "location": "213:21",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "213:21",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "85:17",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_cards"
+    },
+    {
+      "location": "125:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_rankNames"
+    },
+    {
+      "location": "143:19",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_newDeck"
+    },
+    {
+      "location": "93:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "93:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "floor"
+    },
+    {
+      "location": "93:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "93:47",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "218:21",
+      "kind": "call",
+      "reason": "other",
+      "property": "sort",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "218:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "sort",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "218:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "222:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "222:38",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "join",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "222:38",
+      "kind": "call",
+      "reason": "other",
+      "property": "join",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "224:39",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "match",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "224:39",
+      "kind": "call",
+      "reason": "other",
+      "property": "match",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "224:44",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "FlushRegExp",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "225:42",
+      "kind": "call",
+      "reason": "other",
+      "property": "match",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "225:42",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "match",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "225:47",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "StraightRegExp",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "226:41",
+      "kind": "call",
+      "reason": "other",
+      "property": "match",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "226:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "match",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "226:46",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "OfAKindRegExp",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "230:43",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "230:49",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "RoyalFlush",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "231:25",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "231:31",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "StraightFlush",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "232:25",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "232:31",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Flush",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "234:11",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_rank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "234:18",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "235:27",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "235:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "235:32",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "235:71",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "235:71",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "235:76",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "237:18",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "238:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Straight",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "239:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "239:27",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "239:32",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "240:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "240:27",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "240:32",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "244:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "244:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "245:20",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "245:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "FourOfAKind",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "245:58",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "245:58",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "245:63",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "249:35",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "249:53",
+      "kind": "call",
+      "reason": "other",
+      "property": "indexOf",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "249:53",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "indexOf",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "249:82",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized. Only the nested sort callback (loc 218:22) is compiled, and it was optimized."
+    },
+    {
+      "location": "252:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "253:50",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "253:50",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "253:77",
+      "kind": "call",
+      "reason": "other",
+      "property": "match",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "253:77",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "match",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "253:82",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "OfAKindRegExp",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "256:14",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "256:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "256:42",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "256:64",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "257:14",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "257:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "257:42",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "257:64",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "261:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "261:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "262:55",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "262:55",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "262:74",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "262:74",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "263:53",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "263:53",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "263:82",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "263:82",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "265:55",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "265:55",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "265:84",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "265:84",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "266:53",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "266:53",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "266:72",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "266:72",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "268:24",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "269:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "FullHouse",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "271:16",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "275:22",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "275:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "275:50",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "275:72",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "276:54",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "276:54",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "276:73",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "276:73",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "277:55",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "277:55",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "277:84",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "277:84",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "280:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "280:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "codePointAt",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "280:41",
+      "kind": "call",
+      "reason": "other",
+      "property": "codePointAt",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "280:70",
+      "kind": "call",
+      "reason": "other",
+      "property": "codePointAt",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "280:70",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "codePointAt",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback is compiled."
+    },
+    {
+      "location": "281:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "281:53",
+      "kind": "call",
+      "reason": "other",
+      "property": "codePointAt",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "281:53",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "codePointAt",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "281:82",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "codePointAt",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "281:82",
+      "kind": "call",
+      "reason": "other",
+      "property": "codePointAt",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "282:50",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "282:50",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "282:67",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "282:67",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "283:53",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "283:53",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "283:70",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "283:70",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "284:53",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "284:53",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "284:70",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "284:70",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "286:24",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "287:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "TwoPair",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "295:50",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "295:50",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "295:69",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "295:69",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "297:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "297:32",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "298:45",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "298:45",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "299:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "302:15",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "302:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "303:24",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "304:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "ThreeOfAKind",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "310:24",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "311:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Pair",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "315:18",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "316:28",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "316:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "317:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "317:41",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "318:20",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "318:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_rank",
+      "note": "score()'s own body is not lowered into the optimized IR: annotation targets there are auto-pruned as unmatched (verified with a shape guard on this at 217:5), so its property/arithmetic/call sites cannot be specialized; only the nested sort callback (loc 218:22) is compiled."
+    },
+    {
+      "location": "332:18",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "FlushRegExp"
+    },
+    {
+      "location": "337:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "StraightRegExp"
+    },
+    {
+      "location": "355:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "OfAKindRegExp"
+    },
+    {
+      "location": "364:17",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "RoyalFlush"
+    },
+    {
+      "location": "365:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "StraightFlush"
+    },
+    {
+      "location": "366:18",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "FourOfAKind"
+    },
+    {
+      "location": "367:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "FullHouse"
+    },
+    {
+      "location": "368:12",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "Flush"
+    },
+    {
+      "location": "369:15",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "Straight"
+    },
+    {
+      "location": "370:19",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "ThreeOfAKind"
+    },
+    {
+      "location": "371:14",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "TwoPair"
+    },
+    {
+      "location": "372:11",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "Pair"
+    },
+    {
+      "location": "377:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_name"
+    },
+    {
+      "location": "378:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_wins"
+    },
+    {
+      "location": "379:26",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_handTypeCounts"
+    },
+    {
+      "location": "332:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "RegExp"
+    },
+    {
+      "location": "337:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "RegExp"
+    },
+    {
+      "location": "355:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "RegExp"
+    },
+    {
+      "location": "383:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "score"
+    },
+    {
+      "location": "384:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rank"
+    },
+    {
+      "location": "397:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "toString"
+    },
+    {
+      "location": "332:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "RegExp"
+    },
+    {
+      "location": "337:33",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "RegExp"
+    },
+    {
+      "location": "355:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "RegExp"
+    },
+    {
+      "location": "328:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "join"
+    },
+    {
+      "location": "328:28",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "join"
+    },
+    {
+      "location": "376:10",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "415:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "shuffle",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "415:21",
+      "kind": "call",
+      "reason": "other",
+      "property": "shuffle",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "417:45",
+      "kind": "call",
+      "reason": "other",
+      "property": "clear",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "417:45",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "clear",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "417:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "420:50",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "takeCard",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "420:50",
+      "kind": "call",
+      "reason": "other",
+      "property": "takeCard",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "420:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "420:71",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "dealOneCard",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "420:71",
+      "kind": "call",
+      "reason": "other",
+      "property": "dealOneCard",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "423:49",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "scoreHand",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "423:49",
+      "kind": "call",
+      "reason": "other",
+      "property": "scoreHand",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "423:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "429:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "430:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "430:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "rank",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "430:58",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "rank",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "433:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "435:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "435:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "rank",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "435:53",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "wonHand",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "435:53",
+      "kind": "call",
+      "reason": "other",
+      "property": "wonHand",
+      "note": "playHands contains for...of loops and its body is not lowered into the optimized IR; annotation targets inside it are auto-pruned as unmatched (verified with closure guards on player.clear/player.takeCard/player.scoreHand etc.), so these call/property/arithmetic sites cannot be specialized."
+    },
+    {
+      "location": "472:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "479:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "wins"
+    },
+    {
+      "location": "480:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "name"
+    },
+    {
+      "location": "480:95",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "wins"
+    },
+    {
+      "location": "482:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "handTypeCounts"
+    },
+    {
+      "location": "486:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "name"
+    },
+    {
+      "location": "497:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "name"
+    },
+    {
+      "location": "474:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_wins"
+    },
+    {
+      "location": "475:26",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_handTypeCounts"
+    },
+    {
+      "location": "510:30",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_handTypes"
+    },
+    {
+      "location": "475:46",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "map"
+    },
+    {
+      "location": "475:46",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "map"
+    },
+    {
+      "location": "483:29",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "length"
+    },
+    {
+      "location": "483:60",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "length"
+    },
+    {
+      "location": "488:29",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "length"
+    },
+    {
+      "location": "490:29",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "length"
+    },
+    {
+      "location": "493:65",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "length"
+    },
+    {
+      "location": "480:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "These string concatenations include results of inherited accessors (player.name, player.wins) and array .length reads; accessor dispatch cannot be typed without a prototype shape, and class prototype objects have no source expression to bind."
+    },
+    {
+      "location": "485:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "These string concatenations include results of inherited accessors (player.name, player.wins) and array .length reads; accessor dispatch cannot be typed without a prototype shape, and class prototype objects have no source expression to bind."
+    },
+    {
+      "location": "496:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "These string concatenations include results of inherited accessors (player.name, player.wins) and array .length reads; accessor dispatch cannot be typed without a prototype shape, and class prototype objects have no source expression to bind."
+    },
+    {
+      "location": "525:26",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "525:26",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "528:26",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "528:26",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "535:26",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "535:26",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "538:26",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "538:26",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "526:26",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "529:26",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "536:26",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "539:26",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "574:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "583:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "playHands"
+    },
+    {
+      "location": "588:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "getPlayerExpectations"
+    },
+    {
+      "location": "592:45",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "validate"
+    },
+    {
+      "location": "575:19",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_players"
+    },
+    {
+      "location": "576:23",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "576:23",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "577:23",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "577:23",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "578:23",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "578:23",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "579:23",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "579:23",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "576:34",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "577:34",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "578:34",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "579:34",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "589:22",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "length"
+    },
+    {
+      "location": "589:51",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "length"
+    },
+    {
+      "location": "590:43",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "length"
+    },
+    {
+      "location": "590:91",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "length"
+    },
+    {
+      "location": "591:59",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "length"
+    },
+    {
+      "location": "590:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation whose operands are array .length values (unknown-shape reads); no type guard can be attached to the length receiver of a bare array expression in this concat context."
+    },
+    {
+      "location": "605:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "605:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "605:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "606:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "606:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "606:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "609:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "609:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "610:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "runIteration"
+    },
+    {
+      "location": "611:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "611:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "612:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "612:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "612:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max"
+    },
+    {
+      "location": "615:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "validate"
+    },
+    {
+      "location": "619:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "601:34",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "606:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "609:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "611:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "612:17",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "617:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "reduce"
+    },
+    {
+      "location": "617:31",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "reduce"
+    },
+    {
+      "location": "619:8",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "615:23",
+      "kind": "call",
+      "reason": "other",
+      "property": "validate",
+      "note": "Optional call benchmark.validate?.(12): a closure type guard on the callee was auto-pruned (optional-call lowering is not matched by the annotation IR), so the guard/call and its argument evaluation cannot be optimized."
+    },
+    {
+      "location": "615:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Optional call benchmark.validate?.(12): a closure type guard on the callee was auto-pruned (optional-call lowering is not matched by the annotation IR), so the guard/call and its argument evaluation cannot be optimized."
+    },
+    {
+      "location": "618:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Arithmetic on values derived from unknown-shape array reads (results.length division, total from reduce); the operands cannot be narrowed to number by any guard."
+    },
+    {
+      "location": "619:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Arithmetic on values derived from unknown-shape array reads (results.length division, total from reduce); the operands cannot be narrowed to number by any guard."
+    },
+    {
+      "location": "618:34",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "length"
+    }
+  ]
+}

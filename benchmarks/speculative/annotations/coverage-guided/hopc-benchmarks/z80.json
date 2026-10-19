@@ -1,0 +1,5664 @@
+{
+  "static shapes": {
+    "Z80ObjHot3": {
+      "properties": [
+        {
+          "name": "OPCODE_T_STATES"
+        },
+        {
+          "name": "OPCODE_CB_STATES"
+        },
+        {
+          "name": "INSTRUCTIONS"
+        },
+        {
+          "name": "memory"
+        },
+        {
+          "name": "io"
+        },
+        {
+          "name": "tStates"
+        },
+        {
+          "name": "_a"
+        },
+        {
+          "name": "flag_s"
+        },
+        {
+          "name": "flag_z"
+        },
+        {
+          "name": "flag_5"
+        },
+        {
+          "name": "flag_h"
+        },
+        {
+          "name": "flag_3"
+        },
+        {
+          "name": "flag_pv"
+        },
+        {
+          "name": "flag_n"
+        },
+        {
+          "name": "flag_c"
+        },
+        {
+          "name": "_b"
+        },
+        {
+          "name": "_c"
+        },
+        {
+          "name": "_d"
+        },
+        {
+          "name": "_e"
+        },
+        {
+          "name": "_pc"
+        },
+        {
+          "name": "_sp"
+        },
+        {
+          "name": "_i"
+        },
+        {
+          "name": "_r"
+        },
+        {
+          "name": "_ixh"
+        },
+        {
+          "name": "_ixl"
+        },
+        {
+          "name": "_iyh"
+        },
+        {
+          "name": "_iyl"
+        },
+        {
+          "name": "_alt_a"
+        },
+        {
+          "name": "_alt_f"
+        },
+        {
+          "name": "_alt_b"
+        },
+        {
+          "name": "_alt_c"
+        },
+        {
+          "name": "_alt_d"
+        },
+        {
+          "name": "_alt_e"
+        },
+        {
+          "name": "_alt_h"
+        },
+        {
+          "name": "_alt_l"
+        },
+        {
+          "name": "iff1"
+        },
+        {
+          "name": "iff2"
+        },
+        {
+          "name": "im"
+        },
+        {
+          "name": "isHalted"
+        },
+        {
+          "name": "_h"
+        },
+        {
+          "name": "_l"
+        }
+      ]
+    },
+    "Z80Instance": {
+      "properties": [
+        {
+          "name": "OPCODE_T_STATES"
+        },
+        {
+          "name": "OPCODE_CB_STATES"
+        },
+        {
+          "name": "INSTRUCTIONS"
+        },
+        {
+          "name": "memory"
+        },
+        {
+          "name": "io"
+        },
+        {
+          "name": "tStates",
+          "type": "number"
+        },
+        {
+          "name": "_a",
+          "type": "number"
+        },
+        {
+          "name": "flag_s",
+          "type": "number"
+        },
+        {
+          "name": "flag_z",
+          "type": "number"
+        },
+        {
+          "name": "flag_5",
+          "type": "number"
+        },
+        {
+          "name": "flag_h",
+          "type": "number"
+        },
+        {
+          "name": "flag_3",
+          "type": "number"
+        },
+        {
+          "name": "flag_pv",
+          "type": "number"
+        },
+        {
+          "name": "flag_n",
+          "type": "number"
+        },
+        {
+          "name": "flag_c",
+          "type": "number"
+        },
+        {
+          "name": "_b",
+          "type": "number"
+        },
+        {
+          "name": "_c",
+          "type": "number"
+        },
+        {
+          "name": "_d",
+          "type": "number"
+        },
+        {
+          "name": "_e",
+          "type": "number"
+        },
+        {
+          "name": "_pc",
+          "type": "number"
+        },
+        {
+          "name": "_sp",
+          "type": "number"
+        },
+        {
+          "name": "_i",
+          "type": "number"
+        },
+        {
+          "name": "_r",
+          "type": "number"
+        },
+        {
+          "name": "_ixh",
+          "type": "number"
+        },
+        {
+          "name": "_ixl",
+          "type": "number"
+        },
+        {
+          "name": "_iyh",
+          "type": "number"
+        },
+        {
+          "name": "_iyl",
+          "type": "number"
+        },
+        {
+          "name": "_alt_a",
+          "type": "number"
+        },
+        {
+          "name": "_alt_f",
+          "type": "number"
+        },
+        {
+          "name": "_alt_b",
+          "type": "number"
+        },
+        {
+          "name": "_alt_c",
+          "type": "number"
+        },
+        {
+          "name": "_alt_d",
+          "type": "number"
+        },
+        {
+          "name": "_alt_e",
+          "type": "number"
+        },
+        {
+          "name": "_alt_h",
+          "type": "number"
+        },
+        {
+          "name": "_alt_l",
+          "type": "number"
+        },
+        {
+          "name": "iff1",
+          "type": "number"
+        },
+        {
+          "name": "iff2",
+          "type": "number"
+        },
+        {
+          "name": "im",
+          "type": "number"
+        },
+        {
+          "name": "isHalted",
+          "type": "number"
+        }
+      ]
+    },
+    "Z80Inst": {
+      "properties": [
+        {
+          "name": "OPCODE_T_STATES"
+        },
+        {
+          "name": "OPCODE_CB_STATES"
+        },
+        {
+          "name": "INSTRUCTIONS"
+        },
+        {
+          "name": "memory"
+        },
+        {
+          "name": "io"
+        },
+        {
+          "name": "tStates"
+        },
+        {
+          "name": "_a"
+        },
+        {
+          "name": "flag_s"
+        },
+        {
+          "name": "flag_z"
+        },
+        {
+          "name": "flag_5"
+        },
+        {
+          "name": "flag_h"
+        },
+        {
+          "name": "flag_3"
+        },
+        {
+          "name": "flag_pv"
+        },
+        {
+          "name": "flag_n"
+        },
+        {
+          "name": "flag_c"
+        },
+        {
+          "name": "_b"
+        },
+        {
+          "name": "_c"
+        },
+        {
+          "name": "_d"
+        },
+        {
+          "name": "_e"
+        },
+        {
+          "name": "_pc"
+        },
+        {
+          "name": "_sp"
+        },
+        {
+          "name": "_i"
+        },
+        {
+          "name": "_r"
+        },
+        {
+          "name": "_ixh"
+        },
+        {
+          "name": "_ixl"
+        },
+        {
+          "name": "_iyh"
+        },
+        {
+          "name": "_iyl"
+        },
+        {
+          "name": "_alt_a"
+        },
+        {
+          "name": "_alt_f"
+        },
+        {
+          "name": "_alt_b"
+        },
+        {
+          "name": "_alt_c"
+        },
+        {
+          "name": "_alt_d"
+        },
+        {
+          "name": "_alt_e"
+        },
+        {
+          "name": "_alt_h"
+        },
+        {
+          "name": "_alt_l"
+        },
+        {
+          "name": "iff1"
+        },
+        {
+          "name": "iff2"
+        },
+        {
+          "name": "im"
+        },
+        {
+          "name": "isHalted"
+        }
+      ]
+    },
+    "MemProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "readByte",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 831,
+              "column": 29
+            },
+            "end": {
+              "line": 833,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "readWord",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 835,
+              "column": 29
+            },
+            "end": {
+              "line": 837,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "writeByte",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 839,
+              "column": 30
+            },
+            "end": {
+              "line": 841,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "writeWord",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 843,
+              "column": 30
+            },
+            "end": {
+              "line": 846,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "MemShape": {
+      "properties": [
+        {
+          "name": "data"
+        }
+      ]
+    },
+    "Z80Proto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "pc",
+          "kind": "accessor"
+        },
+        {
+          "name": "sp",
+          "kind": "accessor"
+        },
+        {
+          "name": "a",
+          "kind": "accessor"
+        },
+        {
+          "name": "alt_a",
+          "kind": "accessor"
+        },
+        {
+          "name": "f",
+          "kind": "accessor"
+        },
+        {
+          "name": "alt_f",
+          "kind": "accessor"
+        },
+        {
+          "name": "af",
+          "kind": "accessor"
+        },
+        {
+          "name": "alt_af",
+          "kind": "accessor"
+        },
+        {
+          "name": "h",
+          "kind": "accessor"
+        },
+        {
+          "name": "alt_h",
+          "kind": "accessor"
+        },
+        {
+          "name": "l",
+          "kind": "accessor"
+        },
+        {
+          "name": "alt_l",
+          "kind": "accessor"
+        },
+        {
+          "name": "hl",
+          "kind": "accessor"
+        },
+        {
+          "name": "alt_hl",
+          "kind": "accessor"
+        },
+        {
+          "name": "b",
+          "kind": "accessor"
+        },
+        {
+          "name": "alt_b",
+          "kind": "accessor"
+        },
+        {
+          "name": "c",
+          "kind": "accessor"
+        },
+        {
+          "name": "alt_c",
+          "kind": "accessor"
+        },
+        {
+          "name": "bc",
+          "kind": "accessor"
+        },
+        {
+          "name": "alt_bc",
+          "kind": "accessor"
+        },
+        {
+          "name": "d",
+          "kind": "accessor"
+        },
+        {
+          "name": "alt_d",
+          "kind": "accessor"
+        },
+        {
+          "name": "e",
+          "kind": "accessor"
+        },
+        {
+          "name": "alt_e",
+          "kind": "accessor"
+        },
+        {
+          "name": "de",
+          "kind": "accessor"
+        },
+        {
+          "name": "alt_de",
+          "kind": "accessor"
+        },
+        {
+          "name": "i",
+          "kind": "accessor"
+        },
+        {
+          "name": "r",
+          "kind": "accessor"
+        },
+        {
+          "name": "r7",
+          "kind": "accessor"
+        },
+        {
+          "name": "ir",
+          "kind": "accessor"
+        },
+        {
+          "name": "ixh",
+          "kind": "accessor"
+        },
+        {
+          "name": "ixl",
+          "kind": "accessor"
+        },
+        {
+          "name": "ix",
+          "kind": "accessor"
+        },
+        {
+          "name": "iyh",
+          "kind": "accessor"
+        },
+        {
+          "name": "iyl",
+          "kind": "accessor"
+        },
+        {
+          "name": "iy",
+          "kind": "accessor"
+        },
+        {
+          "name": "pop",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 531,
+              "column": 21
+            },
+            "end": {
+              "line": 535,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "reset",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 536,
+              "column": 23
+            },
+            "end": {
+              "line": 555,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "inc8Bit",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 556,
+              "column": 25
+            },
+            "end": {
+              "line": 563,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "dec8Bit",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 564,
+              "column": 25
+            },
+            "end": {
+              "line": 573,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "inc16Bit",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 574,
+              "column": 26
+            },
+            "end": {
+              "line": 576,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "dec16Bit",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 577,
+              "column": 26
+            },
+            "end": {
+              "line": 579,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "add16Bit",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 580,
+              "column": 26
+            },
+            "end": {
+              "line": 586,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "getBit",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 587,
+              "column": 24
+            },
+            "end": {
+              "line": 589,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "rlc",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 590,
+              "column": 21
+            },
+            "end": {
+              "line": 595,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "rrc",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 596,
+              "column": 21
+            },
+            "end": {
+              "line": 602,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "incPc",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 603,
+              "column": 23
+            },
+            "end": {
+              "line": 605,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "inc2Pc",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 606,
+              "column": 24
+            },
+            "end": {
+              "line": 608,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "exafaf",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 609,
+              "column": 24
+            },
+            "end": {
+              "line": 613,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "decodeInstruction",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 614,
+              "column": 35
+            },
+            "end": {
+              "line": 617,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "halted",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 618,
+              "column": 24
+            },
+            "end": {
+              "line": 620,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "executeInstruction",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 621,
+              "column": 36
+            },
+            "end": {
+              "line": 626,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "TStates",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 627,
+              "column": 25
+            },
+            "end": {
+              "line": 629,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "resetTStates",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 630,
+              "column": 30
+            },
+            "end": {
+              "line": 632,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "TestCase": {
+      "properties": [
+        {
+          "name": "input",
+          "type": "any"
+        },
+        {
+          "name": "output",
+          "type": "any"
+        }
+      ]
+    },
+    "TestData": {
+      "properties": [
+        {
+          "name": "regs",
+          "type": "any"
+        },
+        {
+          "name": "mem",
+          "type": "any"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 139,
+          "column": 16
+        },
+        "end": {
+          "line": 139,
+          "column": 20
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 142,
+          "column": 9
+        },
+        "end": {
+          "line": 142,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 149,
+          "column": 16
+        },
+        "end": {
+          "line": 149,
+          "column": 20
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 152,
+          "column": 9
+        },
+        "end": {
+          "line": 152,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 159,
+          "column": 16
+        },
+        "end": {
+          "line": 159,
+          "column": 20
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 162,
+          "column": 9
+        },
+        "end": {
+          "line": 162,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 169,
+          "column": 16
+        },
+        "end": {
+          "line": 169,
+          "column": 20
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 172,
+          "column": 9
+        },
+        "end": {
+          "line": 172,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 179,
+          "column": 18
+        },
+        "end": {
+          "line": 179,
+          "column": 22
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 180,
+          "column": 14
+        },
+        "end": {
+          "line": 180,
+          "column": 18
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 181,
+          "column": 14
+        },
+        "end": {
+          "line": 181,
+          "column": 18
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 182,
+          "column": 14
+        },
+        "end": {
+          "line": 182,
+          "column": 18
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 183,
+          "column": 14
+        },
+        "end": {
+          "line": 183,
+          "column": 18
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 184,
+          "column": 14
+        },
+        "end": {
+          "line": 184,
+          "column": 18
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 185,
+          "column": 14
+        },
+        "end": {
+          "line": 185,
+          "column": 18
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 186,
+          "column": 14
+        },
+        "end": {
+          "line": 186,
+          "column": 18
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 190,
+          "column": 9
+        },
+        "end": {
+          "line": 190,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 191,
+          "column": 9
+        },
+        "end": {
+          "line": 191,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 192,
+          "column": 9
+        },
+        "end": {
+          "line": 192,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 193,
+          "column": 9
+        },
+        "end": {
+          "line": 193,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 194,
+          "column": 9
+        },
+        "end": {
+          "line": 194,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 195,
+          "column": 9
+        },
+        "end": {
+          "line": 195,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 196,
+          "column": 9
+        },
+        "end": {
+          "line": 196,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 197,
+          "column": 9
+        },
+        "end": {
+          "line": 197,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 204,
+          "column": 16
+        },
+        "end": {
+          "line": 204,
+          "column": 20
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 207,
+          "column": 9
+        },
+        "end": {
+          "line": 207,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 238,
+          "column": 16
+        },
+        "end": {
+          "line": 238,
+          "column": 20
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 241,
+          "column": 9
+        },
+        "end": {
+          "line": 241,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 248,
+          "column": 16
+        },
+        "end": {
+          "line": 248,
+          "column": 20
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 251,
+          "column": 9
+        },
+        "end": {
+          "line": 251,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 258,
+          "column": 16
+        },
+        "end": {
+          "line": 258,
+          "column": 20
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 261,
+          "column": 9
+        },
+        "end": {
+          "line": 261,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 268,
+          "column": 16
+        },
+        "end": {
+          "line": 268,
+          "column": 20
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 271,
+          "column": 9
+        },
+        "end": {
+          "line": 271,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 302,
+          "column": 16
+        },
+        "end": {
+          "line": 302,
+          "column": 20
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 305,
+          "column": 9
+        },
+        "end": {
+          "line": 305,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 312,
+          "column": 16
+        },
+        "end": {
+          "line": 312,
+          "column": 20
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 315,
+          "column": 9
+        },
+        "end": {
+          "line": 315,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 322,
+          "column": 16
+        },
+        "end": {
+          "line": 322,
+          "column": 20
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 325,
+          "column": 9
+        },
+        "end": {
+          "line": 325,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 332,
+          "column": 16
+        },
+        "end": {
+          "line": 332,
+          "column": 20
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 335,
+          "column": 9
+        },
+        "end": {
+          "line": 335,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 366,
+          "column": 16
+        },
+        "end": {
+          "line": 366,
+          "column": 20
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 369,
+          "column": 9
+        },
+        "end": {
+          "line": 369,
+          "column": 13
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 376,
+          "column": 16
+        },
+        "end": {
+          "line": 376,
+          "column": 20
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 379,
+          "column": 9
+        },
+        "end": {
+          "line": 379,
+          "column": 13
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 386,
+          "column": 16
+        },
+        "end": {
+          "line": 386,
+          "column": 20
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 389,
+          "column": 9
+        },
+        "end": {
+          "line": 389,
+          "column": 13
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 396,
+          "column": 16
+        },
+        "end": {
+          "line": 396,
+          "column": 20
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 399,
+          "column": 9
+        },
+        "end": {
+          "line": 399,
+          "column": 13
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 430,
+          "column": 16
+        },
+        "end": {
+          "line": 430,
+          "column": 20
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 433,
+          "column": 9
+        },
+        "end": {
+          "line": 433,
+          "column": 13
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 440,
+          "column": 16
+        },
+        "end": {
+          "line": 440,
+          "column": 20
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 443,
+          "column": 9
+        },
+        "end": {
+          "line": 443,
+          "column": 13
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 450,
+          "column": 17
+        },
+        "end": {
+          "line": 450,
+          "column": 21
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 453,
+          "column": 9
+        },
+        "end": {
+          "line": 453,
+          "column": 13
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 469,
+          "column": 16
+        },
+        "end": {
+          "line": 469,
+          "column": 20
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 472,
+          "column": 9
+        },
+        "end": {
+          "line": 472,
+          "column": 13
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 479,
+          "column": 16
+        },
+        "end": {
+          "line": 479,
+          "column": 20
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 482,
+          "column": 9
+        },
+        "end": {
+          "line": 482,
+          "column": 13
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 489,
+          "column": 17
+        },
+        "end": {
+          "line": 489,
+          "column": 21
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 501,
+          "column": 16
+        },
+        "end": {
+          "line": 501,
+          "column": 20
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 504,
+          "column": 9
+        },
+        "end": {
+          "line": 504,
+          "column": 13
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 511,
+          "column": 16
+        },
+        "end": {
+          "line": 511,
+          "column": 20
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 514,
+          "column": 9
+        },
+        "end": {
+          "line": 514,
+          "column": 13
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 521,
+          "column": 17
+        },
+        "end": {
+          "line": 521,
+          "column": 21
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 453,
+          "column": 31
+        },
+        "end": {
+          "line": 453,
+          "column": 35
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 76,
+          "column": 14
+        },
+        "end": {
+          "line": 76,
+          "column": 19
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 80,
+          "column": 3
+        },
+        "end": {
+          "line": 80,
+          "column": 8
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 92,
+          "column": 13
+        },
+        "end": {
+          "line": 92,
+          "column": 18
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 105,
+          "column": 14
+        },
+        "end": {
+          "line": 105,
+          "column": 19
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 117,
+          "column": 18
+        },
+        "end": {
+          "line": 117,
+          "column": 23
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 125,
+          "column": 21
+        },
+        "end": {
+          "line": 125,
+          "column": 26
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 532,
+          "column": 16
+        },
+        "end": {
+          "line": 532,
+          "column": 27
+        }
+      },
+      "shape": "MemShape",
+      "prototype shape": "MemProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 622,
+          "column": 18
+        },
+        "end": {
+          "line": 622,
+          "column": 22
+        }
+      },
+      "shape": "Z80Instance",
+      "prototype shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 622,
+          "column": 18
+        },
+        "end": {
+          "line": 622,
+          "column": 29
+        }
+      },
+      "shape": "MemShape",
+      "prototype shape": "MemProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 533,
+          "column": 5
+        },
+        "end": {
+          "line": 533,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance",
+      "prototype shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 623,
+          "column": 5
+        },
+        "end": {
+          "line": 623,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance",
+      "prototype shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 624,
+          "column": 5
+        },
+        "end": {
+          "line": 624,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance",
+      "prototype shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 625,
+          "column": 5
+        },
+        "end": {
+          "line": 625,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance",
+      "prototype shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 565,
+          "column": 5
+        },
+        "end": {
+          "line": 565,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance",
+      "prototype shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 570,
+          "column": 19
+        },
+        "end": {
+          "line": 570,
+          "column": 23
+        }
+      },
+      "shape": "Z80Instance",
+      "prototype shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 571,
+          "column": 19
+        },
+        "end": {
+          "line": 571,
+          "column": 23
+        }
+      },
+      "shape": "Z80Instance",
+      "prototype shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 572,
+          "column": 5
+        },
+        "end": {
+          "line": 572,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance",
+      "prototype shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 532,
+          "column": 16
+        },
+        "end": {
+          "line": 532,
+          "column": 20
+        }
+      },
+      "shape": "Z80Instance",
+      "prototype shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 607,
+          "column": 5
+        },
+        "end": {
+          "line": 607,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance",
+      "prototype shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 567,
+          "column": 5
+        },
+        "end": {
+          "line": 567,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance",
+      "prototype shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 568,
+          "column": 5
+        },
+        "end": {
+          "line": 568,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance",
+      "prototype shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 569,
+          "column": 5
+        },
+        "end": {
+          "line": 569,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance",
+      "prototype shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 570,
+          "column": 5
+        },
+        "end": {
+          "line": 570,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance",
+      "prototype shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 571,
+          "column": 5
+        },
+        "end": {
+          "line": 571,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance",
+      "prototype shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 886,
+          "column": 33
+        },
+        "end": {
+          "line": 886,
+          "column": 38
+        }
+      },
+      "shape": "TestData"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 892,
+          "column": 30
+        },
+        "end": {
+          "line": 892,
+          "column": 35
+        }
+      },
+      "shape": "TestData"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 904,
+          "column": 29
+        },
+        "end": {
+          "line": 904,
+          "column": 35
+        }
+      },
+      "shape": "TestData"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 915,
+          "column": 26
+        },
+        "end": {
+          "line": 915,
+          "column": 32
+        }
+      },
+      "shape": "TestData"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 953,
+          "column": 21
+        },
+        "end": {
+          "line": 953,
+          "column": 25
+        }
+      },
+      "shape": "TestCase"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 954,
+          "column": 22
+        },
+        "end": {
+          "line": 954,
+          "column": 26
+        }
+      },
+      "shape": "TestCase"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 897,
+          "column": 19
+        },
+        "end": {
+          "line": 897,
+          "column": 24
+        }
+      },
+      "shape": "TestData"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 899,
+          "column": 25
+        },
+        "end": {
+          "line": 899,
+          "column": 30
+        }
+      },
+      "shape": "TestData"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 900,
+          "column": 38
+        },
+        "end": {
+          "line": 900,
+          "column": 43
+        }
+      },
+      "shape": "TestData"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 920,
+          "column": 19
+        },
+        "end": {
+          "line": 920,
+          "column": 25
+        }
+      },
+      "shape": "TestData"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 922,
+          "column": 5
+        },
+        "end": {
+          "line": 922,
+          "column": 11
+        }
+      },
+      "shape": "TestData"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 908,
+          "column": 31
+        },
+        "end": {
+          "line": 908,
+          "column": 34
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 900,
+          "column": 9
+        },
+        "end": {
+          "line": 900,
+          "column": 12
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 900,
+          "column": 9
+        },
+        "end": {
+          "line": 900,
+          "column": 19
+        }
+      },
+      "shape": "MemShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 925,
+          "column": 29
+        },
+        "end": {
+          "line": 925,
+          "column": 32
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 925,
+          "column": 29
+        },
+        "end": {
+          "line": 925,
+          "column": 39
+        }
+      },
+      "shape": "MemShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 908,
+          "column": 44
+        },
+        "end": {
+          "line": 908,
+          "column": 47
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 908,
+          "column": 57
+        },
+        "end": {
+          "line": 908,
+          "column": 60
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 908,
+          "column": 70
+        },
+        "end": {
+          "line": 908,
+          "column": 73
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 908,
+          "column": 84
+        },
+        "end": {
+          "line": 908,
+          "column": 87
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 908,
+          "column": 97
+        },
+        "end": {
+          "line": 908,
+          "column": 100
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 908,
+          "column": 111
+        },
+        "end": {
+          "line": 908,
+          "column": 114
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 908,
+          "column": 124
+        },
+        "end": {
+          "line": 908,
+          "column": 127
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 832,
+          "column": 12
+        },
+        "end": {
+          "line": 832,
+          "column": 16
+        }
+      },
+      "shape": "MemShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 840,
+          "column": 5
+        },
+        "end": {
+          "line": 840,
+          "column": 9
+        }
+      },
+      "shape": "MemShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 553,
+          "column": 5
+        },
+        "end": {
+          "line": 553,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 554,
+          "column": 5
+        },
+        "end": {
+          "line": 554,
+          "column": 16
+        }
+      },
+      "shape": "MemShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 557,
+          "column": 5
+        },
+        "end": {
+          "line": 557,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 558,
+          "column": 5
+        },
+        "end": {
+          "line": 558,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 559,
+          "column": 5
+        },
+        "end": {
+          "line": 559,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 560,
+          "column": 5
+        },
+        "end": {
+          "line": 560,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 561,
+          "column": 5
+        },
+        "end": {
+          "line": 561,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 562,
+          "column": 5
+        },
+        "end": {
+          "line": 562,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 581,
+          "column": 5
+        },
+        "end": {
+          "line": 581,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 582,
+          "column": 5
+        },
+        "end": {
+          "line": 582,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 583,
+          "column": 5
+        },
+        "end": {
+          "line": 583,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 584,
+          "column": 5
+        },
+        "end": {
+          "line": 584,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 591,
+          "column": 5
+        },
+        "end": {
+          "line": 591,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 593,
+          "column": 5
+        },
+        "end": {
+          "line": 593,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 594,
+          "column": 5
+        },
+        "end": {
+          "line": 594,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 597,
+          "column": 5
+        },
+        "end": {
+          "line": 597,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 599,
+          "column": 5
+        },
+        "end": {
+          "line": 599,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 600,
+          "column": 5
+        },
+        "end": {
+          "line": 600,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 601,
+          "column": 5
+        },
+        "end": {
+          "line": 601,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 615,
+          "column": 5
+        },
+        "end": {
+          "line": 615,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 616,
+          "column": 12
+        },
+        "end": {
+          "line": 616,
+          "column": 16
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 619,
+          "column": 12
+        },
+        "end": {
+          "line": 619,
+          "column": 16
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 628,
+          "column": 12
+        },
+        "end": {
+          "line": 628,
+          "column": 16
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 631,
+          "column": 5
+        },
+        "end": {
+          "line": 631,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 283,
+          "column": 9
+        },
+        "end": {
+          "line": 283,
+          "column": 13
+        }
+      },
+      "shape": "Z80ObjHot3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 553,
+          "column": 5
+        },
+        "end": {
+          "line": 553,
+          "column": 9
+        }
+      },
+      "shape": "Z80Instance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 957,
+          "column": 19
+        },
+        "end": {
+          "line": 957,
+          "column": 41
+        }
+      },
+      "shape": "Z80Inst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 630,
+          "column": 1
+        },
+        "end": {
+          "line": 630,
+          "column": 14
+        }
+      },
+      "shape": "Z80Proto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 828,
+          "column": 5
+        },
+        "end": {
+          "line": 828,
+          "column": 9
+        }
+      },
+      "shape": "MemShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 843,
+          "column": 1
+        },
+        "end": {
+          "line": 843,
+          "column": 17
+        }
+      },
+      "shape": "MemProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 945,
+          "column": 16
+        },
+        "end": {
+          "line": 945,
+          "column": 28
+        }
+      },
+      "shape": "MemShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 824,
+          "column": 11
+        },
+        "end": {
+          "line": 824,
+          "column": 27
+        }
+      },
+      "shape": "TestCase"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 953,
+          "column": 21
+        },
+        "end": {
+          "line": 953,
+          "column": 31
+        }
+      },
+      "shape": "TestData"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 954,
+          "column": 22
+        },
+        "end": {
+          "line": 954,
+          "column": 33
+        }
+      },
+      "shape": "TestData"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 7,
+          "column": 19
+        },
+        "end": {
+          "line": 7,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 983,
+          "column": 19
+        },
+        "end": {
+          "line": 983,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 83,
+          "column": 3
+        },
+        "end": {
+          "line": 83,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 574,
+          "column": 26
+        },
+        "end": {
+          "line": 576,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 80,
+          "column": 3
+        },
+        "end": {
+          "line": 80,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 839,
+          "column": 30
+        },
+        "end": {
+          "line": 841,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 126,
+          "column": 13
+        },
+        "end": {
+          "line": 126,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 76,
+          "column": 14
+        },
+        "end": {
+          "line": 76,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 835,
+          "column": 29
+        },
+        "end": {
+          "line": 837,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 77,
+          "column": 3
+        },
+        "end": {
+          "line": 77,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 606,
+          "column": 24
+        },
+        "end": {
+          "line": 608,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 86,
+          "column": 3
+        },
+        "end": {
+          "line": 86,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 556,
+          "column": 25
+        },
+        "end": {
+          "line": 563,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 89,
+          "column": 3
+        },
+        "end": {
+          "line": 89,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 564,
+          "column": 25
+        },
+        "end": {
+          "line": 573,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 92,
+          "column": 13
+        },
+        "end": {
+          "line": 92,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 831,
+          "column": 29
+        },
+        "end": {
+          "line": 833,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 93,
+          "column": 3
+        },
+        "end": {
+          "line": 93,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 603,
+          "column": 23
+        },
+        "end": {
+          "line": 605,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 96,
+          "column": 3
+        },
+        "end": {
+          "line": 96,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 590,
+          "column": 21
+        },
+        "end": {
+          "line": 595,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 99,
+          "column": 3
+        },
+        "end": {
+          "line": 99,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 609,
+          "column": 24
+        },
+        "end": {
+          "line": 613,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 102,
+          "column": 3
+        },
+        "end": {
+          "line": 102,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 580,
+          "column": 26
+        },
+        "end": {
+          "line": 586,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 105,
+          "column": 14
+        },
+        "end": {
+          "line": 105,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 831,
+          "column": 29
+        },
+        "end": {
+          "line": 833,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 108,
+          "column": 5
+        },
+        "end": {
+          "line": 108,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 577,
+          "column": 26
+        },
+        "end": {
+          "line": 579,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 111,
+          "column": 6
+        },
+        "end": {
+          "line": 111,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 556,
+          "column": 25
+        },
+        "end": {
+          "line": 563,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 114,
+          "column": 7
+        },
+        "end": {
+          "line": 114,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 564,
+          "column": 25
+        },
+        "end": {
+          "line": 573,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 117,
+          "column": 18
+        },
+        "end": {
+          "line": 117,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 831,
+          "column": 29
+        },
+        "end": {
+          "line": 833,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 118,
+          "column": 8
+        },
+        "end": {
+          "line": 118,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 603,
+          "column": 23
+        },
+        "end": {
+          "line": 605,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 121,
+          "column": 9
+        },
+        "end": {
+          "line": 121,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 596,
+          "column": 21
+        },
+        "end": {
+          "line": 602,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 124,
+          "column": 9
+        },
+        "end": {
+          "line": 124,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 564,
+          "column": 25
+        },
+        "end": {
+          "line": 573,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 125,
+          "column": 21
+        },
+        "end": {
+          "line": 125,
+          "column": 42
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 831,
+          "column": 29
+        },
+        "end": {
+          "line": 833,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 134,
+          "column": 4
+        },
+        "end": {
+          "line": 134,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 536,
+          "column": 23
+        },
+        "end": {
+          "line": 555,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 28,
+          "column": 23
+        },
+        "end": {
+          "line": 28,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 28,
+          "column": 26
+        },
+        "end": {
+          "line": 28,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 533,
+          "column": 5
+        },
+        "end": {
+          "line": 533,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 607,
+          "column": 5
+        },
+        "end": {
+          "line": 607,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 623,
+          "column": 15
+        },
+        "end": {
+          "line": 623,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 532,
+          "column": 16
+        },
+        "end": {
+          "line": 532,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 835,
+          "column": 29
+        },
+        "end": {
+          "line": 837,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 624,
+          "column": 5
+        },
+        "end": {
+          "line": 624,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 603,
+          "column": 23
+        },
+        "end": {
+          "line": 605,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 625,
+          "column": 5
+        },
+        "end": {
+          "line": 625,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 614,
+          "column": 35
+        },
+        "end": {
+          "line": 617,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 622,
+          "column": 18
+        },
+        "end": {
+          "line": 622,
+          "column": 38
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 831,
+          "column": 29
+        },
+        "end": {
+          "line": 833,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 558,
+          "column": 20
+        },
+        "end": {
+          "line": 558,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 559,
+          "column": 20
+        },
+        "end": {
+          "line": 559,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 561,
+          "column": 21
+        },
+        "end": {
+          "line": 561,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 565,
+          "column": 21
+        },
+        "end": {
+          "line": 565,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 566,
+          "column": 5
+        },
+        "end": {
+          "line": 566,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 567,
+          "column": 20
+        },
+        "end": {
+          "line": 567,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 568,
+          "column": 20
+        },
+        "end": {
+          "line": 568,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 570,
+          "column": 19
+        },
+        "end": {
+          "line": 570,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 587,
+          "column": 24
+        },
+        "end": {
+          "line": 589,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 571,
+          "column": 19
+        },
+        "end": {
+          "line": 571,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 587,
+          "column": 24
+        },
+        "end": {
+          "line": 589,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 582,
+          "column": 20
+        },
+        "end": {
+          "line": 582,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 582,
+          "column": 30
+        },
+        "end": {
+          "line": 582,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 583,
+          "column": 19
+        },
+        "end": {
+          "line": 583,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 587,
+          "column": 24
+        },
+        "end": {
+          "line": 589,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 585,
+          "column": 5
+        },
+        "end": {
+          "line": 585,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 585,
+          "column": 16
+        },
+        "end": {
+          "line": 585,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 591,
+          "column": 19
+        },
+        "end": {
+          "line": 591,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 587,
+          "column": 24
+        },
+        "end": {
+          "line": 589,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 597,
+          "column": 19
+        },
+        "end": {
+          "line": 597,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 587,
+          "column": 24
+        },
+        "end": {
+          "line": 589,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 587,
+          "column": 37
+        },
+        "end": {
+          "line": 587,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 615,
+          "column": 21
+        },
+        "end": {
+          "line": 615,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 835,
+          "column": 38
+        },
+        "end": {
+          "line": 835,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 843,
+          "column": 39
+        },
+        "end": {
+          "line": 843,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 893,
+          "column": 9
+        },
+        "end": {
+          "line": 893,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 916,
+          "column": 9
+        },
+        "end": {
+          "line": 916,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 899,
+          "column": 25
+        },
+        "end": {
+          "line": 899,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 949,
+          "column": 27
+        },
+        "end": {
+          "line": 949,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 923,
+          "column": 13
+        },
+        "end": {
+          "line": 923,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 938,
+          "column": 25
+        },
+        "end": {
+          "line": 938,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 906,
+          "column": 34
+        },
+        "end": {
+          "line": 911,
+          "column": 10
+        }
+      }
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "137:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "147:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "157:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "167:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "177:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "202:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "212:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "224:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "236:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "246:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "256:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "266:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "276:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "288:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "300:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "310:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "320:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "330:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "340:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "352:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "364:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "374:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "384:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "394:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "404:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "416:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "428:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "438:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "448:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "458:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "467:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "477:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "487:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "499:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "509:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "519:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "531:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "536:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "556:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "564:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "574:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "577:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "580:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "587:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "590:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "596:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "603:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "606:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "609:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "614:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "618:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "621:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "627:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "630:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "831:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "835:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "839:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "843:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "851:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "855:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "531:19",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "pop"
+    },
+    {
+      "location": "536:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "reset"
+    },
+    {
+      "location": "556:23",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "inc8Bit"
+    },
+    {
+      "location": "564:23",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "dec8Bit"
+    },
+    {
+      "location": "574:24",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "inc16Bit"
+    },
+    {
+      "location": "577:24",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "dec16Bit"
+    },
+    {
+      "location": "580:24",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "add16Bit"
+    },
+    {
+      "location": "587:22",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "getBit"
+    },
+    {
+      "location": "590:19",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "rlc"
+    },
+    {
+      "location": "596:19",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "rrc"
+    },
+    {
+      "location": "603:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "incPc"
+    },
+    {
+      "location": "606:22",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "inc2Pc"
+    },
+    {
+      "location": "609:22",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "exafaf"
+    },
+    {
+      "location": "614:33",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "decodeInstruction"
+    },
+    {
+      "location": "618:22",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "halted"
+    },
+    {
+      "location": "621:34",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "executeInstruction"
+    },
+    {
+      "location": "627:23",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "TStates"
+    },
+    {
+      "location": "630:28",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "resetTStates"
+    },
+    {
+      "location": "831:27",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "readByte"
+    },
+    {
+      "location": "835:27",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "readWord"
+    },
+    {
+      "location": "839:28",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "writeByte"
+    },
+    {
+      "location": "843:28",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "writeWord"
+    },
+    {
+      "location": "851:19",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "read"
+    },
+    {
+      "location": "855:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "write"
+    },
+    {
+      "location": "7:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "7:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "983:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "983:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "983:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "7:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "983:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "983:6",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "983:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Mixed string + number concatenation; the numeric operand (guarded via performance.now number type guard) is known, but the compiler does not strength-reduce a + whose other operand is a string literal (number-to-string conversion stays generic)."
+    },
+    {
+      "location": "214:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "a",
+      "note": "Property is a prototype accessor (Object.defineProperty getter/setter on Z80.prototype); accessor loads/stores always invoke the accessor and are never strength-reduced to a data slot. Attempted: instance shape guard (Z80ObjHot3), full prototype-shape binding on Z80.prototype + prototype-shape guard, and a number type guard on the loaded value — dryrun reported all no-effect / killed by the accessor read."
+    },
+    {
+      "location": "214:37",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "f",
+      "note": "Property is a prototype accessor (Object.defineProperty getter/setter on Z80.prototype); accessor loads/stores always invoke the accessor and are never strength-reduced to a data slot. Attempted: instance shape guard (Z80ObjHot3), full prototype-shape binding on Z80.prototype + prototype-shape guard, and a number type guard on the loaded value — dryrun reported all no-effect / killed by the accessor read."
+    },
+    {
+      "location": "218:16",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "a",
+      "note": "Property is a prototype accessor (Object.defineProperty getter/setter on Z80.prototype); accessor loads/stores always invoke the accessor and are never strength-reduced to a data slot. Attempted: instance shape guard (Z80ObjHot3), full prototype-shape binding on Z80.prototype + prototype-shape guard, and a number type guard on the loaded value — dryrun reported all no-effect / killed by the accessor read."
+    },
+    {
+      "location": "219:16",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "f",
+      "note": "Property is a prototype accessor (Object.defineProperty getter/setter on Z80.prototype); accessor loads/stores always invoke the accessor and are never strength-reduced to a data slot. Attempted: instance shape guard (Z80ObjHot3), full prototype-shape binding on Z80.prototype + prototype-shape guard, and a number type guard on the loaded value — dryrun reported all no-effect / killed by the accessor read."
+    },
+    {
+      "location": "226:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "alt_a",
+      "note": "Property is a prototype accessor (Object.defineProperty getter/setter on Z80.prototype); accessor loads/stores always invoke the accessor and are never strength-reduced to a data slot. Attempted: instance shape guard (Z80ObjHot3), full prototype-shape binding on Z80.prototype + prototype-shape guard, and a number type guard on the loaded value — dryrun reported all no-effect / killed by the accessor read."
+    },
+    {
+      "location": "226:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "alt_f",
+      "note": "Property is a prototype accessor (Object.defineProperty getter/setter on Z80.prototype); accessor loads/stores always invoke the accessor and are never strength-reduced to a data slot. Attempted: instance shape guard (Z80ObjHot3), full prototype-shape binding on Z80.prototype + prototype-shape guard, and a number type guard on the loaded value — dryrun reported all no-effect / killed by the accessor read."
+    },
+    {
+      "location": "230:20",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "alt_a",
+      "note": "Property is a prototype accessor (Object.defineProperty getter/setter on Z80.prototype); accessor loads/stores always invoke the accessor and are never strength-reduced to a data slot. Attempted: instance shape guard (Z80ObjHot3), full prototype-shape binding on Z80.prototype + prototype-shape guard, and a number type guard on the loaded value — dryrun reported all no-effect / killed by the accessor read."
+    },
+    {
+      "location": "231:20",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "alt_f",
+      "note": "Property is a prototype accessor (Object.defineProperty getter/setter on Z80.prototype); accessor loads/stores always invoke the accessor and are never strength-reduced to a data slot. Attempted: instance shape guard (Z80ObjHot3), full prototype-shape binding on Z80.prototype + prototype-shape guard, and a number type guard on the loaded value — dryrun reported all no-effect / killed by the accessor read."
+    },
+    {
+      "location": "278:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "h",
+      "note": "Property is a prototype accessor (Object.defineProperty getter/setter on Z80.prototype); accessor loads/stores always invoke the accessor and are never strength-reduced to a data slot. Attempted: instance shape guard (Z80ObjHot3), full prototype-shape binding on Z80.prototype + prototype-shape guard, and a number type guard on the loaded value — dryrun reported all no-effect / killed by the accessor read."
+    },
+    {
+      "location": "278:37",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "l",
+      "note": "Property is a prototype accessor (Object.defineProperty getter/setter on Z80.prototype); accessor loads/stores always invoke the accessor and are never strength-reduced to a data slot. Attempted: instance shape guard (Z80ObjHot3), full prototype-shape binding on Z80.prototype + prototype-shape guard, and a number type guard on the loaded value — dryrun reported all no-effect / killed by the accessor read."
+    },
+    {
+      "location": "282:16",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "h",
+      "note": "Property is a prototype accessor (Object.defineProperty getter/setter on Z80.prototype); accessor loads/stores always invoke the accessor and are never strength-reduced to a data slot. Attempted: instance shape guard (Z80ObjHot3), full prototype-shape binding on Z80.prototype + prototype-shape guard, and a number type guard on the loaded value — dryrun reported all no-effect / killed by the accessor read."
+    },
+    {
+      "location": "283:16",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "l",
+      "note": "Property is a prototype accessor (Object.defineProperty getter/setter on Z80.prototype); accessor loads/stores always invoke the accessor and are never strength-reduced to a data slot. Attempted: instance shape guard (Z80ObjHot3), full prototype-shape binding on Z80.prototype + prototype-shape guard, and a number type guard on the loaded value — dryrun reported all no-effect / killed by the accessor read."
+    },
+    {
+      "location": "290:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "alt_h",
+      "note": "Property is a prototype accessor (Object.defineProperty getter/setter on Z80.prototype); accessor loads/stores always invoke the accessor and are never strength-reduced to a data slot. Attempted: instance shape guard (Z80ObjHot3), full prototype-shape binding on Z80.prototype + prototype-shape guard, and a number type guard on the loaded value — dryrun reported all no-effect / killed by the accessor read."
+    },
+    {
+      "location": "290:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "alt_l",
+      "note": "Property is a prototype accessor (Object.defineProperty getter/setter on Z80.prototype); accessor loads/stores always invoke the accessor and are never strength-reduced to a data slot. Attempted: instance shape guard (Z80ObjHot3), full prototype-shape binding on Z80.prototype + prototype-shape guard, and a number type guard on the loaded value — dryrun reported all no-effect / killed by the accessor read."
+    },
+    {
+      "location": "294:20",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "alt_h",
+      "note": "Property is a prototype accessor (Object.defineProperty getter/setter on Z80.prototype); accessor loads/stores always invoke the accessor and are never strength-reduced to a data slot. Attempted: instance shape guard (Z80ObjHot3), full prototype-shape binding on Z80.prototype + prototype-shape guard, and a number type guard on the loaded value — dryrun reported all no-effect / killed by the accessor read."
+    },
+    {
+      "location": "295:20",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "alt_l",
+      "note": "Property is a prototype accessor (Object.defineProperty getter/setter on Z80.prototype); accessor loads/stores always invoke the accessor and are never strength-reduced to a data slot. Attempted: instance shape guard (Z80ObjHot3), full prototype-shape binding on Z80.prototype + prototype-shape guard, and a number type guard on the loaded value — dryrun reported all no-effect / killed by the accessor read."
+    },
+    {
+      "location": "342:21",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "b",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "342:37",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "c",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "346:16",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "b",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "347:16",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "c",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "354:21",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "alt_b",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "354:41",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "alt_c",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "358:20",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "alt_b",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "359:20",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "alt_c",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "406:21",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "d",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "406:37",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "e",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "410:16",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "d",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "411:16",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "e",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "418:21",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "alt_d",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "418:41",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "alt_e",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "422:20",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "alt_d",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "423:20",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "alt_e",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "461:16",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "i",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "462:16",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "r",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "493:18",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "ixh",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "494:18",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "ixl",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "525:18",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "iyh",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "526:18",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "iyl",
+      "note": "Accessor property (get/set defined via Object.defineProperty on Z80.prototype). Accessors are always type any and cannot be given a concrete type (attempted number); even with a full prototype-shape guard the read/write stays a generic getter/setter invocation and is not strength-reduced. (Setter sites also run during reset while the receiver shape is still being constructed.)"
+    },
+    {
+      "location": "37:25",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "OPCODE_T_STATES"
+    },
+    {
+      "location": "55:26",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "OPCODE_CB_STATES"
+    },
+    {
+      "location": "73:22",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "INSTRUCTIONS"
+    },
+    {
+      "location": "131:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "memory"
+    },
+    {
+      "location": "132:12",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "io"
+    },
+    {
+      "location": "133:17",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "tStates"
+    },
+    {
+      "location": "76:35",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "readWord",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "77:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "inc2Pc",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "80:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "writeByte",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "83:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "inc16Bit",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "86:16",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "inc8Bit",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "89:16",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "dec8Bit",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "92:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "readByte",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "93:14",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "incPc",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "96:12",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "rlc",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "99:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "exafaf",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "102:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "add16Bit",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "105:35",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "readByte",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "108:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "dec16Bit",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "111:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "inc8Bit",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "114:20",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "dec8Bit",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "117:39",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "readByte",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "118:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "incPc",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "121:18",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "rrc",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "124:22",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "dec8Bit",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "125:42",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "readByte",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "134:14",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "reset",
+      "note": "Method inherited from a prototype (Z80.prototype or Memory.prototype), not an own data property. The call itself is optimized via a closure type guard, but the property load stays a generic prototype lookup: prototype-shape guards were tried exhaustively (Z80Proto/MemoryProto shapes, prototype bindings, guards with prototype shape on the instance) and this build never specializes inherited property loads, instead killing the shape fact."
+    },
+    {
+      "location": "76:12",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "bc",
+      "note": "Accessor property (getter/setter defined via Object.defineProperty on Z80.prototype): accessors are always type any, so no typed data slot is possible. Attempted during exploration: number type guard on the loaded value (works for the downstream arithmetic where present) and shape guards on the receiver; neither can make the accessor load/store itself a direct slot — the getter/setter is still invoked."
+    },
+    {
+      "location": "76:41",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "pc",
+      "note": "Accessor property (getter/setter defined via Object.defineProperty on Z80.prototype): accessors are always type any, so no typed data slot is possible. Attempted during exploration: number type guard on the loaded value (works for the downstream arithmetic where present) and shape guards on the receiver; neither can make the accessor load/store itself a direct slot — the getter/setter is still invoked."
+    },
+    {
+      "location": "80:31",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "bc",
+      "note": "Accessor property (getter/setter defined via Object.defineProperty on Z80.prototype): accessors are always type any, so no typed data slot is possible. Attempted during exploration: number type guard on the loaded value (works for the downstream arithmetic where present) and shape guards on the receiver; neither can make the accessor load/store itself a direct slot — the getter/setter is still invoked."
+    },
+    {
+      "location": "80:41",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "a",
+      "note": "Accessor property (getter/setter defined via Object.defineProperty on Z80.prototype): accessors are always type any, so no typed data slot is possible. Attempted during exploration: number type guard on the loaded value (works for the downstream arithmetic where present) and shape guards on the receiver; neither can make the accessor load/store itself a direct slot — the getter/setter is still invoked."
+    },
+    {
+      "location": "92:11",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "b",
+      "note": "Accessor property (getter/setter defined via Object.defineProperty on Z80.prototype): accessors are always type any, so no typed data slot is possible. Attempted during exploration: number type guard on the loaded value (works for the downstream arithmetic where present) and shape guards on the receiver; neither can make the accessor load/store itself a direct slot — the getter/setter is still invoked."
+    },
+    {
+      "location": "92:40",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "pc",
+      "note": "Accessor property (getter/setter defined via Object.defineProperty on Z80.prototype): accessors are always type any, so no typed data slot is possible. Attempted during exploration: number type guard on the loaded value (works for the downstream arithmetic where present) and shape guards on the receiver; neither can make the accessor load/store itself a direct slot — the getter/setter is still invoked."
+    },
+    {
+      "location": "105:12",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "a",
+      "note": "Accessor property (getter/setter defined via Object.defineProperty on Z80.prototype): accessors are always type any, so no typed data slot is possible. Attempted during exploration: number type guard on the loaded value (works for the downstream arithmetic where present) and shape guards on the receiver; neither can make the accessor load/store itself a direct slot — the getter/setter is still invoked."
+    },
+    {
+      "location": "105:41",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "bc",
+      "note": "Accessor property (getter/setter defined via Object.defineProperty on Z80.prototype): accessors are always type any, so no typed data slot is possible. Attempted during exploration: number type guard on the loaded value (works for the downstream arithmetic where present) and shape guards on the receiver; neither can make the accessor load/store itself a direct slot — the getter/setter is still invoked."
+    },
+    {
+      "location": "117:16",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "c",
+      "note": "Accessor property (getter/setter defined via Object.defineProperty on Z80.prototype): accessors are always type any, so no typed data slot is possible. Attempted during exploration: number type guard on the loaded value (works for the downstream arithmetic where present) and shape guards on the receiver; neither can make the accessor load/store itself a direct slot — the getter/setter is still invoked."
+    },
+    {
+      "location": "117:45",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "pc",
+      "note": "Accessor property (getter/setter defined via Object.defineProperty on Z80.prototype): accessors are always type any, so no typed data slot is possible. Attempted during exploration: number type guard on the loaded value (works for the downstream arithmetic where present) and shape guards on the receiver; neither can make the accessor load/store itself a direct slot — the getter/setter is still invoked."
+    },
+    {
+      "location": "125:48",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "pc",
+      "note": "Accessor property (getter/setter defined via Object.defineProperty on Z80.prototype): accessors are always type any, so no typed data slot is possible. Attempted during exploration: number type guard on the loaded value (works for the downstream arithmetic where present) and shape guards on the receiver; neither can make the accessor load/store itself a direct slot — the getter/setter is still invoked."
+    },
+    {
+      "location": "126:18",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "b",
+      "note": "Accessor property (getter/setter defined via Object.defineProperty on Z80.prototype): accessors are always type any, so no typed data slot is possible. Attempted during exploration: number type guard on the loaded value (works for the downstream arithmetic where present) and shape guards on the receiver; neither can make the accessor load/store itself a direct slot — the getter/setter is still invoked."
+    },
+    {
+      "location": "127:14",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "pc",
+      "note": "Accessor property (getter/setter defined via Object.defineProperty on Z80.prototype): accessors are always type any, so no typed data slot is possible. Attempted during exploration: number type guard on the loaded value (works for the downstream arithmetic where present) and shape guards on the receiver; neither can make the accessor load/store itself a direct slot — the getter/setter is still invoked."
+    },
+    {
+      "location": "532:41",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "sp",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "533:9",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "sp",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "533:13",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "sp",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "537:13",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "af",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "538:13",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "bc",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "539:13",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "de",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "540:13",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "pc",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "541:13",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "sp",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "542:12",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "i",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "543:12",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "r",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "544:13",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "ix",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "545:13",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "iy",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "546:17",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "alt_af",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "547:17",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "alt_bc",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "548:17",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "alt_de",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "549:17",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "alt_hl",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "550:15",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "iff1",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "551:15",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "iff2",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "552:13",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "im",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "581:25",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "hl",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "582:24",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "hl",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "585:9",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "hl",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "585:13",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "hl",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "592:49",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "flag_c",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "598:41",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "flag_c",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "604:9",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "pc",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "604:12",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "pc",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "607:9",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "pc",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "607:13",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "pc",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "610:20",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "af",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "611:13",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "af",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "611:19",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "alt_af",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "612:17",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "alt_af",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "622:43",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "pc",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "623:12",
+      "kind": "property_store",
+      "reason": "unsupported-property-type",
+      "property": "r",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "623:19",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "r",
+      "note": "Attempted number. These are inherited accessor properties (getter/setter) on Z80.prototype; accessor properties are always type any and accessor invocation is never converted to a direct data-slot access, so neither instance shape guards nor prototype-shape guards can specialize these loads/stores (dryrun: prototype-shape half has no effect)."
+    },
+    {
+      "location": "532:36",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "readWord",
+      "note": "Inherited method data property on Z80.prototype / Memory.prototype. Instance shape guards plus prototype shapes (Z80Proto/MemProto bound at the prototype objects) were added; dryrun confirms the prototype-shape half has no effect in this compiler build and the property read stays an unknown-shape read. A closure type guard can identify the method and optimizes the CALL, but the checklist's property_load item remains generic, so the load itself cannot be optimized. (Killing/re-guarding and guard placement were tried; the call-side optimization is already applied.)"
+    },
+    {
+      "location": "570:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "getBit",
+      "note": "Inherited method data property on Z80.prototype / Memory.prototype. Instance shape guards plus prototype shapes (Z80Proto/MemProto bound at the prototype objects) were added; dryrun confirms the prototype-shape half has no effect in this compiler build and the property read stays an unknown-shape read. A closure type guard can identify the method and optimizes the CALL, but the checklist's property_load item remains generic, so the load itself cannot be optimized. (Killing/re-guarding and guard placement were tried; the call-side optimization is already applied.)"
+    },
+    {
+      "location": "571:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "getBit",
+      "note": "Inherited method data property on Z80.prototype / Memory.prototype. Instance shape guards plus prototype shapes (Z80Proto/MemProto bound at the prototype objects) were added; dryrun confirms the prototype-shape half has no effect in this compiler build and the property read stays an unknown-shape read. A closure type guard can identify the method and optimizes the CALL, but the checklist's property_load item remains generic, so the load itself cannot be optimized. (Killing/re-guarding and guard placement were tried; the call-side optimization is already applied.)"
+    },
+    {
+      "location": "583:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "getBit",
+      "note": "Inherited method data property on Z80.prototype / Memory.prototype. Instance shape guards plus prototype shapes (Z80Proto/MemProto bound at the prototype objects) were added; dryrun confirms the prototype-shape half has no effect in this compiler build and the property read stays an unknown-shape read. A closure type guard can identify the method and optimizes the CALL, but the checklist's property_load item remains generic, so the load itself cannot be optimized. (Killing/re-guarding and guard placement were tried; the call-side optimization is already applied.)"
+    },
+    {
+      "location": "591:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "getBit",
+      "note": "Inherited method data property on Z80.prototype / Memory.prototype. Instance shape guards plus prototype shapes (Z80Proto/MemProto bound at the prototype objects) were added; dryrun confirms the prototype-shape half has no effect in this compiler build and the property read stays an unknown-shape read. A closure type guard can identify the method and optimizes the CALL, but the checklist's property_load item remains generic, so the load itself cannot be optimized. (Killing/re-guarding and guard placement were tried; the call-side optimization is already applied.)"
+    },
+    {
+      "location": "597:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "getBit",
+      "note": "Inherited method data property on Z80.prototype / Memory.prototype. Instance shape guards plus prototype shapes (Z80Proto/MemProto bound at the prototype objects) were added; dryrun confirms the prototype-shape half has no effect in this compiler build and the property read stays an unknown-shape read. A closure type guard can identify the method and optimizes the CALL, but the checklist's property_load item remains generic, so the load itself cannot be optimized. (Killing/re-guarding and guard placement were tried; the call-side optimization is already applied.)"
+    },
+    {
+      "location": "622:38",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "readByte",
+      "note": "Inherited method data property on Z80.prototype / Memory.prototype. Instance shape guards plus prototype shapes (Z80Proto/MemProto bound at the prototype objects) were added; dryrun confirms the prototype-shape half has no effect in this compiler build and the property read stays an unknown-shape read. A closure type guard can identify the method and optimizes the CALL, but the checklist's property_load item remains generic, so the load itself cannot be optimized. (Killing/re-guarding and guard placement were tried; the call-side optimization is already applied.)"
+    },
+    {
+      "location": "624:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "incPc",
+      "note": "Inherited method data property on Z80.prototype / Memory.prototype. Instance shape guards plus prototype shapes (Z80Proto/MemProto bound at the prototype objects) were added; dryrun confirms the prototype-shape half has no effect in this compiler build and the property read stays an unknown-shape read. A closure type guard can identify the method and optimizes the CALL, but the checklist's property_load item remains generic, so the load itself cannot be optimized. (Killing/re-guarding and guard placement were tried; the call-side optimization is already applied.)"
+    },
+    {
+      "location": "625:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "decodeInstruction",
+      "note": "Inherited method data property on Z80.prototype / Memory.prototype. Instance shape guards plus prototype shapes (Z80Proto/MemProto bound at the prototype objects) were added; dryrun confirms the prototype-shape half has no effect in this compiler build and the property read stays an unknown-shape read. A closure type guard can identify the method and optimizes the CALL, but the checklist's property_load item remains generic, so the load itself cannot be optimized. (Killing/re-guarding and guard placement were tried; the call-side optimization is already applied.)"
+    },
+    {
+      "location": "554:26",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "fill"
+    },
+    {
+      "location": "625:35",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "554:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "fill"
+    },
+    {
+      "location": "828:15",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "data",
+      "note": "`this.data = new Array(...)` runs while the Memory instance is still being constructed; the MemoryInst shape binding can only be applied to `this` after this completing store, so the store itself has no fixed slot to target."
+    },
+    {
+      "location": "828:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "Load receiver/source is a host global (Array, print, HermesInternal) or the builtin Array.prototype (forEach); none is produced by an expression in this file, so no static shape or shape binding can be attached to it."
+    },
+    {
+      "location": "908:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal",
+      "note": "Load receiver/source is a host global (Array, print, HermesInternal) or the builtin Array.prototype (forEach); none is produced by an expression in this file, so no static shape or shape binding can be attached to it."
+    },
+    {
+      "location": "908:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "Load receiver/source is a host global (Array, print, HermesInternal) or the builtin Array.prototype (forEach); none is produced by an expression in this file, so no static shape or shape binding can be attached to it."
+    },
+    {
+      "location": "924:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal",
+      "note": "Load receiver/source is a host global (Array, print, HermesInternal) or the builtin Array.prototype (forEach); none is produced by an expression in this file, so no static shape or shape binding can be attached to it."
+    },
+    {
+      "location": "924:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "Load receiver/source is a host global (Array, print, HermesInternal) or the builtin Array.prototype (forEach); none is produced by an expression in this file, so no static shape or shape binding can be attached to it."
+    },
+    {
+      "location": "951:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal",
+      "note": "Load receiver/source is a host global (Array, print, HermesInternal) or the builtin Array.prototype (forEach); none is produced by an expression in this file, so no static shape or shape binding can be attached to it."
+    },
+    {
+      "location": "951:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "Load receiver/source is a host global (Array, print, HermesInternal) or the builtin Array.prototype (forEach); none is produced by an expression in this file, so no static shape or shape binding can be attached to it."
+    },
+    {
+      "location": "944:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "Load receiver/source is a host global (Array, print, HermesInternal) or the builtin Array.prototype (forEach); none is produced by an expression in this file, so no static shape or shape binding can be attached to it."
+    },
+    {
+      "location": "948:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "Load receiver/source is a host global (Array, print, HermesInternal) or the builtin Array.prototype (forEach); none is produced by an expression in this file, so no static shape or shape binding can be attached to it."
+    },
+    {
+      "location": "887:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forEach",
+      "note": "Load receiver/source is a host global (Array, print, HermesInternal) or the builtin Array.prototype (forEach); none is produced by an expression in this file, so no static shape or shape binding can be attached to it."
+    },
+    {
+      "location": "905:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forEach",
+      "note": "Load receiver/source is a host global (Array, print, HermesInternal) or the builtin Array.prototype (forEach); none is produced by an expression in this file, so no static shape or shape binding can be attached to it."
+    },
+    {
+      "location": "922:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forEach",
+      "note": "Load receiver/source is a host global (Array, print, HermesInternal) or the builtin Array.prototype (forEach); none is produced by an expression in this file, so no static shape or shape binding can be attached to it."
+    },
+    {
+      "location": "950:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forEach",
+      "note": "Load receiver/source is a host global (Array, print, HermesInternal) or the builtin Array.prototype (forEach); none is produced by an expression in this file, so no static shape or shape binding can be attached to it."
+    },
+    {
+      "location": "828:26",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array",
+      "note": "Callee is a host/builtin function (Array constructor, print, HermesInternal.concat, Array.prototype.forEach) with no function definition in this source, so no exact `target function` range exists for a closure type guard."
+    },
+    {
+      "location": "908:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Callee is a host/builtin function (Array constructor, print, HermesInternal.concat, Array.prototype.forEach) with no function definition in this source, so no exact `target function` range exists for a closure type guard."
+    },
+    {
+      "location": "924:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Callee is a host/builtin function (Array constructor, print, HermesInternal.concat, Array.prototype.forEach) with no function definition in this source, so no exact `target function` range exists for a closure type guard."
+    },
+    {
+      "location": "951:24",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Callee is a host/builtin function (Array constructor, print, HermesInternal.concat, Array.prototype.forEach) with no function definition in this source, so no exact `target function` range exists for a closure type guard."
+    },
+    {
+      "location": "944:9",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print",
+      "note": "Callee is a host/builtin function (Array constructor, print, HermesInternal.concat, Array.prototype.forEach) with no function definition in this source, so no exact `target function` range exists for a closure type guard."
+    },
+    {
+      "location": "948:12",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print",
+      "note": "Callee is a host/builtin function (Array constructor, print, HermesInternal.concat, Array.prototype.forEach) with no function definition in this source, so no exact `target function` range exists for a closure type guard."
+    },
+    {
+      "location": "887:23",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEach",
+      "note": "Callee is a host/builtin function (Array constructor, print, HermesInternal.concat, Array.prototype.forEach) with no function definition in this source, so no exact `target function` range exists for a closure type guard."
+    },
+    {
+      "location": "905:24",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEach",
+      "note": "Callee is a host/builtin function (Array constructor, print, HermesInternal.concat, Array.prototype.forEach) with no function definition in this source, so no exact `target function` range exists for a closure type guard."
+    },
+    {
+      "location": "922:23",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEach",
+      "note": "Callee is a host/builtin function (Array constructor, print, HermesInternal.concat, Array.prototype.forEach) with no function definition in this source, so no exact `target function` range exists for a closure type guard."
+    },
+    {
+      "location": "950:19",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEach",
+      "note": "Callee is a host/builtin function (Array constructor, print, HermesInternal.concat, Array.prototype.forEach) with no function definition in this source, so no exact `target function` range exists for a closure type guard."
+    },
+    {
+      "location": "836:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "readByte",
+      "note": "Inherited prototype closure-method access is not specialized by this pipeline: with Memory.prototype bound to a full prototype shape and `this` guarded by shape+prototype shape, dryrun still reports the read as LoadPropertyWithReceiverInst / \"property read .readByte not optimized\". Across the compiler feedback cache, 739 prototype-shape guards produced 0 optimizations. Z80.prototype.executeInstruction is the same pattern (definition at 621:1)."
+    },
+    {
+      "location": "836:27",
+      "kind": "call",
+      "reason": "other",
+      "property": "readByte",
+      "note": "Inherited prototype closure-method access is not specialized by this pipeline: with Memory.prototype bound to a full prototype shape and `this` guarded by shape+prototype shape, dryrun still reports the read as LoadPropertyWithReceiverInst / \"property read .readByte not optimized\". Across the compiler feedback cache, 739 prototype-shape guards produced 0 optimizations. Z80.prototype.executeInstruction is the same pattern (definition at 621:1)."
+    },
+    {
+      "location": "836:62",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "readByte",
+      "note": "Inherited prototype closure-method access is not specialized by this pipeline: with Memory.prototype bound to a full prototype shape and `this` guarded by shape+prototype shape, dryrun still reports the read as LoadPropertyWithReceiverInst / \"property read .readByte not optimized\". Across the compiler feedback cache, 739 prototype-shape guards produced 0 optimizations. Z80.prototype.executeInstruction is the same pattern (definition at 621:1)."
+    },
+    {
+      "location": "836:62",
+      "kind": "call",
+      "reason": "other",
+      "property": "readByte",
+      "note": "Inherited prototype closure-method access is not specialized by this pipeline: with Memory.prototype bound to a full prototype shape and `this` guarded by shape+prototype shape, dryrun still reports the read as LoadPropertyWithReceiverInst / \"property read .readByte not optimized\". Across the compiler feedback cache, 739 prototype-shape guards produced 0 optimizations. Z80.prototype.executeInstruction is the same pattern (definition at 621:1)."
+    },
+    {
+      "location": "844:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "writeByte",
+      "note": "Inherited prototype closure-method access is not specialized by this pipeline: with Memory.prototype bound to a full prototype shape and `this` guarded by shape+prototype shape, dryrun still reports the read as LoadPropertyWithReceiverInst / \"property read .readByte not optimized\". Across the compiler feedback cache, 739 prototype-shape guards produced 0 optimizations. Z80.prototype.executeInstruction is the same pattern (definition at 621:1)."
+    },
+    {
+      "location": "844:19",
+      "kind": "call",
+      "reason": "other",
+      "property": "writeByte",
+      "note": "Inherited prototype closure-method access is not specialized by this pipeline: with Memory.prototype bound to a full prototype shape and `this` guarded by shape+prototype shape, dryrun still reports the read as LoadPropertyWithReceiverInst / \"property read .readByte not optimized\". Across the compiler feedback cache, 739 prototype-shape guards produced 0 optimizations. Z80.prototype.executeInstruction is the same pattern (definition at 621:1)."
+    },
+    {
+      "location": "845:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "writeByte",
+      "note": "Inherited prototype closure-method access is not specialized by this pipeline: with Memory.prototype bound to a full prototype shape and `this` guarded by shape+prototype shape, dryrun still reports the read as LoadPropertyWithReceiverInst / \"property read .readByte not optimized\". Across the compiler feedback cache, 739 prototype-shape guards produced 0 optimizations. Z80.prototype.executeInstruction is the same pattern (definition at 621:1)."
+    },
+    {
+      "location": "845:19",
+      "kind": "call",
+      "reason": "other",
+      "property": "writeByte",
+      "note": "Inherited prototype closure-method access is not specialized by this pipeline: with Memory.prototype bound to a full prototype shape and `this` guarded by shape+prototype shape, dryrun still reports the read as LoadPropertyWithReceiverInst / \"property read .readByte not optimized\". Across the compiler feedback cache, 739 prototype-shape guards produced 0 optimizations. Z80.prototype.executeInstruction is the same pattern (definition at 621:1)."
+    },
+    {
+      "location": "966:31",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "executeInstruction",
+      "note": "Inherited prototype closure-method access is not specialized by this pipeline: with Memory.prototype bound to a full prototype shape and `this` guarded by shape+prototype shape, dryrun still reports the read as LoadPropertyWithReceiverInst / \"property read .readByte not optimized\". Across the compiler feedback cache, 739 prototype-shape guards produced 0 optimizations. Z80.prototype.executeInstruction is the same pattern (definition at 621:1)."
+    },
+    {
+      "location": "966:31",
+      "kind": "call",
+      "reason": "other",
+      "property": "executeInstruction",
+      "note": "Inherited prototype closure-method access is not specialized by this pipeline: with Memory.prototype bound to a full prototype shape and `this` guarded by shape+prototype shape, dryrun still reports the read as LoadPropertyWithReceiverInst / \"property read .readByte not optimized\". Across the compiler feedback cache, 739 prototype-shape guards produced 0 optimizations. Z80.prototype.executeInstruction is the same pattern (definition at 621:1)."
+    },
+    {
+      "location": "893:18",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Receiver is a builtin Array; arrays cannot be described by a static shape (indexed elements + special length property, Array.prototype itself cannot be bound), so the `.length` load cannot be made a direct slot read. The number type guards on the length expressions already optimized the surrounding comparison arithmetic."
+    },
+    {
+      "location": "899:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Receiver is a builtin Array; arrays cannot be described by a static shape (indexed elements + special length property, Array.prototype itself cannot be bound), so the `.length` load cannot be made a direct slot read. The number type guards on the length expressions already optimized the surrounding comparison arithmetic."
+    },
+    {
+      "location": "916:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Receiver is a builtin Array; arrays cannot be described by a static shape (indexed elements + special length property, Array.prototype itself cannot be bound), so the `.length` load cannot be made a direct slot read. The number type guards on the length expressions already optimized the surrounding comparison arithmetic."
+    },
+    {
+      "location": "907:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String operations on generic values: `NAMES_TABLE[i] === \"af\"` is a keyed load of an untyped string map (a NAMES_TABLE shape binding + guard was tried and the load stayed generic), and `bench + \"(\"` is string concatenation whose operand type guard matched no annotation IR (string guards on the parameter declaration, the reference, and the whole expression all had no effect)."
+    },
+    {
+      "location": "944:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String operations on generic values: `NAMES_TABLE[i] === \"af\"` is a keyed load of an untyped string map (a NAMES_TABLE shape binding + guard was tried and the load stayed generic), and `bench + \"(\"` is string concatenation whose operand type guard matched no annotation IR (string guards on the parameter declaration, the reference, and the whole expression all had no effect)."
+    }
+  ]
+}

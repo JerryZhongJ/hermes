@@ -1,0 +1,826 @@
+{
+  "static shapes": {
+    "Pair": {
+      "properties": [
+        {
+          "name": "car"
+        },
+        {
+          "name": "cdr"
+        }
+      ]
+    },
+    "RestArray": {
+      "properties": [
+        {
+          "name": "length",
+          "type": "number",
+          "flags off": [
+            "enumerable"
+          ]
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 181,
+          "column": 12
+        },
+        "end": {
+          "line": 181,
+          "column": 13
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 184,
+          "column": 12
+        },
+        "end": {
+          "line": 184,
+          "column": 13
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 187,
+          "column": 12
+        },
+        "end": {
+          "line": 187,
+          "column": 13
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 187,
+          "column": 12
+        },
+        "end": {
+          "line": 187,
+          "column": 17
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 190,
+          "column": 12
+        },
+        "end": {
+          "line": 190,
+          "column": 13
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 190,
+          "column": 12
+        },
+        "end": {
+          "line": 190,
+          "column": 17
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 196,
+          "column": 12
+        },
+        "end": {
+          "line": 196,
+          "column": 13
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 196,
+          "column": 12
+        },
+        "end": {
+          "line": 196,
+          "column": 17
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 196,
+          "column": 12
+        },
+        "end": {
+          "line": 196,
+          "column": 21
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 202,
+          "column": 12
+        },
+        "end": {
+          "line": 202,
+          "column": 13
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 202,
+          "column": 12
+        },
+        "end": {
+          "line": 202,
+          "column": 17
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 202,
+          "column": 12
+        },
+        "end": {
+          "line": 202,
+          "column": 21
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 202,
+          "column": 12
+        },
+        "end": {
+          "line": 202,
+          "column": 25
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 209,
+          "column": 13
+        },
+        "end": {
+          "line": 209,
+          "column": 14
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 212,
+          "column": 13
+        },
+        "end": {
+          "line": 212,
+          "column": 14
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 169,
+          "column": 19
+        },
+        "end": {
+          "line": 169,
+          "column": 20
+        }
+      },
+      "shape": "RestArray"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 12
+        },
+        "end": {
+          "line": 165,
+          "column": 30
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 177,
+          "column": 17
+        },
+        "end": {
+          "line": 177,
+          "column": 20
+        }
+      },
+      "shape": "RestArray"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 54,
+          "column": 5
+        },
+        "end": {
+          "line": 54,
+          "column": 9
+        }
+      },
+      "shape": "Pair"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 939,
+          "column": 17
+        },
+        "end": {
+          "line": 939,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 144,
+          "column": 23
+        },
+        "end": {
+          "line": 144,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 154,
+          "column": 23
+        },
+        "end": {
+          "line": 154,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 169,
+          "column": 22
+        },
+        "end": {
+          "line": 169,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 228,
+          "column": 18
+        },
+        "end": {
+          "line": 228,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 977,
+          "column": 41
+        },
+        "end": {
+          "line": 977,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 977,
+          "column": 21
+        },
+        "end": {
+          "line": 977,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 96,
+          "column": 18
+        },
+        "end": {
+          "line": 96,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 96,
+          "column": 30
+        },
+        "end": {
+          "line": 96,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 82,
+          "column": 9
+        },
+        "end": {
+          "line": 82,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 60,
+          "column": 25
+        },
+        "end": {
+          "line": 60,
+          "column": 57
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 115,
+          "column": 9
+        },
+        "end": {
+          "line": 115,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 115,
+          "column": 15
+        },
+        "end": {
+          "line": 115,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 58,
+          "column": 19
+        },
+        "end": {
+          "line": 58,
+          "column": 39
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 60,
+          "column": 33
+        },
+        "end": {
+          "line": 60,
+          "column": 34
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 60,
+          "column": 44
+        },
+        "end": {
+          "line": 60,
+          "column": 56
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 62,
+          "column": 12
+        },
+        "end": {
+          "line": 62,
+          "column": 13
+        }
+      },
+      "type": "string"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "883:16",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Strict-equality comparison against the string literal \"if\" whose left operand is the result of the call car(x). A type guard \"string\" placed on the call-result range (883:16:883:22) reports no effect, and a closure type guard enabling direct call of car does not propagate a type fact through the call either. The underlying value is the pair's car property; establishing that as string would require a pair shape binding at the cons/new pair construction site, which is a different function's scope (not available in this chunk)."
+    },
+    {
+      "location": "944:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "948:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "953:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "944:10",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "948:14",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "953:10",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "145:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Strict equality against the null/nil constant (not a number) is not strength-reduced. Tried type guards null, number, undefined, plus a Pair shape guard on the operand; all reported no effect, so no annotation can optimize this comparison."
+    },
+    {
+      "location": "155:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Strict equality against the null/nil constant (not a number) is not strength-reduced. Tried type guards null, number, undefined, plus a Pair shape guard on the operand; all reported no effect, so no annotation can optimize this comparison."
+    },
+    {
+      "location": "218:12",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Strict equality against the null/nil constant (not a number) is not strength-reduced. Tried type guards null, number, undefined, plus a Pair shape guard on the operand; all reported no effect, so no annotation can optimize this comparison."
+    },
+    {
+      "location": "57:27",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "toString"
+    },
+    {
+      "location": "65:22",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "map"
+    },
+    {
+      "location": "77:26",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "foreach"
+    },
+    {
+      "location": "92:23",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "assq"
+    },
+    {
+      "location": "122:25",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "member"
+    },
+    {
+      "location": "57:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "65:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "77:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "92:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "122:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "7:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "7:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "977:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "977:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "977:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "7:36",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "977:36",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "977:8",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "977:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "259:24",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "The only specialized arithmetic/equality path is numeric (F-prefix FEqual). These operands are not provably numbers: 259/298/306 compare car(x) to a string literal, 262 is string concatenation, and 322/329 compare against results of car/cdr calls whose types do not propagate through calls (verified: type guards on both operands, guards inside car, closure-target inlining of car, and shape guards on arguments all leave the comparison generic)."
+    },
+    {
+      "location": "262:13",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "The only specialized arithmetic/equality path is numeric (F-prefix FEqual). These operands are not provably numbers: 259/298/306 compare car(x) to a string literal, 262 is string concatenation, and 322/329 compare against results of car/cdr calls whose types do not propagate through calls (verified: type guards on both operands, guards inside car, closure-target inlining of car, and shape guards on arguments all leave the comparison generic)."
+    },
+    {
+      "location": "298:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "The only specialized arithmetic/equality path is numeric (F-prefix FEqual). These operands are not provably numbers: 259/298/306 compare car(x) to a string literal, 262 is string concatenation, and 322/329 compare against results of car/cdr calls whose types do not propagate through calls (verified: type guards on both operands, guards inside car, closure-target inlining of car, and shape guards on arguments all leave the comparison generic)."
+    },
+    {
+      "location": "306:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "The only specialized arithmetic/equality path is numeric (F-prefix FEqual). These operands are not provably numbers: 259/298/306 compare car(x) to a string literal, 262 is string concatenation, and 322/329 compare against results of car/cdr calls whose types do not propagate through calls (verified: type guards on both operands, guards inside car, closure-target inlining of car, and shape guards on arguments all leave the comparison generic)."
+    },
+    {
+      "location": "322:16",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "The only specialized arithmetic/equality path is numeric (F-prefix FEqual). These operands are not provably numbers: 259/298/306 compare car(x) to a string literal, 262 is string concatenation, and 322/329 compare against results of car/cdr calls whose types do not propagate through calls (verified: type guards on both operands, guards inside car, closure-target inlining of car, and shape guards on arguments all leave the comparison generic)."
+    },
+    {
+      "location": "329:16",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "The only specialized arithmetic/equality path is numeric (F-prefix FEqual). These operands are not provably numbers: 259/298/306 compare car(x) to a string literal, 262 is string concatenation, and 322/329 compare against results of car/cdr calls whose types do not propagate through calls (verified: type guards on both operands, guards inside car, closure-target inlining of car, and shape guards on arguments all leave the comparison generic)."
+    },
+    {
+      "location": "53:14",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "car",
+      "note": "Both stores run inside the pair constructor while the receiver's hidden class is still being built: this.car creates the first slot and this.cdr creates the second, so neither store can target a pre-existing fixed slot."
+    },
+    {
+      "location": "54:14",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "cdr",
+      "note": "Both stores run inside the pair constructor while the receiver's hidden class is still being built: this.car creates the first slot and this.cdr creates the second, so neither store can target a pre-existing fixed slot."
+    },
+    {
+      "location": "58:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "toString",
+      "note": "Method loads on values read from data slots (car(this), cdr(this), a callback parameter fed by car(l)), so no allocation/binding site exists for the receiver. Shape guards (pair + pairProto) are in place at each receiver but the guarded hidden class never reaches the property access, leaving the prototype-method lookup generic."
+    },
+    {
+      "location": "58:37",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "toString",
+      "note": "Method loads on values read from data slots (car(this), cdr(this), a callback parameter fed by car(l)), so no allocation/binding site exists for the receiver. Shape guards (pair + pairProto) are in place at each receiver but the guarded hidden class never reaches the property access, leaving the prototype-method lookup generic."
+    },
+    {
+      "location": "60:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "foreach",
+      "note": "Method loads on values read from data slots (car(this), cdr(this), a callback parameter fed by car(l)), so no allocation/binding site exists for the receiver. Shape guards (pair + pairProto) are in place at each receiver but the guarded hidden class never reaches the property access, leaving the prototype-method lookup generic."
+    },
+    {
+      "location": "60:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "foreach",
+      "note": "Method loads on values read from data slots (car(this), cdr(this), a callback parameter fed by car(l)), so no allocation/binding site exists for the receiver. Shape guards (pair + pairProto) are in place at each receiver but the guarded hidden class never reaches the property access, leaving the prototype-method lookup generic."
+    },
+    {
+      "location": "60:54",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "toString",
+      "note": "Method loads on values read from data slots (car(this), cdr(this), a callback parameter fed by car(l)), so no allocation/binding site exists for the receiver. Shape guards (pair + pairProto) are in place at each receiver but the guarded hidden class never reaches the property access, leaving the prototype-method lookup generic."
+    },
+    {
+      "location": "60:54",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "toString",
+      "note": "Method loads on values read from data slots (car(this), cdr(this), a callback parameter fed by car(l)), so no allocation/binding site exists for the receiver. Shape guards (pair + pairProto) are in place at each receiver but the guarded hidden class never reaches the property access, leaving the prototype-method lookup generic."
+    },
+    {
+      "location": "110:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "assq",
+      "note": "Method loads on values read from data slots (car(this), cdr(this), a callback parameter fed by car(l)), so no allocation/binding site exists for the receiver. Shape guards (pair + pairProto) are in place at each receiver but the guarded hidden class never reaches the property access, leaving the prototype-method lookup generic."
+    },
+    {
+      "location": "110:20",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "assq",
+      "note": "Method loads on values read from data slots (car(this), cdr(this), a callback parameter fed by car(l)), so no allocation/binding site exists for the receiver. Shape guards (pair + pairProto) are in place at each receiver but the guarded hidden class never reaches the property access, leaving the prototype-method lookup generic."
+    },
+    {
+      "location": "140:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "member",
+      "note": "Method loads on values read from data slots (car(this), cdr(this), a callback parameter fed by car(l)), so no allocation/binding site exists for the receiver. Shape guards (pair + pairProto) are in place at each receiver but the guarded hidden class never reaches the property access, leaving the prototype-method lookup generic."
+    },
+    {
+      "location": "140:22",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "member",
+      "note": "Method loads on values read from data slots (car(this), cdr(this), a callback parameter fed by car(l)), so no allocation/binding site exists for the receiver. Shape guards (pair + pairProto) are in place at each receiver but the guarded hidden class never reaches the property access, leaving the prototype-method lookup generic."
+    },
+    {
+      "location": "67:11",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "These are strict-equality tests of the list cursor against null (and one throw-message string concatenation); the operands are objects/null (or an untyped throw value), so no numeric specialization applies. Type guards attempted: null (no effect), string/number/primitive-union on the concat operand (no effect)."
+    },
+    {
+      "location": "79:11",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "These are strict-equality tests of the list cursor against null (and one throw-message string concatenation); the operands are objects/null (or an untyped throw value), so no numeric specialization applies. Type guards attempted: null (no effect), string/number/primitive-union on the concat operand (no effect)."
+    },
+    {
+      "location": "85:15",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "These are strict-equality tests of the list cursor against null (and one throw-message string concatenation); the operands are objects/null (or an untyped throw value), so no numeric specialization applies. Type guards attempted: null (no effect), string/number/primitive-union on the concat operand (no effect)."
+    },
+    {
+      "location": "94:11",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "These are strict-equality tests of the list cursor against null (and one throw-message string concatenation); the operands are objects/null (or an untyped throw value), so no numeric specialization applies. Type guards attempted: null (no effect), string/number/primitive-union on the concat operand (no effect)."
+    },
+    {
+      "location": "124:11",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "These are strict-equality tests of the list cursor against null (and one throw-message string concatenation); the operands are objects/null (or an untyped throw value), so no numeric specialization applies. Type guards attempted: null (no effect), string/number/primitive-union on the concat operand (no effect)."
+    },
+    {
+      "location": "70:25",
+      "kind": "call",
+      "reason": "no-closure-target"
+    }
+  ]
+}

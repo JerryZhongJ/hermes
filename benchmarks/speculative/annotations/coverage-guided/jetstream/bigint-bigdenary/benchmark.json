@@ -1,0 +1,4910 @@
+{
+  "static shapes": {
+    "BigDenary": {
+      "properties": [
+        {
+          "name": "base"
+        },
+        {
+          "name": "_decimals",
+          "type": "number"
+        }
+      ]
+    },
+    "BigDenaryClass": {
+      "properties": [
+        {
+          "name": "length",
+          "type": "number",
+          "flags off": [
+            "writable",
+            "enumerable"
+          ]
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "flags off": [
+            "writable",
+            "enumerable"
+          ]
+        },
+        {
+          "name": "prototype",
+          "flags off": [
+            "writable",
+            "enumerable",
+            "configurable"
+          ]
+        },
+        {
+          "name": "getDecimalMultiplier",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 232,
+              "column": 9
+            },
+            "end": {
+              "line": 234,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "BDCompare"
+        }
+      ]
+    },
+    "BigDenaryProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 155,
+              "column": 9
+            },
+            "end": {
+              "line": 190,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "valueOf",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 191,
+              "column": 9
+            },
+            "end": {
+              "line": 193,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "toFixed",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 194,
+              "column": 9
+            },
+            "end": {
+              "line": 201,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "decimals",
+          "kind": "accessor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "scaleDecimalsTo",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 208,
+              "column": 9
+            },
+            "end": {
+              "line": 228,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "decimalMultiplier",
+          "kind": "accessor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "trimTrailingZeros",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 235,
+              "column": 9
+            },
+            "end": {
+              "line": 240,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "plus",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 244,
+              "column": 9
+            },
+            "end": {
+              "line": 254,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "minus",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 255,
+              "column": 9
+            },
+            "end": {
+              "line": 257,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "multipliedBy",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 258,
+              "column": 9
+            },
+            "end": {
+              "line": 266,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "dividedBy",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 267,
+              "column": 9
+            },
+            "end": {
+              "line": 277,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "negated",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 278,
+              "column": 9
+            },
+            "end": {
+              "line": 283,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "absoluteValue",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 284,
+              "column": 9
+            },
+            "end": {
+              "line": 289,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "comparedTo",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 293,
+              "column": 9
+            },
+            "end": {
+              "line": 306,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "equals",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 307,
+              "column": 9
+            },
+            "end": {
+              "line": 309,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "greaterThan",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 310,
+              "column": 9
+            },
+            "end": {
+              "line": 312,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "greaterThanOrEqualTo",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 313,
+              "column": 9
+            },
+            "end": {
+              "line": 316,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "lessThan",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 317,
+              "column": 9
+            },
+            "end": {
+              "line": 319,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "lessThanOrEqualTo",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 320,
+              "column": 9
+            },
+            "end": {
+              "line": 323,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "add",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 327,
+              "column": 9
+            },
+            "end": {
+              "line": 329,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "sub",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 330,
+              "column": 9
+            },
+            "end": {
+              "line": 332,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "mul",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 333,
+              "column": 9
+            },
+            "end": {
+              "line": 335,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "div",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 336,
+              "column": 9
+            },
+            "end": {
+              "line": 338,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "neg",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 339,
+              "column": 9
+            },
+            "end": {
+              "line": 341,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "abs",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 342,
+              "column": 9
+            },
+            "end": {
+              "line": 344,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "cmp",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 345,
+              "column": 9
+            },
+            "end": {
+              "line": 347,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "eq",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 348,
+              "column": 9
+            },
+            "end": {
+              "line": 350,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "gt",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 351,
+              "column": 9
+            },
+            "end": {
+              "line": 353,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "gte",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 354,
+              "column": 9
+            },
+            "end": {
+              "line": 356,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "lt",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 357,
+              "column": 9
+            },
+            "end": {
+              "line": 359,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "lte",
+          "type": "closure",
+          "flags off": [
+            "enumerable"
+          ],
+          "target function": {
+            "start": {
+              "line": 360,
+              "column": 9
+            },
+            "end": {
+              "line": 362,
+              "column": 10
+            }
+          }
+        }
+      ]
+    },
+    "BDraw": {
+      "properties": [
+        {
+          "name": "base"
+        },
+        {
+          "name": "decimals",
+          "type": "number"
+        }
+      ]
+    },
+    "BDCompareObj": {
+      "properties": [
+        {
+          "name": "Greater",
+          "type": "number"
+        },
+        {
+          "name": "Less",
+          "type": "number"
+        },
+        {
+          "name": "Equal",
+          "type": "number"
+        }
+      ]
+    },
+    "BenchmarkInst": {
+      "properties": [
+        {
+          "name": "_verbose",
+          "type": "boolean"
+        },
+        {
+          "name": "_allFirstAndLastResultsAreEqual",
+          "type": "boolean"
+        }
+      ]
+    },
+    "Perf": {
+      "properties": [
+        {
+          "name": "now"
+        },
+        {
+          "name": "mark"
+        },
+        {
+          "name": "measure"
+        },
+        {
+          "name": "timeOrigin"
+        }
+      ]
+    },
+    "BigDenaryNumPartial": {
+      "properties": [
+        {
+          "name": "_decimals",
+          "type": "number"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 209,
+          "column": 29
+        },
+        "end": {
+          "line": 209,
+          "column": 33
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 211,
+          "column": 21
+        },
+        "end": {
+          "line": 211,
+          "column": 30
+        }
+      },
+      "shape": "BigDenaryClass"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 215,
+          "column": 36
+        },
+        "end": {
+          "line": 215,
+          "column": 45
+        }
+      },
+      "shape": "BigDenaryClass"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 230,
+          "column": 20
+        },
+        "end": {
+          "line": 230,
+          "column": 29
+        }
+      },
+      "shape": "BigDenaryClass"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 213,
+          "column": 34
+        },
+        "end": {
+          "line": 213,
+          "column": 38
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 216,
+          "column": 35
+        },
+        "end": {
+          "line": 216,
+          "column": 39
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 219,
+          "column": 25
+        },
+        "end": {
+          "line": 219,
+          "column": 29
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 227,
+          "column": 13
+        },
+        "end": {
+          "line": 227,
+          "column": 17
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 217,
+          "column": 29
+        },
+        "end": {
+          "line": 217,
+          "column": 33
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 220,
+          "column": 25
+        },
+        "end": {
+          "line": 220,
+          "column": 29
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 223,
+          "column": 25
+        },
+        "end": {
+          "line": 223,
+          "column": 29
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 247,
+          "column": 41
+        },
+        "end": {
+          "line": 247,
+          "column": 45
+        }
+      },
+      "shape": "BigDenary",
+      "prototype shape": "BigDenaryProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 119,
+          "column": 29
+        },
+        "end": {
+          "line": 119,
+          "column": 30
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 144,
+          "column": 21
+        },
+        "end": {
+          "line": 144,
+          "column": 22
+        }
+      },
+      "shape": "BDraw"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 147,
+          "column": 29
+        },
+        "end": {
+          "line": 147,
+          "column": 30
+        }
+      },
+      "shape": "BDraw"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 148,
+          "column": 34
+        },
+        "end": {
+          "line": 148,
+          "column": 35
+        }
+      },
+      "shape": "BDraw"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 251,
+          "column": 23
+        },
+        "end": {
+          "line": 251,
+          "column": 27
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 251,
+          "column": 35
+        },
+        "end": {
+          "line": 251,
+          "column": 39
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 156,
+          "column": 17
+        },
+        "end": {
+          "line": 156,
+          "column": 21
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 159,
+          "column": 31
+        },
+        "end": {
+          "line": 159,
+          "column": 35
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 160,
+          "column": 24
+        },
+        "end": {
+          "line": 160,
+          "column": 28
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 47
+        },
+        "end": {
+          "line": 165,
+          "column": 51
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 203,
+          "column": 20
+        },
+        "end": {
+          "line": 203,
+          "column": 24
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 230,
+          "column": 51
+        },
+        "end": {
+          "line": 230,
+          "column": 55
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 236,
+          "column": 59
+        },
+        "end": {
+          "line": 236,
+          "column": 63
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 263,
+          "column": 23
+        },
+        "end": {
+          "line": 263,
+          "column": 27
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 263,
+          "column": 35
+        },
+        "end": {
+          "line": 263,
+          "column": 39
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 274,
+          "column": 23
+        },
+        "end": {
+          "line": 274,
+          "column": 27
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 274,
+          "column": 35
+        },
+        "end": {
+          "line": 274,
+          "column": 39
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 280,
+          "column": 23
+        },
+        "end": {
+          "line": 280,
+          "column": 27
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 285,
+          "column": 17
+        },
+        "end": {
+          "line": 285,
+          "column": 21
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 299,
+          "column": 17
+        },
+        "end": {
+          "line": 299,
+          "column": 21
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 299,
+          "column": 29
+        },
+        "end": {
+          "line": 299,
+          "column": 33
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 302,
+          "column": 22
+        },
+        "end": {
+          "line": 302,
+          "column": 26
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 302,
+          "column": 34
+        },
+        "end": {
+          "line": 302,
+          "column": 38
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 300,
+          "column": 24
+        },
+        "end": {
+          "line": 300,
+          "column": 33
+        }
+      },
+      "shape": "BDCompareObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 303,
+          "column": 24
+        },
+        "end": {
+          "line": 303,
+          "column": 33
+        }
+      },
+      "shape": "BDCompareObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 305,
+          "column": 20
+        },
+        "end": {
+          "line": 305,
+          "column": 29
+        }
+      },
+      "shape": "BDCompareObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 308,
+          "column": 53
+        },
+        "end": {
+          "line": 308,
+          "column": 62
+        }
+      },
+      "shape": "BDCompareObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 311,
+          "column": 53
+        },
+        "end": {
+          "line": 311,
+          "column": 62
+        }
+      },
+      "shape": "BDCompareObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 314,
+          "column": 54
+        },
+        "end": {
+          "line": 314,
+          "column": 63
+        }
+      },
+      "shape": "BDCompareObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 315,
+          "column": 50
+        },
+        "end": {
+          "line": 315,
+          "column": 59
+        }
+      },
+      "shape": "BDCompareObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 318,
+          "column": 53
+        },
+        "end": {
+          "line": 318,
+          "column": 62
+        }
+      },
+      "shape": "BDCompareObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 321,
+          "column": 54
+        },
+        "end": {
+          "line": 321,
+          "column": 63
+        }
+      },
+      "shape": "BDCompareObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 322,
+          "column": 50
+        },
+        "end": {
+          "line": 322,
+          "column": 59
+        }
+      },
+      "shape": "BDCompareObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 423,
+          "column": 9
+        },
+        "end": {
+          "line": 423,
+          "column": 13
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 433,
+          "column": 14
+        },
+        "end": {
+          "line": 433,
+          "column": 18
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 402,
+          "column": 17
+        },
+        "end": {
+          "line": 402,
+          "column": 26
+        }
+      },
+      "shape": "BigDenaryClass"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 403,
+          "column": 17
+        },
+        "end": {
+          "line": 403,
+          "column": 26
+        }
+      },
+      "shape": "BigDenaryClass"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 452,
+          "column": 19
+        },
+        "end": {
+          "line": 452,
+          "column": 30
+        }
+      },
+      "shape": "Perf"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 454,
+          "column": 17
+        },
+        "end": {
+          "line": 454,
+          "column": 28
+        }
+      },
+      "shape": "Perf"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 124,
+          "column": 53
+        },
+        "end": {
+          "line": 124,
+          "column": 57
+        }
+      },
+      "shape": "BigDenaryNumPartial"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 120,
+          "column": 17
+        },
+        "end": {
+          "line": 120,
+          "column": 21
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 132,
+          "column": 21
+        },
+        "end": {
+          "line": 132,
+          "column": 25
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 136,
+          "column": 21
+        },
+        "end": {
+          "line": 136,
+          "column": 25
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 141,
+          "column": 17
+        },
+        "end": {
+          "line": 141,
+          "column": 21
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 148,
+          "column": 17
+        },
+        "end": {
+          "line": 148,
+          "column": 21
+        }
+      },
+      "shape": "BigDenary"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 368,
+          "column": 5
+        },
+        "end": {
+          "line": 368,
+          "column": 14
+        }
+      },
+      "shape": "BigDenaryClass"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 250,
+          "column": 34
+        },
+        "end": {
+          "line": 253,
+          "column": 14
+        }
+      },
+      "shape": "BDraw"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 262,
+          "column": 34
+        },
+        "end": {
+          "line": 265,
+          "column": 14
+        }
+      },
+      "shape": "BDraw"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 273,
+          "column": 34
+        },
+        "end": {
+          "line": 276,
+          "column": 14
+        }
+      },
+      "shape": "BDraw"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 279,
+          "column": 34
+        },
+        "end": {
+          "line": 282,
+          "column": 14
+        }
+      },
+      "shape": "BDraw"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 110,
+          "column": 23
+        },
+        "end": {
+          "line": 114,
+          "column": 6
+        }
+      },
+      "shape": "BDCompareObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 419,
+          "column": 9
+        },
+        "end": {
+          "line": 419,
+          "column": 13
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 12
+        }
+      },
+      "shape": "Perf"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 123,
+          "column": 17
+        },
+        "end": {
+          "line": 123,
+          "column": 21
+        }
+      },
+      "shape": "BigDenaryNumPartial"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 208,
+          "column": 25
+        },
+        "end": {
+          "line": 208,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 211,
+          "column": 21
+        },
+        "end": {
+          "line": 211,
+          "column": 51
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 232,
+          "column": 9
+        },
+        "end": {
+          "line": 234,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 215,
+          "column": 36
+        },
+        "end": {
+          "line": 215,
+          "column": 66
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 232,
+          "column": 9
+        },
+        "end": {
+          "line": 234,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 230,
+          "column": 20
+        },
+        "end": {
+          "line": 230,
+          "column": 50
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 232,
+          "column": 9
+        },
+        "end": {
+          "line": 234,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 86,
+          "column": 36
+        },
+        "end": {
+          "line": 86,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 100,
+          "column": 13
+        },
+        "end": {
+          "line": 100,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 103,
+          "column": 36
+        },
+        "end": {
+          "line": 103,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 104,
+          "column": 13
+        },
+        "end": {
+          "line": 104,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 248,
+          "column": 13
+        },
+        "end": {
+          "line": 248,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 208,
+          "column": 9
+        },
+        "end": {
+          "line": 228,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 249,
+          "column": 13
+        },
+        "end": {
+          "line": 249,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 208,
+          "column": 9
+        },
+        "end": {
+          "line": 228,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 192,
+          "column": 38
+        },
+        "end": {
+          "line": 192,
+          "column": 51
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 155,
+          "column": 9
+        },
+        "end": {
+          "line": 190,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 196,
+          "column": 24
+        },
+        "end": {
+          "line": 196,
+          "column": 37
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 155,
+          "column": 9
+        },
+        "end": {
+          "line": 190,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 200,
+          "column": 20
+        },
+        "end": {
+          "line": 200,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 155,
+          "column": 9
+        },
+        "end": {
+          "line": 190,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 199,
+          "column": 13
+        },
+        "end": {
+          "line": 199,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 208,
+          "column": 9
+        },
+        "end": {
+          "line": 228,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 256,
+          "column": 20
+        },
+        "end": {
+          "line": 256,
+          "column": 29
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 244,
+          "column": 9
+        },
+        "end": {
+          "line": 254,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 256,
+          "column": 30
+        },
+        "end": {
+          "line": 256,
+          "column": 62
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 278,
+          "column": 9
+        },
+        "end": {
+          "line": 283,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 288,
+          "column": 20
+        },
+        "end": {
+          "line": 288,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 278,
+          "column": 9
+        },
+        "end": {
+          "line": 283,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 340,
+          "column": 20
+        },
+        "end": {
+          "line": 340,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 278,
+          "column": 9
+        },
+        "end": {
+          "line": 283,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 308,
+          "column": 21
+        },
+        "end": {
+          "line": 308,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 293,
+          "column": 9
+        },
+        "end": {
+          "line": 306,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 311,
+          "column": 21
+        },
+        "end": {
+          "line": 311,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 293,
+          "column": 9
+        },
+        "end": {
+          "line": 306,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 314,
+          "column": 22
+        },
+        "end": {
+          "line": 314,
+          "column": 37
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 293,
+          "column": 9
+        },
+        "end": {
+          "line": 306,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 315,
+          "column": 18
+        },
+        "end": {
+          "line": 315,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 293,
+          "column": 9
+        },
+        "end": {
+          "line": 306,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 318,
+          "column": 21
+        },
+        "end": {
+          "line": 318,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 293,
+          "column": 9
+        },
+        "end": {
+          "line": 306,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 321,
+          "column": 22
+        },
+        "end": {
+          "line": 321,
+          "column": 37
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 293,
+          "column": 9
+        },
+        "end": {
+          "line": 306,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 322,
+          "column": 18
+        },
+        "end": {
+          "line": 322,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 293,
+          "column": 9
+        },
+        "end": {
+          "line": 306,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 346,
+          "column": 20
+        },
+        "end": {
+          "line": 346,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 293,
+          "column": 9
+        },
+        "end": {
+          "line": 306,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 328,
+          "column": 20
+        },
+        "end": {
+          "line": 328,
+          "column": 29
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 244,
+          "column": 9
+        },
+        "end": {
+          "line": 254,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 331,
+          "column": 20
+        },
+        "end": {
+          "line": 331,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 255,
+          "column": 9
+        },
+        "end": {
+          "line": 257,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 334,
+          "column": 20
+        },
+        "end": {
+          "line": 334,
+          "column": 37
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 258,
+          "column": 9
+        },
+        "end": {
+          "line": 266,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 337,
+          "column": 20
+        },
+        "end": {
+          "line": 337,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 267,
+          "column": 9
+        },
+        "end": {
+          "line": 277,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 343,
+          "column": 20
+        },
+        "end": {
+          "line": 343,
+          "column": 38
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 284,
+          "column": 9
+        },
+        "end": {
+          "line": 289,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 349,
+          "column": 20
+        },
+        "end": {
+          "line": 349,
+          "column": 31
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 307,
+          "column": 9
+        },
+        "end": {
+          "line": 309,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 404,
+          "column": 28
+        },
+        "end": {
+          "line": 404,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 307,
+          "column": 9
+        },
+        "end": {
+          "line": 309,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 272,
+          "column": 13
+        },
+        "end": {
+          "line": 272,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 208,
+          "column": 9
+        },
+        "end": {
+          "line": 228,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 297,
+          "column": 13
+        },
+        "end": {
+          "line": 297,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 208,
+          "column": 9
+        },
+        "end": {
+          "line": 228,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 298,
+          "column": 13
+        },
+        "end": {
+          "line": 298,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 208,
+          "column": 9
+        },
+        "end": {
+          "line": 228,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 238,
+          "column": 17
+        },
+        "end": {
+          "line": 238,
+          "column": 37
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 208,
+          "column": 9
+        },
+        "end": {
+          "line": 228,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 237,
+          "column": 17
+        },
+        "end": {
+          "line": 237,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 261,
+          "column": 32
+        },
+        "end": {
+          "line": 261,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 261,
+          "column": 48
+        },
+        "end": {
+          "line": 261,
+          "column": 61
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 271,
+          "column": 41
+        },
+        "end": {
+          "line": 271,
+          "column": 54
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 271,
+          "column": 60
+        },
+        "end": {
+          "line": 271,
+          "column": 73
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 275,
+          "column": 27
+        },
+        "end": {
+          "line": 275,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 275,
+          "column": 43
+        },
+        "end": {
+          "line": 275,
+          "column": 56
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 296,
+          "column": 41
+        },
+        "end": {
+          "line": 296,
+          "column": 54
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 296,
+          "column": 56
+        },
+        "end": {
+          "line": 296,
+          "column": 69
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 406,
+          "column": 47
+        },
+        "end": {
+          "line": 406,
+          "column": 55
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 404,
+          "column": 18
+        },
+        "end": {
+          "line": 404,
+          "column": 39
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 406,
+          "column": 38
+        },
+        "end": {
+          "line": 406,
+          "column": 45
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 424,
+          "column": 41
+        },
+        "end": {
+          "line": 424,
+          "column": 60
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 424,
+          "column": 13
+        },
+        "end": {
+          "line": 424,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 406,
+          "column": 1
+        },
+        "end": {
+          "line": 414,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 425,
+          "column": 13
+        },
+        "end": {
+          "line": 425,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 406,
+          "column": 1
+        },
+        "end": {
+          "line": 414,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 426,
+          "column": 13
+        },
+        "end": {
+          "line": 426,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 406,
+          "column": 1
+        },
+        "end": {
+          "line": 414,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 427,
+          "column": 13
+        },
+        "end": {
+          "line": 427,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 406,
+          "column": 1
+        },
+        "end": {
+          "line": 414,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 428,
+          "column": 13
+        },
+        "end": {
+          "line": 428,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 406,
+          "column": 1
+        },
+        "end": {
+          "line": 414,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 429,
+          "column": 13
+        },
+        "end": {
+          "line": 429,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 406,
+          "column": 1
+        },
+        "end": {
+          "line": 414,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 460,
+          "column": 33
+        },
+        "end": {
+          "line": 460,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 460,
+          "column": 38
+        },
+        "end": {
+          "line": 460,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 452,
+          "column": 19
+        },
+        "end": {
+          "line": 452,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 454,
+          "column": 17
+        },
+        "end": {
+          "line": 454,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 402,
+          "column": 17
+        },
+        "end": {
+          "line": 402,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 403,
+          "column": 17
+        },
+        "end": {
+          "line": 403,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 444,
+          "column": 25
+        },
+        "end": {
+          "line": 444,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 417,
+          "column": 5
+        },
+        "end": {
+          "line": 420,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 462,
+          "column": 20
+        },
+        "end": {
+          "line": 462,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 198,
+          "column": 30
+        },
+        "end": {
+          "line": 198,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 245,
+          "column": 30
+        },
+        "end": {
+          "line": 245,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 246,
+          "column": 30
+        },
+        "end": {
+          "line": 246,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 250,
+          "column": 24
+        },
+        "end": {
+          "line": 250,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 256,
+          "column": 35
+        },
+        "end": {
+          "line": 256,
+          "column": 44
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 259,
+          "column": 30
+        },
+        "end": {
+          "line": 259,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 260,
+          "column": 30
+        },
+        "end": {
+          "line": 260,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 262,
+          "column": 24
+        },
+        "end": {
+          "line": 262,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 269,
+          "column": 30
+        },
+        "end": {
+          "line": 269,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 270,
+          "column": 30
+        },
+        "end": {
+          "line": 270,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 273,
+          "column": 24
+        },
+        "end": {
+          "line": 273,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 279,
+          "column": 24
+        },
+        "end": {
+          "line": 279,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 308,
+          "column": 21
+        },
+        "end": {
+          "line": 308,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 311,
+          "column": 21
+        },
+        "end": {
+          "line": 311,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 314,
+          "column": 22
+        },
+        "end": {
+          "line": 314,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 315,
+          "column": 18
+        },
+        "end": {
+          "line": 315,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 318,
+          "column": 21
+        },
+        "end": {
+          "line": 318,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 321,
+          "column": 22
+        },
+        "end": {
+          "line": 321,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 322,
+          "column": 18
+        },
+        "end": {
+          "line": 322,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 352,
+          "column": 20
+        },
+        "end": {
+          "line": 352,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 351,
+          "column": 9
+        },
+        "end": {
+          "line": 353,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 355,
+          "column": 20
+        },
+        "end": {
+          "line": 355,
+          "column": 45
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 354,
+          "column": 9
+        },
+        "end": {
+          "line": 356,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 358,
+          "column": 20
+        },
+        "end": {
+          "line": 358,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 357,
+          "column": 9
+        },
+        "end": {
+          "line": 359,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 361,
+          "column": 20
+        },
+        "end": {
+          "line": 361,
+          "column": 42
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 360,
+          "column": 9
+        },
+        "end": {
+          "line": 362,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 294,
+          "column": 30
+        },
+        "end": {
+          "line": 294,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 295,
+          "column": 30
+        },
+        "end": {
+          "line": 295,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 117,
+          "column": 9
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 124,
+          "column": 36
+        },
+        "end": {
+          "line": 124,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 424,
+          "column": 47
+        },
+        "end": {
+          "line": 424,
+          "column": 55
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 244,
+          "column": 9
+        },
+        "end": {
+          "line": 254,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 425,
+          "column": 47
+        },
+        "end": {
+          "line": 425,
+          "column": 56
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 255,
+          "column": 9
+        },
+        "end": {
+          "line": 257,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 426,
+          "column": 47
+        },
+        "end": {
+          "line": 426,
+          "column": 58
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 278,
+          "column": 9
+        },
+        "end": {
+          "line": 283,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 427,
+          "column": 47
+        },
+        "end": {
+          "line": 427,
+          "column": 61
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 293,
+          "column": 9
+        },
+        "end": {
+          "line": 306,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 428,
+          "column": 47
+        },
+        "end": {
+          "line": 428,
+          "column": 63
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 258,
+          "column": 9
+        },
+        "end": {
+          "line": 266,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 429,
+          "column": 47
+        },
+        "end": {
+          "line": 429,
+          "column": 60
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 267,
+          "column": 9
+        },
+        "end": {
+          "line": 277,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 153,
+          "column": 13
+        },
+        "end": {
+          "line": 153,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 235,
+          "column": 9
+        },
+        "end": {
+          "line": 240,
+          "column": 10
+        }
+      }
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "192:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Number"
+    },
+    {
+      "location": "192:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseFloat"
+    },
+    {
+      "location": "192:37",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "parseFloat"
+    },
+    {
+      "location": "192:51",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "toString"
+    },
+    {
+      "location": "196:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "toString"
+    },
+    {
+      "location": "199:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "scaleDecimalsTo"
+    },
+    {
+      "location": "200:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "toString"
+    },
+    {
+      "location": "236:74",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "decimals"
+    },
+    {
+      "location": "238:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "scaleDecimalsTo"
+    },
+    {
+      "location": "238:42",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "decimals"
+    },
+    {
+      "location": "247:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "247:40",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max"
+    },
+    {
+      "location": "247:45",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "decimals"
+    },
+    {
+      "location": "247:60",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "decimals"
+    },
+    {
+      "location": "248:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "scaleDecimalsTo"
+    },
+    {
+      "location": "249:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "scaleDecimalsTo"
+    },
+    {
+      "location": "256:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "plus"
+    },
+    {
+      "location": "256:62",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "negated"
+    },
+    {
+      "location": "261:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "decimals"
+    },
+    {
+      "location": "261:52",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "decimals"
+    },
+    {
+      "location": "271:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "271:40",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max"
+    },
+    {
+      "location": "271:45",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "decimals"
+    },
+    {
+      "location": "271:64",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "decimals"
+    },
+    {
+      "location": "272:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "scaleDecimalsTo"
+    },
+    {
+      "location": "275:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "decimals"
+    },
+    {
+      "location": "275:47",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "decimals"
+    },
+    {
+      "location": "281:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "decimals"
+    },
+    {
+      "location": "288:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "negated"
+    },
+    {
+      "location": "296:45",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "decimals"
+    },
+    {
+      "location": "296:60",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "decimals"
+    },
+    {
+      "location": "297:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "scaleDecimalsTo"
+    },
+    {
+      "location": "298:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "scaleDecimalsTo"
+    },
+    {
+      "location": "308:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comparedTo"
+    },
+    {
+      "location": "311:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comparedTo"
+    },
+    {
+      "location": "314:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comparedTo"
+    },
+    {
+      "location": "315:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comparedTo"
+    },
+    {
+      "location": "318:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comparedTo"
+    },
+    {
+      "location": "321:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comparedTo"
+    },
+    {
+      "location": "322:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comparedTo"
+    },
+    {
+      "location": "328:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "plus"
+    },
+    {
+      "location": "331:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "minus"
+    },
+    {
+      "location": "334:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "multipliedBy"
+    },
+    {
+      "location": "337:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "dividedBy"
+    },
+    {
+      "location": "340:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "negated"
+    },
+    {
+      "location": "343:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "absoluteValue"
+    },
+    {
+      "location": "346:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comparedTo"
+    },
+    {
+      "location": "349:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "equals"
+    },
+    {
+      "location": "352:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "greaterThan"
+    },
+    {
+      "location": "355:45",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "greaterThanOrEqualTo"
+    },
+    {
+      "location": "358:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "lessThan"
+    },
+    {
+      "location": "361:42",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "lessThanOrEqualTo"
+    },
+    {
+      "location": "424:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "areFirstAndLastResultsEqual"
+    },
+    {
+      "location": "425:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "areFirstAndLastResultsEqual"
+    },
+    {
+      "location": "426:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "areFirstAndLastResultsEqual"
+    },
+    {
+      "location": "427:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "areFirstAndLastResultsEqual"
+    },
+    {
+      "location": "428:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "areFirstAndLastResultsEqual"
+    },
+    {
+      "location": "429:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "areFirstAndLastResultsEqual"
+    },
+    {
+      "location": "427:68",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Object"
+    },
+    {
+      "location": "427:74",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "is"
+    },
+    {
+      "location": "434:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "434:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "448:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "448:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "448:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "449:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "449:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "449:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "449:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "452:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "453:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "runIteration"
+    },
+    {
+      "location": "453:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "runIteration"
+    },
+    {
+      "location": "454:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "458:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "validate"
+    },
+    {
+      "location": "458:23",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "validate"
+    },
+    {
+      "location": "462:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "462:8",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "5:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Proxy"
+    },
+    {
+      "location": "5:46",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Proxy"
+    },
+    {
+      "location": "7:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "7:20",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "7:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "7:40",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "11:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "11:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "11:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "12:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "12:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "12:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "13:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "14:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "15:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "17:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "29:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "30:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "30:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Realm"
+    },
+    {
+      "location": "402:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "BigDenary"
+    },
+    {
+      "location": "403:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "BigDenary"
+    },
+    {
+      "location": "59:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "69:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isNaN"
+    },
+    {
+      "location": "69:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "isNaN"
+    },
+    {
+      "location": "70:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "70:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "80:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt"
+    },
+    {
+      "location": "80:29",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "parseInt"
+    },
+    {
+      "location": "81:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isNaN"
+    },
+    {
+      "location": "81:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "isNaN"
+    },
+    {
+      "location": "82:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "82:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "105:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "105:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "233:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "BigInt"
+    },
+    {
+      "location": "233:33",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "BigInt"
+    },
+    {
+      "location": "72:58",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "toString",
+      "note": "string"
+    },
+    {
+      "location": "72:58",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "toString",
+      "note": "string"
+    },
+    {
+      "location": "73:23",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "string"
+    },
+    {
+      "location": "99:34",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "indexOf",
+      "note": "string"
+    },
+    {
+      "location": "99:34",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "indexOf",
+      "note": "string"
+    },
+    {
+      "location": "103:35",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "substr",
+      "note": "string"
+    },
+    {
+      "location": "103:35",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "substr",
+      "note": "string"
+    },
+    {
+      "location": "104:26",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "indexOf",
+      "note": "string"
+    },
+    {
+      "location": "104:26",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "indexOf",
+      "note": "string"
+    },
+    {
+      "location": "107:29",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "substr",
+      "note": "string"
+    },
+    {
+      "location": "107:29",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "substr",
+      "note": "string"
+    },
+    {
+      "location": "165:37",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "string"
+    },
+    {
+      "location": "170:24",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "concat",
+      "note": "string"
+    },
+    {
+      "location": "170:24",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "concat",
+      "note": "string"
+    },
+    {
+      "location": "178:26",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "concat",
+      "note": "string"
+    },
+    {
+      "location": "178:26",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "concat",
+      "note": "string"
+    },
+    {
+      "location": "181:26",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "concat",
+      "note": "string"
+    },
+    {
+      "location": "181:26",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "concat",
+      "note": "string"
+    },
+    {
+      "location": "184:26",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "concat",
+      "note": "string"
+    },
+    {
+      "location": "184:26",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "concat",
+      "note": "string"
+    },
+    {
+      "location": "187:24",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "concat",
+      "note": "string"
+    },
+    {
+      "location": "187:24",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "concat",
+      "note": "string"
+    },
+    {
+      "location": "365:26",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "repeat",
+      "note": "string"
+    },
+    {
+      "location": "365:26",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "repeat",
+      "note": "string"
+    },
+    {
+      "location": "164:42",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "toString",
+      "note": "bigint (toString on a bigint receiver; no bigint concrete type exists)"
+    },
+    {
+      "location": "164:42",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "toString",
+      "note": "bigint (toString on a bigint receiver; no bigint concrete type exists)"
+    },
+    {
+      "location": "170:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal"
+    },
+    {
+      "location": "178:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal"
+    },
+    {
+      "location": "181:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal"
+    },
+    {
+      "location": "184:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal"
+    },
+    {
+      "location": "187:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal"
+    },
+    {
+      "location": "63:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "66:16",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "66:20",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "87:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "91:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "91:25",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "91:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "92:16",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "94:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "156:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "159:31",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "162:24",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "162:31",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "210:27",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "base",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "210:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "216:35",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "217:27",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "base",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "217:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "218:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "218:31",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "219:25",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "220:35",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "223:35",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "251:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "263:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "274:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "280:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "280:35",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "285:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "299:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "302:22",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "bigint arithmetic and bigint property stores; the annotation type system has no bigint concrete type, so these stay on generic bigint paths"
+    },
+    {
+      "location": "417:5",
+      "kind": "property_load",
+      "reason": "constructing-store",
+      "property": "prototype"
+    },
+    {
+      "location": "418:23",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_verbose"
+    },
+    {
+      "location": "419:46",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_allFirstAndLastResultsAreEqual"
+    },
+    {
+      "location": "11:17",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "performance"
+    },
+    {
+      "location": "11:69",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "performance"
+    },
+    {
+      "location": "12:17",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "now"
+    },
+    {
+      "location": "13:18",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "mark"
+    },
+    {
+      "location": "14:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "measure"
+    },
+    {
+      "location": "15:24",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "timeOrigin"
+    },
+    {
+      "location": "17:15",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "JetStream"
+    },
+    {
+      "location": "17:38",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "JetStream"
+    },
+    {
+      "location": "29:23",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isInBrowser"
+    },
+    {
+      "location": "30:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isD8"
+    },
+    {
+      "location": "59:22",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "BigDenary"
+    },
+    {
+      "location": "12:12",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "now"
+    },
+    {
+      "location": "13:12",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "mark"
+    },
+    {
+      "location": "14:12",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "measure"
+    },
+    {
+      "location": "15:12",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "timeOrigin"
+    },
+    {
+      "location": "72:33",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "destructuring assignment from _splitString results, string comparison of expStr (string guards had no effect), the optional-call test in benchmark.validate?.(160), Array.prototype builtins (arrays are not shape-bindable), a global function-declaration binding, and ??= fallback initialization/global namespace assembly"
+    },
+    {
+      "location": "76:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "destructuring assignment from _splitString results, string comparison of expStr (string guards had no effect), the optional-call test in benchmark.validate?.(160), Array.prototype builtins (arrays are not shape-bindable), a global function-declaration binding, and ??= fallback initialization/global namespace assembly"
+    },
+    {
+      "location": "77:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "destructuring assignment from _splitString results, string comparison of expStr (string guards had no effect), the optional-call test in benchmark.validate?.(160), Array.prototype builtins (arrays are not shape-bindable), a global function-declaration binding, and ??= fallback initialization/global namespace assembly"
+    },
+    {
+      "location": "458:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "destructuring assignment from _splitString results, string comparison of expStr (string guards had no effect), the optional-call test in benchmark.validate?.(160), Array.prototype builtins (arrays are not shape-bindable), a global function-declaration binding, and ??= fallback initialization/global namespace assembly"
+    },
+    {
+      "location": "455:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "destructuring assignment from _splitString results, string comparison of expStr (string guards had no effect), the optional-call test in benchmark.validate?.(160), Array.prototype builtins (arrays are not shape-bindable), a global function-declaration binding, and ??= fallback initialization/global namespace assembly"
+    },
+    {
+      "location": "455:17",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "destructuring assignment from _splitString results, string comparison of expStr (string guards had no effect), the optional-call test in benchmark.validate?.(160), Array.prototype builtins (arrays are not shape-bindable), a global function-declaration binding, and ??= fallback initialization/global namespace assembly"
+    },
+    {
+      "location": "460:31",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "reduce",
+      "note": "destructuring assignment from _splitString results, string comparison of expStr (string guards had no effect), the optional-call test in benchmark.validate?.(160), Array.prototype builtins (arrays are not shape-bindable), a global function-declaration binding, and ??= fallback initialization/global namespace assembly"
+    },
+    {
+      "location": "460:31",
+      "kind": "call",
+      "reason": "other",
+      "property": "reduce",
+      "note": "destructuring assignment from _splitString results, string comparison of expStr (string guards had no effect), the optional-call test in benchmark.validate?.(160), Array.prototype builtins (arrays are not shape-bindable), a global function-declaration binding, and ??= fallback initialization/global namespace assembly"
+    },
+    {
+      "location": "461:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "destructuring assignment from _splitString results, string comparison of expStr (string guards had no effect), the optional-call test in benchmark.validate?.(160), Array.prototype builtins (arrays are not shape-bindable), a global function-declaration binding, and ??= fallback initialization/global namespace assembly"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "areFirstAndLastResultsEqual",
+      "note": "destructuring assignment from _splitString results, string comparison of expStr (string guards had no effect), the optional-call test in benchmark.validate?.(160), Array.prototype builtins (arrays are not shape-bindable), a global function-declaration binding, and ??= fallback initialization/global namespace assembly"
+    },
+    {
+      "location": "11:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "destructuring assignment from _splitString results, string comparison of expStr (string guards had no effect), the optional-call test in benchmark.validate?.(160), Array.prototype builtins (arrays are not shape-bindable), a global function-declaration binding, and ??= fallback initialization/global namespace assembly"
+    },
+    {
+      "location": "12:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "destructuring assignment from _splitString results, string comparison of expStr (string guards had no effect), the optional-call test in benchmark.validate?.(160), Array.prototype builtins (arrays are not shape-bindable), a global function-declaration binding, and ??= fallback initialization/global namespace assembly"
+    },
+    {
+      "location": "13:18",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "destructuring assignment from _splitString results, string comparison of expStr (string guards had no effect), the optional-call test in benchmark.validate?.(160), Array.prototype builtins (arrays are not shape-bindable), a global function-declaration binding, and ??= fallback initialization/global namespace assembly"
+    },
+    {
+      "location": "14:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "destructuring assignment from _splitString results, string comparison of expStr (string guards had no effect), the optional-call test in benchmark.validate?.(160), Array.prototype builtins (arrays are not shape-bindable), a global function-declaration binding, and ??= fallback initialization/global namespace assembly"
+    },
+    {
+      "location": "15:24",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "destructuring assignment from _splitString results, string comparison of expStr (string guards had no effect), the optional-call test in benchmark.validate?.(160), Array.prototype builtins (arrays are not shape-bindable), a global function-declaration binding, and ??= fallback initialization/global namespace assembly"
+    },
+    {
+      "location": "165:30",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "177:17",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "180:22",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "238:38",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "461:19",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "462:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "7:21",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "117:9",
+      "kind": "property_load",
+      "reason": "constructing-store",
+      "property": "prototype"
+    },
+    {
+      "location": "119:27",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "base"
+    },
+    {
+      "location": "120:32",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_decimals"
+    },
+    {
+      "location": "123:32",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_decimals"
+    },
+    {
+      "location": "124:27",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "base"
+    },
+    {
+      "location": "368:25",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "BDCompare"
+    },
+    {
+      "location": "120:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "decimals"
+    },
+    {
+      "location": "124:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "BigInt"
+    },
+    {
+      "location": "124:35",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "BigInt"
+    },
+    {
+      "location": "153:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "trimTrailingZeros"
+    },
+    {
+      "location": "296:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "296:40",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max"
+    },
+    {
+      "location": "404:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "equals"
+    },
+    {
+      "location": "424:55",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "plus"
+    },
+    {
+      "location": "425:56",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "minus"
+    },
+    {
+      "location": "426:58",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "negated"
+    },
+    {
+      "location": "427:61",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comparedTo"
+    },
+    {
+      "location": "428:63",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "multipliedBy"
+    },
+    {
+      "location": "429:60",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "dividedBy"
+    },
+    {
+      "location": "173:37",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "substr",
+      "note": "string"
+    },
+    {
+      "location": "173:37",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "substr",
+      "note": "string"
+    },
+    {
+      "location": "174:38",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "substr",
+      "note": "string"
+    },
+    {
+      "location": "174:38",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "substr",
+      "note": "string"
+    },
+    {
+      "location": "177:20",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "string"
+    },
+    {
+      "location": "180:26",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "string"
+    },
+    {
+      "location": "124:40",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "124:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pow"
+    }
+  ]
+}

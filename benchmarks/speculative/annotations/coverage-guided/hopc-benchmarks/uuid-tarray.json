@@ -1,0 +1,5612 @@
+{
+  "static shapes": {
+    "assert": {
+      "properties": [
+        {
+          "name": "strictEqual",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 25,
+              "column": 24
+            },
+            "end": {
+              "line": 25,
+              "column": 41
+            }
+          }
+        },
+        {
+          "name": "equal",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 27,
+              "column": 3
+            },
+            "end": {
+              "line": 35,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "deepEqual",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 39,
+              "column": 3
+            },
+            "end": {
+              "line": 47,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "throws",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 51,
+              "column": 19
+            },
+            "end": {
+              "line": 58,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "ok",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 60,
+              "column": 15
+            },
+            "end": {
+              "line": 62,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "uuidfn": {
+      "properties": [
+        {
+          "name": "DNS",
+          "type": "string"
+        },
+        {
+          "name": "URL",
+          "type": "string"
+        }
+      ]
+    },
+    "AssertShape": {
+      "properties": [
+        {
+          "name": "length",
+          "type": "number",
+          "flags off": [
+            "enumerable",
+            "writable"
+          ]
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "flags off": [
+            "enumerable",
+            "writable"
+          ]
+        },
+        {
+          "name": "prototype",
+          "flags off": [
+            "enumerable",
+            "configurable"
+          ]
+        },
+        {
+          "name": "strictEqual",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 25,
+              "column": 24
+            },
+            "end": {
+              "line": 25,
+              "column": 41
+            }
+          }
+        },
+        {
+          "name": "equal",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 27,
+              "column": 3
+            },
+            "end": {
+              "line": 35,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "deepEqual",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 39,
+              "column": 3
+            },
+            "end": {
+              "line": 47,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "throws",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 51,
+              "column": 19
+            },
+            "end": {
+              "line": 58,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "ok",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 60,
+              "column": 15
+            },
+            "end": {
+              "line": 62,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "ByteToHexArr": {
+      "properties": [
+        {
+          "name": "length",
+          "type": "number"
+        }
+      ]
+    },
+    "V35Shape": {
+      "properties": [
+        {
+          "name": "length",
+          "type": "number",
+          "flags off": [
+            "enumerable",
+            "writable"
+          ]
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "flags off": [
+            "enumerable",
+            "writable"
+          ]
+        },
+        {
+          "name": "prototype",
+          "flags off": [
+            "enumerable",
+            "configurable"
+          ]
+        },
+        {
+          "name": "DNS",
+          "type": "string"
+        },
+        {
+          "name": "URL",
+          "type": "string"
+        }
+      ]
+    },
+    "HashSample": {
+      "properties": [
+        {
+          "name": "input",
+          "type": "string"
+        },
+        {
+          "name": "sha1",
+          "type": "string"
+        },
+        {
+          "name": "md5",
+          "type": "string"
+        }
+      ]
+    },
+    "arrlen": {
+      "properties": [
+        {
+          "name": "length"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 1268,
+          "column": 9
+        },
+        "end": {
+          "line": 1268,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1275,
+          "column": 9
+        },
+        "end": {
+          "line": 1275,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1286,
+          "column": 9
+        },
+        "end": {
+          "line": 1286,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1287,
+          "column": 9
+        },
+        "end": {
+          "line": 1287,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1306,
+          "column": 9
+        },
+        "end": {
+          "line": 1306,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1236,
+          "column": 28
+        },
+        "end": {
+          "line": 1236,
+          "column": 30
+        }
+      },
+      "shape": "uuidfn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1237,
+          "column": 28
+        },
+        "end": {
+          "line": 1237,
+          "column": 30
+        }
+      },
+      "shape": "uuidfn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1236,
+          "column": 9
+        },
+        "end": {
+          "line": 1236,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1237,
+          "column": 9
+        },
+        "end": {
+          "line": 1237,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1238,
+          "column": 9
+        },
+        "end": {
+          "line": 1238,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1239,
+          "column": 9
+        },
+        "end": {
+          "line": 1239,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1238,
+          "column": 28
+        },
+        "end": {
+          "line": 1238,
+          "column": 30
+        }
+      },
+      "shape": "uuidfn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1239,
+          "column": 28
+        },
+        "end": {
+          "line": 1239,
+          "column": 30
+        }
+      },
+      "shape": "uuidfn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1156,
+          "column": 9
+        },
+        "end": {
+          "line": 1156,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1158,
+          "column": 9
+        },
+        "end": {
+          "line": 1158,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1163,
+          "column": 9
+        },
+        "end": {
+          "line": 1163,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1156,
+          "column": 52
+        },
+        "end": {
+          "line": 1156,
+          "column": 54
+        }
+      },
+      "shape": "uuidfn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1159,
+          "column": 42
+        },
+        "end": {
+          "line": 1159,
+          "column": 44
+        }
+      },
+      "shape": "uuidfn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1139,
+          "column": 9
+        },
+        "end": {
+          "line": 1139,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1140,
+          "column": 9
+        },
+        "end": {
+          "line": 1140,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1151,
+          "column": 9
+        },
+        "end": {
+          "line": 1151,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1137,
+          "column": 48
+        },
+        "end": {
+          "line": 1137,
+          "column": 50
+        }
+      },
+      "shape": "uuidfn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1149,
+          "column": 33
+        },
+        "end": {
+          "line": 1149,
+          "column": 35
+        }
+      },
+      "shape": "uuidfn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1188,
+          "column": 9
+        },
+        "end": {
+          "line": 1188,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1192,
+          "column": 9
+        },
+        "end": {
+          "line": 1192,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1196,
+          "column": 9
+        },
+        "end": {
+          "line": 1196,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1200,
+          "column": 9
+        },
+        "end": {
+          "line": 1200,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1204,
+          "column": 9
+        },
+        "end": {
+          "line": 1204,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1208,
+          "column": 9
+        },
+        "end": {
+          "line": 1208,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1220,
+          "column": 9
+        },
+        "end": {
+          "line": 1220,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1221,
+          "column": 9
+        },
+        "end": {
+          "line": 1221,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1232,
+          "column": 9
+        },
+        "end": {
+          "line": 1232,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1219,
+          "column": 48
+        },
+        "end": {
+          "line": 1219,
+          "column": 50
+        }
+      },
+      "shape": "uuidfn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1230,
+          "column": 33
+        },
+        "end": {
+          "line": 1230,
+          "column": 35
+        }
+      },
+      "shape": "uuidfn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 902,
+          "column": 9
+        },
+        "end": {
+          "line": 902,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 921,
+          "column": 9
+        },
+        "end": {
+          "line": 921,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 933,
+          "column": 9
+        },
+        "end": {
+          "line": 933,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 990,
+          "column": 9
+        },
+        "end": {
+          "line": 990,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 991,
+          "column": 9
+        },
+        "end": {
+          "line": 991,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 998,
+          "column": 9
+        },
+        "end": {
+          "line": 998,
+          "column": 15
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1051,
+          "column": 39
+        },
+        "end": {
+          "line": 1051,
+          "column": 45
+        }
+      },
+      "shape": "HashSample"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1051,
+          "column": 55
+        },
+        "end": {
+          "line": 1051,
+          "column": 61
+        }
+      },
+      "shape": "HashSample"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1063,
+          "column": 38
+        },
+        "end": {
+          "line": 1063,
+          "column": 44
+        }
+      },
+      "shape": "HashSample"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1063,
+          "column": 54
+        },
+        "end": {
+          "line": 1063,
+          "column": 60
+        }
+      },
+      "shape": "HashSample"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 789,
+          "column": 39
+        },
+        "end": {
+          "line": 789,
+          "column": 44
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 763,
+          "column": 13
+        },
+        "end": {
+          "line": 763,
+          "column": 18
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 280,
+          "column": 25
+        },
+        "end": {
+          "line": 280,
+          "column": 28
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 291,
+          "column": 25
+        },
+        "end": {
+          "line": 291,
+          "column": 33
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 332,
+          "column": 25
+        },
+        "end": {
+          "line": 332,
+          "column": 33
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 338,
+          "column": 29
+        },
+        "end": {
+          "line": 338,
+          "column": 37
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 232,
+          "column": 9
+        },
+        "end": {
+          "line": 232,
+          "column": 13
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 126,
+          "column": 25
+        },
+        "end": {
+          "line": 126,
+          "column": 26
+        }
+      },
+      "shape": "arrlen"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 43,
+          "column": 20
+        },
+        "end": {
+          "line": 43,
+          "column": 21
+        }
+      },
+      "shape": "arrlen"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 516,
+          "column": 15
+        },
+        "end": {
+          "line": 516,
+          "column": 24
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 520,
+          "column": 19
+        },
+        "end": {
+          "line": 520,
+          "column": 28
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 525,
+          "column": 12
+        },
+        "end": {
+          "line": 525,
+          "column": 21
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 507,
+          "column": 25
+        },
+        "end": {
+          "line": 507,
+          "column": 33
+        }
+      },
+      "shape": "ByteToHexArr"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 60,
+          "column": 3
+        },
+        "end": {
+          "line": 60,
+          "column": 9
+        }
+      },
+      "shape": "assert"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 818,
+          "column": 5
+        },
+        "end": {
+          "line": 818,
+          "column": 17
+        }
+      },
+      "shape": "uuidfn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 545,
+          "column": 21
+        },
+        "end": {
+          "line": 545,
+          "column": 23
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 512,
+          "column": 21
+        },
+        "end": {
+          "line": 512,
+          "column": 35
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 826,
+          "column": 14
+        },
+        "end": {
+          "line": 826,
+          "column": 34
+        }
+      },
+      "shape": "V35Shape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1009,
+          "column": 9
+        },
+        "end": {
+          "line": 1013,
+          "column": 10
+        }
+      },
+      "shape": "HashSample"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1016,
+          "column": 9
+        },
+        "end": {
+          "line": 1025,
+          "column": 10
+        }
+      },
+      "shape": "HashSample"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1028,
+          "column": 9
+        },
+        "end": {
+          "line": 1034,
+          "column": 10
+        }
+      },
+      "shape": "HashSample"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 749,
+          "column": 19
+        },
+        "end": {
+          "line": 749,
+          "column": 21
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 789,
+          "column": 19
+        },
+        "end": {
+          "line": 789,
+          "column": 52
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 267,
+          "column": 15
+        },
+        "end": {
+          "line": 267,
+          "column": 22
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 300,
+          "column": 13
+        },
+        "end": {
+          "line": 300,
+          "column": 25
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 234,
+          "column": 16
+        },
+        "end": {
+          "line": 234,
+          "column": 25
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 235,
+          "column": 14
+        },
+        "end": {
+          "line": 235,
+          "column": 23
+        }
+      },
+      "shape": "ByteToHexArr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 205,
+          "column": 12
+        },
+        "end": {
+          "line": 205,
+          "column": 29
+        }
+      },
+      "shape": "arrlen"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 490,
+          "column": 20
+        },
+        "end": {
+          "line": 504,
+          "column": 4
+        }
+      },
+      "shape": "ByteToHexArr"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 1264,
+          "column": 7
+        },
+        "end": {
+          "line": 1264,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 881,
+          "column": 3
+        },
+        "end": {
+          "line": 884,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1271,
+          "column": 7
+        },
+        "end": {
+          "line": 1271,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 881,
+          "column": 3
+        },
+        "end": {
+          "line": 884,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1278,
+          "column": 7
+        },
+        "end": {
+          "line": 1278,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 881,
+          "column": 3
+        },
+        "end": {
+          "line": 884,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1290,
+          "column": 7
+        },
+        "end": {
+          "line": 1290,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 881,
+          "column": 3
+        },
+        "end": {
+          "line": 884,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1322,
+          "column": 24
+        },
+        "end": {
+          "line": 1322,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1259,
+          "column": 21
+        },
+        "end": {
+          "line": 1259,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 833,
+          "column": 3
+        },
+        "end": {
+          "line": 854,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1260,
+          "column": 21
+        },
+        "end": {
+          "line": 1260,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 833,
+          "column": 3
+        },
+        "end": {
+          "line": 854,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1322,
+          "column": 17
+        },
+        "end": {
+          "line": 1322,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1137,
+          "column": 24
+        },
+        "end": {
+          "line": 1137,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1149,
+          "column": 9
+        },
+        "end": {
+          "line": 1149,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1156,
+          "column": 28
+        },
+        "end": {
+          "line": 1156,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1159,
+          "column": 11
+        },
+        "end": {
+          "line": 1159,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1164,
+          "column": 11
+        },
+        "end": {
+          "line": 1164,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1189,
+          "column": 11
+        },
+        "end": {
+          "line": 1189,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1193,
+          "column": 11
+        },
+        "end": {
+          "line": 1193,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1196,
+          "column": 19
+        },
+        "end": {
+          "line": 1196,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1201,
+          "column": 11
+        },
+        "end": {
+          "line": 1201,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1205,
+          "column": 11
+        },
+        "end": {
+          "line": 1205,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1208,
+          "column": 19
+        },
+        "end": {
+          "line": 1208,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1219,
+          "column": 24
+        },
+        "end": {
+          "line": 1219,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1230,
+          "column": 9
+        },
+        "end": {
+          "line": 1230,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 943,
+          "column": 11
+        },
+        "end": {
+          "line": 943,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 943,
+          "column": 47
+        },
+        "end": {
+          "line": 943,
+          "column": 79
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 953,
+          "column": 11
+        },
+        "end": {
+          "line": 953,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 953,
+          "column": 48
+        },
+        "end": {
+          "line": 953,
+          "column": 81
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 981,
+          "column": 20
+        },
+        "end": {
+          "line": 981,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 981,
+          "column": 42
+        },
+        "end": {
+          "line": 981,
+          "column": 62
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1343,
+          "column": 21
+        },
+        "end": {
+          "line": 1343,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1343,
+          "column": 41
+        },
+        "end": {
+          "line": 1343,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 7,
+          "column": 21
+        },
+        "end": {
+          "line": 7,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1075,
+          "column": 28
+        },
+        "end": {
+          "line": 1075,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1061,
+          "column": 7
+        },
+        "end": {
+          "line": 1061,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 881,
+          "column": 3
+        },
+        "end": {
+          "line": 884,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1106,
+          "column": 9
+        },
+        "end": {
+          "line": 1106,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 51,
+          "column": 19
+        },
+        "end": {
+          "line": 58,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1075,
+          "column": 9
+        },
+        "end": {
+          "line": 1075,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 25,
+          "column": 24
+        },
+        "end": {
+          "line": 25,
+          "column": 41
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1051,
+          "column": 11
+        },
+        "end": {
+          "line": 1051,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 27,
+          "column": 3
+        },
+        "end": {
+          "line": 35,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1114,
+          "column": 9
+        },
+        "end": {
+          "line": 1114,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 60,
+          "column": 15
+        },
+        "end": {
+          "line": 62,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1107,
+          "column": 11
+        },
+        "end": {
+          "line": 1107,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1111,
+          "column": 11
+        },
+        "end": {
+          "line": 1111,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1114,
+          "column": 19
+        },
+        "end": {
+          "line": 1114,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1119,
+          "column": 11
+        },
+        "end": {
+          "line": 1119,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1123,
+          "column": 11
+        },
+        "end": {
+          "line": 1123,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1126,
+          "column": 19
+        },
+        "end": {
+          "line": 1126,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1118,
+          "column": 9
+        },
+        "end": {
+          "line": 1118,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 51,
+          "column": 19
+        },
+        "end": {
+          "line": 58,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1126,
+          "column": 9
+        },
+        "end": {
+          "line": 1126,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 60,
+          "column": 15
+        },
+        "end": {
+          "line": 62,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1073,
+          "column": 7
+        },
+        "end": {
+          "line": 1073,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 881,
+          "column": 3
+        },
+        "end": {
+          "line": 884,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1105,
+          "column": 7
+        },
+        "end": {
+          "line": 1105,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 881,
+          "column": 3
+        },
+        "end": {
+          "line": 884,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1117,
+          "column": 7
+        },
+        "end": {
+          "line": 1117,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 881,
+          "column": 3
+        },
+        "end": {
+          "line": 884,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1129,
+          "column": 7
+        },
+        "end": {
+          "line": 1129,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 881,
+          "column": 3
+        },
+        "end": {
+          "line": 884,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1154,
+          "column": 7
+        },
+        "end": {
+          "line": 1154,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 881,
+          "column": 3
+        },
+        "end": {
+          "line": 884,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1187,
+          "column": 7
+        },
+        "end": {
+          "line": 1187,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 881,
+          "column": 3
+        },
+        "end": {
+          "line": 884,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1199,
+          "column": 7
+        },
+        "end": {
+          "line": 1199,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 881,
+          "column": 3
+        },
+        "end": {
+          "line": 884,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1211,
+          "column": 7
+        },
+        "end": {
+          "line": 1211,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 881,
+          "column": 3
+        },
+        "end": {
+          "line": 884,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1235,
+          "column": 7
+        },
+        "end": {
+          "line": 1235,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 881,
+          "column": 3
+        },
+        "end": {
+          "line": 884,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1078,
+          "column": 11
+        },
+        "end": {
+          "line": 1078,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1083,
+          "column": 11
+        },
+        "end": {
+          "line": 1083,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 773,
+          "column": 5
+        },
+        "end": {
+          "line": 808,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1077,
+          "column": 9
+        },
+        "end": {
+          "line": 1077,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 25,
+          "column": 24
+        },
+        "end": {
+          "line": 25,
+          "column": 41
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1082,
+          "column": 9
+        },
+        "end": {
+          "line": 1082,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 25,
+          "column": 24
+        },
+        "end": {
+          "line": 25,
+          "column": 41
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1110,
+          "column": 9
+        },
+        "end": {
+          "line": 1110,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 51,
+          "column": 19
+        },
+        "end": {
+          "line": 58,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1122,
+          "column": 9
+        },
+        "end": {
+          "line": 1122,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 51,
+          "column": 19
+        },
+        "end": {
+          "line": 58,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1063,
+          "column": 11
+        },
+        "end": {
+          "line": 1063,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 27,
+          "column": 3
+        },
+        "end": {
+          "line": 35,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 457,
+          "column": 24
+        },
+        "end": {
+          "line": 457,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 422,
+          "column": 18
+        },
+        "end": {
+          "line": 422,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 357,
+          "column": 23
+        },
+        "end": {
+          "line": 357,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 375,
+          "column": 22
+        },
+        "end": {
+          "line": 375,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 377,
+          "column": 22
+        },
+        "end": {
+          "line": 377,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 423,
+          "column": 18
+        },
+        "end": {
+          "line": 423,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 424,
+          "column": 18
+        },
+        "end": {
+          "line": 424,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 409,
+          "column": 18
+        },
+        "end": {
+          "line": 409,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 457,
+          "column": 3
+        },
+        "end": {
+          "line": 459,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 409,
+          "column": 35
+        },
+        "end": {
+          "line": 409,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 441,
+          "column": 3
+        },
+        "end": {
+          "line": 452,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 396,
+          "column": 16
+        },
+        "end": {
+          "line": 396,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 457,
+          "column": 3
+        },
+        "end": {
+          "line": 459,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 410,
+          "column": 17
+        },
+        "end": {
+          "line": 410,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 457,
+          "column": 3
+        },
+        "end": {
+          "line": 459,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 414,
+          "column": 13
+        },
+        "end": {
+          "line": 414,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 457,
+          "column": 3
+        },
+        "end": {
+          "line": 459,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 410,
+          "column": 34
+        },
+        "end": {
+          "line": 410,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 441,
+          "column": 3
+        },
+        "end": {
+          "line": 452,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 766,
+          "column": 7
+        },
+        "end": {
+          "line": 766,
+          "column": 8
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 765,
+          "column": 25
+        },
+        "end": {
+          "line": 765,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 801,
+          "column": 15
+        },
+        "end": {
+          "line": 801,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 847,
+          "column": 13
+        },
+        "end": {
+          "line": 847,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 751,
+          "column": 25
+        },
+        "end": {
+          "line": 751,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 782,
+          "column": 11
+        },
+        "end": {
+          "line": 782,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 789,
+          "column": 39
+        },
+        "end": {
+          "line": 789,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 882,
+          "column": 31
+        },
+        "end": {
+          "line": 882,
+          "column": 34
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 792,
+          "column": 15
+        },
+        "end": {
+          "line": 792,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 319,
+          "column": 3
+        },
+        "end": {
+          "line": 321,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 836,
+          "column": 37
+        },
+        "end": {
+          "line": 836,
+          "column": 55
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 519,
+          "column": 3
+        },
+        "end": {
+          "line": 526,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 766,
+          "column": 12
+        },
+        "end": {
+          "line": 766,
+          "column": 41
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 258,
+          "column": 25
+        },
+        "end": {
+          "line": 258,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 232,
+          "column": 62
+        },
+        "end": {
+          "line": 232,
+          "column": 67
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 241,
+          "column": 74
+        },
+        "end": {
+          "line": 241,
+          "column": 79
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 268,
+          "column": 22
+        },
+        "end": {
+          "line": 268,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 269,
+          "column": 38
+        },
+        "end": {
+          "line": 269,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 269,
+          "column": 50
+        },
+        "end": {
+          "line": 269,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 270,
+          "column": 42
+        },
+        "end": {
+          "line": 270,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 280,
+          "column": 47
+        },
+        "end": {
+          "line": 280,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 281,
+          "column": 7
+        },
+        "end": {
+          "line": 281,
+          "column": 10
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 292,
+          "column": 7
+        },
+        "end": {
+          "line": 292,
+          "column": 10
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 293,
+          "column": 9
+        },
+        "end": {
+          "line": 293,
+          "column": 70
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 338,
+          "column": 51
+        },
+        "end": {
+          "line": 338,
+          "column": 54
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 339,
+          "column": 14
+        },
+        "end": {
+          "line": 339,
+          "column": 17
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 241,
+          "column": 60
+        },
+        "end": {
+          "line": 241,
+          "column": 71
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 232,
+          "column": 49
+        },
+        "end": {
+          "line": 232,
+          "column": 59
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 269,
+          "column": 25
+        },
+        "end": {
+          "line": 269,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 281,
+          "column": 14
+        },
+        "end": {
+          "line": 281,
+          "column": 66
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 338,
+          "column": 58
+        },
+        "end": {
+          "line": 338,
+          "column": 64
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 339,
+          "column": 21
+        },
+        "end": {
+          "line": 339,
+          "column": 66
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 294,
+          "column": 9
+        },
+        "end": {
+          "line": 294,
+          "column": 66
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 116,
+          "column": 24
+        },
+        "end": {
+          "line": 116,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 92,
+          "column": 54
+        },
+        "end": {
+          "line": 92,
+          "column": 59
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 92,
+          "column": 43
+        },
+        "end": {
+          "line": 92,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 31,
+          "column": 20
+        },
+        "end": {
+          "line": 31,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 43,
+          "column": 20
+        },
+        "end": {
+          "line": 43,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 126,
+          "column": 25
+        },
+        "end": {
+          "line": 126,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 61,
+          "column": 12
+        },
+        "end": {
+          "line": 61,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 27,
+          "column": 21
+        },
+        "end": {
+          "line": 27,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 551,
+          "column": 27
+        },
+        "end": {
+          "line": 551,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 520,
+          "column": 9
+        },
+        "end": {
+          "line": 520,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 525,
+          "column": 28
+        },
+        "end": {
+          "line": 525,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 525,
+          "column": 38
+        },
+        "end": {
+          "line": 525,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 650,
+          "column": 16
+        },
+        "end": {
+          "line": 650,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 650,
+          "column": 24
+        },
+        "end": {
+          "line": 650,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 650,
+          "column": 38
+        },
+        "end": {
+          "line": 650,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 650,
+          "column": 46
+        },
+        "end": {
+          "line": 650,
+          "column": 56
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 659,
+          "column": 20
+        },
+        "end": {
+          "line": 659,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 659,
+          "column": 28
+        },
+        "end": {
+          "line": 659,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 664,
+          "column": 9
+        },
+        "end": {
+          "line": 664,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 673,
+          "column": 5
+        },
+        "end": {
+          "line": 673,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 676,
+          "column": 18
+        },
+        "end": {
+          "line": 676,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 676,
+          "column": 47
+        },
+        "end": {
+          "line": 676,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 683,
+          "column": 19
+        },
+        "end": {
+          "line": 683,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 654,
+          "column": 19
+        },
+        "end": {
+          "line": 654,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 647,
+          "column": 63
+        },
+        "end": {
+          "line": 647,
+          "column": 73
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 699,
+          "column": 9
+        },
+        "end": {
+          "line": 699,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 699,
+          "column": 13
+        },
+        "end": {
+          "line": 699,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 619,
+          "column": 44
+        },
+        "end": {
+          "line": 619,
+          "column": 62
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 519,
+          "column": 3
+        },
+        "end": {
+          "line": 526,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 734,
+          "column": 16
+        },
+        "end": {
+          "line": 734,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 733,
+          "column": 17
+        },
+        "end": {
+          "line": 733,
+          "column": 53
+        }
+      },
+      "type": "number"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "1261:16",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Strict string inequality (id1 !== id2) has no specialized fast path in this compiler: type guards on both operand reads and on the v4() call results all reported no effect, so the comparison stays a generic binary op even with proven string operands."
+    },
+    {
+      "location": "1306:54",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "concat is inherited from Array.prototype; binding the expectedBytes literal or guarding it does not expose the inherited method (tried an empty array shape binding + guard: no effect). Array.prototype has no bindable producing expression in this file."
+    },
+    {
+      "location": "1306:54",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "concat is inherited from Array.prototype; binding the expectedBytes literal or guarding it does not expose the inherited method (tried an empty array shape binding + guard: no effect). Array.prototype has no bindable producing expression in this file."
+    },
+    {
+      "location": "1327:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "print is a host global; the global object is not constructed anywhere in this file, so there is no source to bind a shape for this property load."
+    },
+    {
+      "location": "1333:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "print is a host global; the global object is not constructed anywhere in this file, so there is no source to bind a shape for this property load."
+    },
+    {
+      "location": "1327:10",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print",
+      "note": "print is a builtin host function with no function definition range in the source, so a closure type guard cannot name a target function to make the call direct/inline."
+    },
+    {
+      "location": "1333:14",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print",
+      "note": "print is a builtin host function with no function definition range in the source, so a closure type guard cannot name a target function to make the call direct/inline."
+    },
+    {
+      "location": "1130:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "`Array` is a builtin global; its defining global object has no source expression to bind or shape-guard, and global property loads remain side-effecting. No closure target exists for the native constructor."
+    },
+    {
+      "location": "1130:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "`Array` is a builtin global; its defining global object has no source expression to bind or shape-guard, and global property loads remain side-effecting. No closure target exists for the native constructor."
+    },
+    {
+      "location": "1143:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "`Array` is a builtin global; its defining global object has no source expression to bind or shape-guard, and global property loads remain side-effecting. No closure target exists for the native constructor."
+    },
+    {
+      "location": "1143:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "`Array` is a builtin global; its defining global object has no source expression to bind or shape-guard, and global property loads remain side-effecting. No closure target exists for the native constructor."
+    },
+    {
+      "location": "1208:47",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "`Array` is a builtin global; its defining global object has no source expression to bind or shape-guard, and global property loads remain side-effecting. No closure target exists for the native constructor."
+    },
+    {
+      "location": "1208:52",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "`Array` is a builtin global; its defining global object has no source expression to bind or shape-guard, and global property loads remain side-effecting. No closure target exists for the native constructor."
+    },
+    {
+      "location": "1201:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "`Array` is a builtin global; its defining global object has no source expression to bind or shape-guard, and global property loads remain side-effecting. No closure target exists for the native constructor."
+    },
+    {
+      "location": "1201:44",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "`Array` is a builtin global; its defining global object has no source expression to bind or shape-guard, and global property loads remain side-effecting. No closure target exists for the native constructor."
+    },
+    {
+      "location": "1205:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "`Array` is a builtin global; its defining global object has no source expression to bind or shape-guard, and global property loads remain side-effecting. No closure target exists for the native constructor."
+    },
+    {
+      "location": "1205:44",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "`Array` is a builtin global; its defining global object has no source expression to bind or shape-guard, and global property loads remain side-effecting. No closure target exists for the native constructor."
+    },
+    {
+      "location": "1212:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "`Array` is a builtin global; its defining global object has no source expression to bind or shape-guard, and global property loads remain side-effecting. No closure target exists for the native constructor."
+    },
+    {
+      "location": "1212:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "`Array` is a builtin global; its defining global object has no source expression to bind or shape-guard, and global property loads remain side-effecting. No closure target exists for the native constructor."
+    },
+    {
+      "location": "1224:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "`Array` is a builtin global; its defining global object has no source expression to bind or shape-guard, and global property loads remain side-effecting. No closure target exists for the native constructor."
+    },
+    {
+      "location": "1224:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "`Array` is a builtin global; its defining global object has no source expression to bind or shape-guard, and global property loads remain side-effecting. No closure target exists for the native constructor."
+    },
+    {
+      "location": "1151:80",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "`concat`/`fill` are inherited from the builtin Array.prototype, which is not created in source, so no prototype-shape binding is possible; the receiver array has no own property to shape. Native methods also have no closure target."
+    },
+    {
+      "location": "1151:80",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "`concat`/`fill` are inherited from the builtin Array.prototype, which is not created in source, so no prototype-shape binding is possible; the receiver array has no own property to shape. Native methods also have no closure target."
+    },
+    {
+      "location": "1208:61",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "fill",
+      "note": "`concat`/`fill` are inherited from the builtin Array.prototype, which is not created in source, so no prototype-shape binding is possible; the receiver array has no own property to shape. Native methods also have no closure target."
+    },
+    {
+      "location": "1208:61",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "fill",
+      "note": "`concat`/`fill` are inherited from the builtin Array.prototype, which is not created in source, so no prototype-shape binding is possible; the receiver array has no own property to shape. Native methods also have no closure target."
+    },
+    {
+      "location": "1232:80",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "`concat`/`fill` are inherited from the builtin Array.prototype, which is not created in source, so no prototype-shape binding is possible; the receiver array has no own property to shape. Native methods also have no closure target."
+    },
+    {
+      "location": "1232:80",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "`concat`/`fill` are inherited from the builtin Array.prototype, which is not created in source, so no prototype-shape binding is possible; the receiver array has no own property to shape. Native methods also have no closure target."
+    },
+    {
+      "location": "896:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "sort",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "897:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "split",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "897:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reverse",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "897:42",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "join",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "898:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "split",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "898:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reverse",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "898:42",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "join",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "915:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "sort",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "916:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "split",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "916:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reverse",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "916:42",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "join",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "917:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "split",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "917:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reverse",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "917:42",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "join",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "943:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "split",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "943:66",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "split",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "953:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "split",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "953:68",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "split",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "979:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "split",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "980:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "split",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "998:54",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "Builtin prototype method: no bindable object source for String.prototype/Array.prototype in this file, so the property load cannot take a shape slot."
+    },
+    {
+      "location": "943:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt",
+      "note": "parseInt is a load off the global object, which has no source expression in this file to bind a shape to."
+    },
+    {
+      "location": "943:47",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt",
+      "note": "parseInt is a load off the global object, which has no source expression in this file to bind a shape to."
+    },
+    {
+      "location": "953:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt",
+      "note": "parseInt is a load off the global object, which has no source expression in this file to bind a shape to."
+    },
+    {
+      "location": "953:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt",
+      "note": "parseInt is a load off the global object, which has no source expression in this file to bind a shape to."
+    },
+    {
+      "location": "981:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt",
+      "note": "parseInt is a load off the global object, which has no source expression in this file to bind a shape to."
+    },
+    {
+      "location": "981:42",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt",
+      "note": "parseInt is a load off the global object, which has no source expression in this file to bind a shape to."
+    },
+    {
+      "location": "896:37",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "sort",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "897:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "split",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "897:35",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "reverse",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "897:42",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "join",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "898:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "split",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "898:35",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "reverse",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "898:42",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "join",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "915:37",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "sort",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "916:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "split",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "916:35",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "reverse",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "916:42",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "join",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "917:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "split",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "917:35",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "reverse",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "917:42",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "join",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "943:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "split",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "943:66",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "split",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "953:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "split",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "953:68",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "split",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "979:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "split",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "980:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "split",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "998:54",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Callee is a builtin prototype method (String.prototype/Array.prototype); no closure definition exists in source to inline or closure-guard. String guards on the receivers were tried and had no effect."
+    },
+    {
+      "location": "943:19",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "parseInt",
+      "note": "parseInt is a global builtin with no closure definition in source; its global-object load cannot be shape-bound, so the call stays generic. Number guards on the results were added separately to optimize the surrounding subtraction."
+    },
+    {
+      "location": "943:55",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "parseInt",
+      "note": "parseInt is a global builtin with no closure definition in source; its global-object load cannot be shape-bound, so the call stays generic. Number guards on the results were added separately to optimize the surrounding subtraction."
+    },
+    {
+      "location": "953:19",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "parseInt",
+      "note": "parseInt is a global builtin with no closure definition in source; its global-object load cannot be shape-bound, so the call stays generic. Number guards on the results were added separately to optimize the surrounding subtraction."
+    },
+    {
+      "location": "953:56",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "parseInt",
+      "note": "parseInt is a global builtin with no closure definition in source; its global-object load cannot be shape-bound, so the call stays generic. Number guards on the results were added separately to optimize the surrounding subtraction."
+    },
+    {
+      "location": "981:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "parseInt",
+      "note": "parseInt is a global builtin with no closure definition in source; its global-object load cannot be shape-bound, so the call stays generic. Number guards on the results were added separately to optimize the surrounding subtraction."
+    },
+    {
+      "location": "981:50",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "parseInt",
+      "note": "parseInt is a global builtin with no closure definition in source; its global-object load cannot be shape-bound, so the call stays generic. Number guards on the results were added separately to optimize the surrounding subtraction."
+    },
+    {
+      "location": "899:18",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Operands are UUID strings (results of split/reverse/join or v1) compared with <, >, ===, !== — no numeric fast path applies. String type guards at the parameter declarations, at the reassigned join results, and at the comparison use sites were all tried and had no effect."
+    },
+    {
+      "location": "899:31",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Operands are UUID strings (results of split/reverse/join or v1) compared with <, >, ===, !== — no numeric fast path applies. String type guards at the parameter declarations, at the reassigned join results, and at the comparison use sites were all tried and had no effect."
+    },
+    {
+      "location": "918:18",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Operands are UUID strings (results of split/reverse/join or v1) compared with <, >, ===, !== — no numeric fast path applies. String type guards at the parameter declarations, at the reassigned join results, and at the comparison use sites were all tried and had no effect."
+    },
+    {
+      "location": "918:31",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Operands are UUID strings (results of split/reverse/join or v1) compared with <, >, ===, !== — no numeric fast path applies. String type guards at the parameter declarations, at the reassigned join results, and at the comparison use sites were all tried and had no effect."
+    },
+    {
+      "location": "927:11",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Operands are UUID strings (results of split/reverse/join or v1) compared with <, >, ===, !== — no numeric fast path applies. String type guards at the parameter declarations, at the reassigned join results, and at the comparison use sites were all tried and had no effect."
+    },
+    {
+      "location": "969:11",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Operands are UUID strings (results of split/reverse/join or v1) compared with <, >, ===, !== — no numeric fast path applies. String type guards at the parameter declarations, at the reassigned join results, and at the comparison use sites were all tried and had no effect."
+    },
+    {
+      "location": "25:22",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "strictEqual"
+    },
+    {
+      "location": "37:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "equal"
+    },
+    {
+      "location": "49:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "deepEqual"
+    },
+    {
+      "location": "51:17",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "throws"
+    },
+    {
+      "location": "60:13",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "ok"
+    },
+    {
+      "location": "7:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "7:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "1343:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "1343:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "1343:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "512:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "548:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "548:40",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "toString"
+    },
+    {
+      "location": "548:51",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "substr"
+    },
+    {
+      "location": "7:36",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "1343:36",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "1343:8",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "512:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array"
+    },
+    {
+      "location": "548:19",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "548:40",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "toString"
+    },
+    {
+      "location": "548:51",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "substr"
+    },
+    {
+      "location": "1343:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation: the left operand is the string literal \"Time: \" and the right is a numeric subtraction whose operands are already type-guarded, so '+' is a string conversion/concat, not numeric arithmetic - no numeric fast path or strength reduction is possible for it."
+    },
+    {
+      "location": "1038:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint8Array",
+      "note": "Receiver is a global/builtin (global object, Array constructor, or a native prototype such as Array.prototype/Number.prototype/String.prototype). No creation-site binding can be placed in this file, so the property slot cannot be made static."
+    },
+    {
+      "location": "1039:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "Receiver is a global/builtin (global object, Array constructor, or a native prototype such as Array.prototype/Number.prototype/String.prototype). No creation-site binding can be placed in this file, so the property slot cannot be made static."
+    },
+    {
+      "location": "1039:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "from",
+      "note": "Receiver is a global/builtin (global object, Array constructor, or a native prototype such as Array.prototype/Number.prototype/String.prototype). No creation-site binding can be placed in this file, so the property slot cannot be made static."
+    },
+    {
+      "location": "1043:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "map",
+      "note": "Receiver is a global/builtin (global object, Array constructor, or a native prototype such as Array.prototype/Number.prototype/String.prototype). No creation-site binding can be placed in this file, so the property slot cannot be made static."
+    },
+    {
+      "location": "1046:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "join",
+      "note": "Receiver is a global/builtin (global object, Array constructor, or a native prototype such as Array.prototype/Number.prototype/String.prototype). No creation-site binding can be placed in this file, so the property slot cannot be made static."
+    },
+    {
+      "location": "1050:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forEach",
+      "note": "Receiver is a global/builtin (global object, Array constructor, or a native prototype such as Array.prototype/Number.prototype/String.prototype). No creation-site binding can be placed in this file, so the property slot cannot be made static."
+    },
+    {
+      "location": "1062:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forEach",
+      "note": "Receiver is a global/builtin (global object, Array constructor, or a native prototype such as Array.prototype/Number.prototype/String.prototype). No creation-site binding can be placed in this file, so the property slot cannot be made static."
+    },
+    {
+      "location": "1044:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "toString",
+      "note": "Receiver is a global/builtin (global object, Array constructor, or a native prototype such as Array.prototype/Number.prototype/String.prototype). No creation-site binding can be placed in this file, so the property slot cannot be made static."
+    },
+    {
+      "location": "1044:43",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "padStart",
+      "note": "Receiver is a global/builtin (global object, Array constructor, or a native prototype such as Array.prototype/Number.prototype/String.prototype). No creation-site binding can be placed in this file, so the property slot cannot be made static."
+    },
+    {
+      "location": "1126:47",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "Receiver is a global/builtin (global object, Array constructor, or a native prototype such as Array.prototype/Number.prototype/String.prototype). No creation-site binding can be placed in this file, so the property slot cannot be made static."
+    },
+    {
+      "location": "1126:61",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "fill",
+      "note": "Receiver is a global/builtin (global object, Array constructor, or a native prototype such as Array.prototype/Number.prototype/String.prototype). No creation-site binding can be placed in this file, so the property slot cannot be made static."
+    },
+    {
+      "location": "1119:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "Receiver is a global/builtin (global object, Array constructor, or a native prototype such as Array.prototype/Number.prototype/String.prototype). No creation-site binding can be placed in this file, so the property slot cannot be made static."
+    },
+    {
+      "location": "1123:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "Receiver is a global/builtin (global object, Array constructor, or a native prototype such as Array.prototype/Number.prototype/String.prototype). No creation-site binding can be placed in this file, so the property slot cannot be made static."
+    },
+    {
+      "location": "1039:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "from",
+      "note": "Callee is a native builtin method/constructor with no function definition in this source, so a closure type guard has no target function and the dynamic call cannot be resolved."
+    },
+    {
+      "location": "1043:15",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "map",
+      "note": "Callee is a native builtin method/constructor with no function definition in this source, so a closure type guard has no target function and the dynamic call cannot be resolved."
+    },
+    {
+      "location": "1046:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "join",
+      "note": "Callee is a native builtin method/constructor with no function definition in this source, so a closure type guard has no target function and the dynamic call cannot be resolved."
+    },
+    {
+      "location": "1050:29",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEach",
+      "note": "Callee is a native builtin method/constructor with no function definition in this source, so a closure type guard has no target function and the dynamic call cannot be resolved."
+    },
+    {
+      "location": "1062:29",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEach",
+      "note": "Callee is a native builtin method/constructor with no function definition in this source, so a closure type guard has no target function and the dynamic call cannot be resolved."
+    },
+    {
+      "location": "1126:61",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "fill",
+      "note": "Callee is a native builtin method/constructor with no function definition in this source, so a closure type guard has no target function and the dynamic call cannot be resolved."
+    },
+    {
+      "location": "1044:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "toString",
+      "note": "Callee is a native builtin method/constructor with no function definition in this source, so a closure type guard has no target function and the dynamic call cannot be resolved."
+    },
+    {
+      "location": "1044:43",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "padStart",
+      "note": "Callee is a native builtin method/constructor with no function definition in this source, so a closure type guard has no target function and the dynamic call cannot be resolved."
+    },
+    {
+      "location": "1126:52",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array",
+      "note": "Callee is a native builtin method/constructor with no function definition in this source, so a closure type guard has no target function and the dynamic call cannot be resolved."
+    },
+    {
+      "location": "1119:44",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array",
+      "note": "Callee is a native builtin method/constructor with no function definition in this source, so a closure type guard has no target function and the dynamic call cannot be resolved."
+    },
+    {
+      "location": "1123:44",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array",
+      "note": "Callee is a native builtin method/constructor with no function definition in this source, so a closure type guard has no target function and the dynamic call cannot be resolved."
+    },
+    {
+      "location": "1051:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "equal",
+      "note": "The receiver's shape is assembled by the property stores at lines 25-60 (assert.strictEqual/equal/deepEqual/throws/ok), outside this chunk. A shape binding must sit at those creation stores; a guard here without such a binding always fails (verified: \"no shape binding for AssertFn - guard always fails\"), and a receiver type guard had no effect on the load."
+    },
+    {
+      "location": "1063:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "equal",
+      "note": "The receiver's shape is assembled by the property stores at lines 25-60 (assert.strictEqual/equal/deepEqual/throws/ok), outside this chunk. A shape binding must sit at those creation stores; a guard here without such a binding always fails (verified: \"no shape binding for AssertFn - guard always fails\"), and a receiver type guard had no effect on the load."
+    },
+    {
+      "location": "1075:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "strictEqual",
+      "note": "The receiver's shape is assembled by the property stores at lines 25-60 (assert.strictEqual/equal/deepEqual/throws/ok), outside this chunk. A shape binding must sit at those creation stores; a guard here without such a binding always fails (verified: \"no shape binding for AssertFn - guard always fails\"), and a receiver type guard had no effect on the load."
+    },
+    {
+      "location": "1077:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "strictEqual",
+      "note": "The receiver's shape is assembled by the property stores at lines 25-60 (assert.strictEqual/equal/deepEqual/throws/ok), outside this chunk. A shape binding must sit at those creation stores; a guard here without such a binding always fails (verified: \"no shape binding for AssertFn - guard always fails\"), and a receiver type guard had no effect on the load."
+    },
+    {
+      "location": "1082:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "strictEqual",
+      "note": "The receiver's shape is assembled by the property stores at lines 25-60 (assert.strictEqual/equal/deepEqual/throws/ok), outside this chunk. A shape binding must sit at those creation stores; a guard here without such a binding always fails (verified: \"no shape binding for AssertFn - guard always fails\"), and a receiver type guard had no effect on the load."
+    },
+    {
+      "location": "1106:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "throws",
+      "note": "The receiver's shape is assembled by the property stores at lines 25-60 (assert.strictEqual/equal/deepEqual/throws/ok), outside this chunk. A shape binding must sit at those creation stores; a guard here without such a binding always fails (verified: \"no shape binding for AssertFn - guard always fails\"), and a receiver type guard had no effect on the load."
+    },
+    {
+      "location": "1110:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "throws",
+      "note": "The receiver's shape is assembled by the property stores at lines 25-60 (assert.strictEqual/equal/deepEqual/throws/ok), outside this chunk. A shape binding must sit at those creation stores; a guard here without such a binding always fails (verified: \"no shape binding for AssertFn - guard always fails\"), and a receiver type guard had no effect on the load."
+    },
+    {
+      "location": "1118:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "throws",
+      "note": "The receiver's shape is assembled by the property stores at lines 25-60 (assert.strictEqual/equal/deepEqual/throws/ok), outside this chunk. A shape binding must sit at those creation stores; a guard here without such a binding always fails (verified: \"no shape binding for AssertFn - guard always fails\"), and a receiver type guard had no effect on the load."
+    },
+    {
+      "location": "1122:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "throws",
+      "note": "The receiver's shape is assembled by the property stores at lines 25-60 (assert.strictEqual/equal/deepEqual/throws/ok), outside this chunk. A shape binding must sit at those creation stores; a guard here without such a binding always fails (verified: \"no shape binding for AssertFn - guard always fails\"), and a receiver type guard had no effect on the load."
+    },
+    {
+      "location": "1114:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "ok",
+      "note": "The receiver's shape is assembled by the property stores at lines 25-60 (assert.strictEqual/equal/deepEqual/throws/ok), outside this chunk. A shape binding must sit at those creation stores; a guard here without such a binding always fails (verified: \"no shape binding for AssertFn - guard always fails\"), and a receiver type guard had no effect on the load."
+    },
+    {
+      "location": "1126:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "ok",
+      "note": "The receiver's shape is assembled by the property stores at lines 25-60 (assert.strictEqual/equal/deepEqual/throws/ok), outside this chunk. A shape binding must sit at those creation stores; a guard here without such a binding always fails (verified: \"no shape binding for AssertFn - guard always fails\"), and a receiver type guard had no effect on the load."
+    },
+    {
+      "location": "1075:54",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "DNS",
+      "note": "v3/v5 are closures returned by v35 and their DNS/URL slots are written at lines 817-818 (inside v35) and 827-828 (v3), outside this chunk; a shape binding cannot be placed at those creation stores here, and a closure type guard on the v3 receiver had no effect on the load."
+    },
+    {
+      "location": "1078:44",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "URL",
+      "note": "v3/v5 are closures returned by v35 and their DNS/URL slots are written at lines 817-818 (inside v35) and 827-828 (v3), outside this chunk; a shape binding cannot be placed at those creation stores here, and a closure type guard on the v3 receiver had no effect on the load."
+    },
+    {
+      "location": "354:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "msg is a parameter and the += is string concatenation; string type guards on the msg declaration, the += LHS, and the fromCharCode call result all produced no compiler effect, so the Add cannot take a numeric fast path."
+    },
+    {
+      "location": "409:18",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Add chain includes sha1ROTL/sha1f call results and K[s]/W[t] element loads; call-result type guards are unsupported (no effect) and number guards on e, K[s], W[t] produced no effect, so operands are not provably numbers."
+    },
+    {
+      "location": "410:17",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Add chain includes sha1ROTL/sha1f call results and K[s]/W[t] element loads; call-result type guards are unsupported (no effect) and number guards on e, K[s], W[t] produced no effect, so operands are not provably numbers."
+    },
+    {
+      "location": "357:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length",
+      "note": "No bindable object source: string length/charCodeAt live on the primitive/builtin String.prototype, Array is an unresolvable global load, and concat is inherited from the builtin Array.prototype; type guards on msg/msg.length produced no effect and no in-file shape can be bound for primitives or builtin prototypes."
+    },
+    {
+      "location": "359:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "No bindable object source: string length/charCodeAt live on the primitive/builtin String.prototype, Array is an unresolvable global load, and concat is inherited from the builtin Array.prototype; type guards on msg/msg.length produced no effect and no in-file shape can be bound for primitives or builtin prototypes."
+    },
+    {
+      "location": "361:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "No bindable object source: string length/charCodeAt live on the primitive/builtin String.prototype, Array is an unresolvable global load, and concat is inherited from the builtin Array.prototype; type guards on msg/msg.length produced no effect and no in-file shape can be bound for primitives or builtin prototypes."
+    },
+    {
+      "location": "365:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "charCodeAt",
+      "note": "No bindable object source: string length/charCodeAt live on the primitive/builtin String.prototype, Array is an unresolvable global load, and concat is inherited from the builtin Array.prototype; type guards on msg/msg.length produced no effect and no in-file shape can be bound for primitives or builtin prototypes."
+    },
+    {
+      "location": "366:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "charCodeAt",
+      "note": "No bindable object source: string length/charCodeAt live on the primitive/builtin String.prototype, Array is an unresolvable global load, and concat is inherited from the builtin Array.prototype; type guards on msg/msg.length produced no effect and no in-file shape can be bound for primitives or builtin prototypes."
+    },
+    {
+      "location": "367:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "charCodeAt",
+      "note": "No bindable object source: string length/charCodeAt live on the primitive/builtin String.prototype, Array is an unresolvable global load, and concat is inherited from the builtin Array.prototype; type guards on msg/msg.length produced no effect and no in-file shape can be bound for primitives or builtin prototypes."
+    },
+    {
+      "location": "368:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "charCodeAt",
+      "note": "No bindable object source: string length/charCodeAt live on the primitive/builtin String.prototype, Array is an unresolvable global load, and concat is inherited from the builtin Array.prototype; type guards on msg/msg.length produced no effect and no in-file shape can be bound for primitives or builtin prototypes."
+    },
+    {
+      "location": "375:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length",
+      "note": "No bindable object source: string length/charCodeAt live on the primitive/builtin String.prototype, Array is an unresolvable global load, and concat is inherited from the builtin Array.prototype; type guards on msg/msg.length produced no effect and no in-file shape can be bound for primitives or builtin prototypes."
+    },
+    {
+      "location": "377:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length",
+      "note": "No bindable object source: string length/charCodeAt live on the primitive/builtin String.prototype, Array is an unresolvable global load, and concat is inherited from the builtin Array.prototype; type guards on msg/msg.length produced no effect and no in-file shape can be bound for primitives or builtin prototypes."
+    },
+    {
+      "location": "388:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "No bindable object source: string length/charCodeAt live on the primitive/builtin String.prototype, Array is an unresolvable global load, and concat is inherited from the builtin Array.prototype; type guards on msg/msg.length produced no effect and no in-file shape can be bound for primitives or builtin prototypes."
+    },
+    {
+      "location": "429:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "No bindable object source: string length/charCodeAt live on the primitive/builtin String.prototype, Array is an unresolvable global load, and concat is inherited from the builtin Array.prototype; type guards on msg/msg.length produced no effect and no in-file shape can be bound for primitives or builtin prototypes."
+    },
+    {
+      "location": "430:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "No bindable object source: string length/charCodeAt live on the primitive/builtin String.prototype, Array is an unresolvable global load, and concat is inherited from the builtin Array.prototype; type guards on msg/msg.length produced no effect and no in-file shape can be bound for primitives or builtin prototypes."
+    },
+    {
+      "location": "431:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "No bindable object source: string length/charCodeAt live on the primitive/builtin String.prototype, Array is an unresolvable global load, and concat is inherited from the builtin Array.prototype; type guards on msg/msg.length produced no effect and no in-file shape can be bound for primitives or builtin prototypes."
+    },
+    {
+      "location": "432:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "No bindable object source: string length/charCodeAt live on the primitive/builtin String.prototype, Array is an unresolvable global load, and concat is inherited from the builtin Array.prototype; type guards on msg/msg.length produced no effect and no in-file shape can be bound for primitives or builtin prototypes."
+    },
+    {
+      "location": "477:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "No bindable object source: string length/charCodeAt live on the primitive/builtin String.prototype, Array is an unresolvable global load, and concat is inherited from the builtin Array.prototype; type guards on msg/msg.length produced no effect and no in-file shape can be bound for primitives or builtin prototypes."
+    },
+    {
+      "location": "359:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array",
+      "note": "Builtin dispatches (global Array constructor, String.prototype.charCodeAt, Array.prototype.concat) have no in-file function definition to name as a closure target, so no closure type guard or shape closure can make them direct/inlined."
+    },
+    {
+      "location": "361:23",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array",
+      "note": "Builtin dispatches (global Array constructor, String.prototype.charCodeAt, Array.prototype.concat) have no in-file function definition to name as a closure target, so no closure type guard or shape closure can make them direct/inlined."
+    },
+    {
+      "location": "365:26",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "charCodeAt",
+      "note": "Builtin dispatches (global Array constructor, String.prototype.charCodeAt, Array.prototype.concat) have no in-file function definition to name as a closure target, so no closure type guard or shape closure can make them direct/inlined."
+    },
+    {
+      "location": "366:26",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "charCodeAt",
+      "note": "Builtin dispatches (global Array constructor, String.prototype.charCodeAt, Array.prototype.concat) have no in-file function definition to name as a closure target, so no closure type guard or shape closure can make them direct/inlined."
+    },
+    {
+      "location": "367:26",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "charCodeAt",
+      "note": "Builtin dispatches (global Array constructor, String.prototype.charCodeAt, Array.prototype.concat) have no in-file function definition to name as a closure target, so no closure type guard or shape closure can make them direct/inlined."
+    },
+    {
+      "location": "368:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "charCodeAt",
+      "note": "Builtin dispatches (global Array constructor, String.prototype.charCodeAt, Array.prototype.concat) have no in-file function definition to name as a closure target, so no closure type guard or shape closure can make them direct/inlined."
+    },
+    {
+      "location": "388:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array",
+      "note": "Builtin dispatches (global Array constructor, String.prototype.charCodeAt, Array.prototype.concat) have no in-file function definition to name as a closure target, so no closure type guard or shape closure can make them direct/inlined."
+    },
+    {
+      "location": "429:14",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Builtin dispatches (global Array constructor, String.prototype.charCodeAt, Array.prototype.concat) have no in-file function definition to name as a closure target, so no closure type guard or shape closure can make them direct/inlined."
+    },
+    {
+      "location": "430:14",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Builtin dispatches (global Array constructor, String.prototype.charCodeAt, Array.prototype.concat) have no in-file function definition to name as a closure target, so no closure type guard or shape closure can make them direct/inlined."
+    },
+    {
+      "location": "431:14",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Builtin dispatches (global Array constructor, String.prototype.charCodeAt, Array.prototype.concat) have no in-file function definition to name as a closure target, so no closure type guard or shape closure can make them direct/inlined."
+    },
+    {
+      "location": "432:14",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Builtin dispatches (global Array constructor, String.prototype.charCodeAt, Array.prototype.concat) have no in-file function definition to name as a closure target, so no closure type guard or shape closure can make them direct/inlined."
+    },
+    {
+      "location": "477:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array",
+      "note": "Builtin dispatches (global Array constructor, String.prototype.charCodeAt, Array.prototype.concat) have no in-file function definition to name as a closure target, so no closure type guard or shape closure can make them direct/inlined."
+    },
+    {
+      "location": "747:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "unescape",
+      "note": "Loads from the global object (unescape/encodeURIComponent/TypeError/Uint8Array/print). No source expression produces the global object, so no shape binding or guard can be placed on the receiver; a type guard on the identifier has no target."
+    },
+    {
+      "location": "747:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "encodeURIComponent",
+      "note": "Loads from the global object (unescape/encodeURIComponent/TypeError/Uint8Array/print). No source expression produces the global object, so no shape binding or guard can be placed on the receiver; a type guard on the identifier has no target."
+    },
+    {
+      "location": "783:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "TypeError",
+      "note": "Loads from the global object (unescape/encodeURIComponent/TypeError/Uint8Array/print). No source expression produces the global object, so no shape binding or guard can be placed on the receiver; a type guard on the identifier has no target."
+    },
+    {
+      "location": "789:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint8Array",
+      "note": "Loads from the global object (unescape/encodeURIComponent/TypeError/Uint8Array/print). No source expression produces the global object, so no shape binding or guard can be placed on the receiver; a type guard on the identifier has no target."
+    },
+    {
+      "location": "877:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "Loads from the global object (unescape/encodeURIComponent/TypeError/Uint8Array/print). No source expression produces the global object, so no shape binding or guard can be placed on the receiver; a type guard on the identifier has no target."
+    },
+    {
+      "location": "882:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "Loads from the global object (unescape/encodeURIComponent/TypeError/Uint8Array/print). No source expression produces the global object, so no shape binding or guard can be placed on the receiver; a type guard on the identifier has no target."
+    },
+    {
+      "location": "752:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Method lives on a native prototype (Array.prototype.push, String.prototype.charCodeAt, %TypedArray%.prototype.set, both direct prototype of the receiver). The prototype object has no source expression in the file, so no prototype shape can be bound; a shape guard without a binding always fails (tried ByteArray guard on the local bytes array: push stayed generic)."
+    },
+    {
+      "location": "752:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "charCodeAt",
+      "note": "Method lives on a native prototype (Array.prototype.push, String.prototype.charCodeAt, %TypedArray%.prototype.set, both direct prototype of the receiver). The prototype object has no source expression in the file, so no prototype shape can be bound; a shape guard without a binding always fails (tried ByteArray guard on the local bytes array: push stayed generic)."
+    },
+    {
+      "location": "790:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "set",
+      "note": "Method lives on a native prototype (Array.prototype.push, String.prototype.charCodeAt, %TypedArray%.prototype.set, both direct prototype of the receiver). The prototype object has no source expression in the file, so no prototype shape can be bound; a shape guard without a binding always fails (tried ByteArray guard on the local bytes array: push stayed generic)."
+    },
+    {
+      "location": "791:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "set",
+      "note": "Method lives on a native prototype (Array.prototype.push, String.prototype.charCodeAt, %TypedArray%.prototype.set, both direct prototype of the receiver). The prototype object has no source expression in the file, so no prototype shape can be bound; a shape guard without a binding always fails (tried ByteArray guard on the local bytes array: push stayed generic)."
+    },
+    {
+      "location": "751:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length",
+      "note": "length is inherited/primitive: str is a string primitive; namespace is a Uint8Array produced by parse() (line 711, outside this chunk) or a caller array-like, so no creation-site shape binding is available in this scope. A number type guard on the member (751:25-751:35) optimizes the surrounding arithmetic but does not strength-reduce the load itself."
+    },
+    {
+      "location": "782:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length",
+      "note": "length is inherited/primitive: str is a string primitive; namespace is a Uint8Array produced by parse() (line 711, outside this chunk) or a caller array-like, so no creation-site shape binding is available in this scope. A number type guard on the member (751:25-751:35) optimizes the surrounding arithmetic but does not strength-reduce the load itself."
+    },
+    {
+      "location": "791:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length",
+      "note": "length is inherited/primitive: str is a string primitive; namespace is a Uint8Array produced by parse() (line 711, outside this chunk) or a caller array-like, so no creation-site shape binding is available in this scope. A number type guard on the member (751:25-751:35) optimizes the surrounding arithmetic but does not strength-reduce the load itself."
+    },
+    {
+      "location": "747:19",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "unescape",
+      "note": "Native/global builtin functions are not defined in this source, so a closure type guard (which requires a target function range) cannot name a target; the call stays dynamic."
+    },
+    {
+      "location": "747:38",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "encodeURIComponent",
+      "note": "Native/global builtin functions are not defined in this source, so a closure type guard (which requires a target function range) cannot name a target; the call stays dynamic."
+    },
+    {
+      "location": "783:24",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "TypeError",
+      "note": "Native/global builtin functions are not defined in this source, so a closure type guard (which requires a target function range) cannot name a target; the call stays dynamic."
+    },
+    {
+      "location": "789:33",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint8Array",
+      "note": "Native/global builtin functions are not defined in this source, so a closure type guard (which requires a target function range) cannot name a target; the call stays dynamic."
+    },
+    {
+      "location": "877:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print",
+      "note": "Native/global builtin functions are not defined in this source, so a closure type guard (which requires a target function range) cannot name a target; the call stays dynamic."
+    },
+    {
+      "location": "882:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print",
+      "note": "Native/global builtin functions are not defined in this source, so a closure type guard (which requires a target function range) cannot name a target; the call stays dynamic."
+    },
+    {
+      "location": "752:17",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push",
+      "note": "Native prototype methods (Array.prototype.push, String.prototype.charCodeAt, %TypedArray%.prototype.set): no function definition range exists in the source, so no closure target for a closure type guard."
+    },
+    {
+      "location": "752:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "charCodeAt",
+      "note": "Native prototype methods (Array.prototype.push, String.prototype.charCodeAt, %TypedArray%.prototype.set): no function definition range exists in the source, so no closure target for a closure type guard."
+    },
+    {
+      "location": "790:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "set",
+      "note": "Native prototype methods (Array.prototype.push, String.prototype.charCodeAt, %TypedArray%.prototype.set): no function definition range exists in the source, so no closure target for a closure type guard."
+    },
+    {
+      "location": "791:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "set",
+      "note": "Native prototype methods (Array.prototype.push, String.prototype.charCodeAt, %TypedArray%.prototype.set): no function definition range exists in the source, so no closure target for a closure type guard."
+    },
+    {
+      "location": "878:10",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "note": "The callee is the polymorphic thunk parameter, invoked with 26 distinct arrow functions from the test blocks (plus 3 describe wrappers); there is no single statically known closure target, and a guard for any one caller would not describe the site."
+    },
+    {
+      "location": "883:10",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "note": "The callee is the polymorphic thunk parameter, invoked with 26 distinct arrow functions from the test blocks (plus 3 describe wrappers); there is no single statically known closure target, and a guard for any one caller would not describe the site."
+    },
+    {
+      "location": "812:25",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "name",
+      "note": "Namespace assembly on the freshly created generateUUID closure: name/DNS/URL slots do not exist yet when each store runs. Attempted a UUIDfn shape binding on the receiver of the final URL store plus shape guards at 817/818; no effect (function-object receivers are not shape-describable here), so there is no fixed slot to write."
+    },
+    {
+      "location": "817:22",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "DNS",
+      "note": "Namespace assembly on the freshly created generateUUID closure: name/DNS/URL slots do not exist yet when each store runs. Attempted a UUIDfn shape binding on the receiver of the final URL store plus shape guards at 817/818; no effect (function-object receivers are not shape-describable here), so there is no fixed slot to write."
+    },
+    {
+      "location": "818:22",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "URL",
+      "note": "Namespace assembly on the freshly created generateUUID closure: name/DNS/URL slots do not exist yet when each store runs. Attempted a UUIDfn shape binding on the receiver of the final URL store plus shape guards at 817/818; no effect (function-object receivers are not shape-describable here), so there is no fixed slot to write."
+    },
+    {
+      "location": "836:25",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "random",
+      "note": "options is not created in this function: call sites pass {}, {random}, or {rng} (three different property sets), and `options = options || {}` only yields the empty default. A shape guard cannot create a shape (the caller-created objects are never bound), and no single shape covers the differing call-site shapes."
+    },
+    {
+      "location": "836:44",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "rng",
+      "note": "options is not created in this function: call sites pass {}, {random}, or {rng} (three different property sets), and `options = options || {}` only yields the empty default. A shape guard cannot create a shape (the caller-created objects are never bound), and no single shape covers the differing call-site shapes."
+    },
+    {
+      "location": "234:21",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array",
+      "note": "Array is a builtin global with no function definition in this file, so a closure type guard cannot name a target; binding the resulting array (shape ArrLen) does not specialize the constructor call."
+    },
+    {
+      "location": "235:19",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array",
+      "note": "Array is a builtin global with no function definition in this file, so a closure type guard cannot name a target; binding the resulting array (shape ArrLen) does not specialize the constructor call."
+    },
+    {
+      "location": "267:20",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array",
+      "note": "Array is a builtin global with no function definition in this file, so a closure type guard cannot name a target; binding the resulting array (shape ArrLen) does not specialize the constructor call."
+    },
+    {
+      "location": "300:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array",
+      "note": "Array is a builtin global with no function definition in this file, so a closure type guard cannot name a target; binding the resulting array (shape ArrLen) does not specialize the constructor call."
+    },
+    {
+      "location": "234:16",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Array",
+      "note": "Global builtin property load (Array on the global object). The global object has no annotatable source expression in this file and global-property loads always remain side-effecting for the optimizer; no shape/type guard applies."
+    },
+    {
+      "location": "235:14",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Array",
+      "note": "Global builtin property load (Array on the global object). The global object has no annotatable source expression in this file and global-property loads always remain side-effecting for the optimizer; no shape/type guard applies."
+    },
+    {
+      "location": "267:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Array",
+      "note": "Global builtin property load (Array on the global object). The global object has no annotatable source expression in this file and global-property loads always remain side-effecting for the optimizer; no shape/type guard applies."
+    },
+    {
+      "location": "300:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Array",
+      "note": "Global builtin property load (Array on the global object). The global object has no annotatable source expression in this file and global-property loads always remain side-effecting for the optimizer; no shape/type guard applies."
+    },
+    {
+      "location": "232:52",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length",
+      "note": ".length on a primitive string: strings are not objects, so no static shape/binding can describe them. String type guards on the receiver (and number guards on the member) had no effect on the load itself (they only specialized the consuming arithmetic)."
+    },
+    {
+      "location": "241:64",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length",
+      "note": ".length on a primitive string: strings are not objects, so no static shape/binding can describe them. String type guards on the receiver (and number guards on the member) had no effect on the load itself (they only specialized the consuming arithmetic)."
+    },
+    {
+      "location": "269:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length",
+      "note": ".length on a primitive string: strings are not objects, so no static shape/binding can describe them. String type guards on the receiver (and number guards on the member) had no effect on the load itself (they only specialized the consuming arithmetic)."
+    },
+    {
+      "location": "270:37",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "charCodeAt",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "270:37",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "charCodeAt",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "293:23",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "charAt",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "293:23",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "charAt",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "294:23",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "charAt",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "294:23",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "charAt",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "339:31",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "charAt",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "339:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "charAt",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "241:36",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "241:36",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "242:32",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "242:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "314:14",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "314:14",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "315:14",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "315:14",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "316:14",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "316:14",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "concat",
+      "note": "Builtin methods inherited from String.prototype/Array.prototype. No .prototype expression exists in this file, so no prototype shape can be bound, and there is no function definition to serve as a closure target. Shape guards on the receivers (verified for Array.concat on an ArrLen-bound array and for string receivers) leave the method load/call generic."
+    },
+    {
+      "location": "205:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "Identifier resolves to the global Array binding; its definition/closure is not in this file, so no type guard or shape binding can give it a known source (same limitation file-wide for Array loads)."
+    },
+    {
+      "location": "205:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "Identifier resolves to the global Array binding; its definition/closure is not in this file, so no type guard or shape binding can give it a known source (same limitation file-wide for Array loads)."
+    },
+    {
+      "location": "42:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "Identifier resolves to the global Array binding; its definition/closure is not in this file, so no type guard or shape binding can give it a known source (same limitation file-wide for Array loads)."
+    },
+    {
+      "location": "92:44",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Receiver is a primitive string (string type guard applied): .length reads on strings are not strength-reduced by this compiler, and a shape binding/guard only applies to object creation sites (none for these callers' values inside this function)."
+    },
+    {
+      "location": "25:34",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Strict equality/inequality is only strength-reduced for proven-numeric operands (a number type guard on the operands does optimize it); at every call site these operands are strings or arrays, so no truthful numeric guard exists."
+    },
+    {
+      "location": "28:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Strict equality/inequality is only strength-reduced for proven-numeric operands (a number type guard on the operands does optimize it); at every call site these operands are strings or arrays, so no truthful numeric guard exists."
+    },
+    {
+      "location": "40:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Strict equality/inequality is only strength-reduced for proven-numeric operands (a number type guard on the operands does optimize it); at every call site these operands are strings or arrays, so no truthful numeric guard exists."
+    },
+    {
+      "location": "41:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Compares two typeof results, which are always strings; the checker only strength-reduces numeric comparisons and there is no type guard that expresses \"array/object\" to fold the same-type comparison (type guards for string would be false at every call site)."
+    },
+    {
+      "location": "53:12",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "note": "thunk() is called with 9 distinct closure definitions across call sites (933, 1106, 1110, 1118, 1122, 1188, 1192, 1200, 1204); closure type guards targeting any single target function produced no effect on the call site."
+    },
+    {
+      "location": "525:27",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "slice",
+      "note": "rnds8Pool.slice is Array.prototype.slice: inherited builtin with no local function definition, and Array.prototype has no source expression in this file to bind a prototype shape."
+    },
+    {
+      "location": "525:27",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "slice",
+      "note": "rnds8Pool.slice is Array.prototype.slice: inherited builtin with no local function definition, and Array.prototype has no source expression in this file to bind a prototype shape."
+    },
+    {
+      "location": "535:50",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "test",
+      "note": "REGEX.test is RegExp.prototype.test: inherited builtin with no local function definition and no source expression for RegExp.prototype to bind a prototype shape."
+    },
+    {
+      "location": "535:50",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "test",
+      "note": "REGEX.test is RegExp.prototype.test: inherited builtin with no local function definition and no source expression for RegExp.prototype to bind a prototype shape."
+    },
+    {
+      "location": "618:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish equality (== null) on values with no supported static type: node holds an Array or null (the type system has no array/object type), and clockseq holds number|undefined|null; number, null|undefined and number|undefined|null type guards all verified as no-effect on these comparisons."
+    },
+    {
+      "location": "618:25",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish equality (== null) on values with no supported static type: node holds an Array or null (the type system has no array/object type), and clockseq holds number|undefined|null; number, null|undefined and number|undefined|null type guards all verified as no-effect on these comparisons."
+    },
+    {
+      "location": "633:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish equality (== null) on values with no supported static type: node holds an Array or null (the type system has no array/object type), and clockseq holds number|undefined|null; number, null|undefined and number|undefined|null type guards all verified as no-effect on these comparisons."
+    },
+    {
+      "location": "609:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "Array / Error are properties of the host global object, which has no bindable source expression in this file."
+    },
+    {
+      "location": "665:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error",
+      "note": "Array / Error are properties of the host global object, which has no bindable source expression in this file."
+    },
+    {
+      "location": "609:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array",
+      "note": "Host builtin constructors Array/Error have no function definition in this file, so no closure type guard can name a target function."
+    },
+    {
+      "location": "665:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error",
+      "note": "Host builtin constructors Array/Error have no function definition in this file, so no closure type guard can name a target function."
+    },
+    {
+      "location": "707:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "TypeError",
+      "note": "TypeError / Uint8Array / parseInt are properties of the host global object, which has no bindable source expression in this file."
+    },
+    {
+      "location": "711:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint8Array",
+      "note": "TypeError / Uint8Array / parseInt are properties of the host global object, which has no bindable source expression in this file."
+    },
+    {
+      "location": "714:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt",
+      "note": "TypeError / Uint8Array / parseInt are properties of the host global object, which has no bindable source expression in this file."
+    },
+    {
+      "location": "720:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt",
+      "note": "TypeError / Uint8Array / parseInt are properties of the host global object, which has no bindable source expression in this file."
+    },
+    {
+      "location": "724:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt",
+      "note": "TypeError / Uint8Array / parseInt are properties of the host global object, which has no bindable source expression in this file."
+    },
+    {
+      "location": "728:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt",
+      "note": "TypeError / Uint8Array / parseInt are properties of the host global object, which has no bindable source expression in this file."
+    },
+    {
+      "location": "733:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt",
+      "note": "TypeError / Uint8Array / parseInt are properties of the host global object, which has no bindable source expression in this file."
+    },
+    {
+      "location": "707:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "TypeError",
+      "note": "Host builtins TypeError / Uint8Array / parseInt have no function definition in this file, so no closure type guard can name a target function."
+    },
+    {
+      "location": "711:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint8Array",
+      "note": "Host builtins TypeError / Uint8Array / parseInt have no function definition in this file, so no closure type guard can name a target function."
+    },
+    {
+      "location": "714:27",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "parseInt",
+      "note": "Host builtins TypeError / Uint8Array / parseInt have no function definition in this file, so no closure type guard can name a target function."
+    },
+    {
+      "location": "720:27",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "parseInt",
+      "note": "Host builtins TypeError / Uint8Array / parseInt have no function definition in this file, so no closure type guard can name a target function."
+    },
+    {
+      "location": "724:27",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "parseInt",
+      "note": "Host builtins TypeError / Uint8Array / parseInt have no function definition in this file, so no closure type guard can name a target function."
+    },
+    {
+      "location": "728:27",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "parseInt",
+      "note": "Host builtins TypeError / Uint8Array / parseInt have no function definition in this file, so no closure type guard can name a target function."
+    },
+    {
+      "location": "733:29",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "parseInt",
+      "note": "Host builtins TypeError / Uint8Array / parseInt have no function definition in this file, so no closure type guard can name a target function."
+    },
+    {
+      "location": "714:38",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "slice",
+      "note": "uuid.slice is String.prototype.slice: inherited builtin with no local function definition and no source expression for String.prototype to bind a prototype shape; a string type guard on uuid was verified no-effect (string receivers get no method intrinsics)."
+    },
+    {
+      "location": "714:38",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "slice",
+      "note": "uuid.slice is String.prototype.slice: inherited builtin with no local function definition and no source expression for String.prototype to bind a prototype shape; a string type guard on uuid was verified no-effect (string receivers get no method intrinsics)."
+    },
+    {
+      "location": "720:38",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "slice",
+      "note": "uuid.slice is String.prototype.slice: inherited builtin with no local function definition and no source expression for String.prototype to bind a prototype shape; a string type guard on uuid was verified no-effect (string receivers get no method intrinsics)."
+    },
+    {
+      "location": "720:38",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "slice",
+      "note": "uuid.slice is String.prototype.slice: inherited builtin with no local function definition and no source expression for String.prototype to bind a prototype shape; a string type guard on uuid was verified no-effect (string receivers get no method intrinsics)."
+    },
+    {
+      "location": "724:38",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "slice",
+      "note": "uuid.slice is String.prototype.slice: inherited builtin with no local function definition and no source expression for String.prototype to bind a prototype shape; a string type guard on uuid was verified no-effect (string receivers get no method intrinsics)."
+    },
+    {
+      "location": "724:38",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "slice",
+      "note": "uuid.slice is String.prototype.slice: inherited builtin with no local function definition and no source expression for String.prototype to bind a prototype shape; a string type guard on uuid was verified no-effect (string receivers get no method intrinsics)."
+    },
+    {
+      "location": "728:38",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "slice",
+      "note": "uuid.slice is String.prototype.slice: inherited builtin with no local function definition and no source expression for String.prototype to bind a prototype shape; a string type guard on uuid was verified no-effect (string receivers get no method intrinsics)."
+    },
+    {
+      "location": "728:38",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "slice",
+      "note": "uuid.slice is String.prototype.slice: inherited builtin with no local function definition and no source expression for String.prototype to bind a prototype shape; a string type guard on uuid was verified no-effect (string receivers get no method intrinsics)."
+    },
+    {
+      "location": "733:40",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "slice",
+      "note": "uuid.slice is String.prototype.slice: inherited builtin with no local function definition and no source expression for String.prototype to bind a prototype shape; a string type guard on uuid was verified no-effect (string receivers get no method intrinsics)."
+    },
+    {
+      "location": "733:40",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "slice",
+      "note": "uuid.slice is String.prototype.slice: inherited builtin with no local function definition and no source expression for String.prototype to bind a prototype shape; a string type guard on uuid was verified no-effect (string receivers get no method intrinsics)."
+    },
+    {
+      "location": "555:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "The whole UUID string is built by one n-ary `+` chain whose 16 non-constant operands are indexed element loads byteToHex[arr[offset+k]]. The array element type cannot be established statically (byteToHex is filled by push; only its length can be shape-bound) and per-operand string type guards on the indexed expressions were verified as no-effect/unmatched, so the concatenation stays a generic operation."
+    },
+    {
+      "location": "575:18",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "toLowerCase",
+      "note": "The receiver is the multi-line parenthesized concatenation; it has no addressable IR node (type guards on the parenthesized/inner expression and on the uuid const were auto-pruned as unmatched) and its operand types cannot be established, so the receiver type stays unknown and .toLowerCase cannot take a typed string-method path."
+    },
+    {
+      "location": "575:18",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "toLowerCase",
+      "note": "String.prototype.toLowerCase is an inherited builtin with no local function definition, and no source expression exists for String.prototype to bind a prototype shape."
+    },
+    {
+      "location": "583:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "print / TypeError are properties of the host global object, which has no bindable source expression in this file."
+    },
+    {
+      "location": "584:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "print / TypeError are properties of the host global object, which has no bindable source expression in this file."
+    },
+    {
+      "location": "585:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "TypeError",
+      "note": "print / TypeError are properties of the host global object, which has no bindable source expression in this file."
+    },
+    {
+      "location": "583:12",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print",
+      "note": "Host builtins print / TypeError have no function definition in this file, so no closure type guard can name a target function."
+    },
+    {
+      "location": "584:12",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print",
+      "note": "Host builtins print / TypeError have no function definition in this file, so no closure type guard can name a target function."
+    },
+    {
+      "location": "585:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "TypeError",
+      "note": "Host builtins print / TypeError have no function definition in this file, so no closure type guard can name a target function."
+    },
+    {
+      "location": "612:23",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "node",
+      "note": "v1 options reads cannot share one static shape: in-file call sites pass {} (the `{}` default, no slots), {msecs}, {msecs,nsecs}, and {msecs,nsecs,clockseq,node}; random/rng are optional properties no in-file caller supplies. Binding the only in-chunk creation point (the `{}` default) exposed no slots and optimized nothing; the full-shape call sites are literals inside testv1/testv4 (outside this chunk)."
+    },
+    {
+      "location": "613:20",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape",
+      "note": "v1 options reads cannot share one static shape: in-file call sites pass {} (the `{}` default, no slots), {msecs}, {msecs,nsecs}, and {msecs,nsecs,clockseq,node}; random/rng are optional properties no in-file caller supplies. Binding the only in-chunk creation point (the `{}` default) exposed no slots and optimized nothing; the full-shape call sites are literals inside testv1/testv4 (outside this chunk)."
+    },
+    {
+      "location": "613:27",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "clockseq",
+      "note": "v1 options reads cannot share one static shape: in-file call sites pass {} (the `{}` default, no slots), {msecs}, {msecs,nsecs}, and {msecs,nsecs,clockseq,node}; random/rng are optional properties no in-file caller supplies. Binding the only in-chunk creation point (the `{}` default) exposed no slots and optimized nothing; the full-shape call sites are literals inside testv1/testv4 (outside this chunk)."
+    },
+    {
+      "location": "613:60",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "clockseq",
+      "note": "v1 options reads cannot share one static shape: in-file call sites pass {} (the `{}` default, no slots), {msecs}, {msecs,nsecs}, and {msecs,nsecs,clockseq,node}; random/rng are optional properties no in-file caller supplies. Binding the only in-chunk creation point (the `{}` default) exposed no slots and optimized nothing; the full-shape call sites are literals inside testv1/testv4 (outside this chunk)."
+    },
+    {
+      "location": "619:32",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "random",
+      "note": "v1 options reads cannot share one static shape: in-file call sites pass {} (the `{}` default, no slots), {msecs}, {msecs,nsecs}, and {msecs,nsecs,clockseq,node}; random/rng are optional properties no in-file caller supplies. Binding the only in-chunk creation point (the `{}` default) exposed no slots and optimized nothing; the full-shape call sites are literals inside testv1/testv4 (outside this chunk)."
+    },
+    {
+      "location": "619:51",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "rng",
+      "note": "v1 options reads cannot share one static shape: in-file call sites pass {} (the `{}` default, no slots), {msecs}, {msecs,nsecs}, and {msecs,nsecs,clockseq,node}; random/rng are optional properties no in-file caller supplies. Binding the only in-chunk creation point (the `{}` default) exposed no slots and optimized nothing; the full-shape call sites are literals inside testv1/testv4 (outside this chunk)."
+    },
+    {
+      "location": "643:17",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape",
+      "note": "v1 options reads cannot share one static shape: in-file call sites pass {} (the `{}` default, no slots), {msecs}, {msecs,nsecs}, and {msecs,nsecs,clockseq,node}; random/rng are optional properties no in-file caller supplies. Binding the only in-chunk creation point (the `{}` default) exposed no slots and optimized nothing; the full-shape call sites are literals inside testv1/testv4 (outside this chunk)."
+    },
+    {
+      "location": "643:24",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "msecs",
+      "note": "v1 options reads cannot share one static shape: in-file call sites pass {} (the `{}` default, no slots), {msecs}, {msecs,nsecs}, and {msecs,nsecs,clockseq,node}; random/rng are optional properties no in-file caller supplies. Binding the only in-chunk creation point (the `{}` default) exposed no slots and optimized nothing; the full-shape call sites are literals inside testv1/testv4 (outside this chunk)."
+    },
+    {
+      "location": "643:54",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "msecs",
+      "note": "v1 options reads cannot share one static shape: in-file call sites pass {} (the `{}` default, no slots), {msecs}, {msecs,nsecs}, and {msecs,nsecs,clockseq,node}; random/rng are optional properties no in-file caller supplies. Binding the only in-chunk creation point (the `{}` default) exposed no slots and optimized nothing; the full-shape call sites are literals inside testv1/testv4 (outside this chunk)."
+    },
+    {
+      "location": "647:17",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape",
+      "note": "v1 options reads cannot share one static shape: in-file call sites pass {} (the `{}` default, no slots), {msecs}, {msecs,nsecs}, and {msecs,nsecs,clockseq,node}; random/rng are optional properties no in-file caller supplies. Binding the only in-chunk creation point (the `{}` default) exposed no slots and optimized nothing; the full-shape call sites are literals inside testv1/testv4 (outside this chunk)."
+    },
+    {
+      "location": "647:24",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "nsecs",
+      "note": "v1 options reads cannot share one static shape: in-file call sites pass {} (the `{}` default, no slots), {msecs}, {msecs,nsecs}, and {msecs,nsecs,clockseq,node}; random/rng are optional properties no in-file caller supplies. Binding the only in-chunk creation point (the `{}` default) exposed no slots and optimized nothing; the full-shape call sites are literals inside testv1/testv4 (outside this chunk)."
+    },
+    {
+      "location": "647:54",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "nsecs",
+      "note": "v1 options reads cannot share one static shape: in-file call sites pass {} (the `{}` default, no slots), {msecs}, {msecs,nsecs}, and {msecs,nsecs,clockseq,node}; random/rng are optional properties no in-file caller supplies. Binding the only in-chunk creation point (the `{}` default) exposed no slots and optimized nothing; the full-shape call sites are literals inside testv1/testv4 (outside this chunk)."
+    },
+    {
+      "location": "653:19",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape",
+      "note": "v1 options reads cannot share one static shape: in-file call sites pass {} (the `{}` default, no slots), {msecs}, {msecs,nsecs}, and {msecs,nsecs,clockseq,node}; random/rng are optional properties no in-file caller supplies. Binding the only in-chunk creation point (the `{}` default) exposed no slots and optimized nothing; the full-shape call sites are literals inside testv1/testv4 (outside this chunk)."
+    },
+    {
+      "location": "653:26",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "clockseq",
+      "note": "v1 options reads cannot share one static shape: in-file call sites pass {} (the `{}` default, no slots), {msecs}, {msecs,nsecs}, and {msecs,nsecs,clockseq,node}; random/rng are optional properties no in-file caller supplies. Binding the only in-chunk creation point (the `{}` default) exposed no slots and optimized nothing; the full-shape call sites are literals inside testv1/testv4 (outside this chunk)."
+    },
+    {
+      "location": "659:43",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape",
+      "note": "v1 options reads cannot share one static shape: in-file call sites pass {} (the `{}` default, no slots), {msecs}, {msecs,nsecs}, and {msecs,nsecs,clockseq,node}; random/rng are optional properties no in-file caller supplies. Binding the only in-chunk creation point (the `{}` default) exposed no slots and optimized nothing; the full-shape call sites are literals inside testv1/testv4 (outside this chunk)."
+    },
+    {
+      "location": "659:50",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "nsecs",
+      "note": "v1 options reads cannot share one static shape: in-file call sites pass {} (the `{}` default, no slots), {msecs}, {msecs,nsecs}, and {msecs,nsecs,clockseq,node}; random/rng are optional properties no in-file caller supplies. Binding the only in-chunk creation point (the `{}` default) exposed no slots and optimized nothing; the full-shape call sites are literals inside testv1/testv4 (outside this chunk)."
+    }
+  ]
+}

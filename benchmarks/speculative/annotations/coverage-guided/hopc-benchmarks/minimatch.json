@@ -1,0 +1,3825 @@
+{
+  "static shapes": {
+    "MNamespace": {
+      "properties": [
+        {
+          "name": "Minimatch",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 119,
+              "column": 17
+            },
+            "end": {
+              "line": 121,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "MinimatchFn": {
+      "properties": [
+        {
+          "name": "GLOBSTAR"
+        },
+        {
+          "name": "filter",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 90,
+              "column": 1
+            },
+            "end": {
+              "line": 95,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "defaults",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 110,
+              "column": 22
+            },
+            "end": {
+              "line": 124,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "braceExpand",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 262,
+              "column": 25
+            },
+            "end": {
+              "line": 264,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "makeRe",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 672,
+              "column": 20
+            },
+            "end": {
+              "line": 674,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "match",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 722,
+              "column": 19
+            },
+            "end": {
+              "line": 732,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "MinimatchFn_mm": {
+      "properties": [
+        {
+          "name": "length",
+          "flags off": [
+            "enumerable",
+            "writable"
+          ]
+        },
+        {
+          "name": "name",
+          "flags off": [
+            "enumerable",
+            "writable"
+          ]
+        },
+        {
+          "name": "prototype",
+          "flags off": [
+            "enumerable",
+            "configurable"
+          ]
+        },
+        {
+          "name": "GLOBSTAR"
+        },
+        {
+          "name": "defaults"
+        }
+      ]
+    },
+    "MinimatchProto_mm": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "make",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 179,
+              "column": 1
+            },
+            "end": {
+              "line": 230,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "parseNegate",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 233,
+              "column": 1
+            },
+            "end": {
+              "line": 250,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "braceExpand",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 268,
+              "column": 1
+            },
+            "end": {
+              "line": 291,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "parse",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 306,
+              "column": 1
+            },
+            "end": {
+              "line": 670,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "makeRe",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 677,
+              "column": 1
+            },
+            "end": {
+              "line": 720,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "match",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 735,
+              "column": 1
+            },
+            "end": {
+              "line": 788,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "matchOne",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 795,
+              "column": 32
+            },
+            "end": {
+              "line": 949,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "MinimatchGlobSet": {
+      "properties": [
+        {
+          "name": "options"
+        },
+        {
+          "name": "set"
+        },
+        {
+          "name": "pattern",
+          "type": "string"
+        },
+        {
+          "name": "regexp"
+        },
+        {
+          "name": "negate",
+          "type": "boolean"
+        },
+        {
+          "name": "comment",
+          "type": "boolean"
+        },
+        {
+          "name": "empty",
+          "type": "boolean"
+        },
+        {
+          "name": "_made",
+          "type": "boolean"
+        },
+        {
+          "name": "globSet"
+        }
+      ]
+    },
+    "MinimatchInst": {
+      "properties": [
+        {
+          "name": "options"
+        },
+        {
+          "name": "set"
+        },
+        {
+          "name": "pattern",
+          "type": "string"
+        },
+        {
+          "name": "regexp"
+        },
+        {
+          "name": "negate",
+          "type": "boolean"
+        },
+        {
+          "name": "comment",
+          "type": "boolean"
+        },
+        {
+          "name": "empty",
+          "type": "boolean"
+        },
+        {
+          "name": "_made",
+          "type": "boolean"
+        }
+      ]
+    },
+    "MinimatchMade": {
+      "properties": [
+        {
+          "name": "options"
+        },
+        {
+          "name": "set"
+        },
+        {
+          "name": "pattern",
+          "type": "string"
+        },
+        {
+          "name": "regexp"
+        },
+        {
+          "name": "negate",
+          "type": "boolean"
+        },
+        {
+          "name": "comment",
+          "type": "boolean"
+        },
+        {
+          "name": "empty",
+          "type": "boolean"
+        },
+        {
+          "name": "_made",
+          "type": "boolean"
+        },
+        {
+          "name": "globSet"
+        },
+        {
+          "name": "globParts"
+        }
+      ]
+    },
+    "ArrLen": {
+      "properties": [
+        {
+          "name": "length",
+          "type": "number",
+          "flags off": [
+            "enumerable",
+            "configurable"
+          ]
+        }
+      ]
+    },
+    "MinimatchInstance": {
+      "properties": [
+        {
+          "name": "options"
+        },
+        {
+          "name": "set"
+        },
+        {
+          "name": "pattern",
+          "type": "string"
+        },
+        {
+          "name": "regexp"
+        },
+        {
+          "name": "negate",
+          "type": "boolean"
+        },
+        {
+          "name": "comment",
+          "type": "boolean"
+        },
+        {
+          "name": "empty",
+          "type": "boolean"
+        },
+        {
+          "name": "globSet"
+        },
+        {
+          "name": "globParts"
+        }
+      ]
+    },
+    "MinimatchOptions": {
+      "properties": [
+        {
+          "name": "nonegate",
+          "type": "boolean"
+        }
+      ]
+    },
+    "PathObj": {
+      "properties": [
+        {
+          "name": "sep",
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 128,
+          "column": 10
+        },
+        "end": {
+          "line": 128,
+          "column": 33
+        }
+      },
+      "shape": "MNamespace"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 128,
+          "column": 10
+        },
+        "end": {
+          "line": 128,
+          "column": 19
+        }
+      },
+      "shape": "MinimatchFn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 178,
+          "column": 1
+        },
+        "end": {
+          "line": 178,
+          "column": 10
+        }
+      },
+      "shape": "MinimatchFn_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 232,
+          "column": 1
+        },
+        "end": {
+          "line": 232,
+          "column": 10
+        }
+      },
+      "shape": "MinimatchFn_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 266,
+          "column": 1
+        },
+        "end": {
+          "line": 266,
+          "column": 10
+        }
+      },
+      "shape": "MinimatchFn_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 304,
+          "column": 1
+        },
+        "end": {
+          "line": 304,
+          "column": 10
+        }
+      },
+      "shape": "MinimatchFn_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 676,
+          "column": 1
+        },
+        "end": {
+          "line": 676,
+          "column": 10
+        }
+      },
+      "shape": "MinimatchFn_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 734,
+          "column": 1
+        },
+        "end": {
+          "line": 734,
+          "column": 10
+        }
+      },
+      "shape": "MinimatchFn_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 795,
+          "column": 1
+        },
+        "end": {
+          "line": 795,
+          "column": 10
+        }
+      },
+      "shape": "MinimatchFn_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 181,
+          "column": 7
+        },
+        "end": {
+          "line": 181,
+          "column": 11
+        }
+      },
+      "shape": "MinimatchInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 188,
+          "column": 5
+        },
+        "end": {
+          "line": 188,
+          "column": 9
+        }
+      },
+      "shape": "MinimatchInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 192,
+          "column": 5
+        },
+        "end": {
+          "line": 192,
+          "column": 9
+        }
+      },
+      "shape": "MinimatchInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 213,
+          "column": 9
+        },
+        "end": {
+          "line": 213,
+          "column": 13
+        }
+      },
+      "shape": "MinimatchMade"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 220,
+          "column": 9
+        },
+        "end": {
+          "line": 220,
+          "column": 13
+        }
+      },
+      "shape": "MinimatchMade"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 227,
+          "column": 9
+        },
+        "end": {
+          "line": 227,
+          "column": 13
+        }
+      },
+      "shape": "MinimatchMade"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 229,
+          "column": 3
+        },
+        "end": {
+          "line": 229,
+          "column": 7
+        }
+      },
+      "shape": "MinimatchMade"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 234,
+          "column": 17
+        },
+        "end": {
+          "line": 234,
+          "column": 21
+        }
+      },
+      "shape": "MinimatchInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 248,
+          "column": 21
+        },
+        "end": {
+          "line": 248,
+          "column": 25
+        }
+      },
+      "shape": "MinimatchInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 249,
+          "column": 3
+        },
+        "end": {
+          "line": 249,
+          "column": 7
+        }
+      },
+      "shape": "MinimatchInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 271,
+          "column": 17
+        },
+        "end": {
+          "line": 271,
+          "column": 21
+        }
+      },
+      "shape": "MinimatchInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 278,
+          "column": 7
+        },
+        "end": {
+          "line": 278,
+          "column": 11
+        }
+      },
+      "shape": "MinimatchInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 197,
+          "column": 3
+        },
+        "end": {
+          "line": 197,
+          "column": 7
+        }
+      },
+      "shape": "MinimatchInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 747,
+          "column": 7
+        },
+        "end": {
+          "line": 747,
+          "column": 11
+        }
+      },
+      "shape": "PathObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 736,
+          "column": 21
+        },
+        "end": {
+          "line": 736,
+          "column": 25
+        }
+      },
+      "shape": "MinimatchInstance",
+      "prototype shape": "MinimatchProto_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 760,
+          "column": 13
+        },
+        "end": {
+          "line": 760,
+          "column": 17
+        }
+      },
+      "shape": "MinimatchInstance",
+      "prototype shape": "MinimatchProto_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 777,
+          "column": 15
+        },
+        "end": {
+          "line": 777,
+          "column": 19
+        }
+      },
+      "shape": "MinimatchInstance",
+      "prototype shape": "MinimatchProto_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 780,
+          "column": 15
+        },
+        "end": {
+          "line": 780,
+          "column": 19
+        }
+      },
+      "shape": "MinimatchInstance",
+      "prototype shape": "MinimatchProto_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 787,
+          "column": 10
+        },
+        "end": {
+          "line": 787,
+          "column": 14
+        }
+      },
+      "shape": "MinimatchInstance",
+      "prototype shape": "MinimatchProto_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 796,
+          "column": 17
+        },
+        "end": {
+          "line": 796,
+          "column": 21
+        }
+      },
+      "shape": "MinimatchInstance",
+      "prototype shape": "MinimatchProto_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 868,
+          "column": 13
+        },
+        "end": {
+          "line": 868,
+          "column": 17
+        }
+      },
+      "shape": "MinimatchInstance",
+      "prototype shape": "MinimatchProto_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 739,
+          "column": 7
+        },
+        "end": {
+          "line": 739,
+          "column": 11
+        }
+      },
+      "shape": "MinimatchInstance",
+      "prototype shape": "MinimatchProto_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 740,
+          "column": 7
+        },
+        "end": {
+          "line": 740,
+          "column": 11
+        }
+      },
+      "shape": "MinimatchInstance",
+      "prototype shape": "MinimatchProto_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 744,
+          "column": 17
+        },
+        "end": {
+          "line": 744,
+          "column": 21
+        }
+      },
+      "shape": "MinimatchInstance",
+      "prototype shape": "MinimatchProto_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 753,
+          "column": 9
+        },
+        "end": {
+          "line": 753,
+          "column": 13
+        }
+      },
+      "shape": "MinimatchInstance",
+      "prototype shape": "MinimatchProto_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 748,
+          "column": 17
+        },
+        "end": {
+          "line": 748,
+          "column": 21
+        }
+      },
+      "shape": "PathObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 766,
+          "column": 12
+        },
+        "end": {
+          "line": 766,
+          "column": 13
+        }
+      },
+      "shape": "ArrLen"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 771,
+          "column": 19
+        },
+        "end": {
+          "line": 771,
+          "column": 22
+        }
+      },
+      "shape": "ArrLen"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 774,
+          "column": 30
+        },
+        "end": {
+          "line": 774,
+          "column": 37
+        }
+      },
+      "shape": "ArrLen"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 801,
+          "column": 21
+        },
+        "end": {
+          "line": 801,
+          "column": 25
+        }
+      },
+      "shape": "ArrLen"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 801,
+          "column": 34
+        },
+        "end": {
+          "line": 801,
+          "column": 41
+        }
+      },
+      "shape": "ArrLen"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 805,
+          "column": 12
+        },
+        "end": {
+          "line": 805,
+          "column": 16
+        }
+      },
+      "shape": "ArrLen"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 806,
+          "column": 12
+        },
+        "end": {
+          "line": 806,
+          "column": 19
+        }
+      },
+      "shape": "ArrLen"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 728,
+          "column": 7
+        },
+        "end": {
+          "line": 728,
+          "column": 9
+        }
+      },
+      "shape": "MinimatchInstance"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 119,
+          "column": 3
+        },
+        "end": {
+          "line": 119,
+          "column": 4
+        }
+      },
+      "shape": "MNamespace"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 722,
+          "column": 1
+        },
+        "end": {
+          "line": 722,
+          "column": 10
+        }
+      },
+      "shape": "MinimatchFn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 795,
+          "column": 1
+        },
+        "end": {
+          "line": 795,
+          "column": 20
+        }
+      },
+      "shape": "MinimatchProto_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 126,
+          "column": 1
+        },
+        "end": {
+          "line": 126,
+          "column": 10
+        }
+      },
+      "shape": "MinimatchFn_mm"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 172,
+          "column": 3
+        },
+        "end": {
+          "line": 172,
+          "column": 7
+        }
+      },
+      "shape": "MinimatchInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 200,
+          "column": 13
+        },
+        "end": {
+          "line": 200,
+          "column": 17
+        }
+      },
+      "shape": "MinimatchGlobSet"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 209,
+          "column": 9
+        },
+        "end": {
+          "line": 209,
+          "column": 13
+        }
+      },
+      "shape": "MinimatchMade"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 47,
+          "column": 12
+        },
+        "end": {
+          "line": 47,
+          "column": 24
+        }
+      },
+      "shape": "PathObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 229,
+          "column": 3
+        },
+        "end": {
+          "line": 229,
+          "column": 7
+        }
+      },
+      "shape": "MinimatchInstance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1058,
+          "column": 18
+        },
+        "end": {
+          "line": 1058,
+          "column": 36
+        }
+      },
+      "shape": "MinimatchOptions"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 752,
+          "column": 7
+        },
+        "end": {
+          "line": 752,
+          "column": 26
+        }
+      },
+      "shape": "ArrLen"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 217,
+          "column": 12
+        },
+        "end": {
+          "line": 217,
+          "column": 35
+        }
+      },
+      "shape": "ArrLen"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 223,
+          "column": 9
+        },
+        "end": {
+          "line": 225,
+          "column": 5
+        }
+      },
+      "shape": "ArrLen"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 775,
+          "column": 14
+        },
+        "end": {
+          "line": 775,
+          "column": 24
+        }
+      },
+      "shape": "ArrLen"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 868,
+          "column": 27
+        },
+        "end": {
+          "line": 868,
+          "column": 41
+        }
+      },
+      "shape": "ArrLen"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 868,
+          "column": 43
+        },
+        "end": {
+          "line": 868,
+          "column": 60
+        }
+      },
+      "shape": "ArrLen"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 1079,
+          "column": 23
+        },
+        "end": {
+          "line": 1079,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1084,
+          "column": 11
+        },
+        "end": {
+          "line": 1084,
+          "column": 16
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1064,
+          "column": 36
+        },
+        "end": {
+          "line": 1064,
+          "column": 43
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1064,
+          "column": 23
+        },
+        "end": {
+          "line": 1064,
+          "column": 27
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 16,
+          "column": 20
+        },
+        "end": {
+          "line": 16,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 1061,
+          "column": 17
+        },
+        "end": {
+          "line": 1067,
+          "column": 8
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1099,
+          "column": 19
+        },
+        "end": {
+          "line": 1099,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1099,
+          "column": 39
+        },
+        "end": {
+          "line": 1099,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 197,
+          "column": 3
+        },
+        "end": {
+          "line": 197,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 233,
+          "column": 1
+        },
+        "end": {
+          "line": 250,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 200,
+          "column": 28
+        },
+        "end": {
+          "line": 200,
+          "column": 44
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 268,
+          "column": 1
+        },
+        "end": {
+          "line": 291,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 224,
+          "column": 12
+        },
+        "end": {
+          "line": 224,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 241,
+          "column": 23
+        },
+        "end": {
+          "line": 241,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 777,
+          "column": 15
+        },
+        "end": {
+          "line": 777,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 795,
+          "column": 32
+        },
+        "end": {
+          "line": 949,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 868,
+          "column": 13
+        },
+        "end": {
+          "line": 868,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 795,
+          "column": 32
+        },
+        "end": {
+          "line": 949,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 807,
+          "column": 15
+        },
+        "end": {
+          "line": 807,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 807,
+          "column": 28
+        },
+        "end": {
+          "line": 807,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 846,
+          "column": 18
+        },
+        "end": {
+          "line": 846,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 854,
+          "column": 21
+        },
+        "end": {
+          "line": 854,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 862,
+          "column": 19
+        },
+        "end": {
+          "line": 862,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 893,
+          "column": 20
+        },
+        "end": {
+          "line": 893,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 929,
+          "column": 14
+        },
+        "end": {
+          "line": 929,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 929,
+          "column": 27
+        },
+        "end": {
+          "line": 929,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 933,
+          "column": 21
+        },
+        "end": {
+          "line": 933,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 938,
+          "column": 21
+        },
+        "end": {
+          "line": 938,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 943,
+          "column": 32
+        },
+        "end": {
+          "line": 943,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 892,
+          "column": 9
+        },
+        "end": {
+          "line": 892,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 559,
+          "column": 67
+        },
+        "end": {
+          "line": 559,
+          "column": 69
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 571,
+          "column": 14
+        },
+        "end": {
+          "line": 571,
+          "column": 16
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 571,
+          "column": 19
+        },
+        "end": {
+          "line": 571,
+          "column": 21
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 559,
+          "column": 71
+        },
+        "end": {
+          "line": 559,
+          "column": 73
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 560,
+          "column": 12
+        },
+        "end": {
+          "line": 560,
+          "column": 14
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 571,
+          "column": 24
+        },
+        "end": {
+          "line": 571,
+          "column": 26
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 341,
+          "column": 11
+        },
+        "end": {
+          "line": 341,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 345,
+          "column": 11
+        },
+        "end": {
+          "line": 345,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 349,
+          "column": 11
+        },
+        "end": {
+          "line": 349,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 352,
+          "column": 48
+        },
+        "end": {
+          "line": 352,
+          "column": 50
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 336,
+          "column": 9
+        },
+        "end": {
+          "line": 336,
+          "column": 18
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 339,
+          "column": 15
+        },
+        "end": {
+          "line": 339,
+          "column": 24
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 349,
+          "column": 24
+        },
+        "end": {
+          "line": 349,
+          "column": 33
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 352,
+          "column": 37
+        },
+        "end": {
+          "line": 352,
+          "column": 46
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 341,
+          "column": 17
+        },
+        "end": {
+          "line": 341,
+          "column": 21
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 345,
+          "column": 17
+        },
+        "end": {
+          "line": 345,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 673,
+          "column": 10
+        },
+        "end": {
+          "line": 673,
+          "column": 54
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 677,
+          "column": 1
+        },
+        "end": {
+          "line": 720,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 726,
+          "column": 12
+        },
+        "end": {
+          "line": 726,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 735,
+          "column": 1
+        },
+        "end": {
+          "line": 788,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 700,
+          "column": 34
+        },
+        "end": {
+          "line": 700,
+          "column": 35
+        }
+      },
+      "type": "string"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "1060:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forEach",
+      "note": "Receiver is the temporary array returned by Object.keys(...); it has no IR object allocation site to bind (shape_binding at the call range matched no IR), so no shape/prototype can be established for the forEach slot."
+    },
+    {
+      "location": "1062:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forEach",
+      "note": "Receiver is the temporary array returned by Object.keys(...); it has no IR object allocation site to bind (shape_binding at the call range matched no IR), so no shape/prototype can be established for the forEach slot."
+    },
+    {
+      "location": "1060:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEach",
+      "note": "Callee is Array.prototype.forEach, a native method with no function definition in the source, so no closure 'target function' range can be named; a type_guard closure on the callee identifier matched no IR."
+    },
+    {
+      "location": "1062:39",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEach",
+      "note": "Callee is Array.prototype.forEach, a native method with no function definition in the source, so no closure 'target function' range can be named; a type_guard closure on the callee identifier matched no IR."
+    },
+    {
+      "location": "1084:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "print is an undeclared host-provided global (not defined anywhere in minimatch.js), so its object source/shape cannot be bound."
+    },
+    {
+      "location": "1084:9",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "print is an undeclared host-provided global (not defined anywhere in minimatch.js), so its object source/shape cannot be bound."
+    },
+    {
+      "location": "1089:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "print is an undeclared host-provided global (not defined anywhere in minimatch.js), so its object source/shape cannot be bound."
+    },
+    {
+      "location": "1089:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "print is an undeclared host-provided global (not defined anywhere in minimatch.js), so its object source/shape cannot be bound."
+    },
+    {
+      "location": "17:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "Property lives on a builtin/global prototype (Error, RegExp, String.prototype.split, Array.prototype.forEach/reduce, host global print) whose object source is not present in the file, so no shape/prototype shape can be bound. For orig.minimatch the minimatch function object is in source, but no store site ever creates a `minimatch` own property, so no shape can describe that slot."
+    },
+    {
+      "location": "23:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error",
+      "note": "Property lives on a builtin/global prototype (Error, RegExp, String.prototype.split, Array.prototype.forEach/reduce, host global print) whose object source is not present in the file, so no shape/prototype shape can be bound. For orig.minimatch the minimatch function object is in source, but no store site ever creates a `minimatch` own property, so no shape can describe that slot."
+    },
+    {
+      "location": "34:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "RegExp",
+      "note": "Property lives on a builtin/global prototype (Error, RegExp, String.prototype.split, Array.prototype.forEach/reduce, host global print) whose object source is not present in the file, so no shape/prototype shape can be bound. For orig.minimatch the minimatch function object is in source, but no store site ever creates a `minimatch` own property, so no shape can describe that slot."
+    },
+    {
+      "location": "80:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "split",
+      "note": "Property lives on a builtin/global prototype (Error, RegExp, String.prototype.split, Array.prototype.forEach/reduce, host global print) whose object source is not present in the file, so no shape/prototype shape can be bound. For orig.minimatch the minimatch function object is in source, but no store site ever creates a `minimatch` own property, so no shape can describe that slot."
+    },
+    {
+      "location": "80:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reduce",
+      "note": "Property lives on a builtin/global prototype (Error, RegExp, String.prototype.split, Array.prototype.forEach/reduce, host global print) whose object source is not present in the file, so no shape/prototype shape can be bound. For orig.minimatch the minimatch function object is in source, but no store site ever creates a `minimatch` own property, so no shape can describe that slot."
+    },
+    {
+      "location": "101:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forEach",
+      "note": "Property lives on a builtin/global prototype (Error, RegExp, String.prototype.split, Array.prototype.forEach/reduce, host global print) whose object source is not present in the file, so no shape/prototype shape can be bound. For orig.minimatch the minimatch function object is in source, but no store site ever creates a `minimatch` own property, so no shape can describe that slot."
+    },
+    {
+      "location": "104:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forEach",
+      "note": "Property lives on a builtin/global prototype (Error, RegExp, String.prototype.split, Array.prototype.forEach/reduce, host global print) whose object source is not present in the file, so no shape/prototype shape can be bound. For orig.minimatch the minimatch function object is in source, but no store site ever creates a `minimatch` own property, so no shape can describe that slot."
+    },
+    {
+      "location": "116:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "minimatch",
+      "note": "Property lives on a builtin/global prototype (Error, RegExp, String.prototype.split, Array.prototype.forEach/reduce, host global print) whose object source is not present in the file, so no shape/prototype shape can be bound. For orig.minimatch the minimatch function object is in source, but no store site ever creates a `minimatch` own property, so no shape can describe that slot."
+    },
+    {
+      "location": "17:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print",
+      "note": "Callee is a builtin/global (RegExp, Error, host print) or a builtin prototype method (split/forEach/reduce) with no defining function in the file, so no target function range exists for a closure type guard. orig.minimatch has no store site either, so its callee has no source-defined target."
+    },
+    {
+      "location": "23:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error",
+      "note": "Callee is a builtin/global (RegExp, Error, host print) or a builtin prototype method (split/forEach/reduce) with no defining function in the file, so no target function range exists for a closure type guard. orig.minimatch has no store site either, so its callee has no source-defined target."
+    },
+    {
+      "location": "34:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "RegExp",
+      "note": "Callee is a builtin/global (RegExp, Error, host print) or a builtin prototype method (split/forEach/reduce) with no defining function in the file, so no target function range exists for a closure type guard. orig.minimatch has no store site either, so its callee has no source-defined target."
+    },
+    {
+      "location": "80:17",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "split",
+      "note": "Callee is a builtin/global (RegExp, Error, host print) or a builtin prototype method (split/forEach/reduce) with no defining function in the file, so no target function range exists for a closure type guard. orig.minimatch has no store site either, so its callee has no source-defined target."
+    },
+    {
+      "location": "80:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "reduce",
+      "note": "Callee is a builtin/global (RegExp, Error, host print) or a builtin prototype method (split/forEach/reduce) with no defining function in the file, so no target function range exists for a closure type guard. orig.minimatch has no store site either, so its callee has no source-defined target."
+    },
+    {
+      "location": "101:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEach",
+      "note": "Callee is a builtin/global (RegExp, Error, host print) or a builtin prototype method (split/forEach/reduce) with no defining function in the file, so no target function range exists for a closure type guard. orig.minimatch has no store site either, so its callee has no source-defined target."
+    },
+    {
+      "location": "104:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEach",
+      "note": "Callee is a builtin/global (RegExp, Error, host print) or a builtin prototype method (split/forEach/reduce) with no defining function in the file, so no target function range exists for a closure type guard. orig.minimatch has no store site either, so its callee has no source-defined target."
+    },
+    {
+      "location": "116:26",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "minimatch",
+      "note": "Callee is a builtin/global (RegExp, Error, host print) or a builtin prototype method (split/forEach/reduce) with no defining function in the file, so no target function range exists for a closure type guard. orig.minimatch has no store site either, so its callee has no source-defined target."
+    },
+    {
+      "location": "120:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Minimatch",
+      "note": "orig.Minimatch reads the minimatch function object, but the file never assigns a `Minimatch` property to minimatch (only m.Minimatch at 119:15 exists, and orig is minimatch). No store site means no shape slot/prototype source can be created for this access."
+    },
+    {
+      "location": "120:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Minimatch",
+      "note": "orig.Minimatch is never assigned on the minimatch function object, so there is no defining function in the file to name as the closure target for this construct call."
+    },
+    {
+      "location": "119:15",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "Minimatch",
+      "note": "m.Minimatch is the first property write that assembles the returned namespace function m; the shape binding on m is applied after this store (a shape can only be bound once its slot exists), so this write runs while m's shape is still under construction and has no fixed slot to target."
+    },
+    {
+      "location": "111:32",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "Attempted type: array. The receiver is the Array returned by Object.keys(def); arrays have no expressible annotation type and a call-result expression cannot be shape-bound (a shape_binding on Object.keys(def) was auto-pruned as matching no IR), so the .length load has no bindable shape/prototype source."
+    },
+    {
+      "location": "127:32",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "Attempted type: array. The receiver is the Array returned by Object.keys(def); arrays have no expressible annotation type and a call-result expression cannot be shape-bound (a shape_binding on Object.keys(def) was auto-pruned as matching no IR), so the .length load has no bindable shape/prototype source."
+    },
+    {
+      "location": "22:8",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Strict inequality x !== y: the only caller (test at 1065) passes booleans, so operands are never numeric and there is no numeric comparison fast path; boolean type guards on x and y produced no effect in dryrun."
+    },
+    {
+      "location": "23:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Binary + here is string concatenation ('minimatch mismatch: ' + x + ...); x/y are booleans at the only call site, so a numeric fast path does not apply and boolean type guards produced no effect in dryrun (booleans need ToString conversion)."
+    },
+    {
+      "location": "40:1",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "debug has an empty body; this arithmetic item at the function entry corresponds to default-parameter initialization (c/d/e = undefined) for a function that is never executed as real work. There is no arithmetic expression in the body to type or specialize."
+    },
+    {
+      "location": "49:35",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "GLOBSTAR"
+    },
+    {
+      "location": "49:56",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "GLOBSTAR"
+    },
+    {
+      "location": "89:18",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "filter"
+    },
+    {
+      "location": "110:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "defaults"
+    },
+    {
+      "location": "126:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "defaults"
+    },
+    {
+      "location": "178:26",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "make"
+    },
+    {
+      "location": "232:33",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "parseNegate"
+    },
+    {
+      "location": "262:23",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "braceExpand"
+    },
+    {
+      "location": "266:33",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "braceExpand"
+    },
+    {
+      "location": "304:27",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "parse"
+    },
+    {
+      "location": "672:18",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "makeRe"
+    },
+    {
+      "location": "676:28",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "makeRe"
+    },
+    {
+      "location": "722:17",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "match"
+    },
+    {
+      "location": "734:27",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "match"
+    },
+    {
+      "location": "795:30",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "matchOne"
+    },
+    {
+      "location": "7:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "7:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "1099:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "1099:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "1099:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "7:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "1099:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "1099:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concat of the literal 'Time: ' with the result of a numeric expression. Both subtraction operands are number-guarded (1099:19 and 1099:39), so the subtraction is optimized, but the '+ ' stays generic: the right operand is a binary-expression result whose type guards do not narrow (guards on 1099:19:1099:50 had no effect), and no legal guard can make it a string without being false. A string type guard on the whole concat only typed the print() argument."
+    },
+    {
+      "location": "1099:6",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print",
+      "note": "print is a host-provided global function with no defining function range in the program, so the call has no closure target to guard/inline. Typing the string-concat argument as string (1099:7:1099:51) does not devirtualize the call; only a false string guard on the number-valued subtraction made it appear optimized."
+    },
+    {
+      "location": "133:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "TypeError"
+    },
+    {
+      "location": "133:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "TypeError"
+    },
+    {
+      "location": "155:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "TypeError"
+    },
+    {
+      "location": "155:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "TypeError"
+    },
+    {
+      "location": "281:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "TypeError"
+    },
+    {
+      "location": "281:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "TypeError"
+    },
+    {
+      "location": "200:26",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "globSet"
+    },
+    {
+      "location": "209:24",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "globParts"
+    },
+    {
+      "location": "209:33",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "map"
+    },
+    {
+      "location": "209:33",
+      "kind": "call",
+      "reason": "ambiguous-shape",
+      "property": "map"
+    },
+    {
+      "location": "216:16",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "map"
+    },
+    {
+      "location": "216:16",
+      "kind": "call",
+      "reason": "ambiguous-shape",
+      "property": "map"
+    },
+    {
+      "location": "217:17",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "map"
+    },
+    {
+      "location": "217:17",
+      "kind": "call",
+      "reason": "ambiguous-shape",
+      "property": "map"
+    },
+    {
+      "location": "223:19",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "filter"
+    },
+    {
+      "location": "223:19",
+      "kind": "call",
+      "reason": "ambiguous-shape",
+      "property": "filter"
+    },
+    {
+      "location": "224:21",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "indexOf"
+    },
+    {
+      "location": "224:21",
+      "kind": "call",
+      "reason": "ambiguous-shape",
+      "property": "indexOf"
+    },
+    {
+      "location": "187:15",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "nocomment"
+    },
+    {
+      "location": "239:14",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "nonegate"
+    },
+    {
+      "location": "197:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "parseNegate",
+      "note": "method lives on Minimatch.prototype; prototype-shape binding at Minimatch.prototype (attempted at 232 and 304) yielded no prototype slot knowledge for the guarded receiver, so the load stays generic; the call itself is optimized via closure type guard"
+    },
+    {
+      "location": "200:44",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "braceExpand",
+      "note": "method lives on Minimatch.prototype; prototype-shape binding at Minimatch.prototype (attempted at 232 and 304) yielded no prototype slot knowledge for the guarded receiver, so the load stays generic; the call itself is optimized via closure type guard"
+    },
+    {
+      "location": "217:22",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "parse",
+      "note": "method lives on Minimatch.prototype; prototype-shape binding at Minimatch.prototype (attempted at 232 and 304) yielded no prototype slot knowledge for the guarded receiver, so the load stays generic; the call itself is optimized via closure type guard"
+    },
+    {
+      "location": "187:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "receiver is a local string value (from a typed shape slot / callback parameter); type guards on the local, its initializer and its uses matched no IR or had no effect, so the string builtin property access/call stays generic"
+    },
+    {
+      "location": "187:43",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "charAt",
+      "note": "receiver is a local string value (from a typed shape slot / callback parameter); type guards on the local, its initializer and its uses matched no IR or had no effect, so the string builtin property access/call stays generic"
+    },
+    {
+      "location": "187:43",
+      "kind": "call",
+      "reason": "other",
+      "property": "charAt",
+      "note": "receiver is a local string value (from a typed shape slot / callback parameter); type guards on the local, its initializer and its uses matched no IR or had no effect, so the string builtin property access/call stays generic"
+    },
+    {
+      "location": "241:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "receiver is a local string value (from a typed shape slot / callback parameter); type guards on the local, its initializer and its uses matched no IR or had no effect, so the string builtin property access/call stays generic"
+    },
+    {
+      "location": "242:16",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "receiver is a local string value (from a typed shape slot / callback parameter); type guards on the local, its initializer and its uses matched no IR or had no effect, so the string builtin property access/call stays generic"
+    },
+    {
+      "location": "242:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "charAt",
+      "note": "receiver is a local string value (from a typed shape slot / callback parameter); type guards on the local, its initializer and its uses matched no IR or had no effect, so the string builtin property access/call stays generic"
+    },
+    {
+      "location": "242:30",
+      "kind": "call",
+      "reason": "other",
+      "property": "charAt",
+      "note": "receiver is a local string value (from a typed shape slot / callback parameter); type guards on the local, its initializer and its uses matched no IR or had no effect, so the string builtin property access/call stays generic"
+    },
+    {
+      "location": "248:50",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "substr",
+      "note": "receiver is a local string value (from a typed shape slot / callback parameter); type guards on the local, its initializer and its uses matched no IR or had no effect, so the string builtin property access/call stays generic"
+    },
+    {
+      "location": "248:50",
+      "kind": "call",
+      "reason": "other",
+      "property": "substr",
+      "note": "receiver is a local string value (from a typed shape slot / callback parameter); type guards on the local, its initializer and its uses matched no IR or had no effect, so the string builtin property access/call stays generic"
+    },
+    {
+      "location": "210:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "split",
+      "note": "receiver is a local string value (from a typed shape slot / callback parameter); type guards on the local, its initializer and its uses matched no IR or had no effect, so the string builtin property access/call stays generic"
+    },
+    {
+      "location": "210:19",
+      "kind": "call",
+      "reason": "other",
+      "property": "split",
+      "note": "receiver is a local string value (from a typed shape slot / callback parameter); type guards on the local, its initializer and its uses matched no IR or had no effect, so the string builtin property access/call stays generic"
+    },
+    {
+      "location": "740:26",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Equality/identity comparison operands cannot be narrowed in this pipeline: string type guards on parameters, locals (f, swallowee, file[fi]) and method results had no effect, and a boolean guard on p also had no effect (a string|boolean union guard earlier regressed other sites). Comparison stays generic."
+    },
+    {
+      "location": "742:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Equality/identity comparison operands cannot be narrowed in this pipeline: string type guards on parameters, locals (f, swallowee, file[fi]) and method results had no effect, and a boolean guard on p also had no effect (a string|boolean union guard earlier regressed other sites). Comparison stays generic."
+    },
+    {
+      "location": "747:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Equality/identity comparison operands cannot be narrowed in this pipeline: string type guards on parameters, locals (f, swallowee, file[fi]) and method results had no effect, and a boolean guard on p also had no effect (a string|boolean union guard earlier regressed other sites). Comparison stays generic."
+    },
+    {
+      "location": "817:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Equality/identity comparison operands cannot be narrowed in this pipeline: string type guards on parameters, locals (f, swallowee, file[fi]) and method results had no effect, and a boolean guard on p also had no effect (a string|boolean union guard earlier regressed other sites). Comparison stays generic."
+    },
+    {
+      "location": "819:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Equality/identity comparison operands cannot be narrowed in this pipeline: string type guards on parameters, locals (f, swallowee, file[fi]) and method results had no effect, and a boolean guard on p also had no effect (a string|boolean union guard earlier regressed other sites). Comparison stays generic."
+    },
+    {
+      "location": "855:15",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Equality/identity comparison operands cannot be narrowed in this pipeline: string type guards on parameters, locals (f, swallowee, file[fi]) and method results had no effect, and a boolean guard on p also had no effect (a string|boolean union guard earlier regressed other sites). Comparison stays generic."
+    },
+    {
+      "location": "855:35",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Equality/identity comparison operands cannot be narrowed in this pipeline: string type guards on parameters, locals (f, swallowee, file[fi]) and method results had no effect, and a boolean guard on p also had no effect (a string|boolean union guard earlier regressed other sites). Comparison stays generic."
+    },
+    {
+      "location": "856:30",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Equality/identity comparison operands cannot be narrowed in this pipeline: string type guards on parameters, locals (f, swallowee, file[fi]) and method results had no effect, and a boolean guard on p also had no effect (a string|boolean union guard earlier regressed other sites). Comparison stays generic."
+    },
+    {
+      "location": "875:15",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Equality/identity comparison operands cannot be narrowed in this pipeline: string type guards on parameters, locals (f, swallowee, file[fi]) and method results had no effect, and a boolean guard on p also had no effect (a string|boolean union guard earlier regressed other sites). Comparison stays generic."
+    },
+    {
+      "location": "875:36",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Equality/identity comparison operands cannot be narrowed in this pipeline: string type guards on parameters, locals (f, swallowee, file[fi]) and method results had no effect, and a boolean guard on p also had no effect (a string|boolean union guard earlier regressed other sites). Comparison stays generic."
+    },
+    {
+      "location": "876:30",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Equality/identity comparison operands cannot be narrowed in this pipeline: string type guards on parameters, locals (f, swallowee, file[fi]) and method results had no effect, and a boolean guard on p also had no effect (a string|boolean union guard earlier regressed other sites). Comparison stays generic."
+    },
+    {
+      "location": "904:15",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Equality/identity comparison operands cannot be narrowed in this pipeline: string type guards on parameters, locals (f, swallowee, file[fi]) and method results had no effect, and a boolean guard on p also had no effect (a string|boolean union guard earlier regressed other sites). Comparison stays generic."
+    },
+    {
+      "location": "906:15",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Equality/identity comparison operands cannot be narrowed in this pipeline: string type guards on parameters, locals (f, swallowee, file[fi]) and method results had no effect, and a boolean guard on p also had no effect (a string|boolean union guard earlier regressed other sites). Comparison stays generic."
+    },
+    {
+      "location": "943:44",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Equality/identity comparison operands cannot be narrowed in this pipeline: string type guards on parameters, locals (f, swallowee, file[fi]) and method results had no effect, and a boolean guard on p also had no effect (a string|boolean union guard earlier regressed other sites). Comparison stays generic."
+    },
+    {
+      "location": "774:16",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "matchBase"
+    },
+    {
+      "location": "779:18",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "flipNegate"
+    },
+    {
+      "location": "786:14",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "flipNegate"
+    },
+    {
+      "location": "856:22",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "dot"
+    },
+    {
+      "location": "876:22",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "dot"
+    },
+    {
+      "location": "903:18",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "nocase"
+    },
+    {
+      "location": "777:28",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "matchOne",
+      "note": "Inherited Minimatch.prototype.matchOne load stays generic: MinimatchPrototype is bound at the last method store and per-site instance+prototype shape guards pass, but the compiler does not turn the inherited closure slot read into a direct slot access. The calls themselves are optimized via closure type guards on the method expressions."
+    },
+    {
+      "location": "868:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "matchOne",
+      "note": "Inherited Minimatch.prototype.matchOne load stays generic: MinimatchPrototype is bound at the last method store and per-site instance+prototype shape guards pass, but the compiler does not turn the inherited closure slot read into a direct slot access. The calls themselves are optimized via closure type guards on the method expressions."
+    },
+    {
+      "location": "748:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "split"
+    },
+    {
+      "location": "748:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "join"
+    },
+    {
+      "location": "752:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "split"
+    },
+    {
+      "location": "856:45",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "charAt"
+    },
+    {
+      "location": "868:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "slice"
+    },
+    {
+      "location": "868:56",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "slice"
+    },
+    {
+      "location": "876:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "charAt"
+    },
+    {
+      "location": "904:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "toLowerCase"
+    },
+    {
+      "location": "904:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "toLowerCase"
+    },
+    {
+      "location": "948:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "953:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "replace"
+    },
+    {
+      "location": "957:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "replace"
+    },
+    {
+      "location": "748:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "split"
+    },
+    {
+      "location": "748:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "join"
+    },
+    {
+      "location": "752:14",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "split"
+    },
+    {
+      "location": "856:45",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "charAt"
+    },
+    {
+      "location": "868:37",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "slice"
+    },
+    {
+      "location": "868:56",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "slice"
+    },
+    {
+      "location": "876:46",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "charAt"
+    },
+    {
+      "location": "904:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "toLowerCase"
+    },
+    {
+      "location": "904:48",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "toLowerCase"
+    },
+    {
+      "location": "948:18",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "953:19",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "replace"
+    },
+    {
+      "location": "957:19",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "replace"
+    },
+    {
+      "location": "307:14",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "307:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "308:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "TypeError",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "308:24",
+      "kind": "call",
+      "reason": "other",
+      "property": "TypeError",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "311:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "options",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "314:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "noglobstar",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "314:30",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "315:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "318:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "nocase",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "329:22",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "329:36",
+      "kind": "call",
+      "reason": "other",
+      "property": "charAt",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "329:36",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "charAt",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "331:12",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "dot",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "357:32",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "358:39",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "charAt",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "358:39",
+      "kind": "call",
+      "reason": "other",
+      "property": "charAt",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "358:8",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "364:10",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "364:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "393:15",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "394:14",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "407:20",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "noext",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "412:14",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "417:14",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "421:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "421:30",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "424:22",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "425:35",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "open",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "426:36",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "close",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "429:12",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "429:15",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "435:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "436:14",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "442:38",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "pop",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "442:38",
+      "kind": "call",
+      "reason": "other",
+      "property": "pop",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "445:12",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "445:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "close",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "446:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "446:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "type",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "447:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "447:29",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "449:18",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "reEnd",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "449:22",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "453:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "454:14",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "460:12",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "469:14",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "469:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "475:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "476:12",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "485:14",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "485:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "500:37",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "substring",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "500:37",
+      "kind": "call",
+      "reason": "other",
+      "property": "substring",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "502:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "RegExp",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "502:19",
+      "kind": "call",
+      "reason": "other",
+      "property": "RegExp",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "502:20",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "505:32",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "parse",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "505:32",
+      "kind": "call",
+      "reason": "other",
+      "property": "parse",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "506:18",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "506:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "substr",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "506:27",
+      "kind": "call",
+      "reason": "other",
+      "property": "substr",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "516:12",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "527:16",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "528:14",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "531:12",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "543:24",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "substr",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "543:24",
+      "kind": "call",
+      "reason": "other",
+      "property": "substr",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "544:20",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "parse",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "544:20",
+      "kind": "call",
+      "reason": "other",
+      "property": "parse",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "545:10",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "545:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "substr",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "545:19",
+      "kind": "call",
+      "reason": "other",
+      "property": "substr",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "555:33",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "pop",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "555:33",
+      "kind": "call",
+      "reason": "other",
+      "property": "pop",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "555:66",
+      "kind": "call",
+      "reason": "other",
+      "property": "pop",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "555:66",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "pop",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "556:24",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "556:24",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "556:25",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "556:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "reStart",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "556:40",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "open",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "556:45",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "559:24",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "replace",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "559:24",
+      "kind": "call",
+      "reason": "other",
+      "property": "replace",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "575:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "575:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "type",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "576:11",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "type",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "576:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "577:18",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "type",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "577:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "580:10",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "580:18",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "580:18",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "580:24",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "reStart",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "587:8",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "593:20",
+      "kind": "call",
+      "reason": "other",
+      "property": "charAt",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "593:20",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "charAt",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "604:16",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "604:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "607:28",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "607:28",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "607:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "reStart",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "608:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "608:27",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "608:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "reStart",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "608:40",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "608:42",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "reEnd",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "609:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "609:26",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "609:27",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "609:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "reEnd",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "609:43",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "reEnd",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "610:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "610:27",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "610:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "reEnd",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "612:12",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "617:28",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "617:42",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "split",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "617:42",
+      "kind": "call",
+      "reason": "other",
+      "property": "split",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "617:47",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "620:38",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "replace",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "620:38",
+      "kind": "call",
+      "reason": "other",
+      "property": "replace",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "625:27",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "625:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "628:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "635:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "636:10",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "640:10",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "644:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "655:22",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "nocase",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "657:28",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "666:16",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_glob",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "667:15",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_src",
+      "note": "Annotations are inert in parse's own body: it contains try/catch (501-503, 656-658) and the speculative annotation pass skips functions with exception handlers. Verified: a valid MinimatchInstance+MinimatchPrototype shape guard plus 92 type guards (string on pattern/re/c/star-ish locals, number on i/len) produced zero optimized effects, while identical guards optimize the nested clearStateChar and replace-callback closures. No annotation can optimize these sites."
+    },
+    {
+      "location": "678:11",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "regexp",
+      "note": "makeRe (677:1) direct body is not independently annotatable in this compile: shape guards on `this` (targets 678:7/686:13/692:17/712:7, MinimatchInstance) are absent from the compiler report entirely (no effect, no missing-binding, no unmatched), and type guards on locals `re`/`flags` (709:17/715:33) show no effect; the body has a single dynamic caller `new Minimatch(...).makeRe()` at 673, so its IR is not exposed to annotations. The reads/stores would otherwise be optimizable from the MinimatchInstance binding (the identical guard on `mm` at 728:7 does optimize `mm.options`). Sites 712:25 and 715:28 in the same body are already optimized by ordinary compiler inference."
+    },
+    {
+      "location": "678:22",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "makeRe (677:1) direct body is not independently annotatable in this compile: shape guards on `this` (targets 678:7/686:13/692:17/712:7, MinimatchInstance) are absent from the compiler report entirely (no effect, no missing-binding, no unmatched), and type guards on locals `re`/`flags` (709:17/715:33) show no effect; the body has a single dynamic caller `new Minimatch(...).makeRe()` at 673, so its IR is not exposed to annotations. The reads/stores would otherwise be optimizable from the MinimatchInstance binding (the identical guard on `mm` at 728:7 does optimize `mm.options`). Sites 712:25 and 715:28 in the same body are already optimized by ordinary compiler inference."
+    },
+    {
+      "location": "678:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "regexp",
+      "note": "makeRe (677:1) direct body is not independently annotatable in this compile: shape guards on `this` (targets 678:7/686:13/692:17/712:7, MinimatchInstance) are absent from the compiler report entirely (no effect, no missing-binding, no unmatched), and type guards on locals `re`/`flags` (709:17/715:33) show no effect; the body has a single dynamic caller `new Minimatch(...).makeRe()` at 673, so its IR is not exposed to annotations. The reads/stores would otherwise be optimizable from the MinimatchInstance binding (the identical guard on `mm` at 728:7 does optimize `mm.options`). Sites 712:25 and 715:28 in the same body are already optimized by ordinary compiler inference."
+    },
+    {
+      "location": "678:56",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "regexp",
+      "note": "makeRe (677:1) direct body is not independently annotatable in this compile: shape guards on `this` (targets 678:7/686:13/692:17/712:7, MinimatchInstance) are absent from the compiler report entirely (no effect, no missing-binding, no unmatched), and type guards on locals `re`/`flags` (709:17/715:33) show no effect; the body has a single dynamic caller `new Minimatch(...).makeRe()` at 673, so its IR is not exposed to annotations. The reads/stores would otherwise be optimizable from the MinimatchInstance binding (the identical guard on `mm` at 728:7 does optimize `mm.options`). Sites 712:25 and 715:28 in the same body are already optimized by ordinary compiler inference."
+    },
+    {
+      "location": "686:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "set",
+      "note": "makeRe (677:1) direct body is not independently annotatable in this compile: shape guards on `this` (targets 678:7/686:13/692:17/712:7, MinimatchInstance) are absent from the compiler report entirely (no effect, no missing-binding, no unmatched), and type guards on locals `re`/`flags` (709:17/715:33) show no effect; the body has a single dynamic caller `new Minimatch(...).makeRe()` at 673, so its IR is not exposed to annotations. The reads/stores would otherwise be optimizable from the MinimatchInstance binding (the identical guard on `mm` at 728:7 does optimize `mm.options`). Sites 712:25 and 715:28 in the same body are already optimized by ordinary compiler inference."
+    },
+    {
+      "location": "689:17",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "regexp",
+      "note": "makeRe (677:1) direct body is not independently annotatable in this compile: shape guards on `this` (targets 678:7/686:13/692:17/712:7, MinimatchInstance) are absent from the compiler report entirely (no effect, no missing-binding, no unmatched), and type guards on locals `re`/`flags` (709:17/715:33) show no effect; the body has a single dynamic caller `new Minimatch(...).makeRe()` at 673, so its IR is not exposed to annotations. The reads/stores would otherwise be optimizable from the MinimatchInstance binding (the identical guard on `mm` at 728:7 does optimize `mm.options`). Sites 712:25 and 715:28 in the same body are already optimized by ordinary compiler inference."
+    },
+    {
+      "location": "690:16",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "regexp",
+      "note": "makeRe (677:1) direct body is not independently annotatable in this compile: shape guards on `this` (targets 678:7/686:13/692:17/712:7, MinimatchInstance) are absent from the compiler report entirely (no effect, no missing-binding, no unmatched), and type guards on locals `re`/`flags` (709:17/715:33) show no effect; the body has a single dynamic caller `new Minimatch(...).makeRe()` at 673, so its IR is not exposed to annotations. The reads/stores would otherwise be optimizable from the MinimatchInstance binding (the identical guard on `mm` at 728:7 does optimize `mm.options`). Sites 712:25 and 715:28 in the same body are already optimized by ordinary compiler inference."
+    },
+    {
+      "location": "692:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "options",
+      "note": "makeRe (677:1) direct body is not independently annotatable in this compile: shape guards on `this` (targets 678:7/686:13/692:17/712:7, MinimatchInstance) are absent from the compiler report entirely (no effect, no missing-binding, no unmatched), and type guards on locals `re`/`flags` (709:17/715:33) show no effect; the body has a single dynamic caller `new Minimatch(...).makeRe()` at 673, so its IR is not exposed to annotations. The reads/stores would otherwise be optimizable from the MinimatchInstance binding (the identical guard on `mm` at 728:7 does optimize `mm.options`). Sites 712:25 and 715:28 in the same body are already optimized by ordinary compiler inference."
+    },
+    {
+      "location": "709:8",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "makeRe (677:1) direct body is not independently annotatable in this compile: shape guards on `this` (targets 678:7/686:13/692:17/712:7, MinimatchInstance) are absent from the compiler report entirely (no effect, no missing-binding, no unmatched), and type guards on locals `re`/`flags` (709:17/715:33) show no effect; the body has a single dynamic caller `new Minimatch(...).makeRe()` at 673, so its IR is not exposed to annotations. The reads/stores would otherwise be optimizable from the MinimatchInstance binding (the identical guard on `mm` at 728:7 does optimize `mm.options`). Sites 712:25 and 715:28 in the same body are already optimized by ordinary compiler inference."
+    },
+    {
+      "location": "712:11",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "negate",
+      "note": "makeRe (677:1) direct body is not independently annotatable in this compile: shape guards on `this` (targets 678:7/686:13/692:17/712:7, MinimatchInstance) are absent from the compiler report entirely (no effect, no missing-binding, no unmatched), and type guards on locals `re`/`flags` (709:17/715:33) show no effect; the body has a single dynamic caller `new Minimatch(...).makeRe()` at 673, so its IR is not exposed to annotations. The reads/stores would otherwise be optimizable from the MinimatchInstance binding (the identical guard on `mm` at 728:7 does optimize `mm.options`). Sites 712:25 and 715:28 in the same body are already optimized by ordinary compiler inference."
+    },
+    {
+      "location": "715:17",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "regexp",
+      "note": "makeRe (677:1) direct body is not independently annotatable in this compile: shape guards on `this` (targets 678:7/686:13/692:17/712:7, MinimatchInstance) are absent from the compiler report entirely (no effect, no missing-binding, no unmatched), and type guards on locals `re`/`flags` (709:17/715:33) show no effect; the body has a single dynamic caller `new Minimatch(...).makeRe()` at 673, so its IR is not exposed to annotations. The reads/stores would otherwise be optimizable from the MinimatchInstance binding (the identical guard on `mm` at 728:7 does optimize `mm.options`). Sites 712:25 and 715:28 in the same body are already optimized by ordinary compiler inference."
+    },
+    {
+      "location": "717:17",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "regexp",
+      "note": "makeRe (677:1) direct body is not independently annotatable in this compile: shape guards on `this` (targets 678:7/686:13/692:17/712:7, MinimatchInstance) are absent from the compiler report entirely (no effect, no missing-binding, no unmatched), and type guards on locals `re`/`flags` (709:17/715:33) show no effect; the body has a single dynamic caller `new Minimatch(...).makeRe()` at 673, so its IR is not exposed to annotations. The reads/stores would otherwise be optimizable from the MinimatchInstance binding (the identical guard on `mm` at 728:7 does optimize `mm.options`). Sites 712:25 and 715:28 in the same body are already optimized by ordinary compiler inference."
+    },
+    {
+      "location": "719:14",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "regexp",
+      "note": "makeRe (677:1) direct body is not independently annotatable in this compile: shape guards on `this` (targets 678:7/686:13/692:17/712:7, MinimatchInstance) are absent from the compiler report entirely (no effect, no missing-binding, no unmatched), and type guards on locals `re`/`flags` (709:17/715:33) show no effect; the body has a single dynamic caller `new Minimatch(...).makeRe()` at 673, so its IR is not exposed to annotations. The reads/stores would otherwise be optimizable from the MinimatchInstance binding (the identical guard on `mm` at 728:7 does optimize `mm.options`). Sites 712:25 and 715:28 in the same body are already optimized by ordinary compiler inference."
+    },
+    {
+      "location": "694:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "noglobstar",
+      "note": "The options object is caller-supplied (options parameter) and has no in-file object creation site that could be shape-bound: the only options literal in the file is {nonegate:true} at 1058 (a different call path), and the `options || {}` literal at 723 is empty so it cannot carry a `nonull`/`noglobstar`/`dot`/`nocase` slot. A guard on the member expression `mm.options` was attempted and targets no bindable source. (For 728:17 specifically, `mm.options` itself is already a direct-slot load after the 728:7 MinimatchInstance guard; only the second-level options shape is missing.)"
+    },
+    {
+      "location": "695:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "dot",
+      "note": "The options object is caller-supplied (options parameter) and has no in-file object creation site that could be shape-bound: the only options literal in the file is {nonegate:true} at 1058 (a different call path), and the `options || {}` literal at 723 is empty so it cannot carry a `nonull`/`noglobstar`/`dot`/`nocase` slot. A guard on the member expression `mm.options` was attempted and targets no bindable source. (For 728:17 specifically, `mm.options` itself is already a direct-slot load after the 728:7 MinimatchInstance guard; only the second-level options shape is missing.)"
+    },
+    {
+      "location": "697:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "nocase",
+      "note": "The options object is caller-supplied (options parameter) and has no in-file object creation site that could be shape-bound: the only options literal in the file is {nonegate:true} at 1058 (a different call path), and the `options || {}` literal at 723 is empty so it cannot carry a `nonull`/`noglobstar`/`dot`/`nocase` slot. A guard on the member expression `mm.options` was attempted and targets no bindable source. (For 728:17 specifically, `mm.options` itself is already a direct-slot load after the 728:7 MinimatchInstance guard; only the second-level options shape is missing.)"
+    },
+    {
+      "location": "728:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "nonull",
+      "note": "The options object is caller-supplied (options parameter) and has no in-file object creation site that could be shape-bound: the only options literal in the file is {nonegate:true} at 1058 (a different call path), and the `options || {}` literal at 723 is empty so it cannot carry a `nonull`/`noglobstar`/`dot`/`nocase` slot. A guard on the member expression `mm.options` was attempted and targets no bindable source. (For 728:17 specifically, `mm.options` itself is already a direct-slot load after the 728:7 MinimatchInstance guard; only the second-level options shape is missing.)"
+    },
+    {
+      "location": "688:11",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "Attempted type: array shape {length: number} (static shape MiniArr5, binding at 223:9:225:5 on the `set.filter(...)` result, guards on the array receivers). The binding/guard produced no optimization for `.length`, `.map`, `.join`, `.filter`, or `.push`: this compiler supports static shapes for ordinary objects only, not Array hidden classes/typed length, and Array.prototype method loads stay generic. `list` (725:21, 728:33, 729:14) is a caller-supplied array with no in-file creation site at all."
+    },
+    {
+      "location": "699:19",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "map",
+      "note": "Attempted type: array shape {length: number} (static shape MiniArr5, binding at 223:9:225:5 on the `set.filter(...)` result, guards on the array receivers). The binding/guard produced no optimization for `.length`, `.map`, `.join`, `.filter`, or `.push`: this compiler supports static shapes for ordinary objects only, not Array hidden classes/typed length, and Array.prototype method loads stay generic. `list` (725:21, 728:33, 729:14) is a caller-supplied array with no in-file creation site at all."
+    },
+    {
+      "location": "705:10",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "join",
+      "note": "Attempted type: array shape {length: number} (static shape MiniArr5, binding at 223:9:225:5 on the `set.filter(...)` result, guards on the array receivers). The binding/guard produced no optimization for `.length`, `.map`, `.join`, `.filter`, or `.push`: this compiler supports static shapes for ordinary objects only, not Array hidden classes/typed length, and Array.prototype method loads stay generic. `list` (725:21, 728:33, 729:14) is a caller-supplied array with no in-file creation site at all."
+    },
+    {
+      "location": "700:23",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "map",
+      "note": "Attempted type: array shape {length: number} (static shape MiniArr5, binding at 223:9:225:5 on the `set.filter(...)` result, guards on the array receivers). The binding/guard produced no optimization for `.length`, `.map`, `.join`, `.filter`, or `.push`: this compiler supports static shapes for ordinary objects only, not Array hidden classes/typed length, and Array.prototype method loads stay generic. `list` (725:21, 728:33, 729:14) is a caller-supplied array with no in-file creation site at all."
+    },
+    {
+      "location": "704:12",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "join",
+      "note": "Attempted type: array shape {length: number} (static shape MiniArr5, binding at 223:9:225:5 on the `set.filter(...)` result, guards on the array receivers). The binding/guard produced no optimization for `.length`, `.map`, `.join`, `.filter`, or `.push`: this compiler supports static shapes for ordinary objects only, not Array hidden classes/typed length, and Array.prototype method loads stay generic. `list` (725:21, 728:33, 729:14) is a caller-supplied array with no in-file creation site at all."
+    },
+    {
+      "location": "725:21",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "filter",
+      "note": "Attempted type: array shape {length: number} (static shape MiniArr5, binding at 223:9:225:5 on the `set.filter(...)` result, guards on the array receivers). The binding/guard produced no optimization for `.length`, `.map`, `.join`, `.filter`, or `.push`: this compiler supports static shapes for ordinary objects only, not Array hidden classes/typed length, and Array.prototype method loads stay generic. `list` (725:21, 728:33, 729:14) is a caller-supplied array with no in-file creation site at all."
+    },
+    {
+      "location": "728:33",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "Attempted type: array shape {length: number} (static shape MiniArr5, binding at 223:9:225:5 on the `set.filter(...)` result, guards on the array receivers). The binding/guard produced no optimization for `.length`, `.map`, `.join`, `.filter`, or `.push`: this compiler supports static shapes for ordinary objects only, not Array hidden classes/typed length, and Array.prototype method loads stay generic. `list` (725:21, 728:33, 729:14) is a caller-supplied array with no in-file creation site at all."
+    },
+    {
+      "location": "729:14",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "push",
+      "note": "Attempted type: array shape {length: number} (static shape MiniArr5, binding at 223:9:225:5 on the `set.filter(...)` result, guards on the array receivers). The binding/guard produced no optimization for `.length`, `.map`, `.join`, `.filter`, or `.push`: this compiler supports static shapes for ordinary objects only, not Array hidden classes/typed length, and Array.prototype method loads stay generic. `list` (725:21, 728:33, 729:14) is a caller-supplied array with no in-file creation site at all."
+    },
+    {
+      "location": "699:19",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "map",
+      "note": "Array.prototype builtins (map/join/filter/push) are defined outside this file, so no in-source target function exists to name with a closure type guard or to inline; the receiver arrays also have no supported static shape. The in-source callbacks (e.g. the map callback at 699:20) are arguments, not callees, so a closure guard on them would be incorrect and would not specialize the builtin call."
+    },
+    {
+      "location": "705:10",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "join",
+      "note": "Array.prototype builtins (map/join/filter/push) are defined outside this file, so no in-source target function exists to name with a closure type guard or to inline; the receiver arrays also have no supported static shape. The in-source callbacks (e.g. the map callback at 699:20) are arguments, not callees, so a closure guard on them would be incorrect and would not specialize the builtin call."
+    },
+    {
+      "location": "700:23",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "map",
+      "note": "Array.prototype builtins (map/join/filter/push) are defined outside this file, so no in-source target function exists to name with a closure type guard or to inline; the receiver arrays also have no supported static shape. The in-source callbacks (e.g. the map callback at 699:20) are arguments, not callees, so a closure guard on them would be incorrect and would not specialize the builtin call."
+    },
+    {
+      "location": "704:12",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "join",
+      "note": "Array.prototype builtins (map/join/filter/push) are defined outside this file, so no in-source target function exists to name with a closure type guard or to inline; the receiver arrays also have no supported static shape. The in-source callbacks (e.g. the map callback at 699:20) are arguments, not callees, so a closure guard on them would be incorrect and would not specialize the builtin call."
+    },
+    {
+      "location": "725:21",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "filter",
+      "note": "Array.prototype builtins (map/join/filter/push) are defined outside this file, so no in-source target function exists to name with a closure type guard or to inline; the receiver arrays also have no supported static shape. The in-source callbacks (e.g. the map callback at 699:20) are arguments, not callees, so a closure guard on them would be incorrect and would not specialize the builtin call."
+    },
+    {
+      "location": "729:14",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push",
+      "note": "Array.prototype builtins (map/join/filter/push) are defined outside this file, so no in-source target function exists to name with a closure type guard or to inline; the receiver arrays also have no supported static shape. The in-source callbacks (e.g. the map callback at 699:20) are arguments, not callees, so a closure guard on them would be incorrect and would not specialize the builtin call."
+    },
+    {
+      "location": "673:54",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "makeRe",
+      "note": "These are prototype method loads (Minimatch.prototype.makeRe / .match). Even with an instance shape guard (MinimatchInstance) plus a prototype shape guard and a prototype binding (MinimatchPrototype5 bound at 795:1:795:20, constructor + all 7 methods as closures), the compiler reports a miss/unknown-shape kill on the prototype data load — prototype-shape specialization does not remove the load. A closure type guard on the full member expression does optimize the CALL (673:54 and 726:20 calls are now optimized via closure guards targeting 677:1 and 735:1), but the property load that fetches the method remains generic."
+    },
+    {
+      "location": "726:20",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "match",
+      "note": "These are prototype method loads (Minimatch.prototype.makeRe / .match). Even with an instance shape guard (MinimatchInstance) plus a prototype shape guard and a prototype binding (MinimatchPrototype5 bound at 795:1:795:20, constructor + all 7 methods as closures), the compiler reports a miss/unknown-shape kill on the prototype data load — prototype-shape specialization does not remove the load. A closure type guard on the full member expression does optimize the CALL (673:54 and 726:20 calls are now optimized via closure guards targeting 677:1 and 735:1), but the property load that fetches the method remains generic."
+    }
+  ]
+}

@@ -1,0 +1,1027 @@
+{
+  "static shapes": {
+    "Node": {
+      "properties": [
+        {
+          "name": "starting",
+          "type": "number"
+        },
+        {
+          "name": "no_of_edges",
+          "type": "number"
+        }
+      ]
+    },
+    "Edge": {
+      "properties": [
+        {
+          "name": "dest",
+          "type": "number"
+        },
+        {
+          "name": "weight",
+          "type": "number"
+        }
+      ]
+    },
+    "InitResult": {
+      "properties": [
+        {
+          "name": "h_graph_nodes"
+        },
+        {
+          "name": "h_graph_mask"
+        },
+        {
+          "name": "h_updating_graph_mask"
+        },
+        {
+          "name": "h_graph_visited"
+        },
+        {
+          "name": "h_cost"
+        },
+        {
+          "name": "h_graph_edges"
+        }
+      ]
+    },
+    "BFSResult": {
+      "properties": [
+        {
+          "name": "status",
+          "type": "number"
+        },
+        {
+          "name": "options"
+        },
+        {
+          "name": "time",
+          "type": "number"
+        }
+      ]
+    },
+    "GraphArray": {
+      "properties": [
+        {
+          "name": "length",
+          "type": "number",
+          "flags off": [
+            "enumerable",
+            "configurable"
+          ]
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 88,
+          "column": 25
+        },
+        "end": {
+          "line": 88,
+          "column": 30
+        }
+      },
+      "shape": "InitResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 89,
+          "column": 24
+        },
+        "end": {
+          "line": 89,
+          "column": 29
+        }
+      },
+      "shape": "InitResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 90,
+          "column": 33
+        },
+        "end": {
+          "line": 90,
+          "column": 38
+        }
+      },
+      "shape": "InitResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 91,
+          "column": 27
+        },
+        "end": {
+          "line": 91,
+          "column": 32
+        }
+      },
+      "shape": "InitResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 92,
+          "column": 18
+        },
+        "end": {
+          "line": 92,
+          "column": 23
+        }
+      },
+      "shape": "InitResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 93,
+          "column": 25
+        },
+        "end": {
+          "line": 93,
+          "column": 30
+        }
+      },
+      "shape": "InitResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 107,
+          "column": 31
+        },
+        "end": {
+          "line": 107,
+          "column": 49
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 108,
+          "column": 30
+        },
+        "end": {
+          "line": 108,
+          "column": 48
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 108,
+          "column": 63
+        },
+        "end": {
+          "line": 108,
+          "column": 81
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 206,
+          "column": 32
+        },
+        "end": {
+          "line": 206,
+          "column": 43
+        }
+      },
+      "shape": "Edge"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 189,
+          "column": 27
+        },
+        "end": {
+          "line": 189,
+          "column": 35
+        }
+      },
+      "shape": "GraphArray"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 205,
+          "column": 29
+        },
+        "end": {
+          "line": 205,
+          "column": 37
+        }
+      },
+      "shape": "GraphArray"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 228,
+          "column": 6
+        },
+        "end": {
+          "line": 228,
+          "column": 12
+        }
+      },
+      "shape": "BFSResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 228,
+          "column": 16
+        },
+        "end": {
+          "line": 228,
+          "column": 22
+        }
+      },
+      "shape": "BFSResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 229,
+          "column": 22
+        },
+        "end": {
+          "line": 229,
+          "column": 28
+        }
+      },
+      "shape": "BFSResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 229,
+          "column": 38
+        },
+        "end": {
+          "line": 229,
+          "column": 44
+        }
+      },
+      "shape": "BFSResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 232,
+          "column": 18
+        },
+        "end": {
+          "line": 232,
+          "column": 24
+        }
+      },
+      "shape": "BFSResult"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 64,
+          "column": 12
+        },
+        "end": {
+          "line": 67,
+          "column": 6
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 72,
+          "column": 12
+        },
+        "end": {
+          "line": 75,
+          "column": 6
+        }
+      },
+      "shape": "Edge"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 216,
+          "column": 12
+        },
+        "end": {
+          "line": 223,
+          "column": 6
+        }
+      },
+      "shape": "InitResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 154,
+          "column": 12
+        },
+        "end": {
+          "line": 156,
+          "column": 43
+        }
+      },
+      "shape": "BFSResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 173,
+          "column": 20
+        },
+        "end": {
+          "line": 173,
+          "column": 22
+        }
+      },
+      "shape": "GraphArray"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 78,
+          "column": 19
+        },
+        "end": {
+          "line": 78,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 163,
+          "column": 26
+        },
+        "end": {
+          "line": 163,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 86,
+          "column": 14
+        },
+        "end": {
+          "line": 86,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 14
+        },
+        "end": {
+          "line": 94,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 100,
+          "column": 10
+        },
+        "end": {
+          "line": 100,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 130,
+          "column": 10
+        },
+        "end": {
+          "line": 130,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 112,
+          "column": 38
+        },
+        "end": {
+          "line": 112,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 135,
+          "column": 23
+        },
+        "end": {
+          "line": 135,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 137,
+          "column": 9
+        },
+        "end": {
+          "line": 137,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 138,
+          "column": 27
+        },
+        "end": {
+          "line": 138,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 139,
+          "column": 149
+        },
+        "end": {
+          "line": 139,
+          "column": 168
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 135,
+          "column": 9
+        },
+        "end": {
+          "line": 135,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 138,
+          "column": 13
+        },
+        "end": {
+          "line": 138,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 139,
+          "column": 101
+        },
+        "end": {
+          "line": 139,
+          "column": 111
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 177,
+          "column": 36
+        },
+        "end": {
+          "line": 177,
+          "column": 48
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 38,
+          "column": 12
+        },
+        "end": {
+          "line": 47,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 179,
+          "column": 36
+        },
+        "end": {
+          "line": 179,
+          "column": 48
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 38,
+          "column": 12
+        },
+        "end": {
+          "line": 47,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 180,
+          "column": 35
+        },
+        "end": {
+          "line": 180,
+          "column": 47
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 38,
+          "column": 12
+        },
+        "end": {
+          "line": 47,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 177,
+          "column": 36
+        },
+        "end": {
+          "line": 177,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 179,
+          "column": 36
+        },
+        "end": {
+          "line": 179,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 180,
+          "column": 35
+        },
+        "end": {
+          "line": 180,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 177,
+          "column": 72
+        },
+        "end": {
+          "line": 177,
+          "column": 81
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 177,
+          "column": 91
+        },
+        "end": {
+          "line": 177,
+          "column": 100
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 180,
+          "column": 67
+        },
+        "end": {
+          "line": 180,
+          "column": 77
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 180,
+          "column": 87
+        },
+        "end": {
+          "line": 180,
+          "column": 97
+        }
+      },
+      "type": "number"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "164:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "165:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "166:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "167:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "168:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "171:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "177:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "177:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "abs"
+    },
+    {
+      "location": "179:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "179:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "abs"
+    },
+    {
+      "location": "180:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "180:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "abs"
+    },
+    {
+      "location": "201:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "139:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "145:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "146:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "150:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "229:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isFinite"
+    },
+    {
+      "location": "229:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Number"
+    },
+    {
+      "location": "230:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "232:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "7:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "8:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "8:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "164:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array"
+    },
+    {
+      "location": "165:38",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "166:47",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "167:41",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "168:33",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "171:26",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array"
+    },
+    {
+      "location": "201:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array"
+    },
+    {
+      "location": "182:26",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "182:26",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "183:32",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "183:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "86:24",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "94:24",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "100:20",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "130:20",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "139:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "145:10",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "146:10",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "150:18",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "229:21",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "isFinite"
+    },
+    {
+      "location": "230:20",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "232:6",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "139:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation with a number operand inherently requires generic ToString/ToPrimitive; no typed fast path exists. Operand type guards (number on the numeric side) had no effect, and these sites are cold (one-shot diagnostics/return-value construction)."
+    },
+    {
+      "location": "145:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation with a number operand inherently requires generic ToString/ToPrimitive; no typed fast path exists. Operand type guards (number on the numeric side) had no effect, and these sites are cold (one-shot diagnostics/return-value construction)."
+    },
+    {
+      "location": "146:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation with a number operand inherently requires generic ToString/ToPrimitive; no typed fast path exists. Operand type guards (number on the numeric side) had no effect, and these sites are cold (one-shot diagnostics/return-value construction)."
+    },
+    {
+      "location": "150:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation with a number operand inherently requires generic ToString/ToPrimitive; no typed fast path exists. Operand type guards (number on the numeric side) had no effect, and these sites are cold (one-shot diagnostics/return-value construction)."
+    },
+    {
+      "location": "155:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation with a number operand inherently requires generic ToString/ToPrimitive; no typed fast path exists. Operand type guards (number on the numeric side) had no effect, and these sites are cold (one-shot diagnostics/return-value construction)."
+    },
+    {
+      "location": "232:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation with a number operand inherently requires generic ToString/ToPrimitive; no typed fast path exists. Operand type guards (number on the numeric side) had no effect, and these sites are cold (one-shot diagnostics/return-value construction)."
+    },
+    {
+      "location": "79:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Comparison of a mutable local parameter against undefined; type guards on the parameter declaration and on this reference (undefined and boolean|undefined) produced no effect, so no typed fast path is available for this check."
+    }
+  ]
+}

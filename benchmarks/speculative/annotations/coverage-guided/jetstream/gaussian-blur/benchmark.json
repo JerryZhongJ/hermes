@@ -1,0 +1,1826 @@
+{
+  "static shapes": {
+    "Benchmark": {
+      "properties": [
+        {
+          "name": "width",
+          "type": "number"
+        },
+        {
+          "name": "height",
+          "type": "number"
+        },
+        {
+          "name": "radius",
+          "type": "number"
+        },
+        {
+          "name": "buffer"
+        }
+      ]
+    },
+    "Benchmark3": {
+      "properties": [
+        {
+          "name": "width",
+          "type": "number"
+        },
+        {
+          "name": "height",
+          "type": "number"
+        },
+        {
+          "name": "radius",
+          "type": "number"
+        }
+      ]
+    },
+    "ResultsArr": {
+      "properties": [
+        {
+          "name": "length",
+          "type": "number",
+          "flags off": [
+            "enumerable",
+            "configurable"
+          ]
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 286,
+          "column": 19
+        },
+        "end": {
+          "line": 286,
+          "column": 23
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 278,
+          "column": 40
+        },
+        "end": {
+          "line": 278,
+          "column": 44
+        }
+      },
+      "shape": "Benchmark3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 313,
+          "column": 27
+        },
+        "end": {
+          "line": 313,
+          "column": 34
+        }
+      },
+      "shape": "ResultsArr"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 282,
+          "column": 9
+        },
+        "end": {
+          "line": 282,
+          "column": 13
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 262,
+          "column": 9
+        },
+        "end": {
+          "line": 262,
+          "column": 13
+        }
+      },
+      "shape": "Benchmark3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 297,
+          "column": 19
+        },
+        "end": {
+          "line": 297,
+          "column": 21
+        }
+      },
+      "shape": "ResultsArr"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 70,
+          "column": 20
+        },
+        "end": {
+          "line": 70,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 93,
+          "column": 46
+        },
+        "end": {
+          "line": 93,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 93,
+          "column": 53
+        },
+        "end": {
+          "line": 93,
+          "column": 59
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 24
+        },
+        "end": {
+          "line": 242,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 31
+        },
+        "end": {
+          "line": 242,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 286,
+          "column": 10
+        },
+        "end": {
+          "line": 286,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 242,
+          "column": 1
+        },
+        "end": {
+          "line": 256,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 252,
+          "column": 15
+        },
+        "end": {
+          "line": 252,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 70,
+          "column": 1
+        },
+        "end": {
+          "line": 91,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 254,
+          "column": 3
+        },
+        "end": {
+          "line": 254,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 239,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 255,
+          "column": 3
+        },
+        "end": {
+          "line": 255,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 239,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 142,
+          "column": 33
+        },
+        "end": {
+          "line": 142,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 33
+        },
+        "end": {
+          "line": 143,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 144,
+          "column": 33
+        },
+        "end": {
+          "line": 144,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 145,
+          "column": 33
+        },
+        "end": {
+          "line": 145,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 201,
+          "column": 33
+        },
+        "end": {
+          "line": 201,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 202,
+          "column": 33
+        },
+        "end": {
+          "line": 202,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 203,
+          "column": 33
+        },
+        "end": {
+          "line": 203,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 204,
+          "column": 33
+        },
+        "end": {
+          "line": 204,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 142,
+          "column": 57
+        },
+        "end": {
+          "line": 142,
+          "column": 65
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 57
+        },
+        "end": {
+          "line": 143,
+          "column": 65
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 144,
+          "column": 57
+        },
+        "end": {
+          "line": 144,
+          "column": 65
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 145,
+          "column": 57
+        },
+        "end": {
+          "line": 145,
+          "column": 65
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 201,
+          "column": 57
+        },
+        "end": {
+          "line": 201,
+          "column": 65
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 202,
+          "column": 57
+        },
+        "end": {
+          "line": 202,
+          "column": 65
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 203,
+          "column": 57
+        },
+        "end": {
+          "line": 203,
+          "column": 65
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 204,
+          "column": 57
+        },
+        "end": {
+          "line": 204,
+          "column": 65
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 142,
+          "column": 81
+        },
+        "end": {
+          "line": 142,
+          "column": 89
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 81
+        },
+        "end": {
+          "line": 143,
+          "column": 89
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 144,
+          "column": 81
+        },
+        "end": {
+          "line": 144,
+          "column": 89
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 145,
+          "column": 81
+        },
+        "end": {
+          "line": 145,
+          "column": 89
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 201,
+          "column": 81
+        },
+        "end": {
+          "line": 201,
+          "column": 89
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 202,
+          "column": 81
+        },
+        "end": {
+          "line": 202,
+          "column": 89
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 203,
+          "column": 81
+        },
+        "end": {
+          "line": 203,
+          "column": 89
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 204,
+          "column": 81
+        },
+        "end": {
+          "line": 204,
+          "column": 89
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 142,
+          "column": 110
+        },
+        "end": {
+          "line": 142,
+          "column": 118
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 110
+        },
+        "end": {
+          "line": 143,
+          "column": 118
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 144,
+          "column": 110
+        },
+        "end": {
+          "line": 144,
+          "column": 118
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 145,
+          "column": 110
+        },
+        "end": {
+          "line": 145,
+          "column": 118
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 201,
+          "column": 110
+        },
+        "end": {
+          "line": 201,
+          "column": 118
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 202,
+          "column": 110
+        },
+        "end": {
+          "line": 202,
+          "column": 118
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 203,
+          "column": 110
+        },
+        "end": {
+          "line": 203,
+          "column": 118
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 204,
+          "column": 110
+        },
+        "end": {
+          "line": 204,
+          "column": 118
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 120,
+          "column": 36
+        },
+        "end": {
+          "line": 120,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 121,
+          "column": 36
+        },
+        "end": {
+          "line": 121,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 122,
+          "column": 36
+        },
+        "end": {
+          "line": 122,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 123,
+          "column": 36
+        },
+        "end": {
+          "line": 123,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 182,
+          "column": 36
+        },
+        "end": {
+          "line": 182,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 183,
+          "column": 36
+        },
+        "end": {
+          "line": 183,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 184,
+          "column": 36
+        },
+        "end": {
+          "line": 184,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 185,
+          "column": 36
+        },
+        "end": {
+          "line": 185,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 227,
+          "column": 16
+        },
+        "end": {
+          "line": 227,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 228,
+          "column": 11
+        },
+        "end": {
+          "line": 228,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 229,
+          "column": 11
+        },
+        "end": {
+          "line": 229,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 230,
+          "column": 11
+        },
+        "end": {
+          "line": 230,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 86,
+          "column": 18
+        },
+        "end": {
+          "line": 86,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 86,
+          "column": 23
+        },
+        "end": {
+          "line": 86,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 87,
+          "column": 19
+        },
+        "end": {
+          "line": 87,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 87,
+          "column": 24
+        },
+        "end": {
+          "line": 87,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 86,
+          "column": 34
+        },
+        "end": {
+          "line": 86,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 87,
+          "column": 35
+        },
+        "end": {
+          "line": 87,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 86,
+          "column": 39
+        },
+        "end": {
+          "line": 86,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 87,
+          "column": 40
+        },
+        "end": {
+          "line": 87,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 278,
+          "column": 40
+        },
+        "end": {
+          "line": 278,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 278,
+          "column": 53
+        },
+        "end": {
+          "line": 278,
+          "column": 64
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 279,
+          "column": 29
+        },
+        "end": {
+          "line": 279,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 280,
+          "column": 25
+        },
+        "end": {
+          "line": 280,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 266,
+          "column": 20
+        },
+        "end": {
+          "line": 275,
+          "column": 14
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 312,
+          "column": 33
+        },
+        "end": {
+          "line": 312,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 312,
+          "column": 38
+        },
+        "end": {
+          "line": 312,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 7,
+          "column": 21
+        },
+        "end": {
+          "line": 7,
+          "column": 25
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 7,
+          "column": 34
+        },
+        "end": {
+          "line": 7,
+          "column": 50
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 305,
+          "column": 5
+        },
+        "end": {
+          "line": 305,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 285,
+          "column": 5
+        },
+        "end": {
+          "line": 287,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 304,
+          "column": 19
+        },
+        "end": {
+          "line": 304,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 306,
+          "column": 17
+        },
+        "end": {
+          "line": 306,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 313,
+          "column": 19
+        },
+        "end": {
+          "line": 313,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 314,
+          "column": 20
+        },
+        "end": {
+          "line": 314,
+          "column": 25
+        }
+      },
+      "type": "number"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "11:17",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "11:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "11:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "11:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "11:69",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "12:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "12:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "13:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "14:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "15:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "17:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "17:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "17:38",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "29:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "30:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "30:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Realm"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "blurRGBA"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "convolveRGBA"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "gaussCoef"
+    },
+    {
+      "location": "12:12",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "now"
+    },
+    {
+      "location": "12:17",
+      "kind": "property_store",
+      "reason": "ambiguous-shape",
+      "property": "now"
+    },
+    {
+      "location": "12:25",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "now"
+    },
+    {
+      "location": "13:12",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "mark"
+    },
+    {
+      "location": "13:18",
+      "kind": "property_store",
+      "reason": "ambiguous-shape",
+      "property": "mark"
+    },
+    {
+      "location": "14:12",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "measure"
+    },
+    {
+      "location": "14:21",
+      "kind": "property_store",
+      "reason": "ambiguous-shape",
+      "property": "measure"
+    },
+    {
+      "location": "15:12",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "timeOrigin"
+    },
+    {
+      "location": "15:24",
+      "kind": "property_store",
+      "reason": "ambiguous-shape",
+      "property": "timeOrigin"
+    },
+    {
+      "location": "29:23",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isInBrowser"
+    },
+    {
+      "location": "30:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isD8"
+    },
+    {
+      "location": "11:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing / nullish-assignment dispatch on a global property read (globalThis.performance, performance.now/mark/measure/timeOrigin). The operand's type and shape are unknowable to the compiler (global loads are always side-effecting) and a type guard on the global read has no effect, so the ??/??= selection cannot be folded."
+    },
+    {
+      "location": "12:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing / nullish-assignment dispatch on a global property read (globalThis.performance, performance.now/mark/measure/timeOrigin). The operand's type and shape are unknowable to the compiler (global loads are always side-effecting) and a type guard on the global read has no effect, so the ??/??= selection cannot be folded."
+    },
+    {
+      "location": "13:18",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing / nullish-assignment dispatch on a global property read (globalThis.performance, performance.now/mark/measure/timeOrigin). The operand's type and shape are unknowable to the compiler (global loads are always side-effecting) and a type guard on the global read has no effect, so the ??/??= selection cannot be folded."
+    },
+    {
+      "location": "14:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing / nullish-assignment dispatch on a global property read (globalThis.performance, performance.now/mark/measure/timeOrigin). The operand's type and shape are unknowable to the compiler (global loads are always side-effecting) and a type guard on the global read has no effect, so the ??/??= selection cannot be folded."
+    },
+    {
+      "location": "15:24",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing / nullish-assignment dispatch on a global property read (globalThis.performance, performance.now/mark/measure/timeOrigin). The operand's type and shape are unknowable to the compiler (global loads are always side-effecting) and a type guard on the global read has no effect, so the ??/??= selection cannot be folded."
+    },
+    {
+      "location": "247:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "249:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "250:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Float32Array"
+    },
+    {
+      "location": "252:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "gaussCoef"
+    },
+    {
+      "location": "254:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "convolveRGBA"
+    },
+    {
+      "location": "255:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "convolveRGBA"
+    },
+    {
+      "location": "247:34",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "buffer"
+    },
+    {
+      "location": "249:39",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "length"
+    },
+    {
+      "location": "247:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "249:33",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "250:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Float32Array"
+    },
+    {
+      "location": "260:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "width"
+    },
+    {
+      "location": "261:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "height"
+    },
+    {
+      "location": "262:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "radius"
+    },
+    {
+      "location": "282:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "buffer"
+    },
+    {
+      "location": "278:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "286:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "blurRGBA"
+    },
+    {
+      "location": "278:39",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "279:35",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "length"
+    },
+    {
+      "location": "259:5",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "`Benchmark.prototype` is created implicitly by the class declaration; the class body has no annotatable prototype-producing expression, so a prototype shape cannot be bound and the implicit prototype load stays generic."
+    },
+    {
+      "location": "80:6",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "a0"
+    },
+    {
+      "location": "81:6",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "a1"
+    },
+    {
+      "location": "82:6",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "a2"
+    },
+    {
+      "location": "83:6",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "a3"
+    },
+    {
+      "location": "84:6",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "b1"
+    },
+    {
+      "location": "85:6",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "b2"
+    },
+    {
+      "location": "86:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "left_corner"
+    },
+    {
+      "location": "86:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "a0"
+    },
+    {
+      "location": "86:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "a1"
+    },
+    {
+      "location": "86:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "b1"
+    },
+    {
+      "location": "86:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "b2"
+    },
+    {
+      "location": "87:16",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "right_corner"
+    },
+    {
+      "location": "87:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "a2"
+    },
+    {
+      "location": "87:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "a3"
+    },
+    {
+      "location": "87:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "b1"
+    },
+    {
+      "location": "87:40",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "b2"
+    },
+    {
+      "location": "90:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Float32Array"
+    },
+    {
+      "location": "90:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "a0"
+    },
+    {
+      "location": "90:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "a1"
+    },
+    {
+      "location": "90:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "a2"
+    },
+    {
+      "location": "90:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "a3"
+    },
+    {
+      "location": "90:45",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "b1"
+    },
+    {
+      "location": "90:49",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "b2"
+    },
+    {
+      "location": "90:53",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "left_corner"
+    },
+    {
+      "location": "90:66",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "right_corner"
+    },
+    {
+      "location": "90:26",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Float32Array"
+    },
+    {
+      "location": "5:46",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Proxy"
+    },
+    {
+      "location": "7:20",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "7:40",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "String"
+    },
+    {
+      "location": "5:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Proxy"
+    },
+    {
+      "location": "7:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "7:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "300:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "301:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "304:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "306:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "314:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "300:20",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "random"
+    },
+    {
+      "location": "300:27",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "301:11",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "random"
+    },
+    {
+      "location": "301:30",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "304:34",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "now"
+    },
+    {
+      "location": "305:27",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "runIteration"
+    },
+    {
+      "location": "306:32",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "now"
+    },
+    {
+      "location": "307:17",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "push"
+    },
+    {
+      "location": "310:23",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "validate"
+    },
+    {
+      "location": "312:31",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "reduce"
+    },
+    {
+      "location": "301:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "304:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "306:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "307:17",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "310:23",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "validate"
+    },
+    {
+      "location": "312:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "reduce"
+    },
+    {
+      "location": "314:8",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "310:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "`benchmark.validate?.(12)`: optional-call dispatch on a property absent from the bound Benchmark shape and from its (unbindable) class prototype; the callee has no source function, so neither a shape nor a closure guard can resolve the optional call."
+    },
+    {
+      "location": "314:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "`'Time: ' + total` concatenates a string with a number; ToString of a number has no specialized fast path, and a number type guard on `total` does not change that (dryrun: no effect)."
+    }
+  ]
+}

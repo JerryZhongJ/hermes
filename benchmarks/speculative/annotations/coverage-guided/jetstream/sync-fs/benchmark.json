@@ -1,0 +1,2599 @@
+{
+  "static shapes": {
+    "File": {
+      "properties": [
+        {
+          "name": "_data"
+        }
+      ]
+    },
+    "Directory": {
+      "properties": [
+        {
+          "name": "structure"
+        }
+      ]
+    },
+    "CountVisitor": {
+      "properties": [
+        {
+          "name": "fileCount",
+          "type": "number"
+        },
+        {
+          "name": "dirCount",
+          "type": "number"
+        }
+      ]
+    },
+    "CountDracula": {
+      "properties": [
+        {
+          "name": "bytes",
+          "type": "number"
+        }
+      ]
+    },
+    "Benchmark": {
+      "properties": [
+        {
+          "name": "EXPECTED_FILE_COUNT",
+          "type": "number"
+        },
+        {
+          "name": "totalFileCount",
+          "type": "number"
+        },
+        {
+          "name": "totalDirCount",
+          "type": "number"
+        },
+        {
+          "name": "lastFileHash"
+        },
+        {
+          "name": "fs"
+        }
+      ]
+    },
+    "Perf": {
+      "properties": [
+        {
+          "name": "now"
+        },
+        {
+          "name": "mark"
+        },
+        {
+          "name": "measure"
+        },
+        {
+          "name": "timeOrigin"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 109,
+          "column": 25
+        },
+        "end": {
+          "line": 109,
+          "column": 29
+        }
+      },
+      "shape": "File"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 111,
+          "column": 26
+        },
+        "end": {
+          "line": 111,
+          "column": 30
+        }
+      },
+      "shape": "File"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 113,
+          "column": 31
+        },
+        "end": {
+          "line": 113,
+          "column": 35
+        }
+      },
+      "shape": "File"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 132,
+          "column": 21
+        },
+        "end": {
+          "line": 132,
+          "column": 25
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 141,
+          "column": 9
+        },
+        "end": {
+          "line": 141,
+          "column": 13
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 146,
+          "column": 21
+        },
+        "end": {
+          "line": 146,
+          "column": 25
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 155,
+          "column": 9
+        },
+        "end": {
+          "line": 155,
+          "column": 13
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 209,
+          "column": 16
+        },
+        "end": {
+          "line": 209,
+          "column": 20
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 263,
+          "column": 9
+        },
+        "end": {
+          "line": 263,
+          "column": 13
+        }
+      },
+      "shape": "CountVisitor"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 267,
+          "column": 9
+        },
+        "end": {
+          "line": 267,
+          "column": 13
+        }
+      },
+      "shape": "CountVisitor"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 274,
+          "column": 9
+        },
+        "end": {
+          "line": 274,
+          "column": 13
+        }
+      },
+      "shape": "CountDracula"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 346,
+          "column": 35
+        },
+        "end": {
+          "line": 346,
+          "column": 39
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 348,
+          "column": 57
+        },
+        "end": {
+          "line": 348,
+          "column": 61
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 350,
+          "column": 51
+        },
+        "end": {
+          "line": 350,
+          "column": 55
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 368,
+          "column": 19
+        },
+        "end": {
+          "line": 368,
+          "column": 30
+        }
+      },
+      "shape": "Perf"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 370,
+          "column": 17
+        },
+        "end": {
+          "line": 370,
+          "column": 28
+        }
+      },
+      "shape": "Perf"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 106,
+          "column": 9
+        },
+        "end": {
+          "line": 106,
+          "column": 13
+        }
+      },
+      "shape": "File"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 128,
+          "column": 9
+        },
+        "end": {
+          "line": 128,
+          "column": 13
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 316,
+          "column": 30
+        },
+        "end": {
+          "line": 316,
+          "column": 48
+        }
+      },
+      "shape": "CountVisitor"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 319,
+          "column": 30
+        },
+        "end": {
+          "line": 319,
+          "column": 48
+        }
+      },
+      "shape": "CountDracula"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 360,
+          "column": 21
+        },
+        "end": {
+          "line": 360,
+          "column": 38
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 12
+        }
+      },
+      "shape": "Perf"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 345,
+          "column": 14
+        },
+        "end": {
+          "line": 345,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 369,
+          "column": 5
+        },
+        "end": {
+          "line": 369,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 289,
+          "column": 5
+        },
+        "end": {
+          "line": 343,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 376,
+          "column": 33
+        },
+        "end": {
+          "line": 376,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 376,
+          "column": 38
+        },
+        "end": {
+          "line": 376,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 371,
+          "column": 30
+        },
+        "end": {
+          "line": 371,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 371,
+          "column": 36
+        },
+        "end": {
+          "line": 371,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 88,
+          "column": 24
+        },
+        "end": {
+          "line": 88,
+          "column": 45
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 80,
+          "column": 1
+        },
+        "end": {
+          "line": 86,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 85,
+          "column": 12
+        },
+        "end": {
+          "line": 85,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 117,
+          "column": 40
+        },
+        "end": {
+          "line": 117,
+          "column": 60
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 365,
+          "column": 7
+        },
+        "end": {
+          "line": 365,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 45,
+          "column": 29
+        },
+        "end": {
+          "line": 47,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 145,
+          "column": 40
+        },
+        "end": {
+          "line": 145,
+          "column": 49
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 127,
+          "column": 5
+        },
+        "end": {
+          "line": 129,
+          "column": 6
+        }
+      }
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "160:39",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "structure",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "160:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "165:33",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "ls",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "165:33",
+      "kind": "call",
+      "reason": "other",
+      "property": "ls",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "165:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "166:22",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isDirectory",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "192:33",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "ls",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "192:33",
+      "kind": "call",
+      "reason": "other",
+      "property": "ls",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "192:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "193:22",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isDirectory",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "202:65",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "forEachFileRecursively",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "202:65",
+      "kind": "call",
+      "reason": "other",
+      "property": "forEachFileRecursively",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "202:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "entry",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "202:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "203:18",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "203:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "byteLength",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "172:33",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "ls",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "172:33",
+      "kind": "call",
+      "reason": "other",
+      "property": "ls",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "172:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "173:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isDirectory",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "174:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "done",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "174:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "174:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "iterator",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "174:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "next",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "174:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "value",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "174:28",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "entry",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "174:57",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "forEachFileRecursively",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "174:57",
+      "kind": "call",
+      "reason": "other",
+      "property": "forEachFileRecursively",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "181:33",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "ls",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "181:33",
+      "kind": "call",
+      "reason": "other",
+      "property": "ls",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "181:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "182:22",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isDirectory",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "185:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "185:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "next",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "185:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "value",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "185:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "done",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "185:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "iterator",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "185:24",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "entry",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "185:58",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "forEachDirectoryRecursively",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "185:58",
+      "kind": "call",
+      "reason": "other",
+      "property": "forEachDirectoryRecursively",
+      "note": "Annotation pass does not apply inside this generator/for-of function: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified repeatedly). Iterator machinery is compiler-lowered."
+    },
+    {
+      "location": "213:25",
+      "kind": "call",
+      "reason": "other",
+      "property": "visitDir",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "213:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "visitDir",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "214:57",
+      "kind": "call",
+      "reason": "other",
+      "property": "ls",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "214:57",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "ls",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "214:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "214:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isDirectory",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "214:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "entry",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "214:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "name",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "216:28",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "visit",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "216:28",
+      "kind": "call",
+      "reason": "other",
+      "property": "visit",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "218:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "visitFile",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "218:34",
+      "kind": "call",
+      "reason": "other",
+      "property": "visitFile",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "230:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "232:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "232:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "233:26",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "233:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "233:43",
+      "kind": "call",
+      "reason": "other",
+      "property": "addDirectory",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "233:43",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "addDirectory",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "233:44",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "HermesInternal",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "233:44",
+      "kind": "call",
+      "reason": "other",
+      "property": "concat",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "233:44",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "concat",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "233:55",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "239:32",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "randomFileContents",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "239:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "239:50",
+      "kind": "call",
+      "reason": "other",
+      "property": "randomFileContents",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "240:26",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "241:26",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "241:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "242:20",
+      "kind": "call",
+      "reason": "other",
+      "property": "addFile",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "242:20",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "addFile",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "242:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "HermesInternal",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "242:21",
+      "kind": "call",
+      "reason": "other",
+      "property": "concat",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "242:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "concat",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "244:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "290:17",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "fs",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "290:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "setupDirectory",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "290:33",
+      "kind": "call",
+      "reason": "other",
+      "property": "setupDirectory",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "292:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fs",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "292:67",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "forEachFileRecursively",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "292:67",
+      "kind": "call",
+      "reason": "other",
+      "property": "forEachFileRecursively",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "292:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "292:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "entry",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "293:31",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "lastFileHash",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "293:51",
+      "kind": "call",
+      "reason": "other",
+      "property": "swapByteOrder",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "293:51",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "swapByteOrder",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "298:48",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fs",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "298:79",
+      "kind": "call",
+      "reason": "other",
+      "property": "forEachDirectoryRecursively",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "298:79",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "forEachDirectoryRecursively",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "298:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "entry",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "298:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "name",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "298:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "299:51",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "totalFileSize",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "299:51",
+      "kind": "call",
+      "reason": "other",
+      "property": "totalFileSize",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "300:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "300:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fileCount",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "300:30",
+      "kind": "call",
+      "reason": "other",
+      "property": "fileCount",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "305:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "name",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "305:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "305:51",
+      "kind": "call",
+      "reason": "other",
+      "property": "forEachFile",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "305:51",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "forEachFile",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "306:38",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "rm",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "306:38",
+      "kind": "call",
+      "reason": "other",
+      "property": "rm",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "308:31",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Error",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "308:36",
+      "kind": "call",
+      "reason": "other",
+      "property": "Error",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "310:38",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "310:70",
+      "kind": "call",
+      "reason": "other",
+      "property": "totalFileSize",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "310:70",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "totalFileSize",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "311:26",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "313:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "314:23",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Error",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "314:28",
+      "kind": "call",
+      "reason": "other",
+      "property": "Error",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "316:46",
+      "kind": "call",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "317:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fs",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "317:22",
+      "kind": "call",
+      "reason": "other",
+      "property": "visit",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "317:22",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "visit",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "319:46",
+      "kind": "call",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "320:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fs",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "320:22",
+      "kind": "call",
+      "reason": "other",
+      "property": "visit",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "320:22",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "visit",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "324:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fs",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "324:67",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "forEachFileRecursively",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "324:67",
+      "kind": "call",
+      "reason": "other",
+      "property": "forEachFileRecursively",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "324:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "324:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "entry",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "326:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "326:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "byteLength",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "328:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "totalFileCount",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "328:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "328:29",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "totalFileCount",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "331:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fs",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "331:58",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "forEachDirectoryRecursively",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "331:58",
+      "kind": "call",
+      "reason": "other",
+      "property": "forEachDirectoryRecursively",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "331:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "334:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "totalDirCount",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "334:28",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "totalDirCount",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "334:28",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "336:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "336:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fileCount",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "337:23",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Error",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "337:28",
+      "kind": "call",
+      "reason": "other",
+      "property": "Error",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "337:29",
+      "kind": "call",
+      "reason": "other",
+      "property": "concat",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "337:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "concat",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "337:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "HermesInternal",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "337:69",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fileCount",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "338:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "338:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "bytes",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "339:23",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Error",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "339:28",
+      "kind": "call",
+      "reason": "other",
+      "property": "Error",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "339:29",
+      "kind": "call",
+      "reason": "other",
+      "property": "concat",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "339:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "concat",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "339:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "HermesInternal",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "339:69",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "bytes",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "340:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "340:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "dirCount",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "341:23",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Error",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "341:28",
+      "kind": "call",
+      "reason": "other",
+      "property": "Error",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "341:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "HermesInternal",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "341:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "concat",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "341:29",
+      "kind": "call",
+      "reason": "other",
+      "property": "concat",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "341:68",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "dirCount",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: shape guards, closure type guards and number type guards placed here all produce zero dryrun effect (verified). Iterator machinery and destructured loop bindings are compiler-lowered and not annotation targets."
+    },
+    {
+      "location": "364:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "364:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "364:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "365:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "365:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "365:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "368:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "370:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "371:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "371:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max"
+    },
+    {
+      "location": "378:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "371:17",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "Built-in Array method/accessor; static shapes only describe user-defined objects, so no annotation can specialize these accesses."
+    },
+    {
+      "location": "371:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "Built-in Array method/accessor; static shapes only describe user-defined objects, so no annotation can specialize these accesses."
+    },
+    {
+      "location": "376:31",
+      "kind": "call",
+      "reason": "other",
+      "property": "reduce",
+      "note": "Built-in Array method/accessor; static shapes only describe user-defined objects, so no annotation can specialize these accesses."
+    },
+    {
+      "location": "376:31",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "reduce",
+      "note": "Built-in Array method/accessor; static shapes only describe user-defined objects, so no annotation can specialize these accesses."
+    },
+    {
+      "location": "377:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Built-in Array method/accessor; static shapes only describe user-defined objects, so no annotation can specialize these accesses."
+    },
+    {
+      "location": "369:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "runIteration",
+      "note": "Class-syntax method read: the prototype object (Benchmark.prototype) has no addressable source expression, so a prototype shape cannot be bound and the inherited property read stays generic. The call itself was optimized via a closure identity type guard at this site."
+    },
+    {
+      "location": "374:23",
+      "kind": "call",
+      "reason": "other",
+      "property": "validate",
+      "note": "Optional call (`?.()`) lowering turns the callee into a synthesized check/closure dispatch that annotation targets cannot address; closure identity type guards placed on both the member expression and the whole call expression produced no effect."
+    },
+    {
+      "location": "374:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Optional call (`?.()`) lowering turns the callee into a synthesized check/closure dispatch that annotation targets cannot address; closure identity type guards placed on both the member expression and the whole call expression produced no effect."
+    },
+    {
+      "location": "374:23",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "validate",
+      "note": "Optional call (`?.()`) lowering turns the callee into a synthesized check/closure dispatch that annotation targets cannot address; closure identity type guards placed on both the member expression and the whole call expression produced no effect."
+    },
+    {
+      "location": "360:34",
+      "kind": "call",
+      "reason": "other",
+      "note": "`new` on a class with an implicit constructor: there is no function expression range to guard/inline. The instance shape binding at this site is already applied and benefits later member accesses."
+    },
+    {
+      "location": "377:19",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "378:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation (`'Time: ' + total`) with an any-typed operand; a number type guard on `total` at this use produced no effect, so the concat stays generic."
+    },
+    {
+      "location": "348:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "348:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "350:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "350:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "348:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "concat",
+      "note": "Template-literal interpolation lowering (`HermesInternal.concat`); the concat callee and HermesInternal global are synthesized by the compiler and cannot be annotation targets."
+    },
+    {
+      "location": "348:29",
+      "kind": "call",
+      "reason": "other",
+      "property": "concat",
+      "note": "Template-literal interpolation lowering (`HermesInternal.concat`); the concat callee and HermesInternal global are synthesized by the compiler and cannot be annotation targets."
+    },
+    {
+      "location": "348:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "HermesInternal",
+      "note": "Template-literal interpolation lowering (`HermesInternal.concat`); the concat callee and HermesInternal global are synthesized by the compiler and cannot be annotation targets."
+    },
+    {
+      "location": "350:29",
+      "kind": "call",
+      "reason": "other",
+      "property": "concat",
+      "note": "Template-literal interpolation lowering (`HermesInternal.concat`); the concat callee and HermesInternal global are synthesized by the compiler and cannot be annotation targets."
+    },
+    {
+      "location": "350:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "concat",
+      "note": "Template-literal interpolation lowering (`HermesInternal.concat`); the concat callee and HermesInternal global are synthesized by the compiler and cannot be annotation targets."
+    },
+    {
+      "location": "350:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "HermesInternal",
+      "note": "Template-literal interpolation lowering (`HermesInternal.concat`); the concat callee and HermesInternal global are synthesized by the compiler and cannot be annotation targets."
+    },
+    {
+      "location": "349:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Strict comparison of an any-typed property against undefined. A shape guard optimizes the load itself; a number|undefined type guard on the load target produced no effect, so the comparison stays generic."
+    },
+    {
+      "location": "105:5",
+      "kind": "property_load",
+      "reason": "constructing-store",
+      "property": "prototype"
+    },
+    {
+      "location": "106:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_data"
+    },
+    {
+      "location": "127:5",
+      "kind": "property_load",
+      "reason": "constructing-store",
+      "property": "prototype"
+    },
+    {
+      "location": "128:24",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "structure"
+    },
+    {
+      "location": "117:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "117:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "floor"
+    },
+    {
+      "location": "128:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Map"
+    },
+    {
+      "location": "128:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Map"
+    },
+    {
+      "location": "135:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "135:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "137:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "137:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "138:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "138:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "149:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "149:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "151:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "151:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "152:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "152:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "117:44",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "data",
+      "note": "Class-syntax accessor/method: the prototype object (File.prototype / Directory.prototype) has no addressable source expression, so a prototype shape cannot be bound; the inherited read stays generic."
+    },
+    {
+      "location": "118:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "data",
+      "note": "Class-syntax accessor/method: the prototype object (File.prototype / Directory.prototype) has no addressable source expression, so a prototype shape cannot be bound; the inherited read stays generic."
+    },
+    {
+      "location": "119:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "data",
+      "note": "Class-syntax accessor/method: the prototype object (File.prototype / Directory.prototype) has no addressable source expression, so a prototype shape cannot be bound; the inherited read stays generic."
+    },
+    {
+      "location": "113:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "byteLength",
+      "note": "Built-in DataView property/method; static shapes only describe user-defined objects, so these accesses cannot be specialized."
+    },
+    {
+      "location": "117:49",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "byteLength",
+      "note": "Built-in DataView property/method; static shapes only describe user-defined objects, so these accesses cannot be specialized."
+    },
+    {
+      "location": "118:46",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "getFloat64",
+      "note": "Built-in DataView property/method; static shapes only describe user-defined objects, so these accesses cannot be specialized."
+    },
+    {
+      "location": "118:46",
+      "kind": "call",
+      "reason": "other",
+      "property": "getFloat64",
+      "note": "Built-in DataView property/method; static shapes only describe user-defined objects, so these accesses cannot be specialized."
+    },
+    {
+      "location": "119:33",
+      "kind": "call",
+      "reason": "other",
+      "property": "setFloat64",
+      "note": "Built-in DataView property/method; static shapes only describe user-defined objects, so these accesses cannot be specialized."
+    },
+    {
+      "location": "119:33",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "setFloat64",
+      "note": "Built-in DataView property/method; static shapes only describe user-defined objects, so these accesses cannot be specialized."
+    },
+    {
+      "location": "132:39",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "get",
+      "note": "Built-in Map method; static shapes only describe user-defined objects, so the Map lookup/store stays generic (the receiver's `structure` load itself is shape-optimized)."
+    },
+    {
+      "location": "132:39",
+      "kind": "call",
+      "reason": "other",
+      "property": "get",
+      "note": "Built-in Map method; static shapes only describe user-defined objects, so the Map lookup/store stays generic (the receiver's `structure` load itself is shape-optimized)."
+    },
+    {
+      "location": "141:27",
+      "kind": "call",
+      "reason": "other",
+      "property": "set",
+      "note": "Built-in Map method; static shapes only describe user-defined objects, so the Map lookup/store stays generic (the receiver's `structure` load itself is shape-optimized)."
+    },
+    {
+      "location": "141:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "set",
+      "note": "Built-in Map method; static shapes only describe user-defined objects, so the Map lookup/store stays generic (the receiver's `structure` load itself is shape-optimized)."
+    },
+    {
+      "location": "146:39",
+      "kind": "call",
+      "reason": "other",
+      "property": "get",
+      "note": "Built-in Map method; static shapes only describe user-defined objects, so the Map lookup/store stays generic (the receiver's `structure` load itself is shape-optimized)."
+    },
+    {
+      "location": "146:39",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "get",
+      "note": "Built-in Map method; static shapes only describe user-defined objects, so the Map lookup/store stays generic (the receiver's `structure` load itself is shape-optimized)."
+    },
+    {
+      "location": "155:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "set",
+      "note": "Built-in Map method; static shapes only describe user-defined objects, so the Map lookup/store stays generic (the receiver's `structure` load itself is shape-optimized)."
+    },
+    {
+      "location": "155:27",
+      "kind": "call",
+      "reason": "other",
+      "property": "set",
+      "note": "Built-in Map method; static shapes only describe user-defined objects, so the Map lookup/store stays generic (the receiver's `structure` load itself is shape-optimized)."
+    },
+    {
+      "location": "209:37",
+      "kind": "call",
+      "reason": "other",
+      "property": "delete",
+      "note": "Built-in Map method; static shapes only describe user-defined objects, so the Map lookup/store stays generic (the receiver's `structure` load itself is shape-optimized)."
+    },
+    {
+      "location": "209:37",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "delete",
+      "note": "Built-in Map method; static shapes only describe user-defined objects, so the Map lookup/store stays generic (the receiver's `structure` load itself is shape-optimized)."
+    },
+    {
+      "location": "133:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Strict comparison of an any-typed Map lookup result against undefined; the possible types (File | Directory | undefined) are not expressible as an annotation type union."
+    },
+    {
+      "location": "147:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Strict comparison of an any-typed Map lookup result against undefined; the possible types (File | Directory | undefined) are not expressible as an annotation type union."
+    },
+    {
+      "location": "145:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Default-parameter lowering (`directory = new Directory`): the synthesized default check/call is not an addressable annotatable expression."
+    },
+    {
+      "location": "274:20",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "274:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "byteLength",
+      "note": "`file.byteLength` is an inherited class accessor on an any-typed parameter; the prototype shape cannot be bound and a number type guard on the member expression was auto-pruned (it is part of the compound-assignment IR, not a standalone target)."
+    },
+    {
+      "location": "12:17",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "now"
+    },
+    {
+      "location": "13:18",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "mark"
+    },
+    {
+      "location": "14:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "measure"
+    },
+    {
+      "location": "15:24",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "timeOrigin"
+    },
+    {
+      "location": "17:38",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "JetStream"
+    },
+    {
+      "location": "29:23",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isInBrowser"
+    },
+    {
+      "location": "30:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isD8"
+    },
+    {
+      "location": "250:1",
+      "kind": "property_load",
+      "reason": "constructing-store",
+      "property": "prototype"
+    },
+    {
+      "location": "278:1",
+      "kind": "property_load",
+      "reason": "constructing-store",
+      "property": "prototype"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "computeIsLittleEndian"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "setupDirectory"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "randomFileContents"
+    },
+    {
+      "location": "11:17",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "11:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "11:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "11:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "11:69",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "12:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "12:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "12:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "12:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "13:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "13:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "mark"
+    },
+    {
+      "location": "14:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "14:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "measure"
+    },
+    {
+      "location": "15:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "15:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "timeOrigin"
+    },
+    {
+      "location": "17:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "17:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "29:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "30:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "30:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Realm"
+    },
+    {
+      "location": "88:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "computeIsLittleEndian"
+    },
+    {
+      "location": "11:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-assignment (`??=`) lowering on a global object property: the synthesized undefined-check/store is not an addressable annotatable expression and the receiver is a global with no bindable shape at that point."
+    },
+    {
+      "location": "12:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-assignment (`??=`) lowering on a global object property: the synthesized undefined-check/store is not an addressable annotatable expression and the receiver is a global with no bindable shape at that point."
+    },
+    {
+      "location": "13:18",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-assignment (`??=`) lowering on a global object property: the synthesized undefined-check/store is not an addressable annotatable expression and the receiver is a global with no bindable shape at that point."
+    },
+    {
+      "location": "14:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-assignment (`??=`) lowering on a global object property: the synthesized undefined-check/store is not an addressable annotatable expression and the receiver is a global with no bindable shape at that point."
+    },
+    {
+      "location": "15:24",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-assignment (`??=`) lowering on a global object property: the synthesized undefined-check/store is not an addressable annotatable expression and the receiver is a global with no bindable shape at that point."
+    },
+    {
+      "location": "258:1",
+      "kind": "call",
+      "reason": "other",
+      "note": "Class-definition/heritage lowering call at the class header; the synthesized super-constructor call has no user source expression and no addressable closure target."
+    },
+    {
+      "location": "271:1",
+      "kind": "call",
+      "reason": "other",
+      "note": "Class-definition/heritage lowering call at the class header; the synthesized super-constructor call has no user source expression and no addressable closure target."
+    },
+    {
+      "location": "278:1",
+      "kind": "call",
+      "reason": "other",
+      "note": "Class-definition/heritage lowering call at the class header; the synthesized super-constructor call has no user source expression and no addressable closure target."
+    },
+    {
+      "location": "36:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "36:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "45:27",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "45:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "45:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "5:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Proxy"
+    },
+    {
+      "location": "5:46",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Proxy"
+    },
+    {
+      "location": "7:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "7:20",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "7:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "7:40",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "81:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "ArrayBuffer"
+    },
+    {
+      "location": "81:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "ArrayBuffer"
+    },
+    {
+      "location": "82:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "DataView"
+    },
+    {
+      "location": "82:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "DataView"
+    },
+    {
+      "location": "83:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "setUint32"
+    },
+    {
+      "location": "83:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setUint32"
+    },
+    {
+      "location": "84:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "84:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "7:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation in the Proxy getter uses the string-typed captured parameter `name` across a nested-function boundary; guard facts are local to their containing function, and a string type guard placed on the read inside this nested getter produced no effect."
+    },
+    {
+      "location": "95:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "ArrayBuffer",
+      "note": "Annotation pass does not apply inside this generator/for-of function: guards/type guards placed here produce zero dryrun effect (verified). Built-in constructor accesses are also not annotatable here."
+    },
+    {
+      "location": "95:37",
+      "kind": "call",
+      "reason": "other",
+      "property": "ArrayBuffer",
+      "note": "Annotation pass does not apply inside this generator/for-of function: guards/type guards placed here produce zero dryrun effect (verified). Built-in constructor accesses are also not annotatable here."
+    },
+    {
+      "location": "96:24",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Uint8Array",
+      "note": "Annotation pass does not apply inside this generator/for-of function: guards/type guards placed here produce zero dryrun effect (verified). Built-in constructor accesses are also not annotatable here."
+    },
+    {
+      "location": "96:34",
+      "kind": "call",
+      "reason": "other",
+      "property": "Uint8Array",
+      "note": "Annotation pass does not apply inside this generator/for-of function: guards/type guards placed here produce zero dryrun effect (verified). Built-in constructor accesses are also not annotatable here."
+    },
+    {
+      "location": "99:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "DataView",
+      "note": "Annotation pass does not apply inside this generator/for-of function: guards/type guards placed here produce zero dryrun effect (verified). Built-in constructor accesses are also not annotatable here."
+    },
+    {
+      "location": "99:27",
+      "kind": "call",
+      "reason": "other",
+      "property": "DataView",
+      "note": "Annotation pass does not apply inside this generator/for-of function: guards/type guards placed here produce zero dryrun effect (verified). Built-in constructor accesses are also not annotatable here."
+    },
+    {
+      "location": "378:8",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "228:16",
+      "kind": "call",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: a closure identity type guard on the class callee produced zero dryrun effect here (verified); iterator/destructuring lowering is compiler-generated."
+    },
+    {
+      "location": "242:52",
+      "kind": "call",
+      "reason": "other",
+      "note": "Annotation pass does not apply inside this function containing for-of iterator lowering: a closure identity type guard on the class callee produced zero dryrun effect here (verified); iterator/destructuring lowering is compiler-generated."
+    },
+    {
+      "location": "174:17",
+      "kind": "call",
+      "reason": "other",
+      "property": "next",
+      "note": "yield* lowering inside a generator body. Also documents the property-less [Symbol.iterator]() call reported at this same location: the annotation pass emits no IR for this function (guards/bindings targeting it are silently dropped from the dryrun report; verified), and the anonymous call cannot be addressed by check because its empty property collides with this named next() call at the shared location."
+    },
+    {
+      "location": "185:13",
+      "kind": "call",
+      "reason": "other",
+      "property": "next",
+      "note": "yield* lowering inside a generator body. Also documents the property-less [Symbol.iterator]() call reported at this same location: the annotation pass emits no IR for this function (guards/bindings targeting it are silently dropped from the dryrun report; verified), and the anonymous call cannot be addressed by check because its empty property collides with this named next() call at the shared location."
+    },
+    {
+      "location": "174:17",
+      "kind": "call",
+      "reason": "other",
+      "note": "Anonymous no-property call at the yield* site: the generator-delegation lowering's iterator-protocol call on the value returned by item.entry.forEachFileRecursively(). This is not a source-level callee — there is no identifier/member expression for an annotation to target. Verified by dryrun: shape guards placed on item.entry (174:24:174:34) inside this generator function produce zero IR (0 optimized/0 kills/0 no-effect) — the whole function body is compiler-lowered and annotation targets there are silently dropped."
+    },
+    {
+      "location": "185:13",
+      "kind": "call",
+      "reason": "other",
+      "note": "Anonymous no-property call at the yield* site: the generator-delegation lowering's iterator-protocol call on the value returned by item.entry.forEachDirectoryRecursively(). This is not a source-level callee — there is no identifier/member expression for an annotation to target. Verified by dryrun: shape guards placed on item.entry (185:20:185:30) inside this generator function produce zero IR (0 optimized/0 kills/0 no-effect) — the whole function body is compiler-lowered and annotation targets there are silently dropped."
+    }
+  ]
+}
