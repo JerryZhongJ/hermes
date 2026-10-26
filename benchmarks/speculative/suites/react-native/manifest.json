@@ -1,0 +1,2321 @@
+{
+  "applications": {
+    "expensify": {
+      "repository": "https://github.com/Expensify/App",
+      "revision": "0eff10433514a9be0faa2a568d5779dc06e05d44"
+    },
+    "mattermost": {
+      "repository": "https://github.com/mattermost/mattermost-mobile",
+      "revision": "8a9427f25ad9f16ed333b1865eff9c4b057cb093"
+    }
+  },
+  "sources": [
+    {
+      "application": "expensify",
+      "path": "src/libs/ReportActionMessageUtils.ts",
+      "sha256": "a97c896de2b1252444ecc88dd057b6390fc81a4cee720ec4ec1d72a6e9b404d4"
+    },
+    {
+      "application": "expensify",
+      "path": "src/libs/ReportActionTypeGuards.ts",
+      "sha256": "ea50856e2956df84e8bc86b25200dcea2f39b3ad818890468f263ddadb8ffd6d"
+    },
+    {
+      "application": "expensify",
+      "path": "src/libs/ReportActionsUtils.ts",
+      "sha256": "943911a534a8d598264aaab70f9171923b4bb5dea29845a6b751f7e842d92823"
+    },
+    {
+      "application": "expensify",
+      "path": "src/CONST/index.ts",
+      "sha256": "f97a5466240746fbd80fec1aa72d14f045d8ee0fd22bc41e20c4bf56dfbf073b"
+    },
+    {
+      "application": "expensify",
+      "path": "src/CONST/runtimeDefaults.ts",
+      "sha256": "dd9cb00c1e56c717c4eb55b78c04f3680071e464c21edb5eda6d897e51122a1d"
+    },
+    {
+      "application": "expensify",
+      "path": "src/types/utils/EmptyObject.ts",
+      "sha256": "7b133bb787d49d22bed6e1eeab1d9ee0d9f5d0d6c5497e9e58ad529183294c20"
+    },
+    {
+      "application": "expensify",
+      "path": "src/libs/Formula.ts",
+      "sha256": "266137f91f08f33932ca6b8571b9a7d7aa47b8c02cf669c4fc1292cec3ac7d1e"
+    },
+    {
+      "application": "expensify",
+      "path": "src/libs/FormulaDatetime.ts",
+      "sha256": "827f69e0ce0d9d43ff2234c96e09472512179871ab652b992ee8671f57e79f49"
+    },
+    {
+      "application": "expensify",
+      "path": "src/libs/getBase62ReportID.ts",
+      "sha256": "585a9eebbf94039467f185bef52f1f18089af471182cfcf174dc74e3ac4dd7a4"
+    },
+    {
+      "application": "expensify",
+      "path": "src/libs/CurrencyUtils.ts",
+      "sha256": "e617096751befdf327341f1687b68ff24c5688ab30da622f9a2bfae94190ad55"
+    },
+    {
+      "application": "expensify",
+      "path": "src/libs/ImportCategoriesUtils.ts",
+      "sha256": "21312da07e9b570b887db6b7108ebc08e0c0d8ac80d45f7961b48fe2221bda49"
+    },
+    {
+      "application": "expensify",
+      "path": "src/libs/CategoryTaxRulesUtils.ts",
+      "sha256": "cb1c3f83cbada803c41655e8ce1480ace39047dd690fd9684225d2642ac9ff12"
+    },
+    {
+      "application": "expensify",
+      "path": "src/libs/importSpreadsheetUtils.ts",
+      "sha256": "f770ce8ea7fb66ce752118f89f47134a5bf1697f092f7271417bd5910188b0ad"
+    },
+    {
+      "application": "expensify",
+      "path": "src/libs/StringUtils/index.ts",
+      "sha256": "debecad2049f9b6fa683b5cf430795b7003e44c78694411c67dd0a0b0976227b"
+    },
+    {
+      "application": "expensify",
+      "path": "src/libs/MoneyRequestUtils.ts",
+      "sha256": "7a93da4cc994e39d3dca24bd63a3a40f750a572c72f6239ed7794f8bc46aa732"
+    },
+    {
+      "application": "expensify",
+      "path": "src/libs/sortAlphabetically.ts",
+      "sha256": "04a78703f0d1594edcd66fddf22d9ece1f8d8eb01fa0dcb85d66233edd10de61"
+    },
+    {
+      "application": "expensify",
+      "path": "src/libs/AttendeeUtils.ts",
+      "sha256": "3a7f4997172dbcd60211fb6439c489138f432d6b36ae20b607a974219e8e642b"
+    },
+    {
+      "application": "expensify",
+      "path": "src/types/form/PersonalDetailsForm.ts",
+      "sha256": "d566e1a9380615918660bacad04b105225a93c4e1f2b9f416ae381c2a5c6ae6b"
+    },
+    {
+      "application": "expensify",
+      "path": "src/libs/PersonalDetailsUtils.ts",
+      "sha256": "28ef4e3caf2c940e99c4af917ade1eb8f4be208b775611bf3c66551bca3c68e4"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/constants/post.ts",
+      "sha256": "90a3145cf2881ae256c55ec92a647c694cba0d00f233ce46bc22d549b978d240"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/utils/types.ts",
+      "sha256": "ff44611c614dccccacaa34551174283b50a198e05ce3233fad9468717f0d97de"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/utils/post_list/index.ts",
+      "sha256": "662176e7cd954d50d2df29de74a3d03c5ecac736e9f48beeb71f9ce826cc8f4d"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/components/markdown/transform.ts",
+      "sha256": "2ee5233b102619ccd60e3fa88f2ed04766935147998a854d4a75a7ac77ac654f"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/constants/channel_attributes.ts",
+      "sha256": "d5aa9db751e2a3e956fba9f17cd006b8a17cc37a31d1c0f19bff93283f231f08"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/constants/classification.ts",
+      "sha256": "1fb93cd01330810dc07f2cb2d421499eafbb7bc08ad3642ad42501c270c45a3e"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/utils/channel_attributes.ts",
+      "sha256": "1452a95c85317946955ed1107659b3ca8b03940730b978a5ef76a75413496961"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/utils/dialog_utils.ts",
+      "sha256": "5d59cf8440995af3b79a2e0db27951d9508a9e6606bca8405cdd2c4c2007657b"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/utils/dialog_conversion.ts",
+      "sha256": "0271575ac2bbbe9f114a7faf53083de082e0215f9d6708cc288227ba9285207c"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/utils/helpers.ts",
+      "sha256": "3e65bb6acfbcda38404e60b499fecfd4659e0e9bcc82d7f7b64a1f4fa0d47ace"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/constants/general.ts",
+      "sha256": "612f661d72ca9c984ac937ddf833366c0ae0c8998d3f20bc66bac8e854451f76"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/utils/user/index.ts",
+      "sha256": "d15d496ba7be3100f255f9bcbed857d2c3aaffc5886f8b05a010c48c1379ac33"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/utils/message_attachment.ts",
+      "sha256": "3116c2d9fc7c7b5342c45bd68b2566f7aab8a3eaca3c114d8e926b29dd36e5ab"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/constants/files.ts",
+      "sha256": "a2718bc1da888755e59b4c369ec69efbfc4db1ac0fcbed8a2a5ab7872c1296fc"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/utils/file/index.ts",
+      "sha256": "079a669ec8d3b38d5253bfd506cbbee716bff484aa9bd6db4e993331facbba8f"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/utils/url/index.ts",
+      "sha256": "a94129063b077bd4150b3ce154c3828e3afc037039333a042b596b822f4fca50"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/products/playbooks/utils/task_filters.ts",
+      "sha256": "9b337f045d90bd6fcdaa007b538e1a860588fd1b49edf845f85ad9a9316641b2"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/products/playbooks/utils/progress.ts",
+      "sha256": "baa69c85c2861aec98f57662038fd6bdbbeba9f27bf5e21c52a15b3e6e27f326"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/products/playbooks/utils/items_order.ts",
+      "sha256": "eb8bd371a7e72937ba1c24e7b20efe2c7a721cf0960f08da031302848de2dece"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/products/playbooks/utils/property_fields.ts",
+      "sha256": "c623f30ed76b5c0e77190aaa623ef022bbf83f309884e65f7b6bb6c7054cdcc7"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/products/playbooks/utils/run.ts",
+      "sha256": "30fb43e58ea831b0fdeda76bdeb323ed68fdb5f89b501b08f518dcb45e50be9c"
+    },
+    {
+      "application": "mattermost",
+      "path": "app/products/playbooks/utils/types.ts",
+      "sha256": "96b7d5e40043f0611124ebfd09156c6d636e6da1e59bb704e659f8f360721753"
+    },
+    {
+      "application": "expensify",
+      "path": "LICENSE.md",
+      "sha256": "b0a241ab7cb04e378834d74f2e6aa83872f9b02900d00a028b914aab1032d91a"
+    },
+    {
+      "application": "mattermost",
+      "path": "LICENSE.txt",
+      "sha256": "6c26eb65a6fca9b9d198793704a24766cee0a029c60ee8b136def5fb9067883a"
+    },
+    {
+      "application": "mattermost",
+      "path": "NOTICE.txt",
+      "sha256": "2f8d8d6c1fef2439f294c128f764be1e3b7d0b77cf53d28f0f475af137c8027c"
+    }
+  ],
+  "selections": [
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionMessageUtils.ts",
+      "name": "getOriginalMessage",
+      "start_line": 18,
+      "end_line": 31
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionMessageUtils.ts",
+      "name": "getReportActionMessage",
+      "start_line": 14,
+      "end_line": 16
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionTypeGuards.ts",
+      "name": "isActionOfType",
+      "start_line": 6,
+      "end_line": 8
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionTypeGuards.ts",
+      "name": "isMoneyRequestAction",
+      "start_line": 10,
+      "end_line": 12
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionTypeGuards.ts",
+      "name": "isDynamicExternalWorkflowApproveFailedAction",
+      "start_line": 18,
+      "end_line": 20
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "getSortedReportActions",
+      "start_line": 862,
+      "end_line": 897
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "getCombinedReportActions",
+      "start_line": 912,
+      "end_line": 956
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "isSentMoneyReportAction",
+      "start_line": 833,
+      "end_line": 839
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "isIOUCreateAction",
+      "start_line": 904,
+      "end_line": 906
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "findPreviousAction",
+      "start_line": 1004,
+      "end_line": 1022
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "findNextAction",
+      "start_line": 1029,
+      "end_line": 1047
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "isNewerReportAction",
+      "start_line": 1764,
+      "end_line": 1792
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "isOlderReportAction",
+      "start_line": 1798,
+      "end_line": 1800
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "getDelegateAccountIDFromReportAction",
+      "start_line": 620,
+      "end_line": 639
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "getHumanAgentAccountIDFromReportAction",
+      "start_line": 641,
+      "end_line": 656
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "getModerationFlagState",
+      "start_line": 289,
+      "end_line": 300
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "isPendingRemove",
+      "start_line": 281,
+      "end_line": 283
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "isSubmittedAction",
+      "start_line": 310,
+      "end_line": 312
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "isApprovedAction",
+      "start_line": 330,
+      "end_line": 332
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "isForwardedAction",
+      "start_line": 338,
+      "end_line": 340
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "isRetractedAction",
+      "start_line": 803,
+      "end_line": 805
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "isReopenedAction",
+      "start_line": 799,
+      "end_line": 801
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "isDynamicExternalWorkflowSubmitFailedAction",
+      "start_line": 350,
+      "end_line": 352
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "getMostRecentActiveDEWSubmitFailedAction",
+      "start_line": 354,
+      "end_line": 376
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "isActionThatSupersedesDEWApproveFailure",
+      "start_line": 384,
+      "end_line": 386
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "getMostRecentActiveDEWApproveFailedAction",
+      "start_line": 388,
+      "end_line": 410
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "hasPendingDEWSubmit",
+      "start_line": 379,
+      "end_line": 381
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ReportActionsUtils.ts",
+      "name": "hasPendingDEWApprove",
+      "start_line": 412,
+      "end_line": 414
+    },
+    {
+      "app": "expensify",
+      "file": "src/types/utils/EmptyObject.ts",
+      "name": "isEmptyObject",
+      "start_line": 7,
+      "end_line": 9
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/Formula.ts",
+      "name": "FORMULA_PART_TYPES",
+      "start_line": 53,
+      "end_line": 58
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/Formula.ts",
+      "name": "extract",
+      "start_line": 64,
+      "end_line": 99
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/Formula.ts",
+      "name": "parse",
+      "start_line": 105,
+      "end_line": 164
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/Formula.ts",
+      "name": "parsePart",
+      "start_line": 170,
+      "end_line": 212
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/Formula.ts",
+      "name": "hasCircularReferences",
+      "start_line": 217,
+      "end_line": 274
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/Formula.ts",
+      "name": "applyFunctions",
+      "start_line": 513,
+      "end_line": 536
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/Formula.ts",
+      "name": "getFrontPart",
+      "start_line": 541,
+      "end_line": 551
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/Formula.ts",
+      "name": "getDomainName",
+      "start_line": 556,
+      "end_line": 565
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/Formula.ts",
+      "name": "getSubstring",
+      "start_line": 570,
+      "end_line": 579
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/Formula.ts",
+      "name": "hasFieldReferences",
+      "start_line": 456,
+      "end_line": 462
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/Formula.ts",
+      "name": "computePersonalDetailsField",
+      "start_line": 965,
+      "end_line": 1006
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/Formula.ts",
+      "name": "formatType",
+      "start_line": 667,
+      "end_line": 684
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/FormulaDatetime.ts",
+      "name": "getOrdinalSuffix",
+      "start_line": 6,
+      "end_line": 20
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/FormulaDatetime.ts",
+      "name": "calculateISOWeekNumber",
+      "start_line": 26,
+      "end_line": 43
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/FormulaDatetime.ts",
+      "name": "calculateDayOfYear",
+      "start_line": 48,
+      "end_line": 52
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/FormulaDatetime.ts",
+      "name": "getUTCTimeComponents",
+      "start_line": 73,
+      "end_line": 97
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/FormulaDatetime.ts",
+      "name": "applyTokenReplacement",
+      "start_line": 199,
+      "end_line": 229
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/getBase62ReportID.ts",
+      "name": "getBase62ReportID",
+      "start_line": 8,
+      "end_line": 19
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CurrencyUtils.ts",
+      "name": "convertToBackendAmount",
+      "start_line": 121,
+      "end_line": 123
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ImportCategoriesUtils.ts",
+      "name": "THOUSANDS_SEPARATED_NUMBER_REGEX",
+      "start_line": 10,
+      "end_line": 10
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ImportCategoriesUtils.ts",
+      "name": "parseCsvNumber",
+      "start_line": 16,
+      "end_line": 18
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ImportCategoriesUtils.ts",
+      "name": "parseCsvReceiptValue",
+      "start_line": 26,
+      "end_line": 45
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ImportCategoriesUtils.ts",
+      "name": "parseCsvAmountValue",
+      "start_line": 51,
+      "end_line": 58
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ImportCategoriesUtils.ts",
+      "name": "parseCsvExpenseLimitType",
+      "start_line": 64,
+      "end_line": 67
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/ImportCategoriesUtils.ts",
+      "name": "buildCategoriesFromSpreadsheet",
+      "start_line": 73,
+      "end_line": 125
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "CATEGORY_TAX_RULE_KEY_PREFIX",
+      "start_line": 19,
+      "end_line": 19
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "isCategoryRuleDraft",
+      "start_line": 29,
+      "end_line": 31
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "hasUsableTaxRates",
+      "start_line": 34,
+      "end_line": 36
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "isSelectableTaxRate",
+      "start_line": 45,
+      "end_line": 47
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "getCategoryTaxRuleDraftFromGeneratedValues",
+      "start_line": 50,
+      "end_line": 54
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "hasSelectableCategoryTaxRate",
+      "start_line": 60,
+      "end_line": 65
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "getCategoryTaxRuleKey",
+      "start_line": 67,
+      "end_line": 69
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "isCategoryTaxRuleKey",
+      "start_line": 71,
+      "end_line": 73
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "getRuleCategoryName",
+      "start_line": 76,
+      "end_line": 78
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "getCategoryTaxRules",
+      "start_line": 82,
+      "end_line": 84
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "matchesCategoryTaxRule",
+      "start_line": 88,
+      "end_line": 90
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "getCategoryTaxRule",
+      "start_line": 92,
+      "end_line": 94
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "categoryHasTaxRule",
+      "start_line": 96,
+      "end_line": 98
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "getCategoryTaxRuleTaxID",
+      "start_line": 100,
+      "end_line": 102
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "getTaxRateDisplayName",
+      "start_line": 107,
+      "end_line": 119
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "getRuleDeletionPendingAction",
+      "start_line": 128,
+      "end_line": 137
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/CategoryTaxRulesUtils.ts",
+      "name": "getCategoryNameFromTaxRuleKey",
+      "start_line": 199,
+      "end_line": 201
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/importSpreadsheetUtils.ts",
+      "name": "findColumnName",
+      "start_line": 14,
+      "end_line": 261
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/importSpreadsheetUtils.ts",
+      "name": "getCompanyCardColumnMappings",
+      "start_line": 279,
+      "end_line": 326
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/importSpreadsheetUtils.ts",
+      "name": "findDuplicate",
+      "start_line": 328,
+      "end_line": 341
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/importSpreadsheetUtils.ts",
+      "name": "numberToColumn",
+      "start_line": 346,
+      "end_line": 358
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/importSpreadsheetUtils.ts",
+      "name": "generateColumnNames",
+      "start_line": 363,
+      "end_line": 365
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/importSpreadsheetUtils.ts",
+      "name": "normalizeImportedAmount",
+      "start_line": 370,
+      "end_line": 374
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/StringUtils/index.ts",
+      "name": "escapeRegExp",
+      "start_line": 231,
+      "end_line": 233
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/MoneyRequestUtils.ts",
+      "name": "stripCommaFromAmount",
+      "start_line": 19,
+      "end_line": 21
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/MoneyRequestUtils.ts",
+      "name": "stripSpacesFromAmount",
+      "start_line": 26,
+      "end_line": 28
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/MoneyRequestUtils.ts",
+      "name": "addLeadingZero",
+      "start_line": 47,
+      "end_line": 52
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/MoneyRequestUtils.ts",
+      "name": "validateAmount",
+      "start_line": 57,
+      "end_line": 67
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/sortAlphabetically.ts",
+      "name": "sortAlphabetically",
+      "start_line": 3,
+      "end_line": 5
+    },
+    {
+      "app": "expensify",
+      "file": "src/types/utils/EmptyObject.ts",
+      "name": "isEmptyObject",
+      "start_line": 7,
+      "end_line": 9
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/AttendeeUtils.ts",
+      "name": "getNormalizedString",
+      "start_line": 12,
+      "end_line": 19
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/AttendeeUtils.ts",
+      "name": "normalizeAttendee",
+      "start_line": 21,
+      "end_line": 31
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/AttendeeUtils.ts",
+      "name": "normalizeAttendees",
+      "start_line": 33,
+      "end_line": 35
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/AttendeeUtils.ts",
+      "name": "convertAttendeesToArray",
+      "start_line": 41,
+      "end_line": 49
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/AttendeeUtils.ts",
+      "name": "getIsMissingAttendeesViolation",
+      "start_line": 52,
+      "end_line": 85
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/AttendeeUtils.ts",
+      "name": "syncMissingAttendeesViolation",
+      "start_line": 92,
+      "end_line": 128
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/AttendeeUtils.ts",
+      "name": "enrichAndSortAttendees",
+      "start_line": 135,
+      "end_line": 161
+    },
+    {
+      "app": "expensify",
+      "file": "src/types/form/PersonalDetailsForm.ts",
+      "name": "INPUT_IDS",
+      "start_line": 7,
+      "end_line": 18
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/PersonalDetailsUtils.ts",
+      "name": "getPersonalDetailsByID",
+      "start_line": 94,
+      "end_line": 96
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/PersonalDetailsUtils.ts",
+      "name": "getPersonalDetailsByIDs",
+      "start_line": 98,
+      "end_line": 113
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/PersonalDetailsUtils.ts",
+      "name": "getPersonalDetailsListByIDs",
+      "start_line": 153,
+      "end_line": 167
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/PersonalDetailsUtils.ts",
+      "name": "getParticipantsPersonalDetails",
+      "start_line": 173,
+      "end_line": 179
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/PersonalDetailsUtils.ts",
+      "name": "getLoginByAccountID",
+      "start_line": 211,
+      "end_line": 213
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/PersonalDetailsUtils.ts",
+      "name": "getLoginsByAccountIDs",
+      "start_line": 222,
+      "end_line": 232
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/PersonalDetailsUtils.ts",
+      "name": "createDisplayName",
+      "start_line": 397,
+      "end_line": 416
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/PersonalDetailsUtils.ts",
+      "name": "getDisplayNameOrYou",
+      "start_line": 181,
+      "end_line": 186
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/PersonalDetailsUtils.ts",
+      "name": "formatPiece",
+      "start_line": 309,
+      "end_line": 311
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/PersonalDetailsUtils.ts",
+      "name": "getStreetLines",
+      "start_line": 328,
+      "end_line": 331
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/PersonalDetailsUtils.ts",
+      "name": "getFormattedStreet",
+      "start_line": 319,
+      "end_line": 321
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/PersonalDetailsUtils.ts",
+      "name": "getCurrentAddress",
+      "start_line": 339,
+      "end_line": 343
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/PersonalDetailsUtils.ts",
+      "name": "getFormattedAddress",
+      "start_line": 372,
+      "end_line": 380
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/PersonalDetailsUtils.ts",
+      "name": "arePersonalDetailsMissing",
+      "start_line": 484,
+      "end_line": 493
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/PersonalDetailsUtils.ts",
+      "name": "areTravelPersonalDetailsMissing",
+      "start_line": 518,
+      "end_line": 520
+    },
+    {
+      "app": "expensify",
+      "file": "src/libs/PersonalDetailsUtils.ts",
+      "name": "getPrivatePersonalDetailsFormValues",
+      "start_line": 349,
+      "end_line": 364
+    },
+    {
+      "app": "mattermost",
+      "file": "app/constants/post.ts",
+      "name": "PostTypes",
+      "start_line": 6,
+      "end_line": 44
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/types.ts",
+      "name": "ensureString",
+      "start_line": 32,
+      "end_line": 34
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/types.ts",
+      "name": "includes",
+      "start_line": 44,
+      "end_line": 46
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/types.ts",
+      "name": "secureGetFromRecord",
+      "start_line": 40,
+      "end_line": 42
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/types.ts",
+      "name": "isArrayOf",
+      "start_line": 4,
+      "end_line": 10
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/types.ts",
+      "name": "isStringArray",
+      "start_line": 12,
+      "end_line": 14
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/post_list/index.ts",
+      "name": "postTypePriority",
+      "start_line": 29,
+      "end_line": 47
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/post_list/index.ts",
+      "name": "COMBINED_USER_ACTIVITY",
+      "start_line": 49,
+      "end_line": 49
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/post_list/index.ts",
+      "name": "MAX_COMBINED_SYSTEM_POSTS",
+      "start_line": 53,
+      "end_line": 53
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/post_list/index.ts",
+      "name": "combineUserActivityPosts",
+      "start_line": 55,
+      "end_line": 98
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/post_list/index.ts",
+      "name": "comparePostTypes",
+      "start_line": 100,
+      "end_line": 104
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/post_list/index.ts",
+      "name": "extractUserActivityData",
+      "start_line": 106,
+      "end_line": 157
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/post_list/index.ts",
+      "name": "combineUserActivitySystemPost",
+      "start_line": 275,
+      "end_line": 337
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/post_list/index.ts",
+      "name": "generateCombinedPost",
+      "start_line": 339,
+      "end_line": 373
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/post_list/index.ts",
+      "name": "joinLeavePostTypes",
+      "start_line": 15,
+      "end_line": 27
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/post_list/index.ts",
+      "name": "isJoinLeavePostForUsername",
+      "start_line": 159,
+      "end_line": 179
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/post_list/index.ts",
+      "name": "getPostIdsForCombinedUserActivityPost",
+      "start_line": 379,
+      "end_line": 385
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/post_list/index.ts",
+      "name": "shouldFilterJoinLeavePost",
+      "start_line": 395,
+      "end_line": 407
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/post_list/index.ts",
+      "name": "isMessageData",
+      "start_line": 415,
+      "end_line": 433
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/post_list/index.ts",
+      "name": "isUserActivityProp",
+      "start_line": 441,
+      "end_line": 459
+    },
+    {
+      "app": "mattermost",
+      "file": "app/components/markdown/transform.ts",
+      "name": "combineTextNodes",
+      "start_line": 21,
+      "end_line": 57
+    },
+    {
+      "app": "mattermost",
+      "file": "app/components/markdown/transform.ts",
+      "name": "addListItemIndices",
+      "start_line": 60,
+      "end_line": 81
+    },
+    {
+      "app": "mattermost",
+      "file": "app/components/markdown/transform.ts",
+      "name": "pullOutImages",
+      "start_line": 87,
+      "end_line": 110
+    },
+    {
+      "app": "mattermost",
+      "file": "app/components/markdown/transform.ts",
+      "name": "pullOutImage",
+      "start_line": 112,
+      "end_line": 118
+    },
+    {
+      "app": "mattermost",
+      "file": "app/components/markdown/transform.ts",
+      "name": "getFirstMatch",
+      "start_line": 265,
+      "end_line": 293
+    },
+    {
+      "app": "mattermost",
+      "file": "app/components/markdown/transform.ts",
+      "name": "highlightTextNode",
+      "start_line": 298,
+      "end_line": 321
+    },
+    {
+      "app": "mattermost",
+      "file": "app/components/markdown/transform.ts",
+      "name": "highlightSearchPatterns",
+      "start_line": 232,
+      "end_line": 262
+    },
+    {
+      "app": "mattermost",
+      "file": "app/components/markdown/transform.ts",
+      "name": "wrapNode",
+      "start_line": 373,
+      "end_line": 400
+    },
+    {
+      "app": "mattermost",
+      "file": "app/components/markdown/transform.ts",
+      "name": "parseTaskLists",
+      "start_line": 402,
+      "end_line": 436
+    },
+    {
+      "app": "mattermost",
+      "file": "app/constants/channel_attributes.ts",
+      "name": "DISPLAY_BANNER_TOP",
+      "start_line": 39,
+      "end_line": 39
+    },
+    {
+      "app": "mattermost",
+      "file": "app/constants/channel_attributes.ts",
+      "name": "DISPLAY_BANNER_BOTTOM",
+      "start_line": 40,
+      "end_line": 40
+    },
+    {
+      "app": "mattermost",
+      "file": "app/constants/classification.ts",
+      "name": "CLASSIFICATIONS_FIELD_NAME",
+      "start_line": 39,
+      "end_line": 39
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "NO_BANNER",
+      "start_line": 54,
+      "end_line": 54
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "EMPTY_RESOLVED",
+      "start_line": 56,
+      "end_line": 56
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "NO_SORT_ORDER",
+      "start_line": 60,
+      "end_line": 60
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "DEFAULT_BANNER_COLOR",
+      "start_line": 62,
+      "end_line": 62
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "OPTION_BACKED_TYPES",
+      "start_line": 64,
+      "end_line": 64
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "getFieldOptions",
+      "start_line": 66,
+      "end_line": 68
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "isPropertyValueSet",
+      "start_line": 74,
+      "end_line": 79
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "isPropertyFieldRequired",
+      "start_line": 85,
+      "end_line": 87
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "getPropertyFieldLabel",
+      "start_line": 95,
+      "end_line": 98
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "getPropertyFieldChangePolicy",
+      "start_line": 105,
+      "end_line": 114
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "getOptionRank",
+      "start_line": 120,
+      "end_line": 128
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "canMoveToOption",
+      "start_line": 139,
+      "end_line": 164
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "compareChannelAttributeFields",
+      "start_line": 176,
+      "end_line": 183
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "resolveDisplayValue",
+      "start_line": 185,
+      "end_line": 227
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "resolveChannelAttributes",
+      "start_line": 236,
+      "end_line": 253
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "selectAttributesForAction",
+      "start_line": 261,
+      "end_line": 272
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "selectChannelInfoAttributes",
+      "start_line": 286,
+      "end_line": 291
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "flattenChannelAttributesToChips",
+      "start_line": 309,
+      "end_line": 322
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "groupChannelAttributeChipsByField",
+      "start_line": 334,
+      "end_line": 347
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "renderSignature",
+      "start_line": 360,
+      "end_line": 380
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "resolvedAttributesEqual",
+      "start_line": 382,
+      "end_line": 388
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "channelInfoSignature",
+      "start_line": 395,
+      "end_line": 403
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "channelInfoAttributesEqual",
+      "start_line": 405,
+      "end_line": 411
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "hasAction",
+      "start_line": 413,
+      "end_line": 416
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "hasBannerAction",
+      "start_line": 418,
+      "end_line": 420
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "hasNoDisplayConfiguration",
+      "start_line": 432,
+      "end_line": 434
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "deriveChannelAttributeBanner",
+      "start_line": 464,
+      "end_line": 562
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "withoutUnresolvedOptions",
+      "start_line": 565,
+      "end_line": 570
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "SEPARATORS",
+      "start_line": 575,
+      "end_line": 575
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "TOKEN_PATTERN",
+      "start_line": 577,
+      "end_line": 577
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "renderNativeBannerText",
+      "start_line": 593,
+      "end_line": 604
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "hasAttributeToken",
+      "start_line": 606,
+      "end_line": 613
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "renderBannerTemplate",
+      "start_line": 615,
+      "end_line": 626
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "stripUnresolvedTokens",
+      "start_line": 637,
+      "end_line": 645
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/channel_attributes.ts",
+      "name": "tidySeparators",
+      "start_line": 647,
+      "end_line": 657
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_utils.ts",
+      "name": "isAppSelectOption",
+      "start_line": 9,
+      "end_line": 11
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_utils.ts",
+      "name": "DialogDataSources",
+      "start_line": 16,
+      "end_line": 20
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_utils.ts",
+      "name": "DialogElementTypes",
+      "start_line": 25,
+      "end_line": 35
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_utils.ts",
+      "name": "DialogTextSubtypes",
+      "start_line": 40,
+      "end_line": 46
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_utils.ts",
+      "name": "mapDialogTypeToAppFieldType",
+      "start_line": 51,
+      "end_line": 81
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_utils.ts",
+      "name": "mapAppFieldTypeToDialogType",
+      "start_line": 86,
+      "end_line": 108
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_utils.ts",
+      "name": "getDataSourceForAppFieldType",
+      "start_line": 113,
+      "end_line": 124
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_utils.ts",
+      "name": "createDialogElement",
+      "start_line": 129,
+      "end_line": 141
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_utils.ts",
+      "name": "createAppField",
+      "start_line": 146,
+      "end_line": 159
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_utils.ts",
+      "name": "supportsOptions",
+      "start_line": 164,
+      "end_line": 175
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_utils.ts",
+      "name": "supportsDataSource",
+      "start_line": 180,
+      "end_line": 182
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_utils.ts",
+      "name": "flattenCollapsible",
+      "start_line": 187,
+      "end_line": 195
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_utils.ts",
+      "name": "flattenDialogElements",
+      "start_line": 200,
+      "end_line": 206
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_utils.ts",
+      "name": "flattenAppFields",
+      "start_line": 211,
+      "end_line": 217
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_conversion.ts",
+      "name": "collectFileIds",
+      "start_line": 23,
+      "end_line": 31
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_conversion.ts",
+      "name": "mergeFileFieldValues",
+      "start_line": 34,
+      "end_line": 46
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_conversion.ts",
+      "name": "flattenFileFieldValues",
+      "start_line": 49,
+      "end_line": 55
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_conversion.ts",
+      "name": "convertAppFormValuesToDialogSubmission",
+      "start_line": 61,
+      "end_line": 133
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_conversion.ts",
+      "name": "convertDialogElementToAppField",
+      "start_line": 139,
+      "end_line": 208
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/dialog_conversion.ts",
+      "name": "convertDialogToAppForm",
+      "start_line": 213,
+      "end_line": 245
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/helpers.ts",
+      "name": "safeParseJSON",
+      "start_line": 128,
+      "end_line": 139
+    },
+    {
+      "app": "mattermost",
+      "file": "app/constants/general.ts",
+      "name": "General.AUTOCOMPLETE_SPLIT_CHARACTERS",
+      "start_line": 44,
+      "end_line": 44
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "sortCustomProfileAttributes",
+      "start_line": 425,
+      "end_line": 429
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "convertToAttributesMap",
+      "start_line": 436,
+      "end_line": 445
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "getDisplayType",
+      "start_line": 447,
+      "end_line": 452
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "getFieldOptions",
+      "start_line": 459,
+      "end_line": 477
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "convertOptionsToDisplayValue",
+      "start_line": 486,
+      "end_line": 523
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "convertProfileAttributesToCustomAttributes",
+      "start_line": 532,
+      "end_line": 583
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "convertDisplayValueToOptionIds",
+      "start_line": 592,
+      "end_line": 616
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "getSelectedOptionIds",
+      "start_line": 624,
+      "end_line": 648
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "formatOptionsForSelector",
+      "start_line": 655,
+      "end_line": 669
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "convertValueForServer",
+      "start_line": 677,
+      "end_line": 695
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "convertValueFromServer",
+      "start_line": 703,
+      "end_line": 726
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "isCustomFieldSamlLinked",
+      "start_line": 728,
+      "end_line": 730
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "haveSameRoles",
+      "start_line": 736,
+      "end_line": 744
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "getFullName",
+      "start_line": 61,
+      "end_line": 82
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "getUsersByUsername",
+      "start_line": 109,
+      "end_line": 117
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "getSuggestionsSplitBy",
+      "start_line": 281,
+      "end_line": 299
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "getSuggestionsSplitByMultiple",
+      "start_line": 301,
+      "end_line": 308
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "filterProfilesMatchingTerm",
+      "start_line": 310,
+      "end_line": 343
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "getUserTimezone",
+      "start_line": 134,
+      "end_line": 136
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "getTimezone",
+      "start_line": 138,
+      "end_line": 154
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "getTimezoneRegion",
+      "start_line": 156,
+      "end_line": 165
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/types.ts",
+      "name": "isArrayOf",
+      "start_line": 4,
+      "end_line": 10
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/message_attachment.ts",
+      "name": "getStatusColors",
+      "start_line": 6,
+      "end_line": 15
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/message_attachment.ts",
+      "name": "isMessageAttachmentArray",
+      "start_line": 17,
+      "end_line": 19
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/message_attachment.ts",
+      "name": "isPostActionOption",
+      "start_line": 21,
+      "end_line": 35
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/message_attachment.ts",
+      "name": "isPostAction",
+      "start_line": 37,
+      "end_line": 79
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/message_attachment.ts",
+      "name": "isMessageAttachmentField",
+      "start_line": 81,
+      "end_line": 103
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/message_attachment.ts",
+      "name": "isMessageAttachment",
+      "start_line": 105,
+      "end_line": 179
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/message_attachment.ts",
+      "name": "filterOptions",
+      "start_line": 181,
+      "end_line": 197
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/message_attachment.ts",
+      "name": "testExports",
+      "start_line": 199,
+      "end_line": 204
+    },
+    {
+      "app": "mattermost",
+      "file": "app/constants/files.ts",
+      "name": "Files",
+      "start_line": 33,
+      "end_line": 45
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/file/index.ts",
+      "name": "extractExtension",
+      "start_line": 278,
+      "end_line": 281
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/file/index.ts",
+      "name": "getFormattedFileSize",
+      "start_line": 371,
+      "end_line": 388
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/file/index.ts",
+      "name": "getFileType",
+      "start_line": 390,
+      "end_line": 415
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/url/index.ts",
+      "name": "ytRegex",
+      "start_line": 15,
+      "end_line": 15
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/url/index.ts",
+      "name": "isValidUrl",
+      "start_line": 17,
+      "end_line": 20
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/url/index.ts",
+      "name": "isUrlSafe",
+      "start_line": 22,
+      "end_line": 37
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/url/index.ts",
+      "name": "stripTrailingSlashes",
+      "start_line": 101,
+      "end_line": 103
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/url/index.ts",
+      "name": "removeProtocol",
+      "start_line": 105,
+      "end_line": 107
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/url/index.ts",
+      "name": "extractFirstLink",
+      "start_line": 109,
+      "end_line": 125
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/url/index.ts",
+      "name": "extractStartLink",
+      "start_line": 127,
+      "end_line": 143
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/url/index.ts",
+      "name": "isYoutubeLink",
+      "start_line": 145,
+      "end_line": 147
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/url/index.ts",
+      "name": "isImageLink",
+      "start_line": 149,
+      "end_line": 164
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/url/index.ts",
+      "name": "normalizeProtocol",
+      "start_line": 168,
+      "end_line": 177
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/url/index.ts",
+      "name": "getShortenedURL",
+      "start_line": 179,
+      "end_line": 185
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/url/index.ts",
+      "name": "getScheme",
+      "start_line": 196,
+      "end_line": 200
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/url/index.ts",
+      "name": "getYouTubeVideoId",
+      "start_line": 202,
+      "end_line": 226
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/url/index.ts",
+      "name": "safeDecodeURIComponent",
+      "start_line": 289,
+      "end_line": 295
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/task_filters.ts",
+      "name": "DEFAULT_TASK_FILTERS",
+      "start_line": 18,
+      "end_line": 25
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/task_filters.ts",
+      "name": "NO_TASK_FILTERS",
+      "start_line": 27,
+      "end_line": 34
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/task_filters.ts",
+      "name": "areDefaultTaskFilters",
+      "start_line": 36,
+      "end_line": 43
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/task_filters.ts",
+      "name": "getAssigneeId",
+      "start_line": 45,
+      "end_line": 45
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/task_filters.ts",
+      "name": "getConditionAction",
+      "start_line": 46,
+      "end_line": 46
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/task_filters.ts",
+      "name": "getCompletedAt",
+      "start_line": 47,
+      "end_line": 47
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/task_filters.ts",
+      "name": "getState",
+      "start_line": 48,
+      "end_line": 48
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/task_filters.ts",
+      "name": "isItemVisible",
+      "start_line": 51,
+      "end_line": 51
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/task_filters.ts",
+      "name": "matchesTaskState",
+      "start_line": 53,
+      "end_line": 64
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/task_filters.ts",
+      "name": "hasAssigneeFilter",
+      "start_line": 66,
+      "end_line": 70
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/task_filters.ts",
+      "name": "matchesAssignee",
+      "start_line": 72,
+      "end_line": 88
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/task_filters.ts",
+      "name": "itemMatchesFilters",
+      "start_line": 90,
+      "end_line": 92
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/progress.ts",
+      "name": "getChecklistProgress",
+      "start_line": 6,
+      "end_line": 30
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/progress.ts",
+      "name": "getProgressFromRun",
+      "start_line": 32,
+      "end_line": 39
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/items_order.ts",
+      "name": "areItemsOrdersEqual",
+      "start_line": 4,
+      "end_line": 23
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/helpers.ts",
+      "name": "safeParseJSON",
+      "start_line": 128,
+      "end_line": 139
+    },
+    {
+      "app": "mattermost",
+      "file": "app/utils/user/index.ts",
+      "name": "getSelectedOptionIds",
+      "start_line": 624,
+      "end_line": 648
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/property_fields.ts",
+      "name": "parsePropertyFieldAttrs",
+      "start_line": 18,
+      "end_line": 38
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/property_fields.ts",
+      "name": "getPropertyFieldSortOrder",
+      "start_line": 40,
+      "end_line": 46
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/property_fields.ts",
+      "name": "sortPropertyFieldsByOrder",
+      "start_line": 48,
+      "end_line": 50
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/property_fields.ts",
+      "name": "formatPropertyFieldOptionsForSelector",
+      "start_line": 52,
+      "end_line": 64
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/property_fields.ts",
+      "name": "getOptionNameById",
+      "start_line": 66,
+      "end_line": 69
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/property_fields.ts",
+      "name": "getPropertyValueDisplay",
+      "start_line": 71,
+      "end_line": 108
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/run.ts",
+      "name": "getRunScheduledTimestamp",
+      "start_line": 9,
+      "end_line": 24
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/run.ts",
+      "name": "isRunFinished",
+      "start_line": 26,
+      "end_line": 32
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/run.ts",
+      "name": "getMaxRunUpdateAt",
+      "start_line": 34,
+      "end_line": 42
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/run.ts",
+      "name": "isPending",
+      "start_line": 44,
+      "end_line": 46
+    },
+    {
+      "app": "mattermost",
+      "file": "app/products/playbooks/utils/types.ts",
+      "name": "isPostStatusUpdateProps",
+      "start_line": 6,
+      "end_line": 40
+    }
+  ],
+  "entries": [
+    {
+      "file": "expensify-report-sort.js",
+      "application": "expensify",
+      "sha256": "40fe8f56883c23411e57825e73fcb5fbc74d04696d558dd68512c8415484fa4f",
+      "lines": 602,
+      "business_and_dependency_lines": 371,
+      "harness_and_header_lines": 231,
+      "iterations": 8,
+      "adapters": [],
+      "fixtures": 8,
+      "checksum": 4381592
+    },
+    {
+      "file": "expensify-formula.js",
+      "application": "expensify",
+      "sha256": "1bd4b2394c0a0cca2d42c3586e669865c1adbd77b0a8b3937faa1942a05b18ee",
+      "lines": 556,
+      "business_and_dependency_lines": 351,
+      "harness_and_header_lines": 205,
+      "iterations": 24,
+      "adapters": [],
+      "fixtures": 8,
+      "checksum": 217824
+    },
+    {
+      "file": "expensify-csv-categories.js",
+      "application": "expensify",
+      "sha256": "a4464848b3af00d3690aaa6860489cafae7eb6e548c9fb580b099fa0c4d99497",
+      "lines": 501,
+      "business_and_dependency_lines": 273,
+      "harness_and_header_lines": 228,
+      "iterations": 8,
+      "adapters": [],
+      "fixtures": 8,
+      "checksum": 492584
+    },
+    {
+      "file": "expensify-spreadsheet.js",
+      "application": "expensify",
+      "sha256": "b548e660ccdf4100229ddcd2f04598d8f4b29aa4fea45ec01c393f7c89fa8166",
+      "lines": 544,
+      "business_and_dependency_lines": 371,
+      "harness_and_header_lines": 173,
+      "iterations": 120,
+      "adapters": [],
+      "fixtures": 8,
+      "checksum": 788160
+    },
+    {
+      "file": "expensify-attendees.js",
+      "application": "expensify",
+      "sha256": "c61b970f0032a71e80a8c0b6db730677670eb729cbe48e26bb65aa432bd6b537",
+      "lines": 503,
+      "business_and_dependency_lines": 280,
+      "harness_and_header_lines": 223,
+      "iterations": 24,
+      "adapters": [],
+      "fixtures": 8,
+      "checksum": 16630848
+    },
+    {
+      "file": "mattermost-user-activity.js",
+      "application": "mattermost",
+      "sha256": "35e5c824a10af79381da2676374e7745e64c125991d571d0e0554804db281d50",
+      "lines": 516,
+      "business_and_dependency_lines": 353,
+      "harness_and_header_lines": 163,
+      "iterations": 80,
+      "adapters": [],
+      "fixtures": 5,
+      "checksum": 178000
+    },
+    {
+      "file": "mattermost-markdown-ast.js",
+      "application": "mattermost",
+      "sha256": "d3884f3179e0ee3e8176bde9903de5e5d5dddc8ff627e4e15f2c424fcfa1a7ea",
+      "lines": 714,
+      "business_and_dependency_lines": 553,
+      "harness_and_header_lines": 161,
+      "iterations": 100,
+      "adapters": [],
+      "fixtures": 8,
+      "checksum": 1416000
+    },
+    {
+      "file": "mattermost-channel-attributes.js",
+      "application": "mattermost",
+      "sha256": "f7c2cdf76b9b28ae026ec979ee480e4430f321f8e14b28d1612a964639f5e302",
+      "lines": 541,
+      "business_and_dependency_lines": 366,
+      "harness_and_header_lines": 175,
+      "iterations": 120,
+      "adapters": [],
+      "fixtures": 8,
+      "checksum": 537600
+    },
+    {
+      "file": "mattermost-dialog.js",
+      "application": "mattermost",
+      "sha256": "dd95e15cf0d2268a0263c08811a90e1b914f48b10ffbf7b735cb3e58ccfefc3e",
+      "lines": 514,
+      "business_and_dependency_lines": 328,
+      "harness_and_header_lines": 186,
+      "iterations": 120,
+      "adapters": [],
+      "fixtures": 8,
+      "checksum": 219600
+    },
+    {
+      "file": "mattermost-user-profile.js",
+      "application": "mattermost",
+      "sha256": "8c9aa4db29c086e50aefd796ac1bd176efdc0779b4ee3e21373013a02783ad00",
+      "lines": 544,
+      "business_and_dependency_lines": 342,
+      "harness_and_header_lines": 202,
+      "iterations": 8,
+      "adapters": [
+        "logging"
+      ],
+      "fixtures": 8,
+      "checksum": 163072
+    },
+    {
+      "file": "mattermost-attachments.js",
+      "application": "mattermost",
+      "sha256": "87c91e1db423eed644e22cbf0459ebf00fac57a993edb5eda7218f06fccbe005",
+      "lines": 657,
+      "business_and_dependency_lines": 463,
+      "harness_and_header_lines": 194,
+      "iterations": 4,
+      "adapters": [],
+      "fixtures": 8,
+      "checksum": 261840
+    },
+    {
+      "file": "mattermost-playbooks.js",
+      "application": "mattermost",
+      "sha256": "af903f0d368b65e265d0c9088322c64159ce02b3aca397d2dc1427bd9b9eb748",
+      "lines": 502,
+      "business_and_dependency_lines": 269,
+      "harness_and_header_lines": 233,
+      "iterations": 60,
+      "adapters": [
+        "logging"
+      ],
+      "fixtures": 8,
+      "checksum": 115739760
+    }
+  ],
+  "dependency_files": [
+    {
+      "package": "@mattermost/commonmark@0.31.2-0",
+      "path": "lib/node.js",
+      "sha256": "8b403193cb7634bcb1035a049a113f7b8852ff0b9d991402dcfbc9107162252d"
+    }
+  ],
+  "min_lines_per_entry": 500,
+  "target_lines_per_entry": [
+    500,
+    1500
+  ],
+  "max_lines_per_entry": 2000,
+  "bundled_packages": [
+    {
+      "name": "@mattermost/commonmark",
+      "version": "0.31.2-0",
+      "license": "BSD-2-Clause"
+    }
+  ],
+  "toolchain": {
+    "esbuild": "0.28.2",
+    "prettier": "3.6.2"
+  }
+}

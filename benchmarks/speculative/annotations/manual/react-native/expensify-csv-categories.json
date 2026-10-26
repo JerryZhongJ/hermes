@@ -1,0 +1,4675 @@
+{
+  "static shapes": {
+    "ConstObj": {
+      "properties": [
+        {
+          "name": "DISABLED_MAX_EXPENSE_VALUE",
+          "type": "number"
+        },
+        {
+          "name": "POLICY"
+        },
+        {
+          "name": "CSV_IMPORT_COLUMNS"
+        },
+        {
+          "name": "RED_BRICK_ROAD_PENDING_ACTION"
+        }
+      ]
+    },
+    "ConstPolicy": {
+      "properties": [
+        {
+          "name": "EXPENSE_LIMIT_TYPES"
+        },
+        {
+          "name": "EXPENSE_DEFAULT_RULE_TYPE"
+        },
+        {
+          "name": "RULE_CONDITIONS"
+        },
+        {
+          "name": "FIELDS"
+        }
+      ]
+    },
+    "ConstCsvColumns": {
+      "properties": [
+        {
+          "name": "NAME",
+          "type": "string"
+        },
+        {
+          "name": "GL_CODE",
+          "type": "string"
+        },
+        {
+          "name": "ENABLED",
+          "type": "string"
+        },
+        {
+          "name": "MAX_AMOUNT_NO_RECEIPT",
+          "type": "string"
+        },
+        {
+          "name": "MAX_AMOUNT_NO_ITEMIZED_RECEIPT",
+          "type": "string"
+        },
+        {
+          "name": "PAYROLL_CODE",
+          "type": "string"
+        },
+        {
+          "name": "ARE_COMMENTS_REQUIRED",
+          "type": "string"
+        },
+        {
+          "name": "COMMENT_HINT",
+          "type": "string"
+        },
+        {
+          "name": "MAX_EXPENSE_AMOUNT",
+          "type": "string"
+        },
+        {
+          "name": "EXPENSE_LIMIT_TYPE",
+          "type": "string"
+        }
+      ]
+    },
+    "ConstDefaultRuleType": {
+      "properties": [
+        {
+          "name": "CATEGORY",
+          "type": "string"
+        }
+      ]
+    },
+    "ConstRuleConditions": {
+      "properties": [
+        {
+          "name": "MATCHES",
+          "type": "string"
+        }
+      ]
+    },
+    "ConstFields": {
+      "properties": [
+        {
+          "name": "CATEGORY",
+          "type": "string"
+        }
+      ]
+    },
+    "ConstPendingAction": {
+      "properties": [
+        {
+          "name": "DELETE",
+          "type": "string"
+        }
+      ]
+    },
+    "RuleObj": {
+      "properties": [
+        {
+          "name": "applyWhen"
+        },
+        {
+          "name": "tax"
+        }
+      ]
+    },
+    "RuleApplyWhenObj": {
+      "properties": [
+        {
+          "name": "condition",
+          "type": "string"
+        },
+        {
+          "name": "field",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "string"
+        }
+      ]
+    },
+    "RuleTaxObj": {
+      "properties": [
+        {
+          "name": "field_id_TAX"
+        }
+      ]
+    },
+    "RuleTaxIdObj": {
+      "properties": [
+        {
+          "name": "externalID",
+          "type": "string"
+        }
+      ]
+    },
+    "SpreadsheetObj": {
+      "properties": [
+        {
+          "name": "columns"
+        },
+        {
+          "name": "data"
+        },
+        {
+          "name": "containsHeader",
+          "type": "boolean"
+        }
+      ]
+    },
+    "PolicyCategoryObj": {
+      "properties": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "GL Code",
+          "type": "string"
+        }
+      ]
+    },
+    "DraftObj": {
+      "properties": [
+        {
+          "name": "categoriesToMatch"
+        },
+        {
+          "name": "tax"
+        },
+        {
+          "name": "ruleType",
+          "type": "string"
+        }
+      ]
+    },
+    "PolicyObj": {
+      "properties": [
+        {
+          "name": "tax"
+        },
+        {
+          "name": "taxRates"
+        }
+      ]
+    },
+    "TaxSettingsObj": {
+      "properties": [
+        {
+          "name": "trackingEnabled",
+          "type": "boolean"
+        }
+      ]
+    },
+    "TaxRatesObj": {
+      "properties": [
+        {
+          "name": "taxes"
+        },
+        {
+          "name": "defaultExternalID",
+          "type": "string"
+        }
+      ]
+    },
+    "TaxRateBasic": {
+      "properties": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "string"
+        }
+      ]
+    },
+    "TaxRateDeleted": {
+      "properties": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "string"
+        },
+        {
+          "name": "pendingAction",
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 46,
+          "column": 12
+        },
+        "end": {
+          "line": 46,
+          "column": 17
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 70,
+          "column": 28
+        },
+        "end": {
+          "line": 70,
+          "column": 33
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 70,
+          "column": 28
+        },
+        "end": {
+          "line": 70,
+          "column": 52
+        }
+      },
+      "shape": "ConstCsvColumns"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 73,
+          "column": 28
+        },
+        "end": {
+          "line": 73,
+          "column": 33
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 76,
+          "column": 28
+        },
+        "end": {
+          "line": 76,
+          "column": 33
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 79,
+          "column": 28
+        },
+        "end": {
+          "line": 79,
+          "column": 33
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 82,
+          "column": 28
+        },
+        "end": {
+          "line": 82,
+          "column": 33
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 85,
+          "column": 28
+        },
+        "end": {
+          "line": 85,
+          "column": 33
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 88,
+          "column": 28
+        },
+        "end": {
+          "line": 88,
+          "column": 33
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 91,
+          "column": 28
+        },
+        "end": {
+          "line": 91,
+          "column": 33
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 28
+        },
+        "end": {
+          "line": 94,
+          "column": 33
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 97,
+          "column": 28
+        },
+        "end": {
+          "line": 97,
+          "column": 33
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 73,
+          "column": 28
+        },
+        "end": {
+          "line": 73,
+          "column": 52
+        }
+      },
+      "shape": "ConstCsvColumns"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 76,
+          "column": 28
+        },
+        "end": {
+          "line": 76,
+          "column": 52
+        }
+      },
+      "shape": "ConstCsvColumns"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 79,
+          "column": 28
+        },
+        "end": {
+          "line": 79,
+          "column": 52
+        }
+      },
+      "shape": "ConstCsvColumns"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 82,
+          "column": 28
+        },
+        "end": {
+          "line": 82,
+          "column": 52
+        }
+      },
+      "shape": "ConstCsvColumns"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 85,
+          "column": 28
+        },
+        "end": {
+          "line": 85,
+          "column": 52
+        }
+      },
+      "shape": "ConstCsvColumns"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 88,
+          "column": 28
+        },
+        "end": {
+          "line": 88,
+          "column": 52
+        }
+      },
+      "shape": "ConstCsvColumns"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 91,
+          "column": 28
+        },
+        "end": {
+          "line": 91,
+          "column": 52
+        }
+      },
+      "shape": "ConstCsvColumns"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 28
+        },
+        "end": {
+          "line": 94,
+          "column": 52
+        }
+      },
+      "shape": "ConstCsvColumns"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 97,
+          "column": 28
+        },
+        "end": {
+          "line": 97,
+          "column": 52
+        }
+      },
+      "shape": "ConstCsvColumns"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 64,
+          "column": 24
+        },
+        "end": {
+          "line": 64,
+          "column": 29
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 190,
+          "column": 24
+        },
+        "end": {
+          "line": 190,
+          "column": 29
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 200,
+          "column": 31
+        },
+        "end": {
+          "line": 200,
+          "column": 36
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 211,
+          "column": 15
+        },
+        "end": {
+          "line": 211,
+          "column": 20
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 231,
+          "column": 21
+        },
+        "end": {
+          "line": 231,
+          "column": 26
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 231,
+          "column": 71
+        },
+        "end": {
+          "line": 231,
+          "column": 76
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 269,
+          "column": 57
+        },
+        "end": {
+          "line": 269,
+          "column": 62
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 272,
+          "column": 57
+        },
+        "end": {
+          "line": 272,
+          "column": 62
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 273,
+          "column": 48
+        },
+        "end": {
+          "line": 273,
+          "column": 53
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 64,
+          "column": 24
+        },
+        "end": {
+          "line": 64,
+          "column": 36
+        }
+      },
+      "shape": "ConstPolicy"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 190,
+          "column": 24
+        },
+        "end": {
+          "line": 190,
+          "column": 36
+        }
+      },
+      "shape": "ConstPolicy"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 211,
+          "column": 15
+        },
+        "end": {
+          "line": 211,
+          "column": 27
+        }
+      },
+      "shape": "ConstPolicy"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 231,
+          "column": 21
+        },
+        "end": {
+          "line": 231,
+          "column": 33
+        }
+      },
+      "shape": "ConstPolicy"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 231,
+          "column": 71
+        },
+        "end": {
+          "line": 231,
+          "column": 83
+        }
+      },
+      "shape": "ConstPolicy"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 231,
+          "column": 21
+        },
+        "end": {
+          "line": 231,
+          "column": 49
+        }
+      },
+      "shape": "ConstRuleConditions"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 231,
+          "column": 71
+        },
+        "end": {
+          "line": 231,
+          "column": 90
+        }
+      },
+      "shape": "ConstFields"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 190,
+          "column": 24
+        },
+        "end": {
+          "line": 190,
+          "column": 62
+        }
+      },
+      "shape": "ConstDefaultRuleType"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 211,
+          "column": 15
+        },
+        "end": {
+          "line": 211,
+          "column": 53
+        }
+      },
+      "shape": "ConstDefaultRuleType"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 200,
+          "column": 31
+        },
+        "end": {
+          "line": 200,
+          "column": 66
+        }
+      },
+      "shape": "ConstPendingAction"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 269,
+          "column": 57
+        },
+        "end": {
+          "line": 269,
+          "column": 92
+        }
+      },
+      "shape": "ConstPendingAction"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 272,
+          "column": 57
+        },
+        "end": {
+          "line": 272,
+          "column": 92
+        }
+      },
+      "shape": "ConstPendingAction"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 273,
+          "column": 48
+        },
+        "end": {
+          "line": 273,
+          "column": 83
+        }
+      },
+      "shape": "ConstPendingAction"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 228,
+          "column": 30
+        },
+        "end": {
+          "line": 228,
+          "column": 34
+        }
+      },
+      "shape": "RuleObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 229,
+          "column": 10
+        },
+        "end": {
+          "line": 232,
+          "column": 4
+        }
+      },
+      "shape": "RuleApplyWhenObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 230,
+          "column": 6
+        },
+        "end": {
+          "line": 230,
+          "column": 26
+        }
+      },
+      "shape": "RuleApplyWhenObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 236,
+          "column": 17
+        },
+        "end": {
+          "line": 236,
+          "column": 25
+        }
+      },
+      "shape": "RuleTaxObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 236,
+          "column": 17
+        },
+        "end": {
+          "line": 236,
+          "column": 39
+        }
+      },
+      "shape": "RuleTaxIdObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 66,
+          "column": 41
+        },
+        "end": {
+          "line": 66,
+          "column": 52
+        }
+      },
+      "shape": "SpreadsheetObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 134,
+          "column": 37
+        },
+        "end": {
+          "line": 134,
+          "column": 58
+        }
+      },
+      "shape": "PolicyCategoryObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 67,
+          "column": 37
+        },
+        "end": {
+          "line": 67,
+          "column": 48
+        }
+      },
+      "shape": "SpreadsheetObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 68,
+          "column": 33
+        },
+        "end": {
+          "line": 68,
+          "column": 44
+        }
+      },
+      "shape": "SpreadsheetObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 99,
+          "column": 27
+        },
+        "end": {
+          "line": 99,
+          "column": 38
+        }
+      },
+      "shape": "SpreadsheetObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 102,
+          "column": 9
+        },
+        "end": {
+          "line": 102,
+          "column": 20
+        }
+      },
+      "shape": "SpreadsheetObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 106,
+          "column": 9
+        },
+        "end": {
+          "line": 106,
+          "column": 20
+        }
+      },
+      "shape": "SpreadsheetObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 110,
+          "column": 9
+        },
+        "end": {
+          "line": 110,
+          "column": 20
+        }
+      },
+      "shape": "SpreadsheetObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 114,
+          "column": 9
+        },
+        "end": {
+          "line": 114,
+          "column": 20
+        }
+      },
+      "shape": "SpreadsheetObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 117,
+          "column": 42
+        },
+        "end": {
+          "line": 117,
+          "column": 53
+        }
+      },
+      "shape": "SpreadsheetObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 120,
+          "column": 9
+        },
+        "end": {
+          "line": 120,
+          "column": 20
+        }
+      },
+      "shape": "SpreadsheetObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 123,
+          "column": 42
+        },
+        "end": {
+          "line": 123,
+          "column": 53
+        }
+      },
+      "shape": "SpreadsheetObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 126,
+          "column": 9
+        },
+        "end": {
+          "line": 126,
+          "column": 20
+        }
+      },
+      "shape": "SpreadsheetObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 130,
+          "column": 9
+        },
+        "end": {
+          "line": 130,
+          "column": 20
+        }
+      },
+      "shape": "SpreadsheetObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 67,
+          "column": 37
+        },
+        "end": {
+          "line": 67,
+          "column": 54
+        }
+      },
+      "shape": "SpreadsheetObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 187,
+          "column": 30
+        },
+        "end": {
+          "line": 187,
+          "column": 34
+        }
+      },
+      "shape": "DraftObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 190,
+          "column": 5
+        },
+        "end": {
+          "line": 190,
+          "column": 9
+        }
+      },
+      "shape": "DraftObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 191,
+          "column": 7
+        },
+        "end": {
+          "line": 191,
+          "column": 11
+        }
+      },
+      "shape": "DraftObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 195,
+          "column": 12
+        },
+        "end": {
+          "line": 195,
+          "column": 18
+        }
+      },
+      "shape": "PolicyObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 195,
+          "column": 12
+        },
+        "end": {
+          "line": 195,
+          "column": 23
+        }
+      },
+      "shape": "TaxSettingsObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 195,
+          "column": 56
+        },
+        "end": {
+          "line": 195,
+          "column": 62
+        }
+      },
+      "shape": "PolicyObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 195,
+          "column": 56
+        },
+        "end": {
+          "line": 195,
+          "column": 72
+        }
+      },
+      "shape": "TaxRatesObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 200,
+          "column": 5
+        },
+        "end": {
+          "line": 200,
+          "column": 12
+        }
+      },
+      "shape": "TaxRateDeleted"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 201,
+          "column": 35
+        },
+        "end": {
+          "line": 201,
+          "column": 41
+        }
+      },
+      "shape": "PolicyObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 201,
+          "column": 35
+        },
+        "end": {
+          "line": 201,
+          "column": 51
+        }
+      },
+      "shape": "TaxRatesObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 205,
+          "column": 25
+        },
+        "end": {
+          "line": 205,
+          "column": 31
+        }
+      },
+      "shape": "PolicyObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 205,
+          "column": 25
+        },
+        "end": {
+          "line": 205,
+          "column": 41
+        }
+      },
+      "shape": "TaxRatesObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 218,
+          "column": 25
+        },
+        "end": {
+          "line": 218,
+          "column": 31
+        }
+      },
+      "shape": "PolicyObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 218,
+          "column": 25
+        },
+        "end": {
+          "line": 218,
+          "column": 41
+        }
+      },
+      "shape": "TaxRatesObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 257,
+          "column": 19
+        },
+        "end": {
+          "line": 257,
+          "column": 25
+        }
+      },
+      "shape": "PolicyObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 257,
+          "column": 19
+        },
+        "end": {
+          "line": 257,
+          "column": 35
+        }
+      },
+      "shape": "TaxRatesObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 259,
+          "column": 32
+        },
+        "end": {
+          "line": 259,
+          "column": 39
+        }
+      },
+      "shape": "TaxRateBasic"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 261,
+          "column": 7
+        },
+        "end": {
+          "line": 261,
+          "column": 19
+        }
+      },
+      "shape": "TaxRateBasic"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 261,
+          "column": 29
+        },
+        "end": {
+          "line": 261,
+          "column": 41
+        }
+      },
+      "shape": "TaxRateBasic"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 262,
+          "column": 15
+        },
+        "end": {
+          "line": 262,
+          "column": 27
+        }
+      },
+      "shape": "TaxRateBasic"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 262,
+          "column": 37
+        },
+        "end": {
+          "line": 262,
+          "column": 49
+        }
+      },
+      "shape": "TaxRateBasic"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 272,
+          "column": 5
+        },
+        "end": {
+          "line": 272,
+          "column": 11
+        }
+      },
+      "shape": "PolicyObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 272,
+          "column": 5
+        },
+        "end": {
+          "line": 272,
+          "column": 21
+        }
+      },
+      "shape": "TaxRatesObj"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 5,
+          "column": 15
+        },
+        "end": {
+          "line": 26,
+          "column": 2
+        }
+      },
+      "shape": "ConstObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 7,
+          "column": 13
+        },
+        "end": {
+          "line": 12,
+          "column": 4
+        }
+      },
+      "shape": "ConstPolicy"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 9,
+          "column": 34
+        },
+        "end": {
+          "line": 9,
+          "column": 60
+        }
+      },
+      "shape": "ConstDefaultRuleType"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 10,
+          "column": 24
+        },
+        "end": {
+          "line": 10,
+          "column": 48
+        }
+      },
+      "shape": "ConstRuleConditions"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 11,
+          "column": 15
+        },
+        "end": {
+          "line": 11,
+          "column": 41
+        }
+      },
+      "shape": "ConstFields"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 13,
+          "column": 25
+        },
+        "end": {
+          "line": 24,
+          "column": 4
+        }
+      },
+      "shape": "ConstCsvColumns"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 25,
+          "column": 36
+        },
+        "end": {
+          "line": 25,
+          "column": 58
+        }
+      },
+      "shape": "ConstPendingAction"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 405,
+          "column": 18
+        },
+        "end": {
+          "line": 414,
+          "column": 8
+        }
+      },
+      "shape": "RuleObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 407,
+          "column": 11
+        },
+        "end": {
+          "line": 411,
+          "column": 12
+        }
+      },
+      "shape": "RuleApplyWhenObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 413,
+          "column": 14
+        },
+        "end": {
+          "line": 413,
+          "column": 97
+        }
+      },
+      "shape": "RuleTaxObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 413,
+          "column": 30
+        },
+        "end": {
+          "line": 413,
+          "column": 95
+        }
+      },
+      "shape": "RuleTaxIdObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 421,
+          "column": 20
+        },
+        "end": {
+          "line": 421,
+          "column": 72
+        }
+      },
+      "shape": "SpreadsheetObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 389,
+          "column": 45
+        },
+        "end": {
+          "line": 389,
+          "column": 81
+        }
+      },
+      "shape": "PolicyCategoryObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 208,
+          "column": 10
+        },
+        "end": {
+          "line": 212,
+          "column": 4
+        }
+      },
+      "shape": "DraftObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 425,
+          "column": 14
+        },
+        "end": {
+          "line": 425,
+          "column": 48
+        }
+      },
+      "shape": "TaxSettingsObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 394,
+          "column": 17
+        },
+        "end": {
+          "line": 394,
+          "column": 51
+        }
+      },
+      "shape": "TaxRateBasic"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 466,
+          "column": 58
+        },
+        "end": {
+          "line": 466,
+          "column": 88
+        }
+      },
+      "shape": "TaxRateBasic"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 424,
+          "column": 15
+        },
+        "end": {
+          "line": 427,
+          "column": 8
+        }
+      },
+      "shape": "PolicyObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 426,
+          "column": 19
+        },
+        "end": {
+          "line": 426,
+          "column": 59
+        }
+      },
+      "shape": "TaxRatesObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 396,
+          "column": 16
+        },
+        "end": {
+          "line": 400,
+          "column": 8
+        }
+      },
+      "shape": "TaxRateDeleted"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 401,
+          "column": 13
+        },
+        "end": {
+          "line": 401,
+          "column": 42
+        }
+      },
+      "shape": "TaxRateBasic"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 27,
+          "column": 33
+        },
+        "end": {
+          "line": 27,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 231,
+          "column": 7
+        },
+        "end": {
+          "line": 231,
+          "column": 16
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 49,
+          "column": 31
+        },
+        "end": {
+          "line": 49,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 135,
+          "column": 40
+        },
+        "end": {
+          "line": 135,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 236,
+          "column": 57
+        },
+        "end": {
+          "line": 236,
+          "column": 76
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 228,
+          "column": 1
+        },
+        "end": {
+          "line": 233,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 240,
+          "column": 10
+        },
+        "end": {
+          "line": 240,
+          "column": 29
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 228,
+          "column": 1
+        },
+        "end": {
+          "line": 233,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 243,
+          "column": 10
+        },
+        "end": {
+          "line": 243,
+          "column": 29
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 234,
+          "column": 1
+        },
+        "end": {
+          "line": 238,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 244,
+          "column": 5
+        },
+        "end": {
+          "line": 244,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 239,
+          "column": 1
+        },
+        "end": {
+          "line": 241,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 248,
+          "column": 12
+        },
+        "end": {
+          "line": 248,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 242,
+          "column": 1
+        },
+        "end": {
+          "line": 246,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 251,
+          "column": 10
+        },
+        "end": {
+          "line": 251,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 242,
+          "column": 1
+        },
+        "end": {
+          "line": 246,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 28,
+          "column": 21
+        },
+        "end": {
+          "line": 28,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 195,
+          "column": 44
+        },
+        "end": {
+          "line": 195,
+          "column": 93
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 276,
+          "column": 20
+        },
+        "end": {
+          "line": 276,
+          "column": 55
+        }
+      },
+      "type": "number"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "32:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Number"
+    },
+    {
+      "location": "32:16",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Number"
+    },
+    {
+      "location": "48:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseCsvNumber"
+    },
+    {
+      "location": "48:29",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "parseCsvNumber"
+    },
+    {
+      "location": "49:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Number"
+    },
+    {
+      "location": "49:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isFinite"
+    },
+    {
+      "location": "49:22",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "isFinite"
+    },
+    {
+      "location": "50:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "convertToBackendAmount"
+    },
+    {
+      "location": "50:34",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "convertToBackendAmount"
+    },
+    {
+      "location": "59:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseCsvNumber"
+    },
+    {
+      "location": "59:29",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "parseCsvNumber"
+    },
+    {
+      "location": "60:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Number"
+    },
+    {
+      "location": "60:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isFinite"
+    },
+    {
+      "location": "60:25",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "isFinite"
+    },
+    {
+      "location": "60:45",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "convertToBackendAmount"
+    },
+    {
+      "location": "60:67",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "convertToBackendAmount"
+    },
+    {
+      "location": "64:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Object"
+    },
+    {
+      "location": "64:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "values"
+    },
+    {
+      "location": "64:23",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "values"
+    },
+    {
+      "location": "38:27",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "trim",
+      "note": "string prototype method; no annotatable string type/shape support for methods"
+    },
+    {
+      "location": "38:27",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "trim",
+      "note": "string prototype method; no annotatable string type/shape support for methods"
+    },
+    {
+      "location": "38:41",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "toLowerCase",
+      "note": "string prototype method; no annotatable string type/shape support for methods"
+    },
+    {
+      "location": "38:41",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "toLowerCase",
+      "note": "string prototype method; no annotatable string type/shape support for methods"
+    },
+    {
+      "location": "55:28",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "trim",
+      "note": "string prototype method; no annotatable string type/shape support for methods"
+    },
+    {
+      "location": "55:28",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "trim",
+      "note": "string prototype method; no annotatable string type/shape support for methods"
+    },
+    {
+      "location": "63:42",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "toLowerCase",
+      "note": "string prototype method; no annotatable string type/shape support for methods"
+    },
+    {
+      "location": "63:42",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "toLowerCase",
+      "note": "string prototype method; no annotatable string type/shape support for methods"
+    },
+    {
+      "location": "63:42",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "trim",
+      "note": "string prototype method; no annotatable string type/shape support for methods"
+    },
+    {
+      "location": "63:42",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "trim",
+      "note": "string prototype method; no annotatable string type/shape support for methods"
+    },
+    {
+      "location": "32:80",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "replaceAll",
+      "note": "string prototype method; no annotatable string type/shape support for methods"
+    },
+    {
+      "location": "32:80",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "replaceAll",
+      "note": "string prototype method; no annotatable string type/shape support for methods"
+    },
+    {
+      "location": "32:54",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "test",
+      "note": "RegExp method; no regexp type or shape exists to annotate"
+    },
+    {
+      "location": "32:54",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "test",
+      "note": "RegExp method; no regexp type or shape exists to annotate"
+    },
+    {
+      "location": "64:62",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "find",
+      "note": "array method; the annotation system has no array type/shape"
+    },
+    {
+      "location": "64:62",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "find",
+      "note": "array method; the annotation system has no array type/shape"
+    },
+    {
+      "location": "35:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string comparison / logical operator, not a numeric operation"
+    },
+    {
+      "location": "39:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string comparison / logical operator, not a numeric operation"
+    },
+    {
+      "location": "42:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string comparison / logical operator, not a numeric operation"
+    },
+    {
+      "location": "42:33",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string comparison / logical operator, not a numeric operation"
+    },
+    {
+      "location": "45:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string comparison / logical operator, not a numeric operation"
+    },
+    {
+      "location": "64:73",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string comparison / logical operator, not a numeric operation"
+    },
+    {
+      "location": "55:28",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / method-call expression, not a numeric operation"
+    },
+    {
+      "location": "63:42",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / method-call expression, not a numeric operation"
+    },
+    {
+      "location": "60:34",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "hasSelectableCategoryTaxRate",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "getCategoryTaxRuleDraftFromGeneratedValues",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "isSelectableTaxRate",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "hasUsableTaxRates",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "isCategoryRuleDraft",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "buildCategoriesFromSpreadsheet",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "parseCsvExpenseLimitType",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "parseCsvAmountValue",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "parseCsvReceiptValue",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "parseCsvNumber",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "convertToBackendAmount",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "isCategoryTaxRuleKey",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "getCategoryTaxRuleKey",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "rnFingerprint",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "rnObserve",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "rnExecute",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "rnCreateFixtures",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "rnBenchmark",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "rnCaptureReferences",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "rnValidate",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "rnRandom",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "rnHash",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "rnAssert",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "getCategoryNameFromTaxRuleKey",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "getRuleDeletionPendingAction",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "getTaxRateDisplayName",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "getCategoryTaxRuleTaxID",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "categoryHasTaxRule",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "getCategoryTaxRule",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "matchesCategoryTaxRule",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "getCategoryTaxRules",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "getRuleCategoryName",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "rnNow",
+      "note": "module-scope function-declaration store into the module record; there is no receiver object expression that can carry a shape binding"
+    },
+    {
+      "location": "68:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Object"
+    },
+    {
+      "location": "68:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "values"
+    },
+    {
+      "location": "68:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "values"
+    },
+    {
+      "location": "69:50",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "69:50",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "72:51",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "72:51",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "75:52",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "75:52",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "78:63",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "78:63",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "81:71",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "81:71",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "84:56",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "84:56",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "87:64",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "87:64",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "90:56",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "90:56",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "93:61",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "93:61",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "96:61",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "96:61",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "findIndex",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "99:71",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "map",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "99:71",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "map",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "102:55",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "map",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "102:55",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "map",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "106:54",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "map",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "106:54",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "map",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "132:60",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "slice",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "132:60",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "slice",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "132:60",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "map",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "132:60",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "map",
+      "note": "array method; the annotation system has no array type or shape"
+    },
+    {
+      "location": "165:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "conditional object spread guard (&& with a comparison); no numeric operation"
+    },
+    {
+      "location": "166:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "conditional object spread guard (&& with a comparison); no numeric operation"
+    },
+    {
+      "location": "170:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "conditional object spread guard (&& with a comparison); no numeric operation"
+    },
+    {
+      "location": "173:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "conditional object spread guard (&& with a comparison); no numeric operation"
+    },
+    {
+      "location": "178:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "conditional object spread guard (&& with a comparison); no numeric operation"
+    },
+    {
+      "location": "181:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "conditional object spread guard (&& with a comparison); no numeric operation"
+    },
+    {
+      "location": "182:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "conditional object spread guard (&& with a comparison); no numeric operation"
+    },
+    {
+      "location": "70:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality comparison (column === CONST column name); string comparisons are not strength-reducible"
+    },
+    {
+      "location": "73:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality comparison (column === CONST column name); string comparisons are not strength-reducible"
+    },
+    {
+      "location": "76:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality comparison (column === CONST column name); string comparisons are not strength-reducible"
+    },
+    {
+      "location": "79:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality comparison (column === CONST column name); string comparisons are not strength-reducible"
+    },
+    {
+      "location": "82:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality comparison (column === CONST column name); string comparisons are not strength-reducible"
+    },
+    {
+      "location": "85:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality comparison (column === CONST column name); string comparisons are not strength-reducible"
+    },
+    {
+      "location": "88:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality comparison (column === CONST column name); string comparisons are not strength-reducible"
+    },
+    {
+      "location": "91:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality comparison (column === CONST column name); string comparisons are not strength-reducible"
+    },
+    {
+      "location": "94:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality comparison (column === CONST column name); string comparisons are not strength-reducible"
+    },
+    {
+      "location": "97:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality comparison (column === CONST column name); string comparisons are not strength-reducible"
+    },
+    {
+      "location": "138:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseCsvReceiptValue"
+    },
+    {
+      "location": "138:31",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "parseCsvReceiptValue"
+    },
+    {
+      "location": "142:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseCsvReceiptValue"
+    },
+    {
+      "location": "142:31",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "parseCsvReceiptValue"
+    },
+    {
+      "location": "146:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseCsvAmountValue"
+    },
+    {
+      "location": "146:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "parseCsvAmountValue"
+    },
+    {
+      "location": "150:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseCsvExpenseLimitType"
+    },
+    {
+      "location": "150:35",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "parseCsvExpenseLimitType"
+    },
+    {
+      "location": "138:83",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "toString",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "138:83",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "toString",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "142:91",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "toString",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "142:91",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "toString",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "146:80",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "toString",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "146:80",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "toString",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "150:85",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "toString",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "150:85",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "toString",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "157:76",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "toString",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "157:76",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "toString",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "157:76",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "trim",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "157:76",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "trim",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "157:76",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "toLowerCase",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "157:76",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "toLowerCase",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "175:84",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "toString",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "175:84",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "toString",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "175:84",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "trim",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "175:84",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "trim",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "175:84",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "toLowerCase",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "175:84",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "toLowerCase",
+      "note": "string prototype method; no string type support for methods"
+    },
+    {
+      "location": "156:37",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "includes",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "156:37",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "includes",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "174:54",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "includes",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "174:54",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "includes",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "67:37",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "68:33",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "101:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "105:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "109:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "113:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "117:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "119:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "123:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "125:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "129:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "132:60",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "133:51",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "134:37",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "134:58",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "137:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "141:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "145:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "149:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "155:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "157:15",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "162:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "163:14",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "163:30",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "171:25",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "171:46",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "179:22",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "179:43",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "175:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "138:83",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "142:91",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "146:80",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "150:85",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "157:76",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "175:84",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / ternary / logical-and; no numeric operation is performed here"
+    },
+    {
+      "location": "190:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "logical-or / optional-chain / string equality expression; no numeric operation"
+    },
+    {
+      "location": "190:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "logical-or / optional-chain / string equality expression; no numeric operation"
+    },
+    {
+      "location": "191:30",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "logical-or / optional-chain / string equality expression; no numeric operation"
+    },
+    {
+      "location": "191:30",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "array length read; no array type or shape to annotate"
+    },
+    {
+      "location": "195:44",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Object"
+    },
+    {
+      "location": "195:55",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "keys"
+    },
+    {
+      "location": "195:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "logical-and / optional-chaining / nullish-coalescing expression; no numeric operation"
+    },
+    {
+      "location": "195:44",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "logical-and / optional-chaining / nullish-coalescing expression; no numeric operation"
+    },
+    {
+      "location": "195:56",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "logical-and / optional-chaining / nullish-coalescing expression; no numeric operation"
+    },
+    {
+      "location": "195:72",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "logical-and / optional-chaining / nullish-coalescing expression; no numeric operation"
+    },
+    {
+      "location": "195:86",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "array length read; no array type or shape"
+    },
+    {
+      "location": "207:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isSelectableTaxRate"
+    },
+    {
+      "location": "207:42",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "isSelectableTaxRate"
+    },
+    {
+      "location": "215:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "hasUsableTaxRates"
+    },
+    {
+      "location": "215:25",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "hasUsableTaxRates"
+    },
+    {
+      "location": "219:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isSelectableTaxRate"
+    },
+    {
+      "location": "219:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "isSelectableTaxRate"
+    },
+    {
+      "location": "218:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Object"
+    },
+    {
+      "location": "218:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "entries"
+    },
+    {
+      "location": "218:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "entries"
+    },
+    {
+      "location": "218:25",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / array destructuring pattern; no numeric operation"
+    },
+    {
+      "location": "218:41",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / array destructuring pattern; no numeric operation"
+    },
+    {
+      "location": "218:61",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional chaining / nullish coalescing / array destructuring pattern; no numeric operation"
+    },
+    {
+      "location": "218:60",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "some",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "218:60",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "some",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "200:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / nullish-coalescing / logical-or / string-equality expression; no numeric operation"
+    },
+    {
+      "location": "201:25",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / nullish-coalescing / logical-or / string-equality expression; no numeric operation"
+    },
+    {
+      "location": "201:51",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / nullish-coalescing / logical-or / string-equality expression; no numeric operation"
+    },
+    {
+      "location": "205:48",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / nullish-coalescing / logical-or / string-equality expression; no numeric operation"
+    },
+    {
+      "location": "257:42",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / nullish-coalescing / logical-or / string-equality expression; no numeric operation"
+    },
+    {
+      "location": "261:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / nullish-coalescing / logical-or / string-equality expression; no numeric operation"
+    },
+    {
+      "location": "269:37",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / nullish-coalescing / logical-or / string-equality expression; no numeric operation"
+    },
+    {
+      "location": "269:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / nullish-coalescing / logical-or / string-equality expression; no numeric operation"
+    },
+    {
+      "location": "272:37",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / nullish-coalescing / logical-or / string-equality expression; no numeric operation"
+    },
+    {
+      "location": "272:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / nullish-coalescing / logical-or / string-equality expression; no numeric operation"
+    },
+    {
+      "location": "200:12",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "pendingAction"
+    },
+    {
+      "location": "200:36",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "RED_BRICK_ROAD_PENDING_ACTION",
+      "note": "const-object read inside a short-circuited && comparison; the ConstObj guard on this expression is killed by the control flow and the read stays generic"
+    },
+    {
+      "location": "200:66",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "DELETE",
+      "note": "const-object read inside a short-circuited && comparison; the ConstObj guard on this expression is killed by the control flow and the read stays generic"
+    },
+    {
+      "location": "204:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "tax"
+    },
+    {
+      "location": "269:37",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "pendingAction"
+    },
+    {
+      "location": "243:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "getCategoryTaxRules"
+    },
+    {
+      "location": "243:29",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "getCategoryTaxRules"
+    },
+    {
+      "location": "244:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "matchesCategoryTaxRule"
+    },
+    {
+      "location": "244:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "matchesCategoryTaxRule"
+    },
+    {
+      "location": "248:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "getCategoryTaxRule"
+    },
+    {
+      "location": "248:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "getCategoryTaxRule"
+    },
+    {
+      "location": "251:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "getCategoryTaxRule"
+    },
+    {
+      "location": "251:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "getCategoryTaxRule"
+    },
+    {
+      "location": "236:57",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "getRuleCategoryName"
+    },
+    {
+      "location": "236:76",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "getRuleCategoryName"
+    },
+    {
+      "location": "240:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "getRuleCategoryName"
+    },
+    {
+      "location": "240:29",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "getRuleCategoryName"
+    },
+    {
+      "location": "243:48",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "find",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "243:48",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "find",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "235:37",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "filter",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "235:37",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "filter",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "232:4",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "find",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "232:4",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "find",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "232:4",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / logical-or / string-equality expression; no numeric operation"
+    },
+    {
+      "location": "236:39",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / logical-or / string-equality expression; no numeric operation"
+    },
+    {
+      "location": "240:10",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / logical-or / string-equality expression; no numeric operation"
+    },
+    {
+      "location": "235:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / logical-or / string-equality expression; no numeric operation"
+    },
+    {
+      "location": "231:61",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / logical-or / string-equality expression; no numeric operation"
+    },
+    {
+      "location": "231:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chain / logical-or / string-equality expression; no numeric operation"
+    },
+    {
+      "location": "251:75",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "tax"
+    },
+    {
+      "location": "251:75",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "field_id_TAX"
+    },
+    {
+      "location": "251:75",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "externalID"
+    },
+    {
+      "location": "251:75",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-chaining expression; no numeric operation"
+    },
+    {
+      "location": "223:10",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "HermesInternal",
+      "note": "string method / string length / compiled template-literal concat; a string type guard has no effect (verified by dryrun)"
+    },
+    {
+      "location": "223:10",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "concat",
+      "note": "string method / string length / compiled template-literal concat; a string type guard has no effect (verified by dryrun)"
+    },
+    {
+      "location": "223:10",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "concat",
+      "note": "string method / string length / compiled template-literal concat; a string type guard has no effect (verified by dryrun)"
+    },
+    {
+      "location": "226:24",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "startsWith",
+      "note": "string method / string length / compiled template-literal concat; a string type guard has no effect (verified by dryrun)"
+    },
+    {
+      "location": "226:24",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "startsWith",
+      "note": "string method / string length / compiled template-literal concat; a string type guard has no effect (verified by dryrun)"
+    },
+    {
+      "location": "259:12",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "HermesInternal",
+      "note": "string method / string length / compiled template-literal concat; a string type guard has no effect (verified by dryrun)"
+    },
+    {
+      "location": "259:12",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "concat",
+      "note": "string method / string length / compiled template-literal concat; a string type guard has no effect (verified by dryrun)"
+    },
+    {
+      "location": "259:12",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "concat",
+      "note": "string method / string length / compiled template-literal concat; a string type guard has no effect (verified by dryrun)"
+    },
+    {
+      "location": "262:12",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "HermesInternal",
+      "note": "string method / string length / compiled template-literal concat; a string type guard has no effect (verified by dryrun)"
+    },
+    {
+      "location": "262:12",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "concat",
+      "note": "string method / string length / compiled template-literal concat; a string type guard has no effect (verified by dryrun)"
+    },
+    {
+      "location": "262:12",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "concat",
+      "note": "string method / string length / compiled template-literal concat; a string type guard has no effect (verified by dryrun)"
+    },
+    {
+      "location": "276:19",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "slice",
+      "note": "string method / string length / compiled template-literal concat; a string type guard has no effect (verified by dryrun)"
+    },
+    {
+      "location": "276:19",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "slice",
+      "note": "string method / string length / compiled template-literal concat; a string type guard has no effect (verified by dryrun)"
+    },
+    {
+      "location": "276:48",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "string method / string length / compiled template-literal concat; a string type guard has no effect (verified by dryrun)"
+    },
+    {
+      "location": "289:19",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "289:27",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "string length / string method; a string type guard on the parameter and a number guard on the charCodeAt result both had no effect (verified by dryrun)"
+    },
+    {
+      "location": "290:44",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "charCodeAt",
+      "note": "string length / string method; a string type guard on the parameter and a number guard on the charCodeAt result both had no effect (verified by dryrun)"
+    },
+    {
+      "location": "290:44",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "charCodeAt",
+      "note": "string length / string method; a string type guard on the parameter and a number guard on the charCodeAt result both had no effect (verified by dryrun)"
+    },
+    {
+      "location": "290:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "290:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "imul"
+    },
+    {
+      "location": "278:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "278:47",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "492:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnBenchmark"
+    },
+    {
+      "location": "492:12",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnBenchmark"
+    },
+    {
+      "location": "280:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "280:52",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "280:63",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "281:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "281:22",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "281:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "285:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "285:34",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "301:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "301:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "304:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnExecute"
+    },
+    {
+      "location": "304:29",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnExecute"
+    },
+    {
+      "location": "305:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnFingerprint"
+    },
+    {
+      "location": "305:33",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnFingerprint"
+    },
+    {
+      "location": "306:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "306:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "307:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "307:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "308:16",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnObserve"
+    },
+    {
+      "location": "308:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnObserve"
+    },
+    {
+      "location": "301:20",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "array length; no array type or shape"
+    },
+    {
+      "location": "301:42",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "array length; no array type or shape"
+    },
+    {
+      "location": "303:31",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "array length; no array type or shape"
+    },
+    {
+      "location": "301:12",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "303:19",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "306:52",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation of a literal with a number; no numeric operation to specialize"
+    },
+    {
+      "location": "309:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation of a literal with a number; no numeric operation to specialize"
+    },
+    {
+      "location": "322:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnCreateFixtures"
+    },
+    {
+      "location": "322:36",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnCreateFixtures"
+    },
+    {
+      "location": "323:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnValidate"
+    },
+    {
+      "location": "323:42",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnValidate"
+    },
+    {
+      "location": "325:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnNow"
+    },
+    {
+      "location": "325:22",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnNow"
+    },
+    {
+      "location": "328:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnObserve"
+    },
+    {
+      "location": "328:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnObserve"
+    },
+    {
+      "location": "328:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnExecute"
+    },
+    {
+      "location": "328:38",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnExecute"
+    },
+    {
+      "location": "331:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnNow"
+    },
+    {
+      "location": "331:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnNow"
+    },
+    {
+      "location": "332:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "332:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "333:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnValidate"
+    },
+    {
+      "location": "333:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnValidate"
+    },
+    {
+      "location": "334:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "334:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Number"
+    },
+    {
+      "location": "334:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isFinite"
+    },
+    {
+      "location": "334:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "isFinite"
+    },
+    {
+      "location": "334:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "335:10",
+      "kind": "call",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "336:10",
+      "kind": "call",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "327:21",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "327:33",
+      "kind": "property_load",
+      "reason": "maybe-not-number",
+      "property": "length"
+    },
+    {
+      "location": "335:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation of a literal with a number; no numeric operation to specialize"
+    },
+    {
+      "location": "336:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation of a literal with a number; no numeric operation to specialize"
+    },
+    {
+      "location": "363:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "363:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "from"
+    },
+    {
+      "location": "363:20",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "from"
+    },
+    {
+      "location": "367:20",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "strict string inequality; string type guards have no effect on comparisons"
+    },
+    {
+      "location": "432:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "buildCategoriesFromSpreadsheet"
+    },
+    {
+      "location": "432:52",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "buildCategoriesFromSpreadsheet"
+    },
+    {
+      "location": "457:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Object"
+    },
+    {
+      "location": "457:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "entries"
+    },
+    {
+      "location": "457:36",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "entries"
+    },
+    {
+      "location": "464:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "hasUsableTaxRates"
+    },
+    {
+      "location": "464:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "hasUsableTaxRates"
+    },
+    {
+      "location": "465:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "hasSelectableCategoryTaxRate"
+    },
+    {
+      "location": "465:41",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "hasSelectableCategoryTaxRate"
+    },
+    {
+      "location": "466:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "getTaxRateDisplayName"
+    },
+    {
+      "location": "466:38",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "getTaxRateDisplayName"
+    },
+    {
+      "location": "433:37",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "map",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "433:37",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "map",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "457:71",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "map",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "457:71",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "map",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "434:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "getCategoryTaxRuleKey"
+    },
+    {
+      "location": "434:38",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "getCategoryTaxRuleKey"
+    },
+    {
+      "location": "435:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "getCategoryTaxRuleTaxID"
+    },
+    {
+      "location": "435:42",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "getCategoryTaxRuleTaxID"
+    },
+    {
+      "location": "436:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "getCategoryTaxRuleDraftFromGeneratedValues"
+    },
+    {
+      "location": "436:61",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "getCategoryTaxRuleDraftFromGeneratedValues"
+    },
+    {
+      "location": "442:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "getCategoryNameFromTaxRuleKey"
+    },
+    {
+      "location": "442:46",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "getCategoryNameFromTaxRuleKey"
+    },
+    {
+      "location": "443:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isCategoryTaxRuleKey"
+    },
+    {
+      "location": "443:34",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "isCategoryTaxRuleKey"
+    },
+    {
+      "location": "444:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "categoryHasTaxRule"
+    },
+    {
+      "location": "444:33",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "categoryHasTaxRule"
+    },
+    {
+      "location": "446:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "getTaxRateDisplayName"
+    },
+    {
+      "location": "446:35",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "getTaxRateDisplayName"
+    },
+    {
+      "location": "448:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isCategoryRuleDraft"
+    },
+    {
+      "location": "448:35",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "isCategoryRuleDraft"
+    },
+    {
+      "location": "449:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "getRuleDeletionPendingAction"
+    },
+    {
+      "location": "449:44",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "getRuleDeletionPendingAction"
+    },
+    {
+      "location": "458:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isSelectableTaxRate"
+    },
+    {
+      "location": "458:42",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "isSelectableTaxRate"
+    },
+    {
+      "location": "470:34",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "reduce",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "470:34",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "reduce",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "476:30",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "reduce",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "476:30",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "reduce",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "473:23",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "string length; a number type guard on the length expression had no effect (verified by dryrun)"
+    },
+    {
+      "location": "477:27",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "string length; a number type guard on the length expression had no effect (verified by dryrun)"
+    },
+    {
+      "location": "473:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "477:14",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "482:12",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "482:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "482:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "483:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "483:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "489:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "489:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "490:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnHash"
+    },
+    {
+      "location": "490:16",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnHash"
+    },
+    {
+      "location": "490:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JSON"
+    },
+    {
+      "location": "490:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "stringify"
+    },
+    {
+      "location": "482:29",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "array length / array method; no array type or shape"
+    },
+    {
+      "location": "484:29",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "every",
+      "note": "array length / array method; no array type or shape"
+    },
+    {
+      "location": "484:29",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "every",
+      "note": "array length / array method; no array type or shape"
+    },
+    {
+      "location": "489:12",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "strict string equality with a literal; string type guards have no effect on comparisons"
+    },
+    {
+      "location": "366:22",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "filter",
+      "note": "array method / array length; no array type or shape"
+    },
+    {
+      "location": "366:22",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "filter",
+      "note": "array method / array length; no array type or shape"
+    },
+    {
+      "location": "373:37",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "array method / array length; no array type or shape"
+    },
+    {
+      "location": "387:53",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "array method / array length; no array type or shape"
+    },
+    {
+      "location": "388:20",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "push",
+      "note": "array method / array length; no array type or shape"
+    },
+    {
+      "location": "388:20",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "push",
+      "note": "array method / array length; no array type or shape"
+    },
+    {
+      "location": "391:16",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "push",
+      "note": "array method / array length; no array type or shape"
+    },
+    {
+      "location": "391:16",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "push",
+      "note": "array method / array length; no array type or shape"
+    },
+    {
+      "location": "405:17",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "push",
+      "note": "array method / array length; no array type or shape"
+    },
+    {
+      "location": "405:17",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "push",
+      "note": "array method / array length; no array type or shape"
+    },
+    {
+      "location": "416:15",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "push",
+      "note": "array method / array length; no array type or shape"
+    },
+    {
+      "location": "416:15",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "push",
+      "note": "array method / array length; no array type or shape"
+    },
+    {
+      "location": "375:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "375:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "381:71",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "381:77",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "373:23",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "387:30",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "378:22",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality or string concatenation; string type guards and comparisons do not specialize"
+    },
+    {
+      "location": "380:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality or string concatenation; string type guards and comparisons do not specialize"
+    },
+    {
+      "location": "381:18",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality or string concatenation; string type guards and comparisons do not specialize"
+    },
+    {
+      "location": "381:39",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality or string concatenation; string type guards and comparisons do not specialize"
+    },
+    {
+      "location": "382:18",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality or string concatenation; string type guards and comparisons do not specialize"
+    },
+    {
+      "location": "382:39",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality or string concatenation; string type guards and comparisons do not specialize"
+    },
+    {
+      "location": "384:18",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality or string concatenation; string type guards and comparisons do not specialize"
+    },
+    {
+      "location": "384:50",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality or string concatenation; string type guards and comparisons do not specialize"
+    },
+    {
+      "location": "385:18",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality or string concatenation; string type guards and comparisons do not specialize"
+    },
+    {
+      "location": "389:64",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality or string concatenation; string type guards and comparisons do not specialize"
+    },
+    {
+      "location": "410:20",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string equality or string concatenation; string type guards and comparisons do not specialize"
+    },
+    {
+      "location": "316:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnCreateFixtures"
+    },
+    {
+      "location": "316:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnCreateFixtures"
+    },
+    {
+      "location": "317:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnExecute"
+    },
+    {
+      "location": "317:29",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnExecute"
+    },
+    {
+      "location": "318:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnFingerprint"
+    },
+    {
+      "location": "318:40",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnFingerprint"
+    },
+    {
+      "location": "318:63",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnObserve"
+    },
+    {
+      "location": "318:72",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "rnObserve"
+    },
+    {
+      "location": "316:32",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "map",
+      "note": "array method; no array type or shape"
+    },
+    {
+      "location": "316:32",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "map",
+      "note": "array method; no array type or shape"
+    }
+  ]
+}

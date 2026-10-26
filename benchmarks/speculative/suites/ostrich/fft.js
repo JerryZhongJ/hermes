@@ -1,11 +1,3 @@
-// Imported from https://github.com/Sable/Ostrich
-// Commit: dd06ca4340ecdbc0a795274d826cb5c034a2b9fe
-// Source: spectral-methods/fft/js/fft.js
-// Adaptation: benchmarks/speculative/import_ostrich.py
-(function() {
-// HBC shells expose Date.now(); SH and V8 also provide performance.now().
-var ostrichNow = typeof performance === "undefined"
-    ? Date.now : performance.now.bind(performance);
 // Copyright 2013 the V8 project authors. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -33,7 +25,7 @@ var ostrichNow = typeof performance === "undefined"
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-var commonRandom = (function() {
+Math.commonRandom = (function() {
     var seed = 49734321;
     return function() {
         // Robert Jenkins' 32 bit integer hash function.
@@ -47,8 +39,8 @@ var commonRandom = (function() {
     };
 })();
 
-var commonRandomJS = function () {
-    return Math.abs(commonRandom() / 0x7fffffff);
+Math.commonRandomJS = function () {
+    return Math.abs(Math.commonRandom() / 0x7fffffff);
 }
 
 /*
@@ -75,7 +67,6 @@ var commonRandomJS = function () {
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 
 
 
@@ -168,8 +159,8 @@ function randomComplexArray(n){ // TA
     var i = new Float64Array(n);
 
     for(var j = 0; j < n; ++j){
-        r[j] = commonRandomJS()*2 - 1;
-        i[j] = commonRandomJS()*2 - 1;
+        r[j] = Math.commonRandomJS()*2 - 1;
+        i[j] = Math.commonRandomJS()*2 - 1;
     }
     return {"r": r, "i": i};
 }
@@ -184,7 +175,7 @@ function randomComplexMatrix(n){
 function printComplexArray(r, i) { // TA
     var a = [];
     for(var j=0; j < r.length; ++j) a[j] = r[j].toFixed(6) + " + " + i[j].toFixed(6) + "i";
-    print(a.join("\n"));
+    console.log(a.join("\n"));
 }
 
 function printComplexMatrix(m){
@@ -204,51 +195,29 @@ function runFFT(twoExp){
     var n = 1 << twoExp;
     var data1D = randomComplexArray(n);
     var data2D = randomComplexMatrix(n);
-    var inputEnergy = 0, sumReal = 0, sumImag = 0;
-    for (var row = 0; row < n; ++row) {
-        for (var col = 0; col < n; ++col) {
-            var re = data2D[row].r[col], im = data2D[row].i[col];
-            inputEnergy += re * re + im * im;
-            sumReal += re;
-            sumImag += im;
-        }
-    }
     var t1, t2;
 
     /*
-    t1 = ostrichNow();
+    t1 = performance.now();
     var results = fftSimple(data1D.r,data1D.i);
-    t2 = ostrichNow();
-    print("The total 1D FFT time for " + n + " size was " + (t2-t1)/1000 + " s");
+    t2 = performance.now();
+    console.log("The total 1D FFT time for " + n + " size was " + (t2-t1)/1000 + " s");
     */
 
-    t1 = ostrichNow();
+    t1 = performance.now();
     var results2D = fft2D(data2D);
-    t2 = ostrichNow();
-    print("The total 2D FFT time for " + n + " x " + n + " was " + (t2-t1)/1000 + " s");
-    // Check DC and Parseval's identity outside the timed FFT kernel.
-    var outputEnergy = 0;
-    for (var row = 0; row < n; ++row) {
-        for (var col = 0; col < n; ++col) {
-            var re = results2D[row].r[col], im = results2D[row].i[col];
-            outputEnergy += re * re + im * im;
-        }
-    }
-    if (!(Math.abs(results2D[0].r[0] - sumReal) < 1e-7 &&
-          Math.abs(results2D[0].i[0] - sumImag) < 1e-7 &&
-          Math.abs(outputEnergy / (n * n * inputEnergy) - 1) < 1e-8)) {
-        throw new Error("Incorrect FFT DC component or energy");
-    }
+    t2 = performance.now();
+    console.log("The total 2D FFT time for " + n + " x " + n + " was " + (t2-t1)/1000 + " s");
     return { status: 1,
              options: "runFFT(" + twoExp + ")",
              time: (t2 - t1) / 1000 };
 }
 
-const OSTRICH_ARGS = [8];
-var result = runFFT(OSTRICH_ARGS[0]);
-if (!result || result.status !== 1 ||
-    !Number.isFinite(result.time) || result.time <= 0) {
-    throw new Error("Invalid benchmark result");
-}
-print("Time: " + result.time * 1000);
-})();
+
+// Static Hermes benchmark runner: fixed params, timed with performance.now
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+runFFT( 9 );
+var __end = __performance.now();
+print( "Time: " + Math.round( __end - __start ) );

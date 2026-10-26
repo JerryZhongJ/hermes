@@ -1,0 +1,4372 @@
+{
+  "static shapes": {
+    "SplayTree": {
+      "properties": [
+        {
+          "name": "root_"
+        }
+      ]
+    },
+    "Node": {
+      "properties": [
+        {
+          "name": "key",
+          "type": "number"
+        },
+        {
+          "name": "value"
+        },
+        {
+          "name": "left"
+        },
+        {
+          "name": "right"
+        }
+      ]
+    },
+    "SplayTreeFn": {
+      "properties": [
+        {
+          "name": "length",
+          "type": "number",
+          "flags off": [
+            "enumerable",
+            "writable",
+            "configurable"
+          ]
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "flags off": [
+            "enumerable",
+            "writable",
+            "configurable"
+          ]
+        },
+        {
+          "name": "prototype",
+          "flags off": [
+            "enumerable",
+            "writable",
+            "configurable"
+          ]
+        },
+        {
+          "name": "Node",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 434,
+              "column": 18
+            },
+            "end": {
+              "line": 437,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "SplayTreeProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "root_"
+        },
+        {
+          "name": "isEmpty",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 220,
+              "column": 31
+            },
+            "end": {
+              "line": 222,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "insert",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 233,
+              "column": 30
+            },
+            "end": {
+              "line": 255,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "remove",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 266,
+              "column": 30
+            },
+            "end": {
+              "line": 287,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "find",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 297,
+              "column": 28
+            },
+            "end": {
+              "line": 303,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "findMax",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 309,
+              "column": 31
+            },
+            "end": {
+              "line": 318,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "findGreatestLessThan",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 325,
+              "column": 44
+            },
+            "end": {
+              "line": 341,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "exportKeys",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 347,
+              "column": 34
+            },
+            "end": {
+              "line": 353,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "splay_",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 366,
+              "column": 30
+            },
+            "end": {
+              "line": 425,
+              "column": 2
+            }
+          }
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 246,
+          "column": 5
+        },
+        "end": {
+          "line": 246,
+          "column": 9
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 247,
+          "column": 5
+        },
+        "end": {
+          "line": 247,
+          "column": 9
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 250,
+          "column": 5
+        },
+        "end": {
+          "line": 250,
+          "column": 9
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 251,
+          "column": 5
+        },
+        "end": {
+          "line": 251,
+          "column": 9
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 254,
+          "column": 16
+        },
+        "end": {
+          "line": 254,
+          "column": 20
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 234,
+          "column": 7
+        },
+        "end": {
+          "line": 234,
+          "column": 11
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 235,
+          "column": 5
+        },
+        "end": {
+          "line": 235,
+          "column": 9
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 240,
+          "column": 3
+        },
+        "end": {
+          "line": 240,
+          "column": 7
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 241,
+          "column": 7
+        },
+        "end": {
+          "line": 241,
+          "column": 11
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 245,
+          "column": 13
+        },
+        "end": {
+          "line": 245,
+          "column": 17
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 246,
+          "column": 17
+        },
+        "end": {
+          "line": 246,
+          "column": 21
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 247,
+          "column": 18
+        },
+        "end": {
+          "line": 247,
+          "column": 22
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 248,
+          "column": 5
+        },
+        "end": {
+          "line": 248,
+          "column": 9
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 250,
+          "column": 18
+        },
+        "end": {
+          "line": 250,
+          "column": 22
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 251,
+          "column": 17
+        },
+        "end": {
+          "line": 251,
+          "column": 21
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 252,
+          "column": 5
+        },
+        "end": {
+          "line": 252,
+          "column": 9
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 254,
+          "column": 3
+        },
+        "end": {
+          "line": 254,
+          "column": 7
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 241,
+          "column": 7
+        },
+        "end": {
+          "line": 241,
+          "column": 17
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 245,
+          "column": 13
+        },
+        "end": {
+          "line": 245,
+          "column": 23
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 247,
+          "column": 18
+        },
+        "end": {
+          "line": 247,
+          "column": 28
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 248,
+          "column": 5
+        },
+        "end": {
+          "line": 248,
+          "column": 15
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 251,
+          "column": 17
+        },
+        "end": {
+          "line": 251,
+          "column": 27
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 252,
+          "column": 5
+        },
+        "end": {
+          "line": 252,
+          "column": 15
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 235,
+          "column": 22
+        },
+        "end": {
+          "line": 235,
+          "column": 31
+        }
+      },
+      "shape": "SplayTreeFn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 244,
+          "column": 18
+        },
+        "end": {
+          "line": 244,
+          "column": 27
+        }
+      },
+      "shape": "SplayTreeFn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 379,
+          "column": 15
+        },
+        "end": {
+          "line": 379,
+          "column": 22
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 380,
+          "column": 12
+        },
+        "end": {
+          "line": 380,
+          "column": 19
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 383,
+          "column": 17
+        },
+        "end": {
+          "line": 383,
+          "column": 24
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 385,
+          "column": 19
+        },
+        "end": {
+          "line": 385,
+          "column": 26
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 386,
+          "column": 9
+        },
+        "end": {
+          "line": 386,
+          "column": 16
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 387,
+          "column": 21
+        },
+        "end": {
+          "line": 387,
+          "column": 28
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 389,
+          "column": 14
+        },
+        "end": {
+          "line": 389,
+          "column": 21
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 394,
+          "column": 20
+        },
+        "end": {
+          "line": 394,
+          "column": 27
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 395,
+          "column": 15
+        },
+        "end": {
+          "line": 395,
+          "column": 22
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 396,
+          "column": 17
+        },
+        "end": {
+          "line": 396,
+          "column": 24
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 397,
+          "column": 22
+        },
+        "end": {
+          "line": 397,
+          "column": 29
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 398,
+          "column": 12
+        },
+        "end": {
+          "line": 398,
+          "column": 19
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 401,
+          "column": 17
+        },
+        "end": {
+          "line": 401,
+          "column": 24
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 403,
+          "column": 19
+        },
+        "end": {
+          "line": 403,
+          "column": 26
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 404,
+          "column": 9
+        },
+        "end": {
+          "line": 404,
+          "column": 16
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 405,
+          "column": 20
+        },
+        "end": {
+          "line": 405,
+          "column": 27
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 407,
+          "column": 14
+        },
+        "end": {
+          "line": 407,
+          "column": 21
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 412,
+          "column": 20
+        },
+        "end": {
+          "line": 412,
+          "column": 27
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 413,
+          "column": 14
+        },
+        "end": {
+          "line": 413,
+          "column": 21
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 414,
+          "column": 17
+        },
+        "end": {
+          "line": 414,
+          "column": 24
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 420,
+          "column": 16
+        },
+        "end": {
+          "line": 420,
+          "column": 23
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 421,
+          "column": 16
+        },
+        "end": {
+          "line": 421,
+          "column": 23
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 422,
+          "column": 3
+        },
+        "end": {
+          "line": 422,
+          "column": 10
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 423,
+          "column": 3
+        },
+        "end": {
+          "line": 423,
+          "column": 10
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 424,
+          "column": 16
+        },
+        "end": {
+          "line": 424,
+          "column": 23
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 386,
+          "column": 24
+        },
+        "end": {
+          "line": 386,
+          "column": 27
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 387,
+          "column": 9
+        },
+        "end": {
+          "line": 387,
+          "column": 12
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 388,
+          "column": 19
+        },
+        "end": {
+          "line": 388,
+          "column": 22
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 404,
+          "column": 25
+        },
+        "end": {
+          "line": 404,
+          "column": 28
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 405,
+          "column": 9
+        },
+        "end": {
+          "line": 405,
+          "column": 12
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 406,
+          "column": 19
+        },
+        "end": {
+          "line": 406,
+          "column": 22
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 412,
+          "column": 7
+        },
+        "end": {
+          "line": 412,
+          "column": 11
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 420,
+          "column": 3
+        },
+        "end": {
+          "line": 420,
+          "column": 7
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 394,
+          "column": 7
+        },
+        "end": {
+          "line": 394,
+          "column": 12
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 421,
+          "column": 3
+        },
+        "end": {
+          "line": 421,
+          "column": 8
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 422,
+          "column": 18
+        },
+        "end": {
+          "line": 422,
+          "column": 23
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 423,
+          "column": 19
+        },
+        "end": {
+          "line": 423,
+          "column": 24
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 367,
+          "column": 7
+        },
+        "end": {
+          "line": 367,
+          "column": 11
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 377,
+          "column": 17
+        },
+        "end": {
+          "line": 377,
+          "column": 21
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 424,
+          "column": 3
+        },
+        "end": {
+          "line": 424,
+          "column": 7
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 376,
+          "column": 30
+        },
+        "end": {
+          "line": 376,
+          "column": 39
+        }
+      },
+      "shape": "SplayTreeFn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 383,
+          "column": 17
+        },
+        "end": {
+          "line": 383,
+          "column": 29
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 401,
+          "column": 17
+        },
+        "end": {
+          "line": 401,
+          "column": 30
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 221,
+          "column": 11
+        },
+        "end": {
+          "line": 221,
+          "column": 15
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 271,
+          "column": 7
+        },
+        "end": {
+          "line": 271,
+          "column": 11
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 271,
+          "column": 7
+        },
+        "end": {
+          "line": 271,
+          "column": 17
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 274,
+          "column": 17
+        },
+        "end": {
+          "line": 274,
+          "column": 21
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 275,
+          "column": 8
+        },
+        "end": {
+          "line": 275,
+          "column": 12
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 275,
+          "column": 8
+        },
+        "end": {
+          "line": 275,
+          "column": 18
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 276,
+          "column": 5
+        },
+        "end": {
+          "line": 276,
+          "column": 9
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 276,
+          "column": 18
+        },
+        "end": {
+          "line": 276,
+          "column": 22
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 276,
+          "column": 18
+        },
+        "end": {
+          "line": 276,
+          "column": 28
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 278,
+          "column": 17
+        },
+        "end": {
+          "line": 278,
+          "column": 21
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 278,
+          "column": 17
+        },
+        "end": {
+          "line": 278,
+          "column": 27
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 279,
+          "column": 5
+        },
+        "end": {
+          "line": 279,
+          "column": 9
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 279,
+          "column": 18
+        },
+        "end": {
+          "line": 279,
+          "column": 22
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 279,
+          "column": 18
+        },
+        "end": {
+          "line": 279,
+          "column": 28
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 284,
+          "column": 5
+        },
+        "end": {
+          "line": 284,
+          "column": 9
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 284,
+          "column": 5
+        },
+        "end": {
+          "line": 284,
+          "column": 15
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 302,
+          "column": 10
+        },
+        "end": {
+          "line": 302,
+          "column": 14
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 302,
+          "column": 10
+        },
+        "end": {
+          "line": 302,
+          "column": 20
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 302,
+          "column": 34
+        },
+        "end": {
+          "line": 302,
+          "column": 38
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 313,
+          "column": 34
+        },
+        "end": {
+          "line": 313,
+          "column": 38
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 313,
+          "column": 34
+        },
+        "end": {
+          "line": 313,
+          "column": 44
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 314,
+          "column": 10
+        },
+        "end": {
+          "line": 314,
+          "column": 17
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 315,
+          "column": 15
+        },
+        "end": {
+          "line": 315,
+          "column": 22
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 334,
+          "column": 7
+        },
+        "end": {
+          "line": 334,
+          "column": 11
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 334,
+          "column": 7
+        },
+        "end": {
+          "line": 334,
+          "column": 17
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 335,
+          "column": 12
+        },
+        "end": {
+          "line": 335,
+          "column": 16
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 336,
+          "column": 14
+        },
+        "end": {
+          "line": 336,
+          "column": 18
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 336,
+          "column": 14
+        },
+        "end": {
+          "line": 336,
+          "column": 24
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 337,
+          "column": 25
+        },
+        "end": {
+          "line": 337,
+          "column": 29
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 337,
+          "column": 25
+        },
+        "end": {
+          "line": 337,
+          "column": 35
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 350,
+          "column": 5
+        },
+        "end": {
+          "line": 350,
+          "column": 9
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 350,
+          "column": 5
+        },
+        "end": {
+          "line": 350,
+          "column": 15
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 435,
+          "column": 3
+        },
+        "end": {
+          "line": 435,
+          "column": 7
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 436,
+          "column": 3
+        },
+        "end": {
+          "line": 436,
+          "column": 7
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 462,
+          "column": 16
+        },
+        "end": {
+          "line": 462,
+          "column": 23
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 463,
+          "column": 15
+        },
+        "end": {
+          "line": 463,
+          "column": 19
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 465,
+          "column": 15
+        },
+        "end": {
+          "line": 465,
+          "column": 22
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 350,
+          "column": 55
+        },
+        "end": {
+          "line": 350,
+          "column": 59
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 463,
+          "column": 9
+        },
+        "end": {
+          "line": 463,
+          "column": 13
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 221,
+          "column": 11
+        },
+        "end": {
+          "line": 221,
+          "column": 15
+        }
+      },
+      "shape": "SplayTree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 135,
+          "column": 12
+        },
+        "end": {
+          "line": 135,
+          "column": 21
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 189,
+          "column": 9
+        },
+        "end": {
+          "line": 189,
+          "column": 17
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 190,
+          "column": 27
+        },
+        "end": {
+          "line": 190,
+          "column": 35
+        }
+      },
+      "shape": "Node"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 436,
+          "column": 3
+        },
+        "end": {
+          "line": 436,
+          "column": 7
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 235,
+          "column": 5
+        },
+        "end": {
+          "line": 235,
+          "column": 9
+        }
+      },
+      "shape": "SplayTree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 434,
+          "column": 1
+        },
+        "end": {
+          "line": 434,
+          "column": 10
+        }
+      },
+      "shape": "SplayTreeFn"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 366,
+          "column": 1
+        },
+        "end": {
+          "line": 366,
+          "column": 20
+        }
+      },
+      "shape": "SplayTreeProto"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 234,
+          "column": 7
+        },
+        "end": {
+          "line": 234,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 220,
+          "column": 31
+        },
+        "end": {
+          "line": 222,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 233,
+          "column": 39
+        },
+        "end": {
+          "line": 233,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 240,
+          "column": 3
+        },
+        "end": {
+          "line": 240,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 366,
+          "column": 30
+        },
+        "end": {
+          "line": 425,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 235,
+          "column": 22
+        },
+        "end": {
+          "line": 235,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 434,
+          "column": 18
+        },
+        "end": {
+          "line": 437,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 244,
+          "column": 18
+        },
+        "end": {
+          "line": 244,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 434,
+          "column": 18
+        },
+        "end": {
+          "line": 437,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 366,
+          "column": 39
+        },
+        "end": {
+          "line": 366,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 367,
+          "column": 7
+        },
+        "end": {
+          "line": 367,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 220,
+          "column": 31
+        },
+        "end": {
+          "line": 222,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 376,
+          "column": 30
+        },
+        "end": {
+          "line": 376,
+          "column": 44
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 434,
+          "column": 18
+        },
+        "end": {
+          "line": 437,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 266,
+          "column": 39
+        },
+        "end": {
+          "line": 266,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 267,
+          "column": 7
+        },
+        "end": {
+          "line": 267,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 220,
+          "column": 31
+        },
+        "end": {
+          "line": 222,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 270,
+          "column": 3
+        },
+        "end": {
+          "line": 270,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 366,
+          "column": 30
+        },
+        "end": {
+          "line": 425,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 281,
+          "column": 5
+        },
+        "end": {
+          "line": 281,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 366,
+          "column": 30
+        },
+        "end": {
+          "line": 425,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 297,
+          "column": 37
+        },
+        "end": {
+          "line": 297,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 298,
+          "column": 7
+        },
+        "end": {
+          "line": 298,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 220,
+          "column": 31
+        },
+        "end": {
+          "line": 222,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 301,
+          "column": 3
+        },
+        "end": {
+          "line": 301,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 366,
+          "column": 30
+        },
+        "end": {
+          "line": 425,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 310,
+          "column": 7
+        },
+        "end": {
+          "line": 310,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 220,
+          "column": 31
+        },
+        "end": {
+          "line": 222,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 325,
+          "column": 53
+        },
+        "end": {
+          "line": 325,
+          "column": 56
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 326,
+          "column": 7
+        },
+        "end": {
+          "line": 326,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 220,
+          "column": 31
+        },
+        "end": {
+          "line": 222,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 331,
+          "column": 3
+        },
+        "end": {
+          "line": 331,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 366,
+          "column": 30
+        },
+        "end": {
+          "line": 425,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 337,
+          "column": 12
+        },
+        "end": {
+          "line": 337,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 309,
+          "column": 31
+        },
+        "end": {
+          "line": 318,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 349,
+          "column": 8
+        },
+        "end": {
+          "line": 349,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 220,
+          "column": 31
+        },
+        "end": {
+          "line": 222,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 350,
+          "column": 5
+        },
+        "end": {
+          "line": 350,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 459,
+          "column": 38
+        },
+        "end": {
+          "line": 467,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 434,
+          "column": 27
+        },
+        "end": {
+          "line": 434,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 459,
+          "column": 47
+        },
+        "end": {
+          "line": 459,
+          "column": 48
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 350,
+          "column": 26
+        },
+        "end": {
+          "line": 350,
+          "column": 67
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 105,
+          "column": 14
+        },
+        "end": {
+          "line": 105,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 97,
+          "column": 1
+        },
+        "end": {
+          "line": 109,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 106,
+          "column": 14
+        },
+        "end": {
+          "line": 106,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 97,
+          "column": 1
+        },
+        "end": {
+          "line": 109,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 134,
+          "column": 11
+        },
+        "end": {
+          "line": 134,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 112,
+          "column": 1
+        },
+        "end": {
+          "line": 116,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 136,
+          "column": 17
+        },
+        "end": {
+          "line": 136,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 97,
+          "column": 1
+        },
+        "end": {
+          "line": 109,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 137,
+          "column": 3
+        },
+        "end": {
+          "line": 137,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 233,
+          "column": 30
+        },
+        "end": {
+          "line": 255,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 149,
+          "column": 15
+        },
+        "end": {
+          "line": 149,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 204,
+          "column": 1
+        },
+        "end": {
+          "line": 205,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 152,
+          "column": 5
+        },
+        "end": {
+          "line": 152,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 130,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 154,
+          "column": 7
+        },
+        "end": {
+          "line": 154,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 124,
+          "column": 1
+        },
+        "end": {
+          "line": 128,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 164,
+          "column": 14
+        },
+        "end": {
+          "line": 164,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 347,
+          "column": 34
+        },
+        "end": {
+          "line": 353,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 187,
+          "column": 15
+        },
+        "end": {
+          "line": 187,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 130,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 188,
+          "column": 20
+        },
+        "end": {
+          "line": 188,
+          "column": 50
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 325,
+          "column": 44
+        },
+        "end": {
+          "line": 341,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 189,
+          "column": 27
+        },
+        "end": {
+          "line": 189,
+          "column": 43
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 266,
+          "column": 30
+        },
+        "end": {
+          "line": 287,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 190,
+          "column": 10
+        },
+        "end": {
+          "line": 190,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 266,
+          "column": 30
+        },
+        "end": {
+          "line": 287,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 192,
+          "column": 3
+        },
+        "end": {
+          "line": 192,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 124,
+          "column": 1
+        },
+        "end": {
+          "line": 128,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 472,
+          "column": 13
+        },
+        "end": {
+          "line": 472,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 184,
+          "column": 1
+        },
+        "end": {
+          "line": 193,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 97,
+          "column": 30
+        },
+        "end": {
+          "line": 97,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 124,
+          "column": 27
+        },
+        "end": {
+          "line": 124,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 125,
+          "column": 22
+        },
+        "end": {
+          "line": 125,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 151,
+          "column": 23
+        },
+        "end": {
+          "line": 151,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 171,
+          "column": 17
+        },
+        "end": {
+          "line": 171,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 186,
+          "column": 23
+        },
+        "end": {
+          "line": 186,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 170,
+          "column": 16
+        },
+        "end": {
+          "line": 170,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 171,
+          "column": 7
+        },
+        "end": {
+          "line": 171,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 176,
+          "column": 23
+        },
+        "end": {
+          "line": 176,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 177,
+          "column": 9
+        },
+        "end": {
+          "line": 177,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 177,
+          "column": 20
+        },
+        "end": {
+          "line": 177,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 115,
+          "column": 10
+        },
+        "end": {
+          "line": 115,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 36,
+          "column": 17
+        },
+        "end": {
+          "line": 44,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 135,
+          "column": 12
+        },
+        "end": {
+          "line": 135,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 297,
+          "column": 28
+        },
+        "end": {
+          "line": 303,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 149,
+          "column": 19
+        },
+        "end": {
+          "line": 149,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 204,
+          "column": 1
+        },
+        "end": {
+          "line": 205,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 476,
+          "column": 1
+        },
+        "end": {
+          "line": 476,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 142,
+          "column": 1
+        },
+        "end": {
+          "line": 157,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 493,
+          "column": 5
+        },
+        "end": {
+          "line": 493,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 470,
+          "column": 5
+        },
+        "end": {
+          "line": 473,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 489,
+          "column": 7
+        },
+        "end": {
+          "line": 489,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 45,
+          "column": 29
+        },
+        "end": {
+          "line": 47,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 500,
+          "column": 33
+        },
+        "end": {
+          "line": 500,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 500,
+          "column": 38
+        },
+        "end": {
+          "line": 500,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 495,
+          "column": 30
+        },
+        "end": {
+          "line": 495,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 495,
+          "column": 36
+        },
+        "end": {
+          "line": 495,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 97,
+          "column": 37
+        },
+        "end": {
+          "line": 97,
+          "column": 40
+        }
+      },
+      "type": "string"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "234:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isEmpty",
+      "note": "Inherited (prototype) method read on an instance. A prototype-shape guard (shape SplayTree + prototype shape) is accepted by the compiler but yields no fast prototype-slot read in this build; only the call itself can be optimized (via a closure type guard, done separately)."
+    },
+    {
+      "location": "240:14",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splay_",
+      "note": "Inherited (prototype) method read on an instance; same limitation as .isEmpty — prototype-shape guards yield no fast prototype-slot read here."
+    },
+    {
+      "location": "235:22",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "Load of the top-level function binding SplayTree, which the compiler models as a global-property load; global-property loads always remain side-effecting."
+    },
+    {
+      "location": "244:18",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "Load of the top-level function binding SplayTree; global-property loads always remain side-effecting."
+    },
+    {
+      "location": "367:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isEmpty",
+      "note": "Inherited (prototype) method read; prototype-shape guards produce no fast prototype-slot read in this build. The call itself is optimized via a closure type guard."
+    },
+    {
+      "location": "376:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "Load of the top-level function binding SplayTree (global-property load); such loads always remain side-effecting."
+    },
+    {
+      "location": "267:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isEmpty",
+      "note": "Inherited (prototype) method read on an instance. Prototype-shape guards (with a bound prototype shape SplayTreeProto) are accepted by the compiler but yield no fast prototype-slot read in this build, verified by dryrun; only the call itself can be optimized, via a closure type guard (annotated separately)."
+    },
+    {
+      "location": "270:14",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splay_",
+      "note": "Inherited (prototype) method read on an instance. Prototype-shape guards (with a bound prototype shape SplayTreeProto) are accepted by the compiler but yield no fast prototype-slot read in this build, verified by dryrun; only the call itself can be optimized, via a closure type guard (annotated separately)."
+    },
+    {
+      "location": "281:16",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splay_",
+      "note": "Inherited (prototype) method read on an instance. Prototype-shape guards (with a bound prototype shape SplayTreeProto) are accepted by the compiler but yield no fast prototype-slot read in this build, verified by dryrun; only the call itself can be optimized, via a closure type guard (annotated separately)."
+    },
+    {
+      "location": "298:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isEmpty",
+      "note": "Inherited (prototype) method read on an instance. Prototype-shape guards (with a bound prototype shape SplayTreeProto) are accepted by the compiler but yield no fast prototype-slot read in this build, verified by dryrun; only the call itself can be optimized, via a closure type guard (annotated separately)."
+    },
+    {
+      "location": "301:14",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splay_",
+      "note": "Inherited (prototype) method read on an instance. Prototype-shape guards (with a bound prototype shape SplayTreeProto) are accepted by the compiler but yield no fast prototype-slot read in this build, verified by dryrun; only the call itself can be optimized, via a closure type guard (annotated separately)."
+    },
+    {
+      "location": "310:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isEmpty",
+      "note": "Inherited (prototype) method read on an instance. Prototype-shape guards (with a bound prototype shape SplayTreeProto) are accepted by the compiler but yield no fast prototype-slot read in this build, verified by dryrun; only the call itself can be optimized, via a closure type guard (annotated separately)."
+    },
+    {
+      "location": "326:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isEmpty",
+      "note": "Inherited (prototype) method read on an instance. Prototype-shape guards (with a bound prototype shape SplayTreeProto) are accepted by the compiler but yield no fast prototype-slot read in this build, verified by dryrun; only the call itself can be optimized, via a closure type guard (annotated separately)."
+    },
+    {
+      "location": "331:14",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splay_",
+      "note": "Inherited (prototype) method read on an instance. Prototype-shape guards (with a bound prototype shape SplayTreeProto) are accepted by the compiler but yield no fast prototype-slot read in this build, verified by dryrun; only the call itself can be optimized, via a closure type guard (annotated separately)."
+    },
+    {
+      "location": "337:24",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "findMax",
+      "note": "Inherited (prototype) method read on an instance. Prototype-shape guards (with a bound prototype shape SplayTreeProto) are accepted by the compiler but yield no fast prototype-slot read in this build, verified by dryrun; only the call itself can be optimized, via a closure type guard (annotated separately)."
+    },
+    {
+      "location": "349:20",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isEmpty",
+      "note": "Inherited (prototype) method read on an instance. Prototype-shape guards (with a bound prototype shape SplayTreeProto) are accepted by the compiler but yield no fast prototype-slot read in this build, verified by dryrun; only the call itself can be optimized, via a closure type guard (annotated separately)."
+    },
+    {
+      "location": "350:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "traverse_",
+      "note": "Inherited (prototype) method read on an instance. Prototype-shape guards (with a bound prototype shape SplayTreeProto) are accepted by the compiler but yield no fast prototype-slot read in this build, verified by dryrun; only the call itself can be optimized, via a closure type guard (annotated separately)."
+    },
+    {
+      "location": "463:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "traverse_",
+      "note": "Inherited (prototype) method read on an instance. Prototype-shape guards (with a bound prototype shape SplayTreeProto) are accepted by the compiler but yield no fast prototype-slot read in this build, verified by dryrun; only the call itself can be optimized, via a closure type guard (annotated separately)."
+    },
+    {
+      "location": "268:11",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Error",
+      "note": "Load of the top-level function binding Error, which the compiler models as a global-property load; global-property loads always remain side-effecting."
+    },
+    {
+      "location": "272:11",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Error",
+      "note": "Load of the top-level function binding Error, which the compiler models as a global-property load; global-property loads always remain side-effecting."
+    },
+    {
+      "location": "268:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "272:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "350:54",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "268:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation of a string literal with a number; no annotation form specializes it. A type guard on the concatenation expression is accepted but has no effect, and a guard on the operand expression matches no IR (auto-pruned), so the generic concat path remains."
+    },
+    {
+      "location": "272:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation of a string literal with a number; no annotation form specializes it. A type guard on the concatenation expression is accepted but has no effect, and a guard on the operand expression matches no IR (auto-pruned), so the generic concat path remains."
+    },
+    {
+      "location": "350:54",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "Receiver is an Array: static shapes describe an object's own properties, so an array literal's element/length slots and its inherited Array.prototype methods cannot be given a shape. The inherited-method load cannot be optimized."
+    },
+    {
+      "location": "463:29",
+      "kind": "call",
+      "reason": "other",
+      "property": "traverse_",
+      "note": "Self-recursive call: the closure type guard on this site resolves to traverse_ itself, the enclosing function, so the call cannot be inlined (a closure guard on the same member expression produces no effect here, unlike the non-recursive traverse_ call in exportKeys)."
+    },
+    {
+      "location": "11:17",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "performance",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "11:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "globalThis",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "11:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "11:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "performance",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "11:46",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "globalThis",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "11:69",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "performance",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "12:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "performance",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "12:12",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "now",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "12:17",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "now",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "12:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "12:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Date",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "12:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "now",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "13:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "performance",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "13:12",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "mark",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "13:18",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "mark",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "13:18",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "14:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "performance",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "14:12",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "measure",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "14:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "14:21",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "measure",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "15:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "performance",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "15:12",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "timeOrigin",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "15:24",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "timeOrigin",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "15:24",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "17:15",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "JetStream",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "17:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "globalThis",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "17:38",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "JetStream",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "29:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "JetStream",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "29:23",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "isInBrowser",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "30:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "JetStream",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "30:16",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "isD8",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "30:18",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Realm",
+      "note": "Global-property access: the base is a top-level var/function or a global-object binding (globalThis / JetStream / performance / Math / Date / Realm). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies. The `??=` \"arithmetic\" items at 11:19 / 12:17 / 13:18 / 14:21 / 15:24 are the nullish-coalescing tests on those global properties."
+    },
+    {
+      "location": "90:20",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "kSplayTreeSize",
+      "note": "Global-property access: the target is a top-level `var` binding (kSplayTreeSize / kSplayTreeModifications / kSplayTreePayloadDepth / splayTree / splaySampleTimeStart) or a property of the global `Math` object (Math / Math.random / Math.random.__resetSeed). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies."
+    },
+    {
+      "location": "91:29",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "kSplayTreeModifications",
+      "note": "Global-property access: the target is a top-level `var` binding (kSplayTreeSize / kSplayTreeModifications / kSplayTreePayloadDepth / splayTree / splaySampleTimeStart) or a property of the global `Math` object (Math / Math.random / Math.random.__resetSeed). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies."
+    },
+    {
+      "location": "92:28",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "kSplayTreePayloadDepth",
+      "note": "Global-property access: the target is a top-level `var` binding (kSplayTreeSize / kSplayTreeModifications / kSplayTreePayloadDepth / splayTree / splaySampleTimeStart) or a property of the global `Math` object (Math / Math.random / Math.random.__resetSeed). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies."
+    },
+    {
+      "location": "94:15",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "splayTree",
+      "note": "Global-property access: the target is a top-level `var` binding (kSplayTreeSize / kSplayTreeModifications / kSplayTreePayloadDepth / splayTree / splaySampleTimeStart) or a property of the global `Math` object (Math / Math.random / Math.random.__resetSeed). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies."
+    },
+    {
+      "location": "95:26",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "splaySampleTimeStart",
+      "note": "Global-property access: the target is a top-level `var` binding (kSplayTreeSize / kSplayTreeModifications / kSplayTreePayloadDepth / splayTree / splaySampleTimeStart) or a property of the global `Math` object (Math / Math.random / Math.random.__resetSeed). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies."
+    },
+    {
+      "location": "36:15",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "random",
+      "note": "Global-property access: the target is a top-level `var` binding (kSplayTreeSize / kSplayTreeModifications / kSplayTreePayloadDepth / splayTree / splaySampleTimeStart) or a property of the global `Math` object (Math / Math.random / Math.random.__resetSeed). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies."
+    },
+    {
+      "location": "36:3",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Math",
+      "note": "Global-property access: the target is a top-level `var` binding (kSplayTreeSize / kSplayTreeModifications / kSplayTreePayloadDepth / splayTree / splaySampleTimeStart) or a property of the global `Math` object (Math / Math.random / Math.random.__resetSeed). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies."
+    },
+    {
+      "location": "45:27",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "__resetSeed",
+      "note": "Global-property access: the target is a top-level `var` binding (kSplayTreeSize / kSplayTreeModifications / kSplayTreePayloadDepth / splayTree / splaySampleTimeStart) or a property of the global `Math` object (Math / Math.random / Math.random.__resetSeed). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies."
+    },
+    {
+      "location": "45:3",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Math",
+      "note": "Global-property access: the target is a top-level `var` binding (kSplayTreeSize / kSplayTreeModifications / kSplayTreePayloadDepth / splayTree / splaySampleTimeStart) or a property of the global `Math` object (Math / Math.random / Math.random.__resetSeed). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies."
+    },
+    {
+      "location": "45:7",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "random",
+      "note": "Global-property access: the target is a top-level `var` binding (kSplayTreeSize / kSplayTreeModifications / kSplayTreePayloadDepth / splayTree / splaySampleTimeStart) or a property of the global `Math` object (Math / Math.random / Math.random.__resetSeed). The compiler models every global-property load/store as side-effecting, so no shape binding, shape guard or type guard applies."
+    },
+    {
+      "location": "105:14",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "GeneratePayloadTree",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "106:14",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "GeneratePayloadTree",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "115:10",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Math",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "115:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "random",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "118:18",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "splaySamples",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "121:10",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splaySamples",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "125:22",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splaySampleTimeStart",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "126:24",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "splaySampleTimeStart",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "127:20",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "127:3",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splaySamples",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "134:11",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "GenerateKey",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "135:12",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "135:12",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splayTree",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "135:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "find",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "136:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "GeneratePayloadTree",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "136:37",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "kSplayTreePayloadDepth",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "136:61",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "String",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "137:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "insert",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "137:3",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splayTree",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "145:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "now",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "145:8",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "performance",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "149:13",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "splayTree",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "149:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "150:24",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "splaySampleTimeStart",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "150:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "performance",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "150:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "now",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "151:23",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "kSplayTreeSize",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "152:5",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "InsertNewNode",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "154:24",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "performance",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "154:39",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "now",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "154:7",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayUpdateStats",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "164:14",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splayTree",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "164:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "exportKeys",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "165:13",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "splayTree",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "167:16",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "splaySamples",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "171:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "kSplayTreeSize",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "172:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Error",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "178:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Error",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "186:23",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "kSplayTreeModifications",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "187:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "InsertNewNode",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "188:20",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splayTree",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "188:50",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "findGreatestLessThan",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "189:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splayTree",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "190:10",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splayTree",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "190:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "remove",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "192:20",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "performance",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "192:3",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayUpdateStats",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "192:35",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "now",
+      "note": "Global-property access. Either (a) a load/store of a top-level var/function binding (splayTree, splaySamples, splaySampleTimeStart, kSplayTreeSize, kSplayTreeModifications, kSplayTreePayloadDepth, GeneratePayloadTree, GenerateKey, InsertNewNode, SplayUpdateStats, SplayTree, performance, Math, String, Error), or (b) a member load whose receiver is itself such a global load (splayTree.find / splayTree.insert / splayTree.exportKeys / splayTree.findGreatestLessThan / splayTree.remove / performance.now / Math.random). The compiler models every global-property load/store as side-effecting, so no shape or type annotation applies; the shape fact for the receiver never survives the global load. The arithmetic item at 135:12 (`splayTree.find(key) != null`) compares an untyped call result, so it stays generic too."
+    },
+    {
+      "location": "127:20",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push",
+      "note": "Call to a builtin whose function is not defined in this file (Array.prototype.push, String, Error, and performance.now which resolves to the host/native Date.now shim): there is no statically known target function to name in a closure type guard, so the call cannot be inlined or specialized."
+    },
+    {
+      "location": "136:67",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "String",
+      "note": "Call to a builtin whose function is not defined in this file (Array.prototype.push, String, Error, and performance.now which resolves to the host/native Date.now shim): there is no statically known target function to name in a closure type guard, so the call cannot be inlined or specialized."
+    },
+    {
+      "location": "150:41",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now",
+      "note": "Call to a builtin whose function is not defined in this file (Array.prototype.push, String, Error, and performance.now which resolves to the host/native Date.now shim): there is no statically known target function to name in a closure type guard, so the call cannot be inlined or specialized."
+    },
+    {
+      "location": "154:39",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now",
+      "note": "Call to a builtin whose function is not defined in this file (Array.prototype.push, String, Error, and performance.now which resolves to the host/native Date.now shim): there is no statically known target function to name in a closure type guard, so the call cannot be inlined or specialized."
+    },
+    {
+      "location": "172:20",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error",
+      "note": "Call to a builtin whose function is not defined in this file (Array.prototype.push, String, Error, and performance.now which resolves to the host/native Date.now shim): there is no statically known target function to name in a closure type guard, so the call cannot be inlined or specialized."
+    },
+    {
+      "location": "178:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error",
+      "note": "Call to a builtin whose function is not defined in this file (Array.prototype.push, String, Error, and performance.now which resolves to the host/native Date.now shim): there is no statically known target function to name in a closure type guard, so the call cannot be inlined or specialized."
+    },
+    {
+      "location": "192:35",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now",
+      "note": "Call to a builtin whose function is not defined in this file (Array.prototype.push, String, Error, and performance.now which resolves to the host/native Date.now shim): there is no statically known target function to name in a closure type guard, so the call cannot be inlined or specialized."
+    },
+    {
+      "location": "170:20",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "The receiver `keys` is a local array; arrays have no static shape in this build, so the `.length` load stays generic. A `number` type guard on the `keys.length` expression (applied) optimizes the comparison at 171:7 but does not turn this load into a fast slot access."
+    },
+    {
+      "location": "214:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "214:10",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "214:27",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "root_",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "220:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "220:10",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "220:29",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "isEmpty",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "233:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "233:10",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "233:28",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "insert",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "266:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "266:10",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "266:28",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "remove",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "297:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "297:10",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "297:26",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "find",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "309:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "309:10",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "309:29",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "findMax",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "325:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "325:10",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "325:42",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "findGreatestLessThan",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "347:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "347:10",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "347:32",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "exportKeys",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "366:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "366:10",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "366:28",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "splay_",
+      "note": "One-time module-init code installing methods on `SplayTree.prototype`. `SplayTree` is a top-level function binding, so the `SplayTree` load and the `.prototype` load are side-effecting global-property accesses; the load at `<col>:1` is the direct global load and never optimizes. The method store targets a property of the prototype object; the annotation recipe applies a prototype shape_binding AFTER the method store, so it cannot optimize that store, and here the base is a global load anyway. Verified experimentally: a shape_binding on `SplayTree.prototype` at 214:1:214:20 (shape [constructor(flags off), root_]) left the store at 214:27 unoptimized, and a prototype-shape guard yields no fast prototype-slot read in this build."
+    },
+    {
+      "location": "434:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "One-time module-init code for `SplayTree.Node` / `SplayTree.Node.prototype`. The chain starts from the top-level `SplayTree` binding, so `SplayTree`, `SplayTree.Node` and `.prototype` (and `Benchmark`'s own `.prototype` at 469:1) are side-effecting global-property accesses; the `Node` store at 434:16 writes onto that same global-loaded function object. The `left`/`right`/`traverse_` stores target properties of the Node prototype object (same limitation as the SplayTree.prototype method stores: a prototype binding applies after the store and the base is a global load)."
+    },
+    {
+      "location": "434:16",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "Node",
+      "note": "One-time module-init code for `SplayTree.Node` / `SplayTree.Node.prototype`. The chain starts from the top-level `SplayTree` binding, so `SplayTree`, `SplayTree.Node` and `.prototype` (and `Benchmark`'s own `.prototype` at 469:1) are side-effecting global-property accesses; the `Node` store at 434:16 writes onto that same global-loaded function object. The `left`/`right`/`traverse_` stores target properties of the Node prototype object (same limitation as the SplayTree.prototype method stores: a prototype binding applies after the store and the base is a global load)."
+    },
+    {
+      "location": "443:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "One-time module-init code for `SplayTree.Node` / `SplayTree.Node.prototype`. The chain starts from the top-level `SplayTree` binding, so `SplayTree`, `SplayTree.Node` and `.prototype` (and `Benchmark`'s own `.prototype` at 469:1) are side-effecting global-property accesses; the `Node` store at 434:16 writes onto that same global-loaded function object. The `left`/`right`/`traverse_` stores target properties of the Node prototype object (same limitation as the SplayTree.prototype method stores: a prototype binding applies after the store and the base is a global load)."
+    },
+    {
+      "location": "443:10",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Node",
+      "note": "One-time module-init code for `SplayTree.Node` / `SplayTree.Node.prototype`. The chain starts from the top-level `SplayTree` binding, so `SplayTree`, `SplayTree.Node` and `.prototype` (and `Benchmark`'s own `.prototype` at 469:1) are side-effecting global-property accesses; the `Node` store at 434:16 writes onto that same global-loaded function object. The `left`/`right`/`traverse_` stores target properties of the Node prototype object (same limitation as the SplayTree.prototype method stores: a prototype binding applies after the store and the base is a global load)."
+    },
+    {
+      "location": "443:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "One-time module-init code for `SplayTree.Node` / `SplayTree.Node.prototype`. The chain starts from the top-level `SplayTree` binding, so `SplayTree`, `SplayTree.Node` and `.prototype` (and `Benchmark`'s own `.prototype` at 469:1) are side-effecting global-property accesses; the `Node` store at 434:16 writes onto that same global-loaded function object. The `left`/`right`/`traverse_` stores target properties of the Node prototype object (same limitation as the SplayTree.prototype method stores: a prototype binding applies after the store and the base is a global load)."
+    },
+    {
+      "location": "443:31",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "left",
+      "note": "One-time module-init code for `SplayTree.Node` / `SplayTree.Node.prototype`. The chain starts from the top-level `SplayTree` binding, so `SplayTree`, `SplayTree.Node` and `.prototype` (and `Benchmark`'s own `.prototype` at 469:1) are side-effecting global-property accesses; the `Node` store at 434:16 writes onto that same global-loaded function object. The `left`/`right`/`traverse_` stores target properties of the Node prototype object (same limitation as the SplayTree.prototype method stores: a prototype binding applies after the store and the base is a global load)."
+    },
+    {
+      "location": "449:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "One-time module-init code for `SplayTree.Node` / `SplayTree.Node.prototype`. The chain starts from the top-level `SplayTree` binding, so `SplayTree`, `SplayTree.Node` and `.prototype` (and `Benchmark`'s own `.prototype` at 469:1) are side-effecting global-property accesses; the `Node` store at 434:16 writes onto that same global-loaded function object. The `left`/`right`/`traverse_` stores target properties of the Node prototype object (same limitation as the SplayTree.prototype method stores: a prototype binding applies after the store and the base is a global load)."
+    },
+    {
+      "location": "449:10",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Node",
+      "note": "One-time module-init code for `SplayTree.Node` / `SplayTree.Node.prototype`. The chain starts from the top-level `SplayTree` binding, so `SplayTree`, `SplayTree.Node` and `.prototype` (and `Benchmark`'s own `.prototype` at 469:1) are side-effecting global-property accesses; the `Node` store at 434:16 writes onto that same global-loaded function object. The `left`/`right`/`traverse_` stores target properties of the Node prototype object (same limitation as the SplayTree.prototype method stores: a prototype binding applies after the store and the base is a global load)."
+    },
+    {
+      "location": "449:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "One-time module-init code for `SplayTree.Node` / `SplayTree.Node.prototype`. The chain starts from the top-level `SplayTree` binding, so `SplayTree`, `SplayTree.Node` and `.prototype` (and `Benchmark`'s own `.prototype` at 469:1) are side-effecting global-property accesses; the `Node` store at 434:16 writes onto that same global-loaded function object. The `left`/`right`/`traverse_` stores target properties of the Node prototype object (same limitation as the SplayTree.prototype method stores: a prototype binding applies after the store and the base is a global load)."
+    },
+    {
+      "location": "449:32",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "right",
+      "note": "One-time module-init code for `SplayTree.Node` / `SplayTree.Node.prototype`. The chain starts from the top-level `SplayTree` binding, so `SplayTree`, `SplayTree.Node` and `.prototype` (and `Benchmark`'s own `.prototype` at 469:1) are side-effecting global-property accesses; the `Node` store at 434:16 writes onto that same global-loaded function object. The `left`/`right`/`traverse_` stores target properties of the Node prototype object (same limitation as the SplayTree.prototype method stores: a prototype binding applies after the store and the base is a global load)."
+    },
+    {
+      "location": "459:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "One-time module-init code for `SplayTree.Node` / `SplayTree.Node.prototype`. The chain starts from the top-level `SplayTree` binding, so `SplayTree`, `SplayTree.Node` and `.prototype` (and `Benchmark`'s own `.prototype` at 469:1) are side-effecting global-property accesses; the `Node` store at 434:16 writes onto that same global-loaded function object. The `left`/`right`/`traverse_` stores target properties of the Node prototype object (same limitation as the SplayTree.prototype method stores: a prototype binding applies after the store and the base is a global load)."
+    },
+    {
+      "location": "459:10",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Node",
+      "note": "One-time module-init code for `SplayTree.Node` / `SplayTree.Node.prototype`. The chain starts from the top-level `SplayTree` binding, so `SplayTree`, `SplayTree.Node` and `.prototype` (and `Benchmark`'s own `.prototype` at 469:1) are side-effecting global-property accesses; the `Node` store at 434:16 writes onto that same global-loaded function object. The `left`/`right`/`traverse_` stores target properties of the Node prototype object (same limitation as the SplayTree.prototype method stores: a prototype binding applies after the store and the base is a global load)."
+    },
+    {
+      "location": "459:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "One-time module-init code for `SplayTree.Node` / `SplayTree.Node.prototype`. The chain starts from the top-level `SplayTree` binding, so `SplayTree`, `SplayTree.Node` and `.prototype` (and `Benchmark`'s own `.prototype` at 469:1) are side-effecting global-property accesses; the `Node` store at 434:16 writes onto that same global-loaded function object. The `left`/`right`/`traverse_` stores target properties of the Node prototype object (same limitation as the SplayTree.prototype method stores: a prototype binding applies after the store and the base is a global load)."
+    },
+    {
+      "location": "459:36",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "traverse_",
+      "note": "One-time module-init code for `SplayTree.Node` / `SplayTree.Node.prototype`. The chain starts from the top-level `SplayTree` binding, so `SplayTree`, `SplayTree.Node` and `.prototype` (and `Benchmark`'s own `.prototype` at 469:1) are side-effecting global-property accesses; the `Node` store at 434:16 writes onto that same global-loaded function object. The `left`/`right`/`traverse_` stores target properties of the Node prototype object (same limitation as the SplayTree.prototype method stores: a prototype binding applies after the store and the base is a global load)."
+    },
+    {
+      "location": "469:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "One-time module-init code for `SplayTree.Node` / `SplayTree.Node.prototype`. The chain starts from the top-level `SplayTree` binding, so `SplayTree`, `SplayTree.Node` and `.prototype` (and `Benchmark`'s own `.prototype` at 469:1) are side-effecting global-property accesses; the `Node` store at 434:16 writes onto that same global-loaded function object. The `left`/`right`/`traverse_` stores target properties of the Node prototype object (same limitation as the SplayTree.prototype method stores: a prototype binding applies after the store and the base is a global load)."
+    },
+    {
+      "location": "476:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplaySetup",
+      "note": "Global-property access. Either a direct load of a top-level function/var binding (SplaySetup, SplayRun, print) or a member load reached through a global object (Math.random / Math.random.__resetSeed / performance.now / Math.max). The compiler models every global-property load as side-effecting, so no shape or type annotation applies and no fact survives the load."
+    },
+    {
+      "location": "472:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "SplayRun",
+      "note": "Global-property access. Either a direct load of a top-level function/var binding (SplaySetup, SplayRun, print) or a member load reached through a global object (Math.random / Math.random.__resetSeed / performance.now / Math.max). The compiler models every global-property load as side-effecting, so no shape or type annotation applies and no fact survives the load."
+    },
+    {
+      "location": "488:16",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Math",
+      "note": "Global-property access. Either a direct load of a top-level function/var binding (SplaySetup, SplayRun, print) or a member load reached through a global object (Math.random / Math.random.__resetSeed / performance.now / Math.max). The compiler models every global-property load as side-effecting, so no shape or type annotation applies and no fact survives the load."
+    },
+    {
+      "location": "488:20",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "random",
+      "note": "Global-property access. Either a direct load of a top-level function/var binding (SplaySetup, SplayRun, print) or a member load reached through a global object (Math.random / Math.random.__resetSeed / performance.now / Math.max). The compiler models every global-property load as side-effecting, so no shape or type annotation applies and no fact survives the load."
+    },
+    {
+      "location": "488:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "__resetSeed",
+      "note": "Global-property access. Either a direct load of a top-level function/var binding (SplaySetup, SplayRun, print) or a member load reached through a global object (Math.random / Math.random.__resetSeed / performance.now / Math.max). The compiler models every global-property load as side-effecting, so no shape or type annotation applies and no fact survives the load."
+    },
+    {
+      "location": "489:7",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Math",
+      "note": "Global-property access. Either a direct load of a top-level function/var binding (SplaySetup, SplayRun, print) or a member load reached through a global object (Math.random / Math.random.__resetSeed / performance.now / Math.max). The compiler models every global-property load as side-effecting, so no shape or type annotation applies and no fact survives the load."
+    },
+    {
+      "location": "489:11",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "random",
+      "note": "Global-property access. Either a direct load of a top-level function/var binding (SplaySetup, SplayRun, print) or a member load reached through a global object (Math.random / Math.random.__resetSeed / performance.now / Math.max). The compiler models every global-property load as side-effecting, so no shape or type annotation applies and no fact survives the load."
+    },
+    {
+      "location": "489:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "__resetSeed",
+      "note": "Global-property access. Either a direct load of a top-level function/var binding (SplaySetup, SplayRun, print) or a member load reached through a global object (Math.random / Math.random.__resetSeed / performance.now / Math.max). The compiler models every global-property load as side-effecting, so no shape or type annotation applies and no fact survives the load."
+    },
+    {
+      "location": "492:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "performance",
+      "note": "Global-property access. Either a direct load of a top-level function/var binding (SplaySetup, SplayRun, print) or a member load reached through a global object (Math.random / Math.random.__resetSeed / performance.now / Math.max). The compiler models every global-property load as side-effecting, so no shape or type annotation applies and no fact survives the load."
+    },
+    {
+      "location": "492:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "now",
+      "note": "Global-property access. Either a direct load of a top-level function/var binding (SplaySetup, SplayRun, print) or a member load reached through a global object (Math.random / Math.random.__resetSeed / performance.now / Math.max). The compiler models every global-property load as side-effecting, so no shape or type annotation applies and no fact survives the load."
+    },
+    {
+      "location": "494:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "performance",
+      "note": "Global-property access. Either a direct load of a top-level function/var binding (SplaySetup, SplayRun, print) or a member load reached through a global object (Math.random / Math.random.__resetSeed / performance.now / Math.max). The compiler models every global-property load as side-effecting, so no shape or type annotation applies and no fact survives the load."
+    },
+    {
+      "location": "494:32",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "now",
+      "note": "Global-property access. Either a direct load of a top-level function/var binding (SplaySetup, SplayRun, print) or a member load reached through a global object (Math.random / Math.random.__resetSeed / performance.now / Math.max). The compiler models every global-property load as side-effecting, so no shape or type annotation applies and no fact survives the load."
+    },
+    {
+      "location": "495:18",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Math",
+      "note": "Global-property access. Either a direct load of a top-level function/var binding (SplaySetup, SplayRun, print) or a member load reached through a global object (Math.random / Math.random.__resetSeed / performance.now / Math.max). The compiler models every global-property load as side-effecting, so no shape or type annotation applies and no fact survives the load."
+    },
+    {
+      "location": "495:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "max",
+      "note": "Global-property access. Either a direct load of a top-level function/var binding (SplaySetup, SplayRun, print) or a member load reached through a global object (Math.random / Math.random.__resetSeed / performance.now / Math.max). The compiler models every global-property load as side-effecting, so no shape or type annotation applies and no fact survives the load."
+    },
+    {
+      "location": "502:3",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "print",
+      "note": "Global-property access. Either a direct load of a top-level function/var binding (SplaySetup, SplayRun, print) or a member load reached through a global object (Math.random / Math.random.__resetSeed / performance.now / Math.max). The compiler models every global-property load as side-effecting, so no shape or type annotation applies and no fact survives the load."
+    },
+    {
+      "location": "492:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now",
+      "note": "Call to a builtin whose function is not defined in this file (Array.prototype.push, Array.prototype.reduce, print, and performance.now which resolves to the host/native Date.now shim): there is no statically known target function to name in a closure type guard, so the call cannot be inlined or specialized."
+    },
+    {
+      "location": "494:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now",
+      "note": "Call to a builtin whose function is not defined in this file (Array.prototype.push, Array.prototype.reduce, print, and performance.now which resolves to the host/native Date.now shim): there is no statically known target function to name in a closure type guard, so the call cannot be inlined or specialized."
+    },
+    {
+      "location": "495:17",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push",
+      "note": "Call to a builtin whose function is not defined in this file (Array.prototype.push, Array.prototype.reduce, print, and performance.now which resolves to the host/native Date.now shim): there is no statically known target function to name in a closure type guard, so the call cannot be inlined or specialized."
+    },
+    {
+      "location": "500:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "reduce",
+      "note": "Call to a builtin whose function is not defined in this file (Array.prototype.push, Array.prototype.reduce, print, and performance.now which resolves to the host/native Date.now shim): there is no statically known target function to name in a closure type guard, so the call cannot be inlined or specialized."
+    },
+    {
+      "location": "502:8",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print",
+      "note": "Call to a builtin whose function is not defined in this file (Array.prototype.push, Array.prototype.reduce, print, and performance.now which resolves to the host/native Date.now shim): there is no statically known target function to name in a closure type guard, so the call cannot be inlined or specialized."
+    },
+    {
+      "location": "495:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "The receiver (`results`) is a local array; arrays have no static shape in this build, so the `.push` / `.reduce` / `.length` loads stay generic. The element type is unknown to the compiler, so no type guard can be attached to the receiver either."
+    },
+    {
+      "location": "500:31",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "reduce",
+      "note": "The receiver (`results`) is a local array; arrays have no static shape in this build, so the `.push` / `.reduce` / `.length` loads stay generic. The element type is unknown to the compiler, so no type guard can be attached to the receiver either."
+    },
+    {
+      "location": "501:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "The receiver (`results`) is a local array; arrays have no static shape in this build, so the `.push` / `.reduce` / `.length` loads stay generic. The element type is unknown to the compiler, so no type guard can be attached to the receiver either."
+    },
+    {
+      "location": "493:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "runIteration",
+      "note": "Miscellaneous sites that no annotation reaches. 493:27: reading the inherited `runIteration` method; this build never turns a prototype-slot read into a fast read (even with a bound prototype shape + prototype-shape guard) — only the call itself inlines, and that is already optimized by the closure type guard at 493:5:493:27. 498:23 `benchmark.validate?.(12)`: `validate` is not a property of Benchmark, so the load and the optional-chain null test are generic. 501:19 `total / results.length`: number type guards on both `total` and `results.length` were applied and produced no effect on the division. 502:9 `'Time: ' + total`: a string concat with a number; a `number` guard on `total` had no effect — no annotation form specializes string concatenation."
+    },
+    {
+      "location": "498:23",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "validate",
+      "note": "Miscellaneous sites that no annotation reaches. 493:27: reading the inherited `runIteration` method; this build never turns a prototype-slot read into a fast read (even with a bound prototype shape + prototype-shape guard) — only the call itself inlines, and that is already optimized by the closure type guard at 493:5:493:27. 498:23 `benchmark.validate?.(12)`: `validate` is not a property of Benchmark, so the load and the optional-chain null test are generic. 501:19 `total / results.length`: number type guards on both `total` and `results.length` were applied and produced no effect on the division. 502:9 `'Time: ' + total`: a string concat with a number; a `number` guard on `total` had no effect — no annotation form specializes string concatenation."
+    },
+    {
+      "location": "498:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Miscellaneous sites that no annotation reaches. 493:27: reading the inherited `runIteration` method; this build never turns a prototype-slot read into a fast read (even with a bound prototype shape + prototype-shape guard) — only the call itself inlines, and that is already optimized by the closure type guard at 493:5:493:27. 498:23 `benchmark.validate?.(12)`: `validate` is not a property of Benchmark, so the load and the optional-chain null test are generic. 501:19 `total / results.length`: number type guards on both `total` and `results.length` were applied and produced no effect on the division. 502:9 `'Time: ' + total`: a string concat with a number; a `number` guard on `total` had no effect — no annotation form specializes string concatenation."
+    },
+    {
+      "location": "501:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Miscellaneous sites that no annotation reaches. 493:27: reading the inherited `runIteration` method; this build never turns a prototype-slot read into a fast read (even with a bound prototype shape + prototype-shape guard) — only the call itself inlines, and that is already optimized by the closure type guard at 493:5:493:27. 498:23 `benchmark.validate?.(12)`: `validate` is not a property of Benchmark, so the load and the optional-chain null test are generic. 501:19 `total / results.length`: number type guards on both `total` and `results.length` were applied and produced no effect on the division. 502:9 `'Time: ' + total`: a string concat with a number; a `number` guard on `total` had no effect — no annotation form specializes string concatenation."
+    },
+    {
+      "location": "502:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Miscellaneous sites that no annotation reaches. 493:27: reading the inherited `runIteration` method; this build never turns a prototype-slot read into a fast read (even with a bound prototype shape + prototype-shape guard) — only the call itself inlines, and that is already optimized by the closure type guard at 493:5:493:27. 498:23 `benchmark.validate?.(12)`: `validate` is not a property of Benchmark, so the load and the optional-chain null test are generic. 501:19 `total / results.length`: number type guards on both `total` and `results.length` were applied and produced no effect on the division. 502:9 `'Time: ' + total`: a string concat with a number; a `number` guard on `total` had no effect — no annotation form specializes string concatenation."
+    },
+    {
+      "location": "484:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "note": "No statically known target function. 484:34 `new Benchmark({})`: the class's implicit constructor has no generated function range — a closure type guard with target function 469:1:474:2 was rejected (\"closure type guard target function range did not match a generated function; guard skipped\"). 498:23 `benchmark.validate?.(12)`: `validate` does not exist on Benchmark, so there is no function to name."
+    },
+    {
+      "location": "498:23",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "validate",
+      "note": "No statically known target function. 484:34 `new Benchmark({})`: the class's implicit constructor has no generated function range — a closure type guard with target function 469:1:474:2 was rejected (\"closure type guard target function range did not match a generated function; guard skipped\"). 498:23 `benchmark.validate?.(12)`: `validate` does not exist on Benchmark, so there is no function to name."
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "GeneratePayloadTree",
+      "note": "Hoisted top-level `function` declaration: the binding is created by a global-property store, which the compiler always treats as side-effecting. No shape or type annotation applies (these items are reported at the synthetic 5:1 module-prelude location)."
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "GenerateKey",
+      "note": "Hoisted top-level `function` declaration: the binding is created by a global-property store, which the compiler always treats as side-effecting. No shape or type annotation applies (these items are reported at the synthetic 5:1 module-prelude location)."
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "SplayLatency",
+      "note": "Hoisted top-level `function` declaration: the binding is created by a global-property store, which the compiler always treats as side-effecting. No shape or type annotation applies (these items are reported at the synthetic 5:1 module-prelude location)."
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "SplayUpdateStats",
+      "note": "Hoisted top-level `function` declaration: the binding is created by a global-property store, which the compiler always treats as side-effecting. No shape or type annotation applies (these items are reported at the synthetic 5:1 module-prelude location)."
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "InsertNewNode",
+      "note": "Hoisted top-level `function` declaration: the binding is created by a global-property store, which the compiler always treats as side-effecting. No shape or type annotation applies (these items are reported at the synthetic 5:1 module-prelude location)."
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "SplaySetup",
+      "note": "Hoisted top-level `function` declaration: the binding is created by a global-property store, which the compiler always treats as side-effecting. No shape or type annotation applies (these items are reported at the synthetic 5:1 module-prelude location)."
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "SplayTearDown",
+      "note": "Hoisted top-level `function` declaration: the binding is created by a global-property store, which the compiler always treats as side-effecting. No shape or type annotation applies (these items are reported at the synthetic 5:1 module-prelude location)."
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "SplayRun",
+      "note": "Hoisted top-level `function` declaration: the binding is created by a global-property store, which the compiler always treats as side-effecting. No shape or type annotation applies (these items are reported at the synthetic 5:1 module-prelude location)."
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "SplayTree",
+      "note": "Hoisted top-level `function` declaration: the binding is created by a global-property store, which the compiler always treats as side-effecting. No shape or type annotation applies (these items are reported at the synthetic 5:1 module-prelude location)."
+    },
+    {
+      "location": "189:43",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "remove",
+      "note": "189:43: the `.remove` callee load is reached through the top-level `splayTree` var, a global-property load (the call itself is already optimized by the closure type guard at 189:27:189:43). 189:9: `greatest == null` compares an untyped value returned by a call; a [\"null\",\"undefined\"] type guard on `greatest` was applied and produced no effect."
+    },
+    {
+      "location": "189:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "189:43: the `.remove` callee load is reached through the top-level `splayTree` var, a global-property load (the call itself is already optimized by the closure type guard at 189:27:189:43). 189:9: `greatest == null` compares an untyped value returned by a call; a [\"null\",\"undefined\"] type guard on `greatest` was applied and produced no effect."
+    },
+    {
+      "location": "5:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Proxy",
+      "note": "Load of a host/global builtin (Proxy, Error, String) through a global-property access; always side-effecting, no annotation applies."
+    },
+    {
+      "location": "7:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Error",
+      "note": "Load of a host/global builtin (Proxy, Error, String) through a global-property access; always side-effecting, no annotation applies."
+    },
+    {
+      "location": "7:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "String",
+      "note": "Load of a host/global builtin (Proxy, Error, String) through a global-property access; always side-effecting, no annotation applies."
+    },
+    {
+      "location": "5:46",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Proxy",
+      "note": "Call to a host builtin not defined in this file (Proxy, Error, String); there is no statically known target function to name in a closure type guard, so the call cannot be inlined."
+    },
+    {
+      "location": "7:20",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error",
+      "note": "Call to a host builtin not defined in this file (Proxy, Error, String); there is no statically known target function to name in a closure type guard, so the call cannot be inlined."
+    },
+    {
+      "location": "7:40",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "String",
+      "note": "Call to a host builtin not defined in this file (Proxy, Error, String); there is no statically known target function to name in a closure type guard, so the call cannot be inlined."
+    },
+    {
+      "location": "7:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation (`name + '.' + String(property) + ' is not defined.'`): a `string` type guard on the `name` parameter had no effect — no annotation form specializes string concatenation in this build."
+    }
+  ]
+}

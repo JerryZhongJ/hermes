@@ -1,11 +1,3 @@
-// Imported from https://github.com/manuel-serrano/jsbench
-// Commit: 7c8fc4e58d2a5c7980c207d302b1d1cb18308a5c
-// Source: other/minimist.js
-// Adaptation: benchmarks/speculative/import_hopc.py
-(function() {
-"use strict";
-var __hopcStart = performance.now();
-
 /*=====================================================================*/
 /*    serrano/prgm/project/hop/jsbench/other/minimist.js               */
 /*    -------------------------------------------------------------    */
@@ -323,7 +315,7 @@ function isNumber (x) {
 let verbOn = true;
 
 function test( msg, proc ) {
-   if( verbOn ) print( msg, "..." );
+   if( verbOn ) console.log( msg, "..." );
    proc( assert );
 }
 
@@ -1222,21 +1214,24 @@ function main( bench, n ) {
    const k = Math.round( n / 10 );
    let i = 1;
    
-   print( bench + "(", n, ")..." );
+   console.log( bench + "(", n, ")..." );
    
    testAll( true );
    
    while( n-- > 0 ) {
-      if( n % k === 0 ) { print( i++ ); }
+      if( n % k === 0 ) { console.log( i++ ); }
       testAll( false );
    }
 }
 
 const K = 20;
 
-const N = 200;
+// Static Hermes benchmark runner: fixed N, timed with performance.now
+const N = 10 * K;
 
-main( "minimist", N ); 
-
-print('Time: ' + (performance.now() - __hopcStart));
-})();
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+main( "minimist", N );
+var __end = __performance.now();
+print( "Time: " + (__end - __start) );

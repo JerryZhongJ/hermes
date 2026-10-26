@@ -1,0 +1,4954 @@
+{
+  "static shapes": {
+    "Shape1": {
+      "properties": [
+        {
+          "name": "500"
+        },
+        {
+          "name": "10"
+        },
+        {
+          "name": "1"
+        }
+      ]
+    }
+  },
+  "shape bindings": [
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3255,
+          "column": 23
+        },
+        "end": {
+          "line": 3255,
+          "column": 58
+        }
+      },
+      "shape": "Shape1"
+    }
+  ],
+  "shape guards": [
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3255,
+          "column": 5
+        },
+        "end": {
+          "line": 3255,
+          "column": 20
+        }
+      },
+      "shape": "Shape1"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 88,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 116,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 144,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 172,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 200,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 228,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 256,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 284,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 312,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 340,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 368,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 396,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 424,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 452,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 480,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 508,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 536,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 564,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 592,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 620,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 648,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 676,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 704,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 732,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 760,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 788,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 816,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 844,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 872,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 900,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 928,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 956,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 984,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1012,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1040,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1068,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1096,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1124,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1152,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1180,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1208,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1236,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1264,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1292,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1320,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1348,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1376,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1404,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1432,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1460,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1488,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1516,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1544,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1572,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1600,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1628,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1656,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1684,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1712,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1740,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1768,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1796,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1824,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1852,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1880,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1908,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1936,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1964,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 1992,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2020,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2048,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2076,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2104,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2132,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2160,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2188,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2216,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2244,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2272,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2300,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2328,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2356,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2384,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2412,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2440,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2468,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2496,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2524,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2552,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2580,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2608,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2636,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2664,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2692,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2720,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2748,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2776,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2804,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2832,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2860,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2888,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2916,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2944,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 2972,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 3000,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 3028,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 3056,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 3084,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 3112,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 3140,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 3168,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 33,
+          "column": 3
+        },
+        "end": {
+          "line": 3176,
+          "column": 37
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3178,
+          "column": 42
+        },
+        "end": {
+          "line": 3178,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3178,
+          "column": 44
+        },
+        "end": {
+          "line": 3178,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3179,
+          "column": 41
+        },
+        "end": {
+          "line": 3179,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3179,
+          "column": 52
+        },
+        "end": {
+          "line": 3179,
+          "column": 61
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3179,
+          "column": 52
+        },
+        "end": {
+          "line": 3179,
+          "column": 65
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3209,
+          "column": 6
+        },
+        "end": {
+          "line": 3209,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3212,
+          "column": 6
+        },
+        "end": {
+          "line": 3212,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3214,
+          "column": 6
+        },
+        "end": {
+          "line": 3214,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3217,
+          "column": 10
+        },
+        "end": {
+          "line": 3217,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3217,
+          "column": 10
+        },
+        "end": {
+          "line": 3217,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3217,
+          "column": 26
+        },
+        "end": {
+          "line": 3217,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3217,
+          "column": 26
+        },
+        "end": {
+          "line": 3217,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3234,
+          "column": 21
+        },
+        "end": {
+          "line": 3234,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 25,
+          "column": 3
+        },
+        "end": {
+          "line": 25,
+          "column": 4
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3235,
+          "column": 11
+        },
+        "end": {
+          "line": 3235,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3236,
+          "column": 11
+        },
+        "end": {
+          "line": 3236,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3238,
+          "column": 21
+        },
+        "end": {
+          "line": 3238,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 26,
+          "column": 3
+        },
+        "end": {
+          "line": 26,
+          "column": 4
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3239,
+          "column": 11
+        },
+        "end": {
+          "line": 3239,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3240,
+          "column": 11
+        },
+        "end": {
+          "line": 3240,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3244,
+          "column": 4
+        },
+        "end": {
+          "line": 3244,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3244,
+          "column": 14
+        },
+        "end": {
+          "line": 3244,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3246,
+          "column": 4
+        },
+        "end": {
+          "line": 3246,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3246,
+          "column": 14
+        },
+        "end": {
+          "line": 3246,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3259,
+          "column": 23
+        },
+        "end": {
+          "line": 3259,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3260,
+          "column": 31
+        },
+        "end": {
+          "line": 3260,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3269,
+          "column": 25
+        },
+        "end": {
+          "line": 3269,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3271,
+          "column": 27
+        },
+        "end": {
+          "line": 3271,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3273,
+          "column": 27
+        },
+        "end": {
+          "line": 3273,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3273,
+          "column": 23
+        },
+        "end": {
+          "line": 3273,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3275,
+          "column": 7
+        },
+        "end": {
+          "line": 3275,
+          "column": 11
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3284,
+          "column": 23
+        },
+        "end": {
+          "line": 3284,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3286,
+          "column": 25
+        },
+        "end": {
+          "line": 3286,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3289,
+          "column": 19
+        },
+        "end": {
+          "line": 3289,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3289,
+          "column": 15
+        },
+        "end": {
+          "line": 3289,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3292,
+          "column": 29
+        },
+        "end": {
+          "line": 3292,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3293,
+          "column": 29
+        },
+        "end": {
+          "line": 3293,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3294,
+          "column": 21
+        },
+        "end": {
+          "line": 3294,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3295,
+          "column": 21
+        },
+        "end": {
+          "line": 3295,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3308,
+          "column": 29
+        },
+        "end": {
+          "line": 3308,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3314,
+          "column": 14
+        },
+        "end": {
+          "line": 3314,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3330,
+          "column": 12
+        },
+        "end": {
+          "line": 3330,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3331,
+          "column": 23
+        },
+        "end": {
+          "line": 3331,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3334,
+          "column": 25
+        },
+        "end": {
+          "line": 3334,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3337,
+          "column": 19
+        },
+        "end": {
+          "line": 3337,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3337,
+          "column": 15
+        },
+        "end": {
+          "line": 3337,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3340,
+          "column": 26
+        },
+        "end": {
+          "line": 3340,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3342,
+          "column": 18
+        },
+        "end": {
+          "line": 3342,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3346,
+          "column": 29
+        },
+        "end": {
+          "line": 3346,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3352,
+          "column": 32
+        },
+        "end": {
+          "line": 3352,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 28,
+          "column": 3
+        },
+        "end": {
+          "line": 28,
+          "column": 7
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3366,
+          "column": 23
+        },
+        "end": {
+          "line": 3366,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3374,
+          "column": 23
+        },
+        "end": {
+          "line": 3374,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3379,
+          "column": 39
+        },
+        "end": {
+          "line": 3379,
+          "column": 51
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3382,
+          "column": 9
+        },
+        "end": {
+          "line": 3382,
+          "column": 76
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3382,
+          "column": 9
+        },
+        "end": {
+          "line": 3382,
+          "column": 85
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3382,
+          "column": 9
+        },
+        "end": {
+          "line": 3382,
+          "column": 99
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3386,
+          "column": 11
+        },
+        "end": {
+          "line": 3386,
+          "column": 63
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3386,
+          "column": 11
+        },
+        "end": {
+          "line": 3386,
+          "column": 82
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3386,
+          "column": 11
+        },
+        "end": {
+          "line": 3386,
+          "column": 91
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3386,
+          "column": 11
+        },
+        "end": {
+          "line": 3386,
+          "column": 97
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3389,
+          "column": 28
+        },
+        "end": {
+          "line": 3389,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3392,
+          "column": 14
+        },
+        "end": {
+          "line": 3392,
+          "column": 52
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3392,
+          "column": 14
+        },
+        "end": {
+          "line": 3392,
+          "column": 58
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3393,
+          "column": 12
+        },
+        "end": {
+          "line": 3393,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 32,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3177,
+          "column": 22
+        },
+        "end": {
+          "line": 3177,
+          "column": 30
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3178,
+          "column": 10
+        },
+        "end": {
+          "line": 3178,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3178,
+          "column": 21
+        },
+        "end": {
+          "line": 3178,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3178,
+          "column": 44
+        },
+        "end": {
+          "line": 3178,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3363,
+          "column": 10
+        },
+        "end": {
+          "line": 3363,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "srad.js",
+        "start": {
+          "line": 3363,
+          "column": 1
+        },
+        "end": {
+          "line": 3395,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3267,
+          "column": 7
+        },
+        "end": {
+          "line": 3267,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3268,
+          "column": 7
+        },
+        "end": {
+          "line": 3268,
+          "column": 11
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3279,
+          "column": 16
+        },
+        "end": {
+          "line": 3279,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3275,
+          "column": 7
+        },
+        "end": {
+          "line": 3275,
+          "column": 11
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3289,
+          "column": 11
+        },
+        "end": {
+          "line": 3289,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3290,
+          "column": 22
+        },
+        "end": {
+          "line": 3290,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3329,
+          "column": 23
+        },
+        "end": {
+          "line": 3329,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3330,
+          "column": 19
+        },
+        "end": {
+          "line": 3330,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3337,
+          "column": 11
+        },
+        "end": {
+          "line": 3337,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3339,
+          "column": 18
+        },
+        "end": {
+          "line": 3339,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3330,
+          "column": 3
+        },
+        "end": {
+          "line": 3330,
+          "column": 9
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3346,
+          "column": 29
+        },
+        "end": {
+          "line": 3346,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3351,
+          "column": 15
+        },
+        "end": {
+          "line": 3351,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3352,
+          "column": 25
+        },
+        "end": {
+          "line": 3352,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3351,
+          "column": 22
+        },
+        "end": {
+          "line": 3351,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3359,
+          "column": 18
+        },
+        "end": {
+          "line": 3359,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3363,
+          "column": 18
+        },
+        "end": {
+          "line": 3363,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3370,
+          "column": 8
+        },
+        "end": {
+          "line": 3370,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3363,
+          "column": 25
+        },
+        "end": {
+          "line": 3363,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3370,
+          "column": 15
+        },
+        "end": {
+          "line": 3370,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3364,
+          "column": 7
+        },
+        "end": {
+          "line": 3364,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 8,
+          "column": 5
+        },
+        "end": {
+          "line": 8,
+          "column": 7
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 9,
+          "column": 3
+        },
+        "end": {
+          "line": 9,
+          "column": 5
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 10,
+          "column": 3
+        },
+        "end": {
+          "line": 10,
+          "column": 5
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 11,
+          "column": 3
+        },
+        "end": {
+          "line": 11,
+          "column": 5
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 12,
+          "column": 3
+        },
+        "end": {
+          "line": 12,
+          "column": 5
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 13,
+          "column": 3
+        },
+        "end": {
+          "line": 13,
+          "column": 5
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 14,
+          "column": 3
+        },
+        "end": {
+          "line": 14,
+          "column": 5
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 25,
+          "column": 3
+        },
+        "end": {
+          "line": 25,
+          "column": 4
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 26,
+          "column": 3
+        },
+        "end": {
+          "line": 26,
+          "column": 4
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3258,
+          "column": 10
+        },
+        "end": {
+          "line": 3258,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "srad.js",
+        "start": {
+          "line": 3258,
+          "column": 1
+        },
+        "end": {
+          "line": 3264,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3266,
+          "column": 10
+        },
+        "end": {
+          "line": 3266,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "srad.js",
+        "start": {
+          "line": 3266,
+          "column": 1
+        },
+        "end": {
+          "line": 3281,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3283,
+          "column": 10
+        },
+        "end": {
+          "line": 3283,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "srad.js",
+        "start": {
+          "line": 3283,
+          "column": 1
+        },
+        "end": {
+          "line": 3327,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3329,
+          "column": 10
+        },
+        "end": {
+          "line": 3329,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "srad.js",
+        "start": {
+          "line": 3329,
+          "column": 1
+        },
+        "end": {
+          "line": 3349,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 28,
+          "column": 3
+        },
+        "end": {
+          "line": 28,
+          "column": 7
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3351,
+          "column": 10
+        },
+        "end": {
+          "line": 3351,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "srad.js",
+        "start": {
+          "line": 3351,
+          "column": 1
+        },
+        "end": {
+          "line": 3361,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 29,
+          "column": 3
+        },
+        "end": {
+          "line": 29,
+          "column": 8
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 30,
+          "column": 3
+        },
+        "end": {
+          "line": 30,
+          "column": 8
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3179,
+          "column": 41
+        },
+        "end": {
+          "line": 3179,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3179,
+          "column": 52
+        },
+        "end": {
+          "line": 3179,
+          "column": 57
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3179,
+          "column": 26
+        },
+        "end": {
+          "line": 3179,
+          "column": 34
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3209,
+          "column": 6
+        },
+        "end": {
+          "line": 3209,
+          "column": 8
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3209,
+          "column": 11
+        },
+        "end": {
+          "line": 3209,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3212,
+          "column": 6
+        },
+        "end": {
+          "line": 3212,
+          "column": 8
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3214,
+          "column": 6
+        },
+        "end": {
+          "line": 3214,
+          "column": 8
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3217,
+          "column": 10
+        },
+        "end": {
+          "line": 3217,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3217,
+          "column": 15
+        },
+        "end": {
+          "line": 3217,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3217,
+          "column": 26
+        },
+        "end": {
+          "line": 3217,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3217,
+          "column": 31
+        },
+        "end": {
+          "line": 3217,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3220,
+          "column": 21
+        },
+        "end": {
+          "line": 3220,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3221,
+          "column": 21
+        },
+        "end": {
+          "line": 3221,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3222,
+          "column": 21
+        },
+        "end": {
+          "line": 3222,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3223,
+          "column": 21
+        },
+        "end": {
+          "line": 3223,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3226,
+          "column": 23
+        },
+        "end": {
+          "line": 3226,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3227,
+          "column": 23
+        },
+        "end": {
+          "line": 3227,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3228,
+          "column": 23
+        },
+        "end": {
+          "line": 3228,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3229,
+          "column": 23
+        },
+        "end": {
+          "line": 3229,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3232,
+          "column": 22
+        },
+        "end": {
+          "line": 3232,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3234,
+          "column": 21
+        },
+        "end": {
+          "line": 3234,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3235,
+          "column": 11
+        },
+        "end": {
+          "line": 3235,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3236,
+          "column": 11
+        },
+        "end": {
+          "line": 3236,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3238,
+          "column": 21
+        },
+        "end": {
+          "line": 3238,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3239,
+          "column": 11
+        },
+        "end": {
+          "line": 3239,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3240,
+          "column": 11
+        },
+        "end": {
+          "line": 3240,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3244,
+          "column": 4
+        },
+        "end": {
+          "line": 3244,
+          "column": 6
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3244,
+          "column": 14
+        },
+        "end": {
+          "line": 3244,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3246,
+          "column": 4
+        },
+        "end": {
+          "line": 3246,
+          "column": 6
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3246,
+          "column": 14
+        },
+        "end": {
+          "line": 3246,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3259,
+          "column": 23
+        },
+        "end": {
+          "line": 3259,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3269,
+          "column": 12
+        },
+        "end": {
+          "line": 3269,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3269,
+          "column": 25
+        },
+        "end": {
+          "line": 3269,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3271,
+          "column": 14
+        },
+        "end": {
+          "line": 3271,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3271,
+          "column": 27
+        },
+        "end": {
+          "line": 3271,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3273,
+          "column": 27
+        },
+        "end": {
+          "line": 3273,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3273,
+          "column": 32
+        },
+        "end": {
+          "line": 3273,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3273,
+          "column": 23
+        },
+        "end": {
+          "line": 3273,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3284,
+          "column": 23
+        },
+        "end": {
+          "line": 3284,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3286,
+          "column": 25
+        },
+        "end": {
+          "line": 3286,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3289,
+          "column": 19
+        },
+        "end": {
+          "line": 3289,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3289,
+          "column": 24
+        },
+        "end": {
+          "line": 3289,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3289,
+          "column": 15
+        },
+        "end": {
+          "line": 3289,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3292,
+          "column": 29
+        },
+        "end": {
+          "line": 3292,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3292,
+          "column": 34
+        },
+        "end": {
+          "line": 3292,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3293,
+          "column": 29
+        },
+        "end": {
+          "line": 3293,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3293,
+          "column": 34
+        },
+        "end": {
+          "line": 3293,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3294,
+          "column": 25
+        },
+        "end": {
+          "line": 3294,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3294,
+          "column": 21
+        },
+        "end": {
+          "line": 3294,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3295,
+          "column": 25
+        },
+        "end": {
+          "line": 3295,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3295,
+          "column": 21
+        },
+        "end": {
+          "line": 3295,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3331,
+          "column": 23
+        },
+        "end": {
+          "line": 3331,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3334,
+          "column": 25
+        },
+        "end": {
+          "line": 3334,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3337,
+          "column": 19
+        },
+        "end": {
+          "line": 3337,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3337,
+          "column": 24
+        },
+        "end": {
+          "line": 3337,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3337,
+          "column": 15
+        },
+        "end": {
+          "line": 3337,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3340,
+          "column": 26
+        },
+        "end": {
+          "line": 3340,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3340,
+          "column": 31
+        },
+        "end": {
+          "line": 3340,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3342,
+          "column": 22
+        },
+        "end": {
+          "line": 3342,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3342,
+          "column": 18
+        },
+        "end": {
+          "line": 3342,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3352,
+          "column": 32
+        },
+        "end": {
+          "line": 3352,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3353,
+          "column": 5
+        },
+        "end": {
+          "line": 3353,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "srad.js",
+        "start": {
+          "line": 3266,
+          "column": 1
+        },
+        "end": {
+          "line": 3281,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3356,
+          "column": 5
+        },
+        "end": {
+          "line": 3356,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "srad.js",
+        "start": {
+          "line": 3283,
+          "column": 1
+        },
+        "end": {
+          "line": 3327,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3359,
+          "column": 5
+        },
+        "end": {
+          "line": 3359,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "srad.js",
+        "start": {
+          "line": 3329,
+          "column": 1
+        },
+        "end": {
+          "line": 3349,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3365,
+          "column": 28
+        },
+        "end": {
+          "line": 3365,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3366,
+          "column": 23
+        },
+        "end": {
+          "line": 3366,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3370,
+          "column": 3
+        },
+        "end": {
+          "line": 3370,
+          "column": 7
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "srad.js",
+        "start": {
+          "line": 3351,
+          "column": 1
+        },
+        "end": {
+          "line": 3361,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3372,
+          "column": 3
+        },
+        "end": {
+          "line": 3372,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "srad.js",
+        "start": {
+          "line": 3258,
+          "column": 1
+        },
+        "end": {
+          "line": 3264,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3374,
+          "column": 23
+        },
+        "end": {
+          "line": 3374,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3386,
+          "column": 58
+        },
+        "end": {
+          "line": 3386,
+          "column": 63
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3386,
+          "column": 85
+        },
+        "end": {
+          "line": 3386,
+          "column": 91
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3389,
+          "column": 28
+        },
+        "end": {
+          "line": 3389,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3389,
+          "column": 36
+        },
+        "end": {
+          "line": 3389,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3392,
+          "column": 28
+        },
+        "end": {
+          "line": 3392,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3392,
+          "column": 35
+        },
+        "end": {
+          "line": 3392,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3393,
+          "column": 12
+        },
+        "end": {
+          "line": 3393,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "srad.js",
+        "start": {
+          "line": 3393,
+          "column": 20
+        },
+        "end": {
+          "line": 3393,
+          "column": 25
+        }
+      },
+      "type": "number"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "3275:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3276:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3293:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3293:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3294:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3294:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3295:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3295:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3296:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3296:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3300:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3301:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3300:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3302:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3300:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3303:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3300:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3304:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3306:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3306:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3306:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3341:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3343:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3345:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3345:30",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3345:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3345:43",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3345:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3345:56",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3345:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3347:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3368:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3376:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3383:11",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3279:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3275:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3274:13",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3275:16",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3291:13",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3293:41",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3340:13",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3345:17",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3341:13",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3345:30",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3342:13",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3345:43",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3343:13",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3345:56",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3345:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3347:40",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3376:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3376:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3379:9",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3380:9",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3381:22",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3182:3",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "3276:17",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3276:23",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3294:41",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3295:41",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3296:41",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3304:12",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3304:17",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3306:47",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3383:43",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3383:81",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "3387:7",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3390:5",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "3403:3",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    }
+  ]
+}

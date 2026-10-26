@@ -1,11 +1,3 @@
-// Imported from https://github.com/manuel-serrano/jsbench
-// Commit: 7c8fc4e58d2a5c7980c207d302b1d1cb18308a5c
-// Source: bglstone/puzzle.js
-// Adaptation: benchmarks/speculative/import_hopc.py
-(function() {
-"use strict";
-var __hopcStart = performance.now();
-
 "use strict";
 
 const size = 1022;
@@ -87,7 +79,7 @@ function trial( j ) {
 }
 
 function trial_output( x, y ) {
-   print( "piece ", x, " at ", y, "." );
+   console.log( "piece ", x, " at ", y, "." );
 }
 
 function definepiece( iclass, ii, jj, kk ) {
@@ -179,21 +171,22 @@ function main( bench, n ) {
    const k = Math.round( n / 10 );
    let i = 1;
    
-   print( bench + "(", n, ")..." );
+   console.log( bench + "(", n, ")..." );
    
    while( n-- > 0 ) {
-      if( n % k === 0 ) { print( i++ ); }
+      if( n % k === 0 ) { console.log( i++ ); }
       res = run();
    }
 
-   print( "res=", res );
+   console.log( "res=", res );
 }
 
+// Static Hermes benchmark runner: fixed N, timed with performance.now
 const N = 2;
 
-main( "puzzle", N ); 
-
-
-
-print('Time: ' + (performance.now() - __hopcStart));
-})();
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+main( "puzzle", N );
+var __end = __performance.now();
+print( "Time: " + (__end - __start) );

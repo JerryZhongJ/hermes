@@ -1,146 +1,141 @@
 # Ostrich for Static Hermes
 
-All 12 standard JavaScript benchmarks from
-[`Sable/Ostrich`](https://github.com/Sable/Ostrich/tree/dd06ca4340ecdbc0a795274d826cb5c034a2b9fe),
-pinned at `dd06ca4340ecdbc0a795274d826cb5c034a2b9fe`.
-Each file is a standalone program: no browser, Node.js, npm packages, filesystem
-reads, or runtime downloads are needed. The original TypedArrays and numerical
-kernels are retained.
+This directory contains the 12 retained old benchmarks from the former
+`ostrich-old/` directory, plus the imported `srad.js` benchmark. The 12 old files
+are preserved byte-for-byte, including their implementations, parameters,
+logging, and source locations. The duplicate `ostrich-old/` source directory
+has been removed. Original copyright notices are retained.
+
+| Retained filenames | Origin |
+| --- | --- |
+| `backprop`, `bfs`, `crc`, `fft`, `lavamd`, `lud`, `nqueens`, `pagerank`, `spmv` | Same-named old files |
+| `bwa_hmm`, `needle` | Old filenames restored; imported `hmm` and `nw` duplicates removed |
+| `lud_typed` | Old experimental LUD implementation restored |
+| `srad` | Additional imported benchmark with the old harness |
+
+The imported inputs originate from `Sable/Ostrich` commit
+`dd06ca4340ecdbc0a795274d826cb5c034a2b9fe`.
+[ostrich-manifest.json](../../ostrich-manifest.json) records current filenames,
+entry points, fixed parameters, and validation profiles. Existing upstream
+input hashes describe the original import inputs, not current source hashes.
+
+## Harness
+
+All 13 programs use a top-level harness without an outer IIFE:
+
+```js
+// Static Hermes benchmark runner: fixed params, timed with performance.now
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+runSRAD( 10, 1 );
+var __end = __performance.now();
+print( "Time: " + Math.round( __end - __start ) );
+```
+
+The final `Time:` measures the entire entry-point call, including input
+allocation/generation, result checks, and logging inside that call. Earlier
+file initialization and the final timing print are excluded. Each program
+prints one final `Time: <integer milliseconds>` line.
+
+SRAD retains its numerical kernel, embedded 502 × 458 image, fixed parameters,
+and result checks. Its image is decoded during file initialization, before the
+outer timer. Its `Kernel time:` diagnostic still reports the narrower internal
+region. The imported `result.time` output and outer wrapper have been replaced
+by the old harness; SRAD payload syntax trees and decoded input values were
+checked during conversion.
+
+The retained old files also retain their original global adaptations,
+including `Math` PRNG assignments and the `Array` overrides in `needle` and
+`spmv`. The former imported versions used local helpers instead. Their timings
+also covered different regions, so previous kernel timings do not describe
+this restored suite.
+
+## Fixed workloads
+
+| Benchmark | Entry-point arguments |
+| --- | --- |
+| backprop | `300000` |
+| bfs | `200000` |
+| bwa_hmm | `"n", 128` |
+| crc | `128, 65536, 5` |
+| fft | `9` (512 × 512) |
+| lavamd | `3` |
+| lud | `384` |
+| lud_typed | `384` |
+| needle | `2048, 1, {}` |
+| nqueens | `14` |
+| pagerank | `1500, 10, 1e-8, 100000` |
+| spmv | `10000, 2000, 0.01, 5` |
+| srad | `10, 1` |
+
+The old implementations retain their original checks and limitations; the
+extra small-input checks from the former imported versions are not present
+in these restored files. SRAD retains its imported checksum.
 
 ## Running
 
-Use the existing `bench.py` for performance measurements. From the repository
-root, for example, compare HBC and Static Hermes across all 12 entries:
+From the repository root:
 
 ```sh
-python3 benchmarks/speculative/bench.py \
-  --only ostrich \
+python3 benchmarks/speculative/run_ostrich.py --shermes /path/to/shermes
+python3 benchmarks/speculative/run_ostrich.py --shermes /path/to/shermes \
+  --smoke --json /tmp/ostrich-smoke.json
+```
+
+`--only bwa_hmm` or `--only ostrich/needle` selects one entry. `--build-dir`
+retains compiler inputs, binaries, and logs. `--smoke` rewrites only the direct
+entry-point call in a temporary copy using the manifest's smoke parameters.
+SpMV's smoke profile uses 100 repeats to avoid rounding its time to zero.
+`--upstream` selects the larger reference workloads; `lud_typed` uses the
+standard LUD reference dimension because it was not a separate standard JS
+target. `--max-seconds` checks an optional process execution budget. No runtime
+budget is claimed for the restored default workloads.
+
+Individual files compile directly with Static Hermes. `bench.py` also accepts
+the final `Time:` lines; for example:
+
+```sh
+python3 benchmarks/speculative/bench.py --only ostrich \
   --variant hbc hbc /path/to/hermes \
   --variant sh sh /path/to/shermes \
-  --schedule anchor-pairs --anchor hbc --cycles 5 \
-  --json /tmp/ostrich-hbc-sh.json
+  --schedule anchor-pairs --anchor hbc --cycles 5
 ```
 
-Use `--only ostrich/nqueens` to select one entry. Other engine variants and
-schedules work as usual. The annotation A/B mode (`-a VERSION`) additionally
-requires matching files under `annotations/VERSION/ostrich/`; annotations are
-not included in this migration.
+## Annotations
 
-Each `.js` is also independently compilable:
+Historical annotation subdirectories were renamed from `ostrich-old/` to
+`ostrich/`, with JSON contents unchanged:
 
-```sh
-CC=clang /path/to/shermes -O -fstatic-builtins \
-  benchmarks/speculative/suites/ostrich/nqueens.js -o /tmp/ostrich-nqueens
-/tmp/ostrich-nqueens
-```
+- `annotations/jelly-old/ostrich/`: 12 files, matching the retained old sources.
+- `annotations/coverage-guided-old/ostrich/`: 11 historical candidate files;
+  `bwa_hmm` has no annotation in that set.
 
-Each entry prints exactly one `Time: <milliseconds>` line consumed by
-`bench.py`. This is the upstream kernel timer converted from seconds to
-milliseconds; input generation and compilation are excluded. LavaMD retains
-the upstream force-check time within its timer. Other diagnostic output is
-retained; the SRAD diagnostic uses `Kernel time:` so it cannot be mistaken for
-the final `Time:` line.
+These paths are relative to `benchmarks/speculative/`. Annotations for the
+former imported versions of those benchmarks were removed from
+`annotations/jelly/ostrich/` and `annotations/coverage-guided/ostrich/`.
 
-## Optional migration checks
-
-`run_ostrich.py` is a separate execution checker used to validate this import.
-It is not required by the benchmark files or by `bench.py`, and does not perform
-the repeated, interleaved performance measurements of `bench.py`.
-
-For example, check the execution budget or run smaller smoke inputs:
-
-```sh
-python3 benchmarks/speculative/run_ostrich.py --max-seconds 2
-python3 benchmarks/speculative/run_ostrich.py --smoke --json /tmp/ostrich-smoke.json
-```
-
-Use `--only bfs` to select one entry, `--build-dir /tmp/ostrich-build` to retain
-binaries and logs, or `--timeout 1200` for a slower machine. Without `--shermes`,
-the runner uses `shermes` on PATH, then the sibling `static-build-release` build.
-Default inputs are sized for execution below two seconds per entry on the local
-SH release build, including input generation and result checks. Compilation is
-excluded. The runner records both kernel time and execution wall time; use
-`--max-seconds 2` to check that execution budget on your machine.
-
-To reproduce the original, much larger upstream workloads:
-
-```sh
-python3 benchmarks/speculative/run_ostrich.py --shermes /path/to/shermes --upstream
-```
-
-## Workloads
-
-The upstream makefiles' **js** target arguments are retained as
-`upstream_arguments` in the manifest and selected with `--upstream`. The
-experimental `lud_typed.js` is not selected by that target and is not imported.
-
-| Entry | Default arguments | Smoke arguments |
-| --- | --- | --- |
-| backprop | 131,072 input elements | 4,096 |
-| bfs | 100,000 nodes | 10,000 |
-| crc | 128 pages, 65,536 bytes/page, 6 repeats | same data, 1 repeat |
-| fft | exponent 8 (256 × 256) | exponent 5 (32 × 32) |
-| hmm | vary states: 64, 1,000 observations | 32 states, 1,000 observations |
-| lavamd | 3 boxes per dimension | 2 |
-| lud | dimension 256, with full reconstruction check | 32, with full reconstruction check |
-| nqueens | 13 queens | 12 |
-| nw | dimension 1,024, penalty 1 | 64, penalty 1 |
-| pagerank | 1,024 pages, 10 iterations, threshold 1e-8, divisor 100,000 | 128 pages; other arguments unchanged |
-| spmv | dimension 4,096, density 2,000 ppm, stddev 0.01, 100 repeats | dimension 512, 2 repeats; other arguments unchanged |
-| srad | 10 iterations, lambda 1, original 502 × 458 image | 1 iteration, same image |
-
-Files contain fixed `OSTRICH_ARGS` constants. `--smoke` and `--upstream` rewrite
-these in temporary compiler inputs; benchmark files have no runtime
-configuration or host shims.
-
-## Adaptations and checks
-
-- Browser `console.log` calls use `print()`. A local timer uses
-  `performance.now()` where available, and `Date.now()` in HBC shells. It does
-  not install or modify any globals.
-- The seeded upstream PRNG is bundled under local names. Backprop calls it
-  directly instead of assigning to `Math.random`, keeping builtins immutable
-  for `-fstatic-builtins`.
-- Unused Array constructor overrides for the `js-nota` variant are removed.
-  SpMV retains its zero-initialized Ziggurat tables through a local helper.
-- SRAD bundles the exact upstream image as hex bytes, decoded before the timer.
-  This avoids a large array literal and any external data loader.
-- Existing upstream-size checks remain enabled. PageRank's reference loop now
-  uses the array's `.length`; SRAD and LavaMD mismatches throw errors instead
-  of only logging them.
-- Smaller inputs also have result checks. Backprop, BFS, LavaMD, SRAD and
-  Needleman-Wunsch use references from the unmodified upstream JavaScript;
-  LUD uses the original full matrix reconstruction check. PageRank validates
-  ordinary and weighted sums at the smaller sizes.
-- N-Queens checks total and unique counts for sizes 12, 13 and 16. FFT checks its
-  DC component and Parseval's energy identity. HMM checks the known likelihood
-  of the uniform model. SpMV checks ordinary and weighted output sums against
-  the unmodified upstream JS under Node.js, with relative tolerance 1e-6.
-- A missing result, failure status, or invalid elapsed time fails the program.
+`annotations/jelly/ostrich/srad.json` is retained separately. Its source ranges
+were relocated for the top-level source, and five guards targeting removed
+harness expressions were removed. All algorithm annotations and static shapes
+were retained. No new annotations were fabricated for missing entries.
 
 ## Validation
 
-On the local AMD EPYC 7601 with `static-build-release/bin/shermes`, Clang and
-`-O -fstatic-builtins`, all 12 default workloads passed
-`run_ostrich.py --max-seconds 2`. Execution wall times were 0.144–1.471 seconds,
-including input generation and result checks, excluding compilation.
-All 12 smoke workloads also passed. Default and smoke result snapshots match
-the unmodified upstream JavaScript exactly when both are executed under
-Node.js. Injected incorrect results or reference values were rejected by all
-12 checks under Node.js. `--upstream --only nw` also passed, exercising original
-input selection and the full upstream reference sequence checks.
+The restored 13-entry suite passed compilation and execution with the sibling
+Static Hermes release build (`-O -fstatic-builtins`) for both default and smoke
+profiles. SRAD also compiled and ran with its relocated jelly annotation.
+Its existing duplicate/unmatched guard warnings remain; comparison against the
+original source and annotation found no added warning categories or counts.
+Successful execution does not imply every historical guard was applied.
 
-## Re-importing and licenses
+## Historical importer and licenses
 
-```sh
-git clone https://github.com/Sable/Ostrich.git /tmp/ostrich-upstream
-git -C /tmp/ostrich-upstream checkout dd06ca4340ecdbc0a795274d826cb5c034a2b9fe
-python3 benchmarks/speculative/import_ostrich.py /tmp/ostrich-upstream
-```
+`import_ostrich.py` retains the former 12-entry import procedure. Running it
+again overwrites restored sources, recreates the imported `hmm`/`nw` names,
+and restores the IIFE and kernel-timed harnesses. It does not reproduce this
+legacy restoration. Formatting restored sources also changes source locations
+and requires corresponding annotation updates.
 
-The importer is deterministic and requires the pinned commit. It regenerates
-the 12 JavaScript files, [LICENSE](LICENSE), and
-[ostrich-manifest.json](../../ostrich-manifest.json), which records source paths,
-arguments, and SHA-256 hashes of upstream inputs. This README is maintained
-separately. Original MIT notices, the PRNG's BSD notice, and the upstream
-Ziggurat attribution are retained.
+Original MIT notices, PRNG BSD notices, and Ziggurat attribution remain in the
+source files. The upstream MIT license is included in [LICENSE](LICENSE).

@@ -1,0 +1,2825 @@
+{
+  "static shapes": {
+    "File": {
+      "properties": [
+        {
+          "name": "_data"
+        }
+      ]
+    },
+    "Directory": {
+      "properties": [
+        {
+          "name": "structure"
+        }
+      ]
+    },
+    "LsItem": {
+      "properties": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "entry"
+        },
+        {
+          "name": "isDirectory",
+          "type": "boolean"
+        }
+      ]
+    },
+    "FileProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "data",
+          "kind": "accessor"
+        },
+        {
+          "name": "byteLength",
+          "kind": "accessor"
+        },
+        {
+          "name": "swapByteOrder",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 115,
+              "column": 5
+            },
+            "end": {
+              "line": 123,
+              "column": 6
+            }
+          }
+        }
+      ]
+    },
+    "CountVisitor": {
+      "properties": [
+        {
+          "name": "fileCount",
+          "type": "number"
+        },
+        {
+          "name": "dirCount",
+          "type": "number"
+        }
+      ]
+    },
+    "CountDracula": {
+      "properties": [
+        {
+          "name": "bytes",
+          "type": "number"
+        }
+      ]
+    },
+    "Benchmark": {
+      "properties": [
+        {
+          "name": "EXPECTED_FILE_COUNT",
+          "type": "number"
+        },
+        {
+          "name": "totalFileCount",
+          "type": "number"
+        },
+        {
+          "name": "totalDirCount",
+          "type": "number"
+        },
+        {
+          "name": "lastFileHash"
+        },
+        {
+          "name": "fs"
+        }
+      ]
+    },
+    "Results": {
+      "properties": [
+        {
+          "name": "length",
+          "type": "number",
+          "flags off": [
+            "enumerable"
+          ]
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 166,
+          "column": 18
+        },
+        "end": {
+          "line": 166,
+          "column": 22
+        }
+      },
+      "shape": "LsItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 173,
+          "column": 17
+        },
+        "end": {
+          "line": 173,
+          "column": 21
+        }
+      },
+      "shape": "LsItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 182,
+          "column": 18
+        },
+        "end": {
+          "line": 182,
+          "column": 22
+        }
+      },
+      "shape": "LsItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 193,
+          "column": 18
+        },
+        "end": {
+          "line": 193,
+          "column": 22
+        }
+      },
+      "shape": "LsItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 174,
+          "column": 24
+        },
+        "end": {
+          "line": 174,
+          "column": 28
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 185,
+          "column": 20
+        },
+        "end": {
+          "line": 185,
+          "column": 24
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 203,
+          "column": 21
+        },
+        "end": {
+          "line": 203,
+          "column": 25
+        }
+      },
+      "shape": "File"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 326,
+          "column": 26
+        },
+        "end": {
+          "line": 326,
+          "column": 30
+        }
+      },
+      "shape": "File"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 193,
+          "column": 18
+        },
+        "end": {
+          "line": 193,
+          "column": 34
+        }
+      },
+      "shape": "LsItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 209,
+          "column": 16
+        },
+        "end": {
+          "line": 209,
+          "column": 20
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 132,
+          "column": 21
+        },
+        "end": {
+          "line": 132,
+          "column": 25
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 290,
+          "column": 9
+        },
+        "end": {
+          "line": 290,
+          "column": 13
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 292,
+          "column": 37
+        },
+        "end": {
+          "line": 292,
+          "column": 41
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 293,
+          "column": 13
+        },
+        "end": {
+          "line": 293,
+          "column": 17
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 317,
+          "column": 9
+        },
+        "end": {
+          "line": 317,
+          "column": 13
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 320,
+          "column": 9
+        },
+        "end": {
+          "line": 320,
+          "column": 13
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 324,
+          "column": 37
+        },
+        "end": {
+          "line": 324,
+          "column": 41
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 331,
+          "column": 23
+        },
+        "end": {
+          "line": 331,
+          "column": 27
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 336,
+          "column": 13
+        },
+        "end": {
+          "line": 336,
+          "column": 25
+        }
+      },
+      "shape": "CountVisitor"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 338,
+          "column": 13
+        },
+        "end": {
+          "line": 338,
+          "column": 25
+        }
+      },
+      "shape": "CountDracula"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 337,
+          "column": 57
+        },
+        "end": {
+          "line": 337,
+          "column": 69
+        }
+      },
+      "shape": "CountVisitor"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 339,
+          "column": 57
+        },
+        "end": {
+          "line": 339,
+          "column": 69
+        }
+      },
+      "shape": "CountDracula"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 349,
+          "column": 13
+        },
+        "end": {
+          "line": 349,
+          "column": 17
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 350,
+          "column": 51
+        },
+        "end": {
+          "line": 350,
+          "column": 55
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 263,
+          "column": 9
+        },
+        "end": {
+          "line": 263,
+          "column": 13
+        }
+      },
+      "shape": "CountVisitor"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 274,
+          "column": 9
+        },
+        "end": {
+          "line": 274,
+          "column": 13
+        }
+      },
+      "shape": "CountDracula"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 141,
+          "column": 9
+        },
+        "end": {
+          "line": 141,
+          "column": 13
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 160,
+          "column": 35
+        },
+        "end": {
+          "line": 160,
+          "column": 39
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 192,
+          "column": 26
+        },
+        "end": {
+          "line": 192,
+          "column": 30
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 109,
+          "column": 25
+        },
+        "end": {
+          "line": 109,
+          "column": 29
+        }
+      },
+      "shape": "File"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 111,
+          "column": 26
+        },
+        "end": {
+          "line": 111,
+          "column": 30
+        }
+      },
+      "shape": "File"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 113,
+          "column": 31
+        },
+        "end": {
+          "line": 113,
+          "column": 35
+        }
+      },
+      "shape": "File"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 233,
+          "column": 27
+        },
+        "end": {
+          "line": 233,
+          "column": 30
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 369,
+          "column": 5
+        },
+        "end": {
+          "line": 369,
+          "column": 14
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 374,
+          "column": 3
+        },
+        "end": {
+          "line": 374,
+          "column": 12
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 202,
+          "column": 38
+        },
+        "end": {
+          "line": 202,
+          "column": 42
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 228,
+          "column": 16
+        },
+        "end": {
+          "line": 228,
+          "column": 29
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 267,
+          "column": 9
+        },
+        "end": {
+          "line": 267,
+          "column": 13
+        }
+      },
+      "shape": "CountVisitor"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 346,
+          "column": 35
+        },
+        "end": {
+          "line": 346,
+          "column": 39
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 348,
+          "column": 57
+        },
+        "end": {
+          "line": 348,
+          "column": 61
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 146,
+          "column": 21
+        },
+        "end": {
+          "line": 146,
+          "column": 25
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 155,
+          "column": 9
+        },
+        "end": {
+          "line": 155,
+          "column": 13
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 371,
+          "column": 5
+        },
+        "end": {
+          "line": 371,
+          "column": 12
+        }
+      },
+      "shape": "Results"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 376,
+          "column": 17
+        },
+        "end": {
+          "line": 376,
+          "column": 24
+        }
+      },
+      "shape": "Results"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 377,
+          "column": 27
+        },
+        "end": {
+          "line": 377,
+          "column": 34
+        }
+      },
+      "shape": "Results"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 328,
+          "column": 9
+        },
+        "end": {
+          "line": 328,
+          "column": 13
+        }
+      },
+      "shape": "Benchmark"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 106,
+          "column": 9
+        },
+        "end": {
+          "line": 106,
+          "column": 13
+        }
+      },
+      "shape": "File"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 128,
+          "column": 9
+        },
+        "end": {
+          "line": 128,
+          "column": 13
+        }
+      },
+      "shape": "Directory"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 161,
+          "column": 19
+        },
+        "end": {
+          "line": 161,
+          "column": 75
+        }
+      },
+      "shape": "LsItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 319,
+          "column": 30
+        },
+        "end": {
+          "line": 319,
+          "column": 48
+        }
+      },
+      "shape": "CountDracula"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 360,
+          "column": 21
+        },
+        "end": {
+          "line": 360,
+          "column": 38
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 361,
+          "column": 19
+        },
+        "end": {
+          "line": 361,
+          "column": 21
+        }
+      },
+      "shape": "Results"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 316,
+          "column": 30
+        },
+        "end": {
+          "line": 316,
+          "column": 48
+        }
+      },
+      "shape": "CountVisitor"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 193,
+          "column": 18
+        },
+        "end": {
+          "line": 193,
+          "column": 34
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 336,
+          "column": 13
+        },
+        "end": {
+          "line": 336,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 262,
+          "column": 5
+        },
+        "end": {
+          "line": 264,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 328,
+          "column": 32
+        },
+        "end": {
+          "line": 328,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 244,
+          "column": 13
+        },
+        "end": {
+          "line": 244,
+          "column": 24
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 345,
+          "column": 14
+        },
+        "end": {
+          "line": 345,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 376,
+          "column": 33
+        },
+        "end": {
+          "line": 376,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 376,
+          "column": 38
+        },
+        "end": {
+          "line": 376,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 371,
+          "column": 30
+        },
+        "end": {
+          "line": 371,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 371,
+          "column": 36
+        },
+        "end": {
+          "line": 371,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 274,
+          "column": 23
+        },
+        "end": {
+          "line": 274,
+          "column": 38
+        }
+      },
+      "type": "number"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "11:17",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "performance"
+    },
+    {
+      "location": "11:69",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "performance"
+    },
+    {
+      "location": "12:17",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "now"
+    },
+    {
+      "location": "13:18",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "mark"
+    },
+    {
+      "location": "14:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "measure"
+    },
+    {
+      "location": "15:24",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "timeOrigin"
+    },
+    {
+      "location": "17:15",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "JetStream"
+    },
+    {
+      "location": "17:38",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "JetStream"
+    },
+    {
+      "location": "29:23",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isInBrowser"
+    },
+    {
+      "location": "30:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isD8"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "computeIsLittleEndian"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "setupDirectory"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "randomFileContents"
+    },
+    {
+      "location": "250:1",
+      "kind": "property_load",
+      "reason": "constructing-store",
+      "property": "prototype"
+    },
+    {
+      "location": "278:1",
+      "kind": "property_load",
+      "reason": "constructing-store",
+      "property": "prototype"
+    },
+    {
+      "location": "11:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "11:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "11:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "12:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "12:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "12:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "12:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "13:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "13:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "mark"
+    },
+    {
+      "location": "14:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "14:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "measure"
+    },
+    {
+      "location": "15:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "15:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "timeOrigin"
+    },
+    {
+      "location": "17:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "29:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "30:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "30:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Realm"
+    },
+    {
+      "location": "88:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "computeIsLittleEndian"
+    },
+    {
+      "location": "88:45",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "computeIsLittleEndian"
+    },
+    {
+      "location": "11:19",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "12:17",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "13:18",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "14:21",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "15:24",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "105:5",
+      "kind": "property_load",
+      "reason": "constructing-store",
+      "property": "prototype"
+    },
+    {
+      "location": "106:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_data"
+    },
+    {
+      "location": "113:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "byteLength"
+    },
+    {
+      "location": "117:49",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "byteLength"
+    },
+    {
+      "location": "118:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "getFloat64"
+    },
+    {
+      "location": "118:46",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "getFloat64"
+    },
+    {
+      "location": "119:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setFloat64"
+    },
+    {
+      "location": "119:33",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "setFloat64"
+    },
+    {
+      "location": "132:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "get"
+    },
+    {
+      "location": "132:39",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "get"
+    },
+    {
+      "location": "135:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "135:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "137:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "137:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "138:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "138:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "141:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "set"
+    },
+    {
+      "location": "141:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "set"
+    },
+    {
+      "location": "146:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "get"
+    },
+    {
+      "location": "146:39",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "get"
+    },
+    {
+      "location": "149:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "149:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "151:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "151:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "152:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "152:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "155:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "set"
+    },
+    {
+      "location": "155:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "set"
+    },
+    {
+      "location": "209:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "delete"
+    },
+    {
+      "location": "209:37",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "delete"
+    },
+    {
+      "location": "348:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "348:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "348:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "348:29",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "348:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal"
+    },
+    {
+      "location": "350:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "350:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "350:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "350:29",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "350:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal"
+    },
+    {
+      "location": "364:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "364:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "364:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "365:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "365:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "365:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "365:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "368:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "368:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "368:34",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "370:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "370:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "370:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "371:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "371:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "376:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reduce"
+    },
+    {
+      "location": "376:31",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "reduce"
+    },
+    {
+      "location": "378:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "378:8",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "117:44",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "data"
+    },
+    {
+      "location": "118:30",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "data"
+    },
+    {
+      "location": "119:17",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "data"
+    },
+    {
+      "location": "369:27",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "runIteration"
+    },
+    {
+      "location": "369:27",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "runIteration"
+    },
+    {
+      "location": "374:23",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "validate"
+    },
+    {
+      "location": "374:23",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "validate"
+    },
+    {
+      "location": "374:23",
+      "kind": "arithmetic",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "117:40",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "133:13",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "145:5",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "147:13",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "349:13",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "377:19",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "378:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "81:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "ArrayBuffer"
+    },
+    {
+      "location": "81:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "ArrayBuffer"
+    },
+    {
+      "location": "82:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "DataView"
+    },
+    {
+      "location": "82:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "DataView"
+    },
+    {
+      "location": "83:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setUint32"
+    },
+    {
+      "location": "83:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "setUint32"
+    },
+    {
+      "location": "84:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "84:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "95:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "ArrayBuffer"
+    },
+    {
+      "location": "95:37",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "ArrayBuffer"
+    },
+    {
+      "location": "96:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "96:34",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "99:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "DataView"
+    },
+    {
+      "location": "99:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "DataView"
+    },
+    {
+      "location": "5:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Proxy"
+    },
+    {
+      "location": "5:46",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Proxy"
+    },
+    {
+      "location": "36:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "45:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "45:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "36:15",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "random"
+    },
+    {
+      "location": "45:27",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "85:12",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "274:27",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "byteLength"
+    },
+    {
+      "location": "371:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "371:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max"
+    },
+    {
+      "location": "127:5",
+      "kind": "property_load",
+      "reason": "constructing-store",
+      "property": "prototype"
+    },
+    {
+      "location": "128:24",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "structure"
+    },
+    {
+      "location": "128:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Map"
+    },
+    {
+      "location": "128:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Map"
+    },
+    {
+      "location": "165:33",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "ls"
+    },
+    {
+      "location": "165:33",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "ls"
+    },
+    {
+      "location": "172:33",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "ls"
+    },
+    {
+      "location": "172:33",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "ls"
+    },
+    {
+      "location": "174:57",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "forEachFileRecursively"
+    },
+    {
+      "location": "174:57",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEachFileRecursively"
+    },
+    {
+      "location": "181:33",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "ls"
+    },
+    {
+      "location": "181:33",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "ls"
+    },
+    {
+      "location": "185:58",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "forEachDirectoryRecursively"
+    },
+    {
+      "location": "185:58",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEachDirectoryRecursively"
+    },
+    {
+      "location": "192:33",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "ls"
+    },
+    {
+      "location": "192:33",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "ls"
+    },
+    {
+      "location": "202:65",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "forEachFileRecursively"
+    },
+    {
+      "location": "202:65",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEachFileRecursively"
+    },
+    {
+      "location": "203:25",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "byteLength"
+    },
+    {
+      "location": "213:25",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "visitDir"
+    },
+    {
+      "location": "213:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "visitDir"
+    },
+    {
+      "location": "214:57",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "ls"
+    },
+    {
+      "location": "214:57",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "ls"
+    },
+    {
+      "location": "216:28",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "visit"
+    },
+    {
+      "location": "216:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "visit"
+    },
+    {
+      "location": "218:34",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "visitFile"
+    },
+    {
+      "location": "218:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "visitFile"
+    },
+    {
+      "location": "233:43",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "addDirectory"
+    },
+    {
+      "location": "233:43",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "addDirectory"
+    },
+    {
+      "location": "242:20",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "addFile"
+    },
+    {
+      "location": "242:20",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "addFile"
+    },
+    {
+      "location": "292:67",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "forEachFileRecursively"
+    },
+    {
+      "location": "292:67",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEachFileRecursively"
+    },
+    {
+      "location": "293:51",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "swapByteOrder"
+    },
+    {
+      "location": "293:51",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "swapByteOrder"
+    },
+    {
+      "location": "298:79",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "forEachDirectoryRecursively"
+    },
+    {
+      "location": "298:79",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEachDirectoryRecursively"
+    },
+    {
+      "location": "299:51",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "totalFileSize"
+    },
+    {
+      "location": "299:51",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "totalFileSize"
+    },
+    {
+      "location": "300:30",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "fileCount"
+    },
+    {
+      "location": "300:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "fileCount"
+    },
+    {
+      "location": "305:51",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "forEachFile"
+    },
+    {
+      "location": "305:51",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEachFile"
+    },
+    {
+      "location": "306:38",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "rm"
+    },
+    {
+      "location": "306:38",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "rm"
+    },
+    {
+      "location": "310:70",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "totalFileSize"
+    },
+    {
+      "location": "310:70",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "totalFileSize"
+    },
+    {
+      "location": "317:22",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "visit"
+    },
+    {
+      "location": "317:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "visit"
+    },
+    {
+      "location": "320:22",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "visit"
+    },
+    {
+      "location": "320:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "visit"
+    },
+    {
+      "location": "324:67",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "forEachFileRecursively"
+    },
+    {
+      "location": "324:67",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEachFileRecursively"
+    },
+    {
+      "location": "326:30",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "byteLength"
+    },
+    {
+      "location": "331:58",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "forEachDirectoryRecursively"
+    },
+    {
+      "location": "331:58",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "forEachDirectoryRecursively"
+    },
+    {
+      "location": "174:17",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "174:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "done"
+    },
+    {
+      "location": "174:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "iterator"
+    },
+    {
+      "location": "174:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "next"
+    },
+    {
+      "location": "174:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "value"
+    },
+    {
+      "location": "185:13",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "185:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "next"
+    },
+    {
+      "location": "185:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "value"
+    },
+    {
+      "location": "185:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "done"
+    },
+    {
+      "location": "185:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "iterator"
+    },
+    {
+      "location": "233:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "233:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "233:44",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal"
+    },
+    {
+      "location": "233:44",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "239:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "randomFileContents"
+    },
+    {
+      "location": "239:50",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "randomFileContents"
+    },
+    {
+      "location": "242:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal"
+    },
+    {
+      "location": "242:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "290:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setupDirectory"
+    },
+    {
+      "location": "290:33",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "setupDirectory"
+    },
+    {
+      "location": "308:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "308:36",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "314:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "314:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "337:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "337:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "337:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "337:29",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "337:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal"
+    },
+    {
+      "location": "339:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "339:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "339:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "339:29",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "339:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal"
+    },
+    {
+      "location": "341:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "341:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "341:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal"
+    },
+    {
+      "location": "341:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "341:29",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "233:44",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "242:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "7:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "7:20",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "7:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "7:40",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "7:21",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "160:39",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "structure",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "160:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "165:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "166:22",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isDirectory",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "172:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "173:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isDirectory",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "174:28",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "entry",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "181:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "182:22",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isDirectory",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "185:24",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "entry",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "192:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "193:22",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isDirectory",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "202:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "entry",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "202:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "203:18",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "214:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "214:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isDirectory",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "214:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "entry",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "214:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "name",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "230:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "232:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "232:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "233:55",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "239:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "240:26",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "241:26",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "241:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "244:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "290:17",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "fs",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "292:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fs",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "292:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "292:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "entry",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "293:31",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "lastFileHash",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "298:48",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fs",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "298:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "entry",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "298:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "name",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "298:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "300:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "305:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "name",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "305:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "310:38",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "311:26",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "313:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "317:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fs",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "320:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fs",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "324:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fs",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "324:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "324:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "entry",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "326:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "328:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "totalFileCount",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "328:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "328:29",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "totalFileCount",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "331:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fs",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "331:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "334:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "totalDirCount",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "334:28",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "totalDirCount",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "334:28",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "336:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "336:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fileCount",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "337:69",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "fileCount",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "338:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "338:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "bytes",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "339:69",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "bytes",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "340:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "340:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "dirCount",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "341:68",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "dirCount",
+      "note": "Enclosing function contains a for...of loop: no shape/type guard placed in this function yields any dryrun feedback (no effect/kill/no-effect/not-optimized — checked whole-file, per-function and by line range), while identical guard patterns optimize their sites in for-of-free functions, and one expression-level type guard inside such a function was auto-pruned as 'matched no IR'. The receiver's shape is knowable in principle (this = Benchmark/Directory, item/entry = the yielded LsItem literal) and guards/bindings were placed here; none strength-reduce this site, so it cannot be optimized from this scope."
+    },
+    {
+      "location": "174:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "next",
+      "note": "Intrinsic next() call synthesized by the for-of/yield* lowering (callee is the delegated iterator, not a named source property). BLOCKER RECORD: the sibling item at (174:17, kind=call, property=\"\") — id item_877ff488222265d799c9 — is equally intrinsic and additionally cannot be checked off: the check tool's property filter is falsy-guarded, so an empty property can never be expressed, and location '174:17' therefore always resolves to 2 candidates (this item + that one). Attempted and rejected: property \"\" (ignored), \" \"/tab/zero-width-space/\"*\"/\"None\"/\"null\"/\"undefined\"/\"0\"/\"-\" (no item matches), omitting property with kind=call (still ambiguous), 4-segment locations 174:17:174:59 / 174:24:174:59 / 174:17:call / 174:17 call, item id, list form of the location scope, and an empty second draft (identical item pair)."
+    },
+    {
+      "location": "185:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "next",
+      "note": "Intrinsic next() call synthesized by the for-of/yield* lowering (callee is the delegated iterator, not a named source property). BLOCKER RECORD: the sibling item at (185:13, kind=call, property=\"\") — id item_5a6be83b321397a65606 — is equally intrinsic and additionally cannot be checked off: the check tool's property filter is falsy-guarded, so an empty property can never be expressed, and location '185:13' therefore always resolves to 2 candidates (this item + that one). Attempted and rejected: property \"\" (ignored), \" \"/tab/zero-width-space/\"*\"/\"None\"/\"null\"/\"undefined\"/\"0\"/\"-\" (no item matches), omitting property with kind=call (still ambiguous), 4-segment locations, item id, list form of the location scope, and an empty second draft (identical item pair)."
+    }
+  ]
+}

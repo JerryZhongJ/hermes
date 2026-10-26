@@ -1,0 +1,231 @@
+{
+  "static shapes": {
+    "Walker": {
+      "properties": [
+        {
+          "name": "current"
+        },
+        {
+          "name": "root"
+        },
+        {
+          "name": "entering",
+          "type": "boolean"
+        },
+        {
+          "name": "next",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 37,
+              "column": 12
+            },
+            "end": {
+              "line": 61,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "resumeAt",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 33,
+              "column": 16
+            },
+            "end": {
+              "line": 36,
+              "column": 2
+            }
+          }
+        }
+      ]
+    }
+  },
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 63,
+          "column": 10
+        },
+        "end": {
+          "line": 69,
+          "column": 4
+        }
+      },
+      "shape": "Walker"
+    }
+  ],
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 38,
+          "column": 13
+        },
+        "end": {
+          "line": 38,
+          "column": 17
+        }
+      },
+      "shape": "Walker"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 39,
+          "column": 18
+        },
+        "end": {
+          "line": 39,
+          "column": 22
+        }
+      },
+      "shape": "Walker"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 46,
+          "column": 7
+        },
+        "end": {
+          "line": 46,
+          "column": 11
+        }
+      },
+      "shape": "Walker"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 47,
+          "column": 7
+        },
+        "end": {
+          "line": 47,
+          "column": 11
+        }
+      },
+      "shape": "Walker"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 49,
+          "column": 7
+        },
+        "end": {
+          "line": 49,
+          "column": 11
+        }
+      },
+      "shape": "Walker"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 51,
+          "column": 22
+        },
+        "end": {
+          "line": 51,
+          "column": 26
+        }
+      },
+      "shape": "Walker"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 52,
+          "column": 5
+        },
+        "end": {
+          "line": 52,
+          "column": 9
+        }
+      },
+      "shape": "Walker"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 54,
+          "column": 5
+        },
+        "end": {
+          "line": 54,
+          "column": 9
+        }
+      },
+      "shape": "Walker"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 55,
+          "column": 5
+        },
+        "end": {
+          "line": 55,
+          "column": 9
+        }
+      },
+      "shape": "Walker"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 57,
+          "column": 5
+        },
+        "end": {
+          "line": 57,
+          "column": 9
+        }
+      },
+      "shape": "Walker"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 58,
+          "column": 5
+        },
+        "end": {
+          "line": 58,
+          "column": 9
+        }
+      },
+      "shape": "Walker"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 43,
+          "column": 19
+        },
+        "end": {
+          "line": 43,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 32,
+          "column": 2
+        }
+      }
+    }
+  ]
+}

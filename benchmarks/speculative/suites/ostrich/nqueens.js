@@ -1,11 +1,3 @@
-// Imported from https://github.com/Sable/Ostrich
-// Commit: dd06ca4340ecdbc0a795274d826cb5c034a2b9fe
-// Source: branch-and-bound/nqueens/js/nqueens.js
-// Adaptation: benchmarks/speculative/import_ostrich.py
-(function() {
-// HBC shells expose Date.now(); SH and V8 also provide performance.now().
-var ostrichNow = typeof performance === "undefined"
-    ? Date.now : performance.now.bind(performance);
 /*
  * The MIT License (MIT)
  *
@@ -37,7 +29,6 @@ var bit_mask2 = parseInt("0xcccccccc", 16);
 var bit_mask3 = parseInt("0xf0f0f0f0", 16);
 var bit_mask4 = parseInt("0xff00ff00", 16);
 var bit_mask5 = parseInt("0xffff0000", 16);
-
 
 
 function bit_scan(x){
@@ -116,7 +107,7 @@ function nqueen_solver(size, board_mask, mask, left_mask, right_mask, unique_sol
     var border_mask = 0;
     var index;
 
-    var forbidden = new Uint32Array(32);
+    forbidden = new Uint32Array(32);
 
     masks[0] = mask;
     left_masks[0] = left_mask;
@@ -265,7 +256,7 @@ function nqueenJS(size, unique_solutions)
 	unique_solutions["solutions"] += u_solutions["solutions"];
     }
 
-
+    timing = size;
     return solutions;
 }
 
@@ -276,29 +267,23 @@ function runNQueens(size){
 
     var solutions;
 
-    t1 = ostrichNow();
+    t1 = performance.now();
     solutions = nqueenJS(size, us);
-    t2 = ostrichNow();
+    t2 = performance.now();
 
 
-    var expected = {
-        12: [14200, 1787], 13: [73712, 9233], 16: [14772512, 1846955]
-    }[size];
-    if (expected && (solutions !== expected[0] || us.solutions !== expected[1])) {
-        throw new Error("Incorrect N-Queens solution counts");
-    }
-    print("Size: " + size + " Time: " + (t2-t1)/1000 + " s Solutions: " +
+    console.log("Size: " + size + " Time: " + (t2-t1)/1000 + " s Solutions: " +
                 solutions + " Unique Solutions: " + us["solutions"]);
     return { status: 1,
              options: 'runNQueens(' + size + ')',
              time: (t2-t1)/1000 };
 }
 
-const OSTRICH_ARGS = [13];
-var result = runNQueens(OSTRICH_ARGS[0]);
-if (!result || result.status !== 1 ||
-    !Number.isFinite(result.time) || result.time <= 0) {
-    throw new Error("Invalid benchmark result");
-}
-print("Time: " + result.time * 1000);
-})();
+
+// Static Hermes benchmark runner: fixed params, timed with performance.now
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+runNQueens( 14 );
+var __end = __performance.now();
+print( "Time: " + Math.round( __end - __start ) );

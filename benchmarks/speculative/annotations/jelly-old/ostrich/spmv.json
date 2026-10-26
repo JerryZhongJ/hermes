@@ -1,0 +1,5563 @@
+{
+  "static shapes": {},
+  "shape bindings": [],
+  "shape guards": [],
+  "type guards": [
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 32,
+          "column": 18
+        },
+        "end": {
+          "line": 32,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 32,
+          "column": 39
+        },
+        "end": {
+          "line": 32,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 32,
+          "column": 16
+        },
+        "end": {
+          "line": 32,
+          "column": 66
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 33,
+          "column": 16
+        },
+        "end": {
+          "line": 33,
+          "column": 66
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 34,
+          "column": 18
+        },
+        "end": {
+          "line": 34,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 34,
+          "column": 39
+        },
+        "end": {
+          "line": 34,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 34,
+          "column": 16
+        },
+        "end": {
+          "line": 34,
+          "column": 66
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 35,
+          "column": 18
+        },
+        "end": {
+          "line": 35,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 35,
+          "column": 16
+        },
+        "end": {
+          "line": 35,
+          "column": 66
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 36,
+          "column": 18
+        },
+        "end": {
+          "line": 36,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 36,
+          "column": 39
+        },
+        "end": {
+          "line": 36,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 36,
+          "column": 16
+        },
+        "end": {
+          "line": 36,
+          "column": 66
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 37,
+          "column": 16
+        },
+        "end": {
+          "line": 37,
+          "column": 66
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 43,
+          "column": 21
+        },
+        "end": {
+          "line": 43,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 93,
+          "column": 18
+        },
+        "end": {
+          "line": 93,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 94,
+          "column": 42
+        },
+        "end": {
+          "line": 94,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 103,
+          "column": 18
+        },
+        "end": {
+          "line": 103,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 107,
+          "column": 17
+        },
+        "end": {
+          "line": 107,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 109,
+          "column": 21
+        },
+        "end": {
+          "line": 109,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 110,
+          "column": 21
+        },
+        "end": {
+          "line": 110,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 111,
+          "column": 24
+        },
+        "end": {
+          "line": 111,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 112,
+          "column": 25
+        },
+        "end": {
+          "line": 112,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 113,
+          "column": 25
+        },
+        "end": {
+          "line": 113,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 115,
+          "column": 37
+        },
+        "end": {
+          "line": 115,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 115,
+          "column": 43
+        },
+        "end": {
+          "line": 115,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 118,
+          "column": 26
+        },
+        "end": {
+          "line": 118,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 118,
+          "column": 17
+        },
+        "end": {
+          "line": 118,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 118,
+          "column": 65
+        },
+        "end": {
+          "line": 118,
+          "column": 77
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 122,
+          "column": 18
+        },
+        "end": {
+          "line": 122,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 125,
+          "column": 24
+        },
+        "end": {
+          "line": 125,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 137,
+          "column": 17
+        },
+        "end": {
+          "line": 137,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 137,
+          "column": 16
+        },
+        "end": {
+          "line": 137,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 141,
+          "column": 27
+        },
+        "end": {
+          "line": 141,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 141,
+          "column": 23
+        },
+        "end": {
+          "line": 141,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 141,
+          "column": 16
+        },
+        "end": {
+          "line": 141,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 153,
+          "column": 31
+        },
+        "end": {
+          "line": 153,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 153,
+          "column": 17
+        },
+        "end": {
+          "line": 153,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 154,
+          "column": 28
+        },
+        "end": {
+          "line": 154,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 157,
+          "column": 17
+        },
+        "end": {
+          "line": 157,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 158,
+          "column": 19
+        },
+        "end": {
+          "line": 158,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 161,
+          "column": 28
+        },
+        "end": {
+          "line": 161,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 164,
+          "column": 65
+        },
+        "end": {
+          "line": 164,
+          "column": 79
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 164,
+          "column": 45
+        },
+        "end": {
+          "line": 164,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 164,
+          "column": 28
+        },
+        "end": {
+          "line": 164,
+          "column": 81
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 165,
+          "column": 16
+        },
+        "end": {
+          "line": 165,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 165,
+          "column": 34
+        },
+        "end": {
+          "line": 165,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 167,
+          "column": 30
+        },
+        "end": {
+          "line": 167,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 168,
+          "column": 21
+        },
+        "end": {
+          "line": 168,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 181,
+          "column": 8
+        },
+        "end": {
+          "line": 181,
+          "column": 14
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 181,
+          "column": 18
+        },
+        "end": {
+          "line": 181,
+          "column": 24
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 181,
+          "column": 28
+        },
+        "end": {
+          "line": 181,
+          "column": 35
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 183,
+          "column": 17
+        },
+        "end": {
+          "line": 183,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 183,
+          "column": 17
+        },
+        "end": {
+          "line": 183,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 184,
+          "column": 12
+        },
+        "end": {
+          "line": 184,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 184,
+          "column": 12
+        },
+        "end": {
+          "line": 184,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 188,
+          "column": 10
+        },
+        "end": {
+          "line": 188,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 193,
+          "column": 35
+        },
+        "end": {
+          "line": 193,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 193,
+          "column": 12
+        },
+        "end": {
+          "line": 193,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 197,
+          "column": 92
+        },
+        "end": {
+          "line": 197,
+          "column": 95
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 212,
+          "column": 22
+        },
+        "end": {
+          "line": 212,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 213,
+          "column": 20
+        },
+        "end": {
+          "line": 213,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 214,
+          "column": 33
+        },
+        "end": {
+          "line": 214,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 215,
+          "column": 15
+        },
+        "end": {
+          "line": 215,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 217,
+          "column": 30
+        },
+        "end": {
+          "line": 217,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 222,
+          "column": 26
+        },
+        "end": {
+          "line": 222,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 226,
+          "column": 34
+        },
+        "end": {
+          "line": 226,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 228,
+          "column": 50
+        },
+        "end": {
+          "line": 228,
+          "column": 65
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 228,
+          "column": 50
+        },
+        "end": {
+          "line": 228,
+          "column": 78
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 228,
+          "column": 50
+        },
+        "end": {
+          "line": 229,
+          "column": 44
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 233,
+          "column": 6
+        },
+        "end": {
+          "line": 233,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 239,
+          "column": 13
+        },
+        "end": {
+          "line": 239,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 242,
+          "column": 16
+        },
+        "end": {
+          "line": 242,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 244,
+          "column": 41
+        },
+        "end": {
+          "line": 244,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 253,
+          "column": 32
+        },
+        "end": {
+          "line": 253,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 264,
+          "column": 42
+        },
+        "end": {
+          "line": 264,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 267,
+          "column": 26
+        },
+        "end": {
+          "line": 267,
+          "column": 61
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 267,
+          "column": 16
+        },
+        "end": {
+          "line": 267,
+          "column": 78
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 270,
+          "column": 14
+        },
+        "end": {
+          "line": 270,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 269,
+          "column": 18
+        },
+        "end": {
+          "line": 270,
+          "column": 26
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 269,
+          "column": 18
+        },
+        "end": {
+          "line": 270,
+          "column": 33
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 275,
+          "column": 22
+        },
+        "end": {
+          "line": 275,
+          "column": 66
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 276,
+          "column": 32
+        },
+        "end": {
+          "line": 276,
+          "column": 56
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 277,
+          "column": 17
+        },
+        "end": {
+          "line": 277,
+          "column": 52
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 277,
+          "column": 17
+        },
+        "end": {
+          "line": 277,
+          "column": 64
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 295,
+          "column": 24
+        },
+        "end": {
+          "line": 295,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 298,
+          "column": 20
+        },
+        "end": {
+          "line": 298,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 298,
+          "column": 13
+        },
+        "end": {
+          "line": 298,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 316,
+          "column": 53
+        },
+        "end": {
+          "line": 316,
+          "column": 65
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 316,
+          "column": 17
+        },
+        "end": {
+          "line": 316,
+          "column": 65
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 316,
+          "column": 17
+        },
+        "end": {
+          "line": 316,
+          "column": 78
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 319,
+          "column": 20
+        },
+        "end": {
+          "line": 319,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 329,
+          "column": 31
+        },
+        "end": {
+          "line": 329,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 29,
+          "column": 9
+        },
+        "end": {
+          "line": 29,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 73,
+          "column": 18
+        },
+        "end": {
+          "line": 73,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 75,
+          "column": 14
+        },
+        "end": {
+          "line": 75,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 85,
+          "column": 9
+        },
+        "end": {
+          "line": 85,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 130,
+          "column": 14
+        },
+        "end": {
+          "line": 130,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 130,
+          "column": 5
+        },
+        "end": {
+          "line": 138,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 92,
+          "column": 13
+        },
+        "end": {
+          "line": 92,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 93,
+          "column": 13
+        },
+        "end": {
+          "line": 93,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 101,
+          "column": 14
+        },
+        "end": {
+          "line": 101,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 101,
+          "column": 5
+        },
+        "end": {
+          "line": 128,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 91,
+          "column": 14
+        },
+        "end": {
+          "line": 91,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 91,
+          "column": 5
+        },
+        "end": {
+          "line": 95,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 101,
+          "column": 19
+        },
+        "end": {
+          "line": 101,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 101,
+          "column": 23
+        },
+        "end": {
+          "line": 101,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 102,
+          "column": 13
+        },
+        "end": {
+          "line": 102,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 103,
+          "column": 13
+        },
+        "end": {
+          "line": 103,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 104,
+          "column": 13
+        },
+        "end": {
+          "line": 104,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 140,
+          "column": 14
+        },
+        "end": {
+          "line": 140,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 140,
+          "column": 5
+        },
+        "end": {
+          "line": 142,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 105,
+          "column": 13
+        },
+        "end": {
+          "line": 105,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 131,
+          "column": 13
+        },
+        "end": {
+          "line": 131,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 148,
+          "column": 13
+        },
+        "end": {
+          "line": 148,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 149,
+          "column": 13
+        },
+        "end": {
+          "line": 149,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 150,
+          "column": 13
+        },
+        "end": {
+          "line": 150,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 151,
+          "column": 13
+        },
+        "end": {
+          "line": 151,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 153,
+          "column": 13
+        },
+        "end": {
+          "line": 153,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 163,
+          "column": 17
+        },
+        "end": {
+          "line": 163,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 144,
+          "column": 14
+        },
+        "end": {
+          "line": 144,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 144,
+          "column": 5
+        },
+        "end": {
+          "line": 170,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 83,
+          "column": 10
+        },
+        "end": {
+          "line": 83,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 83,
+          "column": 1
+        },
+        "end": {
+          "line": 173,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 174,
+          "column": 5
+        },
+        "end": {
+          "line": 174,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 176,
+          "column": 10
+        },
+        "end": {
+          "line": 176,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 176,
+          "column": 1
+        },
+        "end": {
+          "line": 178,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 180,
+          "column": 18
+        },
+        "end": {
+          "line": 180,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 180,
+          "column": 22
+        },
+        "end": {
+          "line": 180,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 183,
+          "column": 9
+        },
+        "end": {
+          "line": 183,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 187,
+          "column": 10
+        },
+        "end": {
+          "line": 187,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 187,
+          "column": 1
+        },
+        "end": {
+          "line": 190,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 180,
+          "column": 10
+        },
+        "end": {
+          "line": 180,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 180,
+          "column": 1
+        },
+        "end": {
+          "line": 185,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 188,
+          "column": 6
+        },
+        "end": {
+          "line": 188,
+          "column": 7
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 192,
+          "column": 10
+        },
+        "end": {
+          "line": 192,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 192,
+          "column": 1
+        },
+        "end": {
+          "line": 194,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 196,
+          "column": 10
+        },
+        "end": {
+          "line": 196,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 196,
+          "column": 1
+        },
+        "end": {
+          "line": 201,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 203,
+          "column": 28
+        },
+        "end": {
+          "line": 203,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 203,
+          "column": 33
+        },
+        "end": {
+          "line": 203,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 203,
+          "column": 42
+        },
+        "end": {
+          "line": 203,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 207,
+          "column": 9
+        },
+        "end": {
+          "line": 207,
+          "column": 10
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 204,
+          "column": 28
+        },
+        "end": {
+          "line": 204,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 205,
+          "column": 39
+        },
+        "end": {
+          "line": 205,
+          "column": 57
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 204,
+          "column": 9
+        },
+        "end": {
+          "line": 204,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 205,
+          "column": 9
+        },
+        "end": {
+          "line": 205,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 233,
+          "column": 6
+        },
+        "end": {
+          "line": 233,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 204,
+          "column": 15
+        },
+        "end": {
+          "line": 204,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 204,
+          "column": 12
+        },
+        "end": {
+          "line": 204,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 204,
+          "column": 50
+        },
+        "end": {
+          "line": 204,
+          "column": 58
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 205,
+          "column": 29
+        },
+        "end": {
+          "line": 205,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 203,
+          "column": 10
+        },
+        "end": {
+          "line": 203,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 203,
+          "column": 1
+        },
+        "end": {
+          "line": 286,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 288,
+          "column": 27
+        },
+        "end": {
+          "line": 288,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 290,
+          "column": 9
+        },
+        "end": {
+          "line": 290,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 289,
+          "column": 9
+        },
+        "end": {
+          "line": 289,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 298,
+          "column": 13
+        },
+        "end": {
+          "line": 298,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 288,
+          "column": 10
+        },
+        "end": {
+          "line": 288,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 288,
+          "column": 1
+        },
+        "end": {
+          "line": 303,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 305,
+          "column": 18
+        },
+        "end": {
+          "line": 305,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 305,
+          "column": 23
+        },
+        "end": {
+          "line": 305,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 305,
+          "column": 32
+        },
+        "end": {
+          "line": 305,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 305,
+          "column": 40
+        },
+        "end": {
+          "line": 305,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 306,
+          "column": 9
+        },
+        "end": {
+          "line": 306,
+          "column": 10
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 313,
+          "column": 13
+        },
+        "end": {
+          "line": 313,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 305,
+          "column": 10
+        },
+        "end": {
+          "line": 305,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 305,
+          "column": 1
+        },
+        "end": {
+          "line": 320,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 324,
+          "column": 5
+        },
+        "end": {
+          "line": 324,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 32,
+          "column": 18
+        },
+        "end": {
+          "line": 32,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 34,
+          "column": 18
+        },
+        "end": {
+          "line": 34,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 35,
+          "column": 18
+        },
+        "end": {
+          "line": 35,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 36,
+          "column": 18
+        },
+        "end": {
+          "line": 36,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 38,
+          "column": 16
+        },
+        "end": {
+          "line": 38,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 5
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 43,
+          "column": 21
+        },
+        "end": {
+          "line": 43,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 43,
+          "column": 12
+        },
+        "end": {
+          "line": 43,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 42,
+          "column": 1
+        },
+        "end": {
+          "line": 42,
+          "column": 5
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 74,
+          "column": 27
+        },
+        "end": {
+          "line": 74,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 92,
+          "column": 18
+        },
+        "end": {
+          "line": 92,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 130,
+          "column": 5
+        },
+        "end": {
+          "line": 138,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 94,
+          "column": 26
+        },
+        "end": {
+          "line": 94,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 94,
+          "column": 17
+        },
+        "end": {
+          "line": 94,
+          "column": 21
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 94,
+          "column": 56
+        },
+        "end": {
+          "line": 94,
+          "column": 60
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 101,
+          "column": 5
+        },
+        "end": {
+          "line": 128,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 94,
+          "column": 61
+        },
+        "end": {
+          "line": 94,
+          "column": 63
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 94,
+          "column": 65
+        },
+        "end": {
+          "line": 94,
+          "column": 67
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 98,
+          "column": 16
+        },
+        "end": {
+          "line": 98,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 91,
+          "column": 5
+        },
+        "end": {
+          "line": 95,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 109,
+          "column": 32
+        },
+        "end": {
+          "line": 109,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 140,
+          "column": 5
+        },
+        "end": {
+          "line": 142,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 109,
+          "column": 23
+        },
+        "end": {
+          "line": 109,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 110,
+          "column": 31
+        },
+        "end": {
+          "line": 110,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 140,
+          "column": 5
+        },
+        "end": {
+          "line": 142,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 110,
+          "column": 22
+        },
+        "end": {
+          "line": 110,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 111,
+          "column": 24
+        },
+        "end": {
+          "line": 111,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 111,
+          "column": 28
+        },
+        "end": {
+          "line": 111,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 112,
+          "column": 36
+        },
+        "end": {
+          "line": 112,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 140,
+          "column": 5
+        },
+        "end": {
+          "line": 142,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 112,
+          "column": 27
+        },
+        "end": {
+          "line": 112,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 113,
+          "column": 35
+        },
+        "end": {
+          "line": 113,
+          "column": 38
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 140,
+          "column": 5
+        },
+        "end": {
+          "line": 142,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 113,
+          "column": 26
+        },
+        "end": {
+          "line": 113,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 115,
+          "column": 37
+        },
+        "end": {
+          "line": 115,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 115,
+          "column": 39
+        },
+        "end": {
+          "line": 115,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 118,
+          "column": 26
+        },
+        "end": {
+          "line": 118,
+          "column": 29
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 140,
+          "column": 5
+        },
+        "end": {
+          "line": 142,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 118,
+          "column": 56
+        },
+        "end": {
+          "line": 118,
+          "column": 60
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 119,
+          "column": 25
+        },
+        "end": {
+          "line": 119,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 121,
+          "column": 18
+        },
+        "end": {
+          "line": 121,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 130,
+          "column": 5
+        },
+        "end": {
+          "line": 138,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 124,
+          "column": 26
+        },
+        "end": {
+          "line": 124,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 124,
+          "column": 17
+        },
+        "end": {
+          "line": 124,
+          "column": 21
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 131,
+          "column": 18
+        },
+        "end": {
+          "line": 131,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 132,
+          "column": 19
+        },
+        "end": {
+          "line": 132,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 133,
+          "column": 9
+        },
+        "end": {
+          "line": 133,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 134,
+          "column": 9
+        },
+        "end": {
+          "line": 134,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 135,
+          "column": 9
+        },
+        "end": {
+          "line": 135,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 136,
+          "column": 15
+        },
+        "end": {
+          "line": 136,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 137,
+          "column": 17
+        },
+        "end": {
+          "line": 137,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 137,
+          "column": 20
+        },
+        "end": {
+          "line": 137,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 141,
+          "column": 27
+        },
+        "end": {
+          "line": 141,
+          "column": 31
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 130,
+          "column": 5
+        },
+        "end": {
+          "line": 138,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 141,
+          "column": 37
+        },
+        "end": {
+          "line": 141,
+          "column": 41
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 150,
+          "column": 18
+        },
+        "end": {
+          "line": 150,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 153,
+          "column": 22
+        },
+        "end": {
+          "line": 153,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 154,
+          "column": 17
+        },
+        "end": {
+          "line": 154,
+          "column": 21
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 161,
+          "column": 19
+        },
+        "end": {
+          "line": 161,
+          "column": 23
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 164,
+          "column": 55
+        },
+        "end": {
+          "line": 164,
+          "column": 59
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 164,
+          "column": 35
+        },
+        "end": {
+          "line": 164,
+          "column": 39
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 164,
+          "column": 18
+        },
+        "end": {
+          "line": 164,
+          "column": 22
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 165,
+          "column": 16
+        },
+        "end": {
+          "line": 165,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 165,
+          "column": 23
+        },
+        "end": {
+          "line": 165,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 166,
+          "column": 18
+        },
+        "end": {
+          "line": 166,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 167,
+          "column": 21
+        },
+        "end": {
+          "line": 167,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 172,
+          "column": 5
+        },
+        "end": {
+          "line": 172,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 144,
+          "column": 5
+        },
+        "end": {
+          "line": 170,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 174,
+          "column": 20
+        },
+        "end": {
+          "line": 174,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 83,
+          "column": 1
+        },
+        "end": {
+          "line": 173,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 177,
+          "column": 12
+        },
+        "end": {
+          "line": 177,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 184,
+          "column": 13
+        },
+        "end": {
+          "line": 184,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 187,
+          "column": 1
+        },
+        "end": {
+          "line": 190,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 184,
+          "column": 31
+        },
+        "end": {
+          "line": 184,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 188,
+          "column": 10
+        },
+        "end": {
+          "line": 188,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 188,
+          "column": 35
+        },
+        "end": {
+          "line": 188,
+          "column": 39
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 189,
+          "column": 20
+        },
+        "end": {
+          "line": 189,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 189,
+          "column": 9
+        },
+        "end": {
+          "line": 189,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 189,
+          "column": 36
+        },
+        "end": {
+          "line": 189,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 189,
+          "column": 25
+        },
+        "end": {
+          "line": 189,
+          "column": 29
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 189,
+          "column": 51
+        },
+        "end": {
+          "line": 189,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 189,
+          "column": 41
+        },
+        "end": {
+          "line": 189,
+          "column": 45
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 193,
+          "column": 25
+        },
+        "end": {
+          "line": 193,
+          "column": 29
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 187,
+          "column": 1
+        },
+        "end": {
+          "line": 190,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 210,
+          "column": 18
+        },
+        "end": {
+          "line": 210,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 210,
+          "column": 5
+        },
+        "end": {
+          "line": 210,
+          "column": 6
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 211,
+          "column": 18
+        },
+        "end": {
+          "line": 211,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 211,
+          "column": 5
+        },
+        "end": {
+          "line": 211,
+          "column": 6
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 212,
+          "column": 5
+        },
+        "end": {
+          "line": 212,
+          "column": 6
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 213,
+          "column": 5
+        },
+        "end": {
+          "line": 213,
+          "column": 6
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 214,
+          "column": 33
+        },
+        "end": {
+          "line": 214,
+          "column": 34
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 214,
+          "column": 22
+        },
+        "end": {
+          "line": 214,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 214,
+          "column": 5
+        },
+        "end": {
+          "line": 214,
+          "column": 6
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 215,
+          "column": 24
+        },
+        "end": {
+          "line": 215,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 215,
+          "column": 5
+        },
+        "end": {
+          "line": 215,
+          "column": 6
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 217,
+          "column": 30
+        },
+        "end": {
+          "line": 217,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 217,
+          "column": 18
+        },
+        "end": {
+          "line": 217,
+          "column": 29
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 217,
+          "column": 5
+        },
+        "end": {
+          "line": 217,
+          "column": 6
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 218,
+          "column": 30
+        },
+        "end": {
+          "line": 218,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 218,
+          "column": 18
+        },
+        "end": {
+          "line": 218,
+          "column": 29
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 218,
+          "column": 5
+        },
+        "end": {
+          "line": 218,
+          "column": 6
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 220,
+          "column": 5
+        },
+        "end": {
+          "line": 220,
+          "column": 6
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 222,
+          "column": 28
+        },
+        "end": {
+          "line": 222,
+          "column": 29
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 223,
+          "column": 27
+        },
+        "end": {
+          "line": 223,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 223,
+          "column": 39
+        },
+        "end": {
+          "line": 223,
+          "column": 57
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 223,
+          "column": 18
+        },
+        "end": {
+          "line": 223,
+          "column": 22
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 224,
+          "column": 31
+        },
+        "end": {
+          "line": 224,
+          "column": 32
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 224,
+          "column": 21
+        },
+        "end": {
+          "line": 224,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 226,
+          "column": 34
+        },
+        "end": {
+          "line": 226,
+          "column": 35
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 226,
+          "column": 23
+        },
+        "end": {
+          "line": 226,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 227,
+          "column": 16
+        },
+        "end": {
+          "line": 227,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 228,
+          "column": 50
+        },
+        "end": {
+          "line": 228,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 228,
+          "column": 68
+        },
+        "end": {
+          "line": 228,
+          "column": 69
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 228,
+          "column": 38
+        },
+        "end": {
+          "line": 228,
+          "column": 45
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 231,
+          "column": 27
+        },
+        "end": {
+          "line": 231,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 176,
+          "column": 1
+        },
+        "end": {
+          "line": 178,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 232,
+          "column": 28
+        },
+        "end": {
+          "line": 232,
+          "column": 29
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 232,
+          "column": 6
+        },
+        "end": {
+          "line": 232,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 233,
+          "column": 28
+        },
+        "end": {
+          "line": 233,
+          "column": 29
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 237,
+          "column": 45
+        },
+        "end": {
+          "line": 237,
+          "column": 63
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 237,
+          "column": 34
+        },
+        "end": {
+          "line": 237,
+          "column": 38
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 237,
+          "column": 25
+        },
+        "end": {
+          "line": 237,
+          "column": 29
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 239,
+          "column": 6
+        },
+        "end": {
+          "line": 239,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 239,
+          "column": 13
+        },
+        "end": {
+          "line": 239,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 239,
+          "column": 20
+        },
+        "end": {
+          "line": 239,
+          "column": 21
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 239,
+          "column": 32
+        },
+        "end": {
+          "line": 239,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 242,
+          "column": 9
+        },
+        "end": {
+          "line": 242,
+          "column": 10
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 242,
+          "column": 16
+        },
+        "end": {
+          "line": 242,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 242,
+          "column": 23
+        },
+        "end": {
+          "line": 242,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 243,
+          "column": 22
+        },
+        "end": {
+          "line": 243,
+          "column": 23
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 244,
+          "column": 34
+        },
+        "end": {
+          "line": 244,
+          "column": 35
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 244,
+          "column": 41
+        },
+        "end": {
+          "line": 244,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 244,
+          "column": 23
+        },
+        "end": {
+          "line": 244,
+          "column": 33
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 244,
+          "column": 10
+        },
+        "end": {
+          "line": 244,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 245,
+          "column": 10
+        },
+        "end": {
+          "line": 245,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 248,
+          "column": 17
+        },
+        "end": {
+          "line": 248,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 253,
+          "column": 32
+        },
+        "end": {
+          "line": 253,
+          "column": 33
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 253,
+          "column": 21
+        },
+        "end": {
+          "line": 253,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 180,
+          "column": 1
+        },
+        "end": {
+          "line": 185,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 258,
+          "column": 14
+        },
+        "end": {
+          "line": 258,
+          "column": 15
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 258,
+          "column": 21
+        },
+        "end": {
+          "line": 258,
+          "column": 22
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 258,
+          "column": 31
+        },
+        "end": {
+          "line": 258,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 258,
+          "column": 36
+        },
+        "end": {
+          "line": 258,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 264,
+          "column": 16
+        },
+        "end": {
+          "line": 264,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 264,
+          "column": 24
+        },
+        "end": {
+          "line": 264,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 264,
+          "column": 35
+        },
+        "end": {
+          "line": 264,
+          "column": 36
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 264,
+          "column": 42
+        },
+        "end": {
+          "line": 264,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 264,
+          "column": 6
+        },
+        "end": {
+          "line": 264,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 196,
+          "column": 1
+        },
+        "end": {
+          "line": 201,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 267,
+          "column": 26
+        },
+        "end": {
+          "line": 267,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 267,
+          "column": 43
+        },
+        "end": {
+          "line": 267,
+          "column": 44
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 267,
+          "column": 50
+        },
+        "end": {
+          "line": 267,
+          "column": 51
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 267,
+          "column": 17
+        },
+        "end": {
+          "line": 267,
+          "column": 21
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 267,
+          "column": 64
+        },
+        "end": {
+          "line": 267,
+          "column": 65
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 269,
+          "column": 6
+        },
+        "end": {
+          "line": 269,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 272,
+          "column": 22
+        },
+        "end": {
+          "line": 272,
+          "column": 23
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 272,
+          "column": 29
+        },
+        "end": {
+          "line": 272,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 272,
+          "column": 5
+        },
+        "end": {
+          "line": 272,
+          "column": 6
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 273,
+          "column": 43
+        },
+        "end": {
+          "line": 273,
+          "column": 44
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 273,
+          "column": 5
+        },
+        "end": {
+          "line": 273,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 275,
+          "column": 22
+        },
+        "end": {
+          "line": 275,
+          "column": 23
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 275,
+          "column": 44
+        },
+        "end": {
+          "line": 275,
+          "column": 45
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 275,
+          "column": 55
+        },
+        "end": {
+          "line": 275,
+          "column": 56
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 275,
+          "column": 5
+        },
+        "end": {
+          "line": 275,
+          "column": 6
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 276,
+          "column": 32
+        },
+        "end": {
+          "line": 276,
+          "column": 33
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 276,
+          "column": 21
+        },
+        "end": {
+          "line": 276,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 276,
+          "column": 5
+        },
+        "end": {
+          "line": 276,
+          "column": 6
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 277,
+          "column": 38
+        },
+        "end": {
+          "line": 277,
+          "column": 39
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 277,
+          "column": 67
+        },
+        "end": {
+          "line": 277,
+          "column": 68
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 277,
+          "column": 5
+        },
+        "end": {
+          "line": 277,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 279,
+          "column": 29
+        },
+        "end": {
+          "line": 279,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 279,
+          "column": 16
+        },
+        "end": {
+          "line": 279,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 279,
+          "column": 5
+        },
+        "end": {
+          "line": 279,
+          "column": 6
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 280,
+          "column": 16
+        },
+        "end": {
+          "line": 280,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 281,
+          "column": 9
+        },
+        "end": {
+          "line": 281,
+          "column": 10
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 281,
+          "column": 19
+        },
+        "end": {
+          "line": 281,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 192,
+          "column": 1
+        },
+        "end": {
+          "line": 194,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 282,
+          "column": 15
+        },
+        "end": {
+          "line": 282,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 283,
+          "column": 13
+        },
+        "end": {
+          "line": 283,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 283,
+          "column": 23
+        },
+        "end": {
+          "line": 283,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 192,
+          "column": 1
+        },
+        "end": {
+          "line": 194,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 285,
+          "column": 12
+        },
+        "end": {
+          "line": 285,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 295,
+          "column": 24
+        },
+        "end": {
+          "line": 295,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 301,
+          "column": 20
+        },
+        "end": {
+          "line": 301,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 306,
+          "column": 13
+        },
+        "end": {
+          "line": 306,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 203,
+          "column": 1
+        },
+        "end": {
+          "line": 286,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 306,
+          "column": 31
+        },
+        "end": {
+          "line": 306,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 306,
+          "column": 36
+        },
+        "end": {
+          "line": 306,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 306,
+          "column": 45
+        },
+        "end": {
+          "line": 306,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 307,
+          "column": 17
+        },
+        "end": {
+          "line": 307,
+          "column": 29
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 307,
+          "column": 30
+        },
+        "end": {
+          "line": 307,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 308,
+          "column": 17
+        },
+        "end": {
+          "line": 308,
+          "column": 29
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 308,
+          "column": 30
+        },
+        "end": {
+          "line": 308,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 309,
+          "column": 19
+        },
+        "end": {
+          "line": 309,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 309,
+          "column": 32
+        },
+        "end": {
+          "line": 309,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 310,
+          "column": 67
+        },
+        "end": {
+          "line": 310,
+          "column": 72
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 192,
+          "column": 1
+        },
+        "end": {
+          "line": 194,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 312,
+          "column": 15
+        },
+        "end": {
+          "line": 312,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 313,
+          "column": 50
+        },
+        "end": {
+          "line": 313,
+          "column": 51
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 313,
+          "column": 61
+        },
+        "end": {
+          "line": 313,
+          "column": 62
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 313,
+          "column": 69
+        },
+        "end": {
+          "line": 313,
+          "column": 70
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 313,
+          "column": 41
+        },
+        "end": {
+          "line": 313,
+          "column": 49
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 288,
+          "column": 1
+        },
+        "end": {
+          "line": 303,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 313,
+          "column": 56
+        },
+        "end": {
+          "line": 313,
+          "column": 59
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 314,
+          "column": 14
+        },
+        "end": {
+          "line": 314,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 316,
+          "column": 5
+        },
+        "end": {
+          "line": 316,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 318,
+          "column": 37
+        },
+        "end": {
+          "line": 318,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 318,
+          "column": 42
+        },
+        "end": {
+          "line": 318,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 318,
+          "column": 51
+        },
+        "end": {
+          "line": 318,
+          "column": 57
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 324,
+          "column": 21
+        },
+        "end": {
+          "line": 324,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 324,
+          "column": 48
+        },
+        "end": {
+          "line": 324,
+          "column": 58
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 325,
+          "column": 1
+        },
+        "end": {
+          "line": 325,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 325,
+          "column": 23
+        },
+        "end": {
+          "line": 325,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 326,
+          "column": 15
+        },
+        "end": {
+          "line": 326,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 327,
+          "column": 1
+        },
+        "end": {
+          "line": 327,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "spmv.js",
+        "start": {
+          "line": 305,
+          "column": 1
+        },
+        "end": {
+          "line": 320,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 328,
+          "column": 13
+        },
+        "end": {
+          "line": 328,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "spmv.js",
+        "start": {
+          "line": 329,
+          "column": 19
+        },
+        "end": {
+          "line": 329,
+          "column": 23
+        }
+      },
+      "type": "object"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "87:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "88:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "89:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "72:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "function"
+      ]
+    },
+    {
+      "location": "74:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "function"
+      ]
+    },
+    {
+      "location": "76:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "77:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "87:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "function"
+      ]
+    },
+    {
+      "location": "88:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "function"
+      ]
+    },
+    {
+      "location": "89:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "function"
+      ]
+    },
+    {
+      "location": "94:32",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "94:47",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "107:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "118:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "118:35",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "118:46",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "124:32",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "125:30",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "154:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "155:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "157:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "158:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "160:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "161:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "165:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "167:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "168:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "197:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "function"
+      ]
+    },
+    {
+      "location": "310:5",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "function"
+      ]
+    }
+  ]
+}

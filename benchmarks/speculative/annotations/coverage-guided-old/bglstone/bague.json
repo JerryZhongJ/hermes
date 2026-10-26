@@ -1,0 +1,1403 @@
+{
+  "static shapes": {},
+  "shape guards": [],
+  "shape bindings": [],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 36,
+          "column": 13
+        },
+        "end": {
+          "line": 36,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 37,
+          "column": 12
+        },
+        "end": {
+          "line": 37,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 42,
+          "column": 13
+        },
+        "end": {
+          "line": 42,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 43,
+          "column": 12
+        },
+        "end": {
+          "line": 43,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 52,
+          "column": 15
+        },
+        "end": {
+          "line": 52,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 54,
+          "column": 12
+        },
+        "end": {
+          "line": 54,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 59,
+          "column": 24
+        },
+        "end": {
+          "line": 59,
+          "column": 31
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 31,
+          "column": 19
+        },
+        "end": {
+          "line": 31,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 41,
+          "column": 26
+        },
+        "end": {
+          "line": 41,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 47,
+          "column": 30
+        },
+        "end": {
+          "line": 47,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 68,
+          "column": 25
+        },
+        "end": {
+          "line": 68,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 75,
+          "column": 23
+        },
+        "end": {
+          "line": 75,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 83,
+          "column": 20
+        },
+        "end": {
+          "line": 83,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 102,
+          "column": 21
+        },
+        "end": {
+          "line": 102,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 142,
+          "column": 23
+        },
+        "end": {
+          "line": 142,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 22,
+          "column": 20
+        },
+        "end": {
+          "line": 22,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 82,
+          "column": 15
+        },
+        "end": {
+          "line": 82,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 36,
+          "column": 13
+        },
+        "end": {
+          "line": 36,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 37,
+          "column": 12
+        },
+        "end": {
+          "line": 37,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 42,
+          "column": 13
+        },
+        "end": {
+          "line": 42,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 43,
+          "column": 12
+        },
+        "end": {
+          "line": 43,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 52,
+          "column": 15
+        },
+        "end": {
+          "line": 52,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 54,
+          "column": 12
+        },
+        "end": {
+          "line": 54,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 59,
+          "column": 24
+        },
+        "end": {
+          "line": 59,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 86,
+          "column": 6
+        },
+        "end": {
+          "line": 86,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 68,
+          "column": 1
+        },
+        "end": {
+          "line": 73,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 90,
+          "column": 6
+        },
+        "end": {
+          "line": 90,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 68,
+          "column": 1
+        },
+        "end": {
+          "line": 73,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 91,
+          "column": 6
+        },
+        "end": {
+          "line": 91,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 68,
+          "column": 1
+        },
+        "end": {
+          "line": 73,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 96,
+          "column": 6
+        },
+        "end": {
+          "line": 96,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 68,
+          "column": 1
+        },
+        "end": {
+          "line": 73,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 105,
+          "column": 6
+        },
+        "end": {
+          "line": 105,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 75,
+          "column": 1
+        },
+        "end": {
+          "line": 80,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 109,
+          "column": 6
+        },
+        "end": {
+          "line": 109,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 75,
+          "column": 1
+        },
+        "end": {
+          "line": 80,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 110,
+          "column": 6
+        },
+        "end": {
+          "line": 110,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 75,
+          "column": 1
+        },
+        "end": {
+          "line": 80,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 116,
+          "column": 6
+        },
+        "end": {
+          "line": 116,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 75,
+          "column": 1
+        },
+        "end": {
+          "line": 80,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 70,
+          "column": 8
+        },
+        "end": {
+          "line": 70,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 47,
+          "column": 1
+        },
+        "end": {
+          "line": 66,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 77,
+          "column": 8
+        },
+        "end": {
+          "line": 77,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 47,
+          "column": 1
+        },
+        "end": {
+          "line": 66,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 71,
+          "column": 7
+        },
+        "end": {
+          "line": 71,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 35,
+          "column": 1
+        },
+        "end": {
+          "line": 39,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 78,
+          "column": 7
+        },
+        "end": {
+          "line": 78,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 41,
+          "column": 1
+        },
+        "end": {
+          "line": 45,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 121,
+          "column": 4
+        },
+        "end": {
+          "line": 121,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 151,
+          "column": 13
+        },
+        "end": {
+          "line": 151,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 82,
+          "column": 1
+        },
+        "end": {
+          "line": 140,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 97,
+          "column": 14
+        },
+        "end": {
+          "line": 97,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 117,
+          "column": 14
+        },
+        "end": {
+          "line": 117,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 142,
+          "column": 16
+        },
+        "end": {
+          "line": 142,
+          "column": 21
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 139,
+          "column": 20
+        },
+        "end": {
+          "line": 139,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 139,
+          "column": 41
+        },
+        "end": {
+          "line": 139,
+          "column": 56
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 20
+        },
+        "end": {
+          "line": 165,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 28
+        },
+        "end": {
+          "line": 165,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 163,
+          "column": 1
+        },
+        "end": {
+          "line": 163,
+          "column": 5
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 142,
+          "column": 1
+        },
+        "end": {
+          "line": 155,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 35,
+          "column": 28
+        },
+        "end": {
+          "line": 35,
+          "column": 29
+        }
+      },
+      "type": "number"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "36:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "la_case",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "37:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "la_case",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "42:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "la_case",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "43:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "la_case",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "52:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "la_case",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "54:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "la_case",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "59:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "la_case",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "70:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "autorise_mouvement",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "77:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "autorise_mouvement",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "71:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "enleve_la_pierre",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "78:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pose_la_pierre",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "86:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "enleve_pierre",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "90:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "enleve_pierre",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "91:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "enleve_pierre",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "96:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "enleve_pierre",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "105:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pose_pierre",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "109:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pose_pierre",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "110:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pose_pierre",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "116:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pose_pierre",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "121:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "init_jeu",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "151:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "run",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "163:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "main",
+      "note": "Global/module-scope function load: the producing scope object has no bindable source expression, so no static shape can be attached; closure type-guards were added at each use and optimized the following calls but cannot make the property load itself a direct slot read."
+    },
+    {
+      "location": "147:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "147:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "150:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "150:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "154:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "154:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "24:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "160:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "160:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "160:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "161:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "161:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "161:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "161:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "162:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "162:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "164:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "164:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "165:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "165:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__end",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "165:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__start",
+      "note": "Load from a host/external object (console, Math-like builtins, globalThis, performance, Date, print) or from a global var whose receiver object is external/runtime-provided and has no in-file creation site that can be bound to a static shape; the property value (e.g. host log/now/print) has no in-file closure target."
+    },
+    {
+      "location": "14:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "la_case",
+      "note": "One-time top-level hoisting store of a function declaration into the module/global scope object; that receiver has no bindable source expression and no static shape can be established for it."
+    },
+    {
+      "location": "14:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "init_jeu",
+      "note": "One-time top-level hoisting store of a function declaration into the module/global scope object; that receiver has no bindable source expression and no static shape can be established for it."
+    },
+    {
+      "location": "14:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "enleve_la_pierre",
+      "note": "One-time top-level hoisting store of a function declaration into the module/global scope object; that receiver has no bindable source expression and no static shape can be established for it."
+    },
+    {
+      "location": "14:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "pose_la_pierre",
+      "note": "One-time top-level hoisting store of a function declaration into the module/global scope object; that receiver has no bindable source expression and no static shape can be established for it."
+    },
+    {
+      "location": "14:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "autorise_mouvement",
+      "note": "One-time top-level hoisting store of a function declaration into the module/global scope object; that receiver has no bindable source expression and no static shape can be established for it."
+    },
+    {
+      "location": "14:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "enleve_pierre",
+      "note": "One-time top-level hoisting store of a function declaration into the module/global scope object; that receiver has no bindable source expression and no static shape can be established for it."
+    },
+    {
+      "location": "14:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "pose_pierre",
+      "note": "One-time top-level hoisting store of a function declaration into the module/global scope object; that receiver has no bindable source expression and no static shape can be established for it."
+    },
+    {
+      "location": "14:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "run",
+      "note": "One-time top-level hoisting store of a function declaration into the module/global scope object; that receiver has no bindable source expression and no static shape can be established for it."
+    },
+    {
+      "location": "14:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "main",
+      "note": "One-time top-level hoisting store of a function declaration into the module/global scope object; that receiver has no bindable source expression and no static shape can be established for it."
+    },
+    {
+      "location": "160:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__performance",
+      "note": "Store into the global scope object or into the runtime/globalThis-external object (or the __performance var whose value is the host performance object); none of these receivers has an in-file creation site that can carry a static shape binding."
+    },
+    {
+      "location": "160:71",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "Store into the global scope object or into the runtime/globalThis-external object (or the __performance var whose value is the host performance object); none of these receivers has an in-file creation site that can carry a static shape binding."
+    },
+    {
+      "location": "161:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "Store into the global scope object or into the runtime/globalThis-external object (or the __performance var whose value is the host performance object); none of these receivers has an in-file creation site that can carry a static shape binding."
+    },
+    {
+      "location": "162:13",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__start",
+      "note": "Store into the global scope object or into the runtime/globalThis-external object (or the __performance var whose value is the host performance object); none of these receivers has an in-file creation site that can carry a static shape binding."
+    },
+    {
+      "location": "164:11",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__end",
+      "note": "Store into the global scope object or into the runtime/globalThis-external object (or the __performance var whose value is the host performance object); none of these receivers has an in-file creation site that can carry a static shape binding."
+    },
+    {
+      "location": "95:11",
+      "kind": "call",
+      "reason": "other",
+      "note": "Call to a local closure variable (bague/repose) that is self- or mutually-recursive (and bague called from run inlines a recursive body); the compiler does not inline recursive calls and a closure type guard on the callee reference does not attach to the closure-environment load, so the call stays generic."
+    },
+    {
+      "location": "97:12",
+      "kind": "call",
+      "reason": "other",
+      "note": "Call to a local closure variable (bague/repose) that is self- or mutually-recursive (and bague called from run inlines a recursive body); the compiler does not inline recursive calls and a closure type guard on the callee reference does not attach to the closure-environment load, so the call stays generic."
+    },
+    {
+      "location": "98:11",
+      "kind": "call",
+      "reason": "other",
+      "note": "Call to a local closure variable (bague/repose) that is self- or mutually-recursive (and bague called from run inlines a recursive body); the compiler does not inline recursive calls and a closure type guard on the callee reference does not attach to the closure-environment load, so the call stays generic."
+    },
+    {
+      "location": "114:12",
+      "kind": "call",
+      "reason": "other",
+      "note": "Call to a local closure variable (bague/repose) that is self- or mutually-recursive (and bague called from run inlines a recursive body); the compiler does not inline recursive calls and a closure type guard on the callee reference does not attach to the closure-environment load, so the call stays generic."
+    },
+    {
+      "location": "115:11",
+      "kind": "call",
+      "reason": "other",
+      "note": "Call to a local closure variable (bague/repose) that is self- or mutually-recursive (and bague called from run inlines a recursive body); the compiler does not inline recursive calls and a closure type guard on the callee reference does not attach to the closure-environment load, so the call stays generic."
+    },
+    {
+      "location": "117:12",
+      "kind": "call",
+      "reason": "other",
+      "note": "Call to a local closure variable (bague/repose) that is self- or mutually-recursive (and bague called from run inlines a recursive body); the compiler does not inline recursive calls and a closure type guard on the callee reference does not attach to the closure-environment load, so the call stays generic."
+    },
+    {
+      "location": "122:9",
+      "kind": "call",
+      "reason": "other",
+      "note": "Call to a local closure variable (bague/repose) that is self- or mutually-recursive (and bague called from run inlines a recursive body); the compiler does not inline recursive calls and a closure type guard on the callee reference does not attach to the closure-environment load, so the call stays generic."
+    },
+    {
+      "location": "147:15",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "log",
+      "note": "Call to a host/builtin function (console.log, Array, performance.now/Date.now, print) with no in-file closure target to inline, or (main) a call whose callee is only reachable through the unshaped global-scope load; a closure type guard does not attach to that top-level global load."
+    },
+    {
+      "location": "150:38",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "log",
+      "note": "Call to a host/builtin function (console.log, Array, performance.now/Date.now, print) with no in-file closure target to inline, or (main) a call whose callee is only reachable through the unshaped global-scope load; a closure type guard does not attach to that top-level global load."
+    },
+    {
+      "location": "154:15",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "log",
+      "note": "Call to a host/builtin function (console.log, Array, performance.now/Date.now, print) with no in-file closure target to inline, or (main) a call whose callee is only reachable through the unshaped global-scope load; a closure type guard does not attach to that top-level global load."
+    },
+    {
+      "location": "24:19",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Array",
+      "note": "Call to a host/builtin function (console.log, Array, performance.now/Date.now, print) with no in-file closure target to inline, or (main) a call whose callee is only reachable through the unshaped global-scope load; a closure type guard does not attach to that top-level global load."
+    },
+    {
+      "location": "162:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "Call to a host/builtin function (console.log, Array, performance.now/Date.now, print) with no in-file closure target to inline, or (main) a call whose callee is only reachable through the unshaped global-scope load; a closure type guard does not attach to that top-level global load."
+    },
+    {
+      "location": "164:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "Call to a host/builtin function (console.log, Array, performance.now/Date.now, print) with no in-file closure target to inline, or (main) a call whose callee is only reachable through the unshaped global-scope load; a closure type guard does not attach to that top-level global load."
+    },
+    {
+      "location": "165:6",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "Call to a host/builtin function (console.log, Array, performance.now/Date.now, print) with no in-file closure target to inline, or (main) a call whose callee is only reachable through the unshaped global-scope load; a closure type guard does not attach to that top-level global load."
+    },
+    {
+      "location": "163:5",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "main",
+      "note": "Call to a host/builtin function (console.log, Array, performance.now/Date.now, print) with no in-file closure target to inline, or (main) a call whose callee is only reachable through the unshaped global-scope load; a closure type guard does not attach to that top-level global load."
+    },
+    {
+      "location": "36:8",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Strict comparison/numeric op against the result of an array element read (jeu[...]) of a mutable global array. The element type cannot be proven numeric (arrays are not expressible as static shapes), and a number type guard on the element-load expression has no IR effect, so the operand is maybe-not-number and the op stays generic."
+    },
+    {
+      "location": "42:8",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Strict comparison/numeric op against the result of an array element read (jeu[...]) of a mutable global array. The element type cannot be proven numeric (arrays are not expressible as static shapes), and a number type guard on the element-load expression has no IR effect, so the operand is maybe-not-number and the op stays generic."
+    },
+    {
+      "location": "52:10",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Strict comparison/numeric op against the result of an array element read (jeu[...]) of a mutable global array. The element type cannot be proven numeric (arrays are not expressible as static shapes), and a number type guard on the element-load expression has no IR effect, so the operand is maybe-not-number and the op stays generic."
+    },
+    {
+      "location": "54:7",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Strict comparison/numeric op against the result of an array element read (jeu[...]) of a mutable global array. The element type cannot be proven numeric (arrays are not expressible as static shapes), and a number type guard on the element-load expression has no IR effect, so the operand is maybe-not-number and the op stays generic."
+    },
+    {
+      "location": "60:16",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Strict comparison/numeric op against the result of an array element read (jeu[...]) of a mutable global array. The element type cannot be proven numeric (arrays are not expressible as static shapes), and a number type guard on the element-load expression has no IR effect, so the operand is maybe-not-number and the op stays generic."
+    },
+    {
+      "location": "97:14",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "97:14/117:14: subtraction in the argument of a recursive closure call; the entry number guard on n is killed by earlier non-inlined recursive calls and a fresh use-site number guard has no attachable IR. 139:11/165:8: string-concat chains whose mixed string+number operand cannot be specialized despite operand number/string guards (no effect). 160:21/161:19: nullish-coalescing on host globalThis/performance values with no typed source."
+    },
+    {
+      "location": "117:14",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "97:14/117:14: subtraction in the argument of a recursive closure call; the entry number guard on n is killed by earlier non-inlined recursive calls and a fresh use-site number guard has no attachable IR. 139:11/165:8: string-concat chains whose mixed string+number operand cannot be specialized despite operand number/string guards (no effect). 160:21/161:19: nullish-coalescing on host globalThis/performance values with no typed source."
+    },
+    {
+      "location": "139:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "97:14/117:14: subtraction in the argument of a recursive closure call; the entry number guard on n is killed by earlier non-inlined recursive calls and a fresh use-site number guard has no attachable IR. 139:11/165:8: string-concat chains whose mixed string+number operand cannot be specialized despite operand number/string guards (no effect). 160:21/161:19: nullish-coalescing on host globalThis/performance values with no typed source."
+    },
+    {
+      "location": "160:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "97:14/117:14: subtraction in the argument of a recursive closure call; the entry number guard on n is killed by earlier non-inlined recursive calls and a fresh use-site number guard has no attachable IR. 139:11/165:8: string-concat chains whose mixed string+number operand cannot be specialized despite operand number/string guards (no effect). 160:21/161:19: nullish-coalescing on host globalThis/performance values with no typed source."
+    },
+    {
+      "location": "161:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "97:14/117:14: subtraction in the argument of a recursive closure call; the entry number guard on n is killed by earlier non-inlined recursive calls and a fresh use-site number guard has no attachable IR. 139:11/165:8: string-concat chains whose mixed string+number operand cannot be specialized despite operand number/string guards (no effect). 160:21/161:19: nullish-coalescing on host globalThis/performance values with no typed source."
+    },
+    {
+      "location": "165:8",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "97:14/117:14: subtraction in the argument of a recursive closure call; the entry number guard on n is killed by earlier non-inlined recursive calls and a fresh use-site number guard has no attachable IR. 139:11/165:8: string-concat chains whose mixed string+number operand cannot be specialized despite operand number/string guards (no effect). 160:21/161:19: nullish-coalescing on host globalThis/performance values with no typed source."
+    }
+  ]
+}

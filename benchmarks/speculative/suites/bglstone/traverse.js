@@ -1,11 +1,3 @@
-// Imported from https://github.com/manuel-serrano/jsbench
-// Commit: 7c8fc4e58d2a5c7980c207d302b1d1cb18308a5c
-// Source: bglstone/traverse.js
-// Adaptation: benchmarks/speculative/import_hopc.py
-(function() {
-"use strict";
-var __hopcStart = performance.now();
-
 "use strict";
 
 var LIMIT = 2000;
@@ -235,21 +227,24 @@ function main( bench, n ) {
    const k = Math.round( n / 10 );
    let i = 1;
    
-   print( bench + "(", n, ")..." );
+   console.log( bench + "(", n, ")..." );
    
    while( n-- > 0 ) {
-      if( n % k === 0 ) { print( i++ ); }
+      if( n % k === 0 ) { console.log( i++ ); }
       runTraverse( 5 );
    }
 
    runTraverse( 1 );
 }
 
-const N = 60;
+// Static Hermes benchmark runner: fixed N, timed with performance.now
+const N = 25;
 
-main( "traverse", N ); 
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+main( "traverse", N );
+var __end = __performance.now();
+print( "Time: " + (__end - __start) );
 
-     print( "S=", S );
-
-print('Time: ' + (performance.now() - __hopcStart));
-})();
+console.log( "S=", S );

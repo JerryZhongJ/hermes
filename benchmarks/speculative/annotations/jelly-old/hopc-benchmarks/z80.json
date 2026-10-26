@@ -1,0 +1,6411 @@
+{
+  "static shapes": {},
+  "shape bindings": [],
+  "shape guards": [],
+  "type guards": [
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 21,
+          "column": 11
+        },
+        "end": {
+          "line": 21,
+          "column": 18
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 131,
+          "column": 16
+        },
+        "end": {
+          "line": 131,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 134,
+          "column": 20
+        },
+        "end": {
+          "line": 134,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 144,
+          "column": 20
+        },
+        "end": {
+          "line": 144,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 154,
+          "column": 19
+        },
+        "end": {
+          "line": 154,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 164,
+          "column": 23
+        },
+        "end": {
+          "line": 164,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 171,
+          "column": 16
+        },
+        "end": {
+          "line": 178,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 182,
+          "column": 23
+        },
+        "end": {
+          "line": 182,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 183,
+          "column": 23
+        },
+        "end": {
+          "line": 183,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 184,
+          "column": 23
+        },
+        "end": {
+          "line": 184,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 185,
+          "column": 23
+        },
+        "end": {
+          "line": 185,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 186,
+          "column": 23
+        },
+        "end": {
+          "line": 186,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 187,
+          "column": 24
+        },
+        "end": {
+          "line": 187,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 188,
+          "column": 23
+        },
+        "end": {
+          "line": 188,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 189,
+          "column": 23
+        },
+        "end": {
+          "line": 189,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 199,
+          "column": 23
+        },
+        "end": {
+          "line": 199,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 206,
+          "column": 16
+        },
+        "end": {
+          "line": 206,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 210,
+          "column": 18
+        },
+        "end": {
+          "line": 210,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 211,
+          "column": 18
+        },
+        "end": {
+          "line": 211,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 218,
+          "column": 16
+        },
+        "end": {
+          "line": 218,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 222,
+          "column": 22
+        },
+        "end": {
+          "line": 222,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 223,
+          "column": 22
+        },
+        "end": {
+          "line": 223,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 233,
+          "column": 19
+        },
+        "end": {
+          "line": 233,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 243,
+          "column": 23
+        },
+        "end": {
+          "line": 243,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 253,
+          "column": 19
+        },
+        "end": {
+          "line": 253,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 263,
+          "column": 23
+        },
+        "end": {
+          "line": 263,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 270,
+          "column": 16
+        },
+        "end": {
+          "line": 270,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 274,
+          "column": 18
+        },
+        "end": {
+          "line": 274,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 275,
+          "column": 18
+        },
+        "end": {
+          "line": 275,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 282,
+          "column": 16
+        },
+        "end": {
+          "line": 282,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 286,
+          "column": 22
+        },
+        "end": {
+          "line": 286,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 287,
+          "column": 22
+        },
+        "end": {
+          "line": 287,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 297,
+          "column": 19
+        },
+        "end": {
+          "line": 297,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 307,
+          "column": 23
+        },
+        "end": {
+          "line": 307,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 317,
+          "column": 19
+        },
+        "end": {
+          "line": 317,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 327,
+          "column": 23
+        },
+        "end": {
+          "line": 327,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 334,
+          "column": 16
+        },
+        "end": {
+          "line": 334,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 338,
+          "column": 18
+        },
+        "end": {
+          "line": 338,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 339,
+          "column": 18
+        },
+        "end": {
+          "line": 339,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 346,
+          "column": 16
+        },
+        "end": {
+          "line": 346,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 350,
+          "column": 22
+        },
+        "end": {
+          "line": 350,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 351,
+          "column": 22
+        },
+        "end": {
+          "line": 351,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 361,
+          "column": 19
+        },
+        "end": {
+          "line": 361,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 371,
+          "column": 23
+        },
+        "end": {
+          "line": 371,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 381,
+          "column": 19
+        },
+        "end": {
+          "line": 381,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 391,
+          "column": 23
+        },
+        "end": {
+          "line": 391,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 398,
+          "column": 16
+        },
+        "end": {
+          "line": 398,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 402,
+          "column": 18
+        },
+        "end": {
+          "line": 402,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 403,
+          "column": 18
+        },
+        "end": {
+          "line": 403,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 410,
+          "column": 16
+        },
+        "end": {
+          "line": 410,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 414,
+          "column": 22
+        },
+        "end": {
+          "line": 414,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 415,
+          "column": 22
+        },
+        "end": {
+          "line": 415,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 425,
+          "column": 19
+        },
+        "end": {
+          "line": 425,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 435,
+          "column": 19
+        },
+        "end": {
+          "line": 435,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 442,
+          "column": 16
+        },
+        "end": {
+          "line": 442,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 445,
+          "column": 19
+        },
+        "end": {
+          "line": 445,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 453,
+          "column": 18
+        },
+        "end": {
+          "line": 453,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 454,
+          "column": 18
+        },
+        "end": {
+          "line": 454,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 464,
+          "column": 21
+        },
+        "end": {
+          "line": 464,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 474,
+          "column": 21
+        },
+        "end": {
+          "line": 474,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 481,
+          "column": 16
+        },
+        "end": {
+          "line": 481,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 485,
+          "column": 20
+        },
+        "end": {
+          "line": 485,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 486,
+          "column": 20
+        },
+        "end": {
+          "line": 486,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 496,
+          "column": 21
+        },
+        "end": {
+          "line": 496,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 506,
+          "column": 21
+        },
+        "end": {
+          "line": 506,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 513,
+          "column": 16
+        },
+        "end": {
+          "line": 513,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 517,
+          "column": 20
+        },
+        "end": {
+          "line": 517,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 518,
+          "column": 20
+        },
+        "end": {
+          "line": 518,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 573,
+          "column": 20
+        },
+        "end": {
+          "line": 573,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 573,
+          "column": 40
+        },
+        "end": {
+          "line": 573,
+          "column": 59
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 573,
+          "column": 20
+        },
+        "end": {
+          "line": 573,
+          "column": 59
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 577,
+          "column": 5
+        },
+        "end": {
+          "line": 577,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 584,
+          "column": 17
+        },
+        "end": {
+          "line": 584,
+          "column": 56
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 590,
+          "column": 17
+        },
+        "end": {
+          "line": 590,
+          "column": 54
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 599,
+          "column": 5
+        },
+        "end": {
+          "line": 599,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 607,
+          "column": 5
+        },
+        "end": {
+          "line": 607,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 611,
+          "column": 12
+        },
+        "end": {
+          "line": 611,
+          "column": 31
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 615,
+          "column": 15
+        },
+        "end": {
+          "line": 615,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 615,
+          "column": 14
+        },
+        "end": {
+          "line": 615,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 828,
+          "column": 28
+        },
+        "end": {
+          "line": 828,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 828,
+          "column": 12
+        },
+        "end": {
+          "line": 828,
+          "column": 72
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 832,
+          "column": 26
+        },
+        "end": {
+          "line": 832,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 837,
+          "column": 33
+        },
+        "end": {
+          "line": 837,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 17
+        },
+        "end": {
+          "line": 900,
+          "column": 137
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 17
+        },
+        "end": {
+          "line": 900,
+          "column": 137
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 17
+        },
+        "end": {
+          "line": 900,
+          "column": 137
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 17
+        },
+        "end": {
+          "line": 900,
+          "column": 137
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 17
+        },
+        "end": {
+          "line": 900,
+          "column": 137
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 17
+        },
+        "end": {
+          "line": 900,
+          "column": 137
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 17
+        },
+        "end": {
+          "line": 900,
+          "column": 137
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 17
+        },
+        "end": {
+          "line": 900,
+          "column": 137
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 17
+        },
+        "end": {
+          "line": 900,
+          "column": 137
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 916,
+          "column": 13
+        },
+        "end": {
+          "line": 918,
+          "column": 15
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 936,
+          "column": 17
+        },
+        "end": {
+          "line": 936,
+          "column": 28
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 943,
+          "column": 15
+        },
+        "end": {
+          "line": 965,
+          "column": 17
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 979,
+          "column": 19
+        },
+        "end": {
+          "line": 979,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 979,
+          "column": 8
+        },
+        "end": {
+          "line": 979,
+          "column": 36
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 20,
+          "column": 23
+        },
+        "end": {
+          "line": 20,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 20,
+          "column": 10
+        },
+        "end": {
+          "line": 20,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 24,
+          "column": 22
+        },
+        "end": {
+          "line": 24,
+          "column": 25
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 24,
+          "column": 10
+        },
+        "end": {
+          "line": 24,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 24,
+          "column": 1
+        },
+        "end": {
+          "line": 25,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 14
+        },
+        "end": {
+          "line": 27,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 22
+        },
+        "end": {
+          "line": 27,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 28,
+          "column": 8
+        },
+        "end": {
+          "line": 28,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 117,
+          "column": 13
+        },
+        "end": {
+          "line": 117,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 10
+        },
+        "end": {
+          "line": 27,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 133,
+          "column": 20
+        },
+        "end": {
+          "line": 133,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 143,
+          "column": 20
+        },
+        "end": {
+          "line": 143,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 153,
+          "column": 20
+        },
+        "end": {
+          "line": 153,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 163,
+          "column": 20
+        },
+        "end": {
+          "line": 163,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 180,
+          "column": 20
+        },
+        "end": {
+          "line": 180,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 198,
+          "column": 20
+        },
+        "end": {
+          "line": 198,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 208,
+          "column": 20
+        },
+        "end": {
+          "line": 208,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 220,
+          "column": 20
+        },
+        "end": {
+          "line": 220,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 242,
+          "column": 20
+        },
+        "end": {
+          "line": 242,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 262,
+          "column": 20
+        },
+        "end": {
+          "line": 262,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 272,
+          "column": 20
+        },
+        "end": {
+          "line": 272,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 284,
+          "column": 20
+        },
+        "end": {
+          "line": 284,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 296,
+          "column": 20
+        },
+        "end": {
+          "line": 296,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 306,
+          "column": 20
+        },
+        "end": {
+          "line": 306,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 316,
+          "column": 20
+        },
+        "end": {
+          "line": 316,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 326,
+          "column": 20
+        },
+        "end": {
+          "line": 326,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 336,
+          "column": 20
+        },
+        "end": {
+          "line": 336,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 348,
+          "column": 20
+        },
+        "end": {
+          "line": 348,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 360,
+          "column": 20
+        },
+        "end": {
+          "line": 360,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 370,
+          "column": 20
+        },
+        "end": {
+          "line": 370,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 380,
+          "column": 20
+        },
+        "end": {
+          "line": 380,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 390,
+          "column": 20
+        },
+        "end": {
+          "line": 390,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 400,
+          "column": 20
+        },
+        "end": {
+          "line": 400,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 412,
+          "column": 20
+        },
+        "end": {
+          "line": 412,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 424,
+          "column": 20
+        },
+        "end": {
+          "line": 424,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 434,
+          "column": 20
+        },
+        "end": {
+          "line": 434,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 451,
+          "column": 20
+        },
+        "end": {
+          "line": 451,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 463,
+          "column": 20
+        },
+        "end": {
+          "line": 463,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 473,
+          "column": 20
+        },
+        "end": {
+          "line": 473,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 483,
+          "column": 20
+        },
+        "end": {
+          "line": 483,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 495,
+          "column": 20
+        },
+        "end": {
+          "line": 495,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 505,
+          "column": 20
+        },
+        "end": {
+          "line": 505,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 515,
+          "column": 20
+        },
+        "end": {
+          "line": 515,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 548,
+          "column": 35
+        },
+        "end": {
+          "line": 548,
+          "column": 38
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 556,
+          "column": 35
+        },
+        "end": {
+          "line": 556,
+          "column": 38
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 566,
+          "column": 36
+        },
+        "end": {
+          "line": 566,
+          "column": 39
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 569,
+          "column": 36
+        },
+        "end": {
+          "line": 569,
+          "column": 39
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 572,
+          "column": 36
+        },
+        "end": {
+          "line": 572,
+          "column": 39
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 579,
+          "column": 37
+        },
+        "end": {
+          "line": 579,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 582,
+          "column": 31
+        },
+        "end": {
+          "line": 582,
+          "column": 34
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 588,
+          "column": 31
+        },
+        "end": {
+          "line": 588,
+          "column": 34
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 606,
+          "column": 45
+        },
+        "end": {
+          "line": 606,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 614,
+          "column": 9
+        },
+        "end": {
+          "line": 614,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 626,
+          "column": 5
+        },
+        "end": {
+          "line": 626,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 815,
+          "column": 17
+        },
+        "end": {
+          "line": 815,
+          "column": 20
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 815,
+          "column": 10
+        },
+        "end": {
+          "line": 815,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 815,
+          "column": 1
+        },
+        "end": {
+          "line": 817,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 819,
+          "column": 10
+        },
+        "end": {
+          "line": 819,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 819,
+          "column": 1
+        },
+        "end": {
+          "line": 821,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 823,
+          "column": 38
+        },
+        "end": {
+          "line": 823,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 827,
+          "column": 38
+        },
+        "end": {
+          "line": 827,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 831,
+          "column": 39
+        },
+        "end": {
+          "line": 831,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 831,
+          "column": 48
+        },
+        "end": {
+          "line": 831,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 841,
+          "column": 10
+        },
+        "end": {
+          "line": 841,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 841,
+          "column": 1
+        },
+        "end": {
+          "line": 841,
+          "column": 17
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 853,
+          "column": 5
+        },
+        "end": {
+          "line": 853,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 878,
+          "column": 28
+        },
+        "end": {
+          "line": 878,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 878,
+          "column": 10
+        },
+        "end": {
+          "line": 878,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 878,
+          "column": 1
+        },
+        "end": {
+          "line": 882,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 884,
+          "column": 25
+        },
+        "end": {
+          "line": 884,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 891,
+          "column": 14
+        },
+        "end": {
+          "line": 891,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 884,
+          "column": 10
+        },
+        "end": {
+          "line": 884,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 884,
+          "column": 1
+        },
+        "end": {
+          "line": 894,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 896,
+          "column": 24
+        },
+        "end": {
+          "line": 896,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 930,
+          "column": 10
+        },
+        "end": {
+          "line": 930,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 930,
+          "column": 1
+        },
+        "end": {
+          "line": 933,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 896,
+          "column": 10
+        },
+        "end": {
+          "line": 896,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 896,
+          "column": 1
+        },
+        "end": {
+          "line": 905,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 907,
+          "column": 21
+        },
+        "end": {
+          "line": 907,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 907,
+          "column": 34
+        },
+        "end": {
+          "line": 907,
+          "column": 40
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 907,
+          "column": 10
+        },
+        "end": {
+          "line": 907,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 907,
+          "column": 1
+        },
+        "end": {
+          "line": 921,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 926,
+          "column": 5
+        },
+        "end": {
+          "line": 926,
+          "column": 10
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 930,
+          "column": 20
+        },
+        "end": {
+          "line": 930,
+          "column": 23
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 935,
+          "column": 16
+        },
+        "end": {
+          "line": 935,
+          "column": 21
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 935,
+          "column": 23
+        },
+        "end": {
+          "line": 935,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 937,
+          "column": 10
+        },
+        "end": {
+          "line": 937,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 939,
+          "column": 13
+        },
+        "end": {
+          "line": 939,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 941,
+          "column": 16
+        },
+        "end": {
+          "line": 941,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 942,
+          "column": 21
+        },
+        "end": {
+          "line": 942,
+          "column": 27
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 949,
+          "column": 13
+        },
+        "end": {
+          "line": 949,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 935,
+          "column": 10
+        },
+        "end": {
+          "line": 935,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 935,
+          "column": 1
+        },
+        "end": {
+          "line": 969,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 972,
+          "column": 7
+        },
+        "end": {
+          "line": 972,
+          "column": 8
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 974,
+          "column": 5
+        },
+        "end": {
+          "line": 974,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 68,
+          "column": 14
+        },
+        "end": {
+          "line": 68,
+          "column": 19
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 68,
+          "column": 36
+        },
+        "end": {
+          "line": 68,
+          "column": 41
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 68,
+          "column": 3
+        },
+        "end": {
+          "line": 68,
+          "column": 8
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 69,
+          "column": 3
+        },
+        "end": {
+          "line": 69,
+          "column": 8
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 72,
+          "column": 3
+        },
+        "end": {
+          "line": 72,
+          "column": 8
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 72,
+          "column": 26
+        },
+        "end": {
+          "line": 72,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 72,
+          "column": 36
+        },
+        "end": {
+          "line": 72,
+          "column": 41
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 75,
+          "column": 3
+        },
+        "end": {
+          "line": 75,
+          "column": 8
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 78,
+          "column": 3
+        },
+        "end": {
+          "line": 78,
+          "column": 8
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 81,
+          "column": 3
+        },
+        "end": {
+          "line": 81,
+          "column": 8
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 84,
+          "column": 13
+        },
+        "end": {
+          "line": 84,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 84,
+          "column": 35
+        },
+        "end": {
+          "line": 84,
+          "column": 40
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 84,
+          "column": 3
+        },
+        "end": {
+          "line": 84,
+          "column": 8
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 85,
+          "column": 3
+        },
+        "end": {
+          "line": 85,
+          "column": 8
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 88,
+          "column": 3
+        },
+        "end": {
+          "line": 88,
+          "column": 8
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 91,
+          "column": 3
+        },
+        "end": {
+          "line": 91,
+          "column": 8
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 94,
+          "column": 3
+        },
+        "end": {
+          "line": 94,
+          "column": 8
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 97,
+          "column": 14
+        },
+        "end": {
+          "line": 97,
+          "column": 19
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 97,
+          "column": 36
+        },
+        "end": {
+          "line": 97,
+          "column": 41
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 97,
+          "column": 4
+        },
+        "end": {
+          "line": 97,
+          "column": 9
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 100,
+          "column": 5
+        },
+        "end": {
+          "line": 100,
+          "column": 10
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 103,
+          "column": 6
+        },
+        "end": {
+          "line": 103,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 106,
+          "column": 7
+        },
+        "end": {
+          "line": 106,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 109,
+          "column": 18
+        },
+        "end": {
+          "line": 109,
+          "column": 23
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 109,
+          "column": 40
+        },
+        "end": {
+          "line": 109,
+          "column": 45
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 109,
+          "column": 8
+        },
+        "end": {
+          "line": 109,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 110,
+          "column": 8
+        },
+        "end": {
+          "line": 110,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 113,
+          "column": 9
+        },
+        "end": {
+          "line": 113,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 116,
+          "column": 9
+        },
+        "end": {
+          "line": 116,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 117,
+          "column": 21
+        },
+        "end": {
+          "line": 117,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 117,
+          "column": 43
+        },
+        "end": {
+          "line": 117,
+          "column": 48
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 118,
+          "column": 13
+        },
+        "end": {
+          "line": 118,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 119,
+          "column": 16
+        },
+        "end": {
+          "line": 119,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 119,
+          "column": 5
+        },
+        "end": {
+          "line": 119,
+          "column": 10
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 123,
+          "column": 18
+        },
+        "end": {
+          "line": 123,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 124,
+          "column": 14
+        },
+        "end": {
+          "line": 124,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 129,
+          "column": 23
+        },
+        "end": {
+          "line": 129,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 129,
+          "column": 1
+        },
+        "end": {
+          "line": 129,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 139,
+          "column": 23
+        },
+        "end": {
+          "line": 139,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 139,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 149,
+          "column": 23
+        },
+        "end": {
+          "line": 149,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 149,
+          "column": 1
+        },
+        "end": {
+          "line": 149,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 159,
+          "column": 23
+        },
+        "end": {
+          "line": 159,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 159,
+          "column": 1
+        },
+        "end": {
+          "line": 159,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 169,
+          "column": 23
+        },
+        "end": {
+          "line": 169,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 181,
+          "column": 9
+        },
+        "end": {
+          "line": 181,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 169,
+          "column": 1
+        },
+        "end": {
+          "line": 169,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 194,
+          "column": 23
+        },
+        "end": {
+          "line": 194,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 194,
+          "column": 1
+        },
+        "end": {
+          "line": 194,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 204,
+          "column": 23
+        },
+        "end": {
+          "line": 204,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 209,
+          "column": 9
+        },
+        "end": {
+          "line": 209,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 204,
+          "column": 1
+        },
+        "end": {
+          "line": 204,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 216,
+          "column": 23
+        },
+        "end": {
+          "line": 216,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 221,
+          "column": 9
+        },
+        "end": {
+          "line": 221,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 216,
+          "column": 1
+        },
+        "end": {
+          "line": 216,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 228,
+          "column": 23
+        },
+        "end": {
+          "line": 228,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 228,
+          "column": 1
+        },
+        "end": {
+          "line": 228,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 238,
+          "column": 23
+        },
+        "end": {
+          "line": 238,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 238,
+          "column": 1
+        },
+        "end": {
+          "line": 238,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 248,
+          "column": 23
+        },
+        "end": {
+          "line": 248,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 248,
+          "column": 1
+        },
+        "end": {
+          "line": 248,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 258,
+          "column": 23
+        },
+        "end": {
+          "line": 258,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 258,
+          "column": 1
+        },
+        "end": {
+          "line": 258,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 268,
+          "column": 23
+        },
+        "end": {
+          "line": 268,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 273,
+          "column": 9
+        },
+        "end": {
+          "line": 273,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 268,
+          "column": 1
+        },
+        "end": {
+          "line": 268,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 280,
+          "column": 23
+        },
+        "end": {
+          "line": 280,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 285,
+          "column": 9
+        },
+        "end": {
+          "line": 285,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 280,
+          "column": 1
+        },
+        "end": {
+          "line": 280,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 292,
+          "column": 23
+        },
+        "end": {
+          "line": 292,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 292,
+          "column": 1
+        },
+        "end": {
+          "line": 292,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 302,
+          "column": 23
+        },
+        "end": {
+          "line": 302,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 302,
+          "column": 1
+        },
+        "end": {
+          "line": 302,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 312,
+          "column": 23
+        },
+        "end": {
+          "line": 312,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 312,
+          "column": 1
+        },
+        "end": {
+          "line": 312,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 322,
+          "column": 23
+        },
+        "end": {
+          "line": 322,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 322,
+          "column": 1
+        },
+        "end": {
+          "line": 322,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 332,
+          "column": 23
+        },
+        "end": {
+          "line": 332,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 337,
+          "column": 9
+        },
+        "end": {
+          "line": 337,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 332,
+          "column": 1
+        },
+        "end": {
+          "line": 332,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 344,
+          "column": 23
+        },
+        "end": {
+          "line": 344,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 349,
+          "column": 9
+        },
+        "end": {
+          "line": 349,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 344,
+          "column": 1
+        },
+        "end": {
+          "line": 344,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 356,
+          "column": 23
+        },
+        "end": {
+          "line": 356,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 356,
+          "column": 1
+        },
+        "end": {
+          "line": 356,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 366,
+          "column": 23
+        },
+        "end": {
+          "line": 366,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 366,
+          "column": 1
+        },
+        "end": {
+          "line": 366,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 376,
+          "column": 23
+        },
+        "end": {
+          "line": 376,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 376,
+          "column": 1
+        },
+        "end": {
+          "line": 376,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 386,
+          "column": 23
+        },
+        "end": {
+          "line": 386,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 386,
+          "column": 1
+        },
+        "end": {
+          "line": 386,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 396,
+          "column": 23
+        },
+        "end": {
+          "line": 396,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 401,
+          "column": 9
+        },
+        "end": {
+          "line": 401,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 396,
+          "column": 1
+        },
+        "end": {
+          "line": 396,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 408,
+          "column": 23
+        },
+        "end": {
+          "line": 408,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 413,
+          "column": 9
+        },
+        "end": {
+          "line": 413,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 408,
+          "column": 1
+        },
+        "end": {
+          "line": 408,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 420,
+          "column": 23
+        },
+        "end": {
+          "line": 420,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 420,
+          "column": 1
+        },
+        "end": {
+          "line": 420,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 430,
+          "column": 23
+        },
+        "end": {
+          "line": 430,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 430,
+          "column": 1
+        },
+        "end": {
+          "line": 430,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 440,
+          "column": 23
+        },
+        "end": {
+          "line": 440,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 440,
+          "column": 1
+        },
+        "end": {
+          "line": 440,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 450,
+          "column": 23
+        },
+        "end": {
+          "line": 450,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 452,
+          "column": 9
+        },
+        "end": {
+          "line": 452,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 450,
+          "column": 1
+        },
+        "end": {
+          "line": 450,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 459,
+          "column": 23
+        },
+        "end": {
+          "line": 459,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 459,
+          "column": 1
+        },
+        "end": {
+          "line": 459,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 469,
+          "column": 23
+        },
+        "end": {
+          "line": 469,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 469,
+          "column": 1
+        },
+        "end": {
+          "line": 469,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 479,
+          "column": 23
+        },
+        "end": {
+          "line": 479,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 484,
+          "column": 9
+        },
+        "end": {
+          "line": 484,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 479,
+          "column": 1
+        },
+        "end": {
+          "line": 479,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 491,
+          "column": 23
+        },
+        "end": {
+          "line": 491,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 491,
+          "column": 1
+        },
+        "end": {
+          "line": 491,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 501,
+          "column": 23
+        },
+        "end": {
+          "line": 501,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 501,
+          "column": 1
+        },
+        "end": {
+          "line": 501,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 511,
+          "column": 23
+        },
+        "end": {
+          "line": 511,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 516,
+          "column": 9
+        },
+        "end": {
+          "line": 516,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 511,
+          "column": 1
+        },
+        "end": {
+          "line": 511,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 523,
+          "column": 1
+        },
+        "end": {
+          "line": 523,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 528,
+          "column": 1
+        },
+        "end": {
+          "line": 528,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 548,
+          "column": 1
+        },
+        "end": {
+          "line": 548,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 556,
+          "column": 1
+        },
+        "end": {
+          "line": 556,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 566,
+          "column": 1
+        },
+        "end": {
+          "line": 566,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 569,
+          "column": 1
+        },
+        "end": {
+          "line": 569,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 572,
+          "column": 1
+        },
+        "end": {
+          "line": 572,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 579,
+          "column": 1
+        },
+        "end": {
+          "line": 579,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 582,
+          "column": 1
+        },
+        "end": {
+          "line": 582,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 588,
+          "column": 1
+        },
+        "end": {
+          "line": 588,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 595,
+          "column": 1
+        },
+        "end": {
+          "line": 595,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 598,
+          "column": 1
+        },
+        "end": {
+          "line": 598,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 601,
+          "column": 1
+        },
+        "end": {
+          "line": 601,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 604,
+          "column": 19
+        },
+        "end": {
+          "line": 604,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 606,
+          "column": 1
+        },
+        "end": {
+          "line": 606,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 610,
+          "column": 1
+        },
+        "end": {
+          "line": 610,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 613,
+          "column": 1
+        },
+        "end": {
+          "line": 613,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 617,
+          "column": 28
+        },
+        "end": {
+          "line": 617,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 619,
+          "column": 1
+        },
+        "end": {
+          "line": 619,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 622,
+          "column": 1
+        },
+        "end": {
+          "line": 622,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 816,
+          "column": 11
+        },
+        "end": {
+          "line": 816,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 820,
+          "column": 21
+        },
+        "end": {
+          "line": 820,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 823,
+          "column": 1
+        },
+        "end": {
+          "line": 823,
+          "column": 7
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 819,
+          "column": 1
+        },
+        "end": {
+          "line": 821,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 827,
+          "column": 1
+        },
+        "end": {
+          "line": 827,
+          "column": 7
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 819,
+          "column": 1
+        },
+        "end": {
+          "line": 821,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 828,
+          "column": 28
+        },
+        "end": {
+          "line": 828,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 828,
+          "column": 63
+        },
+        "end": {
+          "line": 828,
+          "column": 70
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 831,
+          "column": 1
+        },
+        "end": {
+          "line": 831,
+          "column": 7
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 819,
+          "column": 1
+        },
+        "end": {
+          "line": 821,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 835,
+          "column": 1
+        },
+        "end": {
+          "line": 835,
+          "column": 7
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 819,
+          "column": 1
+        },
+        "end": {
+          "line": 821,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 843,
+          "column": 1
+        },
+        "end": {
+          "line": 843,
+          "column": 3
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 841,
+          "column": 1
+        },
+        "end": {
+          "line": 841,
+          "column": 17
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 847,
+          "column": 1
+        },
+        "end": {
+          "line": 847,
+          "column": 3
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 841,
+          "column": 1
+        },
+        "end": {
+          "line": 841,
+          "column": 17
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 848,
+          "column": 5
+        },
+        "end": {
+          "line": 848,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 24,
+          "column": 1
+        },
+        "end": {
+          "line": 25,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 880,
+          "column": 13
+        },
+        "end": {
+          "line": 880,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 880,
+          "column": 9
+        },
+        "end": {
+          "line": 880,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 892,
+          "column": 9
+        },
+        "end": {
+          "line": 892,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 898,
+          "column": 18
+        },
+        "end": {
+          "line": 898,
+          "column": 29
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 899,
+          "column": 17
+        },
+        "end": {
+          "line": 899,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 31
+        },
+        "end": {
+          "line": 900,
+          "column": 34
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 44
+        },
+        "end": {
+          "line": 900,
+          "column": 47
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 57
+        },
+        "end": {
+          "line": 900,
+          "column": 60
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 70
+        },
+        "end": {
+          "line": 900,
+          "column": 73
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 84
+        },
+        "end": {
+          "line": 900,
+          "column": 87
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 97
+        },
+        "end": {
+          "line": 900,
+          "column": 100
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 111
+        },
+        "end": {
+          "line": 900,
+          "column": 114
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 124
+        },
+        "end": {
+          "line": 900,
+          "column": 127
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 900,
+          "column": 17
+        },
+        "end": {
+          "line": 900,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 24,
+          "column": 1
+        },
+        "end": {
+          "line": 25,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 902,
+          "column": 29
+        },
+        "end": {
+          "line": 902,
+          "column": 40
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 902,
+          "column": 25
+        },
+        "end": {
+          "line": 902,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 902,
+          "column": 13
+        },
+        "end": {
+          "line": 902,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 898,
+          "column": 9
+        },
+        "end": {
+          "line": 898,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 930,
+          "column": 1
+        },
+        "end": {
+          "line": 933,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 916,
+          "column": 35
+        },
+        "end": {
+          "line": 916,
+          "column": 41
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 917,
+          "column": 29
+        },
+        "end": {
+          "line": 917,
+          "column": 32
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 917,
+          "column": 17
+        },
+        "end": {
+          "line": 917,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 916,
+          "column": 13
+        },
+        "end": {
+          "line": 916,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 930,
+          "column": 1
+        },
+        "end": {
+          "line": 933,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 936,
+          "column": 17
+        },
+        "end": {
+          "line": 936,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 936,
+          "column": 30
+        },
+        "end": {
+          "line": 936,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 936,
+          "column": 4
+        },
+        "end": {
+          "line": 936,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 937,
+          "column": 20
+        },
+        "end": {
+          "line": 937,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 819,
+          "column": 1
+        },
+        "end": {
+          "line": 821,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 940,
+          "column": 20
+        },
+        "end": {
+          "line": 940,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 940,
+          "column": 7
+        },
+        "end": {
+          "line": 940,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 943,
+          "column": 29
+        },
+        "end": {
+          "line": 943,
+          "column": 35
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 944,
+          "column": 20
+        },
+        "end": {
+          "line": 944,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 815,
+          "column": 1
+        },
+        "end": {
+          "line": 817,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 944,
+          "column": 26
+        },
+        "end": {
+          "line": 944,
+          "column": 32
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 949,
+          "column": 36
+        },
+        "end": {
+          "line": 949,
+          "column": 38
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 841,
+          "column": 1
+        },
+        "end": {
+          "line": 841,
+          "column": 17
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 949,
+          "column": 23
+        },
+        "end": {
+          "line": 949,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 27,
+          "column": 1
+        },
+        "end": {
+          "line": 127,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 949,
+          "column": 27
+        },
+        "end": {
+          "line": 949,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 952,
+          "column": 9
+        },
+        "end": {
+          "line": 952,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 878,
+          "column": 1
+        },
+        "end": {
+          "line": 882,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 952,
+          "column": 27
+        },
+        "end": {
+          "line": 952,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 955,
+          "column": 9
+        },
+        "end": {
+          "line": 955,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 884,
+          "column": 1
+        },
+        "end": {
+          "line": 894,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 955,
+          "column": 24
+        },
+        "end": {
+          "line": 955,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 958,
+          "column": 9
+        },
+        "end": {
+          "line": 958,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 961,
+          "column": 9
+        },
+        "end": {
+          "line": 961,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 896,
+          "column": 1
+        },
+        "end": {
+          "line": 905,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 961,
+          "column": 23
+        },
+        "end": {
+          "line": 961,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 964,
+          "column": 9
+        },
+        "end": {
+          "line": 964,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 907,
+          "column": 1
+        },
+        "end": {
+          "line": 921,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 964,
+          "column": 20
+        },
+        "end": {
+          "line": 964,
+          "column": 23
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 964,
+          "column": 33
+        },
+        "end": {
+          "line": 964,
+          "column": 39
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 943,
+          "column": 15
+        },
+        "end": {
+          "line": 943,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 930,
+          "column": 1
+        },
+        "end": {
+          "line": 933,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 942,
+          "column": 6
+        },
+        "end": {
+          "line": 942,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 974,
+          "column": 21
+        },
+        "end": {
+          "line": 974,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 974,
+          "column": 48
+        },
+        "end": {
+          "line": 974,
+          "column": 58
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 975,
+          "column": 1
+        },
+        "end": {
+          "line": 975,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 975,
+          "column": 23
+        },
+        "end": {
+          "line": 975,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 976,
+          "column": 15
+        },
+        "end": {
+          "line": 976,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 977,
+          "column": 1
+        },
+        "end": {
+          "line": 977,
+          "column": 5
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "z80.js",
+        "start": {
+          "line": 935,
+          "column": 1
+        },
+        "end": {
+          "line": 969,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 977,
+          "column": 14
+        },
+        "end": {
+          "line": 977,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "z80.js",
+        "start": {
+          "line": 978,
+          "column": 13
+        },
+        "end": {
+          "line": 978,
+          "column": 26
+        }
+      },
+      "type": "object"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "930:25",
+      "kind": "type",
+      "reason": "closure-targets",
+      "types": [
+        "function"
+      ]
+    },
+    {
+      "location": "932:11",
+      "kind": "type",
+      "reason": "closure-targets",
+      "types": [
+        "function"
+      ]
+    }
+  ]
+}

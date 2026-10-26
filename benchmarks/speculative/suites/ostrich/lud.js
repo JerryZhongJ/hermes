@@ -1,11 +1,3 @@
-// Imported from https://github.com/Sable/Ostrich
-// Commit: dd06ca4340ecdbc0a795274d826cb5c034a2b9fe
-// Source: dense-linear-algebra/lud/js/lud.js
-// Adaptation: benchmarks/speculative/import_ostrich.py
-(function() {
-// HBC shells expose Date.now(); SH and V8 also provide performance.now().
-var ostrichNow = typeof performance === "undefined"
-    ? Date.now : performance.now.bind(performance);
 // Copyright 2013 the V8 project authors. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -33,7 +25,7 @@ var ostrichNow = typeof performance === "undefined"
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-var commonRandom = (function() {
+Math.commonRandom = (function() {
     var seed = 49734321;
     return function() {
         // Robert Jenkins' 32 bit integer hash function.
@@ -47,8 +39,8 @@ var commonRandom = (function() {
     };
 })();
 
-var commonRandomJS = function () {
-    return Math.abs(commonRandom() / 0x7fffffff);
+Math.commonRandomJS = function () {
+    return Math.abs(Math.commonRandom() / 0x7fffffff);
 }
 
 /*
@@ -75,7 +67,6 @@ var commonRandomJS = function () {
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 
 
 
@@ -137,23 +128,23 @@ function printMatrix(matrix){
         for(var j = 0; j < size; ++j){
             row.push(matrix[i*size+j]);
         }
-        print(row.join(" "));
+        console.log(row.join(" "));
     }
 }
 
 
 function randomMatrix(matrix){
     var size = Math.sqrt(matrix.length);
-    print("Creating temp array of size " + size);
+    console.log("Creating temp array of size " + size);
     var l = new Float64Array(matrix.length);
     var u = new Float64Array(matrix.length);
 
 
-    print("Creating l matrix");
+    console.log("Creating l matrix");
     for (var i=0; i<size; ++i) {
         for (var j=0; j<size; ++j) {
             if (i>j) {
-                l[i*size+j] = commonRandomJS();
+                l[i*size+j] = Math.commonRandomJS();
             } else if (i == j) {
                 l[i*size+j] = 1;
             } else {
@@ -161,17 +152,17 @@ function randomMatrix(matrix){
             }
         }
     }
-    print("Creating u matrix");
+    console.log("Creating u matrix");
     for (var j = 0; j < size; ++j) {
         for (var i = 0; i < size; ++i) {
             if (i>j) {
                 u[j*size+i] = 0;
             } else {
-                u[j*size+i] = commonRandomJS();
+                u[j*size+i] = Math.commonRandomJS();
             }
         }
     }
-    print("Creating input matrix");
+    console.log("Creating input matrix");
     for (var i = 0; i < size; ++i){
         for (var j = 0; j < size; ++j) {
             var sum = 0;
@@ -234,13 +225,13 @@ function ludVerify(m, lu) {
             }
         }
     }
-    print("For all practical purposes, the original matrix and the one computed from the LUD are identical");
+    console.log("For all practical purposes, the original matrix and the one computed from the LUD are identical");
 }
 
 function ludRun(size, doVerify){
     doVerify = doVerify === undefined ? false : doVerify;
     var matrix = new Float64Array(size*size);
-    print("Creating random matrix");
+    console.log("Creating random matrix");
     randomMatrix(matrix);
 
     if (doVerify) {
@@ -250,9 +241,9 @@ function ludRun(size, doVerify){
         }
     }
 
-    var t1 = ostrichNow();
+    var t1 = performance.now();
     lud(matrix, size);
-    var t2 = ostrichNow();
+    var t2 = performance.now();
     //printMatrix(matrix);
     if (size === 1024) {
         for (var i = 0; i < 100; ++i) {
@@ -266,25 +257,25 @@ function ludRun(size, doVerify){
                 );
             }
         }
-    } else if (!doVerify) {
-        print("WARNING: No self-checking step for dimension '" + size + "'");
+    } else {
+        console.log("WARNING: No self-checking step for dimension '" + size + "'");
     }
 
     if (doVerify) {
         ludVerify(original, matrix);
     }
 
-    print("Time consumed untyped (s): " + ((t2-t1) / 1000).toFixed(6));
+    console.log("Time consumed untyped (s): " + ((t2-t1) / 1000).toFixed(6));
     return { status: 1,
              options: "ludRun(" + size + ")",
              time: (t2-t1) / 1000 };
 }
 
-const OSTRICH_ARGS = [256, true];
-var result = ludRun(OSTRICH_ARGS[0], OSTRICH_ARGS[1]);
-if (!result || result.status !== 1 ||
-    !Number.isFinite(result.time) || result.time <= 0) {
-    throw new Error("Invalid benchmark result");
-}
-print("Time: " + result.time * 1000);
-})();
+
+// Static Hermes benchmark runner: fixed params, timed with performance.now
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+ludRun( 384 );
+var __end = __performance.now();
+print( "Time: " + Math.round( __end - __start ) );

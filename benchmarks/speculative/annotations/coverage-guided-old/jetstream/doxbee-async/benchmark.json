@@ -1,0 +1,1481 @@
+{
+  "static shapes": {
+    "BenchmarkInst": {
+      "properties": [
+        {
+          "name": "init"
+        },
+        {
+          "name": "prepareForNextIteration"
+        },
+        {
+          "name": "runIteration",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 222,
+              "column": 3
+            },
+            "end": {
+              "line": 229,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "validate"
+        }
+      ]
+    },
+    "Perf": {
+      "properties": [
+        {
+          "name": "now"
+        },
+        {
+          "name": "mark"
+        },
+        {
+          "name": "measure"
+        },
+        {
+          "name": "timeOrigin"
+        }
+      ]
+    },
+    "ErrObj": {
+      "properties": [
+        {
+          "name": "stack"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 248,
+          "column": 11
+        },
+        "end": {
+          "line": 248,
+          "column": 20
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 12
+        }
+      },
+      "shape": "Perf"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 12
+        }
+      },
+      "shape": "Perf"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 12
+        }
+      },
+      "shape": "Perf"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 12
+        }
+      },
+      "shape": "Perf"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 247,
+          "column": 19
+        },
+        "end": {
+          "line": 247,
+          "column": 30
+        }
+      },
+      "shape": "Perf"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 249,
+          "column": 17
+        },
+        "end": {
+          "line": 249,
+          "column": 28
+        }
+      },
+      "shape": "Perf"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 241,
+          "column": 9
+        },
+        "end": {
+          "line": 241,
+          "column": 18
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 245,
+          "column": 5
+        },
+        "end": {
+          "line": 245,
+          "column": 14
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 251,
+          "column": 5
+        },
+        "end": {
+          "line": 251,
+          "column": 14
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 259,
+          "column": 28
+        },
+        "end": {
+          "line": 259,
+          "column": 33
+        }
+      },
+      "shape": "ErrObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 259,
+          "column": 42
+        },
+        "end": {
+          "line": 259,
+          "column": 47
+        }
+      },
+      "shape": "ErrObj"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 240,
+          "column": 21
+        },
+        "end": {
+          "line": 240,
+          "column": 38
+        }
+      },
+      "shape": "BenchmarkInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 11,
+          "column": 71
+        },
+        "end": {
+          "line": 11,
+          "column": 73
+        }
+      },
+      "shape": "Perf"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 258,
+          "column": 13
+        },
+        "end": {
+          "line": 258,
+          "column": 18
+        }
+      },
+      "shape": "ErrObj"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 255,
+          "column": 33
+        },
+        "end": {
+          "line": 255,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 255,
+          "column": 38
+        },
+        "end": {
+          "line": 255,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 226,
+          "column": 21
+        },
+        "end": {
+          "line": 226,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 93,
+          "column": 18
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 252,
+          "column": 30
+        },
+        "end": {
+          "line": 252,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 252,
+          "column": 36
+        },
+        "end": {
+          "line": 252,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 239,
+          "column": 2
+        },
+        "end": {
+          "line": 258,
+          "column": 2
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 239,
+          "column": 2
+        },
+        "end": {
+          "line": 258,
+          "column": 2
+        }
+      }
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "100:35",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "version"
+    },
+    {
+      "location": "94:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "blobManager"
+    },
+    {
+      "location": "94:40",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "create"
+    },
+    {
+      "location": "94:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "account"
+    },
+    {
+      "location": "95:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "db"
+    },
+    {
+      "location": "95:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "begin"
+    },
+    {
+      "location": "98:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "put"
+    },
+    {
+      "location": "99:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "self"
+    },
+    {
+      "location": "99:47",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "byUuidOrPath"
+    },
+    {
+      "location": "99:61",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "get"
+    },
+    {
+      "location": "102:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "userAccount"
+    },
+    {
+      "location": "102:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "id"
+    },
+    {
+      "location": "104:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "userAccount"
+    },
+    {
+      "location": "104:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "id"
+    },
+    {
+      "location": "107:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Version"
+    },
+    {
+      "location": "107:42",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "createHash"
+    },
+    {
+      "location": "108:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Version"
+    },
+    {
+      "location": "108:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "insert"
+    },
+    {
+      "location": "108:51",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "execWithin"
+    },
+    {
+      "location": "112:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "split"
+    },
+    {
+      "location": "113:43",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "114:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "uuid"
+    },
+    {
+      "location": "114:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "v1"
+    },
+    {
+      "location": "115:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "self"
+    },
+    {
+      "location": "115:45",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "createQuery"
+    },
+    {
+      "location": "117:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "userAccount"
+    },
+    {
+      "location": "117:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "id"
+    },
+    {
+      "location": "119:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "id"
+    },
+    {
+      "location": "121:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "execWithin"
+    },
+    {
+      "location": "123:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "id"
+    },
+    {
+      "location": "125:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "FileVersion"
+    },
+    {
+      "location": "125:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "insert"
+    },
+    {
+      "location": "127:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "id"
+    },
+    {
+      "location": "128:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "execWithin"
+    },
+    {
+      "location": "130:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "File"
+    },
+    {
+      "location": "130:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "whereUpdate"
+    },
+    {
+      "location": "132:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "id"
+    },
+    {
+      "location": "133:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "execWithin"
+    },
+    {
+      "location": "134:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "commit"
+    },
+    {
+      "location": "136:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rollback"
+    },
+    {
+      "location": "93:18",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "94:40",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "create"
+    },
+    {
+      "location": "95:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "begin"
+    },
+    {
+      "location": "98:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "put"
+    },
+    {
+      "location": "99:47",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "byUuidOrPath"
+    },
+    {
+      "location": "99:61",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "get"
+    },
+    {
+      "location": "107:42",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "createHash"
+    },
+    {
+      "location": "108:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "insert"
+    },
+    {
+      "location": "108:51",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "execWithin"
+    },
+    {
+      "location": "112:39",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "split"
+    },
+    {
+      "location": "114:29",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "v1"
+    },
+    {
+      "location": "115:45",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "createQuery"
+    },
+    {
+      "location": "121:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "execWithin"
+    },
+    {
+      "location": "125:35",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "insert"
+    },
+    {
+      "location": "128:18",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "execWithin"
+    },
+    {
+      "location": "130:33",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "whereUpdate"
+    },
+    {
+      "location": "133:17",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "execWithin"
+    },
+    {
+      "location": "134:20",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "commit"
+    },
+    {
+      "location": "136:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "rollback"
+    },
+    {
+      "location": "107:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "id"
+    },
+    {
+      "location": "93:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "exports"
+    },
+    {
+      "location": "113:34",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "149:24",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "all"
+    },
+    {
+      "location": "150:25",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "exec"
+    },
+    {
+      "location": "151:31",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "execWithin"
+    },
+    {
+      "location": "152:24",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "get"
+    },
+    {
+      "location": "167:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "put"
+    },
+    {
+      "location": "178:29",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "byUuidOrPath"
+    },
+    {
+      "location": "179:28",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "createQuery"
+    },
+    {
+      "location": "183:13",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "insert"
+    },
+    {
+      "location": "184:18",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "whereUpdate"
+    },
+    {
+      "location": "187:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "insert"
+    },
+    {
+      "location": "190:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "createHash"
+    },
+    {
+      "location": "193:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "insert"
+    },
+    {
+      "location": "196:30",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "commit"
+    },
+    {
+      "location": "197:32",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "rollback"
+    },
+    {
+      "location": "206:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "exports"
+    },
+    {
+      "location": "149:9",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "prototype"
+    },
+    {
+      "location": "150:9",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "prototype"
+    },
+    {
+      "location": "151:9",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "prototype"
+    },
+    {
+      "location": "152:9",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "prototype"
+    },
+    {
+      "location": "157:1",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "prototype"
+    },
+    {
+      "location": "167:5",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "prototype"
+    },
+    {
+      "location": "168:1",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "prototype"
+    },
+    {
+      "location": "178:5",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "prototype"
+    },
+    {
+      "location": "179:5",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "prototype"
+    },
+    {
+      "location": "196:12",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "prototype"
+    },
+    {
+      "location": "197:12",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "prototype"
+    },
+    {
+      "location": "199:1",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "prototype"
+    },
+    {
+      "location": "11:17",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "performance"
+    },
+    {
+      "location": "11:69",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "performance"
+    },
+    {
+      "location": "17:15",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "JetStream"
+    },
+    {
+      "location": "17:38",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "JetStream"
+    },
+    {
+      "location": "29:23",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isInBrowser"
+    },
+    {
+      "location": "30:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isD8"
+    },
+    {
+      "location": "32:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "getBinary"
+    },
+    {
+      "location": "40:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "getString"
+    },
+    {
+      "location": "11:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "11:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "11:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "12:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "12:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "12:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "13:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "14:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "15:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "17:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "29:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "30:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "30:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Realm"
+    },
+    {
+      "location": "32:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "40:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "33:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "read"
+    },
+    {
+      "location": "34:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "read"
+    },
+    {
+      "location": "35:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Int8Array"
+    },
+    {
+      "location": "41:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "read"
+    },
+    {
+      "location": "42:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "read"
+    },
+    {
+      "location": "5:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Proxy"
+    },
+    {
+      "location": "7:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "7:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "11:19",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "12:17",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "13:18",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "14:21",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "15:24",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "7:21",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "32:23",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "34:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "read"
+    },
+    {
+      "location": "35:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Int8Array"
+    },
+    {
+      "location": "40:23",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "42:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "read"
+    },
+    {
+      "location": "5:46",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Proxy"
+    },
+    {
+      "location": "7:20",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "7:40",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "String"
+    },
+    {
+      "location": "240:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Benchmark"
+    },
+    {
+      "location": "247:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "249:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "252:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "252:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "252:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max"
+    },
+    {
+      "location": "255:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reduce"
+    },
+    {
+      "location": "257:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "258:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "catch"
+    },
+    {
+      "location": "259:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "printErr"
+    },
+    {
+      "location": "259:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "240:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Benchmark"
+    },
+    {
+      "location": "252:17",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "255:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "reduce"
+    },
+    {
+      "location": "257:8",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "258:11",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "catch"
+    },
+    {
+      "location": "259:11",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "printErr"
+    },
+    {
+      "location": "259:18",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "String"
+    },
+    {
+      "location": "241:25",
+      "kind": "arithmetic",
+      "reason": "no-closure-target",
+      "note": "optional call benchmark.init?.() / .prepareForNextIteration?.() / .validate?.(): the property is always undefined at runtime (the class defines only runIteration) so the callee has no closure target; a type guard on the member auto-prunes (no IR node), leaving the optional-call op generic"
+    },
+    {
+      "location": "245:40",
+      "kind": "arithmetic",
+      "reason": "no-closure-target",
+      "note": "optional call benchmark.init?.() / .prepareForNextIteration?.() / .validate?.(): the property is always undefined at runtime (the class defines only runIteration) so the callee has no closure target; a type guard on the member auto-prunes (no IR node), leaving the optional-call op generic"
+    },
+    {
+      "location": "251:25",
+      "kind": "arithmetic",
+      "reason": "no-closure-target",
+      "note": "optional call benchmark.init?.() / .prepareForNextIteration?.() / .validate?.(): the property is always undefined at runtime (the class defines only runIteration) so the callee has no closure target; a type guard on the member auto-prunes (no IR node), leaving the optional-call op generic"
+    },
+    {
+      "location": "256:19",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "total / results.length and 'Time: ' + total: results.length is an unknown-shape native length and the array literal could not be bound (target range unresolved), so the operands stay maybe-not-number; a number type guard on total or on the length member auto-pruned with no effect"
+    },
+    {
+      "location": "257:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "total / results.length and 'Time: ' + total: results.length is an unknown-shape native length and the array literal could not be bound (target range unresolved), so the operands stay maybe-not-number; a number type guard on total or on the length member auto-pruned with no effect"
+    },
+    {
+      "location": "256:34",
+      "kind": "property_load",
+      "reason": "maybe-not-number",
+      "property": "length",
+      "note": "total / results.length and 'Time: ' + total: results.length is an unknown-shape native length and the array literal could not be bound (target range unresolved), so the operands stay maybe-not-number; a number type guard on total or on the length member auto-pruned with no effect"
+    },
+    {
+      "location": "219:23",
+      "kind": "call",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "221:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "223:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "228:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Promise"
+    },
+    {
+      "location": "228:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "all"
+    },
+    {
+      "location": "221:22",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "Benchmark"
+    },
+    {
+      "location": "221:24",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "prototype",
+      "note": "the class expression assigned to globalThis.Benchmark: no source expression produces its prototype object, so no prototype shape can be bound to it (a class-body binding auto-prunes; only the class function range matches IR)"
+    },
+    {
+      "location": "223:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array"
+    },
+    {
+      "location": "228:23",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "all"
+    },
+    {
+      "location": "88:85",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "require"
+    },
+    {
+      "location": "88:101",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "require"
+    },
+    {
+      "location": "88:163",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "88:269",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "call"
+    },
+    {
+      "location": "88:271",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "exports"
+    },
+    {
+      "location": "88:328",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "exports"
+    },
+    {
+      "location": "88:357",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "exports"
+    },
+    {
+      "location": "88:388",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "require"
+    },
+    {
+      "location": "88:404",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "require"
+    },
+    {
+      "location": "88:126",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "88:146",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "88:168",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "88:269",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "call"
+    },
+    {
+      "location": "91:22",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "88:460",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "88:169",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "88:416",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "88:211",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "code"
+    },
+    {
+      "location": "88:419",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "length",
+      "note": "t.length on the runtime modules object passed to the browserify loader — no shape can be bound to it"
+    },
+    {
+      "location": "144:1",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "note": "indirect calls of dummy_1 / dummy_2 / createQuery dispatched through the runtime fakes objects; both the call sites (module 1) and the definitions (module 2) are inside required browserify modules where annotations have no effect"
+    },
+    {
+      "location": "145:1",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "note": "indirect calls of dummy_1 / dummy_2 / createQuery dispatched through the runtime fakes objects; both the call sites (module 1) and the definitions (module 2) are inside required browserify modules where annotations have no effect"
+    },
+    {
+      "location": "179:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "note": "indirect calls of dummy_1 / dummy_2 / createQuery dispatched through the runtime fakes objects; both the call sites (module 1) and the definitions (module 2) are inside required browserify modules where annotations have no effect"
+    },
+    {
+      "location": "239:2",
+      "kind": "call",
+      "reason": "other",
+      "note": "top-level entry call of the async runner IIFE: the callee is a known closure (the closure type guard at 239:2:258:2 optimizes the direct invocation at 258:3), but this call is the program entry point — an async call that must allocate the result promise and cannot be eliminated or inlined (its body is the whole runner)"
+    }
+  ]
+}

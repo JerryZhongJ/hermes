@@ -1,11 +1,3 @@
-// Imported from https://github.com/manuel-serrano/jsbench
-// Commit: 7c8fc4e58d2a5c7980c207d302b1d1cb18308a5c
-// Source: bglstone/leval.js
-// Adaptation: benchmarks/speculative/import_hopc.py
-(function() {
-"use strict";
-var __hopcStart = performance.now();
-
 /*=====================================================================*/
 /*    serrano/prgm/project/hop/jsbench/bglstone/leval.js               */
 /*    -------------------------------------------------------------    */
@@ -367,7 +359,7 @@ let globalEnv =
       cons( "-", (x, y) => x - y),
       cons( "<", (x, y) => x < y),
       cons( ">=", (x, y) => x >= y),
-      cons( "print", (x) => print( x ) ) );
+      cons( "print", (x) => console.log( x ) ) );
 
 /*---------------------------------------------------------------------*/
 /*    ewal ...                                                         */
@@ -442,19 +434,22 @@ function main( n ) {
    const k = Math.round( n / 10 );
    let i = 1;
    
-   print( "leval(", n, ")..." );
+   console.log( "leval(", n, ")..." );
    
    while( n-- > 0 ) {
-      if( n % k === 0 ) { print( i++ ); }
+      if( n % k === 0 ) { console.log( i++ ); }
       res = run( 1 );
    }
 
-   print( "res=", res );
+   console.log( "res=", res );
 }
 
+// Static Hermes benchmark runner: fixed N, timed with performance.now
 const N = 1;
 
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
 main( N );
-
-print('Time: ' + (performance.now() - __hopcStart));
-})();
+var __end = __performance.now();
+print( "Time: " + (__end - __start) );

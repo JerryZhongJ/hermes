@@ -1,11 +1,3 @@
-// Imported from https://github.com/manuel-serrano/jsbench
-// Commit: 7c8fc4e58d2a5c7980c207d302b1d1cb18308a5c
-// Source: other/rho-simple.js
-// Adaptation: benchmarks/speculative/import_hopc.py
-(function() {
-"use strict";
-var __hopcStart = performance.now();
-
 "use strict";
 
 /*---------------------------------------------------------------------*/
@@ -44,7 +36,13 @@ const underscore = function( module, exports ) {
   // Baseline setup
   // --------------
 
-  var root = globalThis;
+  // Establish the root object, `window` (`self`) in the browser, `global`
+  // on the server, or `this` in some virtual machines. We use `self`
+  // instead of `window` for `WebWorker` support.
+  var root = typeof self == 'object' && self.self === self && self ||
+            typeof global == 'object' && global.global === global && global ||
+            this ||
+            {};
 
   // Save the previous value of the `_` variable.
   var previousUnderscore = root._;
@@ -788,7 +786,7 @@ const underscore = function( module, exports ) {
     for (var key in obj) if (has(obj, key)) keys.push(key);
     // Ahem, IE < 9.
     if (hasEnumBug) collectNonEnumProps(obj, keys);
-    print( keys );
+    console.error( keys );
     return keys;
   };
 
@@ -2983,10 +2981,10 @@ function main( bench, n ) {
    const k = Math.round( n / 10 );
    let i = 1;
    
-   print( bench + "(", n, ")..." );
+   console.log( bench + "(", n, ")..." );
    
    for( let i = 0; i < n; i++ ) {
-      if( i % k === 0 ) print( i );
+      if( i % k === 0 ) console.log( i );
       linear(0);
       linear(1);
       linear(10);
@@ -2996,9 +2994,12 @@ function main( bench, n ) {
 
 }
 
-const N = 10000;
+// Static Hermes benchmark runner: fixed N, timed with performance.now
+const N = 15000;
 
-main( "rho", N ); 
-
-print('Time: ' + (performance.now() - __hopcStart));
-})();
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+main( "rho", N );
+var __end = __performance.now();
+print( "Time: " + (__end - __start) );

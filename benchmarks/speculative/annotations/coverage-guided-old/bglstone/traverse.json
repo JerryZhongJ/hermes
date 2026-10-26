@@ -1,0 +1,3463 @@
+{
+  "static shapes": {
+    "Pair": {
+      "properties": [
+        {
+          "name": "car"
+        },
+        {
+          "name": "cdr"
+        }
+      ]
+    },
+    "Node": {
+      "properties": [
+        {
+          "name": "parents"
+        },
+        {
+          "name": "sons"
+        },
+        {
+          "name": "sn",
+          "type": "number"
+        },
+        {
+          "name": "entry1",
+          "type": "boolean"
+        },
+        {
+          "name": "entry2",
+          "type": "boolean"
+        },
+        {
+          "name": "entry3",
+          "type": "boolean"
+        },
+        {
+          "name": "entry4",
+          "type": "boolean"
+        },
+        {
+          "name": "entry5",
+          "type": "boolean"
+        },
+        {
+          "name": "entry6",
+          "type": "boolean"
+        },
+        {
+          "name": "entry8",
+          "type": "boolean"
+        },
+        {
+          "name": "mark",
+          "type": "boolean"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 28,
+          "column": 15
+        },
+        "end": {
+          "line": 28,
+          "column": 16
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 29,
+          "column": 15
+        },
+        "end": {
+          "line": 29,
+          "column": 16
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 30,
+          "column": 16
+        },
+        "end": {
+          "line": 30,
+          "column": 17
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 30,
+          "column": 29
+        },
+        "end": {
+          "line": 30,
+          "column": 34
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 31,
+          "column": 16
+        },
+        "end": {
+          "line": 31,
+          "column": 17
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 31,
+          "column": 29
+        },
+        "end": {
+          "line": 31,
+          "column": 34
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 32,
+          "column": 16
+        },
+        "end": {
+          "line": 32,
+          "column": 17
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 32,
+          "column": 29
+        },
+        "end": {
+          "line": 32,
+          "column": 34
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 33,
+          "column": 16
+        },
+        "end": {
+          "line": 33,
+          "column": 17
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 33,
+          "column": 29
+        },
+        "end": {
+          "line": 33,
+          "column": 34
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 34,
+          "column": 17
+        },
+        "end": {
+          "line": 34,
+          "column": 18
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 34,
+          "column": 30
+        },
+        "end": {
+          "line": 34,
+          "column": 35
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 34,
+          "column": 30
+        },
+        "end": {
+          "line": 34,
+          "column": 39
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 35,
+          "column": 17
+        },
+        "end": {
+          "line": 35,
+          "column": 18
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 35,
+          "column": 30
+        },
+        "end": {
+          "line": 35,
+          "column": 35
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 35,
+          "column": 30
+        },
+        "end": {
+          "line": 35,
+          "column": 39
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 36,
+          "column": 18
+        },
+        "end": {
+          "line": 36,
+          "column": 19
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 36,
+          "column": 31
+        },
+        "end": {
+          "line": 36,
+          "column": 36
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 36,
+          "column": 31
+        },
+        "end": {
+          "line": 36,
+          "column": 40
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 36,
+          "column": 31
+        },
+        "end": {
+          "line": 36,
+          "column": 44
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 37,
+          "column": 18
+        },
+        "end": {
+          "line": 37,
+          "column": 19
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 37,
+          "column": 31
+        },
+        "end": {
+          "line": 37,
+          "column": 36
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 37,
+          "column": 31
+        },
+        "end": {
+          "line": 37,
+          "column": 40
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 37,
+          "column": 31
+        },
+        "end": {
+          "line": 37,
+          "column": 44
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 39,
+          "column": 18
+        },
+        "end": {
+          "line": 39,
+          "column": 19
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 40,
+          "column": 18
+        },
+        "end": {
+          "line": 40,
+          "column": 19
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 174,
+          "column": 20
+        },
+        "end": {
+          "line": 174,
+          "column": 24
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 183,
+          "column": 22
+        },
+        "end": {
+          "line": 183,
+          "column": 26
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 167,
+          "column": 7
+        },
+        "end": {
+          "line": 167,
+          "column": 8
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 167,
+          "column": 25
+        },
+        "end": {
+          "line": 167,
+          "column": 26
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 168,
+          "column": 7
+        },
+        "end": {
+          "line": 168,
+          "column": 8
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 168,
+          "column": 28
+        },
+        "end": {
+          "line": 168,
+          "column": 29
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 175,
+          "column": 31
+        },
+        "end": {
+          "line": 175,
+          "column": 35
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 177,
+          "column": 19
+        },
+        "end": {
+          "line": 177,
+          "column": 23
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 128,
+          "column": 18
+        },
+        "end": {
+          "line": 128,
+          "column": 19
+        }
+      },
+      "shape": "Pair"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 9,
+          "column": 4
+        },
+        "end": {
+          "line": 9,
+          "column": 8
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 79,
+          "column": 4
+        },
+        "end": {
+          "line": 79,
+          "column": 8
+        }
+      },
+      "shape": "Node"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 13,
+          "column": 15
+        },
+        "end": {
+          "line": 13,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 21,
+          "column": 10
+        },
+        "end": {
+          "line": 21,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 21,
+          "column": 24
+        },
+        "end": {
+          "line": 21,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 17,
+          "column": 4
+        },
+        "end": {
+          "line": 23,
+          "column": 5
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 25,
+          "column": 11
+        },
+        "end": {
+          "line": 25,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 17,
+          "column": 4
+        },
+        "end": {
+          "line": 23,
+          "column": 5
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 71,
+          "column": 14
+        },
+        "end": {
+          "line": 71,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 60,
+          "column": 1
+        },
+        "end": {
+          "line": 62,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 88,
+          "column": 8
+        },
+        "end": {
+          "line": 88,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 31,
+          "column": 41
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 88,
+          "column": 22
+        },
+        "end": {
+          "line": 88,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 89,
+          "column": 15
+        },
+        "end": {
+          "line": 89,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 32,
+          "column": 41
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 90,
+          "column": 7
+        },
+        "end": {
+          "line": 90,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 39,
+          "column": 1
+        },
+        "end": {
+          "line": 39,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 93,
+          "column": 15
+        },
+        "end": {
+          "line": 93,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 32,
+          "column": 41
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 15
+        },
+        "end": {
+          "line": 94,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 97,
+          "column": 14
+        },
+        "end": {
+          "line": 97,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 97,
+          "column": 27
+        },
+        "end": {
+          "line": 97,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 98,
+          "column": 13
+        },
+        "end": {
+          "line": 98,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 7,
+          "line": 100
+        },
+        "end": {
+          "column": 13,
+          "line": 100
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 40,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 18,
+          "line": 100
+        },
+        "end": {
+          "column": 22,
+          "line": 100
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 31
+        },
+        "end": {
+          "column": 41,
+          "line": 31
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 7,
+          "line": 101
+        },
+        "end": {
+          "column": 13,
+          "line": 101
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 39
+        },
+        "end": {
+          "column": 46,
+          "line": 39
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 15,
+          "line": 104
+        },
+        "end": {
+          "column": 19,
+          "line": 104
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 31
+        },
+        "end": {
+          "column": 41,
+          "line": 31
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 11,
+          "line": 105
+        },
+        "end": {
+          "column": 14,
+          "line": 105
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 28
+        },
+        "end": {
+          "column": 36,
+          "line": 28
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 7,
+          "line": 108
+        },
+        "end": {
+          "column": 10,
+          "line": 108
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 29
+        },
+        "end": {
+          "column": 36,
+          "line": 29
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 7,
+          "line": 109
+        },
+        "end": {
+          "column": 10,
+          "line": 109
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 29
+        },
+        "end": {
+          "column": 36,
+          "line": 29
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 15,
+          "line": 111
+        },
+        "end": {
+          "column": 18,
+          "line": 111
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 28
+        },
+        "end": {
+          "column": 36,
+          "line": 28
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 7,
+          "line": 112
+        },
+        "end": {
+          "column": 13,
+          "line": 112
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 40,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 8,
+          "line": 118
+        },
+        "end": {
+          "column": 11,
+          "line": 118
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 28
+        },
+        "end": {
+          "column": 36,
+          "line": 28
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 11,
+          "line": 122
+        },
+        "end": {
+          "column": 14,
+          "line": 122
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 29
+        },
+        "end": {
+          "column": 36,
+          "line": 29
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 11,
+          "line": 125
+        },
+        "end": {
+          "column": 14,
+          "line": 125
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 28
+        },
+        "end": {
+          "column": 36,
+          "line": 28
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 8,
+          "line": 129
+        },
+        "end": {
+          "column": 13,
+          "line": 129
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 44
+        },
+        "end": {
+          "column": 43,
+          "line": 44
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 15,
+          "line": 130
+        },
+        "end": {
+          "column": 19,
+          "line": 130
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 16
+        },
+        "end": {
+          "column": 2,
+          "line": 26
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 7,
+          "line": 131
+        },
+        "end": {
+          "column": 13,
+          "line": 131
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 40,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 14,
+          "line": 132
+        },
+        "end": {
+          "column": 18,
+          "line": 132
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 16
+        },
+        "end": {
+          "column": 2,
+          "line": 26
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 15,
+          "line": 133
+        },
+        "end": {
+          "column": 20,
+          "line": 133
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 44
+        },
+        "end": {
+          "column": 43,
+          "line": 44
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 22,
+          "line": 133
+        },
+        "end": {
+          "column": 25,
+          "line": 133
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 28
+        },
+        "end": {
+          "column": 36,
+          "line": 28
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 15,
+          "line": 134
+        },
+        "end": {
+          "column": 19,
+          "line": 134
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 16
+        },
+        "end": {
+          "column": 2,
+          "line": 26
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 7,
+          "line": 135
+        },
+        "end": {
+          "column": 13,
+          "line": 135
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 40,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 7,
+          "line": 136
+        },
+        "end": {
+          "column": 13,
+          "line": 136
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 39
+        },
+        "end": {
+          "column": 46,
+          "line": 39
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 6,
+          "line": 139
+        },
+        "end": {
+          "column": 12,
+          "line": 139
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 40,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 14,
+          "line": 139
+        },
+        "end": {
+          "column": 17,
+          "line": 139
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 28
+        },
+        "end": {
+          "column": 36,
+          "line": 28
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 24,
+          "line": 139
+        },
+        "end": {
+          "column": 28,
+          "line": 139
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 12
+        },
+        "end": {
+          "column": 2,
+          "line": 14
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 33,
+          "line": 139
+        },
+        "end": {
+          "column": 37,
+          "line": 139
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 31
+        },
+        "end": {
+          "column": 41,
+          "line": 31
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 12,
+          "line": 147
+        },
+        "end": {
+          "column": 16,
+          "line": 147
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 16
+        },
+        "end": {
+          "column": 2,
+          "line": 26
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 22,
+          "line": 147
+        },
+        "end": {
+          "column": 26,
+          "line": 147
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 68
+        },
+        "end": {
+          "column": 2,
+          "line": 80
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 11,
+          "line": 151
+        },
+        "end": {
+          "column": 15,
+          "line": 151
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 12
+        },
+        "end": {
+          "column": 2,
+          "line": 14
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 21,
+          "line": 151
+        },
+        "end": {
+          "column": 25,
+          "line": 151
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 68
+        },
+        "end": {
+          "column": 2,
+          "line": 80
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 4,
+          "line": 154
+        },
+        "end": {
+          "column": 10,
+          "line": 154
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 40,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 8,
+          "line": 155
+        },
+        "end": {
+          "column": 12,
+          "line": 155
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 16
+        },
+        "end": {
+          "column": 2,
+          "line": 26
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 17,
+          "line": 158
+        },
+        "end": {
+          "column": 20,
+          "line": 158
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 128
+        },
+        "end": {
+          "column": 2,
+          "line": 142
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 22,
+          "line": 158
+        },
+        "end": {
+          "column": 36,
+          "line": 158
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 87
+        },
+        "end": {
+          "column": 2,
+          "line": 115
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 12,
+          "line": 163
+        },
+        "end": {
+          "column": 17,
+          "line": 163
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 44
+        },
+        "end": {
+          "column": 43,
+          "line": 44
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 19,
+          "line": 163
+        },
+        "end": {
+          "column": 22,
+          "line": 163
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 28
+        },
+        "end": {
+          "column": 36,
+          "line": 28
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 11,
+          "line": 164
+        },
+        "end": {
+          "column": 25,
+          "line": 164
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 87
+        },
+        "end": {
+          "column": 2,
+          "line": 115
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 27,
+          "line": 164
+        },
+        "end": {
+          "column": 41,
+          "line": 164
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 82
+        },
+        "end": {
+          "column": 2,
+          "line": 85
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 11,
+          "line": 165
+        },
+        "end": {
+          "column": 25,
+          "line": 165
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 117
+        },
+        "end": {
+          "column": 2,
+          "line": 126
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 27,
+          "line": 165
+        },
+        "end": {
+          "column": 41,
+          "line": 165
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 82
+        },
+        "end": {
+          "column": 2,
+          "line": 85
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 7,
+          "line": 166
+        },
+        "end": {
+          "column": 10,
+          "line": 166
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 128
+        },
+        "end": {
+          "column": 2,
+          "line": 142
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 16,
+          "line": 167
+        },
+        "end": {
+          "column": 20,
+          "line": 167
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 12
+        },
+        "end": {
+          "column": 2,
+          "line": 14
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 19,
+          "line": 168
+        },
+        "end": {
+          "column": 23,
+          "line": 168
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 12
+        },
+        "end": {
+          "column": 2,
+          "line": 14
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 11,
+          "line": 171
+        },
+        "end": {
+          "column": 19,
+          "line": 171
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 174
+        },
+        "end": {
+          "column": 2,
+          "line": 180
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 21,
+          "line": 171
+        },
+        "end": {
+          "column": 35,
+          "line": 171
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 117
+        },
+        "end": {
+          "column": 2,
+          "line": 126
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 24,
+          "line": 175
+        },
+        "end": {
+          "column": 29,
+          "line": 175
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 44
+        },
+        "end": {
+          "column": 43,
+          "line": 44
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 14,
+          "line": 177
+        },
+        "end": {
+          "column": 17,
+          "line": 177
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 28
+        },
+        "end": {
+          "column": 36,
+          "line": 28
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 17,
+          "line": 198
+        },
+        "end": {
+          "column": 22,
+          "line": 198
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 44
+        },
+        "end": {
+          "column": 43,
+          "line": 44
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 6,
+          "line": 199
+        },
+        "end": {
+          "column": 13,
+          "line": 199
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 4,
+          "line": 183
+        },
+        "end": {
+          "column": 5,
+          "line": 203
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 15,
+          "line": 199
+        },
+        "end": {
+          "column": 18,
+          "line": 199
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 28
+        },
+        "end": {
+          "column": 36,
+          "line": 28
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 13,
+          "line": 200
+        },
+        "end": {
+          "column": 16,
+          "line": 200
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 29
+        },
+        "end": {
+          "column": 36,
+          "line": 29
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 4,
+          "line": 208
+        },
+        "end": {
+          "column": 11,
+          "line": 208
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 4,
+          "line": 183
+        },
+        "end": {
+          "column": 5,
+          "line": 203
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 4,
+          "line": 214
+        },
+        "end": {
+          "column": 9,
+          "line": 214
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 53
+        },
+        "end": {
+          "column": 2,
+          "line": 58
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 11,
+          "line": 215
+        },
+        "end": {
+          "column": 26,
+          "line": 215
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 146
+        },
+        "end": {
+          "column": 2,
+          "line": 172
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 4,
+          "line": 219
+        },
+        "end": {
+          "column": 16,
+          "line": 219
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 213
+        },
+        "end": {
+          "column": 2,
+          "line": 216
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 7,
+          "line": 221
+        },
+        "end": {
+          "column": 15,
+          "line": 221
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 182
+        },
+        "end": {
+          "column": 2,
+          "line": 211
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 7,
+          "line": 234
+        },
+        "end": {
+          "column": 18,
+          "line": 234
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 218
+        },
+        "end": {
+          "column": 2,
+          "line": 223
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 4,
+          "line": 237
+        },
+        "end": {
+          "column": 15,
+          "line": 237
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 218
+        },
+        "end": {
+          "column": 2,
+          "line": 223
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 1,
+          "line": 246
+        },
+        "end": {
+          "column": 5,
+          "line": 246
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 225
+        },
+        "end": {
+          "column": 2,
+          "line": 238
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 87,
+          "column": 26
+        },
+        "end": {
+          "line": 87,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 117,
+          "column": 26
+        },
+        "end": {
+          "line": 117,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 146,
+          "column": 27
+        },
+        "end": {
+          "line": 146,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 174,
+          "column": 26
+        },
+        "end": {
+          "line": 174,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 183,
+          "column": 28
+        },
+        "end": {
+          "line": 183,
+          "column": 32
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 218,
+          "column": 23
+        },
+        "end": {
+          "line": 218,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 225,
+          "column": 23
+        },
+        "end": {
+          "line": 225,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 83,
+          "column": 12
+        },
+        "end": {
+          "line": 83,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 164,
+          "column": 27
+        },
+        "end": {
+          "line": 164,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 27
+        },
+        "end": {
+          "line": 165,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 17,
+          "column": 22
+        },
+        "end": {
+          "line": 17,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 18,
+          "column": 17
+        },
+        "end": {
+          "line": 18,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "column": 43,
+          "line": 45
+        },
+        "end": {
+          "column": 47,
+          "line": 45
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "column": 1,
+          "line": 7
+        },
+        "end": {
+          "column": 2,
+          "line": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 248,
+          "column": 20
+        },
+        "end": {
+          "line": 248,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 248,
+          "column": 28
+        },
+        "end": {
+          "line": 248,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 225,
+          "column": 16
+        },
+        "end": {
+          "line": 225,
+          "column": 21
+        }
+      },
+      "type": "string"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "88:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdar"
+    },
+    {
+      "location": "88:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "89:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "caar"
+    },
+    {
+      "location": "90:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setCar"
+    },
+    {
+      "location": "93:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "caar"
+    },
+    {
+      "location": "94:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "97:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "97:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "98:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "100:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setCdr"
+    },
+    {
+      "location": "100:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdar"
+    },
+    {
+      "location": "101:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setCar"
+    },
+    {
+      "location": "104:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdar"
+    },
+    {
+      "location": "105:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "108:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "109:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "111:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "112:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setCdr"
+    },
+    {
+      "location": "88:8",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "97:14",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "118:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "122:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "125:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "129:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "nullp"
+    },
+    {
+      "location": "130:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "131:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setCdr"
+    },
+    {
+      "location": "132:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "133:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "nullp"
+    },
+    {
+      "location": "133:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "134:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "135:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setCdr"
+    },
+    {
+      "location": "136:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setCar"
+    },
+    {
+      "location": "139:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setCdr"
+    },
+    {
+      "location": "139:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "139:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "139:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdar"
+    },
+    {
+      "location": "147:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "147:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Node"
+    },
+    {
+      "location": "151:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "151:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Node"
+    },
+    {
+      "location": "154:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setCdr"
+    },
+    {
+      "location": "155:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "158:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "add"
+    },
+    {
+      "location": "158:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "traverseRemove"
+    },
+    {
+      "location": "163:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "nullp"
+    },
+    {
+      "location": "163:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "164:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "traverseRemove"
+    },
+    {
+      "location": "164:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "traverseRandom"
+    },
+    {
+      "location": "165:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "traverseSelect"
+    },
+    {
+      "location": "165:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "traverseRandom"
+    },
+    {
+      "location": "166:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "add"
+    },
+    {
+      "location": "167:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "168:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "171:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "findRoot"
+    },
+    {
+      "location": "171:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "traverseSelect"
+    },
+    {
+      "location": "175:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "nullp"
+    },
+    {
+      "location": "177:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "198:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "nullp"
+    },
+    {
+      "location": "199:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "200:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "214:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reset"
+    },
+    {
+      "location": "215:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "createStructure"
+    },
+    {
+      "location": "219:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "initTraverse"
+    },
+    {
+      "location": "221:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "traverse"
+    },
+    {
+      "location": "234:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "runTraverse"
+    },
+    {
+      "location": "237:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "runTraverse"
+    },
+    {
+      "location": "230:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "230:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "233:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "233:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "13:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pair"
+    },
+    {
+      "location": "45:43",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pair"
+    },
+    {
+      "location": "71:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "snd"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "cons",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "pairp",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "add",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "createStructure",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "findRoot",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "traverse",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "initTraverse",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "runTraverse",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "main",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "traverseSelect",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "traverseRemove",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "traverseRandom",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "Node",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "seed",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "snd",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "reset",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "nullp",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "setCar",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "setCdr",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "cddddr",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "cadddr",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "cdddr",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "caddr",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "cddr",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "pair",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "list",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "car",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "caar",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "cdar",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "cadr",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "cdr",
+      "note": "top-level function-declaration write to global object; no bindable receiver shape exists"
+    },
+    {
+      "location": "3:11",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "LIMIT",
+      "note": "global var/module-level declaration store; receiver is the global object with no bindable shape"
+    },
+    {
+      "location": "5:7",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "S",
+      "note": "global var/module-level declaration store; receiver is the global object with no bindable shape"
+    },
+    {
+      "location": "144:7",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "K",
+      "note": "global var/module-level declaration store; receiver is the global object with no bindable shape"
+    },
+    {
+      "location": "243:19",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "__performance",
+      "note": "global var/module-level declaration store; receiver is the global object with no bindable shape"
+    },
+    {
+      "location": "243:71",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "performance",
+      "note": "global var/module-level declaration store; receiver is the global object with no bindable shape"
+    },
+    {
+      "location": "244:19",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "now",
+      "note": "global var/module-level declaration store; receiver is the global object with no bindable shape"
+    },
+    {
+      "location": "245:13",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "__start",
+      "note": "global var/module-level declaration store; receiver is the global object with no bindable shape"
+    },
+    {
+      "location": "247:11",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "__end",
+      "note": "global var/module-level declaration store; receiver is the global object with no bindable shape"
+    },
+    {
+      "location": "243:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "243:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "243:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "244:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "244:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "244:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "244:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "245:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "245:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "246:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "main"
+    },
+    {
+      "location": "247:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "247:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "248:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "248:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__end"
+    },
+    {
+      "location": "248:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__start"
+    },
+    {
+      "location": "250:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "250:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "250:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "S"
+    },
+    {
+      "location": "243:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "?? / ??= / string-concat in top-level harness on global and builtin operands; operands have no concrete type or shape"
+    },
+    {
+      "location": "244:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "?? / ??= / string-concat in top-level harness on global and builtin operands; operands have no concrete type or shape"
+    },
+    {
+      "location": "248:8",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "?? / ??= / string-concat in top-level harness on global and builtin operands; operands have no concrete type or shape"
+    },
+    {
+      "location": "245:32",
+      "kind": "call",
+      "reason": "other",
+      "property": "now",
+      "note": "calls in top-level/global scope to builtins or to a global function whose identity load remains generic"
+    },
+    {
+      "location": "246:5",
+      "kind": "call",
+      "reason": "other",
+      "property": "main",
+      "note": "calls in top-level/global scope to builtins or to a global function whose identity load remains generic"
+    },
+    {
+      "location": "247:30",
+      "kind": "call",
+      "reason": "other",
+      "property": "now",
+      "note": "calls in top-level/global scope to builtins or to a global function whose identity load remains generic"
+    },
+    {
+      "location": "248:6",
+      "kind": "call",
+      "reason": "other",
+      "property": "print",
+      "note": "calls in top-level/global scope to builtins or to a global function whose identity load remains generic"
+    },
+    {
+      "location": "250:12",
+      "kind": "call",
+      "reason": "other",
+      "property": "log",
+      "note": "calls in top-level/global scope to builtins or to a global function whose identity load remains generic"
+    },
+    {
+      "location": "8:13",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "car",
+      "note": "constructor field writes happen while the instance shape is still being built (before final-write binding applies), so no static shape covers them"
+    },
+    {
+      "location": "9:13",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "cdr",
+      "note": "constructor field writes happen while the instance shape is still being built (before final-write binding applies), so no static shape covers them"
+    },
+    {
+      "location": "69:17",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "parents",
+      "note": "constructor field writes happen while the instance shape is still being built (before final-write binding applies), so no static shape covers them"
+    },
+    {
+      "location": "70:14",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "sons",
+      "note": "constructor field writes happen while the instance shape is still being built (before final-write binding applies), so no static shape covers them"
+    },
+    {
+      "location": "71:12",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "sn",
+      "note": "constructor field writes happen while the instance shape is still being built (before final-write binding applies), so no static shape covers them"
+    },
+    {
+      "location": "72:16",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "entry1",
+      "note": "constructor field writes happen while the instance shape is still being built (before final-write binding applies), so no static shape covers them"
+    },
+    {
+      "location": "73:16",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "entry2",
+      "note": "constructor field writes happen while the instance shape is still being built (before final-write binding applies), so no static shape covers them"
+    },
+    {
+      "location": "74:16",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "entry3",
+      "note": "constructor field writes happen while the instance shape is still being built (before final-write binding applies), so no static shape covers them"
+    },
+    {
+      "location": "75:16",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "entry4",
+      "note": "constructor field writes happen while the instance shape is still being built (before final-write binding applies), so no static shape covers them"
+    },
+    {
+      "location": "76:16",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "entry5",
+      "note": "constructor field writes happen while the instance shape is still being built (before final-write binding applies), so no static shape covers them"
+    },
+    {
+      "location": "77:16",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "entry6",
+      "note": "constructor field writes happen while the instance shape is still being built (before final-write binding applies), so no static shape covers them"
+    },
+    {
+      "location": "78:16",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "entry8",
+      "note": "constructor field writes happen while the instance shape is still being built (before final-write binding applies), so no static shape covers them"
+    },
+    {
+      "location": "79:14",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "mark",
+      "note": "constructor field writes happen while the instance shape is still being built (before final-write binding applies), so no static shape covers them"
+    },
+    {
+      "location": "18:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "21:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "44:30",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "184:11",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "13:19",
+      "kind": "call",
+      "reason": "other",
+      "property": "pair",
+      "note": "new-expression call to a global constructor is not specialized into a direct allocation by closure guards"
+    },
+    {
+      "location": "25:15",
+      "kind": "call",
+      "reason": "other",
+      "note": "call through a local nested-function binding (per-call closure instance); identity cannot be statically fixed"
+    },
+    {
+      "location": "21:28",
+      "kind": "call",
+      "reason": "other",
+      "note": "call through a local nested-function binding (per-call closure instance); identity cannot be statically fixed"
+    },
+    {
+      "location": "208:11",
+      "kind": "call",
+      "reason": "other",
+      "note": "call through a local nested-function binding (per-call closure instance); identity cannot be statically fixed"
+    },
+    {
+      "location": "199:13",
+      "kind": "call",
+      "reason": "other",
+      "note": "call through a local nested-function binding (per-call closure instance); identity cannot be statically fixed"
+    },
+    {
+      "location": "71:17",
+      "kind": "call",
+      "reason": "other",
+      "property": "snd",
+      "note": "call from constructor body; global function identity load not specialized in this context"
+    },
+    {
+      "location": "214:9",
+      "kind": "call",
+      "reason": "other",
+      "property": "reset",
+      "note": "call in a tiny wrapper function; global function identity load not specialized here despite closure guard"
+    },
+    {
+      "location": "230:15",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "233:38",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "log"
+    }
+  ]
+}

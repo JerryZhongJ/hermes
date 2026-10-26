@@ -1,0 +1,645 @@
+{
+  "static shapes": {},
+  "shape guards": [],
+  "shape bindings": [],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 20,
+          "column": 17
+        },
+        "end": {
+          "line": 20,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 20,
+          "column": 21
+        },
+        "end": {
+          "line": 20,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 27,
+          "column": 20
+        },
+        "end": {
+          "line": 27,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 28,
+          "column": 20
+        },
+        "end": {
+          "line": 28,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 43,
+          "column": 7
+        },
+        "end": {
+          "line": 43,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 46,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 44,
+          "column": 7
+        },
+        "end": {
+          "line": 44,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 46,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 24,
+          "column": 19
+        },
+        "end": {
+          "line": 24,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 27,
+          "column": 30
+        },
+        "end": {
+          "line": 27,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 28,
+          "column": 30
+        },
+        "end": {
+          "line": 28,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 49,
+          "column": 16
+        },
+        "end": {
+          "line": 49,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 58,
+          "column": 15
+        },
+        "end": {
+          "line": 58,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 18,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 63,
+          "column": 4
+        },
+        "end": {
+          "line": 63,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 20,
+          "column": 1
+        },
+        "end": {
+          "line": 46,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 55,
+          "column": 24
+        },
+        "end": {
+          "line": 55,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 68,
+          "column": 11
+        },
+        "end": {
+          "line": 68,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 68,
+          "column": 24
+        },
+        "end": {
+          "line": 68,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 76,
+          "column": 11
+        },
+        "end": {
+          "line": 76,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 84,
+          "column": 23
+        },
+        "end": {
+          "line": 84,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 13
+        },
+        "end": {
+          "line": 94,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 49,
+          "column": 1
+        },
+        "end": {
+          "line": 82,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 84,
+          "column": 16
+        },
+        "end": {
+          "line": 84,
+          "column": 21
+        }
+      },
+      "type": "string"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "43:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "qsort",
+      "note": "Load of global-scope function binding qsort; the scope/global object holding the property has no creation-site expression in this file to bind a static shape, so the property load cannot become direct slot access."
+    },
+    {
+      "location": "44:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "qsort",
+      "note": "Load of global-scope function binding qsort; the scope/global object holding the property has no creation-site expression in this file to bind a static shape, so the property load cannot become direct slot access."
+    },
+    {
+      "location": "16:13",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "The `seed * 25173` multiply's left operand is a load of the top-level mutable binding `seed`. Its type cannot be proven number here, and a type guard on the global-scope load cannot be emitted (no annotation IR at that target), so the multiply stays on the generic path."
+    },
+    {
+      "location": "50:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "51:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "58:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rand"
+    },
+    {
+      "location": "63:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "qsort"
+    },
+    {
+      "location": "50:21",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array"
+    },
+    {
+      "location": "51:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array"
+    },
+    {
+      "location": "55:29",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "length"
+    },
+    {
+      "location": "57:25",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "63:14",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "67:25",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "69:10",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation ('Illegal sort ' + k/m) occurs inside an unconditional throw on a cold/exit path; the backend does not specialize arithmetic/string ops in cold throw blocks, and number guards on the loop-variable operand have no effect there."
+    },
+    {
+      "location": "77:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation ('Illegal sort ' + k/m) occurs inside an unconditional throw on a cold/exit path; the backend does not specialize arithmetic/string ops in cold throw blocks, and number guards on the loop-variable operand have no effect there."
+    },
+    {
+      "location": "90:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "93:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "97:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "90:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "93:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "97:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "94:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "test"
+    },
+    {
+      "location": "90:15",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "log"
+    },
+    {
+      "location": "93:38",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "log"
+    },
+    {
+      "location": "97:15",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "log"
+    },
+    {
+      "location": "103:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "103:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "103:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "103:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "103:71",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "104:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "104:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "104:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "104:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "104:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "105:13",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__start"
+    },
+    {
+      "location": "105:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "105:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "106:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "main"
+    },
+    {
+      "location": "106:5",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "main"
+    },
+    {
+      "location": "107:11",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__end"
+    },
+    {
+      "location": "107:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "107:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "108:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "108:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__end"
+    },
+    {
+      "location": "108:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__start"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "rand"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "main"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "test"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "qsort"
+    },
+    {
+      "location": "105:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "107:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "108:6",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "108:8",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "108:20",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "103:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing / logical-assign operation in one-shot top-level harness whose tested operand is a global-object property load (globalThis.performance / __performance.now); no type or shape annotation can specialize these generic nullish ops."
+    },
+    {
+      "location": "104:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing / logical-assign operation in one-shot top-level harness whose tested operand is a global-object property load (globalThis.performance / __performance.now); no type or shape annotation can specialize these generic nullish ops."
+    }
+  ]
+}

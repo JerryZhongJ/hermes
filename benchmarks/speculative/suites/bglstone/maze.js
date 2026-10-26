@@ -1,11 +1,3 @@
-// Imported from https://github.com/manuel-serrano/jsbench
-// Commit: 7c8fc4e58d2a5c7980c207d302b1d1cb18308a5c
-// Source: bglstone/maze.js
-// Adaptation: benchmarks/speculative/import_hopc.py
-(function() {
-"use strict";
-var __hopcStart = performance.now();
-
 "use strict";
 
 // Adapted by Manuel Serrano from Olin Shivers's maze.scm program
@@ -192,7 +184,7 @@ function pickEntrances( harr ) {
    dfsMaze( harr, harr.hrefRC( 0, 0 ), forEachHexChild );
 
    function TPLP( maxLen, entrance, exit, tcol ) {
-/*       print( "TPLP maxlen=", maxLen, " entrance=", entrance, " exit=", exit, " tcol=", tcol ); */
+/*       console.log( "TPLP maxlen=", maxLen, " entrance=", entrance, " exit=", exit, " tcol=", tcol ); */
       if( tcol < 0 ) {
 	 TPLPres.entrance = entrance;
 	 TPLPres.exit = exit;
@@ -203,7 +195,7 @@ function pickEntrances( harr ) {
 	 rerootMaze( topBox );
 
 	 function BTLP( maxLen, entrance, exit, bcol ) {
-/* 	    print( "  BTLP maxlen=", maxLen, " entrance=", entrance, " exit=", exit, " bcol=", bcol ); */
+/* 	    console.log( "  BTLP maxlen=", maxLen, " entrance=", entrance, " exit=", exit, " bcol=", bcol ); */
 	    if( bcol < 0 ) {
 	       BTLPres.maxlen = maxLen;
 	       BTLPres.trance = entrance;
@@ -624,15 +616,10 @@ function union( s1, s2 ) {
 }
 
 var stdio = true;
-var line = "";
 
 function display( str ) {
    if( stdio != null ) {
-      line += str;
-      if (str === "\n") {
-         print(line.slice(0, -1));
-         line = "";
-      }
+      print( str );
    }
 }
 
@@ -649,11 +636,11 @@ function main( bench, n ) {
    const k = Math.round( n / 10 );
    let i = 1;
    
-   print( bench + "(", n, ")..." );
+   console.log( bench + "(", n, ")..." );
    
    stdio = null;
    while( n-- > 0 ) {
-      if( n % k === 0 ) { print( i++ ); }
+      if( n % k === 0 ) { console.log( i++ ); }
       pmaze( 100, 100 );
    }
    stdio = true;
@@ -661,9 +648,12 @@ function main( bench, n ) {
    pmaze( 10, 35 );
 }
 
-const N = 10;
+// Static Hermes benchmark runner: fixed N, timed with performance.now
+const N = 11;
 
-main( "maze", N ); 
-
-print('Time: ' + (performance.now() - __hopcStart));
-})();
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+main( "maze", N );
+var __end = __performance.now();
+print( "Time: " + (__end - __start) );

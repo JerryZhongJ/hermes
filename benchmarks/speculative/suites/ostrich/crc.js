@@ -1,11 +1,3 @@
-// Imported from https://github.com/Sable/Ostrich
-// Commit: dd06ca4340ecdbc0a795274d826cb5c034a2b9fe
-// Source: combinational-logic/crc/js/crc.js
-// Adaptation: benchmarks/speculative/import_ostrich.py
-(function() {
-// HBC shells expose Date.now(); SH and V8 also provide performance.now().
-var ostrichNow = typeof performance === "undefined"
-    ? Date.now : performance.now.bind(performance);
 // Copyright 2013 the V8 project authors. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -33,7 +25,7 @@ var ostrichNow = typeof performance === "undefined"
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-var commonRandom = (function() {
+Math.commonRandom = (function() {
     var seed = 49734321;
     return function() {
         // Robert Jenkins' 32 bit integer hash function.
@@ -47,8 +39,8 @@ var commonRandom = (function() {
     };
 })();
 
-var commonRandomJS = function () {
-    return Math.abs(commonRandom() / 0x7fffffff);
+Math.commonRandomJS = function () {
+    return Math.abs(Math.commonRandom() / 0x7fffffff);
 }
 
 /*
@@ -75,7 +67,6 @@ var commonRandomJS = function () {
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 
 
 
@@ -341,7 +332,6 @@ var crc32Lookup=new Uint32Array([
 ]);
 
 
-
 function crc32_8bytes(data, i, length){
     var current = data; // data is already a Uint32Array
     var crc = 0xFFFFFFFF;
@@ -377,7 +367,7 @@ function randCRC(numPages, pageSize){
     var page = new Uint32Array(numPages*numWords); // TA
 
     Array.prototype.forEach.call(page, function(v, i, a) {
-        a[i] = commonRandom();
+        a[i] = Math.commonRandom();
     });
 
     return page;
@@ -396,7 +386,7 @@ function runCRC(numPages, pageSize, numExecs){
     var cumulativeTime = 0;
 
     var expectedCrc = 2231263667;
-    var t1 = ostrichNow();
+    var t1 = performance.now();
     for (var j=0; j<numExecs; ++j) {
         for(var i=0; i<numPages; ++i){
             crcs[i] = crc32_8bytes(data, i*numWords, pageSize);
@@ -411,20 +401,20 @@ function runCRC(numPages, pageSize, numExecs){
             throw new Error("Invalid crc check, received '" + finalCrc + "' while expecting '" + (expectedCrc|0)  + "'(signed) [or '" + (expectedCrc) + "'(unsigned)]");
         }
     }
-    cumulativeTime += ostrichNow() - t1;
+    cumulativeTime += performance.now() - t1;
 
 
-    print("Total time was " + cumulativeTime/1000 + " s");
+    console.log("Total time was " + cumulativeTime/1000 + " s");
     return { status: 1,
              options: "runCRC(" + [numPages, pageSize, numExecs].join(",") + ")",
              time: cumulativeTime / 1000 };
 }
 
-const OSTRICH_ARGS = [128, 65536, 6];
-var result = runCRC(OSTRICH_ARGS[0], OSTRICH_ARGS[1], OSTRICH_ARGS[2]);
-if (!result || result.status !== 1 ||
-    !Number.isFinite(result.time) || result.time <= 0) {
-    throw new Error("Invalid benchmark result");
-}
-print("Time: " + result.time * 1000);
-})();
+
+// Static Hermes benchmark runner: fixed params, timed with performance.now
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+runCRC( 128, 65536, 5 );
+var __end = __performance.now();
+print( "Time: " + Math.round( __end - __start ) );

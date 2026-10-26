@@ -1,11 +1,3 @@
-// Imported from https://github.com/manuel-serrano/jsbench
-// Commit: 7c8fc4e58d2a5c7980c207d302b1d1cb18308a5c
-// Source: bglstone/almabench.js
-// Adaptation: benchmarks/speculative/import_hopc.py
-(function() {
-"use strict";
-var __hopcStart = performance.now();
-
 "use strict";
 
 // ALMABENCH 1.0.1
@@ -327,37 +319,37 @@ function PrintDoubleArray( array, size )
 {
   let         i;
 
-  print( "[" );
+  console.log( "[" );
   for ( i= 0 ; i < size ; ++i )
   {
     if (i > 0)
-      print( ' ' );
-    print( array[i] );
+      console.log( ' ' );
+    console.log( array[i] );
   }
-  print( ")" );
+  console.log( ")" );
 }
 
 function PrintDoubleMatrix( matrix )
 {
   let         i;
 
-  print( "[" );
+  console.log( "[" );
   for ( i= 0 ; i < 2 ; ++i )
   {
     let       j;
 
     if (i > 0)
-      print( ' ' );
-    print( "[" );
+      console.log( ' ' );
+    console.log( "[" );
     for ( j= 0 ; j < 3 ; ++j )
     {
       if (j > 0)
-        print( ' ' );
-      print( matrix[i][j] );
+        console.log( ' ' );
+      console.log( matrix[i][j] );
     }
-    print( ']' );
+    console.log( ']' );
   }
-  print( "]" );
+  console.log( "]" );
 }
 
 //---------------------------------------------------------------------------
@@ -399,20 +391,22 @@ function main( bench, n ) {
    const k = Math.round( n / 10 );
    let i = 1;
    
-   print( bench + "(", n, ")..." );
+   console.log( bench + "(", n, ")..." );
    
    while( n-- > 0 ) {
-      if( n % k === 0 ) { print( i++ ); }
+      if( n % k === 0 ) { console.log( i++ ); }
       res = almabench( 2 );
    }
 
-   print( "res=", res );
+   console.log( "res=", res );
 }
 
+// Static Hermes benchmark runner: fixed N, timed with performance.now
 const N = 1;
 
-main( "almabench", N ); 
-
-
-print('Time: ' + (performance.now() - __hopcStart));
-})();
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+main( "almabench", N );
+var __end = __performance.now();
+print( "Time: " + (__end - __start) );

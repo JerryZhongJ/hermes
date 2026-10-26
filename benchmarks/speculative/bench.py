@@ -12,6 +12,8 @@ Static Hermes Benchmark Runner
 
 兼容模式示例：
   python3 bench.py -a v1 -n 20 --json results.json
+  python3 bench.py -a manual \
+    --only v8-v6-perf/v8-deltablue nbody octane/box2d
 
 三对象实验：
   python3 bench.py \
@@ -186,6 +188,9 @@ class BenchmarkRunner:
 # ─── Benchmark 发现 ───
 
 def _find_js_files(suites_dir, only):
+    if only and not isinstance(only, (str, os.PathLike)):
+        return list(dict.fromkeys(
+            js for path in only for js in _find_js_files(suites_dir, path)))
     if only:
         target = suites_dir / only
         if target.is_file():
@@ -925,7 +930,8 @@ def main():
     parser.add_argument('--anchor', help='实验归一化锚点的 variant 名称')
     parser.add_argument('--cycles', type=int, help='完整平衡调度的重复次数')
     parser.add_argument(
-        '--only', help='只搜索 suites/ 下指定的相对路径（目录或文件）')
+        '--only', nargs='+', action='extend', metavar='PATH',
+        help='只搜索 suites/ 下指定的相对路径（目录或文件）；支持多个路径，可重复指定')
     parser.add_argument('--json', help='保存 JSON 结果到文件')
     parser.add_argument('--bench-dir', help='benchmark 目录（默认脚本目录）')
     parser.add_argument(

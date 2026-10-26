@@ -1,11 +1,3 @@
-// Imported from https://github.com/Sable/Ostrich
-// Commit: dd06ca4340ecdbc0a795274d826cb5c034a2b9fe
-// Source: unstructured-grid/back-propagation/js/backprop.js
-// Adaptation: benchmarks/speculative/import_ostrich.py
-(function() {
-// HBC shells expose Date.now(); SH and V8 also provide performance.now().
-var ostrichNow = typeof performance === "undefined"
-    ? Date.now : performance.now.bind(performance);
 // Copyright 2013 the V8 project authors. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -33,7 +25,7 @@ var ostrichNow = typeof performance === "undefined"
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-var commonRandom = (function() {
+Math.commonRandom = (function() {
     var seed = 49734321;
     return function() {
         // Robert Jenkins' 32 bit integer hash function.
@@ -47,8 +39,8 @@ var commonRandom = (function() {
     };
 })();
 
-var commonRandomJS = function () {
-    return Math.abs(commonRandom() / 0x7fffffff);
+Math.commonRandomJS = function () {
+    return Math.abs(Math.commonRandom() / 0x7fffffff);
 }
 
 /*
@@ -76,9 +68,8 @@ var commonRandomJS = function () {
  * SOFTWARE.
  */
 
-
 /*** The squashing function.  Currently, it's a sigmoid. ***/
-
+Math.random = Math.commonRandomJS;
 
 function squash(x) {
     return (1.0 / (1.0 + Math.exp(-x)));
@@ -112,7 +103,7 @@ function bpnn_randomize_array(w, m, n) {
         l = (m + 1) * (n + 1);
 
     for (i = 0; i < l; i++) {
-        w[i] = commonRandomJS();
+        w[i] = Math.random();
     }
 }
 
@@ -121,7 +112,7 @@ function loadInput(w, m, n) {
         l = (m + 1) * (n + 1);
 
     for (i = 1; i < l; i++) {
-        w[i] = commonRandomJS();
+        w[i] = Math.random();
     }
 }
 
@@ -161,9 +152,9 @@ function bpnn_train_kernel(net) {
     hid_err = bpnn_hidden_error(net.hidden_delta, hid, net.output_delta, out, net.hidden_weights, net.hidden_units);
 
     bpnn_adjust_weights(net.output_delta, out, net.hidden_units, hid, net.hidden_weights, net.hidden_prev_weights);
-    print("1");
+    console.log("1");
     bpnn_adjust_weights(net.hidden_delta, hid, net.input_units, inp, net.input_weights, net.input_prev_weights);
-    print("2");
+    console.log("2");
 }
 
 function bpnn_layerforward(l1, l2, conn, n1, n2) {
@@ -242,20 +233,16 @@ function backprop_face(layer_size) {
     var net;
     var out_err, hid_err;
     var time0, time1;
-    var expected_layer_size = layer_size;
-    var expected_sum_of_hidden_weights = {
-        2850000: 10.855641469359398,
-        131072: 9.166951568552568,
-        4096: 8.288420539624894
-    }[layer_size];
+    var expected_layer_size = 2850000;
+    var expected_sum_of_hidden_weights = 10.855641469359398;
     var eps = 0.00001;
     net = bpnn_create(layer_size, 16, 1); // (16, 1 can not be changed)
     //entering the training kernel, only one iteration
-    time0 = ostrichNow();
+    time0 = performance.now();
     bpnn_train_kernel(net);
-    time1 = ostrichNow();
+    time1 = performance.now();
 
-    if (expected_sum_of_hidden_weights !== undefined) {
+    if (layer_size === expected_layer_size) {
         var sum_of_hidden_weights = 0;
         for (var i = 1; i <= net.hidden_n; ++i) {
             for (var j = 1; j <= net.output_n; ++j) {
@@ -269,12 +256,12 @@ function backprop_face(layer_size) {
                 " but got '" + sum_of_hidden_weights + "' instead");
         }
     } else {
-        print("WARNING: no self-checking for input size of '" + layer_size + "'");
+        console.log("WARNING: no self-checking for input size of '" + layer_size + "'");
     }
 
-    //print("Output: " + net.output_units[1].toFixed(4) + "\t" + net.output_delta[1].toFixed(4));
+    //console.log("Output: " + net.output_units[1].toFixed(4) + "\t" + net.output_delta[1].toFixed(4));
     net = null;
-    print("Computation time: " + (time1 - time0) / 1000 + " s\n");
+    console.log("Computation time: " + (time1 - time0) / 1000 + " s\n");
     return {
         status: 1,
         options: "runBackProp(" + layer_size + ")",
@@ -285,11 +272,11 @@ function backprop_face(layer_size) {
 function runBackProp(nb_input_elems) {
     return backprop_face(nb_input_elems);
 }
-const OSTRICH_ARGS = [131072];
-var result = runBackProp(OSTRICH_ARGS[0]);
-if (!result || result.status !== 1 ||
-    !Number.isFinite(result.time) || result.time <= 0) {
-    throw new Error("Invalid benchmark result");
-}
-print("Time: " + result.time * 1000);
-})();
+
+// Static Hermes benchmark runner: fixed params, timed with performance.now
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+runBackProp( 300000 );
+var __end = __performance.now();
+print( "Time: " + Math.round( __end - __start ) );

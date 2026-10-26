@@ -1,0 +1,1882 @@
+{
+  "static shapes": {},
+  "shape bindings": [],
+  "shape guards": [],
+  "type guards": [
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 22,
+          "column": 39
+        },
+        "end": {
+          "line": 22,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 42,
+          "column": 25
+        },
+        "end": {
+          "line": 42,
+          "column": 37
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 78,
+          "column": 44
+        },
+        "end": {
+          "line": 78,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 93,
+          "column": 26
+        },
+        "end": {
+          "line": 93,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 96,
+          "column": 17
+        },
+        "end": {
+          "line": 96,
+          "column": 28
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 99,
+          "column": 40
+        },
+        "end": {
+          "line": 99,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 114,
+          "column": 19
+        },
+        "end": {
+          "line": 114,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 114,
+          "column": 8
+        },
+        "end": {
+          "line": 114,
+          "column": 36
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 3,
+          "column": 7
+        },
+        "end": {
+          "line": 3,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 4,
+          "column": 7
+        },
+        "end": {
+          "line": 4,
+          "column": 10
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 5,
+          "column": 5
+        },
+        "end": {
+          "line": 5,
+          "column": 8
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 7,
+          "column": 17
+        },
+        "end": {
+          "line": 7,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 7,
+          "column": 10
+        },
+        "end": {
+          "line": 7,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 12,
+          "column": 16
+        },
+        "end": {
+          "line": 12,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 12,
+          "column": 10
+        },
+        "end": {
+          "line": 12,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 18,
+          "column": 20
+        },
+        "end": {
+          "line": 18,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 18,
+          "column": 25
+        },
+        "end": {
+          "line": 18,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 18,
+          "column": 10
+        },
+        "end": {
+          "line": 18,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 24,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 26,
+          "column": 19
+        },
+        "end": {
+          "line": 26,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 42,
+          "column": 20
+        },
+        "end": {
+          "line": 42,
+          "column": 37
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 30,
+          "column": 11
+        },
+        "end": {
+          "line": 30,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 26,
+          "column": 10
+        },
+        "end": {
+          "line": 26,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 26,
+          "column": 1
+        },
+        "end": {
+          "line": 39,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 41,
+          "column": 31
+        },
+        "end": {
+          "line": 41,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 42,
+          "column": 20
+        },
+        "end": {
+          "line": 42,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 41,
+          "column": 10
+        },
+        "end": {
+          "line": 41,
+          "column": 29
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 41,
+          "column": 1
+        },
+        "end": {
+          "line": 43,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 45,
+          "column": 17
+        },
+        "end": {
+          "line": 45,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 50,
+          "column": 7
+        },
+        "end": {
+          "line": 50,
+          "column": 8
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 46,
+          "column": 13
+        },
+        "end": {
+          "line": 46,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 46,
+          "column": 4
+        },
+        "end": {
+          "line": 59,
+          "column": 5
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 45,
+          "column": 10
+        },
+        "end": {
+          "line": 45,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 45,
+          "column": 1
+        },
+        "end": {
+          "line": 61,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 64,
+          "column": 8
+        },
+        "end": {
+          "line": 64,
+          "column": 11
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 63,
+          "column": 10
+        },
+        "end": {
+          "line": 63,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 63,
+          "column": 1
+        },
+        "end": {
+          "line": 72,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 75,
+          "column": 8
+        },
+        "end": {
+          "line": 75,
+          "column": 11
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 76,
+          "column": 8
+        },
+        "end": {
+          "line": 76,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 78,
+          "column": 13
+        },
+        "end": {
+          "line": 78,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 74,
+          "column": 10
+        },
+        "end": {
+          "line": 74,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 74,
+          "column": 1
+        },
+        "end": {
+          "line": 83,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 85,
+          "column": 7
+        },
+        "end": {
+          "line": 85,
+          "column": 22
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 90,
+          "column": 16
+        },
+        "end": {
+          "line": 90,
+          "column": 21
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 90,
+          "column": 23
+        },
+        "end": {
+          "line": 90,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 94,
+          "column": 8
+        },
+        "end": {
+          "line": 94,
+          "column": 9
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 90,
+          "column": 10
+        },
+        "end": {
+          "line": 90,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 90,
+          "column": 1
+        },
+        "end": {
+          "line": 104,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 107,
+          "column": 7
+        },
+        "end": {
+          "line": 107,
+          "column": 8
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 109,
+          "column": 5
+        },
+        "end": {
+          "line": 109,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 4,
+          "column": 17
+        },
+        "end": {
+          "line": 4,
+          "column": 22
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 4,
+          "column": 24
+        },
+        "end": {
+          "line": 4,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 8,
+          "column": 19
+        },
+        "end": {
+          "line": 8,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 8,
+          "column": 4
+        },
+        "end": {
+          "line": 8,
+          "column": 7
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 13,
+          "column": 15
+        },
+        "end": {
+          "line": 13,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 15,
+          "column": 4
+        },
+        "end": {
+          "line": 15,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 22,
+          "column": 39
+        },
+        "end": {
+          "line": 22,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 22,
+          "column": 29
+        },
+        "end": {
+          "line": 22,
+          "column": 37
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 24,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 22,
+          "column": 48
+        },
+        "end": {
+          "line": 22,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 22,
+          "column": 18
+        },
+        "end": {
+          "line": 22,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 22,
+          "column": 24
+        },
+        "end": {
+          "line": 22,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 33,
+          "column": 11
+        },
+        "end": {
+          "line": 33,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 42,
+          "column": 20
+        },
+        "end": {
+          "line": 42,
+          "column": 37
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 33,
+          "column": 14
+        },
+        "end": {
+          "line": 33,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 34,
+          "column": 23
+        },
+        "end": {
+          "line": 34,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 26,
+          "column": 1
+        },
+        "end": {
+          "line": 39,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 34,
+          "column": 32
+        },
+        "end": {
+          "line": 34,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 42,
+          "column": 20
+        },
+        "end": {
+          "line": 42,
+          "column": 37
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 34,
+          "column": 14
+        },
+        "end": {
+          "line": 34,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 34,
+          "column": 20
+        },
+        "end": {
+          "line": 34,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 36,
+          "column": 10
+        },
+        "end": {
+          "line": 36,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 26,
+          "column": 1
+        },
+        "end": {
+          "line": 39,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 36,
+          "column": 19
+        },
+        "end": {
+          "line": 36,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 42,
+          "column": 20
+        },
+        "end": {
+          "line": 42,
+          "column": 37
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 42,
+          "column": 11
+        },
+        "end": {
+          "line": 42,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 26,
+          "column": 1
+        },
+        "end": {
+          "line": 39,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 56,
+          "column": 40
+        },
+        "end": {
+          "line": 56,
+          "column": 59
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 41,
+          "column": 1
+        },
+        "end": {
+          "line": 43,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 56,
+          "column": 61
+        },
+        "end": {
+          "line": 56,
+          "column": 62
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 56,
+          "column": 26
+        },
+        "end": {
+          "line": 56,
+          "column": 38
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 46,
+          "column": 4
+        },
+        "end": {
+          "line": 59,
+          "column": 5
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 56,
+          "column": 17
+        },
+        "end": {
+          "line": 56,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 16,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 56,
+          "column": 23
+        },
+        "end": {
+          "line": 56,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 60,
+          "column": 25
+        },
+        "end": {
+          "line": 60,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 18,
+          "column": 1
+        },
+        "end": {
+          "line": 24,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 60,
+          "column": 38
+        },
+        "end": {
+          "line": 60,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 60,
+          "column": 11
+        },
+        "end": {
+          "line": 60,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 46,
+          "column": 4
+        },
+        "end": {
+          "line": 59,
+          "column": 5
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 71,
+          "column": 11
+        },
+        "end": {
+          "line": 71,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 75,
+          "column": 14
+        },
+        "end": {
+          "line": 75,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 63,
+          "column": 1
+        },
+        "end": {
+          "line": 72,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 76,
+          "column": 18
+        },
+        "end": {
+          "line": 76,
+          "column": 23
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 76,
+          "column": 25
+        },
+        "end": {
+          "line": 76,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 79,
+          "column": 7
+        },
+        "end": {
+          "line": 79,
+          "column": 10
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 82,
+          "column": 11
+        },
+        "end": {
+          "line": 82,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 91,
+          "column": 15
+        },
+        "end": {
+          "line": 91,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 45,
+          "column": 1
+        },
+        "end": {
+          "line": 61,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 93,
+          "column": 14
+        },
+        "end": {
+          "line": 93,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 96,
+          "column": 17
+        },
+        "end": {
+          "line": 96,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 96,
+          "column": 30
+        },
+        "end": {
+          "line": 96,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 96,
+          "column": 4
+        },
+        "end": {
+          "line": 96,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 99,
+          "column": 27
+        },
+        "end": {
+          "line": 99,
+          "column": 34
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 100,
+          "column": 13
+        },
+        "end": {
+          "line": 100,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 45,
+          "column": 1
+        },
+        "end": {
+          "line": 61,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 103,
+          "column": 25
+        },
+        "end": {
+          "line": 103,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 74,
+          "column": 1
+        },
+        "end": {
+          "line": 83,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 103,
+          "column": 4
+        },
+        "end": {
+          "line": 103,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 109,
+          "column": 21
+        },
+        "end": {
+          "line": 109,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 109,
+          "column": 48
+        },
+        "end": {
+          "line": 109,
+          "column": 58
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 110,
+          "column": 1
+        },
+        "end": {
+          "line": 110,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 110,
+          "column": 23
+        },
+        "end": {
+          "line": 110,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 111,
+          "column": 15
+        },
+        "end": {
+          "line": 111,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 112,
+          "column": 1
+        },
+        "end": {
+          "line": 112,
+          "column": 5
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 90,
+          "column": 1
+        },
+        "end": {
+          "line": 104,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 112,
+          "column": 16
+        },
+        "end": {
+          "line": 112,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "sieve-mem.js",
+        "start": {
+          "line": 113,
+          "column": 13
+        },
+        "end": {
+          "line": 113,
+          "column": 26
+        }
+      },
+      "type": "object"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "12:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "26:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "31:11",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "41:34",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "46:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "51:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "63:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "74:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "91:8",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "92:8",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "14:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "28:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "30:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "31:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "34:35",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "36:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "42:39",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "48:10",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "50:11",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "51:11",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "54:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "56:64",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "68:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "75:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "78:35",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "79:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "103:37",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    }
+  ]
+}

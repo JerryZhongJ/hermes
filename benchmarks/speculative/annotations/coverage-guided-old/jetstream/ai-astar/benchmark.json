@@ -1,0 +1,5207 @@
+{
+  "static shapes": {
+    "GridNode": {
+      "properties": [
+        {
+          "name": "x",
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "type": "number"
+        },
+        {
+          "name": "weight",
+          "type": "number"
+        },
+        {
+          "name": "f",
+          "type": "number"
+        },
+        {
+          "name": "g",
+          "type": "number"
+        },
+        {
+          "name": "h",
+          "type": "number"
+        },
+        {
+          "name": "visited",
+          "type": "boolean"
+        },
+        {
+          "name": "closed",
+          "type": "boolean"
+        },
+        {
+          "name": "parent"
+        }
+      ]
+    },
+    "GridNodeProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 325,
+              "column": 35
+            },
+            "end": {
+              "line": 327,
+              "column": 6
+            }
+          }
+        },
+        {
+          "name": "getCost",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 329,
+              "column": 34
+            },
+            "end": {
+              "line": 335,
+              "column": 6
+            }
+          }
+        },
+        {
+          "name": "isWall",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 337,
+              "column": 33
+            },
+            "end": {
+              "line": 339,
+              "column": 6
+            }
+          }
+        }
+      ]
+    },
+    "Graph": {
+      "properties": [
+        {
+          "name": "nodes"
+        },
+        {
+          "name": "diagonal",
+          "type": "boolean"
+        },
+        {
+          "name": "grid"
+        },
+        {
+          "name": "dirtyNodes"
+        }
+      ]
+    },
+    "GraphProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "init",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 236,
+              "column": 28
+            },
+            "end": {
+              "line": 241,
+              "column": 6
+            }
+          }
+        },
+        {
+          "name": "cleanDirty",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 243,
+              "column": 34
+            },
+            "end": {
+              "line": 248,
+              "column": 6
+            }
+          }
+        },
+        {
+          "name": "markDirty",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 250,
+              "column": 33
+            },
+            "end": {
+              "line": 252,
+              "column": 6
+            }
+          }
+        },
+        {
+          "name": "neighbors",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 254,
+              "column": 33
+            },
+            "end": {
+              "line": 303,
+              "column": 6
+            }
+          }
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 305,
+              "column": 32
+            },
+            "end": {
+              "line": 317,
+              "column": 6
+            }
+          }
+        }
+      ]
+    },
+    "BinaryHeap": {
+      "properties": [
+        {
+          "name": "content"
+        },
+        {
+          "name": "scoreFunction",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 93,
+              "column": 31
+            },
+            "end": {
+              "line": 95,
+              "column": 10
+            }
+          }
+        }
+      ]
+    },
+    "BinaryHeapProto": {
+      "properties": [
+        {
+          "name": "push",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 347,
+              "column": 15
+            },
+            "end": {
+              "line": 353,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "pop",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 354,
+              "column": 14
+            },
+            "end": {
+              "line": 366,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "remove",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 367,
+              "column": 17
+            },
+            "end": {
+              "line": 383,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "size",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 384,
+              "column": 15
+            },
+            "end": {
+              "line": 386,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "rescoreElement",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 387,
+              "column": 25
+            },
+            "end": {
+              "line": 389,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "sinkDown",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 390,
+              "column": 19
+            },
+            "end": {
+              "line": 412,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "bubbleUp",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 413,
+              "column": 19
+            },
+            "end": {
+              "line": 458,
+              "column": 10
+            }
+          }
+        }
+      ]
+    },
+    "Astar": {
+      "properties": [
+        {
+          "name": "search",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 110,
+              "column": 17
+            },
+            "end": {
+              "line": 187,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "heuristics"
+        },
+        {
+          "name": "cleanNode",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 203,
+              "column": 20
+            },
+            "end": {
+              "line": 210,
+              "column": 10
+            }
+          }
+        }
+      ]
+    },
+    "AstarHeuristics": {
+      "properties": [
+        {
+          "name": "manhattan",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 190,
+              "column": 24
+            },
+            "end": {
+              "line": 194,
+              "column": 14
+            }
+          }
+        },
+        {
+          "name": "diagonal",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 195,
+              "column": 23
+            },
+            "end": {
+              "line": 201,
+              "column": 14
+            }
+          }
+        }
+      ]
+    },
+    "EmptyOptions": {
+      "properties": []
+    },
+    "GridNodeProtoB": {
+      "properties": [
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 325,
+              "column": 35
+            },
+            "end": {
+              "line": 327,
+              "column": 6
+            }
+          }
+        },
+        {
+          "name": "getCost",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 329,
+              "column": 34
+            },
+            "end": {
+              "line": 335,
+              "column": 6
+            }
+          }
+        },
+        {
+          "name": "isWall",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 337,
+              "column": 33
+            },
+            "end": {
+              "line": 339,
+              "column": 6
+            }
+          }
+        }
+      ]
+    },
+    "BinaryHeapProtoB": {
+      "properties": [
+        {
+          "name": "push",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 347,
+              "column": 15
+            },
+            "end": {
+              "line": 353,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "pop",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 354,
+              "column": 14
+            },
+            "end": {
+              "line": 366,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "remove",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 367,
+              "column": 17
+            },
+            "end": {
+              "line": 383,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "size",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 384,
+              "column": 15
+            },
+            "end": {
+              "line": 386,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "rescoreElement",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 387,
+              "column": 25
+            },
+            "end": {
+              "line": 389,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "sinkDown",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 390,
+              "column": 19
+            },
+            "end": {
+              "line": 412,
+              "column": 10
+            }
+          }
+        },
+        {
+          "name": "bubbleUp",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 413,
+              "column": 19
+            },
+            "end": {
+              "line": 458,
+              "column": 10
+            }
+          }
+        }
+      ]
+    },
+    "GridNodeProtoF": {
+      "properties": [
+        {
+          "name": "constructor",
+          "type": "any",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "toString",
+          "type": "any"
+        },
+        {
+          "name": "getCost",
+          "type": "any"
+        },
+        {
+          "name": "isWall",
+          "type": "any"
+        }
+      ]
+    },
+    "GraphPartial": {
+      "properties": [
+        {
+          "name": "nodes"
+        },
+        {
+          "name": "diagonal",
+          "type": "boolean"
+        },
+        {
+          "name": "grid"
+        }
+      ]
+    },
+    "Benchmark": {
+      "properties": [
+        {
+          "name": "grid"
+        },
+        {
+          "name": "graph"
+        }
+      ]
+    },
+    "ModuleShape": {
+      "properties": [
+        {
+          "name": "exports"
+        }
+      ]
+    },
+    "AstarModule": {
+      "properties": [
+        {
+          "name": "astar"
+        },
+        {
+          "name": "Graph",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 219,
+              "column": 5
+            },
+            "end": {
+              "line": 234,
+              "column": 6
+            }
+          }
+        }
+      ]
+    },
+    "JetStreamShape": {
+      "properties": [
+        {
+          "name": "preload"
+        },
+        {
+          "name": "resources"
+        },
+        {
+          "name": "isInBrowser",
+          "type": "boolean"
+        },
+        {
+          "name": "isD8",
+          "type": "boolean"
+        }
+      ]
+    },
+    "BenchmarkPartial": {
+      "properties": [
+        {
+          "name": "grid"
+        }
+      ]
+    },
+    "GNodeX": {
+      "properties": [
+        {
+          "name": "x",
+          "type": "number"
+        }
+      ]
+    },
+    "GNodeXY": {
+      "properties": [
+        {
+          "name": "x",
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "type": "number"
+        }
+      ]
+    },
+    "GNodeW": {
+      "properties": [
+        {
+          "name": "x",
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "type": "number"
+        },
+        {
+          "name": "weight",
+          "type": "number"
+        }
+      ]
+    },
+    "GraphN": {
+      "properties": [
+        {
+          "name": "nodes"
+        }
+      ]
+    },
+    "GraphND": {
+      "properties": [
+        {
+          "name": "nodes"
+        },
+        {
+          "name": "diagonal",
+          "type": "boolean"
+        }
+      ]
+    },
+    "BH1": {
+      "properties": [
+        {
+          "name": "content"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 110,
+          "column": 26
+        },
+        "end": {
+          "line": 110,
+          "column": 31
+        }
+      },
+      "shape": "Graph",
+      "prototype shape": "GraphProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 111,
+          "column": 13
+        },
+        "end": {
+          "line": 111,
+          "column": 18
+        }
+      },
+      "shape": "Graph",
+      "prototype shape": "GraphProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 120,
+          "column": 13
+        },
+        "end": {
+          "line": 120,
+          "column": 18
+        }
+      },
+      "shape": "Graph",
+      "prototype shape": "GraphProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 138,
+          "column": 33
+        },
+        "end": {
+          "line": 138,
+          "column": 38
+        }
+      },
+      "shape": "Graph",
+      "prototype shape": "GraphProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 161,
+          "column": 25
+        },
+        "end": {
+          "line": 161,
+          "column": 30
+        }
+      },
+      "shape": "Graph",
+      "prototype shape": "GraphProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 122,
+          "column": 13
+        },
+        "end": {
+          "line": 122,
+          "column": 21
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 124,
+          "column": 20
+        },
+        "end": {
+          "line": 124,
+          "column": 28
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 127,
+          "column": 35
+        },
+        "end": {
+          "line": 127,
+          "column": 43
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 172,
+          "column": 29
+        },
+        "end": {
+          "line": 172,
+          "column": 37
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 175,
+          "column": 29
+        },
+        "end": {
+          "line": 175,
+          "column": 37
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 110,
+          "column": 45
+        },
+        "end": {
+          "line": 110,
+          "column": 52
+        }
+      },
+      "shape": "EmptyOptions"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 112,
+          "column": 23
+        },
+        "end": {
+          "line": 112,
+          "column": 30
+        }
+      },
+      "shape": "EmptyOptions"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 113,
+          "column": 29
+        },
+        "end": {
+          "line": 113,
+          "column": 36
+        }
+      },
+      "shape": "EmptyOptions"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 114,
+          "column": 27
+        },
+        "end": {
+          "line": 114,
+          "column": 34
+        }
+      },
+      "shape": "EmptyOptions"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 113,
+          "column": 50
+        },
+        "end": {
+          "line": 113,
+          "column": 55
+        }
+      },
+      "shape": "Astar"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 113,
+          "column": 50
+        },
+        "end": {
+          "line": 113,
+          "column": 66
+        }
+      },
+      "shape": "AstarHeuristics"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 25
+        },
+        "end": {
+          "line": 143,
+          "column": 33
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 44
+        },
+        "end": {
+          "line": 143,
+          "column": 52
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 150,
+          "column": 50
+        },
+        "end": {
+          "line": 150,
+          "column": 58
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 151,
+          "column": 39
+        },
+        "end": {
+          "line": 151,
+          "column": 47
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 153,
+          "column": 50
+        },
+        "end": {
+          "line": 153,
+          "column": 58
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 156,
+          "column": 25
+        },
+        "end": {
+          "line": 156,
+          "column": 33
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 157,
+          "column": 25
+        },
+        "end": {
+          "line": 157,
+          "column": 33
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 158,
+          "column": 25
+        },
+        "end": {
+          "line": 158,
+          "column": 33
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 158,
+          "column": 38
+        },
+        "end": {
+          "line": 158,
+          "column": 46
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 158,
+          "column": 62
+        },
+        "end": {
+          "line": 158,
+          "column": 70
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 159,
+          "column": 25
+        },
+        "end": {
+          "line": 159,
+          "column": 33
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 160,
+          "column": 25
+        },
+        "end": {
+          "line": 160,
+          "column": 33
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 160,
+          "column": 38
+        },
+        "end": {
+          "line": 160,
+          "column": 46
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 160,
+          "column": 51
+        },
+        "end": {
+          "line": 160,
+          "column": 59
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 161,
+          "column": 41
+        },
+        "end": {
+          "line": 161,
+          "column": 49
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 33
+        },
+        "end": {
+          "line": 165,
+          "column": 41
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 64
+        },
+        "end": {
+          "line": 165,
+          "column": 72
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 96
+        },
+        "end": {
+          "line": 165,
+          "column": 104
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 166,
+          "column": 47
+        },
+        "end": {
+          "line": 166,
+          "column": 55
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 172,
+          "column": 43
+        },
+        "end": {
+          "line": 172,
+          "column": 51
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 175,
+          "column": 53
+        },
+        "end": {
+          "line": 175,
+          "column": 61
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 130,
+          "column": 21
+        },
+        "end": {
+          "line": 130,
+          "column": 32
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 131,
+          "column": 35
+        },
+        "end": {
+          "line": 131,
+          "column": 46
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 135,
+          "column": 17
+        },
+        "end": {
+          "line": 135,
+          "column": 28
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 138,
+          "column": 49
+        },
+        "end": {
+          "line": 138,
+          "column": 60
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 150,
+          "column": 34
+        },
+        "end": {
+          "line": 150,
+          "column": 45
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 150,
+          "column": 67
+        },
+        "end": {
+          "line": 150,
+          "column": 78
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 157,
+          "column": 43
+        },
+        "end": {
+          "line": 157,
+          "column": 54
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 110,
+          "column": 33
+        },
+        "end": {
+          "line": 110,
+          "column": 38
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 117,
+          "column": 31
+        },
+        "end": {
+          "line": 117,
+          "column": 36
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 119,
+          "column": 13
+        },
+        "end": {
+          "line": 119,
+          "column": 18
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 119,
+          "column": 33
+        },
+        "end": {
+          "line": 119,
+          "column": 38
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 120,
+          "column": 29
+        },
+        "end": {
+          "line": 120,
+          "column": 34
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 122,
+          "column": 27
+        },
+        "end": {
+          "line": 122,
+          "column": 32
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 110,
+          "column": 40
+        },
+        "end": {
+          "line": 110,
+          "column": 43
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 119,
+          "column": 40
+        },
+        "end": {
+          "line": 119,
+          "column": 43
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 130,
+          "column": 37
+        },
+        "end": {
+          "line": 130,
+          "column": 40
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 158,
+          "column": 72
+        },
+        "end": {
+          "line": 158,
+          "column": 75
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 46
+        },
+        "end": {
+          "line": 165,
+          "column": 57
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 79
+        },
+        "end": {
+          "line": 165,
+          "column": 90
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 109
+        },
+        "end": {
+          "line": 165,
+          "column": 120
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 182,
+          "column": 31
+        },
+        "end": {
+          "line": 182,
+          "column": 42
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 25
+        },
+        "end": {
+          "line": 143,
+          "column": 33
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 44
+        },
+        "end": {
+          "line": 143,
+          "column": 52
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 150,
+          "column": 50
+        },
+        "end": {
+          "line": 150,
+          "column": 58
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 151,
+          "column": 39
+        },
+        "end": {
+          "line": 151,
+          "column": 47
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 153,
+          "column": 50
+        },
+        "end": {
+          "line": 153,
+          "column": 58
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 156,
+          "column": 25
+        },
+        "end": {
+          "line": 156,
+          "column": 33
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 157,
+          "column": 25
+        },
+        "end": {
+          "line": 157,
+          "column": 33
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 158,
+          "column": 25
+        },
+        "end": {
+          "line": 158,
+          "column": 33
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 158,
+          "column": 38
+        },
+        "end": {
+          "line": 158,
+          "column": 46
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 158,
+          "column": 62
+        },
+        "end": {
+          "line": 158,
+          "column": 70
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 159,
+          "column": 25
+        },
+        "end": {
+          "line": 159,
+          "column": 33
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 160,
+          "column": 25
+        },
+        "end": {
+          "line": 160,
+          "column": 33
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 160,
+          "column": 38
+        },
+        "end": {
+          "line": 160,
+          "column": 46
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 160,
+          "column": 51
+        },
+        "end": {
+          "line": 160,
+          "column": 59
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 161,
+          "column": 41
+        },
+        "end": {
+          "line": 161,
+          "column": 49
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 33
+        },
+        "end": {
+          "line": 165,
+          "column": 41
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 64
+        },
+        "end": {
+          "line": 165,
+          "column": 72
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 96
+        },
+        "end": {
+          "line": 165,
+          "column": 104
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 166,
+          "column": 47
+        },
+        "end": {
+          "line": 166,
+          "column": 55
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 172,
+          "column": 43
+        },
+        "end": {
+          "line": 172,
+          "column": 51
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 175,
+          "column": 53
+        },
+        "end": {
+          "line": 175,
+          "column": 61
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 130,
+          "column": 21
+        },
+        "end": {
+          "line": 130,
+          "column": 32
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 131,
+          "column": 35
+        },
+        "end": {
+          "line": 131,
+          "column": 46
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 135,
+          "column": 17
+        },
+        "end": {
+          "line": 135,
+          "column": 28
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 138,
+          "column": 49
+        },
+        "end": {
+          "line": 138,
+          "column": 60
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 150,
+          "column": 34
+        },
+        "end": {
+          "line": 150,
+          "column": 45
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 150,
+          "column": 67
+        },
+        "end": {
+          "line": 150,
+          "column": 78
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 157,
+          "column": 43
+        },
+        "end": {
+          "line": 157,
+          "column": 54
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 110,
+          "column": 33
+        },
+        "end": {
+          "line": 110,
+          "column": 38
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 117,
+          "column": 31
+        },
+        "end": {
+          "line": 117,
+          "column": 36
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 119,
+          "column": 13
+        },
+        "end": {
+          "line": 119,
+          "column": 18
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 119,
+          "column": 33
+        },
+        "end": {
+          "line": 119,
+          "column": 38
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 120,
+          "column": 29
+        },
+        "end": {
+          "line": 120,
+          "column": 34
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 122,
+          "column": 27
+        },
+        "end": {
+          "line": 122,
+          "column": 32
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 110,
+          "column": 40
+        },
+        "end": {
+          "line": 110,
+          "column": 43
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 119,
+          "column": 40
+        },
+        "end": {
+          "line": 119,
+          "column": 43
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 130,
+          "column": 37
+        },
+        "end": {
+          "line": 130,
+          "column": 40
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 158,
+          "column": 72
+        },
+        "end": {
+          "line": 158,
+          "column": 75
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 46
+        },
+        "end": {
+          "line": 165,
+          "column": 57
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 79
+        },
+        "end": {
+          "line": 165,
+          "column": 90
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 109
+        },
+        "end": {
+          "line": 165,
+          "column": 120
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 182,
+          "column": 31
+        },
+        "end": {
+          "line": 182,
+          "column": 42
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 44
+        },
+        "end": {
+          "line": 143,
+          "column": 52
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProtoB"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 150,
+          "column": 50
+        },
+        "end": {
+          "line": 150,
+          "column": 58
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProtoB"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 44
+        },
+        "end": {
+          "line": 143,
+          "column": 52
+        }
+      },
+      "shape": "GridNode",
+      "prototype shape": "GridNodeProtoF"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 356,
+          "column": 26
+        },
+        "end": {
+          "line": 356,
+          "column": 30
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 363,
+          "column": 17
+        },
+        "end": {
+          "line": 363,
+          "column": 21
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 352,
+          "column": 27
+        },
+        "end": {
+          "line": 352,
+          "column": 31
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 361,
+          "column": 17
+        },
+        "end": {
+          "line": 361,
+          "column": 21
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 352,
+          "column": 13
+        },
+        "end": {
+          "line": 352,
+          "column": 17
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 349,
+          "column": 13
+        },
+        "end": {
+          "line": 349,
+          "column": 17
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 233,
+          "column": 9
+        },
+        "end": {
+          "line": 233,
+          "column": 13
+        }
+      },
+      "shape": "Graph",
+      "prototype shape": "GraphProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 254,
+          "column": 42
+        },
+        "end": {
+          "line": 254,
+          "column": 46
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 256,
+          "column": 17
+        },
+        "end": {
+          "line": 256,
+          "column": 21
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 257,
+          "column": 17
+        },
+        "end": {
+          "line": 257,
+          "column": 21
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 258,
+          "column": 20
+        },
+        "end": {
+          "line": 258,
+          "column": 24
+        }
+      },
+      "shape": "Graph"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 280,
+          "column": 13
+        },
+        "end": {
+          "line": 280,
+          "column": 17
+        }
+      },
+      "shape": "Graph"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 93,
+          "column": 40
+        },
+        "end": {
+          "line": 93,
+          "column": 44
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 85,
+          "column": 16
+        },
+        "end": {
+          "line": 85,
+          "column": 20
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 87,
+          "column": 20
+        },
+        "end": {
+          "line": 87,
+          "column": 24
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 190,
+          "column": 33
+        },
+        "end": {
+          "line": 190,
+          "column": 37
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 190,
+          "column": 39
+        },
+        "end": {
+          "line": 190,
+          "column": 43
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 203,
+          "column": 29
+        },
+        "end": {
+          "line": 203,
+          "column": 33
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 195,
+          "column": 32
+        },
+        "end": {
+          "line": 195,
+          "column": 36
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 198,
+          "column": 44
+        },
+        "end": {
+          "line": 198,
+          "column": 48
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 199,
+          "column": 44
+        },
+        "end": {
+          "line": 199,
+          "column": 48
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 195,
+          "column": 38
+        },
+        "end": {
+          "line": 195,
+          "column": 42
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 198,
+          "column": 35
+        },
+        "end": {
+          "line": 198,
+          "column": 39
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 199,
+          "column": 35
+        },
+        "end": {
+          "line": 199,
+          "column": 39
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 326,
+          "column": 22
+        },
+        "end": {
+          "line": 326,
+          "column": 26
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 326,
+          "column": 37
+        },
+        "end": {
+          "line": 326,
+          "column": 41
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 331,
+          "column": 47
+        },
+        "end": {
+          "line": 331,
+          "column": 51
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 331,
+          "column": 75
+        },
+        "end": {
+          "line": 331,
+          "column": 79
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 332,
+          "column": 20
+        },
+        "end": {
+          "line": 332,
+          "column": 24
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 334,
+          "column": 16
+        },
+        "end": {
+          "line": 334,
+          "column": 20
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 338,
+          "column": 16
+        },
+        "end": {
+          "line": 338,
+          "column": 20
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 307,
+          "column": 21
+        },
+        "end": {
+          "line": 307,
+          "column": 25
+        }
+      },
+      "shape": "Graph"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 329,
+          "column": 43
+        },
+        "end": {
+          "line": 329,
+          "column": 55
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 331,
+          "column": 13
+        },
+        "end": {
+          "line": 331,
+          "column": 25
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 331,
+          "column": 29
+        },
+        "end": {
+          "line": 331,
+          "column": 41
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 331,
+          "column": 57
+        },
+        "end": {
+          "line": 331,
+          "column": 69
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 238,
+          "column": 29
+        },
+        "end": {
+          "line": 238,
+          "column": 33
+        }
+      },
+      "shape": "Graph"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 239,
+          "column": 13
+        },
+        "end": {
+          "line": 239,
+          "column": 18
+        }
+      },
+      "shape": "Astar"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 239,
+          "column": 29
+        },
+        "end": {
+          "line": 239,
+          "column": 33
+        }
+      },
+      "shape": "Graph"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 244,
+          "column": 29
+        },
+        "end": {
+          "line": 244,
+          "column": 33
+        }
+      },
+      "shape": "Graph"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 245,
+          "column": 13
+        },
+        "end": {
+          "line": 245,
+          "column": 18
+        }
+      },
+      "shape": "Astar"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 245,
+          "column": 29
+        },
+        "end": {
+          "line": 245,
+          "column": 33
+        }
+      },
+      "shape": "Graph"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 247,
+          "column": 9
+        },
+        "end": {
+          "line": 247,
+          "column": 13
+        }
+      },
+      "shape": "Graph"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 251,
+          "column": 9
+        },
+        "end": {
+          "line": 251,
+          "column": 13
+        }
+      },
+      "shape": "Graph"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 222,
+          "column": 27
+        },
+        "end": {
+          "line": 222,
+          "column": 34
+        }
+      },
+      "shape": "EmptyOptions"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 225,
+          "column": 13
+        },
+        "end": {
+          "line": 225,
+          "column": 17
+        }
+      },
+      "shape": "GraphPartial"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 229,
+          "column": 17
+        },
+        "end": {
+          "line": 229,
+          "column": 21
+        }
+      },
+      "shape": "GraphPartial"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 230,
+          "column": 17
+        },
+        "end": {
+          "line": 230,
+          "column": 21
+        }
+      },
+      "shape": "GraphPartial"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 312,
+          "column": 31
+        },
+        "end": {
+          "line": 312,
+          "column": 37
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 358,
+          "column": 23
+        },
+        "end": {
+          "line": 358,
+          "column": 27
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 362,
+          "column": 17
+        },
+        "end": {
+          "line": 362,
+          "column": 21
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 368,
+          "column": 21
+        },
+        "end": {
+          "line": 368,
+          "column": 25
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 372,
+          "column": 23
+        },
+        "end": {
+          "line": 372,
+          "column": 27
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 374,
+          "column": 23
+        },
+        "end": {
+          "line": 374,
+          "column": 27
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 375,
+          "column": 17
+        },
+        "end": {
+          "line": 375,
+          "column": 21
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 377,
+          "column": 21
+        },
+        "end": {
+          "line": 377,
+          "column": 25
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 377,
+          "column": 47
+        },
+        "end": {
+          "line": 377,
+          "column": 51
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 385,
+          "column": 20
+        },
+        "end": {
+          "line": 385,
+          "column": 24
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 388,
+          "column": 13
+        },
+        "end": {
+          "line": 388,
+          "column": 17
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 388,
+          "column": 27
+        },
+        "end": {
+          "line": 388,
+          "column": 31
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 392,
+          "column": 27
+        },
+        "end": {
+          "line": 392,
+          "column": 31
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 399,
+          "column": 30
+        },
+        "end": {
+          "line": 399,
+          "column": 34
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 401,
+          "column": 21
+        },
+        "end": {
+          "line": 401,
+          "column": 25
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 401,
+          "column": 51
+        },
+        "end": {
+          "line": 401,
+          "column": 55
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 402,
+          "column": 21
+        },
+        "end": {
+          "line": 402,
+          "column": 25
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 403,
+          "column": 21
+        },
+        "end": {
+          "line": 403,
+          "column": 25
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 415,
+          "column": 26
+        },
+        "end": {
+          "line": 415,
+          "column": 30
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 416,
+          "column": 27
+        },
+        "end": {
+          "line": 416,
+          "column": 31
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 417,
+          "column": 29
+        },
+        "end": {
+          "line": 417,
+          "column": 33
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 429,
+          "column": 34
+        },
+        "end": {
+          "line": 429,
+          "column": 38
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 440,
+          "column": 34
+        },
+        "end": {
+          "line": 440,
+          "column": 38
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 449,
+          "column": 21
+        },
+        "end": {
+          "line": 449,
+          "column": 25
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 449,
+          "column": 39
+        },
+        "end": {
+          "line": 449,
+          "column": 43
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 450,
+          "column": 21
+        },
+        "end": {
+          "line": 450,
+          "column": 25
+        }
+      },
+      "shape": "BinaryHeap",
+      "prototype shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 477,
+          "column": 23
+        },
+        "end": {
+          "line": 477,
+          "column": 27
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 478,
+          "column": 21
+        },
+        "end": {
+          "line": 478,
+          "column": 25
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 479,
+          "column": 50
+        },
+        "end": {
+          "line": 479,
+          "column": 54
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 477,
+          "column": 23
+        },
+        "end": {
+          "line": 477,
+          "column": 33
+        }
+      },
+      "shape": "Graph"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 478,
+          "column": 21
+        },
+        "end": {
+          "line": 478,
+          "column": 31
+        }
+      },
+      "shape": "Graph"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 473,
+          "column": 26
+        },
+        "end": {
+          "line": 473,
+          "column": 32
+        }
+      },
+      "shape": "ModuleShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 473,
+          "column": 26
+        },
+        "end": {
+          "line": 473,
+          "column": 40
+        }
+      },
+      "shape": "AstarModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 473,
+          "column": 47
+        },
+        "end": {
+          "line": 473,
+          "column": 51
+        }
+      },
+      "shape": "Graph"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 479,
+          "column": 22
+        },
+        "end": {
+          "line": 479,
+          "column": 28
+        }
+      },
+      "shape": "ModuleShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 479,
+          "column": 22
+        },
+        "end": {
+          "line": 479,
+          "column": 36
+        }
+      },
+      "shape": "AstarModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 479,
+          "column": 22
+        },
+        "end": {
+          "line": 479,
+          "column": 42
+        }
+      },
+      "shape": "Astar"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 470,
+          "column": 9
+        },
+        "end": {
+          "line": 470,
+          "column": 13
+        }
+      },
+      "shape": "BenchmarkPartial"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 473,
+          "column": 9
+        },
+        "end": {
+          "line": 473,
+          "column": 13
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 473,
+          "column": 47
+        },
+        "end": {
+          "line": 473,
+          "column": 51
+        }
+      },
+      "shape": "BenchmarkPartial"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 221,
+          "column": 9
+        },
+        "end": {
+          "line": 221,
+          "column": 13
+        }
+      },
+      "shape": "GraphN"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 222,
+          "column": 9
+        },
+        "end": {
+          "line": 222,
+          "column": 13
+        }
+      },
+      "shape": "GraphND"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 223,
+          "column": 9
+        },
+        "end": {
+          "line": 223,
+          "column": 13
+        }
+      },
+      "shape": "GraphPartial"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 320,
+          "column": 9
+        },
+        "end": {
+          "line": 320,
+          "column": 13
+        }
+      },
+      "shape": "GNodeX"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 321,
+          "column": 9
+        },
+        "end": {
+          "line": 321,
+          "column": 13
+        }
+      },
+      "shape": "GNodeXY"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 322,
+          "column": 9
+        },
+        "end": {
+          "line": 322,
+          "column": 13
+        }
+      },
+      "shape": "GNodeW"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 342,
+          "column": 9
+        },
+        "end": {
+          "line": 342,
+          "column": 13
+        }
+      },
+      "shape": "BH1"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 377,
+          "column": 21
+        },
+        "end": {
+          "line": 377,
+          "column": 25
+        }
+      },
+      "shape": "BinaryHeap"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 377,
+          "column": 47
+        },
+        "end": {
+          "line": 377,
+          "column": 51
+        }
+      },
+      "shape": "BinaryHeap"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 401,
+          "column": 21
+        },
+        "end": {
+          "line": 401,
+          "column": 25
+        }
+      },
+      "shape": "BinaryHeap"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 401,
+          "column": 51
+        },
+        "end": {
+          "line": 401,
+          "column": 55
+        }
+      },
+      "shape": "BinaryHeap"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 430,
+          "column": 35
+        },
+        "end": {
+          "line": 430,
+          "column": 39
+        }
+      },
+      "shape": "BinaryHeap"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 441,
+          "column": 39
+        },
+        "end": {
+          "line": 441,
+          "column": 43
+        }
+      },
+      "shape": "BinaryHeap"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 71,
+          "column": 46
+        },
+        "end": {
+          "line": 71,
+          "column": 52
+        }
+      },
+      "shape": "ModuleShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 72,
+          "column": 9
+        },
+        "end": {
+          "line": 72,
+          "column": 15
+        }
+      },
+      "shape": "ModuleShape"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 209,
+          "column": 13
+        },
+        "end": {
+          "line": 209,
+          "column": 17
+        }
+      },
+      "shape": "GridNode"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 237,
+          "column": 9
+        },
+        "end": {
+          "line": 237,
+          "column": 13
+        }
+      },
+      "shape": "Graph"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 305,
+          "column": 5
+        },
+        "end": {
+          "line": 305,
+          "column": 20
+        }
+      },
+      "shape": "GraphProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 343,
+          "column": 9
+        },
+        "end": {
+          "line": 343,
+          "column": 13
+        }
+      },
+      "shape": "BinaryHeap"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 98,
+          "column": 17
+        },
+        "end": {
+          "line": 211,
+          "column": 6
+        }
+      },
+      "shape": "Astar"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 189,
+          "column": 21
+        },
+        "end": {
+          "line": 202,
+          "column": 10
+        }
+      },
+      "shape": "AstarHeuristics"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 112,
+          "column": 34
+        },
+        "end": {
+          "line": 112,
+          "column": 36
+        }
+      },
+      "shape": "EmptyOptions"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 337,
+          "column": 5
+        },
+        "end": {
+          "line": 337,
+          "column": 23
+        }
+      },
+      "shape": "GridNodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 346,
+          "column": 28
+        },
+        "end": {
+          "line": 459,
+          "column": 6
+        }
+      },
+      "shape": "BinaryHeapProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 223,
+          "column": 9
+        },
+        "end": {
+          "line": 223,
+          "column": 13
+        }
+      },
+      "shape": "GraphPartial"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 473,
+          "column": 9
+        },
+        "end": {
+          "line": 473,
+          "column": 13
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 67,
+          "column": 14
+        },
+        "end": {
+          "line": 67,
+          "column": 28
+        }
+      },
+      "shape": "ModuleShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 461,
+          "column": 12
+        },
+        "end": {
+          "line": 464,
+          "column": 6
+        }
+      },
+      "shape": "AstarModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 470,
+          "column": 9
+        },
+        "end": {
+          "line": 470,
+          "column": 13
+        }
+      },
+      "shape": "BenchmarkPartial"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 221,
+          "column": 9
+        },
+        "end": {
+          "line": 221,
+          "column": 13
+        }
+      },
+      "shape": "GraphN"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 222,
+          "column": 9
+        },
+        "end": {
+          "line": 222,
+          "column": 13
+        }
+      },
+      "shape": "GraphND"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 320,
+          "column": 9
+        },
+        "end": {
+          "line": 320,
+          "column": 13
+        }
+      },
+      "shape": "GNodeX"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 321,
+          "column": 9
+        },
+        "end": {
+          "line": 321,
+          "column": 13
+        }
+      },
+      "shape": "GNodeXY"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 322,
+          "column": 9
+        },
+        "end": {
+          "line": 322,
+          "column": 13
+        }
+      },
+      "shape": "GNodeW"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 342,
+          "column": 9
+        },
+        "end": {
+          "line": 342,
+          "column": 13
+        }
+      },
+      "shape": "BH1"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 325,
+          "column": 5
+        },
+        "end": {
+          "line": 325,
+          "column": 23
+        }
+      },
+      "shape": "GridNodeProtoB"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 329,
+          "column": 5
+        },
+        "end": {
+          "line": 329,
+          "column": 23
+        }
+      },
+      "shape": "GridNodeProtoF"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 119,
+          "column": 23
+        },
+        "end": {
+          "line": 119,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 190,
+          "column": 24
+        },
+        "end": {
+          "line": 194,
+          "column": 14
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 158,
+          "column": 52
+        },
+        "end": {
+          "line": 158,
+          "column": 61
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 190,
+          "column": 24
+        },
+        "end": {
+          "line": 194,
+          "column": 14
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 489,
+          "column": 25
+        },
+        "end": {
+          "line": 489,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 469,
+          "column": 5
+        },
+        "end": {
+          "line": 474,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 72,
+          "column": 26
+        },
+        "end": {
+          "line": 72,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 80,
+          "column": 4
+        },
+        "end": {
+          "line": 466,
+          "column": 2
+        }
+      }
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "111:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cleanDirty",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "111:29",
+      "kind": "call",
+      "reason": "other",
+      "property": "cleanDirty",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "120:28",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "markDirty",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "120:28",
+      "kind": "call",
+      "reason": "other",
+      "property": "markDirty",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "122:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "122:26",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "124:33",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "size",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "124:33",
+      "kind": "call",
+      "reason": "other",
+      "property": "size",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "127:47",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "pop",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "127:47",
+      "kind": "call",
+      "reason": "other",
+      "property": "pop",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "138:48",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "neighbors",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "138:48",
+      "kind": "call",
+      "reason": "other",
+      "property": "neighbors",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "143:59",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isWall",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "143:59",
+      "kind": "call",
+      "reason": "other",
+      "property": "isWall",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "150:66",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "getCost",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "150:66",
+      "kind": "call",
+      "reason": "other",
+      "property": "getCost",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "161:40",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "markDirty",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "161:40",
+      "kind": "call",
+      "reason": "other",
+      "property": "markDirty",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "172:42",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "172:42",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "175:52",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "rescoreElement",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "175:52",
+      "kind": "call",
+      "reason": "other",
+      "property": "rescoreElement",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "140:47",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "113:36",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "heuristic",
+      "note": "the property is not an own property of the receiver's static shape: `options` is the empty object literal (options || {}), so heuristic/closest miss every shape and the read falls through to the prototype chain, where no slot or closure target exists."
+    },
+    {
+      "location": "114:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "closest",
+      "note": "the property is not an own property of the receiver's static shape: `options` is the empty object literal (options || {}), so heuristic/closest miss every shape and the read falls through to the prototype chain, where no slot or closure target exists."
+    },
+    {
+      "location": "124:20",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "130:21",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "140:56",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "150:34",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "153:41",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "236:26",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "init"
+    },
+    {
+      "location": "243:32",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "cleanDirty"
+    },
+    {
+      "location": "250:31",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "markDirty"
+    },
+    {
+      "location": "254:31",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "neighbors"
+    },
+    {
+      "location": "305:30",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "toString"
+    },
+    {
+      "location": "325:33",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "toString"
+    },
+    {
+      "location": "329:32",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "getCost"
+    },
+    {
+      "location": "337:31",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isWall"
+    },
+    {
+      "location": "346:26",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "prototype"
+    },
+    {
+      "location": "236:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "243:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "250:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "254:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "305:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "325:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "329:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "337:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "11:17",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "11:19",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "11:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "11:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "11:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "11:69",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "12:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "12:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "12:17",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "12:17",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "12:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "12:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "13:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "13:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "mark"
+    },
+    {
+      "location": "13:18",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "13:18",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "mark"
+    },
+    {
+      "location": "14:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "14:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "measure"
+    },
+    {
+      "location": "14:21",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "14:21",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "measure"
+    },
+    {
+      "location": "15:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "15:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "timeOrigin"
+    },
+    {
+      "location": "15:24",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "15:24",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "timeOrigin"
+    },
+    {
+      "location": "17:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "17:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "17:38",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "29:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "29:23",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "isInBrowser"
+    },
+    {
+      "location": "30:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "30:16",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "isD8"
+    },
+    {
+      "location": "30:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Realm"
+    },
+    {
+      "location": "493:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "493:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "493:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "494:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "494:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "494:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "494:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed"
+    },
+    {
+      "location": "497:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "497:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "497:34",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "499:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "499:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "499:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "507:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "507:8",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "498:27",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "runIteration",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). runIteration lives on Benchmark.prototype, so its load/call cannot be optimized."
+    },
+    {
+      "location": "498:27",
+      "kind": "call",
+      "reason": "other",
+      "property": "runIteration",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). runIteration lives on Benchmark.prototype, so its load/call cannot be optimized."
+    },
+    {
+      "location": "500:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "500:17",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "505:31",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "reduce",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "505:31",
+      "kind": "call",
+      "reason": "other",
+      "property": "reduce",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "506:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "500:30",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "506:19",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "507:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "503:23",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "validate",
+      "note": "optional call on a property the receiver does not have: benchmark.validate is undefined at runtime, so the ?. short-circuits; there is no shape slot and no closure target to attach."
+    },
+    {
+      "location": "503:23",
+      "kind": "call",
+      "reason": "other",
+      "property": "validate",
+      "note": "optional call on a property the receiver does not have: benchmark.validate is undefined at runtime, so the ?. short-circuits; there is no shape slot and no closure target to attach."
+    },
+    {
+      "location": "503:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional call on a property the receiver does not have: benchmark.validate is undefined at runtime, so the ?. short-circuits; there is no shape slot and no closure target to attach."
+    },
+    {
+      "location": "86:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "unshift",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "86:25",
+      "kind": "call",
+      "reason": "other",
+      "property": "unshift",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "230:32",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "230:32",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "238:39",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "244:44",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "251:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "251:29",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "262:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "262:21",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "267:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "267:21",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "272:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "272:21",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "277:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "277:21",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "283:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "283:25",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "288:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "288:25",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "293:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "293:25",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "298:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "298:25",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "308:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "311:36",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "312:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "312:30",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "314:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "314:29",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "314:43",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "join",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "314:43",
+      "kind": "call",
+      "reason": "other",
+      "property": "join",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "316:32",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "join",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "316:32",
+      "kind": "call",
+      "reason": "other",
+      "property": "join",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "349:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "349:30",
+      "kind": "call",
+      "reason": "other",
+      "property": "push",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "352:39",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "358:39",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "pop",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "358:39",
+      "kind": "call",
+      "reason": "other",
+      "property": "pop",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "361:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "368:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "indexOf",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "368:41",
+      "kind": "call",
+      "reason": "other",
+      "property": "indexOf",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "372:39",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "pop",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "372:39",
+      "kind": "call",
+      "reason": "other",
+      "property": "pop",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "374:35",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "385:32",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "388:47",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "indexOf",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "388:47",
+      "kind": "call",
+      "reason": "other",
+      "property": "indexOf",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "415:38",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "233:18",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "init",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so these prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "233:18",
+      "kind": "call",
+      "reason": "other",
+      "property": "init",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so these prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "352:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "sinkDown",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so these prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "352:26",
+      "kind": "call",
+      "reason": "other",
+      "property": "sinkDown",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so these prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "363:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "bubbleUp",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so these prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "363:30",
+      "kind": "call",
+      "reason": "other",
+      "property": "bubbleUp",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so these prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "378:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "sinkDown",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so these prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "378:34",
+      "kind": "call",
+      "reason": "other",
+      "property": "sinkDown",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so these prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "380:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "bubbleUp",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so these prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "380:34",
+      "kind": "call",
+      "reason": "other",
+      "property": "bubbleUp",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so these prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "388:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "sinkDown",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so these prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "388:26",
+      "kind": "call",
+      "reason": "other",
+      "property": "sinkDown",
+      "note": "prototype-shape consumption is not functional in this build: a guard carrying \"prototype shape\" never turns a read of a direct-prototype data/closure member into slot access or an inlined call (verified repeatedly with live prototype bindings + matching guards on the same object; the own-property half of the same guard does optimize). Only own-property shapes optimize, so these prototype method loads/calls cannot be made fast."
+    },
+    {
+      "location": "238:25",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "244:25",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "308:25",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "311:29",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "352:27",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "361:17",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "374:17",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "374:23",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "377:21",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "398:33",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "401:21",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "421:32",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "427:21",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "433:25",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "439:21",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "442:25",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "442:40",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "448:21",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "223:19",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "grid"
+    },
+    {
+      "location": "237:25",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "dirtyNodes"
+    },
+    {
+      "location": "321:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "y"
+    },
+    {
+      "location": "322:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "weight"
+    },
+    {
+      "location": "343:28",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "scoreFunction"
+    },
+    {
+      "location": "473:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "graph"
+    },
+    {
+      "location": "222:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "diagonal",
+      "note": "the property is not an own property of the receiver's static shape: `options` is the empty object literal (options || {}), so the read misses every shape and falls through to the prototype chain, where no slot or closure target exists."
+    },
+    {
+      "location": "224:25",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "227:46",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "224:35",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "227:53",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "array/collection values have no static shape in the annotation type system: Array.prototype methods and .length can be given neither a closure target nor a slot, so the read stays generic."
+    },
+    {
+      "location": "225:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "grid",
+      "note": "own-property read inside the constructor whose receiver shape never becomes usable: the progressive Graph/GraphPartial bindings along this constructor do not establish a shape fact that survives the array-indexing loads, so `this.grid` / `this.nodes` stay generic here (guards at the exact receivers are already present and have no effect)."
+    },
+    {
+      "location": "229:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "grid",
+      "note": "own-property read inside the constructor whose receiver shape never becomes usable: the progressive Graph/GraphPartial bindings along this constructor do not establish a shape fact that survives the array-indexing loads, so `this.grid` / `this.nodes` stay generic here (guards at the exact receivers are already present and have no effect)."
+    },
+    {
+      "location": "230:21",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "nodes",
+      "note": "own-property read inside the constructor whose receiver shape never becomes usable: the progressive Graph/GraphPartial bindings along this constructor do not establish a shape fact that survives the array-indexing loads, so `this.grid` / `this.nodes` stay generic here (guards at the exact receivers are already present and have no effect)."
+    },
+    {
+      "location": "198:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Math",
+      "note": "astar.heuristics.diagonal is never invoked anywhere in the file (search only ever selects manhattan), so no guard or call site reaches its body and it cannot be specialized; the identical Math.abs pattern in manhattan is fully optimized because manhattan is inlined on the hot path."
+    },
+    {
+      "location": "198:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "abs",
+      "note": "astar.heuristics.diagonal is never invoked anywhere in the file (search only ever selects manhattan), so no guard or call site reaches its body and it cannot be specialized; the identical Math.abs pattern in manhattan is fully optimized because manhattan is inlined on the hot path."
+    },
+    {
+      "location": "199:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Math",
+      "note": "astar.heuristics.diagonal is never invoked anywhere in the file (search only ever selects manhattan), so no guard or call site reaches its body and it cannot be specialized; the identical Math.abs pattern in manhattan is fully optimized because manhattan is inlined on the hot path."
+    },
+    {
+      "location": "199:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "abs",
+      "note": "astar.heuristics.diagonal is never invoked anywhere in the file (search only ever selects manhattan), so no guard or call site reaches its body and it cannot be specialized; the identical Math.abs pattern in manhattan is fully optimized because manhattan is inlined on the hot path."
+    },
+    {
+      "location": "326:16",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation building \"[x y]\": the receiver guard only types `this.x`/`this.y`; the intermediate concatenation result is an untyped string value with no guard able to narrow it, and GridNode.prototype.toString is never called on the hot path."
+    },
+    {
+      "location": "469:5",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "Benchmark class declaration: the `prototype` load belongs to the class object itself, which has no producing expression and therefore no bindable shape."
+    },
+    {
+      "location": "5:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Proxy"
+    },
+    {
+      "location": "5:46",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Proxy"
+    },
+    {
+      "location": "7:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "7:20",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "7:21",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "7:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "7:40",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "505:44",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "473:51",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "grid",
+      "note": "the BenchmarkPartial shape fact on `this` is killed by the intervening `new module.exports.Graph(...)` call (a constructor call is side-effecting on shapes) and there is no re-guard point between the call and this read, so `this.grid` stays generic here."
+    }
+  ]
+}

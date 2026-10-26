@@ -1,0 +1,800 @@
+{
+  "static shapes": {},
+  "shape guards": [],
+  "shape bindings": [],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 335,
+          "column": 29
+        },
+        "end": {
+          "line": 335,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 335,
+          "column": 32
+        },
+        "end": {
+          "line": 335,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 365,
+          "column": 18
+        },
+        "end": {
+          "line": 365,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 365,
+          "column": 28
+        },
+        "end": {
+          "line": 365,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 376,
+          "column": 17
+        },
+        "end": {
+          "line": 376,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 376,
+          "column": 27
+        },
+        "end": {
+          "line": 376,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 376,
+          "column": 37
+        },
+        "end": {
+          "line": 376,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 400,
+          "column": 13
+        },
+        "end": {
+          "line": 400,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 389,
+          "column": 14
+        },
+        "end": {
+          "line": 389,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 404,
+          "column": 23
+        },
+        "end": {
+          "line": 404,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 377,
+          "column": 16
+        },
+        "end": {
+          "line": 377,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 365,
+          "column": 1
+        },
+        "end": {
+          "line": 374,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 392,
+          "column": 23
+        },
+        "end": {
+          "line": 392,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 335,
+          "column": 1
+        },
+        "end": {
+          "line": 363,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 396,
+          "column": 24
+        },
+        "end": {
+          "line": 396,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 335,
+          "column": 1
+        },
+        "end": {
+          "line": 363,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 420,
+          "column": 31
+        },
+        "end": {
+          "line": 420,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 420,
+          "column": 39
+        },
+        "end": {
+          "line": 420,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 43,
+          "column": 21
+        },
+        "end": {
+          "line": 43,
+          "column": 38
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 30,
+          "column": 12
+        },
+        "end": {
+          "line": 39,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 370,
+          "column": 16
+        },
+        "end": {
+          "line": 370,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 30,
+          "column": 12
+        },
+        "end": {
+          "line": 39,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 43,
+          "column": 21
+        },
+        "end": {
+          "line": 43,
+          "column": 40
+        }
+      },
+      "type": "number"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "randCRC"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "runCRC"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "crc32_8bytes"
+    },
+    {
+      "location": "42:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "commonRandomJS"
+    },
+    {
+      "location": "73:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "crc32Lookup"
+    },
+    {
+      "location": "415:19",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "__performance"
+    },
+    {
+      "location": "417:13",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "__start"
+    },
+    {
+      "location": "419:11",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "__end"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "42:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "28:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "commonRandom"
+    },
+    {
+      "location": "415:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "415:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "415:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "415:71",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "416:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "416:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "416:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "416:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "416:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "417:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "417:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "418:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "runCRC"
+    },
+    {
+      "location": "419:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "419:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "420:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "420:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__end"
+    },
+    {
+      "location": "420:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__start"
+    },
+    {
+      "location": "73:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "343:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "crc32Lookup"
+    },
+    {
+      "location": "344:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "crc32Lookup"
+    },
+    {
+      "location": "345:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "crc32Lookup"
+    },
+    {
+      "location": "346:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "crc32Lookup"
+    },
+    {
+      "location": "347:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "crc32Lookup"
+    },
+    {
+      "location": "348:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "crc32Lookup"
+    },
+    {
+      "location": "349:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "crc32Lookup"
+    },
+    {
+      "location": "350:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "crc32Lookup"
+    },
+    {
+      "location": "357:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "crc32Lookup"
+    },
+    {
+      "location": "358:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "crc32Lookup"
+    },
+    {
+      "location": "359:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "crc32Lookup"
+    },
+    {
+      "location": "360:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "crc32Lookup"
+    },
+    {
+      "location": "367:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "369:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "369:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "369:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forEach"
+    },
+    {
+      "location": "369:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "call"
+    },
+    {
+      "location": "43:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "43:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "commonRandom"
+    },
+    {
+      "location": "370:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "370:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "commonRandom"
+    },
+    {
+      "location": "377:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "randCRC"
+    },
+    {
+      "location": "381:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "385:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "389:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "389:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "392:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "crc32_8bytes"
+    },
+    {
+      "location": "396:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "crc32_8bytes"
+    },
+    {
+      "location": "401:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "404:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "404:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "407:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "407:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "409:70",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "join"
+    },
+    {
+      "location": "73:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "367:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "369:33",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "call"
+    },
+    {
+      "location": "381:24",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "385:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "389:29",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "401:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "404:38",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "407:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "log"
+    },
+    {
+      "location": "409:70",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "join"
+    },
+    {
+      "location": "420:6",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "418:7",
+      "kind": "call",
+      "reason": "other",
+      "property": "runCRC",
+      "note": "Direct call to the global function runCRC. A closure type guard on the callee does optimize this call item, but inlining runCRC at top level deoptimizes the surrounding builtin Math.round/Math fast paths (420:19, 420:29 revert to not-optimized), a net regression, so the call is left unguarded."
+    },
+    {
+      "location": "381:25",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String+number concatenation. The compiler has no fast path for concatenating a known string with a number, and intermediate concat results have no IR node of their own: a string type guard on the intermediate range (407:17-407:51) matched no IR and was pruned. Number type guards on the numeric operands (e.g. finalCrc at 401:63, pageSize at 381:56) had no effect on the concat either."
+    },
+    {
+      "location": "401:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String+number concatenation. The compiler has no fast path for concatenating a known string with a number, and intermediate concat results have no IR node of their own: a string type guard on the intermediate range (407:17-407:51) matched no IR and was pruned. Number type guards on the numeric operands (e.g. finalCrc at 401:63, pageSize at 381:56) had no effect on the concat either."
+    },
+    {
+      "location": "407:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String+number concatenation. The compiler has no fast path for concatenating a known string with a number, and intermediate concat results have no IR node of their own: a string type guard on the intermediate range (407:17-407:51) matched no IR and was pruned. Number type guards on the numeric operands (e.g. finalCrc at 401:63, pageSize at 381:56) had no effect on the concat either."
+    },
+    {
+      "location": "409:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String+number concatenation. The compiler has no fast path for concatenating a known string with a number, and intermediate concat results have no IR node of their own: a string type guard on the intermediate range (407:17-407:51) matched no IR and was pruned. Number type guards on the numeric operands (e.g. finalCrc at 401:63, pageSize at 381:56) had no effect on the concat either."
+    },
+    {
+      "location": "420:8",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String+number concatenation. The compiler has no fast path for concatenating a known string with a number, and intermediate concat results have no IR node of their own: a string type guard on the intermediate range (407:17-407:51) matched no IR and was pruned. Number type guards on the numeric operands (e.g. finalCrc at 401:63, pageSize at 381:56) had no effect on the concat either."
+    },
+    {
+      "location": "415:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish coalescing (?? at 415:21, ??= at 416:19) whose left operand is a generic property load on the global object / on __performance, an object reachable only through a global load and therefore unbindable. No concrete annotation type can describe an object-valued global property, so neither the load nor the nullish test can be narrowed."
+    },
+    {
+      "location": "416:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish coalescing (?? at 415:21, ??= at 416:19) whose left operand is a generic property load on the global object / on __performance, an object reachable only through a global load and therefore unbindable. No concrete annotation type can describe an object-valued global property, so neither the load nor the nullish test can be narrowed."
+    },
+    {
+      "location": "417:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now",
+      "note": "__performance.now() dispatches to a native timer function (Date.now / performance.now); there is no JS function definition in the file to name as a closure target, so the call cannot be inlined."
+    },
+    {
+      "location": "419:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now",
+      "note": "__performance.now() dispatches to a native timer function (Date.now / performance.now); there is no JS function definition in the file to name as a closure target, so the call cannot be inlined."
+    }
+  ]
+}

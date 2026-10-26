@@ -1,0 +1,6202 @@
+{
+  "static shapes": {
+    "OrderedItem": {
+      "properties": [
+        {
+          "name": "type",
+          "type": "string"
+        },
+        {
+          "name": "value"
+        }
+      ]
+    },
+    "PostWrapper": {
+      "properties": [
+        {
+          "name": "currentPost"
+        }
+      ]
+    },
+    "FixturePost": {
+      "properties": [
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "channelId",
+          "type": "string"
+        },
+        {
+          "name": "createAt",
+          "type": "number"
+        },
+        {
+          "name": "deleteAt",
+          "type": "number"
+        },
+        {
+          "name": "userId",
+          "type": "string"
+        },
+        {
+          "name": "type",
+          "type": "string"
+        },
+        {
+          "name": "message",
+          "type": "string"
+        },
+        {
+          "name": "props"
+        }
+      ]
+    },
+    "PostModule": {
+      "properties": [
+        {
+          "name": "POST_TYPES"
+        },
+        {
+          "name": "USER_ACTIVITY_POST_TYPES"
+        }
+      ]
+    },
+    "UserActivityItem": {
+      "properties": [
+        {
+          "name": "type",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "string"
+        }
+      ]
+    },
+    "PropsAddedUserId": {
+      "properties": [
+        {
+          "name": "addedUserId",
+          "type": "string"
+        }
+      ]
+    },
+    "PropsAddedUsername": {
+      "properties": [
+        {
+          "name": "addedUsername",
+          "type": "string"
+        }
+      ]
+    },
+    "PropsRemovedUserId": {
+      "properties": [
+        {
+          "name": "removedUserId",
+          "type": "string"
+        }
+      ]
+    },
+    "Users": {
+      "properties": [
+        {
+          "name": "ids"
+        },
+        {
+          "name": "usernames"
+        }
+      ]
+    },
+    "PostTypesShape": {
+      "properties": [
+        {
+          "name": "CHANNEL_DELETED",
+          "type": "string"
+        },
+        {
+          "name": "CHANNEL_UNARCHIVED",
+          "type": "string"
+        },
+        {
+          "name": "DISPLAYNAME_CHANGE",
+          "type": "string"
+        },
+        {
+          "name": "CONVERT_CHANNEL",
+          "type": "string"
+        },
+        {
+          "name": "EPHEMERAL",
+          "type": "string"
+        },
+        {
+          "name": "EPHEMERAL_ADD_TO_CHANNEL",
+          "type": "string"
+        },
+        {
+          "name": "HEADER_CHANGE",
+          "type": "string"
+        },
+        {
+          "name": "PURPOSE_CHANGE",
+          "type": "string"
+        },
+        {
+          "name": "SYSTEM_MESSAGE_PREFIX",
+          "type": "string"
+        },
+        {
+          "name": "JOIN_LEAVE",
+          "type": "string"
+        },
+        {
+          "name": "JOIN_CHANNEL",
+          "type": "string"
+        },
+        {
+          "name": "GUEST_JOIN_CHANNEL",
+          "type": "string"
+        },
+        {
+          "name": "LEAVE_CHANNEL",
+          "type": "string"
+        },
+        {
+          "name": "ADD_REMOVE",
+          "type": "string"
+        },
+        {
+          "name": "ADD_TO_CHANNEL",
+          "type": "string"
+        },
+        {
+          "name": "ADD_GUEST_TO_CHANNEL",
+          "type": "string"
+        },
+        {
+          "name": "REMOVE_FROM_CHANNEL",
+          "type": "string"
+        },
+        {
+          "name": "JOIN_TEAM",
+          "type": "string"
+        },
+        {
+          "name": "LEAVE_TEAM",
+          "type": "string"
+        },
+        {
+          "name": "ADD_TO_TEAM",
+          "type": "string"
+        },
+        {
+          "name": "REMOVE_FROM_TEAM",
+          "type": "string"
+        },
+        {
+          "name": "COMBINED_USER_ACTIVITY",
+          "type": "string"
+        },
+        {
+          "name": "SHARED_CHANNEL_STATE",
+          "type": "string"
+        },
+        {
+          "name": "ME",
+          "type": "string"
+        },
+        {
+          "name": "ADD_BOT_TEAMS_CHANNELS",
+          "type": "string"
+        },
+        {
+          "name": "SYSTEM_AUTO_RESPONDER",
+          "type": "string"
+        },
+        {
+          "name": "CUSTOM_CALLS",
+          "type": "string"
+        },
+        {
+          "name": "CUSTOM_CALLS_RECORDING",
+          "type": "string"
+        },
+        {
+          "name": "CUSTOM_LLMBOT",
+          "type": "string"
+        },
+        {
+          "name": "CUSTOM_LLM_POSTBACK",
+          "type": "string"
+        },
+        {
+          "name": "BURN_ON_READ",
+          "type": "string"
+        }
+      ]
+    },
+    "MessageDataActor": {
+      "properties": [
+        {
+          "name": "postType",
+          "type": "string"
+        },
+        {
+          "name": "userIds"
+        },
+        {
+          "name": "actorId",
+          "type": "string"
+        }
+      ]
+    },
+    "MessageData": {
+      "properties": [
+        {
+          "name": "postType",
+          "type": "string"
+        },
+        {
+          "name": "userIds"
+        }
+      ]
+    },
+    "Reference": {
+      "properties": [
+        {
+          "name": "fingerprint",
+          "type": "number"
+        },
+        {
+          "name": "observation",
+          "type": "number"
+        }
+      ]
+    },
+    "Fixture": {
+      "properties": [
+        {
+          "name": "ordered"
+        },
+        {
+          "name": "systemPosts"
+        },
+        {
+          "name": "combinedId"
+        }
+      ]
+    },
+    "CombinedPost": {
+      "properties": [
+        {
+          "name": "id"
+        },
+        {
+          "name": "root_id"
+        },
+        {
+          "name": "original_id"
+        },
+        {
+          "name": "channel_id"
+        },
+        {
+          "name": "create_at"
+        },
+        {
+          "name": "delete_at"
+        },
+        {
+          "name": "edit_at"
+        },
+        {
+          "name": "update_at"
+        },
+        {
+          "name": "is_pinned"
+        },
+        {
+          "name": "message"
+        },
+        {
+          "name": "hashtags"
+        },
+        {
+          "name": "pending_post_id"
+        },
+        {
+          "name": "reply_count"
+        },
+        {
+          "name": "props"
+        },
+        {
+          "name": "type"
+        },
+        {
+          "name": "user_id"
+        },
+        {
+          "name": "metadata"
+        }
+      ]
+    },
+    "CombinedPostProps": {
+      "properties": [
+        {
+          "name": "messages"
+        },
+        {
+          "name": "user_activity"
+        },
+        {
+          "name": "user_activity_posts"
+        },
+        {
+          "name": "system_post_ids"
+        }
+      ]
+    },
+    "FixtureResult": {
+      "properties": [
+        {
+          "name": "grouped"
+        },
+        {
+          "name": "combined"
+        },
+        {
+          "name": "ids"
+        },
+        {
+          "name": "validActivity"
+        },
+        {
+          "name": "filtered"
+        }
+      ]
+    },
+    "UserActivityData": {
+      "properties": [
+        {
+          "name": "allUserIds"
+        },
+        {
+          "name": "allUsernames"
+        },
+        {
+          "name": "messageData"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 100,
+          "column": 7
+        },
+        "end": {
+          "line": 100,
+          "column": 11
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 101,
+          "column": 7
+        },
+        "end": {
+          "line": 101,
+          "column": 11
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 102,
+          "column": 7
+        },
+        "end": {
+          "line": 102,
+          "column": 11
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 108,
+          "column": 16
+        },
+        "end": {
+          "line": 108,
+          "column": 20
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 114,
+          "column": 9
+        },
+        "end": {
+          "line": 114,
+          "column": 13
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 115,
+          "column": 49
+        },
+        "end": {
+          "line": 115,
+          "column": 53
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 121,
+          "column": 44
+        },
+        "end": {
+          "line": 121,
+          "column": 48
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 125,
+          "column": 46
+        },
+        "end": {
+          "line": 125,
+          "column": 50
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 108,
+          "column": 40
+        },
+        "end": {
+          "line": 108,
+          "column": 50
+        }
+      },
+      "shape": "PostWrapper"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 115,
+          "column": 49
+        },
+        "end": {
+          "line": 115,
+          "column": 59
+        }
+      },
+      "shape": "PostWrapper"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 121,
+          "column": 44
+        },
+        "end": {
+          "line": 121,
+          "column": 54
+        }
+      },
+      "shape": "PostWrapper"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 125,
+          "column": 46
+        },
+        "end": {
+          "line": 125,
+          "column": 56
+        }
+      },
+      "shape": "PostWrapper"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 108,
+          "column": 40
+        },
+        "end": {
+          "line": 108,
+          "column": 62
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 115,
+          "column": 49
+        },
+        "end": {
+          "line": 115,
+          "column": 71
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 121,
+          "column": 44
+        },
+        "end": {
+          "line": 121,
+          "column": 66
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 125,
+          "column": 46
+        },
+        "end": {
+          "line": 125,
+          "column": 68
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 115,
+          "column": 18
+        },
+        "end": {
+          "line": 115,
+          "column": 22
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 121,
+          "column": 9
+        },
+        "end": {
+          "line": 121,
+          "column": 28
+        }
+      },
+      "shape": "UserActivityItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 196,
+          "column": 22
+        },
+        "end": {
+          "line": 196,
+          "column": 26
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 205,
+          "column": 22
+        },
+        "end": {
+          "line": 205,
+          "column": 26
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 205,
+          "column": 63
+        },
+        "end": {
+          "line": 205,
+          "column": 67
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 207,
+          "column": 22
+        },
+        "end": {
+          "line": 207,
+          "column": 26
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 207,
+          "column": 65
+        },
+        "end": {
+          "line": 207,
+          "column": 69
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 212,
+          "column": 55
+        },
+        "end": {
+          "line": 212,
+          "column": 59
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 221,
+          "column": 26
+        },
+        "end": {
+          "line": 221,
+          "column": 30
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 233,
+          "column": 12
+        },
+        "end": {
+          "line": 233,
+          "column": 16
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 237,
+          "column": 27
+        },
+        "end": {
+          "line": 237,
+          "column": 31
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 205,
+          "column": 22
+        },
+        "end": {
+          "line": 205,
+          "column": 32
+        }
+      },
+      "shape": "PropsAddedUserId"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 205,
+          "column": 63
+        },
+        "end": {
+          "line": 205,
+          "column": 73
+        }
+      },
+      "shape": "PropsRemovedUserId"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 207,
+          "column": 22
+        },
+        "end": {
+          "line": 207,
+          "column": 32
+        }
+      },
+      "shape": "PropsAddedUsername"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 207,
+          "column": 65
+        },
+        "end": {
+          "line": 207,
+          "column": 75
+        }
+      },
+      "shape": "PropsRemovedUserId"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 215,
+          "column": 16
+        },
+        "end": {
+          "line": 215,
+          "column": 21
+        }
+      },
+      "shape": "Users"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 216,
+          "column": 13
+        },
+        "end": {
+          "line": 216,
+          "column": 18
+        }
+      },
+      "shape": "Users"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 218,
+          "column": 33
+        },
+        "end": {
+          "line": 218,
+          "column": 38
+        }
+      },
+      "shape": "Users"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 219,
+          "column": 11
+        },
+        "end": {
+          "line": 219,
+          "column": 16
+        }
+      },
+      "shape": "Users"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 228,
+          "column": 11
+        },
+        "end": {
+          "line": 228,
+          "column": 16
+        }
+      },
+      "shape": "Users"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 230,
+          "column": 11
+        },
+        "end": {
+          "line": 230,
+          "column": 16
+        }
+      },
+      "shape": "Users"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 200,
+          "column": 20
+        },
+        "end": {
+          "line": 200,
+          "column": 24
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 201,
+          "column": 20
+        },
+        "end": {
+          "line": 201,
+          "column": 24
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 202,
+          "column": 20
+        },
+        "end": {
+          "line": 202,
+          "column": 24
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 200,
+          "column": 20
+        },
+        "end": {
+          "line": 200,
+          "column": 35
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 201,
+          "column": 20
+        },
+        "end": {
+          "line": 201,
+          "column": 35
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 202,
+          "column": 20
+        },
+        "end": {
+          "line": 202,
+          "column": 35
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 142,
+          "column": 59
+        },
+        "end": {
+          "line": 142,
+          "column": 60
+        }
+      },
+      "shape": "MessageData"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 59
+        },
+        "end": {
+          "line": 143,
+          "column": 60
+        }
+      },
+      "shape": "MessageData"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 152,
+          "column": 20
+        },
+        "end": {
+          "line": 152,
+          "column": 24
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 153,
+          "column": 20
+        },
+        "end": {
+          "line": 153,
+          "column": 24
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 154,
+          "column": 20
+        },
+        "end": {
+          "line": 154,
+          "column": 24
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 152,
+          "column": 20
+        },
+        "end": {
+          "line": 152,
+          "column": 35
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 153,
+          "column": 20
+        },
+        "end": {
+          "line": 153,
+          "column": 35
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 154,
+          "column": 20
+        },
+        "end": {
+          "line": 154,
+          "column": 35
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 163,
+          "column": 36
+        },
+        "end": {
+          "line": 163,
+          "column": 41
+        }
+      },
+      "shape": "Users"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 254,
+          "column": 21
+        },
+        "end": {
+          "line": 254,
+          "column": 35
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 255,
+          "column": 20
+        },
+        "end": {
+          "line": 255,
+          "column": 55
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 278,
+          "column": 11
+        },
+        "end": {
+          "line": 278,
+          "column": 15
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 278,
+          "column": 11
+        },
+        "end": {
+          "line": 278,
+          "column": 26
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 323,
+          "column": 37
+        },
+        "end": {
+          "line": 323,
+          "column": 41
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 386,
+          "column": 25
+        },
+        "end": {
+          "line": 386,
+          "column": 38
+        }
+      },
+      "shape": "Reference"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 388,
+          "column": 29
+        },
+        "end": {
+          "line": 388,
+          "column": 42
+        }
+      },
+      "shape": "Reference"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 391,
+          "column": 20
+        },
+        "end": {
+          "line": 391,
+          "column": 33
+        }
+      },
+      "shape": "Reference"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 421,
+          "column": 17
+        },
+        "end": {
+          "line": 421,
+          "column": 21
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 430,
+          "column": 24
+        },
+        "end": {
+          "line": 430,
+          "column": 29
+        }
+      },
+      "shape": "PropsAddedUserId"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 431,
+          "column": 29
+        },
+        "end": {
+          "line": 431,
+          "column": 34
+        }
+      },
+      "shape": "PropsAddedUsername"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 432,
+          "column": 12
+        },
+        "end": {
+          "line": 432,
+          "column": 17
+        }
+      },
+      "shape": "PropsRemovedUserId"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 452,
+          "column": 17
+        },
+        "end": {
+          "line": 452,
+          "column": 28
+        }
+      },
+      "shape": "Fixture"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 464,
+          "column": 44
+        },
+        "end": {
+          "line": 464,
+          "column": 51
+        }
+      },
+      "shape": "Fixture"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 465,
+          "column": 41
+        },
+        "end": {
+          "line": 465,
+          "column": 48
+        }
+      },
+      "shape": "Fixture"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 465,
+          "column": 61
+        },
+        "end": {
+          "line": 465,
+          "column": 68
+        }
+      },
+      "shape": "Fixture"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 476,
+          "column": 39
+        },
+        "end": {
+          "line": 476,
+          "column": 47
+        }
+      },
+      "shape": "CombinedPost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 476,
+          "column": 39
+        },
+        "end": {
+          "line": 476,
+          "column": 53
+        }
+      },
+      "shape": "CombinedPostProps"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 471,
+          "column": 16
+        },
+        "end": {
+          "line": 471,
+          "column": 19
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 474,
+          "column": 54
+        },
+        "end": {
+          "line": 474,
+          "column": 57
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 478,
+          "column": 11
+        },
+        "end": {
+          "line": 478,
+          "column": 14
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 479,
+          "column": 40
+        },
+        "end": {
+          "line": 479,
+          "column": 43
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 479,
+          "column": 40
+        },
+        "end": {
+          "line": 479,
+          "column": 49
+        }
+      },
+      "shape": "PostWrapper"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 484,
+          "column": 20
+        },
+        "end": {
+          "line": 484,
+          "column": 26
+        }
+      },
+      "shape": "FixtureResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 484,
+          "column": 20
+        },
+        "end": {
+          "line": 484,
+          "column": 35
+        }
+      },
+      "shape": "CombinedPost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 484,
+          "column": 20
+        },
+        "end": {
+          "line": 484,
+          "column": 41
+        }
+      },
+      "shape": "CombinedPostProps"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 487,
+          "column": 5
+        },
+        "end": {
+          "line": 487,
+          "column": 13
+        }
+      },
+      "shape": "UserActivityData"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 488,
+          "column": 5
+        },
+        "end": {
+          "line": 488,
+          "column": 13
+        }
+      },
+      "shape": "UserActivityData"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 489,
+          "column": 5
+        },
+        "end": {
+          "line": 489,
+          "column": 13
+        }
+      },
+      "shape": "UserActivityData"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 490,
+          "column": 5
+        },
+        "end": {
+          "line": 490,
+          "column": 11
+        }
+      },
+      "shape": "FixtureResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 491,
+          "column": 5
+        },
+        "end": {
+          "line": 491,
+          "column": 11
+        }
+      },
+      "shape": "FixtureResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 495,
+          "column": 19
+        },
+        "end": {
+          "line": 495,
+          "column": 25
+        }
+      },
+      "shape": "FixtureResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 501,
+          "column": 5
+        },
+        "end": {
+          "line": 501,
+          "column": 11
+        }
+      },
+      "shape": "FixtureResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 501,
+          "column": 5
+        },
+        "end": {
+          "line": 501,
+          "column": 20
+        }
+      },
+      "shape": "CombinedPost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 501,
+          "column": 30
+        },
+        "end": {
+          "line": 501,
+          "column": 34
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 501,
+          "column": 30
+        },
+        "end": {
+          "line": 501,
+          "column": 45
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 505,
+          "column": 5
+        },
+        "end": {
+          "line": 505,
+          "column": 11
+        }
+      },
+      "shape": "FixtureResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 508,
+          "column": 42
+        },
+        "end": {
+          "line": 508,
+          "column": 48
+        }
+      },
+      "shape": "FixtureResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 508,
+          "column": 59
+        },
+        "end": {
+          "line": 508,
+          "column": 65
+        }
+      },
+      "shape": "FixtureResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 508,
+          "column": 71
+        },
+        "end": {
+          "line": 508,
+          "column": 77
+        }
+      },
+      "shape": "FixtureResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 496,
+          "column": 12
+        },
+        "end": {
+          "line": 496,
+          "column": 16
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 497,
+          "column": 10
+        },
+        "end": {
+          "line": 497,
+          "column": 14
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 497,
+          "column": 21
+        },
+        "end": {
+          "line": 497,
+          "column": 25
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 497,
+          "column": 21
+        },
+        "end": {
+          "line": 497,
+          "column": 31
+        }
+      },
+      "shape": "PostWrapper"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 497,
+          "column": 21
+        },
+        "end": {
+          "line": 497,
+          "column": 43
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 497,
+          "column": 48
+        },
+        "end": {
+          "line": 497,
+          "column": 52
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 497,
+          "column": 48
+        },
+        "end": {
+          "line": 497,
+          "column": 58
+        }
+      },
+      "shape": "PostWrapper"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 497,
+          "column": 48
+        },
+        "end": {
+          "line": 497,
+          "column": 70
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 498,
+          "column": 10
+        },
+        "end": {
+          "line": 498,
+          "column": 14
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 498,
+          "column": 21
+        },
+        "end": {
+          "line": 498,
+          "column": 25
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 41,
+          "column": 5
+        },
+        "end": {
+          "line": 41,
+          "column": 14
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 72,
+          "column": 4
+        },
+        "end": {
+          "line": 72,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 72,
+          "column": 4
+        },
+        "end": {
+          "line": 72,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 42,
+          "column": 5
+        },
+        "end": {
+          "line": 42,
+          "column": 14
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 43,
+          "column": 5
+        },
+        "end": {
+          "line": 43,
+          "column": 14
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 44,
+          "column": 5
+        },
+        "end": {
+          "line": 44,
+          "column": 14
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 45,
+          "column": 5
+        },
+        "end": {
+          "line": 45,
+          "column": 14
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 46,
+          "column": 5
+        },
+        "end": {
+          "line": 46,
+          "column": 14
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 47,
+          "column": 5
+        },
+        "end": {
+          "line": 47,
+          "column": 14
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 48,
+          "column": 5
+        },
+        "end": {
+          "line": 48,
+          "column": 14
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 73,
+          "column": 4
+        },
+        "end": {
+          "line": 73,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 74,
+          "column": 4
+        },
+        "end": {
+          "line": 74,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 75,
+          "column": 4
+        },
+        "end": {
+          "line": 75,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 76,
+          "column": 4
+        },
+        "end": {
+          "line": 76,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 77,
+          "column": 4
+        },
+        "end": {
+          "line": 77,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 78,
+          "column": 4
+        },
+        "end": {
+          "line": 78,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 79,
+          "column": 4
+        },
+        "end": {
+          "line": 79,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 80,
+          "column": 4
+        },
+        "end": {
+          "line": 80,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 81,
+          "column": 4
+        },
+        "end": {
+          "line": 81,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 82,
+          "column": 4
+        },
+        "end": {
+          "line": 82,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 83,
+          "column": 4
+        },
+        "end": {
+          "line": 83,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 84,
+          "column": 4
+        },
+        "end": {
+          "line": 84,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 85,
+          "column": 4
+        },
+        "end": {
+          "line": 85,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 86,
+          "column": 4
+        },
+        "end": {
+          "line": 86,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 87,
+          "column": 4
+        },
+        "end": {
+          "line": 87,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 88,
+          "column": 4
+        },
+        "end": {
+          "line": 88,
+          "column": 8
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 73,
+          "column": 4
+        },
+        "end": {
+          "line": 73,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 74,
+          "column": 4
+        },
+        "end": {
+          "line": 74,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 75,
+          "column": 4
+        },
+        "end": {
+          "line": 75,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 76,
+          "column": 4
+        },
+        "end": {
+          "line": 76,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 77,
+          "column": 4
+        },
+        "end": {
+          "line": 77,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 78,
+          "column": 4
+        },
+        "end": {
+          "line": 78,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 79,
+          "column": 4
+        },
+        "end": {
+          "line": 79,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 80,
+          "column": 4
+        },
+        "end": {
+          "line": 80,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 81,
+          "column": 4
+        },
+        "end": {
+          "line": 81,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 82,
+          "column": 4
+        },
+        "end": {
+          "line": 82,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 83,
+          "column": 4
+        },
+        "end": {
+          "line": 83,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 84,
+          "column": 4
+        },
+        "end": {
+          "line": 84,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 85,
+          "column": 4
+        },
+        "end": {
+          "line": 85,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 86,
+          "column": 4
+        },
+        "end": {
+          "line": 86,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 87,
+          "column": 4
+        },
+        "end": {
+          "line": 87,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 88,
+          "column": 4
+        },
+        "end": {
+          "line": 88,
+          "column": 19
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 284,
+          "column": 3
+        },
+        "end": {
+          "line": 284,
+          "column": 7
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 285,
+          "column": 3
+        },
+        "end": {
+          "line": 285,
+          "column": 7
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 286,
+          "column": 3
+        },
+        "end": {
+          "line": 286,
+          "column": 7
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 287,
+          "column": 3
+        },
+        "end": {
+          "line": 287,
+          "column": 7
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 288,
+          "column": 3
+        },
+        "end": {
+          "line": 288,
+          "column": 7
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 289,
+          "column": 3
+        },
+        "end": {
+          "line": 289,
+          "column": 7
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 290,
+          "column": 3
+        },
+        "end": {
+          "line": 290,
+          "column": 7
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 291,
+          "column": 3
+        },
+        "end": {
+          "line": 291,
+          "column": 7
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 292,
+          "column": 3
+        },
+        "end": {
+          "line": 292,
+          "column": 7
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 293,
+          "column": 3
+        },
+        "end": {
+          "line": 293,
+          "column": 7
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 294,
+          "column": 3
+        },
+        "end": {
+          "line": 294,
+          "column": 7
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 284,
+          "column": 3
+        },
+        "end": {
+          "line": 284,
+          "column": 18
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 285,
+          "column": 3
+        },
+        "end": {
+          "line": 285,
+          "column": 18
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 286,
+          "column": 3
+        },
+        "end": {
+          "line": 286,
+          "column": 18
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 287,
+          "column": 3
+        },
+        "end": {
+          "line": 287,
+          "column": 18
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 288,
+          "column": 3
+        },
+        "end": {
+          "line": 288,
+          "column": 18
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 289,
+          "column": 3
+        },
+        "end": {
+          "line": 289,
+          "column": 18
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 290,
+          "column": 3
+        },
+        "end": {
+          "line": 290,
+          "column": 18
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 291,
+          "column": 3
+        },
+        "end": {
+          "line": 291,
+          "column": 18
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 292,
+          "column": 3
+        },
+        "end": {
+          "line": 292,
+          "column": 18
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 293,
+          "column": 3
+        },
+        "end": {
+          "line": 293,
+          "column": 18
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 294,
+          "column": 3
+        },
+        "end": {
+          "line": 294,
+          "column": 18
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 256,
+          "column": 46
+        },
+        "end": {
+          "line": 256,
+          "column": 50
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 276,
+          "column": 50
+        },
+        "end": {
+          "line": 276,
+          "column": 54
+        }
+      },
+      "shape": "FixturePost"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 443,
+          "column": 39
+        },
+        "end": {
+          "line": 443,
+          "column": 75
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 445,
+          "column": 22
+        },
+        "end": {
+          "line": 445,
+          "column": 87
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 446,
+          "column": 36
+        },
+        "end": {
+          "line": 446,
+          "column": 89
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 447,
+          "column": 20
+        },
+        "end": {
+          "line": 447,
+          "column": 66
+        }
+      },
+      "shape": "OrderedItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 447,
+          "column": 43
+        },
+        "end": {
+          "line": 447,
+          "column": 64
+        }
+      },
+      "shape": "PostWrapper"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 433,
+          "column": 20
+        },
+        "end": {
+          "line": 442,
+          "column": 8
+        }
+      },
+      "shape": "FixturePost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 38,
+          "column": 14
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      },
+      "shape": "PostModule"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 123,
+          "column": 18
+        },
+        "end": {
+          "line": 126,
+          "column": 10
+        }
+      },
+      "shape": "UserActivityItem"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 430,
+          "column": 24
+        },
+        "end": {
+          "line": 430,
+          "column": 29
+        }
+      },
+      "shape": "PropsAddedUserId"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 431,
+          "column": 29
+        },
+        "end": {
+          "line": 431,
+          "column": 34
+        }
+      },
+      "shape": "PropsAddedUsername"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 432,
+          "column": 12
+        },
+        "end": {
+          "line": 432,
+          "column": 17
+        }
+      },
+      "shape": "PropsRemovedUserId"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 213,
+          "column": 47
+        },
+        "end": {
+          "line": 213,
+          "column": 73
+        }
+      },
+      "shape": "Users"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 223,
+          "column": 23
+        },
+        "end": {
+          "line": 226,
+          "column": 10
+        }
+      },
+      "shape": "Users"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 5,
+          "column": 19
+        },
+        "end": {
+          "line": 37,
+          "column": 2
+        }
+      },
+      "shape": "PostTypesShape"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 164,
+          "column": 26
+        },
+        "end": {
+          "line": 164,
+          "column": 80
+        }
+      },
+      "shape": "MessageDataActor"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 177,
+          "column": 24
+        },
+        "end": {
+          "line": 177,
+          "column": 53
+        }
+      },
+      "shape": "MessageData"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 398,
+          "column": 12
+        },
+        "end": {
+          "line": 398,
+          "column": 82
+        }
+      },
+      "shape": "Reference"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 511,
+          "column": 3
+        },
+        "end": {
+          "line": 511,
+          "column": 52
+        }
+      },
+      "shape": "Reference"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 512,
+          "column": 3
+        },
+        "end": {
+          "line": 512,
+          "column": 52
+        }
+      },
+      "shape": "Reference"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 513,
+          "column": 3
+        },
+        "end": {
+          "line": 513,
+          "column": 52
+        }
+      },
+      "shape": "Reference"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 514,
+          "column": 3
+        },
+        "end": {
+          "line": 514,
+          "column": 52
+        }
+      },
+      "shape": "Reference"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 515,
+          "column": 3
+        },
+        "end": {
+          "line": 515,
+          "column": 50
+        }
+      },
+      "shape": "Reference"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 450,
+          "column": 19
+        },
+        "end": {
+          "line": 450,
+          "column": 78
+        }
+      },
+      "shape": "Fixture"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 453,
+          "column": 17
+        },
+        "end": {
+          "line": 460,
+          "column": 4
+        }
+      },
+      "shape": "Fixture"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 258,
+          "column": 10
+        },
+        "end": {
+          "line": 281,
+          "column": 4
+        }
+      },
+      "shape": "CombinedPost"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 272,
+          "column": 12
+        },
+        "end": {
+          "line": 277,
+          "column": 6
+        }
+      },
+      "shape": "CombinedPostProps"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 466,
+          "column": 10
+        },
+        "end": {
+          "line": 481,
+          "column": 4
+        }
+      },
+      "shape": "FixtureResult"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 188,
+          "column": 10
+        },
+        "end": {
+          "line": 192,
+          "column": 4
+        }
+      },
+      "shape": "UserActivityData"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 405,
+          "column": 17
+        },
+        "end": {
+          "line": 405,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 359,
+          "column": 1
+        },
+        "end": {
+          "line": 363,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 115,
+          "column": 9
+        },
+        "end": {
+          "line": 115,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 54,
+          "column": 1
+        },
+        "end": {
+          "line": 56,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 119,
+          "column": 25
+        },
+        "end": {
+          "line": 119,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 205,
+          "column": 9
+        },
+        "end": {
+          "line": 205,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 51,
+          "column": 1
+        },
+        "end": {
+          "line": 53,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 205,
+          "column": 50
+        },
+        "end": {
+          "line": 205,
+          "column": 62
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 51,
+          "column": 1
+        },
+        "end": {
+          "line": 53,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 207,
+          "column": 9
+        },
+        "end": {
+          "line": 207,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 51,
+          "column": 1
+        },
+        "end": {
+          "line": 53,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 207,
+          "column": 52
+        },
+        "end": {
+          "line": 207,
+          "column": 64
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 51,
+          "column": 1
+        },
+        "end": {
+          "line": 53,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 142,
+          "column": 21
+        },
+        "end": {
+          "line": 142,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 57,
+          "column": 1
+        },
+        "end": {
+          "line": 61,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 21
+        },
+        "end": {
+          "line": 143,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 57,
+          "column": 1
+        },
+        "end": {
+          "line": 61,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 144,
+          "column": 10
+        },
+        "end": {
+          "line": 144,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 144,
+          "column": 22
+        },
+        "end": {
+          "line": 144,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 251,
+          "column": 10
+        },
+        "end": {
+          "line": 251,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 146,
+          "column": 1
+        },
+        "end": {
+          "line": 193,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 274,
+          "column": 22
+        },
+        "end": {
+          "line": 274,
+          "column": 51
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 194,
+          "column": 1
+        },
+        "end": {
+          "line": 252,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 255,
+          "column": 32
+        },
+        "end": {
+          "line": 255,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 97,
+          "column": 23
+        },
+        "end": {
+          "line": 97,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 121,
+          "column": 13
+        },
+        "end": {
+          "line": 121,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 13
+        },
+        "end": {
+          "line": 165,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 168,
+          "column": 13
+        },
+        "end": {
+          "line": 168,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 323,
+          "column": 8
+        },
+        "end": {
+          "line": 323,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 54,
+          "column": 1
+        },
+        "end": {
+          "line": 56,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 326,
+          "column": 11
+        },
+        "end": {
+          "line": 326,
+          "column": 37
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 296,
+          "column": 1
+        },
+        "end": {
+          "line": 312,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 381,
+          "column": 3
+        },
+        "end": {
+          "line": 381,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 364,
+          "column": 1
+        },
+        "end": {
+          "line": 366,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 386,
+          "column": 5
+        },
+        "end": {
+          "line": 386,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 364,
+          "column": 1
+        },
+        "end": {
+          "line": 366,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 387,
+          "column": 5
+        },
+        "end": {
+          "line": 387,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 364,
+          "column": 1
+        },
+        "end": {
+          "line": 366,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 384,
+          "column": 20
+        },
+        "end": {
+          "line": 384,
+          "column": 29
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 463,
+          "column": 1
+        },
+        "end": {
+          "line": 482,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 385,
+          "column": 20
+        },
+        "end": {
+          "line": 385,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 494,
+          "column": 1
+        },
+        "end": {
+          "line": 509,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 388,
+          "column": 7
+        },
+        "end": {
+          "line": 388,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 483,
+          "column": 1
+        },
+        "end": {
+          "line": 493,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 381,
+          "column": 12
+        },
+        "end": {
+          "line": 381,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 381,
+          "column": 32
+        },
+        "end": {
+          "line": 381,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 383,
+          "column": 23
+        },
+        "end": {
+          "line": 383,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 386,
+          "column": 14
+        },
+        "end": {
+          "line": 386,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 388,
+          "column": 7
+        },
+        "end": {
+          "line": 388,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 402,
+          "column": 20
+        },
+        "end": {
+          "line": 402,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 419,
+          "column": 1
+        },
+        "end": {
+          "line": 462,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 403,
+          "column": 32
+        },
+        "end": {
+          "line": 403,
+          "column": 42
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 380,
+          "column": 1
+        },
+        "end": {
+          "line": 394,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 408,
+          "column": 19
+        },
+        "end": {
+          "line": 408,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 483,
+          "column": 1
+        },
+        "end": {
+          "line": 493,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 408,
+          "column": 29
+        },
+        "end": {
+          "line": 408,
+          "column": 38
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 463,
+          "column": 1
+        },
+        "end": {
+          "line": 482,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 411,
+          "column": 19
+        },
+        "end": {
+          "line": 411,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 359,
+          "column": 1
+        },
+        "end": {
+          "line": 363,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 412,
+          "column": 3
+        },
+        "end": {
+          "line": 412,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 364,
+          "column": 1
+        },
+        "end": {
+          "line": 366,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 413,
+          "column": 3
+        },
+        "end": {
+          "line": 413,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 380,
+          "column": 1
+        },
+        "end": {
+          "line": 394,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 414,
+          "column": 3
+        },
+        "end": {
+          "line": 414,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 364,
+          "column": 1
+        },
+        "end": {
+          "line": 366,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 406,
+          "column": 39
+        },
+        "end": {
+          "line": 406,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 407,
+          "column": 25
+        },
+        "end": {
+          "line": 407,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 408,
+          "column": 19
+        },
+        "end": {
+          "line": 408,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 411,
+          "column": 19
+        },
+        "end": {
+          "line": 411,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 411,
+          "column": 29
+        },
+        "end": {
+          "line": 411,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 412,
+          "column": 12
+        },
+        "end": {
+          "line": 412,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 412,
+          "column": 25
+        },
+        "end": {
+          "line": 412,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 412,
+          "column": 48
+        },
+        "end": {
+          "line": 412,
+          "column": 61
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 414,
+          "column": 40
+        },
+        "end": {
+          "line": 414,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 396,
+          "column": 10
+        },
+        "end": {
+          "line": 396,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 419,
+          "column": 1
+        },
+        "end": {
+          "line": 462,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 397,
+          "column": 20
+        },
+        "end": {
+          "line": 397,
+          "column": 29
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 463,
+          "column": 1
+        },
+        "end": {
+          "line": 482,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 398,
+          "column": 27
+        },
+        "end": {
+          "line": 398,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 494,
+          "column": 1
+        },
+        "end": {
+          "line": 509,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 398,
+          "column": 63
+        },
+        "end": {
+          "line": 398,
+          "column": 72
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 483,
+          "column": 1
+        },
+        "end": {
+          "line": 493,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 420,
+          "column": 18
+        },
+        "end": {
+          "line": 420,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 374,
+          "column": 1
+        },
+        "end": {
+          "line": 379,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 428,
+          "column": 37
+        },
+        "end": {
+          "line": 428,
+          "column": 43
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 375,
+          "column": 10
+        },
+        "end": {
+          "line": 378,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 430,
+          "column": 57
+        },
+        "end": {
+          "line": 430,
+          "column": 63
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 375,
+          "column": 10
+        },
+        "end": {
+          "line": 378,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 431,
+          "column": 63
+        },
+        "end": {
+          "line": 431,
+          "column": 69
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 375,
+          "column": 10
+        },
+        "end": {
+          "line": 378,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 432,
+          "column": 47
+        },
+        "end": {
+          "line": 432,
+          "column": 53
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 375,
+          "column": 10
+        },
+        "end": {
+          "line": 378,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 438,
+          "column": 29
+        },
+        "end": {
+          "line": 438,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 375,
+          "column": 10
+        },
+        "end": {
+          "line": 378,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 448,
+          "column": 23
+        },
+        "end": {
+          "line": 448,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 464,
+          "column": 19
+        },
+        "end": {
+          "line": 464,
+          "column": 43
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 92,
+          "column": 1
+        },
+        "end": {
+          "line": 140,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 465,
+          "column": 20
+        },
+        "end": {
+          "line": 465,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 253,
+          "column": 1
+        },
+        "end": {
+          "line": 282,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 476,
+          "column": 20
+        },
+        "end": {
+          "line": 476,
+          "column": 38
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 343,
+          "column": 1
+        },
+        "end": {
+          "line": 357,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 474,
+          "column": 16
+        },
+        "end": {
+          "line": 474,
+          "column": 53
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 313,
+          "column": 1
+        },
+        "end": {
+          "line": 318,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 479,
+          "column": 14
+        },
+        "end": {
+          "line": 479,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 319,
+          "column": 1
+        },
+        "end": {
+          "line": 327,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 487,
+          "column": 5
+        },
+        "end": {
+          "line": 487,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 488,
+          "column": 5
+        },
+        "end": {
+          "line": 488,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 489,
+          "column": 5
+        },
+        "end": {
+          "line": 489,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 490,
+          "column": 5
+        },
+        "end": {
+          "line": 490,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 491,
+          "column": 5
+        },
+        "end": {
+          "line": 491,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 486,
+          "column": 5
+        },
+        "end": {
+          "line": 486,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 500,
+          "column": 3
+        },
+        "end": {
+          "line": 500,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 364,
+          "column": 1
+        },
+        "end": {
+          "line": 366,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 504,
+          "column": 3
+        },
+        "end": {
+          "line": 504,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 364,
+          "column": 1
+        },
+        "end": {
+          "line": 366,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 505,
+          "column": 30
+        },
+        "end": {
+          "line": 505,
+          "column": 48
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 343,
+          "column": 1
+        },
+        "end": {
+          "line": 357,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 508,
+          "column": 10
+        },
+        "end": {
+          "line": 508,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 367,
+          "column": 1
+        },
+        "end": {
+          "line": 373,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 369,
+          "column": 23
+        },
+        "end": {
+          "line": 369,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 69,
+          "column": 10
+        },
+        "end": {
+          "line": 69,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 62,
+          "column": 1
+        },
+        "end": {
+          "line": 67,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 510,
+          "column": 1
+        },
+        "end": {
+          "line": 510,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 401,
+          "column": 1
+        },
+        "end": {
+          "line": 417,
+          "column": 2
+        }
+      }
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "104:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "104:15",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "109:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "109:15",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "123:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "123:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "130:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "130:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "115:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "includes"
+    },
+    {
+      "location": "125:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal"
+    },
+    {
+      "location": "125:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "125:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "100:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality / logical operators on item.type (and &&/||); type guards on both operands were tried and produced no effect — string comparisons are not strength-reduced by annotations."
+    },
+    {
+      "location": "101:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality / logical operators on item.type (and &&/||); type guards on both operands were tried and produced no effect — string comparisons are not strength-reduced by annotations."
+    },
+    {
+      "location": "102:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality / logical operators on item.type (and &&/||); type guards on both operands were tried and produced no effect — string comparisons are not strength-reduced by annotations."
+    },
+    {
+      "location": "108:16",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality / logical operators on item.type (and &&/||); type guards on both operands were tried and produced no effect — string comparisons are not strength-reduced by annotations."
+    },
+    {
+      "location": "114:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality / logical operators on item.type (and &&/||); type guards on both operands were tried and produced no effect — string comparisons are not strength-reduced by annotations."
+    },
+    {
+      "location": "205:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "ensureString"
+    },
+    {
+      "location": "205:50",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "ensureString"
+    },
+    {
+      "location": "207:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "ensureString"
+    },
+    {
+      "location": "207:52",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "ensureString"
+    },
+    {
+      "location": "210:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "210:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "240:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "240:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "215:34",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "includes"
+    },
+    {
+      "location": "215:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "includes"
+    },
+    {
+      "location": "218:57",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "includes"
+    },
+    {
+      "location": "218:57",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "includes"
+    },
+    {
+      "location": "242:39",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "includes"
+    },
+    {
+      "location": "242:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "includes"
+    },
+    {
+      "location": "216:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "216:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "219:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "219:31",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "228:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "228:25",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "230:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "230:31",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "207:75",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "removedUsername"
+    },
+    {
+      "location": "200:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality and logical-or/and operators; type guards on the operands were tried and did not strength-reduce these comparisons."
+    },
+    {
+      "location": "201:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality and logical-or/and operators; type guards on the operands were tried and did not strength-reduce these comparisons."
+    },
+    {
+      "location": "202:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality and logical-or/and operators; type guards on the operands were tried and did not strength-reduce these comparisons."
+    },
+    {
+      "location": "205:32",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality and logical-or/and operators; type guards on the operands were tried and did not strength-reduce these comparisons."
+    },
+    {
+      "location": "205:73",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality and logical-or/and operators; type guards on the operands were tried and did not strength-reduce these comparisons."
+    },
+    {
+      "location": "207:32",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality and logical-or/and operators; type guards on the operands were tried and did not strength-reduce these comparisons."
+    },
+    {
+      "location": "207:75",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality and logical-or/and operators; type guards on the operands were tried and did not strength-reduce these comparisons."
+    },
+    {
+      "location": "142:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "secureGetFromRecord"
+    },
+    {
+      "location": "143:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "secureGetFromRecord"
+    },
+    {
+      "location": "142:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish coalescing (??) on a call result; a number type guard on the call expression and on the resulting locals did not strength-reduce the ?? operator."
+    },
+    {
+      "location": "143:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish coalescing (??) on a call result; a number type guard on the call expression and on the resulting locals did not strength-reduce the ?? operator."
+    },
+    {
+      "location": "150:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "entries"
+    },
+    {
+      "location": "150:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "entries"
+    },
+    {
+      "location": "150:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Object"
+    },
+    {
+      "location": "150:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forEach"
+    },
+    {
+      "location": "150:41",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "forEach"
+    },
+    {
+      "location": "181:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "sort"
+    },
+    {
+      "location": "181:19",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "sort"
+    },
+    {
+      "location": "181:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comparePostTypes"
+    },
+    {
+      "location": "189:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "189:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "from"
+    },
+    {
+      "location": "189:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "from"
+    },
+    {
+      "location": "189:45",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "reduce"
+    },
+    {
+      "location": "189:45",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reduce"
+    },
+    {
+      "location": "189:79",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Set"
+    },
+    {
+      "location": "189:82",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Set"
+    },
+    {
+      "location": "190:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "190:29",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "from"
+    },
+    {
+      "location": "190:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "from"
+    },
+    {
+      "location": "190:49",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "reduce"
+    },
+    {
+      "location": "190:49",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reduce"
+    },
+    {
+      "location": "190:83",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Set"
+    },
+    {
+      "location": "190:86",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Set"
+    },
+    {
+      "location": "152:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality (===) on postType; type guards on the string operands were tried and string comparisons are not strength-reduced by annotations."
+    },
+    {
+      "location": "153:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality (===) on postType; type guards on the string operands were tried and string comparisons are not strength-reduced by annotations."
+    },
+    {
+      "location": "154:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality (===) on postType; type guards on the string operands were tried and string comparisons are not strength-reduced by annotations."
+    },
+    {
+      "location": "150:42",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Array destructuring in the forEach callback parameter list ([postType, values]); there is no annotatable expression target for the pattern lowering."
+    },
+    {
+      "location": "157:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "157:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "159:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "entries"
+    },
+    {
+      "location": "159:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "entries"
+    },
+    {
+      "location": "159:37",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "forEach"
+    },
+    {
+      "location": "159:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forEach"
+    },
+    {
+      "location": "159:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Object"
+    },
+    {
+      "location": "175:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "175:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "177:23",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "177:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "178:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "159:38",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Array destructuring in the forEach callback parameter list ([actorId, users]); there is no annotatable expression target for the pattern lowering."
+    },
+    {
+      "location": "161:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "161:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "164:25",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "164:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "166:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "169:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "171:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "171:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "183:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "has"
+    },
+    {
+      "location": "183:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "has"
+    },
+    {
+      "location": "184:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "add"
+    },
+    {
+      "location": "184:14",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "add"
+    },
+    {
+      "location": "195:44",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "reduce"
+    },
+    {
+      "location": "195:44",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reduce"
+    },
+    {
+      "location": "251:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "extractUserActivityData"
+    },
+    {
+      "location": "255:43",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "256:35",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "map"
+    },
+    {
+      "location": "256:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "map"
+    },
+    {
+      "location": "257:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "join"
+    },
+    {
+      "location": "257:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "join"
+    },
+    {
+      "location": "274:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "combineUserActivitySystemPost"
+    },
+    {
+      "location": "276:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "map"
+    },
+    {
+      "location": "276:39",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "map"
+    },
+    {
+      "location": "121:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "97:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "165:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "168:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "297:12",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "props",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "300:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "props",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "300:31",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "user_activity_posts",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "301:33",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "props",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "301:39",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "user_activity_posts",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "301:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "302:24",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isJoinLeavePostForUsername",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "302:50",
+      "kind": "call",
+      "reason": "other",
+      "property": "isJoinLeavePostForUsername",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "308:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "username",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "308:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "308:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "props",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "309:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "addedUsername",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "309:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "309:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "props",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "310:15",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "removedUsername",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "310:5",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "310:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "props",
+      "note": "This self-recursive function is excluded from the annotation-enabled pipeline: shape guards (FixturePost/PropsAddedUsername), a closure guard on the recursive self-call, and a string type guard were all tried and dryrun reports none of them in scope (0 effects), so no site here can be annotated. The self-call also cannot be inlined because of the recursion cycle."
+    },
+    {
+      "location": "323:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "includes"
+    },
+    {
+      "location": "326:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isJoinLeavePostForUsername"
+    },
+    {
+      "location": "314:23",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "startsWith"
+    },
+    {
+      "location": "314:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "startsWith"
+    },
+    {
+      "location": "315:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "315:20",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "315:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal"
+    },
+    {
+      "location": "315:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "315:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "317:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "substring"
+    },
+    {
+      "location": "317:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "substring"
+    },
+    {
+      "location": "317:47",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "317:61",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "split"
+    },
+    {
+      "location": "317:61",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "split"
+    },
+    {
+      "location": "381:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "381:42",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "383:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "381:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "386:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "387:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "384:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnExecute"
+    },
+    {
+      "location": "385:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnFingerprint"
+    },
+    {
+      "location": "388:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnObserve"
+    },
+    {
+      "location": "386:52",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation (\"...\" + i) and template literal interpolation; number/string type guards on the operands do not strength-reduce string building."
+    },
+    {
+      "location": "389:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation (\"...\" + i) and template literal interpolation; number/string type guards on the operands do not strength-reduce string building."
+    },
+    {
+      "location": "402:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnCreateFixtures"
+    },
+    {
+      "location": "403:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnValidate"
+    },
+    {
+      "location": "405:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnNow"
+    },
+    {
+      "location": "408:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnObserve"
+    },
+    {
+      "location": "408:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnExecute"
+    },
+    {
+      "location": "411:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnNow"
+    },
+    {
+      "location": "412:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "413:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnValidate"
+    },
+    {
+      "location": "414:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "407:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "414:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Number"
+    },
+    {
+      "location": "414:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isFinite"
+    },
+    {
+      "location": "414:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "isFinite"
+    },
+    {
+      "location": "415:10",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "416:10",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "415:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation for the benchmark log lines (\"Checksum: \" + checksum / \"Time: \" + ...); string building is not strength-reduced by type guards."
+    },
+    {
+      "location": "416:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation for the benchmark log lines (\"Checksum: \" + checksum / \"Time: \" + ...); string building is not strength-reduced by type guards."
+    },
+    {
+      "location": "396:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnCreateFixtures"
+    },
+    {
+      "location": "396:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "map"
+    },
+    {
+      "location": "396:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "map"
+    },
+    {
+      "location": "397:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnExecute"
+    },
+    {
+      "location": "398:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnFingerprint"
+    },
+    {
+      "location": "398:63",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnObserve"
+    },
+    {
+      "location": "420:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnRandom"
+    },
+    {
+      "location": "428:53",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "448:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "443:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "443:38",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "445:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "445:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "446:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "446:35",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "447:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "447:19",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "448:65",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "448:65",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "450:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "450:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "453:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "453:16",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "430:44",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation (`+` with string literal / number-to-string) is not strength-reduced by any available type or shape annotation; verified via dryrun that guards on the operands produce no effect."
+    },
+    {
+      "location": "431:51",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation (`+` with string literal / number-to-string) is not strength-reduced by any available type or shape annotation; verified via dryrun that guards on the operands produce no effect."
+    },
+    {
+      "location": "432:34",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation (`+` with string literal / number-to-string) is not strength-reduced by any available type or shape annotation; verified via dryrun that guards on the operands produce no effect."
+    },
+    {
+      "location": "434:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation (`+` with string literal / number-to-string) is not strength-reduced by any available type or shape annotation; verified via dryrun that guards on the operands produce no effect."
+    },
+    {
+      "location": "435:20",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation (`+` with string literal / number-to-string) is not strength-reduced by any available type or shape annotation; verified via dryrun that guards on the operands produce no effect."
+    },
+    {
+      "location": "438:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation (`+` with string literal / number-to-string) is not strength-reduced by any available type or shape annotation; verified via dryrun that guards on the operands produce no effect."
+    },
+    {
+      "location": "440:18",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation (`+` with string literal / number-to-string) is not strength-reduced by any available type or shape annotation; verified via dryrun that guards on the operands produce no effect."
+    },
+    {
+      "location": "443:62",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation (`+` with string literal / number-to-string) is not strength-reduced by any available type or shape annotation; verified via dryrun that guards on the operands produce no effect."
+    },
+    {
+      "location": "450:55",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation (`+` with string literal / number-to-string) is not strength-reduced by any available type or shape annotation; verified via dryrun that guards on the operands produce no effect."
+    },
+    {
+      "location": "428:37",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Numeric `%` whose left operand is the inlined rnRandom closure's return value (untyped `any` from the captured `seed` param). Number guards on the call expression and on `types.length` both produced no effect in dryrun."
+    },
+    {
+      "location": "430:57",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Numeric `%` whose left operand is the inlined rnRandom closure's return value (untyped `any` from the captured `seed` param). Number guards on the call expression and on `types.length` both produced no effect in dryrun."
+    },
+    {
+      "location": "431:63",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Numeric `%` whose left operand is the inlined rnRandom closure's return value (untyped `any` from the captured `seed` param). Number guards on the call expression and on `types.length` both produced no effect in dryrun."
+    },
+    {
+      "location": "432:47",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Numeric `%` whose left operand is the inlined rnRandom closure's return value (untyped `any` from the captured `seed` param). Number guards on the call expression and on `types.length` both produced no effect in dryrun."
+    },
+    {
+      "location": "438:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Numeric `%` whose left operand is the inlined rnRandom closure's return value (untyped `any` from the captured `seed` param). Number guards on the call expression and on `types.length` both produced no effect in dryrun."
+    },
+    {
+      "location": "471:16",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality comparison against a literal; comparisons are not strength-reduced by annotations (verified; shape-typed string property reads are already optimized separately)."
+    },
+    {
+      "location": "478:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality comparison against a literal; comparisons are not strength-reduced by annotations (verified; shape-typed string property reads are already optimized separately)."
+    },
+    {
+      "location": "474:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "getPostIdsForCombinedUserActivityPost"
+    },
+    {
+      "location": "479:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "shouldFilterJoinLeavePost"
+    },
+    {
+      "location": "464:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "combineUserActivityPosts"
+    },
+    {
+      "location": "465:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "generateCombinedPost"
+    },
+    {
+      "location": "476:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isUserActivityProp"
+    },
+    {
+      "location": "470:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "filter"
+    },
+    {
+      "location": "470:14",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "filter"
+    },
+    {
+      "location": "473:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "map"
+    },
+    {
+      "location": "473:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "map"
+    },
+    {
+      "location": "477:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "map"
+    },
+    {
+      "location": "477:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "map"
+    },
+    {
+      "location": "486:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "487:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "488:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "489:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "490:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "491:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "491:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "filter"
+    },
+    {
+      "location": "491:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "filter"
+    },
+    {
+      "location": "491:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Boolean"
+    },
+    {
+      "location": "496:12",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String equality comparison against the literal \"post\"; comparisons are not strength-reduced by annotations (the shape-typed .type reads are optimized separately)."
+    },
+    {
+      "location": "501:5",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "495:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "map"
+    },
+    {
+      "location": "495:37",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "map"
+    },
+    {
+      "location": "500:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "504:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnAssert"
+    },
+    {
+      "location": "505:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isUserActivityProp"
+    },
+    {
+      "location": "508:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnHash"
+    },
+    {
+      "location": "508:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JSON"
+    },
+    {
+      "location": "508:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "stringify"
+    },
+    {
+      "location": "360:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "360:52",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "360:63",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "361:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "361:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "361:22",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "365:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "365:34",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "369:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "370:44",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "charCodeAt"
+    },
+    {
+      "location": "370:44",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "charCodeAt"
+    },
+    {
+      "location": "55:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "includes"
+    },
+    {
+      "location": "55:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "includes"
+    },
+    {
+      "location": "58:40",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Object"
+    },
+    {
+      "location": "58:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "58:56",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "hasOwnProperty"
+    },
+    {
+      "location": "58:76",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "call"
+    },
+    {
+      "location": "58:76",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "call"
+    },
+    {
+      "location": "66:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "every"
+    },
+    {
+      "location": "66:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "every"
+    },
+    {
+      "location": "69:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "isArrayOf"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "rnAssert"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "rnFingerprint"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "rnObserve"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "rnExecute"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "rnBenchmark"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "rnCaptureReferences"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "rnValidate"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "getPostIdsForCombinedUserActivityPost"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "shouldFilterJoinLeavePost"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isMessageData"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isUserActivityProp"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "rnNow"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "rnCreateFixtures"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "rnHash"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "rnRandom"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "ensureString"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "generateCombinedPost"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "includes"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "secureGetFromRecord"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isArrayOf"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isStringArray"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "combineUserActivityPosts"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isJoinLeavePostForUsername"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "extractUserActivityData"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "combineUserActivitySystemPost"
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "comparePostTypes"
+    },
+    {
+      "location": "358:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "358:47",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "510:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rnBenchmark"
+    }
+  ]
+}

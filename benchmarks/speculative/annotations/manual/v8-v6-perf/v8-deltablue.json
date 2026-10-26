@@ -1,0 +1,1299 @@
+{
+  "static shapes": {
+    "Plan": {
+      "properties": [
+        {
+          "name": "v"
+        }
+      ]
+    },
+    "PlanProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addConstraint",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 756,
+              "column": 32
+            },
+            "end": {
+              "line": 758,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "size",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 760,
+              "column": 23
+            },
+            "end": {
+              "line": 762,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "constraintAt",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 764,
+              "column": 31
+            },
+            "end": {
+              "line": 766,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "execute",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 768,
+              "column": 26
+            },
+            "end": {
+              "line": 773,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "OrderedCollection": {
+      "properties": [
+        {
+          "name": "elms"
+        }
+      ]
+    },
+    "OrderedCollectionProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "add",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 52,
+              "column": 35
+            },
+            "end": {
+              "line": 54,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "at",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 56,
+              "column": 34
+            },
+            "end": {
+              "line": 58,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "size",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 60,
+              "column": 36
+            },
+            "end": {
+              "line": 62,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "removeFirst",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 64,
+              "column": 43
+            },
+            "end": {
+              "line": 66,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "remove",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 68,
+              "column": 38
+            },
+            "end": {
+              "line": 81,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "EqualityConstraintInstance": {
+      "properties": [
+        {
+          "name": "strength",
+          "type": "any"
+        },
+        {
+          "name": "v1",
+          "type": "any"
+        },
+        {
+          "name": "v2",
+          "type": "any"
+        },
+        {
+          "name": "direction",
+          "type": "number"
+        }
+      ]
+    },
+    "ScaleConstraintInstance": {
+      "properties": [
+        {
+          "name": "direction",
+          "type": "number"
+        },
+        {
+          "name": "scale",
+          "type": "any"
+        },
+        {
+          "name": "offset",
+          "type": "any"
+        },
+        {
+          "name": "strength",
+          "type": "any"
+        },
+        {
+          "name": "v1",
+          "type": "any"
+        },
+        {
+          "name": "v2",
+          "type": "any"
+        }
+      ]
+    },
+    "VariableInstance": {
+      "properties": [
+        {
+          "name": "value",
+          "type": "number"
+        },
+        {
+          "name": "constraints",
+          "type": "any"
+        },
+        {
+          "name": "determinedBy",
+          "type": "any"
+        },
+        {
+          "name": "mark",
+          "type": "number"
+        },
+        {
+          "name": "walkStrength",
+          "type": "any"
+        },
+        {
+          "name": "stay",
+          "type": "boolean"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ]
+    },
+    "DirectionShape": {
+      "properties": [
+        {
+          "name": "NONE",
+          "type": "number"
+        },
+        {
+          "name": "FORWARD",
+          "type": "number"
+        },
+        {
+          "name": "BACKWARD",
+          "type": "number"
+        }
+      ]
+    }
+  },
+  "shape bindings": [
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 49,
+          "column": 3
+        },
+        "end": {
+          "line": 49,
+          "column": 7
+        }
+      },
+      "shape": "OrderedCollection"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 753,
+          "column": 3
+        },
+        "end": {
+          "line": 753,
+          "column": 7
+        }
+      },
+      "shape": "Plan"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 68,
+          "column": 1
+        },
+        "end": {
+          "line": 68,
+          "column": 28
+        }
+      },
+      "shape": "OrderedCollectionProto"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 768,
+          "column": 1
+        },
+        "end": {
+          "line": 768,
+          "column": 15
+        }
+      },
+      "shape": "PlanProto"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 544,
+          "column": 3
+        },
+        "end": {
+          "line": 544,
+          "column": 7
+        }
+      },
+      "shape": "VariableInstance"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 802,
+          "column": 23
+        },
+        "end": {
+          "line": 802,
+          "column": 73
+        }
+      },
+      "shape": "EqualityConstraintInstance"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 839,
+          "column": 5
+        },
+        "end": {
+          "line": 839,
+          "column": 68
+        }
+      },
+      "shape": "ScaleConstraintInstance"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 839,
+          "column": 25
+        },
+        "end": {
+          "line": 839,
+          "column": 28
+        }
+      },
+      "shape": "VariableInstance"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 839,
+          "column": 30
+        },
+        "end": {
+          "line": 839,
+          "column": 35
+        }
+      },
+      "shape": "VariableInstance"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 839,
+          "column": 37
+        },
+        "end": {
+          "line": 839,
+          "column": 43
+        }
+      },
+      "shape": "VariableInstance"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 839,
+          "column": 45
+        },
+        "end": {
+          "line": 839,
+          "column": 48
+        }
+      },
+      "shape": "VariableInstance"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 331,
+          "column": 1
+        },
+        "end": {
+          "line": 331,
+          "column": 10
+        }
+      },
+      "shape": "DirectionShape"
+    }
+  ],
+  "shape hints": [
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 769,
+          "column": 23
+        },
+        "end": {
+          "line": 769,
+          "column": 27
+        }
+      },
+      "shape": "Plan",
+      "prototype shape": "PlanProto"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 761,
+          "column": 10
+        },
+        "end": {
+          "line": 761,
+          "column": 16
+        }
+      },
+      "shape": "OrderedCollection",
+      "prototype shape": "OrderedCollectionProto"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 765,
+          "column": 10
+        },
+        "end": {
+          "line": 765,
+          "column": 16
+        }
+      },
+      "shape": "OrderedCollection",
+      "prototype shape": "OrderedCollectionProto"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 61,
+          "column": 10
+        },
+        "end": {
+          "line": 61,
+          "column": 14
+        }
+      },
+      "shape": "OrderedCollection"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 57,
+          "column": 10
+        },
+        "end": {
+          "line": 57,
+          "column": 14
+        }
+      },
+      "shape": "OrderedCollection"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 761,
+          "column": 10
+        },
+        "end": {
+          "line": 761,
+          "column": 14
+        }
+      },
+      "shape": "Plan"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 765,
+          "column": 10
+        },
+        "end": {
+          "line": 765,
+          "column": 14
+        }
+      },
+      "shape": "Plan"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 524,
+          "column": 3
+        },
+        "end": {
+          "line": 524,
+          "column": 7
+        }
+      },
+      "shape": "EqualityConstraintInstance"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 524,
+          "column": 3
+        },
+        "end": {
+          "line": 524,
+          "column": 16
+        }
+      },
+      "shape": "VariableInstance"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 524,
+          "column": 25
+        },
+        "end": {
+          "line": 524,
+          "column": 37
+        }
+      },
+      "shape": "VariableInstance"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 488,
+          "column": 5
+        },
+        "end": {
+          "line": 488,
+          "column": 9
+        }
+      },
+      "shape": "ScaleConstraintInstance"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 488,
+          "column": 5
+        },
+        "end": {
+          "line": 488,
+          "column": 12
+        }
+      },
+      "shape": "VariableInstance"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 488,
+          "column": 21
+        },
+        "end": {
+          "line": 488,
+          "column": 28
+        }
+      },
+      "shape": "VariableInstance"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 488,
+          "column": 37
+        },
+        "end": {
+          "line": 488,
+          "column": 47
+        }
+      },
+      "shape": "VariableInstance"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 488,
+          "column": 56
+        },
+        "end": {
+          "line": 488,
+          "column": 67
+        }
+      },
+      "shape": "VariableInstance"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 331,
+          "column": 1
+        },
+        "end": {
+          "line": 331,
+          "column": 10
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 341,
+          "column": 20
+        },
+        "end": {
+          "line": 341,
+          "column": 29
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 356,
+          "column": 11
+        },
+        "end": {
+          "line": 356,
+          "column": 20
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 357,
+          "column": 11
+        },
+        "end": {
+          "line": 357,
+          "column": 20
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 362,
+          "column": 11
+        },
+        "end": {
+          "line": 362,
+          "column": 20
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 363,
+          "column": 11
+        },
+        "end": {
+          "line": 363,
+          "column": 20
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 367,
+          "column": 9
+        },
+        "end": {
+          "line": 367,
+          "column": 18
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 368,
+          "column": 9
+        },
+        "end": {
+          "line": 368,
+          "column": 18
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 371,
+          "column": 9
+        },
+        "end": {
+          "line": 371,
+          "column": 18
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 372,
+          "column": 9
+        },
+        "end": {
+          "line": 372,
+          "column": 18
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 382,
+          "column": 20
+        },
+        "end": {
+          "line": 382,
+          "column": 29
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 389,
+          "column": 28
+        },
+        "end": {
+          "line": 389,
+          "column": 37
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 403,
+          "column": 28
+        },
+        "end": {
+          "line": 403,
+          "column": 37
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 410,
+          "column": 28
+        },
+        "end": {
+          "line": 410,
+          "column": 37
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 430,
+          "column": 20
+        },
+        "end": {
+          "line": 430,
+          "column": 29
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 441,
+          "column": 20
+        },
+        "end": {
+          "line": 441,
+          "column": 29
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 455,
+          "column": 20
+        },
+        "end": {
+          "line": 455,
+          "column": 29
+        }
+      },
+      "shape": "DirectionShape"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 487,
+          "column": 25
+        },
+        "end": {
+          "line": 487,
+          "column": 34
+        }
+      },
+      "shape": "DirectionShape"
+    }
+  ],
+  "type hints": [
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 769,
+          "column": 23
+        },
+        "end": {
+          "line": 769,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 760,
+          "column": 23
+        },
+        "end": {
+          "line": 762,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 770,
+          "column": 13
+        },
+        "end": {
+          "line": 770,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 764,
+          "column": 31
+        },
+        "end": {
+          "line": 766,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 761,
+          "column": 10
+        },
+        "end": {
+          "line": 761,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 60,
+          "column": 36
+        },
+        "end": {
+          "line": 62,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 765,
+          "column": 10
+        },
+        "end": {
+          "line": 765,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 56,
+          "column": 34
+        },
+        "end": {
+          "line": 58,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 769,
+          "column": 36
+        },
+        "end": {
+          "line": 769,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 769,
+          "column": 23
+        },
+        "end": {
+          "line": 769,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 61,
+          "column": 10
+        },
+        "end": {
+          "line": 61,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 57,
+          "column": 20
+        },
+        "end": {
+          "line": 57,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 410,
+          "column": 10
+        },
+        "end": {
+          "line": 410,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 410,
+          "column": 28
+        },
+        "end": {
+          "line": 410,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 737,
+          "column": 23
+        },
+        "end": {
+          "line": 737,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 60,
+          "column": 36
+        },
+        "end": {
+          "line": 62,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 738,
+          "column": 13
+        },
+        "end": {
+          "line": 738,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 56,
+          "column": 34
+        },
+        "end": {
+          "line": 58,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 739,
+          "column": 46
+        },
+        "end": {
+          "line": 739,
+          "column": 54
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 52,
+          "column": 35
+        },
+        "end": {
+          "line": 54,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 170,
+          "column": 42
+        },
+        "end": {
+          "line": 170,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 524,
+          "column": 3
+        },
+        "end": {
+          "line": 524,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 409,
+          "column": 37
+        },
+        "end": {
+          "line": 411,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 524,
+          "column": 25
+        },
+        "end": {
+          "line": 524,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 402,
+          "column": 36
+        },
+        "end": {
+          "line": 404,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 524,
+          "column": 25
+        },
+        "end": {
+          "line": 524,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 524,
+          "column": 3
+        },
+        "end": {
+          "line": 524,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 488,
+          "column": 21
+        },
+        "end": {
+          "line": 488,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 488,
+          "column": 37
+        },
+        "end": {
+          "line": 488,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 488,
+          "column": 56
+        },
+        "end": {
+          "line": 488,
+          "column": 73
+        }
+      },
+      "type": "number"
+    }
+  ]
+}

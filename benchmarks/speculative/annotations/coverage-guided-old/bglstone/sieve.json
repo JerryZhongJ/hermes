@@ -1,0 +1,1133 @@
+{
+  "static shapes": {
+    "Cons": {
+      "properties": [
+        {
+          "name": "car",
+          "type": "number"
+        },
+        {
+          "name": "cdr"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 16,
+          "column": 22
+        },
+        "end": {
+          "line": 16,
+          "column": 23
+        }
+      },
+      "shape": "Cons"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 36,
+          "column": 27
+        },
+        "end": {
+          "line": 36,
+          "column": 28
+        }
+      },
+      "shape": "Cons"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 53,
+          "column": 18
+        },
+        "end": {
+          "line": 53,
+          "column": 21
+        }
+      },
+      "shape": "Cons"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 58,
+          "column": 13
+        },
+        "end": {
+          "line": 58,
+          "column": 16
+        }
+      },
+      "shape": "Cons"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 64,
+          "column": 22
+        },
+        "end": {
+          "line": 64,
+          "column": 25
+        }
+      },
+      "shape": "Cons"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 68,
+          "column": 35
+        },
+        "end": {
+          "line": 68,
+          "column": 38
+        }
+      },
+      "shape": "Cons"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 69,
+          "column": 18
+        },
+        "end": {
+          "line": 69,
+          "column": 21
+        }
+      },
+      "shape": "Cons"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 17,
+          "column": 8
+        },
+        "end": {
+          "line": 17,
+          "column": 9
+        }
+      },
+      "shape": "Cons"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 37,
+          "column": 11
+        },
+        "end": {
+          "line": 37,
+          "column": 12
+        }
+      },
+      "shape": "Cons"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 56,
+          "column": 11
+        },
+        "end": {
+          "line": 56,
+          "column": 14
+        }
+      },
+      "shape": "Cons"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 5,
+          "column": 4
+        },
+        "end": {
+          "line": 5,
+          "column": 8
+        }
+      },
+      "shape": "Cons"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 16,
+          "column": 19
+        },
+        "end": {
+          "line": 16,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 32,
+          "column": 20
+        },
+        "end": {
+          "line": 32,
+          "column": 37
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 31,
+          "column": 31
+        },
+        "end": {
+          "line": 31,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 32,
+          "column": 20
+        },
+        "end": {
+          "line": 32,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 32,
+          "column": 30
+        },
+        "end": {
+          "line": 32,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 8,
+          "column": 20
+        },
+        "end": {
+          "line": 8,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 8,
+          "column": 25
+        },
+        "end": {
+          "line": 8,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 35,
+          "column": 17
+        },
+        "end": {
+          "line": 35,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 80,
+          "column": 23
+        },
+        "end": {
+          "line": 80,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 80,
+          "column": 16
+        },
+        "end": {
+          "line": 80,
+          "column": 21
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 66,
+          "column": 25
+        },
+        "end": {
+          "line": 66,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 68,
+          "column": 24
+        },
+        "end": {
+          "line": 68,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 68,
+          "column": 20
+        },
+        "end": {
+          "line": 68,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 23,
+          "column": 11
+        },
+        "end": {
+          "line": 23,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 32,
+          "column": 20
+        },
+        "end": {
+          "line": 32,
+          "column": 37
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 46,
+          "column": 26
+        },
+        "end": {
+          "line": 46,
+          "column": 38
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 36,
+          "column": 4
+        },
+        "end": {
+          "line": 49,
+          "column": 5
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 50,
+          "column": 11
+        },
+        "end": {
+          "line": 50,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 36,
+          "column": 4
+        },
+        "end": {
+          "line": 49,
+          "column": 5
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 104,
+          "column": 20
+        },
+        "end": {
+          "line": 104,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 104,
+          "column": 28
+        },
+        "end": {
+          "line": 104,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 12,
+          "column": 18
+        },
+        "end": {
+          "line": 12,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 90,
+          "column": 13
+        },
+        "end": {
+          "line": 90,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 35,
+          "column": 1
+        },
+        "end": {
+          "line": 51,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 24,
+          "column": 23
+        },
+        "end": {
+          "line": 24,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 24,
+          "column": 14
+        },
+        "end": {
+          "line": 24,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 26,
+          "column": 10
+        },
+        "end": {
+          "line": 26,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 46,
+          "column": 17
+        },
+        "end": {
+          "line": 46,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 32,
+          "column": 11
+        },
+        "end": {
+          "line": 32,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 46,
+          "column": 40
+        },
+        "end": {
+          "line": 46,
+          "column": 59
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 50,
+          "column": 25
+        },
+        "end": {
+          "line": 50,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 12,
+          "column": 29
+        },
+        "end": {
+          "line": 12,
+          "column": 37
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 65,
+          "column": 14
+        },
+        "end": {
+          "line": 65,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 53,
+          "column": 1
+        },
+        "end": {
+          "line": 62,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 93,
+          "column": 25
+        },
+        "end": {
+          "line": 93,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 64,
+          "column": 1
+        },
+        "end": {
+          "line": 73,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 81,
+          "column": 15
+        },
+        "end": {
+          "line": 81,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 35,
+          "column": 1
+        },
+        "end": {
+          "line": 51,
+          "column": 2
+        }
+      }
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "24:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Cons"
+    },
+    {
+      "location": "24:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "sfilter"
+    },
+    {
+      "location": "26:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "sfilter"
+    },
+    {
+      "location": "32:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "sfilter"
+    },
+    {
+      "location": "46:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Cons"
+    },
+    {
+      "location": "46:40",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "remove_multiples_of"
+    },
+    {
+      "location": "50:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "interval"
+    },
+    {
+      "location": "12:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Cons"
+    },
+    {
+      "location": "12:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "interval"
+    },
+    {
+      "location": "65:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "66:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "66:23",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "81:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "sieve"
+    },
+    {
+      "location": "86:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "86:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "86:15",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "89:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "89:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "89:38",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "90:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "sieve"
+    },
+    {
+      "location": "93:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "93:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "93:15",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "93:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list2array"
+    },
+    {
+      "location": "100:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "100:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "100:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "100:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "100:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "101:13",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__start"
+    },
+    {
+      "location": "101:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "101:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "101:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "102:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "main"
+    },
+    {
+      "location": "102:5",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "main"
+    },
+    {
+      "location": "103:11",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__end"
+    },
+    {
+      "location": "103:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "103:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "103:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "104:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "104:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__end"
+    },
+    {
+      "location": "104:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__start"
+    },
+    {
+      "location": "104:6",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "interval"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "Cons"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "sfilter"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "main"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "list2array"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "sieve"
+    },
+    {
+      "location": "1:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "remove_multiples_of"
+    },
+    {
+      "location": "99:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "99:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "99:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "99:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "99:71",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "17:8",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "37:11",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "56:11",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "23:12",
+      "kind": "call",
+      "reason": "other",
+      "note": "p is a parameter bound to an environment-capturing closure (arrow in remove_multiples_of captures n); closure-identity guards at the parameter and callee both have no effect, so the call cannot be inlined/direct-called."
+    },
+    {
+      "location": "46:38",
+      "kind": "call",
+      "reason": "other",
+      "note": "Recursive call to nested function filter_again which captures max from sieve; closure-identity guard on the callee has no effect, so the capturing-closure call is not inlined."
+    },
+    {
+      "location": "50:23",
+      "kind": "call",
+      "reason": "other",
+      "note": "Call to nested function filter_again capturing max from sieve; closure-identity guard on the callee has no effect, so the capturing-closure call is not inlined."
+    },
+    {
+      "location": "4:13",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "car",
+      "note": "Constructor writes to a fresh `this` occur before the shape binding at the completing write (this.cdr); the shape is established only after both stores, so these stores cannot be lowered to direct slot writes by an annotation."
+    },
+    {
+      "location": "5:13",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "cdr",
+      "note": "Constructor writes to a fresh `this` occur before the shape binding at the completing write (this.cdr); the shape is established only after both stores, so these stores cannot be lowered to direct slot writes by an annotation."
+    },
+    {
+      "location": "86:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "The bench string-guarded concat is de-specialized once sieve(100) on line 81 is closure-inlined into main; a fresh string type guard at this operand does not restore the string-concat fast path."
+    },
+    {
+      "location": "99:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic ?? on globalThis.performance: the operand is a host/global object property, cannot be typed or shape-bound in this file."
+    },
+    {
+      "location": "100:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-assign on __performance.now whose value would be the external Date.now; the base object is native-or-fresh and cannot be given a stable shape, so the operation stays generic."
+    },
+    {
+      "location": "104:8",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String-literal + number concat feeding external print() stays generic at top level; no annotation (scalar or shape) applies to a string literal or to host print."
+    }
+  ]
+}

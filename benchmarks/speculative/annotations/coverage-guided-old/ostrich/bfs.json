@@ -1,0 +1,1271 @@
+{
+  "static shapes": {
+    "NodeObj": {
+      "properties": [
+        {
+          "name": "starting",
+          "type": "number"
+        },
+        {
+          "name": "no_of_edges",
+          "type": "number"
+        }
+      ]
+    },
+    "EdgeObj": {
+      "properties": [
+        {
+          "name": "dest",
+          "type": "number"
+        },
+        {
+          "name": "weight",
+          "type": "number"
+        }
+      ]
+    },
+    "InitsObj": {
+      "properties": [
+        {
+          "name": "h_graph_nodes"
+        },
+        {
+          "name": "h_graph_mask"
+        },
+        {
+          "name": "h_updating_graph_mask"
+        },
+        {
+          "name": "h_graph_visited"
+        },
+        {
+          "name": "h_cost"
+        },
+        {
+          "name": "h_graph_edges"
+        }
+      ]
+    },
+    "ResultObj": {
+      "properties": [
+        {
+          "name": "status"
+        },
+        {
+          "name": "options"
+        },
+        {
+          "name": "time"
+        }
+      ]
+    },
+    "ArrObj": {
+      "properties": [
+        {
+          "name": "length",
+          "type": "number"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 77,
+          "column": 25
+        },
+        "end": {
+          "line": 77,
+          "column": 30
+        }
+      },
+      "shape": "InitsObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 96,
+          "column": 31
+        },
+        "end": {
+          "line": 96,
+          "column": 49
+        }
+      },
+      "shape": "NodeObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 97,
+          "column": 30
+        },
+        "end": {
+          "line": 97,
+          "column": 48
+        }
+      },
+      "shape": "NodeObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 97,
+          "column": 63
+        },
+        "end": {
+          "line": 97,
+          "column": 81
+        }
+      },
+      "shape": "NodeObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 195,
+          "column": 32
+        },
+        "end": {
+          "line": 195,
+          "column": 43
+        }
+      },
+      "shape": "EdgeObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 178,
+          "column": 27
+        },
+        "end": {
+          "line": 178,
+          "column": 35
+        }
+      },
+      "shape": "ArrObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 194,
+          "column": 29
+        },
+        "end": {
+          "line": 194,
+          "column": 37
+        }
+      },
+      "shape": "ArrObj"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 55,
+          "column": 12
+        },
+        "end": {
+          "line": 58,
+          "column": 6
+        }
+      },
+      "shape": "NodeObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 63,
+          "column": 12
+        },
+        "end": {
+          "line": 66,
+          "column": 6
+        }
+      },
+      "shape": "EdgeObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 205,
+          "column": 12
+        },
+        "end": {
+          "line": 212,
+          "column": 6
+        }
+      },
+      "shape": "InitsObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 12
+        },
+        "end": {
+          "line": 145,
+          "column": 43
+        }
+      },
+      "shape": "ResultObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 162,
+          "column": 20
+        },
+        "end": {
+          "line": 162,
+          "column": 22
+        }
+      },
+      "shape": "ArrObj"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 69,
+          "column": 19
+        },
+        "end": {
+          "line": 69,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 152,
+          "column": 26
+        },
+        "end": {
+          "line": 152,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 171,
+          "column": 27
+        },
+        "end": {
+          "line": 171,
+          "column": 31
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 62,
+          "column": 1
+        },
+        "end": {
+          "line": 67,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 172,
+          "column": 33
+        },
+        "end": {
+          "line": 172,
+          "column": 37
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 62,
+          "column": 1
+        },
+        "end": {
+          "line": 67,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 179,
+          "column": 28
+        },
+        "end": {
+          "line": 179,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 54,
+          "column": 1
+        },
+        "end": {
+          "line": 59,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 76,
+          "column": 17
+        },
+        "end": {
+          "line": 76,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 152,
+          "column": 1
+        },
+        "end": {
+          "line": 213,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 220,
+          "column": 1
+        },
+        "end": {
+          "line": 220,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 69,
+          "column": 1
+        },
+        "end": {
+          "line": 146,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 144,
+          "column": 37
+        },
+        "end": {
+          "line": 144,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 131,
+          "column": 62
+        },
+        "end": {
+          "line": 131,
+          "column": 73
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 128,
+          "column": 70
+        },
+        "end": {
+          "line": 128,
+          "column": 81
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 127,
+          "column": 13
+        },
+        "end": {
+          "line": 127,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 84,
+          "column": 21
+        },
+        "end": {
+          "line": 84,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 120,
+          "column": 26
+        },
+        "end": {
+          "line": 120,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 84,
+          "column": 26
+        },
+        "end": {
+          "line": 84,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 120,
+          "column": 31
+        },
+        "end": {
+          "line": 120,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 167,
+          "column": 29
+        },
+        "end": {
+          "line": 167,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 184,
+          "column": 24
+        },
+        "end": {
+          "line": 184,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 166,
+          "column": 96
+        },
+        "end": {
+          "line": 166,
+          "column": 105
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 169,
+          "column": 92
+        },
+        "end": {
+          "line": 169,
+          "column": 102
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 43,
+          "column": 21
+        },
+        "end": {
+          "line": 43,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 70,
+          "column": 9
+        },
+        "end": {
+          "line": 70,
+          "column": 16
+        }
+      },
+      "type": "boolean"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "43:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "43:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "commonRandom"
+    },
+    {
+      "location": "75:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "75:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "76:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "InitializeGraph"
+    },
+    {
+      "location": "83:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "83:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "89:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "89:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "119:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "119:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "128:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "131:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "131:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "134:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "134:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "135:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "135:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "139:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "139:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "153:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "154:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "155:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "156:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "157:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "160:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "166:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "166:53",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "commonRandom"
+    },
+    {
+      "location": "166:60",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "MAX_INIT_EDGES"
+    },
+    {
+      "location": "166:77",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "MIN_EDGES"
+    },
+    {
+      "location": "166:96",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "MIN_EDGES"
+    },
+    {
+      "location": "168:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "168:53",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "commonRandom"
+    },
+    {
+      "location": "169:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "169:52",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "commonRandom"
+    },
+    {
+      "location": "169:59",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "MAX_WEIGHT"
+    },
+    {
+      "location": "169:72",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "MIN_WEIGHT"
+    },
+    {
+      "location": "169:92",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "MIN_WEIGHT"
+    },
+    {
+      "location": "171:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "171:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "edge"
+    },
+    {
+      "location": "172:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "172:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "edge"
+    },
+    {
+      "location": "179:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "node"
+    },
+    {
+      "location": "190:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "217:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "217:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "217:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "218:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "218:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "218:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "218:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "219:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "219:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "220:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "BFSGraph"
+    },
+    {
+      "location": "221:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "221:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "222:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "222:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__end"
+    },
+    {
+      "location": "222:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__start"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "42:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "43:38",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "commonRandom"
+    },
+    {
+      "location": "75:29",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "83:29",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "89:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "119:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "128:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "131:20",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "log"
+    },
+    {
+      "location": "134:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "log"
+    },
+    {
+      "location": "135:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "log"
+    },
+    {
+      "location": "139:24",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "log"
+    },
+    {
+      "location": "153:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array"
+    },
+    {
+      "location": "154:38",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "155:47",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "156:41",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint8Array"
+    },
+    {
+      "location": "157:33",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "160:26",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array"
+    },
+    {
+      "location": "166:53",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "commonRandom"
+    },
+    {
+      "location": "168:53",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "commonRandom"
+    },
+    {
+      "location": "169:52",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "commonRandom"
+    },
+    {
+      "location": "171:26",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "172:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "190:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array"
+    },
+    {
+      "location": "219:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "221:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "222:6",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "edge"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "BFSGraph"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "node"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "InitializeGraph"
+    },
+    {
+      "location": "28:19",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "commonRandom"
+    },
+    {
+      "location": "42:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "commonRandomJS"
+    },
+    {
+      "location": "47:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "MIN_NODES"
+    },
+    {
+      "location": "48:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "MAX_NODES"
+    },
+    {
+      "location": "49:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "MIN_EDGES"
+    },
+    {
+      "location": "50:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "MAX_INIT_EDGES"
+    },
+    {
+      "location": "51:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "MIN_WEIGHT"
+    },
+    {
+      "location": "52:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "MAX_WEIGHT"
+    },
+    {
+      "location": "217:19",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "__performance"
+    },
+    {
+      "location": "219:13",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "__start"
+    },
+    {
+      "location": "221:11",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "__end"
+    },
+    {
+      "location": "217:71",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "218:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "101:38",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "124:20",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "166:36",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "166:60",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "168:36",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "169:35",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "169:59",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "128:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "generic string concatenation: concatenation is not strength-reduced here; type guards added on the operands (number-typed params/locals and globals) produced no effect on the concat item, so no annotation reaches it"
+    },
+    {
+      "location": "131:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "generic string concatenation: concatenation is not strength-reduced here; type guards added on the operands (number-typed params/locals and globals) produced no effect on the concat item, so no annotation reaches it"
+    },
+    {
+      "location": "134:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "generic string concatenation: concatenation is not strength-reduced here; type guards added on the operands (number-typed params/locals and globals) produced no effect on the concat item, so no annotation reaches it"
+    },
+    {
+      "location": "135:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "generic string concatenation: concatenation is not strength-reduced here; type guards added on the operands (number-typed params/locals and globals) produced no effect on the concat item, so no annotation reaches it"
+    },
+    {
+      "location": "139:25",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "generic string concatenation: concatenation is not strength-reduced here; type guards added on the operands (number-typed params/locals and globals) produced no effect on the concat item, so no annotation reaches it"
+    },
+    {
+      "location": "144:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "generic string concatenation: concatenation is not strength-reduced here; type guards added on the operands (number-typed params/locals and globals) produced no effect on the concat item, so no annotation reaches it"
+    },
+    {
+      "location": "222:8",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "generic string concatenation: concatenation is not strength-reduced here; type guards added on the operands (number-typed params/locals and globals) produced no effect on the concat item, so no annotation reaches it"
+    },
+    {
+      "location": "217:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "nullish-coalescing (?? and ??=) whose left operand is a property load on a host object; member-expression type guards are not supported, so the operand type cannot be narrowed"
+    },
+    {
+      "location": "218:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "nullish-coalescing (?? and ??=) whose left operand is a property load on a host object; member-expression type guards are not supported, so the operand type cannot be narrowed"
+    },
+    {
+      "location": "222:31",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "__end - __start: the operands come from performance.now() (unknown return type). A number type guard can only be placed on the __end/__start reads at 222:31/222:39, which sit inside the Math.round(...) argument; verified that such guards optimize this subtraction but regress the Math.round builtin recognition (Math load at 222:19 and round load at 222:29 become generic), a net loss, so no annotation is applied"
+    }
+  ]
+}

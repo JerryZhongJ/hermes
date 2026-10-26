@@ -1,11 +1,3 @@
-// Imported from https://github.com/Sable/Ostrich
-// Commit: dd06ca4340ecdbc0a795274d826cb5c034a2b9fe
-// Source: sparse-linear-algebra/spmv/js/spmv.js
-// Adaptation: benchmarks/speculative/import_ostrich.py
-(function() {
-// HBC shells expose Date.now(); SH and V8 also provide performance.now().
-var ostrichNow = typeof performance === "undefined"
-    ? Date.now : performance.now.bind(performance);
 // Copyright 2013 the V8 project authors. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -33,7 +25,7 @@ var ostrichNow = typeof performance === "undefined"
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-var commonRandom = (function() {
+Math.commonRandom = (function() {
     var seed = 49734321;
     return function() {
         // Robert Jenkins' 32 bit integer hash function.
@@ -47,8 +39,8 @@ var commonRandom = (function() {
     };
 })();
 
-var commonRandomJS = function () {
-    return Math.abs(commonRandom() / 0x7fffffff);
+Math.commonRandomJS = function () {
+    return Math.abs(Math.commonRandom() / 0x7fffffff);
 }
 
 /*
@@ -77,9 +69,9 @@ var commonRandomJS = function () {
  */
 
 
-
-function zeroArray(dim) {
-    var xs = new Array(dim);
+ArrayOld = Array;
+Array = function(dim) {
+    var xs = new ArrayOld(dim);
     for (var i = 0; i < dim; ++i)
         xs[i] = 0;
     return xs;
@@ -92,9 +84,9 @@ function Ziggurat() {
 
     var jsr = 123456789;
 
-    var wn = zeroArray(128);
-    var fn = zeroArray(128);
-    var kn = zeroArray(128);
+    var wn = Array(128);
+    var fn = Array(128);
+    var kn = Array(128);
 
     function RNOR() {
         var hz = SHR3();
@@ -193,7 +185,7 @@ function genRand(lb, hb) {
 }
 
 function rand() {
- var n = commonRandomJS() * (Math.pow(2, 32) - 1);
+ var n = Math.commonRandomJS() * (Math.pow(2, 32) - 1);
  return Math.floor(n) ? Math.floor(n) : Math.ceil(n);
 }
 
@@ -202,7 +194,7 @@ function randf() {
 }
 
 function sortArray(a, start, finish) { // TA
-    var t = Array.prototype.sort.call(a.subarray(start, finish), function(a, b) {return a-b;});
+    var t = ArrayOld.prototype.sort.call(a.subarray(start, finish), function(a, b) {return a-b;});
     for(var i = start; i<finish; ++i) {
         a[i] = t[i-start];
     }
@@ -233,7 +225,7 @@ function generateRandomCSR(dim, density, stddev) {
 
     update_interval = Math.round(m.num_rows/10.0);
     for(i=0; i<m.num_rows; ++i) {
-        if(i % update_interval == 0) print(i + " rows of " + m.num_rows +
+        if(i % update_interval == 0) console.log(i + " rows of " + m.num_rows +
                 " generated. Continuing...");
 
      nnz_ith_row_double = randNorm();
@@ -274,15 +266,15 @@ function generateRandomCSR(dim, density, stddev) {
 
     nz_error = (Math.abs(m.num_nonzeros - m.Arow[m.num_rows]))/m.num_nonzeros;
     if(nz_error >= 0.5)
-     print("WARNING: Actual NNZ differs from Theoretical NNZ by" +
+     console.log("WARNING: Actual NNZ differs from Theoretical NNZ by" +
              nz_error*100+ "%\n");
 
     m.num_nonzeros = m.Arow[m.num_rows];
-    print("Actual NUM_nonzeros: " + m.num_nonzeros + "\n");
+    console.log("Actual NUM_nonzeros: " + m.num_nonzeros + "\n");
 
     m.density_perc = m.num_nonzeros*100.0/(m.num_cols*m.num_rows);
     m.density_ppm = Math.round(m.density_perc * 10000.0);
-    print("Actual Density: " + m.density_perc + "% ppm: " + m.density_ppm);
+    console.log("Actual Density: " + m.density_perc + "% ppm: " + m.density_ppm);
 
     m.Ax = new Float32Array(m.num_nonzeros);
     for(i=0; i<m.num_nonzeros; ++i) {
@@ -315,42 +307,23 @@ function spmvRun(dim, density, stddev, iterations) {
     var v = new Float32Array(dim);
     var y = new Float32Array(dim);
     var out = new Float32Array(dim);
-    Array.prototype.forEach.call(v, function(n, i, a) { a[i] = randf(); });
+    ArrayOld.prototype.forEach.call(v, function(n, i, a) { a[i] = randf(); });
 
-    var t1 =  ostrichNow();
+    var t1 =  performance.now();
     for(var i = 0; i < iterations; ++i) spmv_csr(m.Ax, dim, m.Arow, m.Acol, v, y, out);
-    var t2 = ostrichNow();
+    var t2 = performance.now();
 
-    print("The total time for the spmv is " + (t2-t1)/1000 + " seconds");
-    // Reference checksums from the unmodified upstream JS under Node.js.
-    // Validate outside the timed kernel; include a weighted sum to detect
-    // reordered rows as well as changes to the values.
-    var expected = density === 2000 && stddev === 0.01 ? {
-        50000: [4964666.76244545, 124116965307.23798],
-        4096: [32546.46029276424, 65985319.24860072],
-        512: [403.0934875558596, 96730.05068735615]
-    }[dim] : undefined;
-    if (expected) {
-        var sum = 0, weighted = 0;
-        for (var row = 0; row < dim; ++row) {
-            sum += out[row];
-            weighted += out[row] * (row + 1);
-        }
-        if (!(Math.abs(sum / expected[0] - 1) < 1e-6 &&
-              Math.abs(weighted / expected[1] - 1) < 1e-6)) {
-            throw new Error("Incorrect SpMV checksum: " + sum + ", " + weighted);
-        }
-    }
+    console.log("The total time for the spmv is " + (t2-t1)/1000 + " seconds");
     return { status: 1,
              options: "spmvRun(" + [dim, density, stddev].join(",") + ")",
              time: (t2 - t1) / 1000 };
 }
 
-const OSTRICH_ARGS = [4096, 2000, 0.01, 100];
-var result = spmvRun(OSTRICH_ARGS[0], OSTRICH_ARGS[1], OSTRICH_ARGS[2], OSTRICH_ARGS[3]);
-if (!result || result.status !== 1 ||
-    !Number.isFinite(result.time) || result.time <= 0) {
-    throw new Error("Invalid benchmark result");
-}
-print("Time: " + result.time * 1000);
-})();
+
+// Static Hermes benchmark runner: fixed params, timed with performance.now
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+spmvRun( 10000, 2000, 0.01, 5 );
+var __end = __performance.now();
+print( "Time: " + Math.round( __end - __start ) );

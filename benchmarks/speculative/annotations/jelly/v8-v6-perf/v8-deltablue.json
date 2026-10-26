@@ -1,0 +1,8530 @@
+{
+  "static shapes": {
+    "Shape1": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        }
+      ]
+    },
+    "Shape2": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "add",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 52,
+              "column": 35
+            },
+            "end": {
+              "line": 54,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape3": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "add",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 52,
+              "column": 35
+            },
+            "end": {
+              "line": 54,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "at",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 56,
+              "column": 34
+            },
+            "end": {
+              "line": 58,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape4": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "add",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 52,
+              "column": 35
+            },
+            "end": {
+              "line": 54,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "at",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 56,
+              "column": 34
+            },
+            "end": {
+              "line": 58,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "size",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 60,
+              "column": 36
+            },
+            "end": {
+              "line": 62,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape5": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "add",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 52,
+              "column": 35
+            },
+            "end": {
+              "line": 54,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "at",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 56,
+              "column": 34
+            },
+            "end": {
+              "line": 58,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "size",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 60,
+              "column": 36
+            },
+            "end": {
+              "line": 62,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "removeFirst",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 64,
+              "column": 43
+            },
+            "end": {
+              "line": 66,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape6": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "add",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 52,
+              "column": 35
+            },
+            "end": {
+              "line": 54,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "at",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 56,
+              "column": 34
+            },
+            "end": {
+              "line": 58,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "size",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 60,
+              "column": 36
+            },
+            "end": {
+              "line": 62,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "removeFirst",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 64,
+              "column": 43
+            },
+            "end": {
+              "line": 66,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "remove",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 68,
+              "column": 38
+            },
+            "end": {
+              "line": 81,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape7": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        }
+      ]
+    },
+    "Shape8": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "nextWeaker",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 114,
+              "column": 33
+            },
+            "end": {
+              "line": 129,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape9": {
+      "properties": [
+        {
+          "name": "strengthValue"
+        },
+        {
+          "name": "name"
+        }
+      ]
+    },
+    "Shape10": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        }
+      ]
+    },
+    "Shape11": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addConstraint",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 158,
+              "column": 38
+            },
+            "end": {
+              "line": 161,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape12": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addConstraint",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 158,
+              "column": 38
+            },
+            "end": {
+              "line": 161,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "satisfy",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 170,
+              "column": 32
+            },
+            "end": {
+              "line": 184,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape13": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addConstraint",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 158,
+              "column": 38
+            },
+            "end": {
+              "line": 161,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "satisfy",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 170,
+              "column": 32
+            },
+            "end": {
+              "line": 184,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "destroyConstraint",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 186,
+              "column": 42
+            },
+            "end": {
+              "line": 189,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape14": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addConstraint",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 158,
+              "column": 38
+            },
+            "end": {
+              "line": 161,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "satisfy",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 170,
+              "column": 32
+            },
+            "end": {
+              "line": 184,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "destroyConstraint",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 186,
+              "column": 42
+            },
+            "end": {
+              "line": 189,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "isInput",
+          "type": "closure",
+          "target function": {
+            "file": "v8-deltablue.js",
+            "start": {
+              "line": 196,
+              "column": 32
+            },
+            "end": {
+              "line": 198,
+              "column": 2
+            }
+          }
+        }
+      ]
+    }
+  },
+  "shape bindings": [
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 132,
+          "column": 21
+        },
+        "end": {
+          "line": 132,
+          "column": 48
+        }
+      },
+      "shape": "Shape9"
+    }
+  ],
+  "shape guards": [
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 52,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 28
+        }
+      },
+      "shape": "Shape1"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 56,
+          "column": 1
+        },
+        "end": {
+          "line": 56,
+          "column": 28
+        }
+      },
+      "shape": "Shape2"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 60,
+          "column": 1
+        },
+        "end": {
+          "line": 60,
+          "column": 28
+        }
+      },
+      "shape": "Shape3"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 64,
+          "column": 1
+        },
+        "end": {
+          "line": 64,
+          "column": 28
+        }
+      },
+      "shape": "Shape4"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 68,
+          "column": 1
+        },
+        "end": {
+          "line": 68,
+          "column": 28
+        }
+      },
+      "shape": "Shape5"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 114,
+          "column": 1
+        },
+        "end": {
+          "line": 114,
+          "column": 19
+        }
+      },
+      "shape": "Shape7"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 158,
+          "column": 1
+        },
+        "end": {
+          "line": 158,
+          "column": 21
+        }
+      },
+      "shape": "Shape10"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 170,
+          "column": 1
+        },
+        "end": {
+          "line": 170,
+          "column": 21
+        }
+      },
+      "shape": "Shape11"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 186,
+          "column": 1
+        },
+        "end": {
+          "line": 186,
+          "column": 21
+        }
+      },
+      "shape": "Shape12"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 196,
+          "column": 1
+        },
+        "end": {
+          "line": 196,
+          "column": 21
+        }
+      },
+      "shape": "Shape13"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 71,
+          "column": 41
+        },
+        "end": {
+          "line": 71,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 71,
+          "column": 41
+        },
+        "end": {
+          "line": 71,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 75,
+          "column": 7
+        },
+        "end": {
+          "line": 75,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 75,
+          "column": 7
+        },
+        "end": {
+          "line": 75,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 77,
+          "column": 7
+        },
+        "end": {
+          "line": 77,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 77,
+          "column": 7
+        },
+        "end": {
+          "line": 77,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 80,
+          "column": 32
+        },
+        "end": {
+          "line": 80,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 80,
+          "column": 32
+        },
+        "end": {
+          "line": 80,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 99,
+          "column": 10
+        },
+        "end": {
+          "line": 99,
+          "column": 45
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 103,
+          "column": 10
+        },
+        "end": {
+          "line": 103,
+          "column": 45
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 259,
+          "column": 24
+        },
+        "end": {
+          "line": 259,
+          "column": 39
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 331,
+          "column": 22
+        },
+        "end": {
+          "line": 331,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 389,
+          "column": 10
+        },
+        "end": {
+          "line": 389,
+          "column": 42
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 435,
+          "column": 10
+        },
+        "end": {
+          "line": 435,
+          "column": 24
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 435,
+          "column": 38
+        },
+        "end": {
+          "line": 435,
+          "column": 60
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 612,
+          "column": 45
+        },
+        "end": {
+          "line": 612,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 612,
+          "column": 45
+        },
+        "end": {
+          "line": 612,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 624,
+          "column": 10
+        },
+        "end": {
+          "line": 624,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 624,
+          "column": 12
+        },
+        "end": {
+          "line": 624,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 667,
+          "column": 43
+        },
+        "end": {
+          "line": 667,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 667,
+          "column": 43
+        },
+        "end": {
+          "line": 667,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 718,
+          "column": 47
+        },
+        "end": {
+          "line": 718,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 718,
+          "column": 47
+        },
+        "end": {
+          "line": 718,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 723,
+          "column": 47
+        },
+        "end": {
+          "line": 723,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 723,
+          "column": 47
+        },
+        "end": {
+          "line": 723,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 737,
+          "column": 34
+        },
+        "end": {
+          "line": 737,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 737,
+          "column": 34
+        },
+        "end": {
+          "line": 737,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 769,
+          "column": 36
+        },
+        "end": {
+          "line": 769,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 769,
+          "column": 36
+        },
+        "end": {
+          "line": 769,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 799,
+          "column": 27
+        },
+        "end": {
+          "line": 799,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 799,
+          "column": 27
+        },
+        "end": {
+          "line": 799,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 800,
+          "column": 16
+        },
+        "end": {
+          "line": 800,
+          "column": 23
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 813,
+          "column": 28
+        },
+        "end": {
+          "line": 813,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 813,
+          "column": 28
+        },
+        "end": {
+          "line": 813,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 834,
+          "column": 26
+        },
+        "end": {
+          "line": 834,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 834,
+          "column": 26
+        },
+        "end": {
+          "line": 834,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 835,
+          "column": 24
+        },
+        "end": {
+          "line": 835,
+          "column": 33
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 836,
+          "column": 24
+        },
+        "end": {
+          "line": 836,
+          "column": 33
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 847,
+          "column": 23
+        },
+        "end": {
+          "line": 847,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 847,
+          "column": 30
+        },
+        "end": {
+          "line": 847,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 847,
+          "column": 30
+        },
+        "end": {
+          "line": 847,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 848,
+          "column": 30
+        },
+        "end": {
+          "line": 848,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 848,
+          "column": 30
+        },
+        "end": {
+          "line": 848,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 851,
+          "column": 23
+        },
+        "end": {
+          "line": 851,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 851,
+          "column": 30
+        },
+        "end": {
+          "line": 851,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 851,
+          "column": 30
+        },
+        "end": {
+          "line": 851,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 852,
+          "column": 30
+        },
+        "end": {
+          "line": 852,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 852,
+          "column": 30
+        },
+        "end": {
+          "line": 852,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 861,
+          "column": 27
+        },
+        "end": {
+          "line": 861,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 861,
+          "column": 27
+        },
+        "end": {
+          "line": 861,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 877,
+          "column": 26
+        },
+        "end": {
+          "line": 877,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 877,
+          "column": 28
+        },
+        "end": {
+          "line": 877,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 151,
+          "column": 10
+        },
+        "end": {
+          "line": 151,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 151,
+          "column": 1
+        },
+        "end": {
+          "line": 153,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 158,
+          "column": 1
+        },
+        "end": {
+          "line": 158,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 151,
+          "column": 1
+        },
+        "end": {
+          "line": 153,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 877,
+          "column": 10
+        },
+        "end": {
+          "line": 877,
+          "column": 11
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 877,
+          "column": 17
+        },
+        "end": {
+          "line": 877,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 877,
+          "column": 28
+        },
+        "end": {
+          "line": 877,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 871,
+          "column": 10
+        },
+        "end": {
+          "line": 871,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 871,
+          "column": 1
+        },
+        "end": {
+          "line": 874,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 877,
+          "column": 31
+        },
+        "end": {
+          "line": 877,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 871,
+          "column": 1
+        },
+        "end": {
+          "line": 874,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 42,
+          "column": 12
+        },
+        "end": {
+          "line": 42,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 42,
+          "column": 3
+        },
+        "end": {
+          "line": 42,
+          "column": 26
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 43,
+          "column": 3
+        },
+        "end": {
+          "line": 43,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 42,
+          "column": 3
+        },
+        "end": {
+          "line": 42,
+          "column": 26
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 56,
+          "column": 44
+        },
+        "end": {
+          "line": 56,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 57,
+          "column": 20
+        },
+        "end": {
+          "line": 57,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 71,
+          "column": 12
+        },
+        "end": {
+          "line": 71,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 71,
+          "column": 19
+        },
+        "end": {
+          "line": 71,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 71,
+          "column": 41
+        },
+        "end": {
+          "line": 71,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 69,
+          "column": 7
+        },
+        "end": {
+          "line": 69,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 74,
+          "column": 17
+        },
+        "end": {
+          "line": 74,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 75,
+          "column": 7
+        },
+        "end": {
+          "line": 75,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 70,
+          "column": 5
+        },
+        "end": {
+          "line": 70,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 77,
+          "column": 7
+        },
+        "end": {
+          "line": 77,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 80,
+          "column": 12
+        },
+        "end": {
+          "line": 80,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 80,
+          "column": 19
+        },
+        "end": {
+          "line": 80,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 80,
+          "column": 32
+        },
+        "end": {
+          "line": 80,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 80,
+          "column": 23
+        },
+        "end": {
+          "line": 80,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 19
+        },
+        "end": {
+          "line": 93,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 94,
+          "column": 24
+        },
+        "end": {
+          "line": 94,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 34
+        },
+        "end": {
+          "line": 93,
+          "column": 38
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 95,
+          "column": 15
+        },
+        "end": {
+          "line": 95,
+          "column": 19
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 170,
+          "column": 42
+        },
+        "end": {
+          "line": 170,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 171,
+          "column": 21
+        },
+        "end": {
+          "line": 171,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 229,
+          "column": 52
+        },
+        "end": {
+          "line": 229,
+          "column": 56
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 231,
+          "column": 27
+        },
+        "end": {
+          "line": 231,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 352,
+          "column": 53
+        },
+        "end": {
+          "line": 352,
+          "column": 57
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 353,
+          "column": 23
+        },
+        "end": {
+          "line": 353,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 395,
+          "column": 51
+        },
+        "end": {
+          "line": 395,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 396,
+          "column": 23
+        },
+        "end": {
+          "line": 396,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 433,
+          "column": 52
+        },
+        "end": {
+          "line": 433,
+          "column": 56
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 435,
+          "column": 20
+        },
+        "end": {
+          "line": 435,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 479,
+          "column": 68
+        },
+        "end": {
+          "line": 479,
+          "column": 72
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 537,
+          "column": 25
+        },
+        "end": {
+          "line": 537,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 538,
+          "column": 16
+        },
+        "end": {
+          "line": 538,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 537,
+          "column": 19
+        },
+        "end": {
+          "line": 537,
+          "column": 23
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 544,
+          "column": 15
+        },
+        "end": {
+          "line": 544,
+          "column": 19
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 589,
+          "column": 7
+        },
+        "end": {
+          "line": 589,
+          "column": 11
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 590,
+          "column": 30
+        },
+        "end": {
+          "line": 590,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 612,
+          "column": 14
+        },
+        "end": {
+          "line": 612,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 612,
+          "column": 21
+        },
+        "end": {
+          "line": 612,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 612,
+          "column": 45
+        },
+        "end": {
+          "line": 612,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 647,
+          "column": 7
+        },
+        "end": {
+          "line": 647,
+          "column": 11
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 652,
+          "column": 28
+        },
+        "end": {
+          "line": 652,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 667,
+          "column": 12
+        },
+        "end": {
+          "line": 667,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 667,
+          "column": 19
+        },
+        "end": {
+          "line": 667,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 667,
+          "column": 43
+        },
+        "end": {
+          "line": 667,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 689,
+          "column": 47
+        },
+        "end": {
+          "line": 689,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 694,
+          "column": 28
+        },
+        "end": {
+          "line": 694,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 718,
+          "column": 14
+        },
+        "end": {
+          "line": 718,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 718,
+          "column": 21
+        },
+        "end": {
+          "line": 718,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 718,
+          "column": 47
+        },
+        "end": {
+          "line": 718,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 723,
+          "column": 14
+        },
+        "end": {
+          "line": 723,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 723,
+          "column": 21
+        },
+        "end": {
+          "line": 723,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 723,
+          "column": 47
+        },
+        "end": {
+          "line": 723,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 737,
+          "column": 12
+        },
+        "end": {
+          "line": 737,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 737,
+          "column": 19
+        },
+        "end": {
+          "line": 737,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 737,
+          "column": 34
+        },
+        "end": {
+          "line": 737,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 764,
+          "column": 41
+        },
+        "end": {
+          "line": 764,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 765,
+          "column": 20
+        },
+        "end": {
+          "line": 765,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 769,
+          "column": 12
+        },
+        "end": {
+          "line": 769,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 769,
+          "column": 19
+        },
+        "end": {
+          "line": 769,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 769,
+          "column": 36
+        },
+        "end": {
+          "line": 769,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 799,
+          "column": 12
+        },
+        "end": {
+          "line": 799,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 799,
+          "column": 19
+        },
+        "end": {
+          "line": 799,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 799,
+          "column": 27
+        },
+        "end": {
+          "line": 799,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 792,
+          "column": 20
+        },
+        "end": {
+          "line": 792,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 799,
+          "column": 24
+        },
+        "end": {
+          "line": 799,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 800,
+          "column": 9
+        },
+        "end": {
+          "line": 800,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 801,
+          "column": 26
+        },
+        "end": {
+          "line": 801,
+          "column": 30
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 813,
+          "column": 12
+        },
+        "end": {
+          "line": 813,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 813,
+          "column": 19
+        },
+        "end": {
+          "line": 813,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 813,
+          "column": 28
+        },
+        "end": {
+          "line": 813,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 834,
+          "column": 12
+        },
+        "end": {
+          "line": 834,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 834,
+          "column": 19
+        },
+        "end": {
+          "line": 834,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 834,
+          "column": 26
+        },
+        "end": {
+          "line": 834,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 826,
+          "column": 25
+        },
+        "end": {
+          "line": 826,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 834,
+          "column": 23
+        },
+        "end": {
+          "line": 834,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 847,
+          "column": 12
+        },
+        "end": {
+          "line": 847,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 847,
+          "column": 19
+        },
+        "end": {
+          "line": 847,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 847,
+          "column": 30
+        },
+        "end": {
+          "line": 847,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 851,
+          "column": 12
+        },
+        "end": {
+          "line": 851,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 851,
+          "column": 19
+        },
+        "end": {
+          "line": 851,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 851,
+          "column": 30
+        },
+        "end": {
+          "line": 851,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 861,
+          "column": 12
+        },
+        "end": {
+          "line": 861,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 861,
+          "column": 19
+        },
+        "end": {
+          "line": 861,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 861,
+          "column": 27
+        },
+        "end": {
+          "line": 861,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 856,
+          "column": 20
+        },
+        "end": {
+          "line": 856,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 862,
+          "column": 15
+        },
+        "end": {
+          "line": 862,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 48,
+          "column": 10
+        },
+        "end": {
+          "line": 48,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 10
+        },
+        "end": {
+          "line": 93,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 208,
+          "column": 10
+        },
+        "end": {
+          "line": 208,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 208,
+          "column": 1
+        },
+        "end": {
+          "line": 213,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 241,
+          "column": 50
+        },
+        "end": {
+          "line": 241,
+          "column": 54
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 289,
+          "column": 10
+        },
+        "end": {
+          "line": 289,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 289,
+          "column": 1
+        },
+        "end": {
+          "line": 291,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 307,
+          "column": 10
+        },
+        "end": {
+          "line": 307,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 307,
+          "column": 1
+        },
+        "end": {
+          "line": 309,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 337,
+          "column": 10
+        },
+        "end": {
+          "line": 337,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 337,
+          "column": 1
+        },
+        "end": {
+          "line": 343,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 454,
+          "column": 10
+        },
+        "end": {
+          "line": 454,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 454,
+          "column": 1
+        },
+        "end": {
+          "line": 459,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 514,
+          "column": 10
+        },
+        "end": {
+          "line": 514,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 514,
+          "column": 1
+        },
+        "end": {
+          "line": 516,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 537,
+          "column": 10
+        },
+        "end": {
+          "line": 537,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 537,
+          "column": 1
+        },
+        "end": {
+          "line": 545,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 570,
+          "column": 10
+        },
+        "end": {
+          "line": 570,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 570,
+          "column": 1
+        },
+        "end": {
+          "line": 572,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 752,
+          "column": 10
+        },
+        "end": {
+          "line": 752,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 752,
+          "column": 1
+        },
+        "end": {
+          "line": 754,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 792,
+          "column": 10
+        },
+        "end": {
+          "line": 792,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 792,
+          "column": 1
+        },
+        "end": {
+          "line": 818,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 856,
+          "column": 10
+        },
+        "end": {
+          "line": 856,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 856,
+          "column": 1
+        },
+        "end": {
+          "line": 866,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 826,
+          "column": 10
+        },
+        "end": {
+          "line": 826,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 826,
+          "column": 1
+        },
+        "end": {
+          "line": 854,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 44,
+          "column": 24
+        },
+        "end": {
+          "line": 44,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 42,
+          "column": 3
+        },
+        "end": {
+          "line": 42,
+          "column": 26
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 52,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 56,
+          "column": 1
+        },
+        "end": {
+          "line": 56,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 60,
+          "column": 1
+        },
+        "end": {
+          "line": 60,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 64,
+          "column": 1
+        },
+        "end": {
+          "line": 64,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 68,
+          "column": 1
+        },
+        "end": {
+          "line": 68,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 98,
+          "column": 1
+        },
+        "end": {
+          "line": 98,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 102,
+          "column": 1
+        },
+        "end": {
+          "line": 102,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 106,
+          "column": 1
+        },
+        "end": {
+          "line": 106,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 110,
+          "column": 1
+        },
+        "end": {
+          "line": 110,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 114,
+          "column": 1
+        },
+        "end": {
+          "line": 114,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 117,
+          "column": 14
+        },
+        "end": {
+          "line": 117,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 119,
+          "column": 14
+        },
+        "end": {
+          "line": 119,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 121,
+          "column": 14
+        },
+        "end": {
+          "line": 121,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 123,
+          "column": 14
+        },
+        "end": {
+          "line": 123,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 125,
+          "column": 14
+        },
+        "end": {
+          "line": 125,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 127,
+          "column": 14
+        },
+        "end": {
+          "line": 127,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 132,
+          "column": 25
+        },
+        "end": {
+          "line": 132,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 132,
+          "column": 1
+        },
+        "end": {
+          "line": 132,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 133,
+          "column": 32
+        },
+        "end": {
+          "line": 133,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 133,
+          "column": 1
+        },
+        "end": {
+          "line": 133,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 134,
+          "column": 26
+        },
+        "end": {
+          "line": 134,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 134,
+          "column": 1
+        },
+        "end": {
+          "line": 134,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 135,
+          "column": 31
+        },
+        "end": {
+          "line": 135,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 135,
+          "column": 1
+        },
+        "end": {
+          "line": 135,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 136,
+          "column": 23
+        },
+        "end": {
+          "line": 136,
+          "column": 31
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 136,
+          "column": 1
+        },
+        "end": {
+          "line": 136,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 137,
+          "column": 29
+        },
+        "end": {
+          "line": 137,
+          "column": 37
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 137,
+          "column": 1
+        },
+        "end": {
+          "line": 137,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 138,
+          "column": 24
+        },
+        "end": {
+          "line": 138,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 138,
+          "column": 1
+        },
+        "end": {
+          "line": 138,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 170,
+          "column": 1
+        },
+        "end": {
+          "line": 170,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 151,
+          "column": 1
+        },
+        "end": {
+          "line": 153,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 173,
+          "column": 26
+        },
+        "end": {
+          "line": 173,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 176,
+          "column": 19
+        },
+        "end": {
+          "line": 176,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 181,
+          "column": 35
+        },
+        "end": {
+          "line": 181,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 182,
+          "column": 14
+        },
+        "end": {
+          "line": 182,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 186,
+          "column": 1
+        },
+        "end": {
+          "line": 186,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 151,
+          "column": 1
+        },
+        "end": {
+          "line": 153,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 196,
+          "column": 1
+        },
+        "end": {
+          "line": 196,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 151,
+          "column": 1
+        },
+        "end": {
+          "line": 153,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 209,
+          "column": 3
+        },
+        "end": {
+          "line": 209,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 208,
+          "column": 1
+        },
+        "end": {
+          "line": 213,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 215,
+          "column": 30
+        },
+        "end": {
+          "line": 215,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 151,
+          "column": 1
+        },
+        "end": {
+          "line": 153,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 215,
+          "column": 1
+        },
+        "end": {
+          "line": 215,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 208,
+          "column": 1
+        },
+        "end": {
+          "line": 213,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 220,
+          "column": 1
+        },
+        "end": {
+          "line": 220,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 208,
+          "column": 1
+        },
+        "end": {
+          "line": 213,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 229,
+          "column": 1
+        },
+        "end": {
+          "line": 229,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 208,
+          "column": 1
+        },
+        "end": {
+          "line": 213,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 231,
+          "column": 35
+        },
+        "end": {
+          "line": 231,
+          "column": 43
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 237,
+          "column": 1
+        },
+        "end": {
+          "line": 237,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 208,
+          "column": 1
+        },
+        "end": {
+          "line": 213,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 241,
+          "column": 1
+        },
+        "end": {
+          "line": 241,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 208,
+          "column": 1
+        },
+        "end": {
+          "line": 213,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 248,
+          "column": 1
+        },
+        "end": {
+          "line": 248,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 208,
+          "column": 1
+        },
+        "end": {
+          "line": 213,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 257,
+          "column": 1
+        },
+        "end": {
+          "line": 257,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 208,
+          "column": 1
+        },
+        "end": {
+          "line": 213,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 266,
+          "column": 1
+        },
+        "end": {
+          "line": 266,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 208,
+          "column": 1
+        },
+        "end": {
+          "line": 213,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 270,
+          "column": 1
+        },
+        "end": {
+          "line": 270,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 208,
+          "column": 1
+        },
+        "end": {
+          "line": 213,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 274,
+          "column": 1
+        },
+        "end": {
+          "line": 274,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 208,
+          "column": 1
+        },
+        "end": {
+          "line": 213,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 290,
+          "column": 3
+        },
+        "end": {
+          "line": 290,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 289,
+          "column": 1
+        },
+        "end": {
+          "line": 291,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 293,
+          "column": 29
+        },
+        "end": {
+          "line": 293,
+          "column": 44
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 208,
+          "column": 1
+        },
+        "end": {
+          "line": 213,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 293,
+          "column": 1
+        },
+        "end": {
+          "line": 293,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 289,
+          "column": 1
+        },
+        "end": {
+          "line": 291,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 295,
+          "column": 1
+        },
+        "end": {
+          "line": 295,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 289,
+          "column": 1
+        },
+        "end": {
+          "line": 291,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 308,
+          "column": 3
+        },
+        "end": {
+          "line": 308,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 307,
+          "column": 1
+        },
+        "end": {
+          "line": 309,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 311,
+          "column": 29
+        },
+        "end": {
+          "line": 311,
+          "column": 44
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 208,
+          "column": 1
+        },
+        "end": {
+          "line": 213,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 311,
+          "column": 1
+        },
+        "end": {
+          "line": 311,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 307,
+          "column": 1
+        },
+        "end": {
+          "line": 309,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 316,
+          "column": 1
+        },
+        "end": {
+          "line": 316,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 307,
+          "column": 1
+        },
+        "end": {
+          "line": 309,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 320,
+          "column": 1
+        },
+        "end": {
+          "line": 320,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 307,
+          "column": 1
+        },
+        "end": {
+          "line": 309,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 338,
+          "column": 3
+        },
+        "end": {
+          "line": 338,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 337,
+          "column": 1
+        },
+        "end": {
+          "line": 343,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 345,
+          "column": 31
+        },
+        "end": {
+          "line": 345,
+          "column": 41
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 151,
+          "column": 1
+        },
+        "end": {
+          "line": 153,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 345,
+          "column": 1
+        },
+        "end": {
+          "line": 345,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 337,
+          "column": 1
+        },
+        "end": {
+          "line": 343,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 352,
+          "column": 1
+        },
+        "end": {
+          "line": 352,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 337,
+          "column": 1
+        },
+        "end": {
+          "line": 343,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 355,
+          "column": 31
+        },
+        "end": {
+          "line": 355,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 361,
+          "column": 31
+        },
+        "end": {
+          "line": 361,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 365,
+          "column": 7
+        },
+        "end": {
+          "line": 365,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 366,
+          "column": 22
+        },
+        "end": {
+          "line": 366,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 370,
+          "column": 22
+        },
+        "end": {
+          "line": 370,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 379,
+          "column": 1
+        },
+        "end": {
+          "line": 379,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 337,
+          "column": 1
+        },
+        "end": {
+          "line": 343,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 388,
+          "column": 1
+        },
+        "end": {
+          "line": 388,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 337,
+          "column": 1
+        },
+        "end": {
+          "line": 343,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 395,
+          "column": 1
+        },
+        "end": {
+          "line": 395,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 337,
+          "column": 1
+        },
+        "end": {
+          "line": 343,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 402,
+          "column": 1
+        },
+        "end": {
+          "line": 402,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 337,
+          "column": 1
+        },
+        "end": {
+          "line": 343,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 409,
+          "column": 1
+        },
+        "end": {
+          "line": 409,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 337,
+          "column": 1
+        },
+        "end": {
+          "line": 343,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 418,
+          "column": 1
+        },
+        "end": {
+          "line": 418,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 337,
+          "column": 1
+        },
+        "end": {
+          "line": 343,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 421,
+          "column": 22
+        },
+        "end": {
+          "line": 421,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 429,
+          "column": 1
+        },
+        "end": {
+          "line": 429,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 337,
+          "column": 1
+        },
+        "end": {
+          "line": 343,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 433,
+          "column": 1
+        },
+        "end": {
+          "line": 433,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 337,
+          "column": 1
+        },
+        "end": {
+          "line": 343,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 438,
+          "column": 1
+        },
+        "end": {
+          "line": 438,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 337,
+          "column": 1
+        },
+        "end": {
+          "line": 343,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 458,
+          "column": 3
+        },
+        "end": {
+          "line": 458,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 454,
+          "column": 1
+        },
+        "end": {
+          "line": 459,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 461,
+          "column": 30
+        },
+        "end": {
+          "line": 461,
+          "column": 46
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 337,
+          "column": 1
+        },
+        "end": {
+          "line": 343,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 461,
+          "column": 1
+        },
+        "end": {
+          "line": 461,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 454,
+          "column": 1
+        },
+        "end": {
+          "line": 459,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 466,
+          "column": 1
+        },
+        "end": {
+          "line": 466,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 454,
+          "column": 1
+        },
+        "end": {
+          "line": 459,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 467,
+          "column": 3
+        },
+        "end": {
+          "line": 467,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 454,
+          "column": 1
+        },
+        "end": {
+          "line": 459,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 472,
+          "column": 1
+        },
+        "end": {
+          "line": 472,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 454,
+          "column": 1
+        },
+        "end": {
+          "line": 459,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 473,
+          "column": 3
+        },
+        "end": {
+          "line": 473,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 454,
+          "column": 1
+        },
+        "end": {
+          "line": 459,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 478,
+          "column": 1
+        },
+        "end": {
+          "line": 478,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 454,
+          "column": 1
+        },
+        "end": {
+          "line": 459,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 479,
+          "column": 3
+        },
+        "end": {
+          "line": 479,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 454,
+          "column": 1
+        },
+        "end": {
+          "line": 459,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 480,
+          "column": 40
+        },
+        "end": {
+          "line": 480,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 486,
+          "column": 1
+        },
+        "end": {
+          "line": 486,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 454,
+          "column": 1
+        },
+        "end": {
+          "line": 459,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 499,
+          "column": 1
+        },
+        "end": {
+          "line": 499,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 454,
+          "column": 1
+        },
+        "end": {
+          "line": 459,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 502,
+          "column": 22
+        },
+        "end": {
+          "line": 502,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 515,
+          "column": 3
+        },
+        "end": {
+          "line": 515,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 514,
+          "column": 1
+        },
+        "end": {
+          "line": 516,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 518,
+          "column": 33
+        },
+        "end": {
+          "line": 518,
+          "column": 49
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 337,
+          "column": 1
+        },
+        "end": {
+          "line": 343,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 518,
+          "column": 1
+        },
+        "end": {
+          "line": 518,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 514,
+          "column": 1
+        },
+        "end": {
+          "line": 516,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 523,
+          "column": 1
+        },
+        "end": {
+          "line": 523,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 514,
+          "column": 1
+        },
+        "end": {
+          "line": 516,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 539,
+          "column": 26
+        },
+        "end": {
+          "line": 539,
+          "column": 43
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 542,
+          "column": 23
+        },
+        "end": {
+          "line": 542,
+          "column": 31
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 551,
+          "column": 1
+        },
+        "end": {
+          "line": 551,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 537,
+          "column": 1
+        },
+        "end": {
+          "line": 545,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 558,
+          "column": 1
+        },
+        "end": {
+          "line": 558,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 537,
+          "column": 1
+        },
+        "end": {
+          "line": 545,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 588,
+          "column": 1
+        },
+        "end": {
+          "line": 588,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 570,
+          "column": 1
+        },
+        "end": {
+          "line": 572,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 591,
+          "column": 62
+        },
+        "end": {
+          "line": 591,
+          "column": 66
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 605,
+          "column": 1
+        },
+        "end": {
+          "line": 605,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 570,
+          "column": 1
+        },
+        "end": {
+          "line": 572,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 610,
+          "column": 18
+        },
+        "end": {
+          "line": 610,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 613,
+          "column": 30
+        },
+        "end": {
+          "line": 613,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 617,
+          "column": 24
+        },
+        "end": {
+          "line": 617,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 623,
+          "column": 1
+        },
+        "end": {
+          "line": 623,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 570,
+          "column": 1
+        },
+        "end": {
+          "line": 572,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 646,
+          "column": 1
+        },
+        "end": {
+          "line": 646,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 570,
+          "column": 1
+        },
+        "end": {
+          "line": 572,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 648,
+          "column": 18
+        },
+        "end": {
+          "line": 648,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 752,
+          "column": 1
+        },
+        "end": {
+          "line": 754,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 652,
+          "column": 50
+        },
+        "end": {
+          "line": 652,
+          "column": 54
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 654,
+          "column": 25
+        },
+        "end": {
+          "line": 654,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 665,
+          "column": 1
+        },
+        "end": {
+          "line": 665,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 570,
+          "column": 1
+        },
+        "end": {
+          "line": 572,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 666,
+          "column": 21
+        },
+        "end": {
+          "line": 666,
+          "column": 38
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 668,
+          "column": 28
+        },
+        "end": {
+          "line": 668,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 689,
+          "column": 1
+        },
+        "end": {
+          "line": 689,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 570,
+          "column": 1
+        },
+        "end": {
+          "line": 572,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 690,
+          "column": 18
+        },
+        "end": {
+          "line": 690,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 709,
+          "column": 1
+        },
+        "end": {
+          "line": 709,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 570,
+          "column": 1
+        },
+        "end": {
+          "line": 572,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 711,
+          "column": 22
+        },
+        "end": {
+          "line": 711,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 713,
+          "column": 25
+        },
+        "end": {
+          "line": 713,
+          "column": 42
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 714,
+          "column": 18
+        },
+        "end": {
+          "line": 714,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 719,
+          "column": 32
+        },
+        "end": {
+          "line": 719,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 724,
+          "column": 35
+        },
+        "end": {
+          "line": 724,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 734,
+          "column": 1
+        },
+        "end": {
+          "line": 734,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 570,
+          "column": 1
+        },
+        "end": {
+          "line": 572,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 738,
+          "column": 19
+        },
+        "end": {
+          "line": 738,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 753,
+          "column": 16
+        },
+        "end": {
+          "line": 753,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 756,
+          "column": 1
+        },
+        "end": {
+          "line": 756,
+          "column": 5
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 752,
+          "column": 1
+        },
+        "end": {
+          "line": 754,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 760,
+          "column": 1
+        },
+        "end": {
+          "line": 760,
+          "column": 5
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 752,
+          "column": 1
+        },
+        "end": {
+          "line": 754,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 764,
+          "column": 1
+        },
+        "end": {
+          "line": 764,
+          "column": 5
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 752,
+          "column": 1
+        },
+        "end": {
+          "line": 754,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 768,
+          "column": 1
+        },
+        "end": {
+          "line": 768,
+          "column": 5
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 752,
+          "column": 1
+        },
+        "end": {
+          "line": 754,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 770,
+          "column": 31
+        },
+        "end": {
+          "line": 770,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 793,
+          "column": 17
+        },
+        "end": {
+          "line": 793,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 570,
+          "column": 1
+        },
+        "end": {
+          "line": 572,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 800,
+          "column": 22
+        },
+        "end": {
+          "line": 800,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 801,
+          "column": 17
+        },
+        "end": {
+          "line": 801,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 537,
+          "column": 1
+        },
+        "end": {
+          "line": 545,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 802,
+          "column": 55
+        },
+        "end": {
+          "line": 802,
+          "column": 63
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 802,
+          "column": 27
+        },
+        "end": {
+          "line": 802,
+          "column": 45
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 514,
+          "column": 1
+        },
+        "end": {
+          "line": 516,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 808,
+          "column": 28
+        },
+        "end": {
+          "line": 808,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 808,
+          "column": 7
+        },
+        "end": {
+          "line": 808,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 289,
+          "column": 1
+        },
+        "end": {
+          "line": 291,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 809,
+          "column": 40
+        },
+        "end": {
+          "line": 809,
+          "column": 48
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 809,
+          "column": 18
+        },
+        "end": {
+          "line": 809,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 307,
+          "column": 1
+        },
+        "end": {
+          "line": 309,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 810,
+          "column": 19
+        },
+        "end": {
+          "line": 810,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 814,
+          "column": 19
+        },
+        "end": {
+          "line": 814,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 827,
+          "column": 17
+        },
+        "end": {
+          "line": 827,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 570,
+          "column": 1
+        },
+        "end": {
+          "line": 572,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 828,
+          "column": 19
+        },
+        "end": {
+          "line": 828,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 537,
+          "column": 1
+        },
+        "end": {
+          "line": 545,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 829,
+          "column": 20
+        },
+        "end": {
+          "line": 829,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 537,
+          "column": 1
+        },
+        "end": {
+          "line": 545,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 833,
+          "column": 19
+        },
+        "end": {
+          "line": 833,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 835,
+          "column": 32
+        },
+        "end": {
+          "line": 835,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 835,
+          "column": 15
+        },
+        "end": {
+          "line": 835,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 537,
+          "column": 1
+        },
+        "end": {
+          "line": 545,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 835,
+          "column": 35
+        },
+        "end": {
+          "line": 835,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 836,
+          "column": 32
+        },
+        "end": {
+          "line": 836,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 836,
+          "column": 15
+        },
+        "end": {
+          "line": 836,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 537,
+          "column": 1
+        },
+        "end": {
+          "line": 545,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 836,
+          "column": 35
+        },
+        "end": {
+          "line": 836,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 838,
+          "column": 29
+        },
+        "end": {
+          "line": 838,
+          "column": 37
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 838,
+          "column": 9
+        },
+        "end": {
+          "line": 838,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 289,
+          "column": 1
+        },
+        "end": {
+          "line": 291,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 839,
+          "column": 50
+        },
+        "end": {
+          "line": 839,
+          "column": 58
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 839,
+          "column": 9
+        },
+        "end": {
+          "line": 839,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 454,
+          "column": 1
+        },
+        "end": {
+          "line": 459,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 842,
+          "column": 3
+        },
+        "end": {
+          "line": 842,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 856,
+          "column": 1
+        },
+        "end": {
+          "line": 866,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 844,
+          "column": 3
+        },
+        "end": {
+          "line": 844,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 856,
+          "column": 1
+        },
+        "end": {
+          "line": 866,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 846,
+          "column": 3
+        },
+        "end": {
+          "line": 846,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 856,
+          "column": 1
+        },
+        "end": {
+          "line": 866,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 847,
+          "column": 23
+        },
+        "end": {
+          "line": 847,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 848,
+          "column": 18
+        },
+        "end": {
+          "line": 848,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 848,
+          "column": 30
+        },
+        "end": {
+          "line": 848,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 850,
+          "column": 3
+        },
+        "end": {
+          "line": 850,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 856,
+          "column": 1
+        },
+        "end": {
+          "line": 866,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 851,
+          "column": 23
+        },
+        "end": {
+          "line": 851,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 852,
+          "column": 18
+        },
+        "end": {
+          "line": 852,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 852,
+          "column": 30
+        },
+        "end": {
+          "line": 852,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 857,
+          "column": 36
+        },
+        "end": {
+          "line": 857,
+          "column": 44
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 96,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 857,
+          "column": 18
+        },
+        "end": {
+          "line": 857,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 307,
+          "column": 1
+        },
+        "end": {
+          "line": 309,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 858,
+          "column": 19
+        },
+        "end": {
+          "line": 858,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 872,
+          "column": 3
+        },
+        "end": {
+          "line": 872,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 792,
+          "column": 1
+        },
+        "end": {
+          "line": 818,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 873,
+          "column": 3
+        },
+        "end": {
+          "line": 873,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-deltablue.js",
+        "start": {
+          "line": 826,
+          "column": 1
+        },
+        "end": {
+          "line": 854,
+          "column": 2
+        }
+      }
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "483:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "483:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "485:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "880:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "43:43",
+      "kind": "type",
+      "reason": "closure-targets",
+      "types": [
+        "function"
+      ]
+    },
+    {
+      "location": "45:25",
+      "kind": "type",
+      "reason": "closure-targets",
+      "types": [
+        "function"
+      ]
+    },
+    {
+      "location": "73:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "74:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "100:31",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "101:10",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "100:35",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "101:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "104:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "105:10",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "104:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "105:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "108:32",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "109:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "147:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "148:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "174:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "175:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "175:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "176:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "176:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "181:10",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "206:26",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "208:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "287:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "288:46",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "305:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "306:46",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "335:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "337:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "415:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "416:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "415:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "416:56",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "429:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "430:10",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "495:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "496:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "495:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "496:56",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "508:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "509:50",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "582:46",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "584:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "584:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "585:10",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "586:5",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "586:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "601:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "604:46",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "608:11",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "609:11",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "689:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "690:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "706:51",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "707:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "714:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "715:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "722:11",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "723:11",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "720:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "723:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "732:57",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "733:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "734:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "735:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "733:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "737:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "769:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "770:5",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "793:7",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "799:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "793:34",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "806:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "793:20",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "807:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "800:30",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "829:7",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "840:10",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "829:19",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "841:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "856:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "857:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "869:5",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "47:27",
+      "kind": "type",
+      "reason": "closure-targets",
+      "types": [
+        "function"
+      ]
+    },
+    {
+      "location": "55:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "75:26",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "109:26",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "109:32",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "109:37",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "156:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "170:7",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "177:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "178:8",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "179:5",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "180:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "185:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "417:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "417:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "418:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "430:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "430:38",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "497:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "497:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "498:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "610:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "648:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "648:36",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "649:26",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "650:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "651:38",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "665:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "665:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "667:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "694:5",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "695:36",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "708:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "709:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "712:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "716:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "717:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "718:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "720:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "721:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "722:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "723:34",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "724:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "725:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "734:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "736:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "737:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "738:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "756:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "810:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "812:5",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "814:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "815:7",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "841:26",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "842:10",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "843:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "843:23",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "847:7",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "852:7",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "860:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "862:5",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "880:1",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    }
+  ]
+}

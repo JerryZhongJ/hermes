@@ -1,0 +1,6644 @@
+{
+  "static shapes": {
+    "Shape1": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        }
+      ]
+    },
+    "Shape2": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addIdleTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 120,
+              "column": 35
+            },
+            "end": {
+              "line": 122,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape3": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addIdleTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 120,
+              "column": 35
+            },
+            "end": {
+              "line": 122,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addWorkerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 130,
+              "column": 37
+            },
+            "end": {
+              "line": 132,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape4": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addIdleTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 120,
+              "column": 35
+            },
+            "end": {
+              "line": 122,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addWorkerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 130,
+              "column": 37
+            },
+            "end": {
+              "line": 132,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addHandlerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 140,
+              "column": 38
+            },
+            "end": {
+              "line": 142,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape5": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addIdleTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 120,
+              "column": 35
+            },
+            "end": {
+              "line": 122,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addWorkerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 130,
+              "column": 37
+            },
+            "end": {
+              "line": 132,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addHandlerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 140,
+              "column": 38
+            },
+            "end": {
+              "line": 142,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addDeviceTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 150,
+              "column": 37
+            },
+            "end": {
+              "line": 152,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape6": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addIdleTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 120,
+              "column": 35
+            },
+            "end": {
+              "line": 122,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addWorkerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 130,
+              "column": 37
+            },
+            "end": {
+              "line": 132,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addHandlerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 140,
+              "column": 38
+            },
+            "end": {
+              "line": 142,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addDeviceTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 150,
+              "column": 37
+            },
+            "end": {
+              "line": 152,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addRunningTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 161,
+              "column": 38
+            },
+            "end": {
+              "line": 164,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape7": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addIdleTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 120,
+              "column": 35
+            },
+            "end": {
+              "line": 122,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addWorkerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 130,
+              "column": 37
+            },
+            "end": {
+              "line": 132,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addHandlerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 140,
+              "column": 38
+            },
+            "end": {
+              "line": 142,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addDeviceTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 150,
+              "column": 37
+            },
+            "end": {
+              "line": 152,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addRunningTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 161,
+              "column": 38
+            },
+            "end": {
+              "line": 164,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 173,
+              "column": 31
+            },
+            "end": {
+              "line": 177,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape8": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addIdleTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 120,
+              "column": 35
+            },
+            "end": {
+              "line": 122,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addWorkerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 130,
+              "column": 37
+            },
+            "end": {
+              "line": 132,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addHandlerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 140,
+              "column": 38
+            },
+            "end": {
+              "line": 142,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addDeviceTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 150,
+              "column": 37
+            },
+            "end": {
+              "line": 152,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addRunningTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 161,
+              "column": 38
+            },
+            "end": {
+              "line": 164,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 173,
+              "column": 31
+            },
+            "end": {
+              "line": 177,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "schedule",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 182,
+              "column": 32
+            },
+            "end": {
+              "line": 192,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape9": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addIdleTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 120,
+              "column": 35
+            },
+            "end": {
+              "line": 122,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addWorkerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 130,
+              "column": 37
+            },
+            "end": {
+              "line": 132,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addHandlerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 140,
+              "column": 38
+            },
+            "end": {
+              "line": 142,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addDeviceTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 150,
+              "column": 37
+            },
+            "end": {
+              "line": 152,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addRunningTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 161,
+              "column": 38
+            },
+            "end": {
+              "line": 164,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 173,
+              "column": 31
+            },
+            "end": {
+              "line": 177,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "schedule",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 182,
+              "column": 32
+            },
+            "end": {
+              "line": 192,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "release",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 198,
+              "column": 31
+            },
+            "end": {
+              "line": 207,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape10": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addIdleTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 120,
+              "column": 35
+            },
+            "end": {
+              "line": 122,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addWorkerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 130,
+              "column": 37
+            },
+            "end": {
+              "line": 132,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addHandlerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 140,
+              "column": 38
+            },
+            "end": {
+              "line": 142,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addDeviceTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 150,
+              "column": 37
+            },
+            "end": {
+              "line": 152,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addRunningTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 161,
+              "column": 38
+            },
+            "end": {
+              "line": 164,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 173,
+              "column": 31
+            },
+            "end": {
+              "line": 177,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "schedule",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 182,
+              "column": 32
+            },
+            "end": {
+              "line": 192,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "release",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 198,
+              "column": 31
+            },
+            "end": {
+              "line": 207,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "holdCurrent",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 214,
+              "column": 35
+            },
+            "end": {
+              "line": 218,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape11": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addIdleTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 120,
+              "column": 35
+            },
+            "end": {
+              "line": 122,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addWorkerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 130,
+              "column": 37
+            },
+            "end": {
+              "line": 132,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addHandlerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 140,
+              "column": 38
+            },
+            "end": {
+              "line": 142,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addDeviceTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 150,
+              "column": 37
+            },
+            "end": {
+              "line": 152,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addRunningTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 161,
+              "column": 38
+            },
+            "end": {
+              "line": 164,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 173,
+              "column": 31
+            },
+            "end": {
+              "line": 177,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "schedule",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 182,
+              "column": 32
+            },
+            "end": {
+              "line": 192,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "release",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 198,
+              "column": 31
+            },
+            "end": {
+              "line": 207,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "holdCurrent",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 214,
+              "column": 35
+            },
+            "end": {
+              "line": 218,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "suspendCurrent",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 224,
+              "column": 38
+            },
+            "end": {
+              "line": 227,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape12": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addIdleTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 120,
+              "column": 35
+            },
+            "end": {
+              "line": 122,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addWorkerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 130,
+              "column": 37
+            },
+            "end": {
+              "line": 132,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addHandlerTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 140,
+              "column": 38
+            },
+            "end": {
+              "line": 142,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addDeviceTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 150,
+              "column": 37
+            },
+            "end": {
+              "line": 152,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addRunningTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 161,
+              "column": 38
+            },
+            "end": {
+              "line": 164,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "addTask",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 173,
+              "column": 31
+            },
+            "end": {
+              "line": 177,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "schedule",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 182,
+              "column": 32
+            },
+            "end": {
+              "line": 192,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "release",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 198,
+              "column": 31
+            },
+            "end": {
+              "line": 207,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "holdCurrent",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 214,
+              "column": 35
+            },
+            "end": {
+              "line": 218,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "suspendCurrent",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 224,
+              "column": 38
+            },
+            "end": {
+              "line": 227,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "queue",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 235,
+              "column": 29
+            },
+            "end": {
+              "line": 242,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape13": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        }
+      ]
+    },
+    "Shape14": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "setRunning",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 291,
+              "column": 41
+            },
+            "end": {
+              "line": 293,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape15": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "setRunning",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 291,
+              "column": 41
+            },
+            "end": {
+              "line": 293,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsNotHeld",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 295,
+              "column": 44
+            },
+            "end": {
+              "line": 297,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape16": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "setRunning",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 291,
+              "column": 41
+            },
+            "end": {
+              "line": 293,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsNotHeld",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 295,
+              "column": 44
+            },
+            "end": {
+              "line": 297,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsHeld",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 299,
+              "column": 41
+            },
+            "end": {
+              "line": 301,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape17": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "setRunning",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 291,
+              "column": 41
+            },
+            "end": {
+              "line": 293,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsNotHeld",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 295,
+              "column": 44
+            },
+            "end": {
+              "line": 297,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsHeld",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 299,
+              "column": 41
+            },
+            "end": {
+              "line": 301,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "isHeldOrSuspended",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 303,
+              "column": 48
+            },
+            "end": {
+              "line": 305,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape18": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "setRunning",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 291,
+              "column": 41
+            },
+            "end": {
+              "line": 293,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsNotHeld",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 295,
+              "column": 44
+            },
+            "end": {
+              "line": 297,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsHeld",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 299,
+              "column": 41
+            },
+            "end": {
+              "line": 301,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "isHeldOrSuspended",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 303,
+              "column": 48
+            },
+            "end": {
+              "line": 305,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsSuspended",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 307,
+              "column": 46
+            },
+            "end": {
+              "line": 309,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape19": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "setRunning",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 291,
+              "column": 41
+            },
+            "end": {
+              "line": 293,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsNotHeld",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 295,
+              "column": 44
+            },
+            "end": {
+              "line": 297,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsHeld",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 299,
+              "column": 41
+            },
+            "end": {
+              "line": 301,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "isHeldOrSuspended",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 303,
+              "column": 48
+            },
+            "end": {
+              "line": 305,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsSuspended",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 307,
+              "column": 46
+            },
+            "end": {
+              "line": 309,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsRunnable",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 311,
+              "column": 45
+            },
+            "end": {
+              "line": 313,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape20": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "setRunning",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 291,
+              "column": 41
+            },
+            "end": {
+              "line": 293,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsNotHeld",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 295,
+              "column": 44
+            },
+            "end": {
+              "line": 297,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsHeld",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 299,
+              "column": 41
+            },
+            "end": {
+              "line": 301,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "isHeldOrSuspended",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 303,
+              "column": 48
+            },
+            "end": {
+              "line": 305,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsSuspended",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 307,
+              "column": 46
+            },
+            "end": {
+              "line": 309,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsRunnable",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 311,
+              "column": 45
+            },
+            "end": {
+              "line": 313,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "run",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 318,
+              "column": 34
+            },
+            "end": {
+              "line": 332,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape21": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "setRunning",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 291,
+              "column": 41
+            },
+            "end": {
+              "line": 293,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsNotHeld",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 295,
+              "column": 44
+            },
+            "end": {
+              "line": 297,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsHeld",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 299,
+              "column": 41
+            },
+            "end": {
+              "line": 301,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "isHeldOrSuspended",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 303,
+              "column": 48
+            },
+            "end": {
+              "line": 305,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsSuspended",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 307,
+              "column": 46
+            },
+            "end": {
+              "line": 309,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsRunnable",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 311,
+              "column": 45
+            },
+            "end": {
+              "line": 313,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "run",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 318,
+              "column": 34
+            },
+            "end": {
+              "line": 332,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "checkPriorityAdd",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 339,
+              "column": 47
+            },
+            "end": {
+              "line": 348,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape22": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "setRunning",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 291,
+              "column": 41
+            },
+            "end": {
+              "line": 293,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsNotHeld",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 295,
+              "column": 44
+            },
+            "end": {
+              "line": 297,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsHeld",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 299,
+              "column": 41
+            },
+            "end": {
+              "line": 301,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "isHeldOrSuspended",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 303,
+              "column": 48
+            },
+            "end": {
+              "line": 305,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsSuspended",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 307,
+              "column": 46
+            },
+            "end": {
+              "line": 309,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "markAsRunnable",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 311,
+              "column": 45
+            },
+            "end": {
+              "line": 313,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "run",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 318,
+              "column": 34
+            },
+            "end": {
+              "line": 332,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "checkPriorityAdd",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 339,
+              "column": 47
+            },
+            "end": {
+              "line": 348,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 350,
+              "column": 39
+            },
+            "end": {
+              "line": 352,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape23": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        }
+      ]
+    },
+    "Shape24": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "run",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 368,
+              "column": 26
+            },
+            "end": {
+              "line": 378,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape25": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "run",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 368,
+              "column": 26
+            },
+            "end": {
+              "line": 378,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 380,
+              "column": 31
+            },
+            "end": {
+              "line": 382,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape26": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        }
+      ]
+    },
+    "Shape27": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "run",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 395,
+              "column": 28
+            },
+            "end": {
+              "line": 405,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape28": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "run",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 395,
+              "column": 28
+            },
+            "end": {
+              "line": 405,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 407,
+              "column": 33
+            },
+            "end": {
+              "line": 409,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape29": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        }
+      ]
+    },
+    "Shape30": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "run",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 424,
+              "column": 28
+            },
+            "end": {
+              "line": 442,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape31": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "run",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 424,
+              "column": 28
+            },
+            "end": {
+              "line": 442,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 444,
+              "column": 33
+            },
+            "end": {
+              "line": 446,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape32": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        }
+      ]
+    },
+    "Shape33": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "run",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 459,
+              "column": 29
+            },
+            "end": {
+              "line": 485,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape34": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "run",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 459,
+              "column": 29
+            },
+            "end": {
+              "line": 485,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 487,
+              "column": 34
+            },
+            "end": {
+              "line": 489,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape35": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        }
+      ]
+    },
+    "Shape36": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addTo",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 521,
+              "column": 26
+            },
+            "end": {
+              "line": 529,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Shape37": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "addTo",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 521,
+              "column": 26
+            },
+            "end": {
+              "line": 529,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "file": "v8-richards.js",
+            "start": {
+              "line": 531,
+              "column": 29
+            },
+            "end": {
+              "line": 533,
+              "column": 2
+            }
+          }
+        }
+      ]
+    }
+  },
+  "shape bindings": [],
+  "shape guards": [
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 120,
+          "column": 1
+        },
+        "end": {
+          "line": 120,
+          "column": 20
+        }
+      },
+      "shape": "Shape1"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 130,
+          "column": 1
+        },
+        "end": {
+          "line": 130,
+          "column": 20
+        }
+      },
+      "shape": "Shape2"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 140,
+          "column": 1
+        },
+        "end": {
+          "line": 140,
+          "column": 20
+        }
+      },
+      "shape": "Shape3"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 150,
+          "column": 1
+        },
+        "end": {
+          "line": 150,
+          "column": 20
+        }
+      },
+      "shape": "Shape4"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 161,
+          "column": 1
+        },
+        "end": {
+          "line": 161,
+          "column": 20
+        }
+      },
+      "shape": "Shape5"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 173,
+          "column": 1
+        },
+        "end": {
+          "line": 173,
+          "column": 20
+        }
+      },
+      "shape": "Shape6"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 182,
+          "column": 1
+        },
+        "end": {
+          "line": 182,
+          "column": 20
+        }
+      },
+      "shape": "Shape7"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 198,
+          "column": 1
+        },
+        "end": {
+          "line": 198,
+          "column": 20
+        }
+      },
+      "shape": "Shape8"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 214,
+          "column": 1
+        },
+        "end": {
+          "line": 214,
+          "column": 20
+        }
+      },
+      "shape": "Shape9"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 224,
+          "column": 1
+        },
+        "end": {
+          "line": 224,
+          "column": 20
+        }
+      },
+      "shape": "Shape10"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 235,
+          "column": 1
+        },
+        "end": {
+          "line": 235,
+          "column": 20
+        }
+      },
+      "shape": "Shape11"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 291,
+          "column": 1
+        },
+        "end": {
+          "line": 291,
+          "column": 27
+        }
+      },
+      "shape": "Shape13"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 295,
+          "column": 1
+        },
+        "end": {
+          "line": 295,
+          "column": 27
+        }
+      },
+      "shape": "Shape14"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 299,
+          "column": 1
+        },
+        "end": {
+          "line": 299,
+          "column": 27
+        }
+      },
+      "shape": "Shape15"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 303,
+          "column": 1
+        },
+        "end": {
+          "line": 303,
+          "column": 27
+        }
+      },
+      "shape": "Shape16"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 307,
+          "column": 1
+        },
+        "end": {
+          "line": 307,
+          "column": 27
+        }
+      },
+      "shape": "Shape17"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 311,
+          "column": 1
+        },
+        "end": {
+          "line": 311,
+          "column": 27
+        }
+      },
+      "shape": "Shape18"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 318,
+          "column": 1
+        },
+        "end": {
+          "line": 318,
+          "column": 27
+        }
+      },
+      "shape": "Shape19"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 339,
+          "column": 1
+        },
+        "end": {
+          "line": 339,
+          "column": 27
+        }
+      },
+      "shape": "Shape20"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 350,
+          "column": 1
+        },
+        "end": {
+          "line": 350,
+          "column": 27
+        }
+      },
+      "shape": "Shape21"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 368,
+          "column": 1
+        },
+        "end": {
+          "line": 368,
+          "column": 19
+        }
+      },
+      "shape": "Shape23"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 380,
+          "column": 1
+        },
+        "end": {
+          "line": 380,
+          "column": 19
+        }
+      },
+      "shape": "Shape24"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 395,
+          "column": 1
+        },
+        "end": {
+          "line": 395,
+          "column": 21
+        }
+      },
+      "shape": "Shape26"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 407,
+          "column": 1
+        },
+        "end": {
+          "line": 407,
+          "column": 21
+        }
+      },
+      "shape": "Shape27"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 424,
+          "column": 1
+        },
+        "end": {
+          "line": 424,
+          "column": 21
+        }
+      },
+      "shape": "Shape29"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 444,
+          "column": 1
+        },
+        "end": {
+          "line": 444,
+          "column": 21
+        }
+      },
+      "shape": "Shape30"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 459,
+          "column": 1
+        },
+        "end": {
+          "line": 459,
+          "column": 22
+        }
+      },
+      "shape": "Shape32"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 487,
+          "column": 1
+        },
+        "end": {
+          "line": 487,
+          "column": 22
+        }
+      },
+      "shape": "Shape33"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 521,
+          "column": 1
+        },
+        "end": {
+          "line": 521,
+          "column": 17
+        }
+      },
+      "shape": "Shape35"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 531,
+          "column": 1
+        },
+        "end": {
+          "line": 531,
+          "column": 17
+        }
+      },
+      "shape": "Shape36"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 64,
+          "column": 7
+        },
+        "end": {
+          "line": 64,
+          "column": 51
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 64,
+          "column": 55
+        },
+        "end": {
+          "line": 64,
+          "column": 97
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 66,
+          "column": 7
+        },
+        "end": {
+          "line": 68,
+          "column": 23
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 66,
+          "column": 7
+        },
+        "end": {
+          "line": 70,
+          "column": 10
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 288,
+          "column": 32
+        },
+        "end": {
+          "line": 288,
+          "column": 64
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 289,
+          "column": 22
+        },
+        "end": {
+          "line": 289,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 304,
+          "column": 10
+        },
+        "end": {
+          "line": 304,
+          "column": 40
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 304,
+          "column": 44
+        },
+        "end": {
+          "line": 304,
+          "column": 73
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 435,
+          "column": 36
+        },
+        "end": {
+          "line": 435,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 435,
+          "column": 36
+        },
+        "end": {
+          "line": 435,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 536,
+          "column": 26
+        },
+        "end": {
+          "line": 536,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 536,
+          "column": 28
+        },
+        "end": {
+          "line": 536,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 536,
+          "column": 10
+        },
+        "end": {
+          "line": 536,
+          "column": 11
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 536,
+          "column": 17
+        },
+        "end": {
+          "line": 536,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 536,
+          "column": 28
+        },
+        "end": {
+          "line": 536,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 40,
+          "column": 10
+        },
+        "end": {
+          "line": 40,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 73,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 536,
+          "column": 31
+        },
+        "end": {
+          "line": 536,
+          "column": 42
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 73,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 65,
+          "column": 9
+        },
+        "end": {
+          "line": 65,
+          "column": 12
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 71,
+          "column": 21
+        },
+        "end": {
+          "line": 71,
+          "column": 24
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 120,
+          "column": 45
+        },
+        "end": {
+          "line": 120,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 121,
+          "column": 23
+        },
+        "end": {
+          "line": 121,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 120,
+          "column": 49
+        },
+        "end": {
+          "line": 120,
+          "column": 57
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 121,
+          "column": 27
+        },
+        "end": {
+          "line": 121,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 120,
+          "column": 66
+        },
+        "end": {
+          "line": 120,
+          "column": 71
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 121,
+          "column": 66
+        },
+        "end": {
+          "line": 121,
+          "column": 71
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 130,
+          "column": 47
+        },
+        "end": {
+          "line": 130,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 131,
+          "column": 16
+        },
+        "end": {
+          "line": 131,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 130,
+          "column": 51
+        },
+        "end": {
+          "line": 130,
+          "column": 59
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 131,
+          "column": 20
+        },
+        "end": {
+          "line": 131,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 140,
+          "column": 48
+        },
+        "end": {
+          "line": 140,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 141,
+          "column": 16
+        },
+        "end": {
+          "line": 141,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 140,
+          "column": 52
+        },
+        "end": {
+          "line": 140,
+          "column": 60
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 141,
+          "column": 20
+        },
+        "end": {
+          "line": 141,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 150,
+          "column": 47
+        },
+        "end": {
+          "line": 150,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 151,
+          "column": 16
+        },
+        "end": {
+          "line": 151,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 150,
+          "column": 51
+        },
+        "end": {
+          "line": 150,
+          "column": 59
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 151,
+          "column": 20
+        },
+        "end": {
+          "line": 151,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 161,
+          "column": 48
+        },
+        "end": {
+          "line": 161,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 162,
+          "column": 16
+        },
+        "end": {
+          "line": 162,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 161,
+          "column": 52
+        },
+        "end": {
+          "line": 161,
+          "column": 60
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 162,
+          "column": 20
+        },
+        "end": {
+          "line": 162,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 173,
+          "column": 41
+        },
+        "end": {
+          "line": 173,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 174,
+          "column": 53
+        },
+        "end": {
+          "line": 174,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 173,
+          "column": 45
+        },
+        "end": {
+          "line": 173,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 174,
+          "column": 57
+        },
+        "end": {
+          "line": 174,
+          "column": 65
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 198,
+          "column": 41
+        },
+        "end": {
+          "line": 198,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 199,
+          "column": 25
+        },
+        "end": {
+          "line": 199,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 254,
+          "column": 33
+        },
+        "end": {
+          "line": 254,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 256,
+          "column": 13
+        },
+        "end": {
+          "line": 256,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 254,
+          "column": 37
+        },
+        "end": {
+          "line": 254,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 257,
+          "column": 19
+        },
+        "end": {
+          "line": 257,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 362,
+          "column": 30
+        },
+        "end": {
+          "line": 362,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 364,
+          "column": 13
+        },
+        "end": {
+          "line": 364,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 362,
+          "column": 34
+        },
+        "end": {
+          "line": 362,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 365,
+          "column": 16
+        },
+        "end": {
+          "line": 365,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 418,
+          "column": 32
+        },
+        "end": {
+          "line": 418,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 420,
+          "column": 13
+        },
+        "end": {
+          "line": 420,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 418,
+          "column": 36
+        },
+        "end": {
+          "line": 418,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 421,
+          "column": 13
+        },
+        "end": {
+          "line": 421,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 435,
+          "column": 14
+        },
+        "end": {
+          "line": 435,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 435,
+          "column": 21
+        },
+        "end": {
+          "line": 435,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 435,
+          "column": 36
+        },
+        "end": {
+          "line": 435,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 509,
+          "column": 23
+        },
+        "end": {
+          "line": 509,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 511,
+          "column": 13
+        },
+        "end": {
+          "line": 511,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 509,
+          "column": 27
+        },
+        "end": {
+          "line": 509,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 512,
+          "column": 15
+        },
+        "end": {
+          "line": 512,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 93,
+          "column": 10
+        },
+        "end": {
+          "line": 93,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 100,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 102,
+          "column": 5
+        },
+        "end": {
+          "line": 102,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 75,
+          "column": 5
+        },
+        "end": {
+          "line": 75,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 509,
+          "column": 10
+        },
+        "end": {
+          "line": 509,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 509,
+          "column": 1
+        },
+        "end": {
+          "line": 515,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 103,
+          "column": 5
+        },
+        "end": {
+          "line": 103,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 111,
+          "column": 5
+        },
+        "end": {
+          "line": 111,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 106,
+          "column": 5
+        },
+        "end": {
+          "line": 106,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 110,
+          "column": 5
+        },
+        "end": {
+          "line": 110,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 104,
+          "column": 5
+        },
+        "end": {
+          "line": 104,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 107,
+          "column": 5
+        },
+        "end": {
+          "line": 107,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 105,
+          "column": 5
+        },
+        "end": {
+          "line": 105,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 84,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 85,
+          "column": 5
+        },
+        "end": {
+          "line": 85,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 108,
+          "column": 5
+        },
+        "end": {
+          "line": 108,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 362,
+          "column": 10
+        },
+        "end": {
+          "line": 362,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 362,
+          "column": 1
+        },
+        "end": {
+          "line": 366,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 418,
+          "column": 10
+        },
+        "end": {
+          "line": 418,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 418,
+          "column": 1
+        },
+        "end": {
+          "line": 422,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 453,
+          "column": 10
+        },
+        "end": {
+          "line": 453,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 453,
+          "column": 1
+        },
+        "end": {
+          "line": 457,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 390,
+          "column": 10
+        },
+        "end": {
+          "line": 390,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 390,
+          "column": 1
+        },
+        "end": {
+          "line": 393,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 254,
+          "column": 10
+        },
+        "end": {
+          "line": 254,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 254,
+          "column": 1
+        },
+        "end": {
+          "line": 265,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 281,
+          "column": 5
+        },
+        "end": {
+          "line": 281,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 288,
+          "column": 5
+        },
+        "end": {
+          "line": 288,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 270,
+          "column": 5
+        },
+        "end": {
+          "line": 270,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 275,
+          "column": 5
+        },
+        "end": {
+          "line": 275,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 286,
+          "column": 5
+        },
+        "end": {
+          "line": 286,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 289,
+          "column": 5
+        },
+        "end": {
+          "line": 289,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 495,
+          "column": 5
+        },
+        "end": {
+          "line": 495,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 41,
+          "column": 23
+        },
+        "end": {
+          "line": 41,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 100,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 42,
+          "column": 25
+        },
+        "end": {
+          "line": 42,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 42,
+          "column": 43
+        },
+        "end": {
+          "line": 42,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 44,
+          "column": 19
+        },
+        "end": {
+          "line": 44,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 509,
+          "column": 1
+        },
+        "end": {
+          "line": 515,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 44,
+          "column": 32
+        },
+        "end": {
+          "line": 44,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 44,
+          "column": 43
+        },
+        "end": {
+          "line": 44,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 45,
+          "column": 15
+        },
+        "end": {
+          "line": 45,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 509,
+          "column": 1
+        },
+        "end": {
+          "line": 515,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 45,
+          "column": 29
+        },
+        "end": {
+          "line": 45,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 45,
+          "column": 40
+        },
+        "end": {
+          "line": 45,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 46,
+          "column": 27
+        },
+        "end": {
+          "line": 46,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 48,
+          "column": 15
+        },
+        "end": {
+          "line": 48,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 509,
+          "column": 1
+        },
+        "end": {
+          "line": 515,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 48,
+          "column": 28
+        },
+        "end": {
+          "line": 48,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 48,
+          "column": 41
+        },
+        "end": {
+          "line": 48,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 49,
+          "column": 15
+        },
+        "end": {
+          "line": 49,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 509,
+          "column": 1
+        },
+        "end": {
+          "line": 515,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 49,
+          "column": 29
+        },
+        "end": {
+          "line": 49,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 49,
+          "column": 42
+        },
+        "end": {
+          "line": 49,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 50,
+          "column": 15
+        },
+        "end": {
+          "line": 50,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 509,
+          "column": 1
+        },
+        "end": {
+          "line": 515,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 50,
+          "column": 29
+        },
+        "end": {
+          "line": 50,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 50,
+          "column": 42
+        },
+        "end": {
+          "line": 50,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 51,
+          "column": 28
+        },
+        "end": {
+          "line": 51,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 53,
+          "column": 15
+        },
+        "end": {
+          "line": 53,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 509,
+          "column": 1
+        },
+        "end": {
+          "line": 515,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 53,
+          "column": 28
+        },
+        "end": {
+          "line": 53,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 53,
+          "column": 41
+        },
+        "end": {
+          "line": 53,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 54,
+          "column": 15
+        },
+        "end": {
+          "line": 54,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 509,
+          "column": 1
+        },
+        "end": {
+          "line": 515,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 54,
+          "column": 29
+        },
+        "end": {
+          "line": 54,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 54,
+          "column": 42
+        },
+        "end": {
+          "line": 54,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 55,
+          "column": 15
+        },
+        "end": {
+          "line": 55,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 509,
+          "column": 1
+        },
+        "end": {
+          "line": 515,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 55,
+          "column": 29
+        },
+        "end": {
+          "line": 55,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 55,
+          "column": 42
+        },
+        "end": {
+          "line": 55,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 56,
+          "column": 28
+        },
+        "end": {
+          "line": 56,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 58,
+          "column": 27
+        },
+        "end": {
+          "line": 58,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 60,
+          "column": 27
+        },
+        "end": {
+          "line": 60,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 96,
+          "column": 27
+        },
+        "end": {
+          "line": 96,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 120,
+          "column": 1
+        },
+        "end": {
+          "line": 120,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 100,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 121,
+          "column": 48
+        },
+        "end": {
+          "line": 121,
+          "column": 56
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 362,
+          "column": 1
+        },
+        "end": {
+          "line": 366,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 130,
+          "column": 1
+        },
+        "end": {
+          "line": 130,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 100,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 131,
+          "column": 41
+        },
+        "end": {
+          "line": 131,
+          "column": 51
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 418,
+          "column": 1
+        },
+        "end": {
+          "line": 422,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 131,
+          "column": 58
+        },
+        "end": {
+          "line": 131,
+          "column": 70
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 140,
+          "column": 1
+        },
+        "end": {
+          "line": 140,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 100,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 141,
+          "column": 41
+        },
+        "end": {
+          "line": 141,
+          "column": 52
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 453,
+          "column": 1
+        },
+        "end": {
+          "line": 457,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 150,
+          "column": 1
+        },
+        "end": {
+          "line": 150,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 100,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 151,
+          "column": 41
+        },
+        "end": {
+          "line": 151,
+          "column": 51
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 390,
+          "column": 1
+        },
+        "end": {
+          "line": 393,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 161,
+          "column": 1
+        },
+        "end": {
+          "line": 161,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 100,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 173,
+          "column": 1
+        },
+        "end": {
+          "line": 173,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 100,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 174,
+          "column": 25
+        },
+        "end": {
+          "line": 174,
+          "column": 41
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 254,
+          "column": 1
+        },
+        "end": {
+          "line": 265,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 182,
+          "column": 1
+        },
+        "end": {
+          "line": 182,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 100,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 198,
+          "column": 1
+        },
+        "end": {
+          "line": 198,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 100,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 214,
+          "column": 1
+        },
+        "end": {
+          "line": 214,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 100,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 224,
+          "column": 1
+        },
+        "end": {
+          "line": 224,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 100,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 235,
+          "column": 1
+        },
+        "end": {
+          "line": 235,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 100,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 261,
+          "column": 18
+        },
+        "end": {
+          "line": 261,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 263,
+          "column": 18
+        },
+        "end": {
+          "line": 263,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 288,
+          "column": 32
+        },
+        "end": {
+          "line": 288,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 288,
+          "column": 50
+        },
+        "end": {
+          "line": 288,
+          "column": 64
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 289,
+          "column": 23
+        },
+        "end": {
+          "line": 289,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 291,
+          "column": 1
+        },
+        "end": {
+          "line": 291,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 254,
+          "column": 1
+        },
+        "end": {
+          "line": 265,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 292,
+          "column": 16
+        },
+        "end": {
+          "line": 292,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 295,
+          "column": 1
+        },
+        "end": {
+          "line": 295,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 254,
+          "column": 1
+        },
+        "end": {
+          "line": 265,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 296,
+          "column": 29
+        },
+        "end": {
+          "line": 296,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 299,
+          "column": 1
+        },
+        "end": {
+          "line": 299,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 254,
+          "column": 1
+        },
+        "end": {
+          "line": 265,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 300,
+          "column": 29
+        },
+        "end": {
+          "line": 300,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 303,
+          "column": 1
+        },
+        "end": {
+          "line": 303,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 254,
+          "column": 1
+        },
+        "end": {
+          "line": 265,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 304,
+          "column": 24
+        },
+        "end": {
+          "line": 304,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 307,
+          "column": 1
+        },
+        "end": {
+          "line": 307,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 254,
+          "column": 1
+        },
+        "end": {
+          "line": 265,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 308,
+          "column": 29
+        },
+        "end": {
+          "line": 308,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 311,
+          "column": 1
+        },
+        "end": {
+          "line": 311,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 254,
+          "column": 1
+        },
+        "end": {
+          "line": 265,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 312,
+          "column": 29
+        },
+        "end": {
+          "line": 312,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 318,
+          "column": 1
+        },
+        "end": {
+          "line": 318,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 254,
+          "column": 1
+        },
+        "end": {
+          "line": 265,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 324,
+          "column": 20
+        },
+        "end": {
+          "line": 324,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 326,
+          "column": 20
+        },
+        "end": {
+          "line": 326,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 339,
+          "column": 1
+        },
+        "end": {
+          "line": 339,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 254,
+          "column": 1
+        },
+        "end": {
+          "line": 265,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 350,
+          "column": 1
+        },
+        "end": {
+          "line": 350,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 254,
+          "column": 1
+        },
+        "end": {
+          "line": 265,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 368,
+          "column": 1
+        },
+        "end": {
+          "line": 368,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 362,
+          "column": 1
+        },
+        "end": {
+          "line": 366,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 373,
+          "column": 35
+        },
+        "end": {
+          "line": 373,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 376,
+          "column": 35
+        },
+        "end": {
+          "line": 376,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 380,
+          "column": 1
+        },
+        "end": {
+          "line": 380,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 362,
+          "column": 1
+        },
+        "end": {
+          "line": 366,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 395,
+          "column": 1
+        },
+        "end": {
+          "line": 395,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 390,
+          "column": 1
+        },
+        "end": {
+          "line": 393,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 407,
+          "column": 1
+        },
+        "end": {
+          "line": 407,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 390,
+          "column": 1
+        },
+        "end": {
+          "line": 393,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 424,
+          "column": 1
+        },
+        "end": {
+          "line": 424,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 418,
+          "column": 1
+        },
+        "end": {
+          "line": 422,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 429,
+          "column": 17
+        },
+        "end": {
+          "line": 429,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 431,
+          "column": 17
+        },
+        "end": {
+          "line": 431,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 444,
+          "column": 1
+        },
+        "end": {
+          "line": 444,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 418,
+          "column": 1
+        },
+        "end": {
+          "line": 422,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 459,
+          "column": 1
+        },
+        "end": {
+          "line": 459,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 453,
+          "column": 1
+        },
+        "end": {
+          "line": 457,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 487,
+          "column": 1
+        },
+        "end": {
+          "line": 487,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 453,
+          "column": 1
+        },
+        "end": {
+          "line": 457,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 514,
+          "column": 23
+        },
+        "end": {
+          "line": 514,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 521,
+          "column": 1
+        },
+        "end": {
+          "line": 521,
+          "column": 7
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 509,
+          "column": 1
+        },
+        "end": {
+          "line": 515,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 531,
+          "column": 1
+        },
+        "end": {
+          "line": 531,
+          "column": 7
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-richards.js",
+        "start": {
+          "line": 509,
+          "column": 1
+        },
+        "end": {
+          "line": 515,
+          "column": 2
+        }
+      }
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "69:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "69:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "216:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "216:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "239:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "239:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "297:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "301:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "305:11",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "309:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "313:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "370:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "370:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "372:8",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "373:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "376:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "437:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "437:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "476:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "540:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "121:59",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "122:37",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "151:61",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "152:30",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "162:62",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "163:30",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "174:55",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "175:67",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "200:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "201:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "201:27",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "202:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "236:39",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "237:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "237:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "238:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "238:25",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "242:10",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "255:47",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "259:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "322:5",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "323:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "330:5",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "332:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "340:63",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "342:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "340:57",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "344:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "396:38",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "397:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "403:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "399:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "401:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "425:38",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "426:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "434:5",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "460:39",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "461:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "462:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "469:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "471:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "480:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "482:35",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "473:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "475:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "510:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "511:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "524:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "525:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "526:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "527:5",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "526:11",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "527:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "369:36",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "203:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "204:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "240:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "241:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "242:46",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "256:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "346:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "348:10",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "435:5",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "439:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "441:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "463:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "465:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "476:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "477:37",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "525:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "528:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "529:10",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "540:1",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    }
+  ]
+}

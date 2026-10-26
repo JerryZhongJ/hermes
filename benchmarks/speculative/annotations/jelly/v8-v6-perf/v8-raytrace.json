@@ -1,0 +1,8322 @@
+{
+  "static shapes": {
+    "Shape1": {
+      "properties": [
+        {
+          "name": "create",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 27,
+              "column": 11
+            },
+            "end": {
+              "line": 31,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "Shape2": {
+      "properties": []
+    },
+    "Shape3": {
+      "properties": []
+    },
+    "Shape4": {
+      "properties": [
+        {
+          "name": "red",
+          "type": "number"
+        },
+        {
+          "name": "green",
+          "type": "number"
+        },
+        {
+          "name": "blue",
+          "type": "number"
+        },
+        {
+          "name": "initialize",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 74,
+              "column": 15
+            },
+            "end": {
+              "line": 82,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "add",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 84,
+              "column": 8
+            },
+            "end": {
+              "line": 92,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "addScalar",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 94,
+              "column": 14
+            },
+            "end": {
+              "line": 104,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "subtract",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 106,
+              "column": 13
+            },
+            "end": {
+              "line": 114,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "multiply",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 116,
+              "column": 13
+            },
+            "end": {
+              "line": 124,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "multiplyScalar",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 126,
+              "column": 19
+            },
+            "end": {
+              "line": 134,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "divideFactor",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 136,
+              "column": 17
+            },
+            "end": {
+              "line": 144,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "limit",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 146,
+              "column": 10
+            },
+            "end": {
+              "line": 150,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "distance",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 152,
+              "column": 13
+            },
+            "end": {
+              "line": 158,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "blend",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 160,
+              "column": 10
+            },
+            "end": {
+              "line": 167,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "brightness",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 169,
+              "column": 15
+            },
+            "end": {
+              "line": 174,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 176,
+              "column": 13
+            },
+            "end": {
+              "line": 182,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "Shape5": {
+      "properties": []
+    },
+    "Shape6": {
+      "properties": []
+    },
+    "Shape7": {
+      "properties": [
+        {
+          "name": "position"
+        },
+        {
+          "name": "color"
+        },
+        {
+          "name": "intensity",
+          "type": "number"
+        },
+        {
+          "name": "initialize",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 195,
+              "column": 15
+            },
+            "end": {
+              "line": 199,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 201,
+              "column": 13
+            },
+            "end": {
+              "line": 203,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "Shape8": {
+      "properties": []
+    },
+    "Shape9": {
+      "properties": []
+    },
+    "Shape10": {
+      "properties": [
+        {
+          "name": "x",
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "type": "number"
+        },
+        {
+          "name": "z",
+          "type": "number"
+        },
+        {
+          "name": "initialize",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 216,
+              "column": 15
+            },
+            "end": {
+              "line": 220,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "copy",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 222,
+              "column": 9
+            },
+            "end": {
+              "line": 226,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "normalize",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 228,
+              "column": 14
+            },
+            "end": {
+              "line": 231,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "magnitude",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 233,
+              "column": 14
+            },
+            "end": {
+              "line": 235,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "cross",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 237,
+              "column": 10
+            },
+            "end": {
+              "line": 243,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "dot",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 245,
+              "column": 8
+            },
+            "end": {
+              "line": 247,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "add",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 249,
+              "column": 8
+            },
+            "end": {
+              "line": 251,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "subtract",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 253,
+              "column": 13
+            },
+            "end": {
+              "line": 256,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "multiplyVector",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 258,
+              "column": 19
+            },
+            "end": {
+              "line": 260,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "multiplyScalar",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 262,
+              "column": 19
+            },
+            "end": {
+              "line": 264,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 266,
+              "column": 13
+            },
+            "end": {
+              "line": 268,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "Shape11": {
+      "properties": []
+    },
+    "Shape12": {
+      "properties": []
+    },
+    "Shape13": {
+      "properties": [
+        {
+          "name": "position"
+        },
+        {
+          "name": "direction"
+        },
+        {
+          "name": "initialize",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 279,
+              "column": 15
+            },
+            "end": {
+              "line": 282,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 284,
+              "column": 13
+            },
+            "end": {
+              "line": 286,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "Shape14": {
+      "properties": []
+    },
+    "Shape15": {
+      "properties": []
+    },
+    "Shape16": {
+      "properties": [
+        {
+          "name": "camera"
+        },
+        {
+          "name": "shapes",
+          "type": "any"
+        },
+        {
+          "name": "lights",
+          "type": "any"
+        },
+        {
+          "name": "background"
+        },
+        {
+          "name": "initialize",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 300,
+              "column": 15
+            },
+            "end": {
+              "line": 309,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "Shape17": {
+      "properties": []
+    },
+    "Shape18": {
+      "properties": []
+    },
+    "Shape19": {
+      "properties": []
+    },
+    "Shape20": {
+      "properties": [
+        {
+          "name": "gloss",
+          "type": "number"
+        },
+        {
+          "name": "transparency",
+          "type": "number"
+        },
+        {
+          "name": "reflection",
+          "type": "number"
+        },
+        {
+          "name": "refraction",
+          "type": "number"
+        },
+        {
+          "name": "hasTexture",
+          "type": "boolean"
+        },
+        {
+          "name": "initialize",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 325,
+              "column": 15
+            },
+            "end": {
+              "line": 325,
+              "column": 29
+            }
+          }
+        },
+        {
+          "name": "getColor",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 327,
+              "column": 13
+            },
+            "end": {
+              "line": 327,
+              "column": 31
+            }
+          }
+        },
+        {
+          "name": "wrapUp",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 329,
+              "column": 11
+            },
+            "end": {
+              "line": 334,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 336,
+              "column": 13
+            },
+            "end": {
+              "line": 346,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "Shape21": {
+      "properties": []
+    },
+    "Shape22": {
+      "properties": []
+    },
+    "Shape23": {
+      "properties": [
+        {
+          "name": "initialize"
+        },
+        {
+          "name": "getColor"
+        },
+        {
+          "name": "toString"
+        }
+      ]
+    },
+    "Shape24": {
+      "properties": []
+    },
+    "Shape25": {
+      "properties": []
+    },
+    "Shape26": {
+      "properties": [
+        {
+          "name": "colorEven"
+        },
+        {
+          "name": "colorOdd"
+        },
+        {
+          "name": "density"
+        },
+        {
+          "name": "initialize"
+        },
+        {
+          "name": "getColor"
+        },
+        {
+          "name": "toString"
+        }
+      ]
+    },
+    "Shape27": {
+      "properties": []
+    },
+    "Shape28": {
+      "properties": []
+    },
+    "Shape29": {
+      "properties": []
+    },
+    "Shape30": {
+      "properties": [
+        {
+          "name": "initialize",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 433,
+              "column": 15
+            },
+            "end": {
+              "line": 437,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "intersect",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 439,
+              "column": 14
+            },
+            "end": {
+              "line": 466,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 468,
+              "column": 13
+            },
+            "end": {
+              "line": 470,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "Shape31": {
+      "properties": []
+    },
+    "Shape32": {
+      "properties": []
+    },
+    "Shape33": {
+      "properties": []
+    },
+    "Shape34": {
+      "properties": [
+        {
+          "name": "d",
+          "type": "number"
+        },
+        {
+          "name": "initialize",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 482,
+              "column": 15
+            },
+            "end": {
+              "line": 486,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "intersect",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 488,
+              "column": 14
+            },
+            "end": {
+              "line": 517,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 519,
+              "column": 13
+            },
+            "end": {
+              "line": 521,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "Shape35": {
+      "properties": []
+    },
+    "Shape36": {
+      "properties": []
+    },
+    "Shape37": {
+      "properties": [
+        {
+          "name": "isHit",
+          "type": "boolean"
+        },
+        {
+          "name": "hitCount",
+          "type": "number"
+        },
+        {
+          "name": "shape"
+        },
+        {
+          "name": "position"
+        },
+        {
+          "name": "normal"
+        },
+        {
+          "name": "color"
+        },
+        {
+          "name": "distance"
+        },
+        {
+          "name": "initialize",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 538,
+              "column": 15
+            },
+            "end": {
+              "line": 540,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 542,
+              "column": 13
+            },
+            "end": {
+              "line": 544,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "Shape38": {
+      "properties": []
+    },
+    "Shape39": {
+      "properties": []
+    },
+    "Shape40": {
+      "properties": [
+        {
+          "name": "position"
+        },
+        {
+          "name": "lookAt"
+        },
+        {
+          "name": "equator"
+        },
+        {
+          "name": "up"
+        },
+        {
+          "name": "screen"
+        },
+        {
+          "name": "initialize",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 559,
+              "column": 15
+            },
+            "end": {
+              "line": 565,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "getRay",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 567,
+              "column": 11
+            },
+            "end": {
+              "line": 581,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 583,
+              "column": 13
+            },
+            "end": {
+              "line": 585,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "Shape41": {
+      "properties": []
+    },
+    "Shape42": {
+      "properties": []
+    },
+    "Shape43": {
+      "properties": [
+        {
+          "name": "color"
+        },
+        {
+          "name": "ambience",
+          "type": "number"
+        },
+        {
+          "name": "initialize",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 597,
+              "column": 15
+            },
+            "end": {
+              "line": 600,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "Shape44": {
+      "properties": []
+    },
+    "Shape45": {
+      "properties": []
+    },
+    "Shape46": {
+      "properties": [
+        {
+          "name": "canvas"
+        },
+        {
+          "name": "initialize",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 611,
+              "column": 15
+            },
+            "end": {
+              "line": 631,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "setPixel",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 633,
+              "column": 13
+            },
+            "end": {
+              "line": 647,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "renderScene",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 649,
+              "column": 16
+            },
+            "end": {
+              "line": 676,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "getPixelColor",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 678,
+              "column": 18
+            },
+            "end": {
+              "line": 685,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "testIntersection",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 687,
+              "column": 21
+            },
+            "end": {
+              "line": 705,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "getReflectionRay",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 707,
+              "column": 21
+            },
+            "end": {
+              "line": 714,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "rayTrace",
+          "type": "closure",
+          "target function": {
+            "file": "v8-raytrace.js",
+            "start": {
+              "line": 716,
+              "column": 13
+            },
+            "end": {
+              "line": 808,
+              "column": 4
+            }
+          }
+        }
+      ]
+    }
+  },
+  "shape bindings": [
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 26,
+          "column": 13
+        },
+        "end": {
+          "line": 32,
+          "column": 2
+        }
+      },
+      "shape": "Shape1"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 64,
+          "column": 44
+        },
+        "end": {
+          "line": 64,
+          "column": 46
+        }
+      },
+      "shape": "Shape2"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 65,
+          "column": 60
+        },
+        "end": {
+          "line": 65,
+          "column": 62
+        }
+      },
+      "shape": "Shape3"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 69,
+          "column": 34
+        },
+        "end": {
+          "line": 183,
+          "column": 2
+        }
+      },
+      "shape": "Shape4"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 185,
+          "column": 44
+        },
+        "end": {
+          "line": 185,
+          "column": 46
+        }
+      },
+      "shape": "Shape5"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 186,
+          "column": 60
+        },
+        "end": {
+          "line": 186,
+          "column": 62
+        }
+      },
+      "shape": "Shape6"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 190,
+          "column": 34
+        },
+        "end": {
+          "line": 204,
+          "column": 2
+        }
+      },
+      "shape": "Shape7"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 206,
+          "column": 44
+        },
+        "end": {
+          "line": 206,
+          "column": 46
+        }
+      },
+      "shape": "Shape8"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 207,
+          "column": 60
+        },
+        "end": {
+          "line": 207,
+          "column": 62
+        }
+      },
+      "shape": "Shape9"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 211,
+          "column": 35
+        },
+        "end": {
+          "line": 269,
+          "column": 2
+        }
+      },
+      "shape": "Shape10"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 271,
+          "column": 44
+        },
+        "end": {
+          "line": 271,
+          "column": 46
+        }
+      },
+      "shape": "Shape11"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 272,
+          "column": 60
+        },
+        "end": {
+          "line": 272,
+          "column": 62
+        }
+      },
+      "shape": "Shape12"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 276,
+          "column": 32
+        },
+        "end": {
+          "line": 287,
+          "column": 2
+        }
+      },
+      "shape": "Shape13"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 289,
+          "column": 44
+        },
+        "end": {
+          "line": 289,
+          "column": 46
+        }
+      },
+      "shape": "Shape14"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 290,
+          "column": 60
+        },
+        "end": {
+          "line": 290,
+          "column": 62
+        }
+      },
+      "shape": "Shape15"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 294,
+          "column": 34
+        },
+        "end": {
+          "line": 310,
+          "column": 2
+        }
+      },
+      "shape": "Shape16"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 312,
+          "column": 44
+        },
+        "end": {
+          "line": 312,
+          "column": 46
+        }
+      },
+      "shape": "Shape17"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 313,
+          "column": 60
+        },
+        "end": {
+          "line": 313,
+          "column": 62
+        }
+      },
+      "shape": "Shape18"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 314,
+          "column": 78
+        },
+        "end": {
+          "line": 314,
+          "column": 80
+        }
+      },
+      "shape": "Shape19"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 318,
+          "column": 50
+        },
+        "end": {
+          "line": 347,
+          "column": 2
+        }
+      },
+      "shape": "Shape20"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 349,
+          "column": 44
+        },
+        "end": {
+          "line": 349,
+          "column": 46
+        }
+      },
+      "shape": "Shape21"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 350,
+          "column": 60
+        },
+        "end": {
+          "line": 350,
+          "column": 62
+        }
+      },
+      "shape": "Shape22"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 356,
+          "column": 3
+        },
+        "end": {
+          "line": 380,
+          "column": 4
+        }
+      },
+      "shape": "Shape23"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 383,
+          "column": 44
+        },
+        "end": {
+          "line": 383,
+          "column": 46
+        }
+      },
+      "shape": "Shape24"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 384,
+          "column": 60
+        },
+        "end": {
+          "line": 384,
+          "column": 62
+        }
+      },
+      "shape": "Shape25"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 390,
+          "column": 3
+        },
+        "end": {
+          "line": 423,
+          "column": 4
+        }
+      },
+      "shape": "Shape26"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 426,
+          "column": 44
+        },
+        "end": {
+          "line": 426,
+          "column": 46
+        }
+      },
+      "shape": "Shape27"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 427,
+          "column": 60
+        },
+        "end": {
+          "line": 427,
+          "column": 62
+        }
+      },
+      "shape": "Shape28"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 428,
+          "column": 72
+        },
+        "end": {
+          "line": 428,
+          "column": 74
+        }
+      },
+      "shape": "Shape29"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 432,
+          "column": 41
+        },
+        "end": {
+          "line": 471,
+          "column": 2
+        }
+      },
+      "shape": "Shape30"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 473,
+          "column": 44
+        },
+        "end": {
+          "line": 473,
+          "column": 46
+        }
+      },
+      "shape": "Shape31"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 474,
+          "column": 60
+        },
+        "end": {
+          "line": 474,
+          "column": 62
+        }
+      },
+      "shape": "Shape32"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 475,
+          "column": 72
+        },
+        "end": {
+          "line": 475,
+          "column": 74
+        }
+      },
+      "shape": "Shape33"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 479,
+          "column": 40
+        },
+        "end": {
+          "line": 522,
+          "column": 2
+        }
+      },
+      "shape": "Shape34"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 524,
+          "column": 44
+        },
+        "end": {
+          "line": 524,
+          "column": 46
+        }
+      },
+      "shape": "Shape35"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 525,
+          "column": 60
+        },
+        "end": {
+          "line": 525,
+          "column": 62
+        }
+      },
+      "shape": "Shape36"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 529,
+          "column": 45
+        },
+        "end": {
+          "line": 545,
+          "column": 2
+        }
+      },
+      "shape": "Shape37"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 547,
+          "column": 44
+        },
+        "end": {
+          "line": 547,
+          "column": 46
+        }
+      },
+      "shape": "Shape38"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 548,
+          "column": 60
+        },
+        "end": {
+          "line": 548,
+          "column": 62
+        }
+      },
+      "shape": "Shape39"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 552,
+          "column": 35
+        },
+        "end": {
+          "line": 586,
+          "column": 2
+        }
+      },
+      "shape": "Shape40"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 588,
+          "column": 44
+        },
+        "end": {
+          "line": 588,
+          "column": 46
+        }
+      },
+      "shape": "Shape41"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 589,
+          "column": 60
+        },
+        "end": {
+          "line": 589,
+          "column": 62
+        }
+      },
+      "shape": "Shape42"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 593,
+          "column": 39
+        },
+        "end": {
+          "line": 601,
+          "column": 2
+        }
+      },
+      "shape": "Shape43"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 603,
+          "column": 44
+        },
+        "end": {
+          "line": 603,
+          "column": 46
+        }
+      },
+      "shape": "Shape44"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 604,
+          "column": 60
+        },
+        "end": {
+          "line": 604,
+          "column": 62
+        }
+      },
+      "shape": "Shape45"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 608,
+          "column": 35
+        },
+        "end": {
+          "line": 809,
+          "column": 2
+        }
+      },
+      "shape": "Shape46"
+    }
+  ],
+  "shape guards": [
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 26,
+          "column": 5
+        },
+        "end": {
+          "line": 26,
+          "column": 10
+        }
+      },
+      "shape": "Shape1"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 154,
+          "column": 7
+        },
+        "end": {
+          "line": 155,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 154,
+          "column": 7
+        },
+        "end": {
+          "line": 156,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 173,
+          "column": 13
+        },
+        "end": {
+          "line": 173,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 173,
+          "column": 22
+        },
+        "end": {
+          "line": 173,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 173,
+          "column": 13
+        },
+        "end": {
+          "line": 173,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 173,
+          "column": 32
+        },
+        "end": {
+          "line": 173,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 173,
+          "column": 13
+        },
+        "end": {
+          "line": 173,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 181,
+          "column": 12
+        },
+        "end": {
+          "line": 181,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 181,
+          "column": 12
+        },
+        "end": {
+          "line": 181,
+          "column": 28
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 181,
+          "column": 12
+        },
+        "end": {
+          "line": 181,
+          "column": 32
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 181,
+          "column": 12
+        },
+        "end": {
+          "line": 181,
+          "column": 38
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 181,
+          "column": 12
+        },
+        "end": {
+          "line": 181,
+          "column": 42
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 181,
+          "column": 12
+        },
+        "end": {
+          "line": 181,
+          "column": 48
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 202,
+          "column": 12
+        },
+        "end": {
+          "line": 202,
+          "column": 45
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 202,
+          "column": 12
+        },
+        "end": {
+          "line": 202,
+          "column": 69
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 202,
+          "column": 12
+        },
+        "end": {
+          "line": 202,
+          "column": 93
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 254,
+          "column": 9
+        },
+        "end": {
+          "line": 254,
+          "column": 11
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 254,
+          "column": 15
+        },
+        "end": {
+          "line": 254,
+          "column": 17
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 254,
+          "column": 25
+        },
+        "end": {
+          "line": 254,
+          "column": 62
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 254,
+          "column": 25
+        },
+        "end": {
+          "line": 254,
+          "column": 72
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 267,
+          "column": 12
+        },
+        "end": {
+          "line": 267,
+          "column": 37
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 267,
+          "column": 12
+        },
+        "end": {
+          "line": 267,
+          "column": 52
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 267,
+          "column": 12
+        },
+        "end": {
+          "line": 267,
+          "column": 67
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 285,
+          "column": 12
+        },
+        "end": {
+          "line": 285,
+          "column": 41
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 285,
+          "column": 12
+        },
+        "end": {
+          "line": 285,
+          "column": 64
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 302,
+          "column": 39
+        },
+        "end": {
+          "line": 302,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 331,
+          "column": 13
+        },
+        "end": {
+          "line": 331,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 338,
+          "column": 7
+        },
+        "end": {
+          "line": 340,
+          "column": 24
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 338,
+          "column": 7
+        },
+        "end": {
+          "line": 342,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 338,
+          "column": 7
+        },
+        "end": {
+          "line": 344,
+          "column": 10
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 371,
+          "column": 9
+        },
+        "end": {
+          "line": 373,
+          "column": 26
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 371,
+          "column": 9
+        },
+        "end": {
+          "line": 375,
+          "column": 24
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 371,
+          "column": 9
+        },
+        "end": {
+          "line": 377,
+          "column": 12
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 414,
+          "column": 9
+        },
+        "end": {
+          "line": 416,
+          "column": 26
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 414,
+          "column": 9
+        },
+        "end": {
+          "line": 418,
+          "column": 24
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 414,
+          "column": 9
+        },
+        "end": {
+          "line": 420,
+          "column": 12
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 469,
+          "column": 12
+        },
+        "end": {
+          "line": 469,
+          "column": 61
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 469,
+          "column": 12
+        },
+        "end": {
+          "line": 469,
+          "column": 81
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 520,
+          "column": 12
+        },
+        "end": {
+          "line": 520,
+          "column": 46
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 520,
+          "column": 12
+        },
+        "end": {
+          "line": 520,
+          "column": 61
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 543,
+          "column": 12
+        },
+        "end": {
+          "line": 543,
+          "column": 50
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 575,
+          "column": 21
+        },
+        "end": {
+          "line": 575,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 661,
+          "column": 39
+        },
+        "end": {
+          "line": 661,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 661,
+          "column": 39
+        },
+        "end": {
+          "line": 661,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 662,
+          "column": 40
+        },
+        "end": {
+          "line": 662,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 662,
+          "column": 40
+        },
+        "end": {
+          "line": 662,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 663,
+          "column": 20
+        },
+        "end": {
+          "line": 663,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 663,
+          "column": 18
+        },
+        "end": {
+          "line": 663,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 663,
+          "column": 18
+        },
+        "end": {
+          "line": 663,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 664,
+          "column": 20
+        },
+        "end": {
+          "line": 664,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 664,
+          "column": 18
+        },
+        "end": {
+          "line": 664,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 664,
+          "column": 18
+        },
+        "end": {
+          "line": 664,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 692,
+          "column": 46
+        },
+        "end": {
+          "line": 692,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 692,
+          "column": 46
+        },
+        "end": {
+          "line": 692,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 697,
+          "column": 27
+        },
+        "end": {
+          "line": 697,
+          "column": 45
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 697,
+          "column": 49
+        },
+        "end": {
+          "line": 697,
+          "column": 78
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 699,
+          "column": 11
+        },
+        "end": {
+          "line": 699,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 699,
+          "column": 11
+        },
+        "end": {
+          "line": 699,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 710,
+          "column": 57
+        },
+        "end": {
+          "line": 710,
+          "column": 63
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 725,
+          "column": 46
+        },
+        "end": {
+          "line": 725,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 725,
+          "column": 46
+        },
+        "end": {
+          "line": 725,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 748,
+          "column": 47
+        },
+        "end": {
+          "line": 748,
+          "column": 81
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 752,
+          "column": 29
+        },
+        "end": {
+          "line": 752,
+          "column": 46
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 753,
+          "column": 68
+        },
+        "end": {
+          "line": 753,
+          "column": 77
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 779,
+          "column": 11
+        },
+        "end": {
+          "line": 779,
+          "column": 41
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 782,
+          "column": 20
+        },
+        "end": {
+          "line": 782,
+          "column": 79
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 788,
+          "column": 44
+        },
+        "end": {
+          "line": 788,
+          "column": 61
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 788,
+          "column": 65
+        },
+        "end": {
+          "line": 788,
+          "column": 94
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 815,
+          "column": 37
+        },
+        "end": {
+          "line": 815,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 816,
+          "column": 31
+        },
+        "end": {
+          "line": 816,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 823,
+          "column": 31
+        },
+        "end": {
+          "line": 823,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 835,
+          "column": 41
+        },
+        "end": {
+          "line": 835,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 852,
+          "column": 38
+        },
+        "end": {
+          "line": 852,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 857,
+          "column": 31
+        },
+        "end": {
+          "line": 857,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 857,
+          "column": 38
+        },
+        "end": {
+          "line": 857,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 890,
+          "column": 24
+        },
+        "end": {
+          "line": 890,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 890,
+          "column": 26
+        },
+        "end": {
+          "line": 890,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 890,
+          "column": 10
+        },
+        "end": {
+          "line": 890,
+          "column": 11
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 890,
+          "column": 17
+        },
+        "end": {
+          "line": 890,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 890,
+          "column": 26
+        },
+        "end": {
+          "line": 890,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 811,
+          "column": 10
+        },
+        "end": {
+          "line": 811,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 811,
+          "column": 1
+        },
+        "end": {
+          "line": 887,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 890,
+          "column": 29
+        },
+        "end": {
+          "line": 890,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 811,
+          "column": 1
+        },
+        "end": {
+          "line": 887,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 75,
+          "column": 13
+        },
+        "end": {
+          "line": 75,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 76,
+          "column": 13
+        },
+        "end": {
+          "line": 76,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 77,
+          "column": 13
+        },
+        "end": {
+          "line": 77,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 153,
+          "column": 9
+        },
+        "end": {
+          "line": 153,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 157,
+          "column": 12
+        },
+        "end": {
+          "line": 157,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 170,
+          "column": 9
+        },
+        "end": {
+          "line": 170,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 173,
+          "column": 13
+        },
+        "end": {
+          "line": 173,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 171,
+          "column": 9
+        },
+        "end": {
+          "line": 171,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 173,
+          "column": 22
+        },
+        "end": {
+          "line": 173,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 172,
+          "column": 9
+        },
+        "end": {
+          "line": 172,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 173,
+          "column": 32
+        },
+        "end": {
+          "line": 173,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 177,
+          "column": 9
+        },
+        "end": {
+          "line": 177,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 181,
+          "column": 21
+        },
+        "end": {
+          "line": 181,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 178,
+          "column": 9
+        },
+        "end": {
+          "line": 178,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 181,
+          "column": 31
+        },
+        "end": {
+          "line": 181,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 179,
+          "column": 9
+        },
+        "end": {
+          "line": 179,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 181,
+          "column": 41
+        },
+        "end": {
+          "line": 181,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 567,
+          "column": 21
+        },
+        "end": {
+          "line": 567,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 571,
+          "column": 70
+        },
+        "end": {
+          "line": 571,
+          "column": 72
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 567,
+          "column": 25
+        },
+        "end": {
+          "line": 567,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 572,
+          "column": 65
+        },
+        "end": {
+          "line": 572,
+          "column": 67
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 633,
+          "column": 23
+        },
+        "end": {
+          "line": 633,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 640,
+          "column": 28
+        },
+        "end": {
+          "line": 640,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 633,
+          "column": 26
+        },
+        "end": {
+          "line": 633,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 640,
+          "column": 37
+        },
+        "end": {
+          "line": 640,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 661,
+          "column": 14
+        },
+        "end": {
+          "line": 661,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 661,
+          "column": 21
+        },
+        "end": {
+          "line": 661,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 661,
+          "column": 39
+        },
+        "end": {
+          "line": 661,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 662,
+          "column": 16
+        },
+        "end": {
+          "line": 662,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 662,
+          "column": 23
+        },
+        "end": {
+          "line": 662,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 662,
+          "column": 40
+        },
+        "end": {
+          "line": 662,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 664,
+          "column": 13
+        },
+        "end": {
+          "line": 664,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 666,
+          "column": 39
+        },
+        "end": {
+          "line": 666,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 663,
+          "column": 13
+        },
+        "end": {
+          "line": 663,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 666,
+          "column": 43
+        },
+        "end": {
+          "line": 666,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 692,
+          "column": 14
+        },
+        "end": {
+          "line": 692,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 692,
+          "column": 21
+        },
+        "end": {
+          "line": 692,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 692,
+          "column": 46
+        },
+        "end": {
+          "line": 692,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 688,
+          "column": 9
+        },
+        "end": {
+          "line": 688,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 703,
+          "column": 21
+        },
+        "end": {
+          "line": 703,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 699,
+          "column": 11
+        },
+        "end": {
+          "line": 699,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 725,
+          "column": 14
+        },
+        "end": {
+          "line": 725,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 725,
+          "column": 21
+        },
+        "end": {
+          "line": 725,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 725,
+          "column": 46
+        },
+        "end": {
+          "line": 725,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 716,
+          "column": 41
+        },
+        "end": {
+          "line": 716,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 746,
+          "column": 11
+        },
+        "end": {
+          "line": 746,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 723,
+          "column": 9
+        },
+        "end": {
+          "line": 723,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 799,
+          "column": 69
+        },
+        "end": {
+          "line": 799,
+          "column": 78
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 799,
+          "column": 13
+        },
+        "end": {
+          "line": 799,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 801,
+          "column": 70
+        },
+        "end": {
+          "line": 801,
+          "column": 81
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 865,
+          "column": 7
+        },
+        "end": {
+          "line": 865,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 875,
+          "column": 18
+        },
+        "end": {
+          "line": 875,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 866,
+          "column": 7
+        },
+        "end": {
+          "line": 866,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 876,
+          "column": 19
+        },
+        "end": {
+          "line": 876,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 868,
+          "column": 7
+        },
+        "end": {
+          "line": 868,
+          "column": 20
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 879,
+          "column": 22
+        },
+        "end": {
+          "line": 879,
+          "column": 35
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 870,
+          "column": 7
+        },
+        "end": {
+          "line": 870,
+          "column": 23
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 880,
+          "column": 25
+        },
+        "end": {
+          "line": 880,
+          "column": 41
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 869,
+          "column": 7
+        },
+        "end": {
+          "line": 869,
+          "column": 20
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 881,
+          "column": 22
+        },
+        "end": {
+          "line": 881,
+          "column": 35
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 871,
+          "column": 7
+        },
+        "end": {
+          "line": 871,
+          "column": 24
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 882,
+          "column": 26
+        },
+        "end": {
+          "line": 882,
+          "column": 43
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 872,
+          "column": 7
+        },
+        "end": {
+          "line": 872,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 883,
+          "column": 17
+        },
+        "end": {
+          "line": 883,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 13,
+          "column": 5
+        },
+        "end": {
+          "line": 13,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 663,
+          "column": 20
+        },
+        "end": {
+          "line": 663,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 664,
+          "column": 20
+        },
+        "end": {
+          "line": 664,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 670,
+          "column": 23
+        },
+        "end": {
+          "line": 670,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 670,
+          "column": 26
+        },
+        "end": {
+          "line": 670,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-raytrace.js",
+        "start": {
+          "line": 753,
+          "column": 68
+        },
+        "end": {
+          "line": 753,
+          "column": 73
+        }
+      },
+      "type": "number"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "92:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "93:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "94:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "114:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "115:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "116:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "124:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "125:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "126:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "134:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "135:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "136:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "158:26",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "158:59",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "158:96",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "165:71",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "172:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "173:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "174:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "179:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "180:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "181:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "204:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "204:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "204:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "232:42",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "232:54",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "232:66",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "236:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "236:47",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "236:67",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "241:45",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "241:45",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "241:61",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "241:45",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "242:44",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "242:59",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "242:44",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "243:43",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "243:43",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "243:59",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "243:43",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "247:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "247:31",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "247:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "247:46",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "247:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "251:42",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "251:53",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "251:64",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "255:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "255:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "256:42",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "256:53",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "256:64",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "264:42",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "264:51",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "264:60",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "268:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "268:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "268:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "286:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "286:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "343:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "343:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "343:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "367:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "367:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "367:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "394:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "394:65",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "394:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "403:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "403:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "403:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "428:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "428:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "429:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "433:30",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "454:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "454:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "479:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "495:82",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "508:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "508:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "531:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "563:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "615:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "616:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "628:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "628:42",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "631:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "651:26",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "652:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "696:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "708:38",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "905:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "37:39",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "38:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "79:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "80:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "79:30",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "81:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "79:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object"
+      ]
+    },
+    {
+      "location": "82:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object"
+      ]
+    },
+    {
+      "location": "84:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "85:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "86:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object"
+      ]
+    },
+    {
+      "location": "89:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "92:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "89:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "92:31",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "99:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "102:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "111:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "114:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "111:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "114:31",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "121:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "124:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "121:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "124:31",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "131:31",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "134:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "131:35",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "function",
+        "unknown"
+      ]
+    },
+    {
+      "location": "134:31",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "function",
+        "unknown"
+      ]
+    },
+    {
+      "location": "157:25",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "158:37",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "162:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "165:67",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "162:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "165:75",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "162:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "166:67",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "164:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "168:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "197:32",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "199:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "197:39",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object"
+      ]
+    },
+    {
+      "location": "200:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object"
+      ]
+    },
+    {
+      "location": "200:39",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object"
+      ]
+    },
+    {
+      "location": "218:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "219:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "219:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "218:30",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "220:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "220:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "218:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object"
+      ]
+    },
+    {
+      "location": "221:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object"
+      ]
+    },
+    {
+      "location": "221:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object"
+      ]
+    },
+    {
+      "location": "231:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "232:51",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "239:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "241:55",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "246:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "247:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "250:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "251:42",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "250:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "251:48",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "254:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "255:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "254:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "255:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "255:68",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "256:42",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "256:48",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "263:31",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "264:42",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "263:34",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "function",
+        "unknown"
+      ]
+    },
+    {
+      "location": "264:48",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "function",
+        "unknown"
+      ]
+    },
+    {
+      "location": "280:32",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "282:26",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "354:31",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "355:26",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "354:38",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "356:31",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "354:62",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "357:33",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "354:76",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "358:26",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "383:31",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "384:30",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "383:42",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "385:29",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "383:52",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "386:31",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "383:64",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "387:33",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "383:78",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "388:26",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "383:85",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "389:28",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "393:28",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "394:33",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "393:31",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "394:65",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "394:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "396:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "415:32",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "416:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "415:40",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object"
+      ]
+    },
+    {
+      "location": "418:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object"
+      ]
+    },
+    {
+      "location": "421:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "425:60",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "425:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "427:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "427:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "429:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "428:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "429:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "467:32",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "469:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "467:35",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object"
+      ]
+    },
+    {
+      "location": "470:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object"
+      ]
+    },
+    {
+      "location": "473:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "476:36",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "476:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "477:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "496:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "498:39",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "497:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "499:49",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "498:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "499:51",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "547:32",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "549:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "547:40",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object"
+      ]
+    },
+    {
+      "location": "550:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object"
+      ]
+    },
+    {
+      "location": "556:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "563:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "564:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "569:47",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "588:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "589:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "588:34",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "590:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "602:26",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "613:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "621:30",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "627:35",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "623:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "628:37",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "624:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "628:46",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "637:34",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "640:13",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "641:25",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "646:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "649:26",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "647:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "650:30",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "654:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "656:44",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "656:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "658:34",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "666:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "667:42",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "667:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "668:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "669:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "670:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "681:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "683:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "675:44",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "683:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "691:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "686:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "675:32",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "684:44",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "684:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "685:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "695:34",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "696:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "695:36",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "696:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "696:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "698:65",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint"
+      ]
+    },
+    {
+      "location": "697:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "701:42",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "704:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "706:67",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "706:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "707:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "711:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "715:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "800:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "722:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "772:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "794:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "750:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "714:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "720:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "720:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "721:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "768:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "769:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "704:30",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "741:85",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "741:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "742:48",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "742:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "744:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "777:44",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "770:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "772:70",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "783:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "789:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "778:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "790:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "788:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "793:61",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "331:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "331:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "354:50",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "362:28",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "362:31",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "631:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint"
+      ]
+    },
+    {
+      "location": "707:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "39:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "93:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "93:35",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "94:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "94:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "103:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "104:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "115:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "115:35",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "116:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "116:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "125:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "125:35",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "126:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "126:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "135:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "135:35",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "function",
+        "unknown"
+      ]
+    },
+    {
+      "location": "136:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "136:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "function",
+        "unknown"
+      ]
+    },
+    {
+      "location": "158:72",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "158:108",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    },
+    {
+      "location": "166:71",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "198:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "232:63",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "232:75",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "241:70",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "242:53",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "242:68",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "243:53",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "243:68",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "247:40",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "247:55",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "251:53",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "251:59",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "251:64",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "251:70",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "255:58",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "256:53",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "256:59",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "256:64",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "256:70",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "264:51",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "264:57",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "function",
+        "unknown"
+      ]
+    },
+    {
+      "location": "264:60",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "264:66",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "function",
+        "unknown"
+      ]
+    },
+    {
+      "location": "281:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "417:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "427:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "428:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "428:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "429:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "433:31",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "435:49",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "437:53",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "468:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "479:37",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "479:63",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "485:45",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "487:49",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "548:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "551:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "563:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "565:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "569:42",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "628:51",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "628:56",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "631:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "651:36",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "652:32",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "unknown"
+      ]
+    },
+    {
+      "location": "669:39",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "669:45",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "684:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "685:34",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "685:56",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "685:72",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "686:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "692:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "698:60",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "699:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "701:39",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "null",
+        "bigint",
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "708:38",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "716:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "720:31",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "725:45",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "727:49",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "728:49",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "bigint",
+        "unknown"
+      ]
+    },
+    {
+      "location": "723:41",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "739:48",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "741:57",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "741:72",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "742:70",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "744:33",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "745:46",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "745:52",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "745:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "747:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "752:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "753:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "751:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "766:56",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "766:71",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "768:70",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "769:40",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "769:60",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "770:76",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "771:46",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "777:64",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "779:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "780:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "785:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "793:45",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "795:75",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "796:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "801:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "object",
+        "unknown"
+      ]
+    },
+    {
+      "location": "905:1",
+      "kind": "type",
+      "reason": "unsupported-unknown",
+      "types": [
+        "unknown"
+      ]
+    }
+  ]
+}

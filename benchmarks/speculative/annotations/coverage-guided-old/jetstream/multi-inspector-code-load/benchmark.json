@@ -1,0 +1,1499 @@
+{
+  "static shapes": {
+    "BenchBase": {
+      "properties": [
+        {
+          "name": "inspectorText",
+          "type": "string"
+        }
+      ]
+    },
+    "BenchIdx": {
+      "properties": [
+        {
+          "name": "inspectorText",
+          "type": "string"
+        },
+        {
+          "name": "index",
+          "type": "number"
+        }
+      ]
+    },
+    "BenchFull": {
+      "properties": [
+        {
+          "name": "inspectorText",
+          "type": "string"
+        },
+        {
+          "name": "index",
+          "type": "number"
+        },
+        {
+          "name": "text",
+          "type": "string"
+        }
+      ]
+    },
+    "BenchProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "init",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 93,
+              "column": 5
+            },
+            "end": {
+              "line": 96,
+              "column": 6
+            }
+          }
+        },
+        {
+          "name": "prepareForNextIteration",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 98,
+              "column": 5
+            },
+            "end": {
+              "line": 105,
+              "column": 6
+            }
+          }
+        },
+        {
+          "name": "runIteration",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 107,
+              "column": 5
+            },
+            "end": {
+              "line": 109,
+              "column": 6
+            }
+          }
+        }
+      ]
+    },
+    "Perf": {
+      "properties": [
+        {
+          "name": "now"
+        },
+        {
+          "name": "mark"
+        },
+        {
+          "name": "measure"
+        },
+        {
+          "name": "timeOrigin"
+        }
+      ]
+    },
+    "JSStream": {
+      "properties": [
+        {
+          "name": "preload"
+        },
+        {
+          "name": "resources"
+        },
+        {
+          "name": "isInBrowser",
+          "type": "boolean"
+        },
+        {
+          "name": "isD8",
+          "type": "boolean"
+        },
+        {
+          "name": "getBinary",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 46,
+              "column": 23
+            },
+            "end": {
+              "line": 51,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "getString",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 54,
+              "column": 23
+            },
+            "end": {
+              "line": 59,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "JSPreload": {
+      "properties": [
+        {
+          "name": "inspectorPayloadBlob",
+          "type": "string"
+        }
+      ]
+    },
+    "CaughtErr": {
+      "properties": [
+        {
+          "name": "stack",
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 99,
+          "column": 37
+        },
+        "end": {
+          "line": 99,
+          "column": 41
+        }
+      },
+      "shape": "BenchIdx"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 99,
+          "column": 55
+        },
+        "end": {
+          "line": 99,
+          "column": 59
+        }
+      },
+      "shape": "BenchIdx"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 100,
+          "column": 13
+        },
+        "end": {
+          "line": 100,
+          "column": 17
+        }
+      },
+      "shape": "BenchFull"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 102,
+          "column": 13
+        },
+        "end": {
+          "line": 102,
+          "column": 17
+        }
+      },
+      "shape": "BenchFull"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 102,
+          "column": 23
+        },
+        "end": {
+          "line": 102,
+          "column": 27
+        }
+      },
+      "shape": "BenchFull"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 104,
+          "column": 9
+        },
+        "end": {
+          "line": 104,
+          "column": 13
+        }
+      },
+      "shape": "BenchFull"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 104,
+          "column": 23
+        },
+        "end": {
+          "line": 104,
+          "column": 27
+        }
+      },
+      "shape": "BenchFull"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 108,
+          "column": 22
+        },
+        "end": {
+          "line": 108,
+          "column": 26
+        }
+      },
+      "shape": "BenchFull"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 99,
+          "column": 9
+        },
+        "end": {
+          "line": 99,
+          "column": 13
+        }
+      },
+      "shape": "BenchFull"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 121,
+          "column": 17
+        },
+        "end": {
+          "line": 121,
+          "column": 28
+        }
+      },
+      "shape": "Perf"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 127,
+          "column": 15
+        },
+        "end": {
+          "line": 127,
+          "column": 26
+        }
+      },
+      "shape": "Perf"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 83
+        },
+        "end": {
+          "line": 94,
+          "column": 92
+        }
+      },
+      "shape": "JSStream"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 103
+        },
+        "end": {
+          "line": 94,
+          "column": 112
+        }
+      },
+      "shape": "JSStream"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 103
+        },
+        "end": {
+          "line": 94,
+          "column": 120
+        }
+      },
+      "shape": "JSPreload"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 131,
+          "column": 28
+        },
+        "end": {
+          "line": 131,
+          "column": 33
+        }
+      },
+      "shape": "CaughtErr"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 131,
+          "column": 42
+        },
+        "end": {
+          "line": 131,
+          "column": 47
+        }
+      },
+      "shape": "CaughtErr"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 9
+        },
+        "end": {
+          "line": 94,
+          "column": 13
+        }
+      },
+      "shape": "BenchBase"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 95,
+          "column": 9
+        },
+        "end": {
+          "line": 95,
+          "column": 13
+        }
+      },
+      "shape": "BenchIdx"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 99,
+          "column": 9
+        },
+        "end": {
+          "line": 99,
+          "column": 13
+        }
+      },
+      "shape": "BenchFull"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 12
+        }
+      },
+      "shape": "Perf"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 54,
+          "column": 1
+        },
+        "end": {
+          "line": 54,
+          "column": 10
+        }
+      },
+      "shape": "JSStream"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 33,
+          "column": 12
+        },
+        "end": {
+          "line": 36,
+          "column": 4
+        }
+      },
+      "shape": "JSPreload"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 130,
+          "column": 13
+        },
+        "end": {
+          "line": 130,
+          "column": 18
+        }
+      },
+      "shape": "CaughtErr"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 100,
+          "column": 13
+        },
+        "end": {
+          "line": 100,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 102,
+          "column": 13
+        },
+        "end": {
+          "line": 102,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 102,
+          "column": 23
+        },
+        "end": {
+          "line": 102,
+          "column": 32
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 102,
+          "column": 23
+        },
+        "end": {
+          "line": 102,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 124,
+          "column": 11
+        },
+        "end": {
+          "line": 124,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 107,
+          "column": 5
+        },
+        "end": {
+          "line": 109,
+          "column": 6
+        }
+      }
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "5:10",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "self",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "5:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "6:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "RegExp",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "6:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "escape",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "6:15",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "6:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "escape",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "12:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "12:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "printErr",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "12:21",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "12:21",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "printErr",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "12:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "13:13",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "console",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "13:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "13:15",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "13:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "14:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "14:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "assert",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "14:16",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "14:16",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "assert",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "15:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "15:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "15:13",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "15:13",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "log",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "15:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "16:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "16:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "warn",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "16:14",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "16:14",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "warn",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "16:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "17:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "17:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "error",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "17:15",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "17:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "error",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "17:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "printErr",
+      "note": "host/global shell object (globalThis, console, print, printErr, RegExp): no object-producing source expression to bind and no property to specialize"
+    },
+    {
+      "location": "25:17",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "25:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "25:19",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "25:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "25:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "25:69",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "26:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "26:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "26:17",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "26:17",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "26:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "26:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "27:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "27:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "mark",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "27:18",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "27:18",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "mark",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "28:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "measure",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "28:21",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "28:21",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "measure",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "29:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "29:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "timeOrigin",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "29:24",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "29:24",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "timeOrigin",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "31:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "JetStream",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "31:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "31:38",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "JetStream",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "43:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "44:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "44:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Realm",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "46:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "54:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "91:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "eval",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "92:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "130:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "catch",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "130:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "catch",
+      "note": "global-variable / host-object property access (performance, JetStream, Date, Realm, eval, the class-syntax prototype object, the IIFE promise's .catch): the base object has no bindable source expression"
+    },
+    {
+      "location": "43:23",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isInBrowser",
+      "note": "namespace assembly / instance construction: the receiver's shape is still being built, so the new property has no slot in the current shape (JetStream.isInBrowser/isD8/getBinary/getString extend the namespace object; Benchmark's inspectorText/index are the first own properties of a fresh instance)"
+    },
+    {
+      "location": "44:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isD8",
+      "note": "namespace assembly / instance construction: the receiver's shape is still being built, so the new property has no slot in the current shape (JetStream.isInBrowser/isD8/getBinary/getString extend the namespace object; Benchmark's inspectorText/index are the first own properties of a fresh instance)"
+    },
+    {
+      "location": "46:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "getBinary",
+      "note": "namespace assembly / instance construction: the receiver's shape is still being built, so the new property has no slot in the current shape (JetStream.isInBrowser/isD8/getBinary/getString extend the namespace object; Benchmark's inspectorText/index are the first own properties of a fresh instance)"
+    },
+    {
+      "location": "54:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "getString",
+      "note": "namespace assembly / instance construction: the receiver's shape is still being built, so the new property has no slot in the current shape (JetStream.isInBrowser/isD8/getBinary/getString extend the namespace object; Benchmark's inspectorText/index are the first own properties of a fresh instance)"
+    },
+    {
+      "location": "94:28",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "inspectorText",
+      "note": "namespace assembly / instance construction: the receiver's shape is still being built, so the new property has no slot in the current shape (JetStream.isInBrowser/isD8/getBinary/getString extend the namespace object; Benchmark's inspectorText/index are the first own properties of a fresh instance)"
+    },
+    {
+      "location": "95:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "index",
+      "note": "namespace assembly / instance construction: the receiver's shape is still being built, so the new property has no slot in the current shape (JetStream.isInBrowser/isD8/getBinary/getString extend the namespace object; Benchmark's inspectorText/index are the first own properties of a fresh instance)"
+    },
+    {
+      "location": "100:13",
+      "kind": "arithmetic",
+      "reason": "unsupported-property-type",
+      "note": "string-valued property (indexed element read str[0], str.length, String.prototype.replace): a string has no shape slots, and a \"string\" type guard on the receiver (tried at 6:26-6:35, 100:13, 102:13) had no effect"
+    },
+    {
+      "location": "102:13",
+      "kind": "arithmetic",
+      "reason": "unsupported-property-type",
+      "note": "string-valued property (indexed element read str[0], str.length, String.prototype.replace): a string has no shape slots, and a \"string\" type guard on the receiver (tried at 6:26-6:35, 100:13, 102:13) had no effect"
+    },
+    {
+      "location": "102:32",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "length",
+      "note": "string-valued property (indexed element read str[0], str.length, String.prototype.replace): a string has no shape slots, and a \"string\" type guard on the receiver (tried at 6:26-6:35, 100:13, 102:13) had no effect"
+    },
+    {
+      "location": "6:43",
+      "kind": "call",
+      "reason": "unsupported-property-type",
+      "property": "replace",
+      "note": "string-valued property (indexed element read str[0], str.length, String.prototype.replace): a string has no shape slots, and a \"string\" type guard on the receiver (tried at 6:26-6:35, 100:13, 102:13) had no effect"
+    },
+    {
+      "location": "6:43",
+      "kind": "property_load",
+      "reason": "unsupported-property-type",
+      "property": "replace",
+      "note": "string-valued property (indexed element read str[0], str.length, String.prototype.replace): a string has no shape slots, and a \"string\" type guard on the receiver (tried at 6:26-6:35, 100:13, 102:13) had no effect"
+    },
+    {
+      "location": "6:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "6:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "String",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "19:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Proxy",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "19:46",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Proxy",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "21:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "21:20",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "21:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "21:40",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "String",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "47:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "read",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "48:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "read",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "48:22",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "read",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "49:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Int8Array",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "49:25",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Int8Array",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "55:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "read",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "56:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "read",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "56:16",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "read",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "94:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "94:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "94:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "94:59",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "94:70",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "94:70",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "random",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "94:83",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "94:103",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "99:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "99:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "99:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "concat",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "101:19",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "101:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "103:19",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "103:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "108:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "121:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "127:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "129:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "129:8",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "131:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "printErr",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "131:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "printErr",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "131:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "131:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "String",
+      "note": "host builtin global (String, Proxy, Error, Int8Array, HermesInternal, Math, read, print, printErr, eval-variable) and template-literal lowering (HermesInternal.concat): the callee/base object is a global with no bindable source expression, so the call cannot be inlined"
+    },
+    {
+      "location": "119:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "init",
+      "note": "class-syntax prototype method: Benchmark.prototype has no source expression to bind (it is created implicitly by the class declaration; locate finds no prototype member expression), so the method load cannot be a slot read"
+    },
+    {
+      "location": "123:40",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prepareForNextIteration",
+      "note": "class-syntax prototype method: Benchmark.prototype has no source expression to bind (it is created implicitly by the class declaration; locate finds no prototype member expression), so the method load cannot be a slot read"
+    },
+    {
+      "location": "124:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "runIteration",
+      "note": "class-syntax prototype method: Benchmark.prototype has no source expression to bind (it is created implicitly by the class declaration; locate finds no prototype member expression), so the method load cannot be a slot read"
+    },
+    {
+      "location": "125:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "validate",
+      "note": "class-syntax prototype method: Benchmark.prototype has no source expression to bind (it is created implicitly by the class declaration; locate finds no prototype member expression), so the method load cannot be a slot read"
+    },
+    {
+      "location": "21:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation over the Proxy handler's captured params (name/property), whose types are unknown; a \"string\" type guard on the name reference at 21:21 had no effect"
+    },
+    {
+      "location": "129:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "'Time: ' + Math.max(...) concat whose operand is an unresolvable global method call; a number type guard on the Math.max call expression (129:20-129:44) does optimize this concat but de-optimizes the Math/max property-load optimizations (net -1), so it was reverted"
+    },
+    {
+      "location": "46:23",
+      "kind": "call",
+      "reason": "other",
+      "note": "synthetic call anchored at an async function definition / immediately-invoked async function expression: there is no property or named callee at the site to resolve or inline (46:23 and 54:23 are JetStream.getBinary/getString definitions, 93:5 is Benchmark.init, 117:2 is the __tgRunAsyncBenchmark IIFE)"
+    },
+    {
+      "location": "54:23",
+      "kind": "call",
+      "reason": "other",
+      "note": "synthetic call anchored at an async function definition / immediately-invoked async function expression: there is no property or named callee at the site to resolve or inline (46:23 and 54:23 are JetStream.getBinary/getString definitions, 93:5 is Benchmark.init, 117:2 is the __tgRunAsyncBenchmark IIFE)"
+    },
+    {
+      "location": "93:5",
+      "kind": "call",
+      "reason": "other",
+      "note": "synthetic call anchored at an async function definition / immediately-invoked async function expression: there is no property or named callee at the site to resolve or inline (46:23 and 54:23 are JetStream.getBinary/getString definitions, 93:5 is Benchmark.init, 117:2 is the __tgRunAsyncBenchmark IIFE)"
+    },
+    {
+      "location": "117:2",
+      "kind": "call",
+      "reason": "other",
+      "note": "synthetic call anchored at an async function definition / immediately-invoked async function expression: there is no property or named callee at the site to resolve or inline (46:23 and 54:23 are JetStream.getBinary/getString definitions, 93:5 is Benchmark.init, 117:2 is the __tgRunAsyncBenchmark IIFE)"
+    },
+    {
+      "location": "119:25",
+      "kind": "call",
+      "reason": "other",
+      "property": "init",
+      "note": "optional-call ?.() sites: the method lives on the unbindable class-syntax prototype, and a closure type guard on the receiver range has no IR node to attach to (guards at 119:9 and 123:5 were auto-pruned as unmatched), so neither the callee check nor the call can be specialized"
+    },
+    {
+      "location": "119:25",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-call ?.() sites: the method lives on the unbindable class-syntax prototype, and a closure type guard on the receiver range has no IR node to attach to (guards at 119:9 and 123:5 were auto-pruned as unmatched), so neither the callee check nor the call can be specialized"
+    },
+    {
+      "location": "123:40",
+      "kind": "call",
+      "reason": "other",
+      "property": "prepareForNextIteration",
+      "note": "optional-call ?.() sites: the method lives on the unbindable class-syntax prototype, and a closure type guard on the receiver range has no IR node to attach to (guards at 119:9 and 123:5 were auto-pruned as unmatched), so neither the callee check nor the call can be specialized"
+    },
+    {
+      "location": "123:40",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-call ?.() sites: the method lives on the unbindable class-syntax prototype, and a closure type guard on the receiver range has no IR node to attach to (guards at 119:9 and 123:5 were auto-pruned as unmatched), so neither the callee check nor the call can be specialized"
+    },
+    {
+      "location": "125:25",
+      "kind": "call",
+      "reason": "other",
+      "property": "validate",
+      "note": "optional-call ?.() sites: the method lives on the unbindable class-syntax prototype, and a closure type guard on the receiver range has no IR node to attach to (guards at 119:9 and 123:5 were auto-pruned as unmatched), so neither the callee check nor the call can be specialized"
+    },
+    {
+      "location": "125:25",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional-call ?.() sites: the method lives on the unbindable class-syntax prototype, and a closure type guard on the receiver range has no IR node to attach to (guards at 119:9 and 123:5 were auto-pruned as unmatched), so neither the callee check nor the call can be specialized"
+    },
+    {
+      "location": "118:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "note": "closure type guard on Benchmark at 118:25 matched no generated function (\"target function range did not match a generated function\"), because the class has no explicit constructor and the implicit default constructor has no source range; a shape binding on the new-expression (118:17-118:58) is auto-pruned as unmatched IR"
+    },
+    {
+      "location": "129:32",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "end - start: both operands are results of performance.now(), so they are not known to be numbers; number type guards on the operand references (129:32-129:35, 129:38-129:43) do optimize this subtraction but de-optimize the Math/max property loads (net -1), so they were reverted"
+    }
+  ]
+}

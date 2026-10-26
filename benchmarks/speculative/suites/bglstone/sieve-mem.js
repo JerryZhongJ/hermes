@@ -1,11 +1,3 @@
-// Imported from https://github.com/manuel-serrano/jsbench
-// Commit: 7c8fc4e58d2a5c7980c207d302b1d1cb18308a5c
-// Source: bglstone/sieve-mem.js
-// Adaptation: benchmarks/speculative/import_hopc.py
-(function() {
-"use strict";
-var __hopcStart = performance.now();
-
 "use strict";
 
 const LEN = 100000;
@@ -101,21 +93,22 @@ function main( bench, n ) {
    const k = Math.round( n / 10 );
    let i = 1;
    
-   print( bench + "(", n, ")..." );
+   console.log( bench + "(", n, ")..." );
    
    while( n-- > 0 ) {
-      if( n % k === 0 ) { print( i++ ); }
+      if( n % k === 0 ) { console.log( i++ ); }
       res = sieve( 3000 );
    }
 
-   print( "res=", list2array( s100 ) );
+   console.log( "res=", list2array( s100 ) );
 }
 
-const N = 300;
+// Static Hermes benchmark runner: fixed N, timed with performance.now
+const N = 303;
 
-main( "sieve", N ); 
-
-
-
-print('Time: ' + (performance.now() - __hopcStart));
-})();
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+main( "sieve", N );
+var __end = __performance.now();
+print( "Time: " + (__end - __start) );

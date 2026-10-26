@@ -1,0 +1,4783 @@
+{
+  "static shapes": {},
+  "shape bindings": [],
+  "shape guards": [],
+  "type guards": [
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 21,
+          "column": 33
+        },
+        "end": {
+          "line": 21,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 44,
+          "column": 30
+        },
+        "end": {
+          "line": 44,
+          "column": 40
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 45,
+          "column": 30
+        },
+        "end": {
+          "line": 45,
+          "column": 47
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 61,
+          "column": 11
+        },
+        "end": {
+          "line": 61,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 83,
+          "column": 11
+        },
+        "end": {
+          "line": 83,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 150,
+          "column": 17
+        },
+        "end": {
+          "line": 150,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 164,
+          "column": 27
+        },
+        "end": {
+          "line": 164,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 165,
+          "column": 27
+        },
+        "end": {
+          "line": 165,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 175,
+          "column": 13
+        },
+        "end": {
+          "line": 175,
+          "column": 20
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 189,
+          "column": 23
+        },
+        "end": {
+          "line": 189,
+          "column": 35
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 190,
+          "column": 23
+        },
+        "end": {
+          "line": 190,
+          "column": 35
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 191,
+          "column": 23
+        },
+        "end": {
+          "line": 191,
+          "column": 35
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 192,
+          "column": 23
+        },
+        "end": {
+          "line": 192,
+          "column": 35
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 193,
+          "column": 23
+        },
+        "end": {
+          "line": 193,
+          "column": 35
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 194,
+          "column": 23
+        },
+        "end": {
+          "line": 194,
+          "column": 35
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 207,
+          "column": 13
+        },
+        "end": {
+          "line": 207,
+          "column": 20
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 227,
+          "column": 26
+        },
+        "end": {
+          "line": 227,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 230,
+          "column": 17
+        },
+        "end": {
+          "line": 230,
+          "column": 28
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 233,
+          "column": 40
+        },
+        "end": {
+          "line": 233,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 248,
+          "column": 19
+        },
+        "end": {
+          "line": 248,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 248,
+          "column": 8
+        },
+        "end": {
+          "line": 248,
+          "column": 36
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 3,
+          "column": 5
+        },
+        "end": {
+          "line": 3,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 5,
+          "column": 5
+        },
+        "end": {
+          "line": 5,
+          "column": 6
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 7,
+          "column": 10
+        },
+        "end": {
+          "line": 7,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 12,
+          "column": 10
+        },
+        "end": {
+          "line": 12,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 16,
+          "column": 19
+        },
+        "end": {
+          "line": 16,
+          "column": 22
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 17,
+          "column": 19
+        },
+        "end": {
+          "line": 17,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 17,
+          "column": 22
+        },
+        "end": {
+          "line": 17,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 17,
+          "column": 13
+        },
+        "end": {
+          "line": 17,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 17,
+          "column": 4
+        },
+        "end": {
+          "line": 23,
+          "column": 5
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 16,
+          "column": 10
+        },
+        "end": {
+          "line": 16,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 26,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 28,
+          "column": 10
+        },
+        "end": {
+          "line": 28,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 29,
+          "column": 10
+        },
+        "end": {
+          "line": 29,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 30,
+          "column": 10
+        },
+        "end": {
+          "line": 30,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 30,
+          "column": 1
+        },
+        "end": {
+          "line": 30,
+          "column": 41
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 31,
+          "column": 10
+        },
+        "end": {
+          "line": 31,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 31,
+          "column": 41
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 32,
+          "column": 10
+        },
+        "end": {
+          "line": 32,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 32,
+          "column": 41
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 33,
+          "column": 10
+        },
+        "end": {
+          "line": 33,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 33,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 41
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 34,
+          "column": 10
+        },
+        "end": {
+          "line": 34,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 34,
+          "column": 1
+        },
+        "end": {
+          "line": 34,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 35,
+          "column": 10
+        },
+        "end": {
+          "line": 35,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 35,
+          "column": 1
+        },
+        "end": {
+          "line": 35,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 36,
+          "column": 10
+        },
+        "end": {
+          "line": 36,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 36,
+          "column": 1
+        },
+        "end": {
+          "line": 36,
+          "column": 51
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 37,
+          "column": 10
+        },
+        "end": {
+          "line": 37,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 37,
+          "column": 1
+        },
+        "end": {
+          "line": 37,
+          "column": 51
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 39,
+          "column": 10
+        },
+        "end": {
+          "line": 39,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 39,
+          "column": 1
+        },
+        "end": {
+          "line": 39,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 40,
+          "column": 10
+        },
+        "end": {
+          "line": 40,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 40,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 44,
+          "column": 10
+        },
+        "end": {
+          "line": 44,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 44,
+          "column": 1
+        },
+        "end": {
+          "line": 44,
+          "column": 43
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 45,
+          "column": 10
+        },
+        "end": {
+          "line": 45,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 45,
+          "column": 1
+        },
+        "end": {
+          "line": 45,
+          "column": 50
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 47,
+          "column": 5
+        },
+        "end": {
+          "line": 47,
+          "column": 7
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 48,
+          "column": 5
+        },
+        "end": {
+          "line": 48,
+          "column": 9
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 49,
+          "column": 5
+        },
+        "end": {
+          "line": 49,
+          "column": 10
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 50,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 11
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 53,
+          "column": 10
+        },
+        "end": {
+          "line": 53,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 53,
+          "column": 1
+        },
+        "end": {
+          "line": 58,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 60,
+          "column": 10
+        },
+        "end": {
+          "line": 60,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 60,
+          "column": 1
+        },
+        "end": {
+          "line": 62,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 64,
+          "column": 10
+        },
+        "end": {
+          "line": 64,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 64,
+          "column": 1
+        },
+        "end": {
+          "line": 66,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 68,
+          "column": 10
+        },
+        "end": {
+          "line": 68,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 68,
+          "column": 1
+        },
+        "end": {
+          "line": 80,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 82,
+          "column": 10
+        },
+        "end": {
+          "line": 82,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 82,
+          "column": 1
+        },
+        "end": {
+          "line": 85,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 87,
+          "column": 26
+        },
+        "end": {
+          "line": 87,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 95,
+          "column": 11
+        },
+        "end": {
+          "line": 95,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 87,
+          "column": 10
+        },
+        "end": {
+          "line": 87,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 87,
+          "column": 1
+        },
+        "end": {
+          "line": 115,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 117,
+          "column": 26
+        },
+        "end": {
+          "line": 117,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 119,
+          "column": 8
+        },
+        "end": {
+          "line": 119,
+          "column": 9
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 117,
+          "column": 10
+        },
+        "end": {
+          "line": 117,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 117,
+          "column": 1
+        },
+        "end": {
+          "line": 126,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 128,
+          "column": 10
+        },
+        "end": {
+          "line": 128,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 128,
+          "column": 1
+        },
+        "end": {
+          "line": 142,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 144,
+          "column": 5
+        },
+        "end": {
+          "line": 144,
+          "column": 6
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 146,
+          "column": 27
+        },
+        "end": {
+          "line": 146,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 150,
+          "column": 13
+        },
+        "end": {
+          "line": 150,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 162,
+          "column": 8
+        },
+        "end": {
+          "line": 162,
+          "column": 9
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 174,
+          "column": 10
+        },
+        "end": {
+          "line": 174,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 174,
+          "column": 1
+        },
+        "end": {
+          "line": 180,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 146,
+          "column": 10
+        },
+        "end": {
+          "line": 146,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 146,
+          "column": 1
+        },
+        "end": {
+          "line": 172,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 174,
+          "column": 26
+        },
+        "end": {
+          "line": 174,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 183,
+          "column": 28
+        },
+        "end": {
+          "line": 183,
+          "column": 32
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 183,
+          "column": 13
+        },
+        "end": {
+          "line": 183,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 183,
+          "column": 4
+        },
+        "end": {
+          "line": 203,
+          "column": 5
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 205,
+          "column": 8
+        },
+        "end": {
+          "line": 205,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 182,
+          "column": 10
+        },
+        "end": {
+          "line": 182,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 182,
+          "column": 1
+        },
+        "end": {
+          "line": 211,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 213,
+          "column": 10
+        },
+        "end": {
+          "line": 213,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 213,
+          "column": 1
+        },
+        "end": {
+          "line": 216,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 218,
+          "column": 23
+        },
+        "end": {
+          "line": 218,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 218,
+          "column": 10
+        },
+        "end": {
+          "line": 218,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 218,
+          "column": 1
+        },
+        "end": {
+          "line": 223,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 225,
+          "column": 16
+        },
+        "end": {
+          "line": 225,
+          "column": 21
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 225,
+          "column": 23
+        },
+        "end": {
+          "line": 225,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 226,
+          "column": 8
+        },
+        "end": {
+          "line": 226,
+          "column": 11
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 228,
+          "column": 8
+        },
+        "end": {
+          "line": 228,
+          "column": 9
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 225,
+          "column": 10
+        },
+        "end": {
+          "line": 225,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 225,
+          "column": 1
+        },
+        "end": {
+          "line": 238,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 241,
+          "column": 7
+        },
+        "end": {
+          "line": 241,
+          "column": 8
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 243,
+          "column": 5
+        },
+        "end": {
+          "line": 243,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 13,
+          "column": 15
+        },
+        "end": {
+          "line": 13,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 10,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 18,
+          "column": 17
+        },
+        "end": {
+          "line": 18,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 21,
+          "column": 16
+        },
+        "end": {
+          "line": 21,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 21,
+          "column": 33
+        },
+        "end": {
+          "line": 21,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 21,
+          "column": 24
+        },
+        "end": {
+          "line": 21,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 17,
+          "column": 4
+        },
+        "end": {
+          "line": 23,
+          "column": 5
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 21,
+          "column": 30
+        },
+        "end": {
+          "line": 21,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 21,
+          "column": 10
+        },
+        "end": {
+          "line": 21,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 25,
+          "column": 11
+        },
+        "end": {
+          "line": 25,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 17,
+          "column": 4
+        },
+        "end": {
+          "line": 23,
+          "column": 5
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 25,
+          "column": 17
+        },
+        "end": {
+          "line": 25,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 71,
+          "column": 14
+        },
+        "end": {
+          "line": 71,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 60,
+          "column": 1
+        },
+        "end": {
+          "line": 62,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 84,
+          "column": 11
+        },
+        "end": {
+          "line": 84,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 88,
+          "column": 8
+        },
+        "end": {
+          "line": 88,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 31,
+          "column": 41
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 88,
+          "column": 22
+        },
+        "end": {
+          "line": 88,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 89,
+          "column": 15
+        },
+        "end": {
+          "line": 89,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 32,
+          "column": 41
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 90,
+          "column": 7
+        },
+        "end": {
+          "line": 90,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 39,
+          "column": 1
+        },
+        "end": {
+          "line": 39,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 93,
+          "column": 15
+        },
+        "end": {
+          "line": 93,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 32,
+          "column": 41
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 94,
+          "column": 15
+        },
+        "end": {
+          "line": 94,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 97,
+          "column": 14
+        },
+        "end": {
+          "line": 97,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 97,
+          "column": 27
+        },
+        "end": {
+          "line": 97,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 98,
+          "column": 13
+        },
+        "end": {
+          "line": 98,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 100,
+          "column": 18
+        },
+        "end": {
+          "line": 100,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 31,
+          "column": 41
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 100,
+          "column": 7
+        },
+        "end": {
+          "line": 100,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 40,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 101,
+          "column": 7
+        },
+        "end": {
+          "line": 101,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 39,
+          "column": 1
+        },
+        "end": {
+          "line": 39,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 104,
+          "column": 15
+        },
+        "end": {
+          "line": 104,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 31,
+          "column": 41
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 105,
+          "column": 11
+        },
+        "end": {
+          "line": 105,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 108,
+          "column": 7
+        },
+        "end": {
+          "line": 108,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 109,
+          "column": 7
+        },
+        "end": {
+          "line": 109,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 111,
+          "column": 15
+        },
+        "end": {
+          "line": 111,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 112,
+          "column": 7
+        },
+        "end": {
+          "line": 112,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 40,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 118,
+          "column": 8
+        },
+        "end": {
+          "line": 118,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 122,
+          "column": 11
+        },
+        "end": {
+          "line": 122,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 125,
+          "column": 11
+        },
+        "end": {
+          "line": 125,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 129,
+          "column": 8
+        },
+        "end": {
+          "line": 129,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 44,
+          "column": 1
+        },
+        "end": {
+          "line": 44,
+          "column": 43
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 130,
+          "column": 15
+        },
+        "end": {
+          "line": 130,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 26,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 131,
+          "column": 7
+        },
+        "end": {
+          "line": 131,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 40,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 132,
+          "column": 14
+        },
+        "end": {
+          "line": 132,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 26,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 133,
+          "column": 22
+        },
+        "end": {
+          "line": 133,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 133,
+          "column": 15
+        },
+        "end": {
+          "line": 133,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 44,
+          "column": 1
+        },
+        "end": {
+          "line": 44,
+          "column": 43
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 134,
+          "column": 15
+        },
+        "end": {
+          "line": 134,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 26,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 135,
+          "column": 7
+        },
+        "end": {
+          "line": 135,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 40,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 136,
+          "column": 7
+        },
+        "end": {
+          "line": 136,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 39,
+          "column": 1
+        },
+        "end": {
+          "line": 39,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 139,
+          "column": 14
+        },
+        "end": {
+          "line": 139,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 139,
+          "column": 33
+        },
+        "end": {
+          "line": 139,
+          "column": 37
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 31,
+          "column": 41
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 139,
+          "column": 24
+        },
+        "end": {
+          "line": 139,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 139,
+          "column": 6
+        },
+        "end": {
+          "line": 139,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 40,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 147,
+          "column": 22
+        },
+        "end": {
+          "line": 147,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 68,
+          "column": 1
+        },
+        "end": {
+          "line": 80,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 147,
+          "column": 12
+        },
+        "end": {
+          "line": 147,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 26,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 151,
+          "column": 21
+        },
+        "end": {
+          "line": 151,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 68,
+          "column": 1
+        },
+        "end": {
+          "line": 80,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 151,
+          "column": 11
+        },
+        "end": {
+          "line": 151,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 154,
+          "column": 4
+        },
+        "end": {
+          "line": 154,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 40,
+          "column": 1
+        },
+        "end": {
+          "line": 40,
+          "column": 46
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 155,
+          "column": 8
+        },
+        "end": {
+          "line": 155,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 26,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 158,
+          "column": 22
+        },
+        "end": {
+          "line": 158,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 87,
+          "column": 1
+        },
+        "end": {
+          "line": 115,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 158,
+          "column": 17
+        },
+        "end": {
+          "line": 158,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 128,
+          "column": 1
+        },
+        "end": {
+          "line": 142,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 163,
+          "column": 19
+        },
+        "end": {
+          "line": 163,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 163,
+          "column": 12
+        },
+        "end": {
+          "line": 163,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 44,
+          "column": 1
+        },
+        "end": {
+          "line": 44,
+          "column": 43
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 164,
+          "column": 27
+        },
+        "end": {
+          "line": 164,
+          "column": 41
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 82,
+          "column": 1
+        },
+        "end": {
+          "line": 85,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 164,
+          "column": 11
+        },
+        "end": {
+          "line": 164,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 87,
+          "column": 1
+        },
+        "end": {
+          "line": 115,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 165,
+          "column": 27
+        },
+        "end": {
+          "line": 165,
+          "column": 41
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 82,
+          "column": 1
+        },
+        "end": {
+          "line": 85,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 165,
+          "column": 11
+        },
+        "end": {
+          "line": 165,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 117,
+          "column": 1
+        },
+        "end": {
+          "line": 126,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 166,
+          "column": 7
+        },
+        "end": {
+          "line": 166,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 128,
+          "column": 1
+        },
+        "end": {
+          "line": 142,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 167,
+          "column": 16
+        },
+        "end": {
+          "line": 167,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 168,
+          "column": 19
+        },
+        "end": {
+          "line": 168,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 171,
+          "column": 21
+        },
+        "end": {
+          "line": 171,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 117,
+          "column": 1
+        },
+        "end": {
+          "line": 126,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 171,
+          "column": 11
+        },
+        "end": {
+          "line": 171,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 174,
+          "column": 1
+        },
+        "end": {
+          "line": 180,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 171,
+          "column": 48
+        },
+        "end": {
+          "line": 171,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 175,
+          "column": 24
+        },
+        "end": {
+          "line": 175,
+          "column": 29
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 44,
+          "column": 1
+        },
+        "end": {
+          "line": 44,
+          "column": 43
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 177,
+          "column": 14
+        },
+        "end": {
+          "line": 177,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 187,
+          "column": 21
+        },
+        "end": {
+          "line": 187,
+          "column": 25
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 198,
+          "column": 17
+        },
+        "end": {
+          "line": 198,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 44,
+          "column": 1
+        },
+        "end": {
+          "line": 44,
+          "column": 43
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 199,
+          "column": 15
+        },
+        "end": {
+          "line": 199,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 199,
+          "column": 6
+        },
+        "end": {
+          "line": 199,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 183,
+          "column": 4
+        },
+        "end": {
+          "line": 203,
+          "column": 5
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 199,
+          "column": 28
+        },
+        "end": {
+          "line": 199,
+          "column": 32
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 200,
+          "column": 13
+        },
+        "end": {
+          "line": 200,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 36
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 208,
+          "column": 4
+        },
+        "end": {
+          "line": 208,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 183,
+          "column": 4
+        },
+        "end": {
+          "line": 203,
+          "column": 5
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 208,
+          "column": 19
+        },
+        "end": {
+          "line": 208,
+          "column": 25
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 210,
+          "column": 11
+        },
+        "end": {
+          "line": 210,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 214,
+          "column": 4
+        },
+        "end": {
+          "line": 214,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 53,
+          "column": 1
+        },
+        "end": {
+          "line": 58,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 215,
+          "column": 11
+        },
+        "end": {
+          "line": 215,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 146,
+          "column": 1
+        },
+        "end": {
+          "line": 172,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 219,
+          "column": 4
+        },
+        "end": {
+          "line": 219,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 213,
+          "column": 1
+        },
+        "end": {
+          "line": 216,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 221,
+          "column": 7
+        },
+        "end": {
+          "line": 221,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 182,
+          "column": 1
+        },
+        "end": {
+          "line": 211,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 227,
+          "column": 14
+        },
+        "end": {
+          "line": 227,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 230,
+          "column": 17
+        },
+        "end": {
+          "line": 230,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 230,
+          "column": 30
+        },
+        "end": {
+          "line": 230,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 230,
+          "column": 4
+        },
+        "end": {
+          "line": 230,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 233,
+          "column": 27
+        },
+        "end": {
+          "line": 233,
+          "column": 34
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 234,
+          "column": 7
+        },
+        "end": {
+          "line": 234,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 218,
+          "column": 1
+        },
+        "end": {
+          "line": 223,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 237,
+          "column": 4
+        },
+        "end": {
+          "line": 237,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 218,
+          "column": 1
+        },
+        "end": {
+          "line": 223,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 243,
+          "column": 21
+        },
+        "end": {
+          "line": 243,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 243,
+          "column": 48
+        },
+        "end": {
+          "line": 243,
+          "column": 58
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 244,
+          "column": 1
+        },
+        "end": {
+          "line": 244,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 244,
+          "column": 23
+        },
+        "end": {
+          "line": 244,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 245,
+          "column": 15
+        },
+        "end": {
+          "line": 245,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 246,
+          "column": 1
+        },
+        "end": {
+          "line": 246,
+          "column": 5
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "traverse.js",
+        "start": {
+          "line": 225,
+          "column": 1
+        },
+        "end": {
+          "line": 238,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 246,
+          "column": 19
+        },
+        "end": {
+          "line": 246,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 247,
+          "column": 13
+        },
+        "end": {
+          "line": 247,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 250,
+          "column": 20
+        },
+        "end": {
+          "line": 250,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "traverse.js",
+        "start": {
+          "line": 250,
+          "column": 1
+        },
+        "end": {
+          "line": 250,
+          "column": 8
+        }
+      },
+      "type": "object"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "42:7",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "28:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "29:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "31:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "32:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "39:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "40:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "44:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "51:5",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "87:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "117:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "130:11",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "134:11",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "147:8",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "148:8",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "157:10",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "174:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "182:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "183:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "196:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "8:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "9:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "13:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "13:26",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "19:10",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "28:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "29:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "31:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "32:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "39:42",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "39:34",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "40:42",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "40:34",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "88:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "88:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "89:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "90:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "91:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "93:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "94:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "97:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "97:32",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "98:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "100:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "100:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "101:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "101:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "102:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "104:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "105:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "108:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "109:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "111:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "112:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "112:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "113:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "118:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "122:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "125:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "129:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "130:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "131:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "131:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "132:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "133:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "134:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "135:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "135:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "136:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "136:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "137:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "139:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "139:39",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "139:30",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "140:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "148:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "151:29",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "154:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "154:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "155:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "157:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "158:41",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "163:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "164:49",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "165:49",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "166:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "166:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "167:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "167:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "167:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "168:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "168:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "168:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "171:40",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "175:31",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "177:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "179:11",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "184:11",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "187:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "189:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "189:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "190:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "190:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "191:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "191:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "192:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "192:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "193:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "193:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "194:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "194:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "196:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "198:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "199:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "200:18",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "208:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "221:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null",
+        "object"
+      ]
+    }
+  ]
+}

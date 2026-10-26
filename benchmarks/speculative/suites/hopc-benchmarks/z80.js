@@ -1,11 +1,3 @@
-// Imported from https://github.com/manuel-serrano/jsbench
-// Commit: 7c8fc4e58d2a5c7980c207d302b1d1cb18308a5c
-// Source: other/z80.js
-// Adaptation: benchmarks/speculative/import_hopc.py
-(function() {
-"use strict";
-var __hopcStart = performance.now();
-
 /*!
  * A Javascript/Typescript Z80 Emulator
  * Copyright (C) 2015  Claudemiro Alves Feitosa Neto <dimiro1@gmail.com>
@@ -936,16 +928,16 @@ var tests = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0a", "
 
 
 function describe( lbl, thunk ) {
-   //print( lbl, "..." );
+   //console.log( lbl, "..." );
    return thunk();
 }
 
 function main( bench, N ) {
-   print( bench + "(", N, ")..." );
+   console.log( bench + "(", N, ")..." );
    const mem = new Memory();
    
    for( let i = 0; i < 10; i++ ) {
-      print( i );
+      console.log( i );
       for( let j = 0; j < N; j++ ) {
    	 tests.forEach((opcode) => {
       	       describe(`0x${opcode}`, () => {
@@ -976,9 +968,13 @@ function main( bench, N ) {
    }
 }
 
-const N = 5;
+// Static Hermes benchmark runner: fixed N, timed with performance.now
+const N = 12;
 
-main( "z80", N ); 
-
-print('Time: ' + (performance.now() - __hopcStart));
-})();
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+main( "z80", N );
+var __end = __performance.now();
+print( "Time: " + (__end - __start) );
+ 

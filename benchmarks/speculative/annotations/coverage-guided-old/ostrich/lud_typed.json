@@ -1,0 +1,832 @@
+{
+  "static shapes": {},
+  "shape guards": [],
+  "shape bindings": [],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 110,
+          "column": 17
+        },
+        "end": {
+          "line": 110,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 67,
+          "column": 31
+        },
+        "end": {
+          "line": 67,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 67,
+          "column": 36
+        },
+        "end": {
+          "line": 67,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 74,
+          "column": 20
+        },
+        "end": {
+          "line": 74,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 74,
+          "column": 23
+        },
+        "end": {
+          "line": 74,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 70,
+          "column": 30
+        },
+        "end": {
+          "line": 70,
+          "column": 49
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 42,
+          "column": 23
+        },
+        "end": {
+          "line": 44,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 43,
+          "column": 21
+        },
+        "end": {
+          "line": 43,
+          "column": 38
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 30,
+          "column": 12
+        },
+        "end": {
+          "line": 39,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 114,
+          "column": 14
+        },
+        "end": {
+          "line": 114,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 116,
+          "column": 14
+        },
+        "end": {
+          "line": 116,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 115,
+          "column": 5
+        },
+        "end": {
+          "line": 115,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 83,
+          "column": 1
+        },
+        "end": {
+          "line": 106,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 128,
+          "column": 1
+        },
+        "end": {
+          "line": 128,
+          "column": 7
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 110,
+          "column": 1
+        },
+        "end": {
+          "line": 121,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 112,
+          "column": 5
+        },
+        "end": {
+          "line": 112,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 67,
+          "column": 1
+        },
+        "end": {
+          "line": 72,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 68,
+          "column": 24
+        },
+        "end": {
+          "line": 68,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 130,
+          "column": 31
+        },
+        "end": {
+          "line": 130,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 130,
+          "column": 39
+        },
+        "end": {
+          "line": 130,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 70,
+          "column": 30
+        },
+        "end": {
+          "line": 70,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 43,
+          "column": 21
+        },
+        "end": {
+          "line": 43,
+          "column": 40
+        }
+      },
+      "type": "number"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "90:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "matrix"
+    },
+    {
+      "location": "92:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "matrix"
+    },
+    {
+      "location": "92:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "matrix"
+    },
+    {
+      "location": "95:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "matrix"
+    },
+    {
+      "location": "99:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "matrix"
+    },
+    {
+      "location": "101:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "matrix"
+    },
+    {
+      "location": "101:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "matrix"
+    },
+    {
+      "location": "103:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "matrix"
+    },
+    {
+      "location": "103:43",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "matrix"
+    },
+    {
+      "location": "68:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "70:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "70:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "abs"
+    },
+    {
+      "location": "70:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "70:49",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "commonRandomJS"
+    },
+    {
+      "location": "75:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "75:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "77:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "77:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "78:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "78:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "78:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "join"
+    },
+    {
+      "location": "78:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "call"
+    },
+    {
+      "location": "78:47",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "78:52",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "78:62",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "slice"
+    },
+    {
+      "location": "78:73",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "call"
+    },
+    {
+      "location": "75:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "log"
+    },
+    {
+      "location": "77:20",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "log"
+    },
+    {
+      "location": "78:46",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "call"
+    },
+    {
+      "location": "78:73",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "call"
+    },
+    {
+      "location": "77:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation (\"[\" + joined + \"]\"); operands are runtime strings, not strength-reducible arithmetic"
+    },
+    {
+      "location": "111:12",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "matrix"
+    },
+    {
+      "location": "111:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Float64Array"
+    },
+    {
+      "location": "112:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "randomMatrix"
+    },
+    {
+      "location": "112:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "matrix"
+    },
+    {
+      "location": "113:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "113:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "114:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "114:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "115:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "lud"
+    },
+    {
+      "location": "116:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "116:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "117:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "117:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "117:71",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "toFixed"
+    },
+    {
+      "location": "111:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Float64Array"
+    },
+    {
+      "location": "114:29",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "116:29",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "117:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "log"
+    },
+    {
+      "location": "117:71",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "toFixed"
+    },
+    {
+      "location": "113:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation (\"...\" + number / + toFixed result); operands are runtime strings, not strength-reducible arithmetic"
+    },
+    {
+      "location": "117:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation (\"...\" + number / + toFixed result); operands are runtime strings, not strength-reducible arithmetic"
+    },
+    {
+      "location": "119:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation (\"...\" + number / + toFixed result); operands are runtime strings, not strength-reducible arithmetic"
+    },
+    {
+      "location": "113:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "log"
+    },
+    {
+      "location": "43:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "43:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "commonRandom"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "randomMatrix"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "printM"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "ludRun"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "lud"
+    },
+    {
+      "location": "28:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "commonRandom"
+    },
+    {
+      "location": "42:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "42:21",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "commonRandomJS"
+    },
+    {
+      "location": "125:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "125:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "125:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "125:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "125:71",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "126:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "126:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "126:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "126:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "126:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "127:13",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__start"
+    },
+    {
+      "location": "127:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "127:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "128:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "ludRun"
+    },
+    {
+      "location": "129:11",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__end"
+    },
+    {
+      "location": "129:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "129:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "130:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "130:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "130:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "round"
+    },
+    {
+      "location": "130:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__end"
+    },
+    {
+      "location": "130:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__start"
+    },
+    {
+      "location": "127:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "129:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "130:6",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "125:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "nullish/logical operators (?? and ??=) and a string concatenation (\"Time: \" + Math.round(...)); not strength-reducible arithmetic"
+    },
+    {
+      "location": "126:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "nullish/logical operators (?? and ??=) and a string concatenation (\"Time: \" + Math.round(...)); not strength-reducible arithmetic"
+    },
+    {
+      "location": "130:8",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "nullish/logical operators (?? and ??=) and a string concatenation (\"Time: \" + Math.round(...)); not strength-reducible arithmetic"
+    }
+  ]
+}

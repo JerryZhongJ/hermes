@@ -1,0 +1,5363 @@
+{
+  "static shapes": {},
+  "shape bindings": [],
+  "shape guards": [],
+  "type guards": [
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 7,
+          "column": 21
+        },
+        "end": {
+          "line": 7,
+          "column": 31
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 30,
+          "column": 18
+        },
+        "end": {
+          "line": 30,
+          "column": 46
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 71,
+          "column": 39
+        },
+        "end": {
+          "line": 71,
+          "column": 73
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 150,
+          "column": 34
+        },
+        "end": {
+          "line": 150,
+          "column": 79
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 153,
+          "column": 25
+        },
+        "end": {
+          "line": 153,
+          "column": 37
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 153,
+          "column": 41
+        },
+        "end": {
+          "line": 153,
+          "column": 60
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 160,
+          "column": 38
+        },
+        "end": {
+          "line": 160,
+          "column": 61
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 165,
+          "column": 96
+        },
+        "end": {
+          "line": 165,
+          "column": 122
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 165,
+          "column": 33
+        },
+        "end": {
+          "line": 165,
+          "column": 59
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 191,
+          "column": 35
+        },
+        "end": {
+          "line": 191,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 192,
+          "column": 35
+        },
+        "end": {
+          "line": 192,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 198,
+          "column": 35
+        },
+        "end": {
+          "line": 198,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 199,
+          "column": 35
+        },
+        "end": {
+          "line": 199,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 200,
+          "column": 24
+        },
+        "end": {
+          "line": 200,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 200,
+          "column": 42
+        },
+        "end": {
+          "line": 200,
+          "column": 77
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 200,
+          "column": 24
+        },
+        "end": {
+          "line": 200,
+          "column": 77
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 222,
+          "column": 25
+        },
+        "end": {
+          "line": 222,
+          "column": 43
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 266,
+          "column": 18
+        },
+        "end": {
+          "line": 266,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 266,
+          "column": 33
+        },
+        "end": {
+          "line": 266,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 267,
+          "column": 27
+        },
+        "end": {
+          "line": 267,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 276,
+          "column": 32
+        },
+        "end": {
+          "line": 276,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 277,
+          "column": 30
+        },
+        "end": {
+          "line": 277,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 287,
+          "column": 22
+        },
+        "end": {
+          "line": 287,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 287,
+          "column": 37
+        },
+        "end": {
+          "line": 287,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 288,
+          "column": 31
+        },
+        "end": {
+          "line": 288,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 292,
+          "column": 44
+        },
+        "end": {
+          "line": 292,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 293,
+          "column": 38
+        },
+        "end": {
+          "line": 293,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 297,
+          "column": 22
+        },
+        "end": {
+          "line": 297,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 297,
+          "column": 37
+        },
+        "end": {
+          "line": 297,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 297,
+          "column": 44
+        },
+        "end": {
+          "line": 297,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 298,
+          "column": 31
+        },
+        "end": {
+          "line": 298,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 298,
+          "column": 38
+        },
+        "end": {
+          "line": 298,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 331,
+          "column": 29
+        },
+        "end": {
+          "line": 331,
+          "column": 53
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 331,
+          "column": 57
+        },
+        "end": {
+          "line": 331,
+          "column": 81
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 332,
+          "column": 20
+        },
+        "end": {
+          "line": 332,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 338,
+          "column": 16
+        },
+        "end": {
+          "line": 338,
+          "column": 33
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 352,
+          "column": 27
+        },
+        "end": {
+          "line": 352,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 398,
+          "column": 33
+        },
+        "end": {
+          "line": 398,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 398,
+          "column": 31
+        },
+        "end": {
+          "line": 398,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 421,
+          "column": 32
+        },
+        "end": {
+          "line": 421,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 421,
+          "column": 31
+        },
+        "end": {
+          "line": 421,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 422,
+          "column": 31
+        },
+        "end": {
+          "line": 422,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 500,
+          "column": 30
+        },
+        "end": {
+          "line": 500,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 506,
+          "column": 19
+        },
+        "end": {
+          "line": 506,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 5,
+          "column": 28
+        },
+        "end": {
+          "line": 5,
+          "column": 32
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 5,
+          "column": 7
+        },
+        "end": {
+          "line": 5,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 5,
+          "column": 27
+        },
+        "end": {
+          "line": 9,
+          "column": 3
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 11,
+          "column": 5
+        },
+        "end": {
+          "line": 11,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 17,
+          "column": 5
+        },
+        "end": {
+          "line": 17,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 67,
+          "column": 5
+        },
+        "end": {
+          "line": 67,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 69,
+          "column": 11
+        },
+        "end": {
+          "line": 69,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 80,
+          "column": 4
+        },
+        "end": {
+          "line": 466,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 76,
+          "column": 13
+        },
+        "end": {
+          "line": 76,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 82,
+          "column": 21
+        },
+        "end": {
+          "line": 82,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 84,
+          "column": 13
+        },
+        "end": {
+          "line": 84,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 82,
+          "column": 14
+        },
+        "end": {
+          "line": 82,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 82,
+          "column": 5
+        },
+        "end": {
+          "line": 90,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 93,
+          "column": 40
+        },
+        "end": {
+          "line": 93,
+          "column": 44
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 341,
+          "column": 14
+        },
+        "end": {
+          "line": 341,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 341,
+          "column": 5
+        },
+        "end": {
+          "line": 344,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 92,
+          "column": 14
+        },
+        "end": {
+          "line": 92,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 92,
+          "column": 5
+        },
+        "end": {
+          "line": 96,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 110,
+          "column": 26
+        },
+        "end": {
+          "line": 110,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 110,
+          "column": 33
+        },
+        "end": {
+          "line": 110,
+          "column": 38
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 110,
+          "column": 40
+        },
+        "end": {
+          "line": 110,
+          "column": 43
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 110,
+          "column": 45
+        },
+        "end": {
+          "line": 110,
+          "column": 52
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 98,
+          "column": 9
+        },
+        "end": {
+          "line": 98,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 113,
+          "column": 17
+        },
+        "end": {
+          "line": 113,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 190,
+          "column": 24
+        },
+        "end": {
+          "line": 194,
+          "column": 14
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 114,
+          "column": 17
+        },
+        "end": {
+          "line": 114,
+          "column": 24
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 116,
+          "column": 17
+        },
+        "end": {
+          "line": 116,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 117,
+          "column": 17
+        },
+        "end": {
+          "line": 117,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 127,
+          "column": 21
+        },
+        "end": {
+          "line": 127,
+          "column": 32
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 138,
+          "column": 21
+        },
+        "end": {
+          "line": 138,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 140,
+          "column": 26
+        },
+        "end": {
+          "line": 140,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 141,
+          "column": 25
+        },
+        "end": {
+          "line": 141,
+          "column": 33
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 150,
+          "column": 25
+        },
+        "end": {
+          "line": 150,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 151,
+          "column": 25
+        },
+        "end": {
+          "line": 151,
+          "column": 36
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 190,
+          "column": 33
+        },
+        "end": {
+          "line": 190,
+          "column": 37
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 190,
+          "column": 39
+        },
+        "end": {
+          "line": 190,
+          "column": 43
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 196,
+          "column": 21
+        },
+        "end": {
+          "line": 196,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 203,
+          "column": 29
+        },
+        "end": {
+          "line": 203,
+          "column": 33
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 219,
+          "column": 20
+        },
+        "end": {
+          "line": 219,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 219,
+          "column": 28
+        },
+        "end": {
+          "line": 219,
+          "column": 35
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 224,
+          "column": 18
+        },
+        "end": {
+          "line": 224,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 227,
+          "column": 22
+        },
+        "end": {
+          "line": 227,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 227,
+          "column": 29
+        },
+        "end": {
+          "line": 227,
+          "column": 32
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 319,
+          "column": 14
+        },
+        "end": {
+          "line": 319,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 319,
+          "column": 5
+        },
+        "end": {
+          "line": 323,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 228,
+          "column": 21
+        },
+        "end": {
+          "line": 228,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 219,
+          "column": 14
+        },
+        "end": {
+          "line": 219,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 219,
+          "column": 5
+        },
+        "end": {
+          "line": 234,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 238,
+          "column": 18
+        },
+        "end": {
+          "line": 238,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 244,
+          "column": 18
+        },
+        "end": {
+          "line": 244,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 250,
+          "column": 42
+        },
+        "end": {
+          "line": 250,
+          "column": 46
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 254,
+          "column": 42
+        },
+        "end": {
+          "line": 254,
+          "column": 46
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 255,
+          "column": 13
+        },
+        "end": {
+          "line": 255,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 256,
+          "column": 13
+        },
+        "end": {
+          "line": 256,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 257,
+          "column": 13
+        },
+        "end": {
+          "line": 257,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 258,
+          "column": 13
+        },
+        "end": {
+          "line": 258,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 306,
+          "column": 13
+        },
+        "end": {
+          "line": 306,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 308,
+          "column": 18
+        },
+        "end": {
+          "line": 308,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 309,
+          "column": 17
+        },
+        "end": {
+          "line": 309,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 311,
+          "column": 22
+        },
+        "end": {
+          "line": 311,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 319,
+          "column": 23
+        },
+        "end": {
+          "line": 319,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 319,
+          "column": 26
+        },
+        "end": {
+          "line": 319,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 319,
+          "column": 29
+        },
+        "end": {
+          "line": 319,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 329,
+          "column": 43
+        },
+        "end": {
+          "line": 329,
+          "column": 55
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 341,
+          "column": 25
+        },
+        "end": {
+          "line": 341,
+          "column": 38
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 93,
+          "column": 31
+        },
+        "end": {
+          "line": 95,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 347,
+          "column": 24
+        },
+        "end": {
+          "line": 347,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 356,
+          "column": 17
+        },
+        "end": {
+          "line": 356,
+          "column": 23
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 358,
+          "column": 17
+        },
+        "end": {
+          "line": 358,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 387,
+          "column": 34
+        },
+        "end": {
+          "line": 387,
+          "column": 38
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 390,
+          "column": 28
+        },
+        "end": {
+          "line": 390,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 392,
+          "column": 17
+        },
+        "end": {
+          "line": 392,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 398,
+          "column": 21
+        },
+        "end": {
+          "line": 398,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 399,
+          "column": 21
+        },
+        "end": {
+          "line": 399,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 416,
+          "column": 17
+        },
+        "end": {
+          "line": 416,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 417,
+          "column": 17
+        },
+        "end": {
+          "line": 417,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 421,
+          "column": 21
+        },
+        "end": {
+          "line": 421,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 422,
+          "column": 21
+        },
+        "end": {
+          "line": 422,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 429,
+          "column": 25
+        },
+        "end": {
+          "line": 429,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 425,
+          "column": 21
+        },
+        "end": {
+          "line": 425,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 440,
+          "column": 25
+        },
+        "end": {
+          "line": 440,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 441,
+          "column": 25
+        },
+        "end": {
+          "line": 441,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 468,
+          "column": 7
+        },
+        "end": {
+          "line": 468,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 468,
+          "column": 1
+        },
+        "end": {
+          "line": 481,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 477,
+          "column": 15
+        },
+        "end": {
+          "line": 477,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 478,
+          "column": 15
+        },
+        "end": {
+          "line": 478,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 479,
+          "column": 13
+        },
+        "end": {
+          "line": 479,
+          "column": 19
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 489,
+          "column": 9
+        },
+        "end": {
+          "line": 489,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 490,
+          "column": 9
+        },
+        "end": {
+          "line": 490,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 492,
+          "column": 12
+        },
+        "end": {
+          "line": 492,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 506,
+          "column": 9
+        },
+        "end": {
+          "line": 506,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 488,
+          "column": 11
+        },
+        "end": {
+          "line": 488,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 488,
+          "column": 2
+        },
+        "end": {
+          "line": 508,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 7,
+          "column": 21
+        },
+        "end": {
+          "line": 7,
+          "column": 25
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 7,
+          "column": 34
+        },
+        "end": {
+          "line": 7,
+          "column": 40
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 7,
+          "column": 15
+        },
+        "end": {
+          "line": 7,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 5,
+          "column": 41
+        },
+        "end": {
+          "line": 5,
+          "column": 46
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 11,
+          "column": 19
+        },
+        "end": {
+          "line": 11,
+          "column": 29
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 11,
+          "column": 46
+        },
+        "end": {
+          "line": 11,
+          "column": 56
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 12,
+          "column": 21
+        },
+        "end": {
+          "line": 12,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 14,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 15,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 18,
+          "column": 14
+        },
+        "end": {
+          "line": 18,
+          "column": 31
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 5,
+          "column": 27
+        },
+        "end": {
+          "line": 9,
+          "column": 3
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 20,
+          "column": 16
+        },
+        "end": {
+          "line": 20,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 5,
+          "column": 27
+        },
+        "end": {
+          "line": 9,
+          "column": 3
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 24,
+          "column": 16
+        },
+        "end": {
+          "line": 24,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 5,
+          "column": 27
+        },
+        "end": {
+          "line": 9,
+          "column": 3
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 17,
+          "column": 17
+        },
+        "end": {
+          "line": 17,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 10
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 30,
+          "column": 1
+        },
+        "end": {
+          "line": 30,
+          "column": 10
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 71,
+          "column": 46
+        },
+        "end": {
+          "line": 71,
+          "column": 52
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 72,
+          "column": 26
+        },
+        "end": {
+          "line": 72,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 80,
+          "column": 4
+        },
+        "end": {
+          "line": 466,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 72,
+          "column": 9
+        },
+        "end": {
+          "line": 72,
+          "column": 15
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 74,
+          "column": 20
+        },
+        "end": {
+          "line": 74,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 80,
+          "column": 4
+        },
+        "end": {
+          "line": 466,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 76,
+          "column": 23
+        },
+        "end": {
+          "line": 76,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 80,
+          "column": 4
+        },
+        "end": {
+          "line": 466,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 77,
+          "column": 24
+        },
+        "end": {
+          "line": 77,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 78,
+          "column": 24
+        },
+        "end": {
+          "line": 78,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 83,
+          "column": 20
+        },
+        "end": {
+          "line": 83,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 86,
+          "column": 13
+        },
+        "end": {
+          "line": 86,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 89,
+          "column": 16
+        },
+        "end": {
+          "line": 89,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 94,
+          "column": 20
+        },
+        "end": {
+          "line": 94,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 93,
+          "column": 20
+        },
+        "end": {
+          "line": 93,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 341,
+          "column": 5
+        },
+        "end": {
+          "line": 344,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 111,
+          "column": 13
+        },
+        "end": {
+          "line": 111,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 112,
+          "column": 23
+        },
+        "end": {
+          "line": 112,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 113,
+          "column": 29
+        },
+        "end": {
+          "line": 113,
+          "column": 36
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 113,
+          "column": 50
+        },
+        "end": {
+          "line": 113,
+          "column": 55
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 114,
+          "column": 27
+        },
+        "end": {
+          "line": 114,
+          "column": 34
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 116,
+          "column": 28
+        },
+        "end": {
+          "line": 116,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 92,
+          "column": 5
+        },
+        "end": {
+          "line": 96,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 117,
+          "column": 31
+        },
+        "end": {
+          "line": 117,
+          "column": 36
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 119,
+          "column": 23
+        },
+        "end": {
+          "line": 119,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 190,
+          "column": 24
+        },
+        "end": {
+          "line": 194,
+          "column": 14
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 119,
+          "column": 33
+        },
+        "end": {
+          "line": 119,
+          "column": 38
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 119,
+          "column": 40
+        },
+        "end": {
+          "line": 119,
+          "column": 43
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 119,
+          "column": 13
+        },
+        "end": {
+          "line": 119,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 120,
+          "column": 29
+        },
+        "end": {
+          "line": 120,
+          "column": 34
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 120,
+          "column": 13
+        },
+        "end": {
+          "line": 120,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 122,
+          "column": 27
+        },
+        "end": {
+          "line": 122,
+          "column": 32
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 122,
+          "column": 13
+        },
+        "end": {
+          "line": 122,
+          "column": 21
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 124,
+          "column": 20
+        },
+        "end": {
+          "line": 124,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 127,
+          "column": 35
+        },
+        "end": {
+          "line": 127,
+          "column": 43
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 131,
+          "column": 28
+        },
+        "end": {
+          "line": 131,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 82,
+          "column": 5
+        },
+        "end": {
+          "line": 90,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 131,
+          "column": 35
+        },
+        "end": {
+          "line": 131,
+          "column": 46
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 135,
+          "column": 17
+        },
+        "end": {
+          "line": 135,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 138,
+          "column": 49
+        },
+        "end": {
+          "line": 138,
+          "column": 60
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 138,
+          "column": 33
+        },
+        "end": {
+          "line": 138,
+          "column": 38
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 140,
+          "column": 38
+        },
+        "end": {
+          "line": 140,
+          "column": 47
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 141,
+          "column": 36
+        },
+        "end": {
+          "line": 141,
+          "column": 45
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 143,
+          "column": 25
+        },
+        "end": {
+          "line": 143,
+          "column": 33
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 143,
+          "column": 44
+        },
+        "end": {
+          "line": 143,
+          "column": 52
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 150,
+          "column": 34
+        },
+        "end": {
+          "line": 150,
+          "column": 45
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 150,
+          "column": 67
+        },
+        "end": {
+          "line": 150,
+          "column": 78
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 150,
+          "column": 50
+        },
+        "end": {
+          "line": 150,
+          "column": 58
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 151,
+          "column": 39
+        },
+        "end": {
+          "line": 151,
+          "column": 47
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 153,
+          "column": 50
+        },
+        "end": {
+          "line": 153,
+          "column": 58
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 156,
+          "column": 25
+        },
+        "end": {
+          "line": 156,
+          "column": 33
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 157,
+          "column": 43
+        },
+        "end": {
+          "line": 157,
+          "column": 54
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 157,
+          "column": 25
+        },
+        "end": {
+          "line": 157,
+          "column": 33
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 158,
+          "column": 38
+        },
+        "end": {
+          "line": 158,
+          "column": 46
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 158,
+          "column": 52
+        },
+        "end": {
+          "line": 158,
+          "column": 61
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 190,
+          "column": 24
+        },
+        "end": {
+          "line": 194,
+          "column": 14
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 158,
+          "column": 62
+        },
+        "end": {
+          "line": 158,
+          "column": 70
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 158,
+          "column": 72
+        },
+        "end": {
+          "line": 158,
+          "column": 75
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 158,
+          "column": 25
+        },
+        "end": {
+          "line": 158,
+          "column": 33
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 159,
+          "column": 38
+        },
+        "end": {
+          "line": 159,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 159,
+          "column": 25
+        },
+        "end": {
+          "line": 159,
+          "column": 33
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 160,
+          "column": 38
+        },
+        "end": {
+          "line": 160,
+          "column": 46
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 160,
+          "column": 51
+        },
+        "end": {
+          "line": 160,
+          "column": 59
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 160,
+          "column": 25
+        },
+        "end": {
+          "line": 160,
+          "column": 33
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 161,
+          "column": 41
+        },
+        "end": {
+          "line": 161,
+          "column": 49
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 161,
+          "column": 25
+        },
+        "end": {
+          "line": 161,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 165,
+          "column": 33
+        },
+        "end": {
+          "line": 165,
+          "column": 41
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 165,
+          "column": 46
+        },
+        "end": {
+          "line": 165,
+          "column": 57
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 165,
+          "column": 64
+        },
+        "end": {
+          "line": 165,
+          "column": 72
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 165,
+          "column": 79
+        },
+        "end": {
+          "line": 165,
+          "column": 90
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 165,
+          "column": 96
+        },
+        "end": {
+          "line": 165,
+          "column": 104
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 165,
+          "column": 109
+        },
+        "end": {
+          "line": 165,
+          "column": 120
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 166,
+          "column": 47
+        },
+        "end": {
+          "line": 166,
+          "column": 55
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 172,
+          "column": 43
+        },
+        "end": {
+          "line": 172,
+          "column": 51
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 172,
+          "column": 29
+        },
+        "end": {
+          "line": 172,
+          "column": 37
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 175,
+          "column": 53
+        },
+        "end": {
+          "line": 175,
+          "column": 61
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 175,
+          "column": 29
+        },
+        "end": {
+          "line": 175,
+          "column": 37
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 182,
+          "column": 24
+        },
+        "end": {
+          "line": 182,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 82,
+          "column": 5
+        },
+        "end": {
+          "line": 90,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 182,
+          "column": 31
+        },
+        "end": {
+          "line": 182,
+          "column": 42
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 191,
+          "column": 35
+        },
+        "end": {
+          "line": 191,
+          "column": 39
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 191,
+          "column": 44
+        },
+        "end": {
+          "line": 191,
+          "column": 48
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 191,
+          "column": 26
+        },
+        "end": {
+          "line": 191,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 192,
+          "column": 35
+        },
+        "end": {
+          "line": 192,
+          "column": 39
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 192,
+          "column": 44
+        },
+        "end": {
+          "line": 192,
+          "column": 48
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 192,
+          "column": 26
+        },
+        "end": {
+          "line": 192,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 197,
+          "column": 26
+        },
+        "end": {
+          "line": 197,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 198,
+          "column": 26
+        },
+        "end": {
+          "line": 198,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 199,
+          "column": 26
+        },
+        "end": {
+          "line": 199,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 200,
+          "column": 60
+        },
+        "end": {
+          "line": 200,
+          "column": 64
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 204,
+          "column": 13
+        },
+        "end": {
+          "line": 204,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 205,
+          "column": 13
+        },
+        "end": {
+          "line": 205,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 206,
+          "column": 13
+        },
+        "end": {
+          "line": 206,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 207,
+          "column": 13
+        },
+        "end": {
+          "line": 207,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 208,
+          "column": 13
+        },
+        "end": {
+          "line": 208,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 209,
+          "column": 13
+        },
+        "end": {
+          "line": 209,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 220,
+          "column": 19
+        },
+        "end": {
+          "line": 220,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 222,
+          "column": 27
+        },
+        "end": {
+          "line": 222,
+          "column": 34
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 224,
+          "column": 29
+        },
+        "end": {
+          "line": 224,
+          "column": 35
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 227,
+          "column": 35
+        },
+        "end": {
+          "line": 227,
+          "column": 41
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 227,
+          "column": 50
+        },
+        "end": {
+          "line": 227,
+          "column": 53
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 228,
+          "column": 47
+        },
+        "end": {
+          "line": 228,
+          "column": 50
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 228,
+          "column": 32
+        },
+        "end": {
+          "line": 228,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 319,
+          "column": 5
+        },
+        "end": {
+          "line": 323,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 228,
+          "column": 41
+        },
+        "end": {
+          "line": 228,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 228,
+          "column": 44
+        },
+        "end": {
+          "line": 228,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 229,
+          "column": 35
+        },
+        "end": {
+          "line": 229,
+          "column": 39
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 230,
+          "column": 33
+        },
+        "end": {
+          "line": 230,
+          "column": 37
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 236,
+          "column": 5
+        },
+        "end": {
+          "line": 236,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 219,
+          "column": 5
+        },
+        "end": {
+          "line": 234,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 239,
+          "column": 13
+        },
+        "end": {
+          "line": 239,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 243,
+          "column": 5
+        },
+        "end": {
+          "line": 243,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 219,
+          "column": 5
+        },
+        "end": {
+          "line": 234,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 245,
+          "column": 13
+        },
+        "end": {
+          "line": 245,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 250,
+          "column": 5
+        },
+        "end": {
+          "line": 250,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 219,
+          "column": 5
+        },
+        "end": {
+          "line": 234,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 251,
+          "column": 30
+        },
+        "end": {
+          "line": 251,
+          "column": 34
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 254,
+          "column": 5
+        },
+        "end": {
+          "line": 254,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 219,
+          "column": 5
+        },
+        "end": {
+          "line": 234,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 256,
+          "column": 17
+        },
+        "end": {
+          "line": 256,
+          "column": 21
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 257,
+          "column": 17
+        },
+        "end": {
+          "line": 257,
+          "column": 21
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 261,
+          "column": 13
+        },
+        "end": {
+          "line": 261,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 261,
+          "column": 28
+        },
+        "end": {
+          "line": 261,
+          "column": 32
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 262,
+          "column": 22
+        },
+        "end": {
+          "line": 262,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 262,
+          "column": 13
+        },
+        "end": {
+          "line": 262,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 266,
+          "column": 18
+        },
+        "end": {
+          "line": 266,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 266,
+          "column": 13
+        },
+        "end": {
+          "line": 266,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 266,
+          "column": 33
+        },
+        "end": {
+          "line": 266,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 266,
+          "column": 28
+        },
+        "end": {
+          "line": 266,
+          "column": 32
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 267,
+          "column": 27
+        },
+        "end": {
+          "line": 267,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 267,
+          "column": 22
+        },
+        "end": {
+          "line": 267,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 267,
+          "column": 13
+        },
+        "end": {
+          "line": 267,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 271,
+          "column": 13
+        },
+        "end": {
+          "line": 271,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 271,
+          "column": 24
+        },
+        "end": {
+          "line": 271,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 272,
+          "column": 22
+        },
+        "end": {
+          "line": 272,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 272,
+          "column": 13
+        },
+        "end": {
+          "line": 272,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 276,
+          "column": 13
+        },
+        "end": {
+          "line": 276,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 276,
+          "column": 24
+        },
+        "end": {
+          "line": 276,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 276,
+          "column": 32
+        },
+        "end": {
+          "line": 276,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 277,
+          "column": 22
+        },
+        "end": {
+          "line": 277,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 277,
+          "column": 30
+        },
+        "end": {
+          "line": 277,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 277,
+          "column": 13
+        },
+        "end": {
+          "line": 277,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 282,
+          "column": 17
+        },
+        "end": {
+          "line": 282,
+          "column": 21
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 282,
+          "column": 32
+        },
+        "end": {
+          "line": 282,
+          "column": 36
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 283,
+          "column": 26
+        },
+        "end": {
+          "line": 283,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 283,
+          "column": 17
+        },
+        "end": {
+          "line": 283,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 287,
+          "column": 22
+        },
+        "end": {
+          "line": 287,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 287,
+          "column": 17
+        },
+        "end": {
+          "line": 287,
+          "column": 21
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 287,
+          "column": 37
+        },
+        "end": {
+          "line": 287,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 287,
+          "column": 32
+        },
+        "end": {
+          "line": 287,
+          "column": 36
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 288,
+          "column": 31
+        },
+        "end": {
+          "line": 288,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 288,
+          "column": 26
+        },
+        "end": {
+          "line": 288,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 288,
+          "column": 17
+        },
+        "end": {
+          "line": 288,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 292,
+          "column": 17
+        },
+        "end": {
+          "line": 292,
+          "column": 21
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 292,
+          "column": 32
+        },
+        "end": {
+          "line": 292,
+          "column": 36
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 292,
+          "column": 44
+        },
+        "end": {
+          "line": 292,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 293,
+          "column": 26
+        },
+        "end": {
+          "line": 293,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 293,
+          "column": 38
+        },
+        "end": {
+          "line": 293,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 293,
+          "column": 17
+        },
+        "end": {
+          "line": 293,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 297,
+          "column": 22
+        },
+        "end": {
+          "line": 297,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 297,
+          "column": 17
+        },
+        "end": {
+          "line": 297,
+          "column": 21
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 297,
+          "column": 37
+        },
+        "end": {
+          "line": 297,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 297,
+          "column": 32
+        },
+        "end": {
+          "line": 297,
+          "column": 36
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 297,
+          "column": 44
+        },
+        "end": {
+          "line": 297,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 298,
+          "column": 31
+        },
+        "end": {
+          "line": 298,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 298,
+          "column": 26
+        },
+        "end": {
+          "line": 298,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 298,
+          "column": 38
+        },
+        "end": {
+          "line": 298,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 298,
+          "column": 17
+        },
+        "end": {
+          "line": 298,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 302,
+          "column": 16
+        },
+        "end": {
+          "line": 302,
+          "column": 19
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 305,
+          "column": 5
+        },
+        "end": {
+          "line": 305,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 219,
+          "column": 5
+        },
+        "end": {
+          "line": 234,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 312,
+          "column": 17
+        },
+        "end": {
+          "line": 312,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 314,
+          "column": 30
+        },
+        "end": {
+          "line": 314,
+          "column": 38
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 314,
+          "column": 13
+        },
+        "end": {
+          "line": 314,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 316,
+          "column": 16
+        },
+        "end": {
+          "line": 316,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 320,
+          "column": 18
+        },
+        "end": {
+          "line": 320,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 321,
+          "column": 18
+        },
+        "end": {
+          "line": 321,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 322,
+          "column": 23
+        },
+        "end": {
+          "line": 322,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 325,
+          "column": 5
+        },
+        "end": {
+          "line": 325,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 319,
+          "column": 5
+        },
+        "end": {
+          "line": 323,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 329,
+          "column": 5
+        },
+        "end": {
+          "line": 329,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 319,
+          "column": 5
+        },
+        "end": {
+          "line": 323,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 331,
+          "column": 29
+        },
+        "end": {
+          "line": 331,
+          "column": 41
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 331,
+          "column": 57
+        },
+        "end": {
+          "line": 331,
+          "column": 69
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 337,
+          "column": 5
+        },
+        "end": {
+          "line": 337,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 319,
+          "column": 5
+        },
+        "end": {
+          "line": 323,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 343,
+          "column": 30
+        },
+        "end": {
+          "line": 343,
+          "column": 43
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 93,
+          "column": 31
+        },
+        "end": {
+          "line": 95,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 349,
+          "column": 31
+        },
+        "end": {
+          "line": 349,
+          "column": 38
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 362,
+          "column": 35
+        },
+        "end": {
+          "line": 362,
+          "column": 38
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 365,
+          "column": 20
+        },
+        "end": {
+          "line": 365,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 388,
+          "column": 48
+        },
+        "end": {
+          "line": 388,
+          "column": 52
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 398,
+          "column": 33
+        },
+        "end": {
+          "line": 398,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 401,
+          "column": 40
+        },
+        "end": {
+          "line": 401,
+          "column": 47
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 401,
+          "column": 70
+        },
+        "end": {
+          "line": 401,
+          "column": 76
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 402,
+          "column": 45
+        },
+        "end": {
+          "line": 402,
+          "column": 52
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 403,
+          "column": 39
+        },
+        "end": {
+          "line": 403,
+          "column": 45
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 405,
+          "column": 25
+        },
+        "end": {
+          "line": 405,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 417,
+          "column": 48
+        },
+        "end": {
+          "line": 417,
+          "column": 55
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 430,
+          "column": 54
+        },
+        "end": {
+          "line": 430,
+          "column": 60
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 434,
+          "column": 32
+        },
+        "end": {
+          "line": 434,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 441,
+          "column": 58
+        },
+        "end": {
+          "line": 441,
+          "column": 64
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 442,
+          "column": 56
+        },
+        "end": {
+          "line": 442,
+          "column": 65
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 442,
+          "column": 68
+        },
+        "end": {
+          "line": 442,
+          "column": 79
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 443,
+          "column": 32
+        },
+        "end": {
+          "line": 443,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 450,
+          "column": 42
+        },
+        "end": {
+          "line": 450,
+          "column": 49
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 346,
+          "column": 5
+        },
+        "end": {
+          "line": 346,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 341,
+          "column": 5
+        },
+        "end": {
+          "line": 344,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 462,
+          "column": 16
+        },
+        "end": {
+          "line": 462,
+          "column": 21
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 463,
+          "column": 16
+        },
+        "end": {
+          "line": 463,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 219,
+          "column": 5
+        },
+        "end": {
+          "line": 234,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 473,
+          "column": 26
+        },
+        "end": {
+          "line": 473,
+          "column": 32
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 479,
+          "column": 22
+        },
+        "end": {
+          "line": 479,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 479,
+          "column": 62
+        },
+        "end": {
+          "line": 479,
+          "column": 67
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 479,
+          "column": 69
+        },
+        "end": {
+          "line": 479,
+          "column": 72
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 489,
+          "column": 25
+        },
+        "end": {
+          "line": 489,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 468,
+          "column": 1
+        },
+        "end": {
+          "line": 481,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 493,
+          "column": 16
+        },
+        "end": {
+          "line": 493,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 494,
+          "column": 7
+        },
+        "end": {
+          "line": 494,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 497,
+          "column": 19
+        },
+        "end": {
+          "line": 497,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 498,
+          "column": 28
+        },
+        "end": {
+          "line": 498,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 498,
+          "column": 5
+        },
+        "end": {
+          "line": 498,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 499,
+          "column": 17
+        },
+        "end": {
+          "line": 499,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 500,
+          "column": 18
+        },
+        "end": {
+          "line": 500,
+          "column": 22
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 500,
+          "column": 5
+        },
+        "end": {
+          "line": 500,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 503,
+          "column": 3
+        },
+        "end": {
+          "line": 503,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 505,
+          "column": 17
+        },
+        "end": {
+          "line": 505,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "benchmark.js",
+        "start": {
+          "line": 506,
+          "column": 27
+        },
+        "end": {
+          "line": 506,
+          "column": 34
+        }
+      },
+      "type": "object"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "83:13",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "413:28",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null"
+      ]
+    },
+    {
+      "location": "424:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null"
+      ]
+    },
+    {
+      "location": "85:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "86:26",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "87:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "421:32",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null"
+      ]
+    },
+    {
+      "location": "451:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "null"
+      ]
+    }
+  ]
+}

@@ -4037,6 +4037,7 @@ Box2D.postDefs = [];
         f,
         m = this.m_fixtureList;
       m;
+
     )
       if (a(m)) {
         var r = m.m_next;
@@ -5931,6 +5932,7 @@ Box2D.postDefs = [];
     for (
       this.m_constraintCount = q;
       this.m_constraints.length < this.m_constraintCount;
+
     )
       this.m_constraints[this.m_constraints.length] = new U();
     for (j = 0; j < q; ++j) {

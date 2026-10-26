@@ -1,0 +1,8704 @@
+{
+  "static shapes": {},
+  "shape bindings": [],
+  "shape guards": [],
+  "type guards": [
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 56,
+          "column": 12
+        },
+        "end": {
+          "line": 56,
+          "column": 24
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 103,
+          "column": 7
+        },
+        "end": {
+          "line": 103,
+          "column": 11
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 103,
+          "column": 15
+        },
+        "end": {
+          "line": 103,
+          "column": 39
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 119,
+          "column": 7
+        },
+        "end": {
+          "line": 119,
+          "column": 11
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 119,
+          "column": 15
+        },
+        "end": {
+          "line": 119,
+          "column": 39
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 131,
+          "column": 29
+        },
+        "end": {
+          "line": 131,
+          "column": 54
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 136,
+          "column": 37
+        },
+        "end": {
+          "line": 136,
+          "column": 45
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 179,
+          "column": 29
+        },
+        "end": {
+          "line": 179,
+          "column": 54
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 216,
+          "column": 12
+        },
+        "end": {
+          "line": 216,
+          "column": 35
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 234,
+          "column": 16
+        },
+        "end": {
+          "line": 234,
+          "column": 41
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 236,
+          "column": 14
+        },
+        "end": {
+          "line": 236,
+          "column": 21
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 277,
+          "column": 5
+        },
+        "end": {
+          "line": 277,
+          "column": 29
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 306,
+          "column": 30
+        },
+        "end": {
+          "line": 306,
+          "column": 46
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 310,
+          "column": 18
+        },
+        "end": {
+          "line": 310,
+          "column": 34
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 317,
+          "column": 22
+        },
+        "end": {
+          "line": 317,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 318,
+          "column": 20
+        },
+        "end": {
+          "line": 318,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 333,
+          "column": 11
+        },
+        "end": {
+          "line": 333,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 337,
+          "column": 11
+        },
+        "end": {
+          "line": 337,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 341,
+          "column": 17
+        },
+        "end": {
+          "line": 341,
+          "column": 33
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 341,
+          "column": 11
+        },
+        "end": {
+          "line": 341,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 356,
+          "column": 13
+        },
+        "end": {
+          "line": 356,
+          "column": 21
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 356,
+          "column": 7
+        },
+        "end": {
+          "line": 356,
+          "column": 9
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 385,
+          "column": 34
+        },
+        "end": {
+          "line": 385,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 385,
+          "column": 28
+        },
+        "end": {
+          "line": 385,
+          "column": 48
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 386,
+          "column": 11
+        },
+        "end": {
+          "line": 386,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 404,
+          "column": 11
+        },
+        "end": {
+          "line": 404,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 409,
+          "column": 11
+        },
+        "end": {
+          "line": 409,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 415,
+          "column": 18
+        },
+        "end": {
+          "line": 415,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 421,
+          "column": 9
+        },
+        "end": {
+          "line": 421,
+          "column": 11
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 427,
+          "column": 24
+        },
+        "end": {
+          "line": 427,
+          "column": 48
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 428,
+          "column": 11
+        },
+        "end": {
+          "line": 428,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 445,
+          "column": 24
+        },
+        "end": {
+          "line": 445,
+          "column": 48
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 446,
+          "column": 11
+        },
+        "end": {
+          "line": 446,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 452,
+          "column": 9
+        },
+        "end": {
+          "line": 452,
+          "column": 11
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 461,
+          "column": 17
+        },
+        "end": {
+          "line": 461,
+          "column": 25
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 461,
+          "column": 11
+        },
+        "end": {
+          "line": 461,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 468,
+          "column": 9
+        },
+        "end": {
+          "line": 468,
+          "column": 11
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 476,
+          "column": 19
+        },
+        "end": {
+          "line": 476,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 476,
+          "column": 13
+        },
+        "end": {
+          "line": 476,
+          "column": 33
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 476,
+          "column": 37
+        },
+        "end": {
+          "line": 476,
+          "column": 45
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 477,
+          "column": 17
+        },
+        "end": {
+          "line": 477,
+          "column": 25
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 477,
+          "column": 11
+        },
+        "end": {
+          "line": 477,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 492,
+          "column": 38
+        },
+        "end": {
+          "line": 492,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 508,
+          "column": 9
+        },
+        "end": {
+          "line": 508,
+          "column": 11
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 519,
+          "column": 14
+        },
+        "end": {
+          "line": 519,
+          "column": 37
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 520,
+          "column": 11
+        },
+        "end": {
+          "line": 520,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 523,
+          "column": 9
+        },
+        "end": {
+          "line": 523,
+          "column": 11
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 535,
+          "column": 25
+        },
+        "end": {
+          "line": 535,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 569,
+          "column": 9
+        },
+        "end": {
+          "line": 569,
+          "column": 23
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 579,
+          "column": 5
+        },
+        "end": {
+          "line": 579,
+          "column": 7
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 596,
+          "column": 16
+        },
+        "end": {
+          "line": 596,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 600,
+          "column": 40
+        },
+        "end": {
+          "line": 600,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 601,
+          "column": 27
+        },
+        "end": {
+          "line": 601,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 609,
+          "column": 28
+        },
+        "end": {
+          "line": 609,
+          "column": 58
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 617,
+          "column": 27
+        },
+        "end": {
+          "line": 617,
+          "column": 45
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 628,
+          "column": 10
+        },
+        "end": {
+          "line": 628,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 632,
+          "column": 10
+        },
+        "end": {
+          "line": 632,
+          "column": 27
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 649,
+          "column": 28
+        },
+        "end": {
+          "line": 649,
+          "column": 36
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 649,
+          "column": 28
+        },
+        "end": {
+          "line": 649,
+          "column": 42
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 670,
+          "column": 22
+        },
+        "end": {
+          "line": 670,
+          "column": 43
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 720,
+          "column": 28
+        },
+        "end": {
+          "line": 720,
+          "column": 40
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 732,
+          "column": 26
+        },
+        "end": {
+          "line": 732,
+          "column": 34
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 758,
+          "column": 12
+        },
+        "end": {
+          "line": 758,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 766,
+          "column": 30
+        },
+        "end": {
+          "line": 766,
+          "column": 50
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 772,
+          "column": 14
+        },
+        "end": {
+          "line": 772,
+          "column": 26
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 799,
+          "column": 22
+        },
+        "end": {
+          "line": 799,
+          "column": 31
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 800,
+          "column": 15
+        },
+        "end": {
+          "line": 800,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 837,
+          "column": 16
+        },
+        "end": {
+          "line": 837,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 847,
+          "column": 15
+        },
+        "end": {
+          "line": 847,
+          "column": 31
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 847,
+          "column": 35
+        },
+        "end": {
+          "line": 847,
+          "column": 52
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 848,
+          "column": 30
+        },
+        "end": {
+          "line": 848,
+          "column": 56
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 867,
+          "column": 15
+        },
+        "end": {
+          "line": 867,
+          "column": 32
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 867,
+          "column": 36
+        },
+        "end": {
+          "line": 867,
+          "column": 54
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 868,
+          "column": 30
+        },
+        "end": {
+          "line": 868,
+          "column": 57
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 896,
+          "column": 15
+        },
+        "end": {
+          "line": 896,
+          "column": 50
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 898,
+          "column": 15
+        },
+        "end": {
+          "line": 898,
+          "column": 22
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 921,
+          "column": 20
+        },
+        "end": {
+          "line": 921,
+          "column": 29
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 935,
+          "column": 43
+        },
+        "end": {
+          "line": 935,
+          "column": 60
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1073,
+          "column": 26
+        },
+        "end": {
+          "line": 1073,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1076,
+          "column": 17
+        },
+        "end": {
+          "line": 1076,
+          "column": 28
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1081,
+          "column": 40
+        },
+        "end": {
+          "line": 1081,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1088,
+          "column": 11
+        },
+        "end": {
+          "line": 1088,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1095,
+          "column": 19
+        },
+        "end": {
+          "line": 1095,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1095,
+          "column": 8
+        },
+        "end": {
+          "line": 1095,
+          "column": 36
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 6,
+          "column": 5
+        },
+        "end": {
+          "line": 6,
+          "column": 11
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 8,
+          "column": 20
+        },
+        "end": {
+          "line": 8,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1053,
+          "column": 17
+        },
+        "end": {
+          "line": 1059,
+          "column": 8
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 8,
+          "column": 10
+        },
+        "end": {
+          "line": 8,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 13,
+          "column": 17
+        },
+        "end": {
+          "line": 13,
+          "column": 18
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 13,
+          "column": 10
+        },
+        "end": {
+          "line": 13,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 19,
+          "column": 7
+        },
+        "end": {
+          "line": 19,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 21,
+          "column": 21
+        },
+        "end": {
+          "line": 21,
+          "column": 24
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 21,
+          "column": 26
+        },
+        "end": {
+          "line": 21,
+          "column": 31
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 22,
+          "column": 10
+        },
+        "end": {
+          "line": 22,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 26,
+          "column": 13
+        },
+        "end": {
+          "line": 26,
+          "column": 15
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 21,
+          "column": 10
+        },
+        "end": {
+          "line": 21,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 21,
+          "column": 1
+        },
+        "end": {
+          "line": 30,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 17
+        },
+        "end": {
+          "line": 32,
+          "column": 18
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 10
+        },
+        "end": {
+          "line": 32,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 9
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 10
+        },
+        "end": {
+          "line": 141,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 1
+        },
+        "end": {
+          "line": 168,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 10
+        },
+        "end": {
+          "line": 123,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 41,
+          "column": 5
+        },
+        "end": {
+          "line": 41,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 43,
+          "column": 5
+        },
+        "end": {
+          "line": 43,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 53,
+          "column": 5
+        },
+        "end": {
+          "line": 53,
+          "column": 10
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 56,
+          "column": 5
+        },
+        "end": {
+          "line": 56,
+          "column": 9
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 61,
+          "column": 5
+        },
+        "end": {
+          "line": 61,
+          "column": 15
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 65,
+          "column": 5
+        },
+        "end": {
+          "line": 65,
+          "column": 17
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 71,
+          "column": 10
+        },
+        "end": {
+          "line": 71,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 71,
+          "column": 1
+        },
+        "end": {
+          "line": 76,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 71,
+          "column": 19
+        },
+        "end": {
+          "line": 71,
+          "column": 20
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 79,
+          "column": 5
+        },
+        "end": {
+          "line": 79,
+          "column": 15
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 82,
+          "column": 10
+        },
+        "end": {
+          "line": 82,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 82,
+          "column": 1
+        },
+        "end": {
+          "line": 87,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 82,
+          "column": 27
+        },
+        "end": {
+          "line": 82,
+          "column": 34
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 89,
+          "column": 15
+        },
+        "end": {
+          "line": 89,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 89,
+          "column": 18
+        },
+        "end": {
+          "line": 89,
+          "column": 19
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 92,
+          "column": 7
+        },
+        "end": {
+          "line": 92,
+          "column": 8
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 89,
+          "column": 10
+        },
+        "end": {
+          "line": 89,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 89,
+          "column": 1
+        },
+        "end": {
+          "line": 100,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 105,
+          "column": 7
+        },
+        "end": {
+          "line": 105,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 107,
+          "column": 20
+        },
+        "end": {
+          "line": 107,
+          "column": 29
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 107,
+          "column": 11
+        },
+        "end": {
+          "line": 109,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 107,
+          "column": 7
+        },
+        "end": {
+          "line": 107,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 107,
+          "column": 11
+        },
+        "end": {
+          "line": 109,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 111,
+          "column": 26
+        },
+        "end": {
+          "line": 111,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 111,
+          "column": 17
+        },
+        "end": {
+          "line": 113,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 33
+        },
+        "end": {
+          "line": 123,
+          "column": 40
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 30
+        },
+        "end": {
+          "line": 141,
+          "column": 37
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 171,
+          "column": 10
+        },
+        "end": {
+          "line": 171,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 171,
+          "column": 1
+        },
+        "end": {
+          "line": 222,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 176,
+          "column": 7
+        },
+        "end": {
+          "line": 176,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 192,
+          "column": 7
+        },
+        "end": {
+          "line": 192,
+          "column": 10
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 208,
+          "column": 34
+        },
+        "end": {
+          "line": 208,
+          "column": 37
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 225,
+          "column": 10
+        },
+        "end": {
+          "line": 225,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 225,
+          "column": 1
+        },
+        "end": {
+          "line": 242,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 227,
+          "column": 7
+        },
+        "end": {
+          "line": 227,
+          "column": 13
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 228,
+          "column": 7
+        },
+        "end": {
+          "line": 228,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 229,
+          "column": 7
+        },
+        "end": {
+          "line": 229,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 233,
+          "column": 12
+        },
+        "end": {
+          "line": 233,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 260,
+          "column": 10
+        },
+        "end": {
+          "line": 260,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 260,
+          "column": 1
+        },
+        "end": {
+          "line": 283,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 260,
+          "column": 32
+        },
+        "end": {
+          "line": 260,
+          "column": 39
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 298,
+          "column": 10
+        },
+        "end": {
+          "line": 298,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 298,
+          "column": 1
+        },
+        "end": {
+          "line": 662,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 297,
+          "column": 5
+        },
+        "end": {
+          "line": 297,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 309,
+          "column": 7
+        },
+        "end": {
+          "line": 309,
+          "column": 9
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 310,
+          "column": 7
+        },
+        "end": {
+          "line": 310,
+          "column": 15
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 311,
+          "column": 7
+        },
+        "end": {
+          "line": 311,
+          "column": 15
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 313,
+          "column": 7
+        },
+        "end": {
+          "line": 313,
+          "column": 23
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 314,
+          "column": 7
+        },
+        "end": {
+          "line": 314,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 316,
+          "column": 7
+        },
+        "end": {
+          "line": 316,
+          "column": 14
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 317,
+          "column": 7
+        },
+        "end": {
+          "line": 317,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 318,
+          "column": 7
+        },
+        "end": {
+          "line": 318,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 321,
+          "column": 7
+        },
+        "end": {
+          "line": 321,
+          "column": 19
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 333,
+          "column": 11
+        },
+        "end": {
+          "line": 333,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 337,
+          "column": 11
+        },
+        "end": {
+          "line": 337,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 341,
+          "column": 11
+        },
+        "end": {
+          "line": 341,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 327,
+          "column": 12
+        },
+        "end": {
+          "line": 327,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 327,
+          "column": 3
+        },
+        "end": {
+          "line": 347,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 349,
+          "column": 12
+        },
+        "end": {
+          "line": 349,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 349,
+          "column": 41
+        },
+        "end": {
+          "line": 349,
+          "column": 42
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 356,
+          "column": 7
+        },
+        "end": {
+          "line": 356,
+          "column": 9
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 386,
+          "column": 11
+        },
+        "end": {
+          "line": 386,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 404,
+          "column": 11
+        },
+        "end": {
+          "line": 404,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 409,
+          "column": 11
+        },
+        "end": {
+          "line": 409,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 421,
+          "column": 9
+        },
+        "end": {
+          "line": 421,
+          "column": 11
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 428,
+          "column": 11
+        },
+        "end": {
+          "line": 428,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 434,
+          "column": 13
+        },
+        "end": {
+          "line": 434,
+          "column": 15
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 446,
+          "column": 11
+        },
+        "end": {
+          "line": 446,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 452,
+          "column": 9
+        },
+        "end": {
+          "line": 452,
+          "column": 11
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 461,
+          "column": 11
+        },
+        "end": {
+          "line": 461,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 468,
+          "column": 9
+        },
+        "end": {
+          "line": 468,
+          "column": 11
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 477,
+          "column": 11
+        },
+        "end": {
+          "line": 477,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 508,
+          "column": 9
+        },
+        "end": {
+          "line": 508,
+          "column": 11
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 520,
+          "column": 11
+        },
+        "end": {
+          "line": 520,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 523,
+          "column": 9
+        },
+        "end": {
+          "line": 523,
+          "column": 11
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 551,
+          "column": 71
+        },
+        "end": {
+          "line": 551,
+          "column": 73
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 567,
+          "column": 9
+        },
+        "end": {
+          "line": 567,
+          "column": 10
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 579,
+          "column": 5
+        },
+        "end": {
+          "line": 579,
+          "column": 7
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 584,
+          "column": 7
+        },
+        "end": {
+          "line": 584,
+          "column": 22
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 596,
+          "column": 12
+        },
+        "end": {
+          "line": 596,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 597,
+          "column": 9
+        },
+        "end": {
+          "line": 597,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 609,
+          "column": 9
+        },
+        "end": {
+          "line": 609,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 616,
+          "column": 9
+        },
+        "end": {
+          "line": 616,
+          "column": 15
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 944,
+          "column": 10
+        },
+        "end": {
+          "line": 944,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 944,
+          "column": 1
+        },
+        "end": {
+          "line": 946,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 647,
+          "column": 7
+        },
+        "end": {
+          "line": 647,
+          "column": 12
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 649,
+          "column": 9
+        },
+        "end": {
+          "line": 649,
+          "column": 15
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 669,
+          "column": 10
+        },
+        "end": {
+          "line": 669,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 669,
+          "column": 1
+        },
+        "end": {
+          "line": 712,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 678,
+          "column": 7
+        },
+        "end": {
+          "line": 678,
+          "column": 10
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 684,
+          "column": 7
+        },
+        "end": {
+          "line": 684,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 686,
+          "column": 7
+        },
+        "end": {
+          "line": 686,
+          "column": 14
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 689,
+          "column": 7
+        },
+        "end": {
+          "line": 689,
+          "column": 12
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 948,
+          "column": 10
+        },
+        "end": {
+          "line": 948,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 948,
+          "column": 1
+        },
+        "end": {
+          "line": 950,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 714,
+          "column": 44
+        },
+        "end": {
+          "line": 714,
+          "column": 51
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 716,
+          "column": 7
+        },
+        "end": {
+          "line": 716,
+          "column": 9
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 727,
+          "column": 10
+        },
+        "end": {
+          "line": 727,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 727,
+          "column": 1
+        },
+        "end": {
+          "line": 780,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 736,
+          "column": 7
+        },
+        "end": {
+          "line": 736,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 752,
+          "column": 7
+        },
+        "end": {
+          "line": 752,
+          "column": 10
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 757,
+          "column": 7
+        },
+        "end": {
+          "line": 757,
+          "column": 8
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 765,
+          "column": 9
+        },
+        "end": {
+          "line": 765,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 769,
+          "column": 9
+        },
+        "end": {
+          "line": 769,
+          "column": 12
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 787,
+          "column": 42
+        },
+        "end": {
+          "line": 787,
+          "column": 46
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 788,
+          "column": 7
+        },
+        "end": {
+          "line": 788,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 795,
+          "column": 12
+        },
+        "end": {
+          "line": 795,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 796,
+          "column": 7
+        },
+        "end": {
+          "line": 796,
+          "column": 9
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 836,
+          "column": 11
+        },
+        "end": {
+          "line": 836,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 837,
+          "column": 11
+        },
+        "end": {
+          "line": 837,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 893,
+          "column": 9
+        },
+        "end": {
+          "line": 893,
+          "column": 12
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 935,
+          "column": 9
+        },
+        "end": {
+          "line": 935,
+          "column": 21
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 953,
+          "column": 8
+        },
+        "end": {
+          "line": 953,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1050,
+          "column": 8
+        },
+        "end": {
+          "line": 1050,
+          "column": 15
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 952,
+          "column": 10
+        },
+        "end": {
+          "line": 952,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 952,
+          "column": 1
+        },
+        "end": {
+          "line": 1061,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1066,
+          "column": 19
+        },
+        "end": {
+          "line": 1066,
+          "column": 23
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1066,
+          "column": 10
+        },
+        "end": {
+          "line": 1066,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1066,
+          "column": 1
+        },
+        "end": {
+          "line": 1069,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1071,
+          "column": 16
+        },
+        "end": {
+          "line": 1071,
+          "column": 21
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1071,
+          "column": 23
+        },
+        "end": {
+          "line": 1071,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1072,
+          "column": 8
+        },
+        "end": {
+          "line": 1072,
+          "column": 11
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1074,
+          "column": 8
+        },
+        "end": {
+          "line": 1074,
+          "column": 9
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1071,
+          "column": 10
+        },
+        "end": {
+          "line": 1071,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1071,
+          "column": 1
+        },
+        "end": {
+          "line": 1084,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1086,
+          "column": 7
+        },
+        "end": {
+          "line": 1086,
+          "column": 8
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1088,
+          "column": 7
+        },
+        "end": {
+          "line": 1088,
+          "column": 8
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1090,
+          "column": 5
+        },
+        "end": {
+          "line": 1090,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 9,
+          "column": 17
+        },
+        "end": {
+          "line": 9,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 10,
+          "column": 4
+        },
+        "end": {
+          "line": 10,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1053,
+          "column": 17
+        },
+        "end": {
+          "line": 1059,
+          "column": 8
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 15,
+          "column": 32
+        },
+        "end": {
+          "line": 15,
+          "column": 33
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 15,
+          "column": 7
+        },
+        "end": {
+          "line": 15,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 22,
+          "column": 16
+        },
+        "end": {
+          "line": 22,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 24,
+          "column": 14
+        },
+        "end": {
+          "line": 24,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 26,
+          "column": 22
+        },
+        "end": {
+          "line": 26,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 26,
+          "column": 30
+        },
+        "end": {
+          "line": 26,
+          "column": 33
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 27,
+          "column": 21
+        },
+        "end": {
+          "line": 27,
+          "column": 23
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 27,
+          "column": 7
+        },
+        "end": {
+          "line": 27,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 28,
+          "column": 14
+        },
+        "end": {
+          "line": 28,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 41,
+          "column": 37
+        },
+        "end": {
+          "line": 41,
+          "column": 46
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 1
+        },
+        "end": {
+          "line": 168,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 41,
+          "column": 16
+        },
+        "end": {
+          "line": 41,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 56,
+          "column": 12
+        },
+        "end": {
+          "line": 56,
+          "column": 17
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 68,
+          "column": 18
+        },
+        "end": {
+          "line": 68,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 71,
+          "column": 1
+        },
+        "end": {
+          "line": 76,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 72,
+          "column": 10
+        },
+        "end": {
+          "line": 72,
+          "column": 11
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 81,
+          "column": 20
+        },
+        "end": {
+          "line": 81,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 82,
+          "column": 1
+        },
+        "end": {
+          "line": 87,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 81,
+          "column": 1
+        },
+        "end": {
+          "line": 81,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 83,
+          "column": 13
+        },
+        "end": {
+          "line": 83,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 85,
+          "column": 12
+        },
+        "end": {
+          "line": 85,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 85,
+          "column": 34
+        },
+        "end": {
+          "line": 85,
+          "column": 41
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 90,
+          "column": 7
+        },
+        "end": {
+          "line": 90,
+          "column": 8
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 91,
+          "column": 7
+        },
+        "end": {
+          "line": 91,
+          "column": 8
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 93,
+          "column": 15
+        },
+        "end": {
+          "line": 93,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 93,
+          "column": 3
+        },
+        "end": {
+          "line": 93,
+          "column": 9
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 94,
+          "column": 12
+        },
+        "end": {
+          "line": 94,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 94,
+          "column": 5
+        },
+        "end": {
+          "line": 94,
+          "column": 6
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 96,
+          "column": 15
+        },
+        "end": {
+          "line": 96,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 96,
+          "column": 3
+        },
+        "end": {
+          "line": 96,
+          "column": 9
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 97,
+          "column": 12
+        },
+        "end": {
+          "line": 97,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 97,
+          "column": 5
+        },
+        "end": {
+          "line": 97,
+          "column": 6
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 99,
+          "column": 10
+        },
+        "end": {
+          "line": 99,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 103,
+          "column": 16
+        },
+        "end": {
+          "line": 103,
+          "column": 22
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 103,
+          "column": 48
+        },
+        "end": {
+          "line": 103,
+          "column": 57
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 105,
+          "column": 14
+        },
+        "end": {
+          "line": 105,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 108,
+          "column": 39
+        },
+        "end": {
+          "line": 108,
+          "column": 42
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 89,
+          "column": 1
+        },
+        "end": {
+          "line": 100,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 108,
+          "column": 12
+        },
+        "end": {
+          "line": 108,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 112,
+          "column": 40
+        },
+        "end": {
+          "line": 112,
+          "column": 43
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 89,
+          "column": 1
+        },
+        "end": {
+          "line": 100,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 112,
+          "column": 16
+        },
+        "end": {
+          "line": 112,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 111,
+          "column": 3
+        },
+        "end": {
+          "line": 111,
+          "column": 4
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 107,
+          "column": 11
+        },
+        "end": {
+          "line": 109,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 115,
+          "column": 10
+        },
+        "end": {
+          "line": 115,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 107,
+          "column": 11
+        },
+        "end": {
+          "line": 109,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 102,
+          "column": 1
+        },
+        "end": {
+          "line": 102,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 119,
+          "column": 16
+        },
+        "end": {
+          "line": 119,
+          "column": 22
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 119,
+          "column": 48
+        },
+        "end": {
+          "line": 119,
+          "column": 57
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 1
+        },
+        "end": {
+          "line": 168,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 120,
+          "column": 10
+        },
+        "end": {
+          "line": 120,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 1
+        },
+        "end": {
+          "line": 168,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 125,
+          "column": 15
+        },
+        "end": {
+          "line": 125,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 131,
+          "column": 8
+        },
+        "end": {
+          "line": 131,
+          "column": 15
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 138,
+          "column": 14
+        },
+        "end": {
+          "line": 138,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 1
+        },
+        "end": {
+          "line": 168,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 138,
+          "column": 33
+        },
+        "end": {
+          "line": 138,
+          "column": 40
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 143,
+          "column": 16
+        },
+        "end": {
+          "line": 143,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 1
+        },
+        "end": {
+          "line": 168,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 143,
+          "column": 35
+        },
+        "end": {
+          "line": 143,
+          "column": 42
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 147,
+          "column": 15
+        },
+        "end": {
+          "line": 147,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 154,
+          "column": 7
+        },
+        "end": {
+          "line": 154,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 155,
+          "column": 29
+        },
+        "end": {
+          "line": 155,
+          "column": 33
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 158,
+          "column": 18
+        },
+        "end": {
+          "line": 158,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 170,
+          "column": 1
+        },
+        "end": {
+          "line": 170,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 1
+        },
+        "end": {
+          "line": 168,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 170,
+          "column": 28
+        },
+        "end": {
+          "line": 170,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 171,
+          "column": 1
+        },
+        "end": {
+          "line": 222,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 179,
+          "column": 8
+        },
+        "end": {
+          "line": 179,
+          "column": 15
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 194,
+          "column": 3
+        },
+        "end": {
+          "line": 194,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 194,
+          "column": 23
+        },
+        "end": {
+          "line": 194,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 202,
+          "column": 20
+        },
+        "end": {
+          "line": 202,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 201,
+          "column": 26
+        },
+        "end": {
+          "line": 201,
+          "column": 29
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 205,
+          "column": 3
+        },
+        "end": {
+          "line": 205,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 205,
+          "column": 23
+        },
+        "end": {
+          "line": 205,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 208,
+          "column": 9
+        },
+        "end": {
+          "line": 208,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 212,
+          "column": 3
+        },
+        "end": {
+          "line": 212,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 212,
+          "column": 23
+        },
+        "end": {
+          "line": 212,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 215,
+          "column": 9
+        },
+        "end": {
+          "line": 215,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 219,
+          "column": 3
+        },
+        "end": {
+          "line": 219,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 219,
+          "column": 23
+        },
+        "end": {
+          "line": 219,
+          "column": 26
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 221,
+          "column": 14
+        },
+        "end": {
+          "line": 221,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 224,
+          "column": 1
+        },
+        "end": {
+          "line": 224,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 1
+        },
+        "end": {
+          "line": 168,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 224,
+          "column": 35
+        },
+        "end": {
+          "line": 224,
+          "column": 46
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 225,
+          "column": 1
+        },
+        "end": {
+          "line": 242,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 231,
+          "column": 7
+        },
+        "end": {
+          "line": 231,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 234,
+          "column": 31
+        },
+        "end": {
+          "line": 234,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 240,
+          "column": 51
+        },
+        "end": {
+          "line": 240,
+          "column": 63
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 241,
+          "column": 17
+        },
+        "end": {
+          "line": 241,
+          "column": 23
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 255,
+          "column": 10
+        },
+        "end": {
+          "line": 255,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 260,
+          "column": 1
+        },
+        "end": {
+          "line": 283,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 254,
+          "column": 1
+        },
+        "end": {
+          "line": 254,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 258,
+          "column": 1
+        },
+        "end": {
+          "line": 258,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 1
+        },
+        "end": {
+          "line": 168,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 258,
+          "column": 35
+        },
+        "end": {
+          "line": 258,
+          "column": 46
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 260,
+          "column": 1
+        },
+        "end": {
+          "line": 283,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 273,
+          "column": 15
+        },
+        "end": {
+          "line": 273,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 276,
+          "column": 7
+        },
+        "end": {
+          "line": 276,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 296,
+          "column": 1
+        },
+        "end": {
+          "line": 296,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 1
+        },
+        "end": {
+          "line": 168,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 296,
+          "column": 29
+        },
+        "end": {
+          "line": 296,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 298,
+          "column": 1
+        },
+        "end": {
+          "line": 662,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 300,
+          "column": 15
+        },
+        "end": {
+          "line": 300,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 306,
+          "column": 55
+        },
+        "end": {
+          "line": 306,
+          "column": 63
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 333,
+          "column": 17
+        },
+        "end": {
+          "line": 333,
+          "column": 21
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 337,
+          "column": 17
+        },
+        "end": {
+          "line": 337,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 344,
+          "column": 7
+        },
+        "end": {
+          "line": 344,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 344,
+          "column": 48
+        },
+        "end": {
+          "line": 344,
+          "column": 50
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 350,
+          "column": 40
+        },
+        "end": {
+          "line": 350,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 352,
+          "column": 5
+        },
+        "end": {
+          "line": 352,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 352,
+          "column": 36
+        },
+        "end": {
+          "line": 352,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 352,
+          "column": 39
+        },
+        "end": {
+          "line": 352,
+          "column": 41
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 352,
+          "column": 43
+        },
+        "end": {
+          "line": 352,
+          "column": 44
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 356,
+          "column": 20
+        },
+        "end": {
+          "line": 356,
+          "column": 21
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 368,
+          "column": 9
+        },
+        "end": {
+          "line": 368,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 327,
+          "column": 3
+        },
+        "end": {
+          "line": 347,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 379,
+          "column": 9
+        },
+        "end": {
+          "line": 379,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 379,
+          "column": 54
+        },
+        "end": {
+          "line": 379,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 379,
+          "column": 57
+        },
+        "end": {
+          "line": 379,
+          "column": 59
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 379,
+          "column": 61
+        },
+        "end": {
+          "line": 379,
+          "column": 62
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 384,
+          "column": 11
+        },
+        "end": {
+          "line": 384,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 385,
+          "column": 34
+        },
+        "end": {
+          "line": 385,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 386,
+          "column": 17
+        },
+        "end": {
+          "line": 386,
+          "column": 18
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 393,
+          "column": 9
+        },
+        "end": {
+          "line": 393,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 394,
+          "column": 9
+        },
+        "end": {
+          "line": 394,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 327,
+          "column": 3
+        },
+        "end": {
+          "line": 347,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 395,
+          "column": 21
+        },
+        "end": {
+          "line": 395,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 399,
+          "column": 28
+        },
+        "end": {
+          "line": 399,
+          "column": 42
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 327,
+          "column": 3
+        },
+        "end": {
+          "line": 347,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 416,
+          "column": 20
+        },
+        "end": {
+          "line": 416,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 417,
+          "column": 17
+        },
+        "end": {
+          "line": 417,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 418,
+          "column": 18
+        },
+        "end": {
+          "line": 418,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 413,
+          "column": 9
+        },
+        "end": {
+          "line": 413,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 422,
+          "column": 9
+        },
+        "end": {
+          "line": 422,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 422,
+          "column": 42
+        },
+        "end": {
+          "line": 422,
+          "column": 44
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 427,
+          "column": 25
+        },
+        "end": {
+          "line": 427,
+          "column": 41
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 427,
+          "column": 13
+        },
+        "end": {
+          "line": 427,
+          "column": 20
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 432,
+          "column": 9
+        },
+        "end": {
+          "line": 432,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 327,
+          "column": 3
+        },
+        "end": {
+          "line": 347,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 434,
+          "column": 18
+        },
+        "end": {
+          "line": 434,
+          "column": 34
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 437,
+          "column": 15
+        },
+        "end": {
+          "line": 437,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 438,
+          "column": 13
+        },
+        "end": {
+          "line": 438,
+          "column": 15
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 439,
+          "column": 30
+        },
+        "end": {
+          "line": 439,
+          "column": 32
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 439,
+          "column": 11
+        },
+        "end": {
+          "line": 439,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 441,
+          "column": 20
+        },
+        "end": {
+          "line": 441,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 441,
+          "column": 9
+        },
+        "end": {
+          "line": 441,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 445,
+          "column": 25
+        },
+        "end": {
+          "line": 445,
+          "column": 41
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 445,
+          "column": 13
+        },
+        "end": {
+          "line": 445,
+          "column": 20
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 445,
+          "column": 52
+        },
+        "end": {
+          "line": 445,
+          "column": 60
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 451,
+          "column": 9
+        },
+        "end": {
+          "line": 451,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 327,
+          "column": 3
+        },
+        "end": {
+          "line": 347,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 458,
+          "column": 9
+        },
+        "end": {
+          "line": 458,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 327,
+          "column": 3
+        },
+        "end": {
+          "line": 347,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 461,
+          "column": 24
+        },
+        "end": {
+          "line": 461,
+          "column": 25
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 466,
+          "column": 22
+        },
+        "end": {
+          "line": 466,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 467,
+          "column": 24
+        },
+        "end": {
+          "line": 467,
+          "column": 26
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 468,
+          "column": 15
+        },
+        "end": {
+          "line": 468,
+          "column": 16
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 476,
+          "column": 19
+        },
+        "end": {
+          "line": 476,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 477,
+          "column": 24
+        },
+        "end": {
+          "line": 477,
+          "column": 25
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 492,
+          "column": 38
+        },
+        "end": {
+          "line": 492,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 492,
+          "column": 54
+        },
+        "end": {
+          "line": 492,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 494,
+          "column": 13
+        },
+        "end": {
+          "line": 494,
+          "column": 19
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 497,
+          "column": 37
+        },
+        "end": {
+          "line": 497,
+          "column": 45
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 498,
+          "column": 31
+        },
+        "end": {
+          "line": 498,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 498,
+          "column": 18
+        },
+        "end": {
+          "line": 498,
+          "column": 20
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 499,
+          "column": 24
+        },
+        "end": {
+          "line": 499,
+          "column": 32
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 508,
+          "column": 15
+        },
+        "end": {
+          "line": 508,
+          "column": 16
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 513,
+          "column": 9
+        },
+        "end": {
+          "line": 513,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 327,
+          "column": 3
+        },
+        "end": {
+          "line": 347,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 519,
+          "column": 29
+        },
+        "end": {
+          "line": 519,
+          "column": 36
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 523,
+          "column": 15
+        },
+        "end": {
+          "line": 523,
+          "column": 16
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 535,
+          "column": 25
+        },
+        "end": {
+          "line": 535,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 536,
+          "column": 25
+        },
+        "end": {
+          "line": 536,
+          "column": 33
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 537,
+          "column": 23
+        },
+        "end": {
+          "line": 537,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 537,
+          "column": 10
+        },
+        "end": {
+          "line": 537,
+          "column": 12
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 538,
+          "column": 16
+        },
+        "end": {
+          "line": 538,
+          "column": 24
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 547,
+          "column": 13
+        },
+        "end": {
+          "line": 547,
+          "column": 29
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 547,
+          "column": 46
+        },
+        "end": {
+          "line": 547,
+          "column": 62
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 548,
+          "column": 25
+        },
+        "end": {
+          "line": 548,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 548,
+          "column": 38
+        },
+        "end": {
+          "line": 548,
+          "column": 40
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 548,
+          "column": 16
+        },
+        "end": {
+          "line": 548,
+          "column": 18
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 549,
+          "column": 5
+        },
+        "end": {
+          "line": 549,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 549,
+          "column": 27
+        },
+        "end": {
+          "line": 549,
+          "column": 29
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 549,
+          "column": 31
+        },
+        "end": {
+          "line": 549,
+          "column": 33
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 563,
+          "column": 24
+        },
+        "end": {
+          "line": 563,
+          "column": 26
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 566,
+          "column": 5
+        },
+        "end": {
+          "line": 566,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 566,
+          "column": 41
+        },
+        "end": {
+          "line": 566,
+          "column": 43
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 566,
+          "column": 45
+        },
+        "end": {
+          "line": 566,
+          "column": 47
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 567,
+          "column": 13
+        },
+        "end": {
+          "line": 567,
+          "column": 15
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 568,
+          "column": 9
+        },
+        "end": {
+          "line": 568,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 569,
+          "column": 16
+        },
+        "end": {
+          "line": 569,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 568,
+          "column": 27
+        },
+        "end": {
+          "line": 568,
+          "column": 32
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 567,
+          "column": 31
+        },
+        "end": {
+          "line": 567,
+          "column": 35
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 572,
+          "column": 22
+        },
+        "end": {
+          "line": 572,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 572,
+          "column": 10
+        },
+        "end": {
+          "line": 572,
+          "column": 12
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 572,
+          "column": 36
+        },
+        "end": {
+          "line": 572,
+          "column": 37
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 576,
+          "column": 3
+        },
+        "end": {
+          "line": 576,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 327,
+          "column": 3
+        },
+        "end": {
+          "line": 347,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 585,
+          "column": 11
+        },
+        "end": {
+          "line": 585,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 596,
+          "column": 16
+        },
+        "end": {
+          "line": 596,
+          "column": 29
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 597,
+          "column": 14
+        },
+        "end": {
+          "line": 597,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 599,
+          "column": 32
+        },
+        "end": {
+          "line": 599,
+          "column": 34
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 599,
+          "column": 20
+        },
+        "end": {
+          "line": 599,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 600,
+          "column": 28
+        },
+        "end": {
+          "line": 600,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 600,
+          "column": 40
+        },
+        "end": {
+          "line": 600,
+          "column": 42
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 600,
+          "column": 19
+        },
+        "end": {
+          "line": 600,
+          "column": 21
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 601,
+          "column": 27
+        },
+        "end": {
+          "line": 601,
+          "column": 29
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 601,
+          "column": 41
+        },
+        "end": {
+          "line": 601,
+          "column": 43
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 601,
+          "column": 18
+        },
+        "end": {
+          "line": 601,
+          "column": 20
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 602,
+          "column": 28
+        },
+        "end": {
+          "line": 602,
+          "column": 30
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 602,
+          "column": 19
+        },
+        "end": {
+          "line": 602,
+          "column": 21
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 620,
+          "column": 48
+        },
+        "end": {
+          "line": 620,
+          "column": 54
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 627,
+          "column": 20
+        },
+        "end": {
+          "line": 627,
+          "column": 28
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 628,
+          "column": 20
+        },
+        "end": {
+          "line": 628,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 632,
+          "column": 10
+        },
+        "end": {
+          "line": 632,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 632,
+          "column": 25
+        },
+        "end": {
+          "line": 632,
+          "column": 27
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 637,
+          "column": 13
+        },
+        "end": {
+          "line": 637,
+          "column": 15
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 637,
+          "column": 17
+        },
+        "end": {
+          "line": 637,
+          "column": 25
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 644,
+          "column": 12
+        },
+        "end": {
+          "line": 644,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 944,
+          "column": 1
+        },
+        "end": {
+          "line": 946,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 649,
+          "column": 34
+        },
+        "end": {
+          "line": 649,
+          "column": 36
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 649,
+          "column": 18
+        },
+        "end": {
+          "line": 649,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 21,
+          "column": 1
+        },
+        "end": {
+          "line": 30,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 649,
+          "column": 44
+        },
+        "end": {
+          "line": 649,
+          "column": 49
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 655,
+          "column": 12
+        },
+        "end": {
+          "line": 655,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 21,
+          "column": 1
+        },
+        "end": {
+          "line": 30,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 658,
+          "column": 3
+        },
+        "end": {
+          "line": 658,
+          "column": 9
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 659,
+          "column": 17
+        },
+        "end": {
+          "line": 659,
+          "column": 19
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 659,
+          "column": 3
+        },
+        "end": {
+          "line": 659,
+          "column": 9
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 661,
+          "column": 10
+        },
+        "end": {
+          "line": 661,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 665,
+          "column": 14
+        },
+        "end": {
+          "line": 665,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 1
+        },
+        "end": {
+          "line": 168,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 664,
+          "column": 1
+        },
+        "end": {
+          "line": 664,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 668,
+          "column": 1
+        },
+        "end": {
+          "line": 668,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 1
+        },
+        "end": {
+          "line": 168,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 668,
+          "column": 30
+        },
+        "end": {
+          "line": 668,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 669,
+          "column": 1
+        },
+        "end": {
+          "line": 712,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 680,
+          "column": 8
+        },
+        "end": {
+          "line": 680,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 686,
+          "column": 17
+        },
+        "end": {
+          "line": 686,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 687,
+          "column": 7
+        },
+        "end": {
+          "line": 687,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 687,
+          "column": 21
+        },
+        "end": {
+          "line": 687,
+          "column": 31
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 688,
+          "column": 7
+        },
+        "end": {
+          "line": 688,
+          "column": 19
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 686,
+          "column": 38
+        },
+        "end": {
+          "line": 686,
+          "column": 42
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 689,
+          "column": 15
+        },
+        "end": {
+          "line": 689,
+          "column": 22
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 694,
+          "column": 35
+        },
+        "end": {
+          "line": 694,
+          "column": 47
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 948,
+          "column": 1
+        },
+        "end": {
+          "line": 950,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 693,
+          "column": 33
+        },
+        "end": {
+          "line": 693,
+          "column": 40
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 691,
+          "column": 12
+        },
+        "end": {
+          "line": 691,
+          "column": 15
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 707,
+          "column": 19
+        },
+        "end": {
+          "line": 707,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 21,
+          "column": 1
+        },
+        "end": {
+          "line": 30,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 707,
+          "column": 33
+        },
+        "end": {
+          "line": 707,
+          "column": 38
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 715,
+          "column": 13
+        },
+        "end": {
+          "line": 715,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 716,
+          "column": 16
+        },
+        "end": {
+          "line": 716,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 1
+        },
+        "end": {
+          "line": 168,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 716,
+          "column": 35
+        },
+        "end": {
+          "line": 716,
+          "column": 42
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 718,
+          "column": 12
+        },
+        "end": {
+          "line": 718,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 720,
+          "column": 7
+        },
+        "end": {
+          "line": 720,
+          "column": 9
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 714,
+          "column": 1
+        },
+        "end": {
+          "line": 714,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 726,
+          "column": 1
+        },
+        "end": {
+          "line": 726,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 1
+        },
+        "end": {
+          "line": 168,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 726,
+          "column": 29
+        },
+        "end": {
+          "line": 726,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 727,
+          "column": 1
+        },
+        "end": {
+          "line": 780,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 728,
+          "column": 3
+        },
+        "end": {
+          "line": 728,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 739,
+          "column": 7
+        },
+        "end": {
+          "line": 739,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 740,
+          "column": 17
+        },
+        "end": {
+          "line": 740,
+          "column": 21
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 744,
+          "column": 15
+        },
+        "end": {
+          "line": 744,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 745,
+          "column": 3
+        },
+        "end": {
+          "line": 745,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 753,
+          "column": 3
+        },
+        "end": {
+          "line": 753,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 753,
+          "column": 30
+        },
+        "end": {
+          "line": 753,
+          "column": 33
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 763,
+          "column": 19
+        },
+        "end": {
+          "line": 763,
+          "column": 22
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 764,
+          "column": 19
+        },
+        "end": {
+          "line": 764,
+          "column": 22
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 766,
+          "column": 9
+        },
+        "end": {
+          "line": 766,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 769,
+          "column": 29
+        },
+        "end": {
+          "line": 769,
+          "column": 33
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 771,
+          "column": 11
+        },
+        "end": {
+          "line": 771,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 778,
+          "column": 7
+        },
+        "end": {
+          "line": 778,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 787,
+          "column": 1
+        },
+        "end": {
+          "line": 787,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 141,
+          "column": 1
+        },
+        "end": {
+          "line": 168,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 791,
+          "column": 27
+        },
+        "end": {
+          "line": 791,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 790,
+          "column": 3
+        },
+        "end": {
+          "line": 790,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 793,
+          "column": 21
+        },
+        "end": {
+          "line": 793,
+          "column": 25
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 793,
+          "column": 3
+        },
+        "end": {
+          "line": 793,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 797,
+          "column": 12
+        },
+        "end": {
+          "line": 797,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 801,
+          "column": 5
+        },
+        "end": {
+          "line": 801,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 803,
+          "column": 13
+        },
+        "end": {
+          "line": 803,
+          "column": 17
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 805,
+          "column": 5
+        },
+        "end": {
+          "line": 805,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 812,
+          "column": 7
+        },
+        "end": {
+          "line": 812,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 836,
+          "column": 16
+        },
+        "end": {
+          "line": 836,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 837,
+          "column": 16
+        },
+        "end": {
+          "line": 837,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 839,
+          "column": 9
+        },
+        "end": {
+          "line": 839,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 847,
+          "column": 15
+        },
+        "end": {
+          "line": 847,
+          "column": 19
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 847,
+          "column": 35
+        },
+        "end": {
+          "line": 847,
+          "column": 39
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 848,
+          "column": 15
+        },
+        "end": {
+          "line": 848,
+          "column": 22
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 848,
+          "column": 30
+        },
+        "end": {
+          "line": 848,
+          "column": 34
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 855,
+          "column": 25
+        },
+        "end": {
+          "line": 855,
+          "column": 29
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 857,
+          "column": 9
+        },
+        "end": {
+          "line": 857,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 857,
+          "column": 35
+        },
+        "end": {
+          "line": 857,
+          "column": 39
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 857,
+          "column": 41
+        },
+        "end": {
+          "line": 857,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 857,
+          "column": 54
+        },
+        "end": {
+          "line": 857,
+          "column": 56
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 860,
+          "column": 38
+        },
+        "end": {
+          "line": 860,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 860,
+          "column": 27
+        },
+        "end": {
+          "line": 860,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 860,
+          "column": 57
+        },
+        "end": {
+          "line": 860,
+          "column": 59
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 861,
+          "column": 11
+        },
+        "end": {
+          "line": 861,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 861,
+          "column": 42
+        },
+        "end": {
+          "line": 861,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 868,
+          "column": 15
+        },
+        "end": {
+          "line": 868,
+          "column": 22
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 869,
+          "column": 13
+        },
+        "end": {
+          "line": 869,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 869,
+          "column": 36
+        },
+        "end": {
+          "line": 869,
+          "column": 40
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 869,
+          "column": 42
+        },
+        "end": {
+          "line": 869,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 869,
+          "column": 55
+        },
+        "end": {
+          "line": 869,
+          "column": 57
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 874,
+          "column": 11
+        },
+        "end": {
+          "line": 874,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 884,
+          "column": 9
+        },
+        "end": {
+          "line": 884,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 884,
+          "column": 43
+        },
+        "end": {
+          "line": 884,
+          "column": 47
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 884,
+          "column": 49
+        },
+        "end": {
+          "line": 884,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 884,
+          "column": 62
+        },
+        "end": {
+          "line": 884,
+          "column": 64
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 895,
+          "column": 11
+        },
+        "end": {
+          "line": 895,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 900,
+          "column": 7
+        },
+        "end": {
+          "line": 900,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 900,
+          "column": 35
+        },
+        "end": {
+          "line": 900,
+          "column": 38
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 903,
+          "column": 7
+        },
+        "end": {
+          "line": 903,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "line": 33,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 903,
+          "column": 36
+        },
+        "end": {
+          "line": 903,
+          "column": 39
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 935,
+          "column": 44
+        },
+        "end": {
+          "line": 935,
+          "column": 48
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 936,
+          "column": 12
+        },
+        "end": {
+          "line": 936,
+          "column": 24
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 940,
+          "column": 13
+        },
+        "end": {
+          "line": 940,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1052,
+          "column": 16
+        },
+        "end": {
+          "line": 1052,
+          "column": 21
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1052,
+          "column": 4
+        },
+        "end": {
+          "line": 1052,
+          "column": 10
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1054,
+          "column": 19
+        },
+        "end": {
+          "line": 1054,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1054,
+          "column": 7
+        },
+        "end": {
+          "line": 1054,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1055,
+          "column": 22
+        },
+        "end": {
+          "line": 1055,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1057,
+          "column": 17
+        },
+        "end": {
+          "line": 1057,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 123,
+          "column": 1
+        },
+        "end": {
+          "line": 139,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1057,
+          "column": 42
+        },
+        "end": {
+          "line": 1057,
+          "column": 49
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1057,
+          "column": 11
+        },
+        "end": {
+          "line": 1057,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1053,
+          "column": 7
+        },
+        "end": {
+          "line": 1053,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 8,
+          "column": 1
+        },
+        "end": {
+          "line": 11,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1067,
+          "column": 13
+        },
+        "end": {
+          "line": 1067,
+          "column": 17
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1068,
+          "column": 4
+        },
+        "end": {
+          "line": 1068,
+          "column": 8
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 952,
+          "column": 1
+        },
+        "end": {
+          "line": 1061,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1073,
+          "column": 14
+        },
+        "end": {
+          "line": 1073,
+          "column": 18
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1076,
+          "column": 17
+        },
+        "end": {
+          "line": 1076,
+          "column": 22
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1076,
+          "column": 30
+        },
+        "end": {
+          "line": 1076,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1076,
+          "column": 4
+        },
+        "end": {
+          "line": 1076,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1078,
+          "column": 4
+        },
+        "end": {
+          "line": 1078,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1066,
+          "column": 1
+        },
+        "end": {
+          "line": 1069,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1081,
+          "column": 27
+        },
+        "end": {
+          "line": 1081,
+          "column": 34
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1082,
+          "column": 7
+        },
+        "end": {
+          "line": 1082,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1066,
+          "column": 1
+        },
+        "end": {
+          "line": 1069,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1090,
+          "column": 21
+        },
+        "end": {
+          "line": 1090,
+          "column": 31
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1090,
+          "column": 48
+        },
+        "end": {
+          "line": 1090,
+          "column": 58
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1091,
+          "column": 1
+        },
+        "end": {
+          "line": 1091,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1091,
+          "column": 23
+        },
+        "end": {
+          "line": 1091,
+          "column": 27
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1092,
+          "column": 15
+        },
+        "end": {
+          "line": 1092,
+          "column": 28
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1093,
+          "column": 1
+        },
+        "end": {
+          "line": 1093,
+          "column": 5
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1071,
+          "column": 1
+        },
+        "end": {
+          "line": 1084,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1093,
+          "column": 20
+        },
+        "end": {
+          "line": 1093,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "minimatch.js",
+        "start": {
+          "line": 1094,
+          "column": 13
+        },
+        "end": {
+          "line": 1094,
+          "column": 26
+        }
+      },
+      "type": "object"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "32:27",
+      "kind": "type",
+      "reason": "unsupported-undefined",
+      "types": [
+        "undefined"
+      ]
+    },
+    {
+      "location": "32:42",
+      "kind": "type",
+      "reason": "unsupported-undefined",
+      "types": [
+        "undefined"
+      ]
+    },
+    {
+      "location": "32:58",
+      "kind": "type",
+      "reason": "unsupported-undefined",
+      "types": [
+        "undefined"
+      ]
+    },
+    {
+      "location": "32:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "boolean",
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "32:23",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "undefined",
+        "object",
+        "array"
+      ]
+    },
+    {
+      "location": "32:38",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "string",
+        "boolean",
+        "undefined",
+        "object"
+      ]
+    },
+    {
+      "location": "32:54",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "number",
+        "string",
+        "undefined"
+      ]
+    },
+    {
+      "location": "32:27",
+      "kind": "type",
+      "reason": "unsupported-undefined",
+      "types": [
+        "undefined"
+      ]
+    },
+    {
+      "location": "32:42",
+      "kind": "type",
+      "reason": "unsupported-undefined",
+      "types": [
+        "undefined"
+      ]
+    },
+    {
+      "location": "32:58",
+      "kind": "type",
+      "reason": "unsupported-undefined",
+      "types": [
+        "undefined"
+      ]
+    },
+    {
+      "location": "315:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "string",
+        "boolean"
+      ]
+    },
+    {
+      "location": "341:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "string",
+        "boolean"
+      ]
+    },
+    {
+      "location": "344:37",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "string",
+        "boolean"
+      ]
+    },
+    {
+      "location": "393:41",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "string",
+        "boolean"
+      ]
+    },
+    {
+      "location": "414:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "string",
+        "boolean"
+      ]
+    },
+    {
+      "location": "422:31",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "string",
+        "boolean"
+      ]
+    }
+  ]
+}

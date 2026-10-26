@@ -1,0 +1,1156 @@
+{
+  "static shapes": {
+    "Field": {
+      "properties": [
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "type",
+          "type": "string"
+        },
+        {
+          "name": "attrs",
+          "type": "object"
+        }
+      ]
+    },
+    "Attrs": {
+      "properties": [
+        {
+          "name": "sort_order",
+          "type": "number"
+        },
+        {
+          "name": "required",
+          "type": "boolean"
+        },
+        {
+          "name": "change_policy",
+          "type": "string"
+        },
+        {
+          "name": "actions",
+          "type": "object"
+        },
+        {
+          "name": "options",
+          "type": "object"
+        }
+      ]
+    },
+    "Option": {
+      "properties": [
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "color",
+          "type": "string"
+        },
+        {
+          "name": "rank",
+          "type": "number"
+        }
+      ]
+    }
+  },
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 438,
+          "column": 19
+        },
+        "end": {
+          "line": 453,
+          "column": 8
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 442,
+          "column": 16
+        },
+        "end": {
+          "line": 452,
+          "column": 10
+        }
+      },
+      "shape": "Attrs"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 448,
+          "column": 13
+        },
+        "end": {
+          "line": 448,
+          "column": 66
+        }
+      },
+      "shape": "Option"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 449,
+          "column": 13
+        },
+        "end": {
+          "line": 449,
+          "column": 65
+        }
+      },
+      "shape": "Option"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 450,
+          "column": 13
+        },
+        "end": {
+          "line": 450,
+          "column": 66
+        }
+      },
+      "shape": "Option"
+    }
+  ],
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 75,
+          "column": 40
+        },
+        "end": {
+          "line": 75,
+          "column": 41
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 76,
+          "column": 24
+        },
+        "end": {
+          "line": 76,
+          "column": 25
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 76,
+          "column": 59
+        },
+        "end": {
+          "line": 76,
+          "column": 60
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 81,
+          "column": 10
+        },
+        "end": {
+          "line": 81,
+          "column": 11
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 75,
+          "column": 43
+        },
+        "end": {
+          "line": 75,
+          "column": 44
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 77,
+          "column": 24
+        },
+        "end": {
+          "line": 77,
+          "column": 25
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 77,
+          "column": 59
+        },
+        "end": {
+          "line": 77,
+          "column": 60
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 81,
+          "column": 31
+        },
+        "end": {
+          "line": 81,
+          "column": 32
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 76,
+          "column": 24
+        },
+        "end": {
+          "line": 76,
+          "column": 31
+        }
+      },
+      "shape": "Attrs"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 76,
+          "column": 59
+        },
+        "end": {
+          "line": 76,
+          "column": 66
+        }
+      },
+      "shape": "Attrs"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 77,
+          "column": 24
+        },
+        "end": {
+          "line": 77,
+          "column": 31
+        }
+      },
+      "shape": "Attrs"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 77,
+          "column": 59
+        },
+        "end": {
+          "line": 77,
+          "column": 66
+        }
+      },
+      "shape": "Attrs"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 13,
+          "column": 26
+        },
+        "end": {
+          "line": 13,
+          "column": 31
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 14,
+          "column": 10
+        },
+        "end": {
+          "line": 14,
+          "column": 15
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 22,
+          "column": 34
+        },
+        "end": {
+          "line": 22,
+          "column": 39
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 23,
+          "column": 10
+        },
+        "end": {
+          "line": 23,
+          "column": 15
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 25,
+          "column": 32
+        },
+        "end": {
+          "line": 25,
+          "column": 37
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 26,
+          "column": 23
+        },
+        "end": {
+          "line": 26,
+          "column": 28
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 27,
+          "column": 25
+        },
+        "end": {
+          "line": 27,
+          "column": 30
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 29,
+          "column": 39
+        },
+        "end": {
+          "line": 29,
+          "column": 44
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 30,
+          "column": 18
+        },
+        "end": {
+          "line": 30,
+          "column": 23
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 39,
+          "column": 7
+        },
+        "end": {
+          "line": 39,
+          "column": 12
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 14,
+          "column": 10
+        },
+        "end": {
+          "line": 14,
+          "column": 21
+        }
+      },
+      "shape": "Attrs"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 23,
+          "column": 10
+        },
+        "end": {
+          "line": 23,
+          "column": 21
+        }
+      },
+      "shape": "Attrs"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 26,
+          "column": 23
+        },
+        "end": {
+          "line": 26,
+          "column": 34
+        }
+      },
+      "shape": "Attrs"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 30,
+          "column": 18
+        },
+        "end": {
+          "line": 30,
+          "column": 29
+        }
+      },
+      "shape": "Attrs"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 39,
+          "column": 7
+        },
+        "end": {
+          "line": 39,
+          "column": 18
+        }
+      },
+      "shape": "Attrs"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 44,
+          "column": 24
+        },
+        "end": {
+          "line": 44,
+          "column": 29
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 45,
+          "column": 35
+        },
+        "end": {
+          "line": 45,
+          "column": 40
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 53,
+          "column": 26
+        },
+        "end": {
+          "line": 53,
+          "column": 31
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 57,
+          "column": 47
+        },
+        "end": {
+          "line": 57,
+          "column": 52
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 68,
+          "column": 37
+        },
+        "end": {
+          "line": 68,
+          "column": 42
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 69,
+          "column": 34
+        },
+        "end": {
+          "line": 69,
+          "column": 39
+        }
+      },
+      "shape": "Field"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 50,
+          "column": 20
+        },
+        "end": {
+          "line": 50,
+          "column": 34
+        }
+      },
+      "shape": "Option"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 46,
+          "column": 36
+        },
+        "end": {
+          "line": 46,
+          "column": 42
+        }
+      },
+      "shape": "Option"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 78,
+          "column": 7
+        },
+        "end": {
+          "line": 78,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 78,
+          "column": 17
+        },
+        "end": {
+          "line": 78,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 79,
+          "column": 12
+        },
+        "end": {
+          "line": 79,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 76,
+          "column": 80
+        },
+        "end": {
+          "line": 76,
+          "column": 93
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 77,
+          "column": 80
+        },
+        "end": {
+          "line": 77,
+          "column": 93
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 79,
+          "column": 20
+        },
+        "end": {
+          "line": 79,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 16,
+          "column": 29
+        },
+        "end": {
+          "line": 16,
+          "column": 32
+        }
+      },
+      "type": [
+        "string",
+        "object"
+      ]
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 20,
+          "column": 34
+        },
+        "end": {
+          "line": 20,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 54,
+          "column": 8
+        },
+        "end": {
+          "line": 54,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 21,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 84,
+          "column": 8
+        },
+        "end": {
+          "line": 84,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 21,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 146,
+          "column": 12
+        },
+        "end": {
+          "line": 146,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 21,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 45,
+          "column": 19
+        },
+        "end": {
+          "line": 45,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 57,
+          "column": 18
+        },
+        "end": {
+          "line": 57,
+          "column": 46
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 43,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 68,
+          "column": 23
+        },
+        "end": {
+          "line": 68,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 44,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 69,
+          "column": 20
+        },
+        "end": {
+          "line": 69,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 44,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 47,
+          "column": 7
+        },
+        "end": {
+          "line": 47,
+          "column": 12
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 23,
+          "column": 10
+        },
+        "end": {
+          "line": 23,
+          "column": 31
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 32,
+          "column": 5
+        },
+        "end": {
+          "line": 32,
+          "column": 11
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 58,
+          "column": 7
+        },
+        "end": {
+          "line": 58,
+          "column": 13
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 73,
+          "column": 10
+        },
+        "end": {
+          "line": 73,
+          "column": 16
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 46,
+          "column": 61
+        },
+        "end": {
+          "line": 46,
+          "column": 69
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 70,
+          "column": 7
+        },
+        "end": {
+          "line": 70,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 70,
+          "column": 33
+        },
+        "end": {
+          "line": 70,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 73,
+          "column": 36
+        },
+        "end": {
+          "line": 73,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 73,
+          "column": 61
+        },
+        "end": {
+          "line": 73,
+          "column": 69
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 73,
+          "column": 47
+        },
+        "end": {
+          "line": 73,
+          "column": 58
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 73,
+          "column": 72
+        },
+        "end": {
+          "line": 73,
+          "column": 83
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 87,
+          "column": 19
+        },
+        "end": {
+          "line": 87,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 15,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 152,
+          "column": 19
+        },
+        "end": {
+          "line": 152,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 209,
+          "column": 5
+        },
+        "end": {
+          "line": 209,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 28,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 146,
+          "column": 54
+        },
+        "end": {
+          "line": 146,
+          "column": 77
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 24,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 211,
+          "column": 5
+        },
+        "end": {
+          "line": 211,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 22,
+          "column": 1
+        },
+        "end": {
+          "line": 24,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 495,
+          "column": 14
+        },
+        "end": {
+          "line": 495,
+          "column": 29
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 53,
+          "column": 1
+        },
+        "end": {
+          "line": 74,
+          "column": 2
+        }
+      }
+    }
+  ]
+}

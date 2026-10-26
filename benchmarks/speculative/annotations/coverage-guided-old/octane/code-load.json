@@ -1,0 +1,1274 @@
+{
+  "static shapes": {
+    "H1_Keys": {
+      "properties": [
+        {
+          "name": "length",
+          "type": "number"
+        }
+      ]
+    },
+    "H2_MockElement": {
+      "properties": [
+        {
+          "name": "appendChild",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 1510,
+              "column": 22
+            },
+            "end": {
+              "line": 1510,
+              "column": 37
+            }
+          }
+        },
+        {
+          "name": "createComment",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 1511,
+              "column": 24
+            },
+            "end": {
+              "line": 1511,
+              "column": 39
+            }
+          }
+        },
+        {
+          "name": "createDocumentFragment",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 1512,
+              "column": 33
+            },
+            "end": {
+              "line": 1514,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "createElement",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 1515,
+              "column": 24
+            },
+            "end": {
+              "line": 1517,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "documentElement",
+          "type": "any"
+        },
+        {
+          "name": "getElementById",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 1519,
+              "column": 25
+            },
+            "end": {
+              "line": 1521,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "getElementsByTagName",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 1522,
+              "column": 31
+            },
+            "end": {
+              "line": 1524,
+              "column": 4
+            }
+          }
+        },
+        {
+          "name": "insertBefore",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 1525,
+              "column": 23
+            },
+            "end": {
+              "line": 1525,
+              "column": 41
+            }
+          }
+        },
+        {
+          "name": "removeChild",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 1526,
+              "column": 22
+            },
+            "end": {
+              "line": 1526,
+              "column": 37
+            }
+          }
+        },
+        {
+          "name": "setAttribute",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 1527,
+              "column": 23
+            },
+            "end": {
+              "line": 1527,
+              "column": 41
+            }
+          }
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 1490,
+          "column": 41
+        },
+        "end": {
+          "line": 1490,
+          "column": 45
+        }
+      },
+      "shape": "H1_Keys"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 1489,
+          "column": 14
+        },
+        "end": {
+          "line": 1489,
+          "column": 55
+        }
+      },
+      "shape": "H1_Keys"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1527,
+          "column": 3
+        },
+        "end": {
+          "line": 1527,
+          "column": 7
+        }
+      },
+      "shape": "H2_MockElement"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 1552,
+          "column": 17
+        },
+        "end": {
+          "line": 1552,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1558,
+          "column": 17
+        },
+        "end": {
+          "line": 1558,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1551,
+          "column": 1
+        },
+        "end": {
+          "line": 1551,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 68,
+          "column": 1
+        },
+        "end": {
+          "line": 71,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1557,
+          "column": 1
+        },
+        "end": {
+          "line": 1557,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 68,
+          "column": 1
+        },
+        "end": {
+          "line": 71,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1555,
+          "column": 1
+        },
+        "end": {
+          "line": 1555,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 73,
+          "column": 1
+        },
+        "end": {
+          "line": 76,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1553,
+          "column": 3
+        },
+        "end": {
+          "line": 1553,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 78,
+          "column": 1
+        },
+        "end": {
+          "line": 81,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1559,
+          "column": 3
+        },
+        "end": {
+          "line": 1559,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 83,
+          "column": 1
+        },
+        "end": {
+          "line": 86,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1561,
+          "column": 1
+        },
+        "end": {
+          "line": 1561,
+          "column": 17
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 73,
+          "column": 1
+        },
+        "end": {
+          "line": 76,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1478,
+          "column": 13
+        },
+        "end": {
+          "line": 1478,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1475,
+          "column": 27
+        },
+        "end": {
+          "line": 1475,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1490,
+          "column": 23
+        },
+        "end": {
+          "line": 1490,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 1475,
+          "column": 1
+        },
+        "end": {
+          "line": 1486,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1503,
+          "column": 11
+        },
+        "end": {
+          "line": 1503,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 1488,
+          "column": 1
+        },
+        "end": {
+          "line": 1493,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1513,
+          "column": 16
+        },
+        "end": {
+          "line": 1513,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 1509,
+          "column": 1
+        },
+        "end": {
+          "line": 1528,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1516,
+          "column": 16
+        },
+        "end": {
+          "line": 1516,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 1509,
+          "column": 1
+        },
+        "end": {
+          "line": 1528,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1539,
+          "column": 7
+        },
+        "end": {
+          "line": 1539,
+          "column": 16
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1537,
+          "column": 7
+        },
+        "end": {
+          "line": 1537,
+          "column": 11
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1544,
+          "column": 19
+        },
+        "end": {
+          "line": 1544,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1544,
+          "column": 9
+        },
+        "end": {
+          "line": 1544,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1544,
+          "column": 64
+        },
+        "end": {
+          "line": 1544,
+          "column": 70
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 1542,
+          "column": 11
+        },
+        "end": {
+          "line": 1542,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 1488,
+          "column": 1
+        },
+        "end": {
+          "line": 1493,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 79,
+          "column": 3
+        },
+        "end": {
+          "line": 79,
+          "column": 13
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 1495,
+          "column": 1
+        },
+        "end": {
+          "line": 1507,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 80,
+          "column": 3
+        },
+        "end": {
+          "line": 80,
+          "column": 9
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 84,
+          "column": 3
+        },
+        "end": {
+          "line": 84,
+          "column": 12
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 1530,
+          "column": 1
+        },
+        "end": {
+          "line": 1546,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 85,
+          "column": 3
+        },
+        "end": {
+          "line": 85,
+          "column": 9
+        }
+      },
+      "type": "number"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "1536:12",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "1536:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "1536:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "1536:27",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "1542:12",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "1542:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "1542:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "1542:26",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "1534:11",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "start"
+    },
+    {
+      "location": "1534:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "1546:9",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "end"
+    },
+    {
+      "location": "1546:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "1535:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setupCodeLoad"
+    },
+    {
+      "location": "1541:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setupCodeLoad"
+    },
+    {
+      "location": "1539:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "tearDownCodeLoad"
+    },
+    {
+      "location": "1545:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "tearDownCodeLoad"
+    },
+    {
+      "location": "1537:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "runCodeLoadClosure"
+    },
+    {
+      "location": "1543:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "runCodeLoadJQuery"
+    },
+    {
+      "location": "132:13",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "BASE_JS"
+    },
+    {
+      "location": "241:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "JQUERY_JS"
+    },
+    {
+      "location": "1534:21",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Date",
+      "note": "Callee is a global (harness-provided) function not defined in this file, so no in-file target closure to specialize the call to."
+    },
+    {
+      "location": "1546:19",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Date",
+      "note": "Callee is a global (harness-provided) function not defined in this file, so no in-file target closure to specialize the call to."
+    },
+    {
+      "location": "1547:6",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print",
+      "note": "Callee is a global (harness-provided) function not defined in this file, so no in-file target closure to specialize the call to."
+    },
+    {
+      "location": "67:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "setupCodeLoad",
+      "note": "Hoisted function-declaration bindings stored into the global namespace during scope assembly; the global slot does not exist as a fixed property yet, so no shape slot to write."
+    },
+    {
+      "location": "67:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "tearDownCodeLoad",
+      "note": "Hoisted function-declaration bindings stored into the global namespace during scope assembly; the global slot does not exist as a fixed property yet, so no shape slot to write."
+    },
+    {
+      "location": "67:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "jenkinsHash",
+      "note": "Hoisted function-declaration bindings stored into the global namespace during scope assembly; the global slot does not exist as a fixed property yet, so no shape slot to write."
+    },
+    {
+      "location": "67:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "runCodeLoadClosure",
+      "note": "Hoisted function-declaration bindings stored into the global namespace during scope assembly; the global slot does not exist as a fixed property yet, so no shape slot to write."
+    },
+    {
+      "location": "67:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "runCodeLoadJQuery",
+      "note": "Hoisted function-declaration bindings stored into the global namespace during scope assembly; the global slot does not exist as a fixed property yet, so no shape slot to write."
+    },
+    {
+      "location": "67:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "runJQuery",
+      "note": "Hoisted function-declaration bindings stored into the global namespace during scope assembly; the global slot does not exist as a fixed property yet, so no shape slot to write."
+    },
+    {
+      "location": "67:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "MockElement",
+      "note": "Hoisted function-declaration bindings stored into the global namespace during scope assembly; the global slot does not exist as a fixed property yet, so no shape slot to write."
+    },
+    {
+      "location": "67:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "runClosure",
+      "note": "Hoisted function-declaration bindings stored into the global namespace during scope assembly; the global slot does not exist as a fixed property yet, so no shape slot to write."
+    },
+    {
+      "location": "67:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "cacheBust",
+      "note": "Hoisted function-declaration bindings stored into the global namespace during scope assembly; the global slot does not exist as a fixed property yet, so no shape slot to write."
+    },
+    {
+      "location": "1547:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation '+' : left operand is the string literal 'Time: ', so this '+' is string+number concat and cannot be specialized as a numeric add."
+    },
+    {
+      "location": "1547:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "1547:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "end"
+    },
+    {
+      "location": "1547:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "start"
+    },
+    {
+      "location": "1547:19",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "end and start are Date objects; '-' invokes valueOf/ToNumber conversion, so it is not a statically-known number fast path."
+    },
+    {
+      "location": "1489:27",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "toString"
+    },
+    {
+      "location": "1489:35",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "split"
+    },
+    {
+      "location": "1489:43",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "map"
+    },
+    {
+      "location": "1491:40",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "toString"
+    },
+    {
+      "location": "1492:21",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "replace"
+    },
+    {
+      "location": "1492:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "RegExp"
+    },
+    {
+      "location": "1489:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "salt"
+    },
+    {
+      "location": "1489:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "toString"
+    },
+    {
+      "location": "1489:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "split"
+    },
+    {
+      "location": "1489:43",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "map"
+    },
+    {
+      "location": "1489:44",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseFloat"
+    },
+    {
+      "location": "1490:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "1490:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "abs"
+    },
+    {
+      "location": "1491:40",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "toString"
+    },
+    {
+      "location": "1492:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "replace"
+    },
+    {
+      "location": "1492:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "RegExp"
+    },
+    {
+      "location": "1490:23",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "jenkinsHash",
+      "note": "Top-level function reference load. The closure type guard at 1490:23 optimized the call (1490:34); the standalone scope-load of the jenkinsHash function reference has no bindable shape in scope, so the reference load itself stays generic."
+    },
+    {
+      "location": "1491:21",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "This is string concatenation (old + hash.toString(36)): old is a string and hash.toString(36) is a built-in call result, so the generic + cannot be strength-reduced to a numeric add."
+    },
+    {
+      "location": "1497:15",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Non-numeric +/!= operators: operands are string literals, the indirectEval(src) call result, or the global salt, so a fast numeric add/comparison cannot be emitted (these are string concatenations / a generic != comparison)."
+    },
+    {
+      "location": "1501:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Non-numeric +/!= operators: operands are string literals, the indirectEval(src) call result, or the global salt, so a fast numeric add/comparison cannot be emitted (these are string concatenations / a generic != comparison)."
+    },
+    {
+      "location": "1501:41",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Non-numeric +/!= operators: operands are string literals, the indirectEval(src) call result, or the global salt, so a fast numeric add/comparison cannot be emitted (these are string concatenations / a generic != comparison)."
+    },
+    {
+      "location": "1497:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "salt"
+    },
+    {
+      "location": "1497:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "BASE_JS"
+    },
+    {
+      "location": "1500:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "indirectEval"
+    },
+    {
+      "location": "1501:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "salt"
+    },
+    {
+      "location": "1501:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "1500:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "indirectEval"
+    },
+    {
+      "location": "1501:40",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "1499:11",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cacheBust",
+      "note": "Top-level function reference load. The closure type guard at 1499:11 optimized the call (1499:20); the standalone scope-load of the cacheBust function reference has no bindable shape in scope, so the reference load itself stays generic."
+    },
+    {
+      "location": "1506:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "appendChild",
+      "note": "Constructor stores on the MockElement instance: each store adds a new slot (a hidden-class transition), so no fixed slot exists yet to write into. The completed instance shape H2_MockElement is established by the binding at 1515:3:1515:7 for later consumers."
+    },
+    {
+      "location": "1507:22",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "createComment",
+      "note": "Constructor stores on the MockElement instance: each store adds a new slot (a hidden-class transition), so no fixed slot exists yet to write into. The completed instance shape H2_MockElement is established by the binding at 1515:3:1515:7 for later consumers."
+    },
+    {
+      "location": "1508:31",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "createDocumentFragment",
+      "note": "Constructor stores on the MockElement instance: each store adds a new slot (a hidden-class transition), so no fixed slot exists yet to write into. The completed instance shape H2_MockElement is established by the binding at 1515:3:1515:7 for later consumers."
+    },
+    {
+      "location": "1509:22",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "createElement",
+      "note": "Constructor stores on the MockElement instance: each store adds a new slot (a hidden-class transition), so no fixed slot exists yet to write into. The completed instance shape H2_MockElement is established by the binding at 1515:3:1515:7 for later consumers."
+    },
+    {
+      "location": "1510:24",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "documentElement",
+      "note": "Constructor stores on the MockElement instance: each store adds a new slot (a hidden-class transition), so no fixed slot exists yet to write into. The completed instance shape H2_MockElement is established by the binding at 1515:3:1515:7 for later consumers."
+    },
+    {
+      "location": "1511:23",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "getElementById",
+      "note": "Constructor stores on the MockElement instance: each store adds a new slot (a hidden-class transition), so no fixed slot exists yet to write into. The completed instance shape H2_MockElement is established by the binding at 1515:3:1515:7 for later consumers."
+    },
+    {
+      "location": "1512:29",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "getElementsByTagName",
+      "note": "Constructor stores on the MockElement instance: each store adds a new slot (a hidden-class transition), so no fixed slot exists yet to write into. The completed instance shape H2_MockElement is established by the binding at 1515:3:1515:7 for later consumers."
+    },
+    {
+      "location": "1513:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "insertBefore",
+      "note": "Constructor stores on the MockElement instance: each store adds a new slot (a hidden-class transition), so no fixed slot exists yet to write into. The completed instance shape H2_MockElement is established by the binding at 1515:3:1515:7 for later consumers."
+    },
+    {
+      "location": "1514:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "removeChild",
+      "note": "Constructor stores on the MockElement instance: each store adds a new slot (a hidden-class transition), so no fixed slot exists yet to write into. The completed instance shape H2_MockElement is established by the binding at 1515:3:1515:7 for later consumers."
+    },
+    {
+      "location": "1515:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "setAttribute",
+      "note": "Constructor stores on the MockElement instance: each store adds a new slot (a hidden-class transition), so no fixed slot exists yet to write into. The completed instance shape H2_MockElement is established by the binding at 1515:3:1515:7 for later consumers."
+    },
+    {
+      "location": "1508:57",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "MockElement",
+      "note": "Side-effecting global property loads (values resolved from the global scope / built-ins at runtime); they cannot be eliminated or strength-reduced on the speculative path even where a value type guard narrows the loaded value."
+    },
+    {
+      "location": "1509:49",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "MockElement",
+      "note": "Side-effecting global property loads (values resolved from the global scope / built-ins at runtime); they cannot be eliminated or strength-reduced on the speculative path even where a value type guard narrows the loaded value."
+    },
+    {
+      "location": "1523:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "salt",
+      "note": "Side-effecting global property loads (values resolved from the global scope / built-ins at runtime); they cannot be eliminated or strength-reduced on the speculative path even where a value type guard narrows the loaded value."
+    },
+    {
+      "location": "1523:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JQUERY_JS",
+      "note": "Side-effecting global property loads (values resolved from the global scope / built-ins at runtime); they cannot be eliminated or strength-reduced on the speculative path even where a value type guard narrows the loaded value."
+    },
+    {
+      "location": "1526:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cacheBust",
+      "note": "Side-effecting global property loads (values resolved from the global scope / built-ins at runtime); they cannot be eliminated or strength-reduced on the speculative path even where a value type guard narrows the loaded value."
+    },
+    {
+      "location": "1527:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "indirectEval",
+      "note": "Side-effecting global property loads (values resolved from the global scope / built-ins at runtime); they cannot be eliminated or strength-reduced on the speculative path even where a value type guard narrows the loaded value."
+    },
+    {
+      "location": "1528:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "salt",
+      "note": "Side-effecting global property loads (values resolved from the global scope / built-ins at runtime); they cannot be eliminated or strength-reduced on the speculative path even where a value type guard narrows the loaded value."
+    },
+    {
+      "location": "1528:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error",
+      "note": "Side-effecting global property loads (values resolved from the global scope / built-ins at runtime); they cannot be eliminated or strength-reduced on the speculative path even where a value type guard narrows the loaded value."
+    },
+    {
+      "location": "1520:15",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation whose non-literal operand is a number (salt at 1520 / result at 1528:64); the pure-string fast path is unavailable and operand number/string type guards produce no effect."
+    },
+    {
+      "location": "1528:41",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation whose non-literal operand is a number (salt at 1520 / result at 1528:64); the pure-string fast path is unavailable and operand number/string type guards produce no effect."
+    },
+    {
+      "location": "1527:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "indirectEval",
+      "note": "Callee is a built-in (indirectEval holds eval; Error is the built-in Error constructor); no target-function definition in this file to pin a closure guard, so the call cannot be inlined."
+    },
+    {
+      "location": "1528:40",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error",
+      "note": "Callee is a built-in (indirectEval holds eval; Error is the built-in Error constructor); no target-function definition in this file to pin a closure guard, so the call cannot be inlined."
+    },
+    {
+      "location": "72:18",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "eval",
+      "note": "Global built-in eval is a function. A closure type guard requires naming the target function's range, but eval is a host built-in (not defined in this file), so no target function is available; the implicit global receiver also cannot be shape-bound. So this global function load cannot be specialized."
+    },
+    {
+      "location": "71:8",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "salt",
+      "note": "Global-slot access: the receiver is the implicit global object, which has no bindable producing-expression anywhere in this file (top level is only `var salt; var indirectEval;` plus function/string declarations, outside the two big string literals). So the global cannot be shape-bound and a shape guard on it always fails. Value type guards (number for the salt++ operand, closure for the runClosure/runJQuery calls) type the value but do not specialize the global slot itself, leaving these slot load/store sites generic."
+    },
+    {
+      "location": "72:16",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "indirectEval",
+      "note": "Global-slot access: the receiver is the implicit global object, which has no bindable producing-expression anywhere in this file (top level is only `var salt; var indirectEval;` plus function/string declarations, outside the two big string literals). So the global cannot be shape-bound and a shape guard on it always fails. Value type guards (number for the salt++ operand, closure for the runClosure/runJQuery calls) type the value but do not specialize the global slot itself, leaving these slot load/store sites generic."
+    },
+    {
+      "location": "76:8",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "salt",
+      "note": "Global-slot access: the receiver is the implicit global object, which has no bindable producing-expression anywhere in this file (top level is only `var salt; var indirectEval;` plus function/string declarations, outside the two big string literals). So the global cannot be shape-bound and a shape guard on it always fails. Value type guards (number for the salt++ operand, closure for the runClosure/runJQuery calls) type the value but do not specialize the global slot itself, leaving these slot load/store sites generic."
+    },
+    {
+      "location": "77:16",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "indirectEval",
+      "note": "Global-slot access: the receiver is the implicit global object, which has no bindable producing-expression anywhere in this file (top level is only `var salt; var indirectEval;` plus function/string declarations, outside the two big string literals). So the global cannot be shape-bound and a shape guard on it always fails. Value type guards (number for the salt++ operand, closure for the runClosure/runJQuery calls) type the value but do not specialize the global slot itself, leaving these slot load/store sites generic."
+    },
+    {
+      "location": "81:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "runClosure",
+      "note": "Global-slot access: the receiver is the implicit global object, which has no bindable producing-expression anywhere in this file (top level is only `var salt; var indirectEval;` plus function/string declarations, outside the two big string literals). So the global cannot be shape-bound and a shape guard on it always fails. Value type guards (number for the salt++ operand, closure for the runClosure/runJQuery calls) type the value but do not specialize the global slot itself, leaving these slot load/store sites generic."
+    },
+    {
+      "location": "82:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "salt",
+      "note": "Global-slot access: the receiver is the implicit global object, which has no bindable producing-expression anywhere in this file (top level is only `var salt; var indirectEval;` plus function/string declarations, outside the two big string literals). So the global cannot be shape-bound and a shape guard on it always fails. Value type guards (number for the salt++ operand, closure for the runClosure/runJQuery calls) type the value but do not specialize the global slot itself, leaving these slot load/store sites generic."
+    },
+    {
+      "location": "82:7",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "salt",
+      "note": "Global-slot access: the receiver is the implicit global object, which has no bindable producing-expression anywhere in this file (top level is only `var salt; var indirectEval;` plus function/string declarations, outside the two big string literals). So the global cannot be shape-bound and a shape guard on it always fails. Value type guards (number for the salt++ operand, closure for the runClosure/runJQuery calls) type the value but do not specialize the global slot itself, leaving these slot load/store sites generic."
+    },
+    {
+      "location": "86:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "runJQuery",
+      "note": "Global-slot access: the receiver is the implicit global object, which has no bindable producing-expression anywhere in this file (top level is only `var salt; var indirectEval;` plus function/string declarations, outside the two big string literals). So the global cannot be shape-bound and a shape guard on it always fails. Value type guards (number for the salt++ operand, closure for the runClosure/runJQuery calls) type the value but do not specialize the global slot itself, leaving these slot load/store sites generic."
+    },
+    {
+      "location": "87:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "salt",
+      "note": "Global-slot access: the receiver is the implicit global object, which has no bindable producing-expression anywhere in this file (top level is only `var salt; var indirectEval;` plus function/string declarations, outside the two big string literals). So the global cannot be shape-bound and a shape guard on it always fails. Value type guards (number for the salt++ operand, closure for the runClosure/runJQuery calls) type the value but do not specialize the global slot itself, leaving these slot load/store sites generic."
+    },
+    {
+      "location": "87:7",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "salt",
+      "note": "Global-slot access: the receiver is the implicit global object, which has no bindable producing-expression anywhere in this file (top level is only `var salt; var indirectEval;` plus function/string declarations, outside the two big string literals). So the global cannot be shape-bound and a shape guard on it always fails. Value type guards (number for the salt++ operand, closure for the runClosure/runJQuery calls) type the value but do not specialize the global slot itself, leaving these slot load/store sites generic."
+    }
+  ]
+}

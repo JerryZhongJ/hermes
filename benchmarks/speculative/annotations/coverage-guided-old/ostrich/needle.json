@@ -1,0 +1,5088 @@
+{
+  "static shapes": {
+    "DefaultOptions": {
+      "properties": [
+        {
+          "name": "nb_possible_items",
+          "type": "number"
+        },
+        {
+          "name": "print_results",
+          "type": "boolean"
+        },
+        {
+          "name": "print_intermediary_results",
+          "type": "boolean"
+        },
+        {
+          "name": "use_parallelizable_version",
+          "type": "boolean"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 214,
+          "column": 9
+        },
+        "end": {
+          "line": 214,
+          "column": 16
+        }
+      },
+      "shape": "DefaultOptions"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 305,
+          "column": 58
+        },
+        "end": {
+          "line": 305,
+          "column": 65
+        }
+      },
+      "shape": "DefaultOptions"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 309,
+          "column": 58
+        },
+        "end": {
+          "line": 309,
+          "column": 65
+        }
+      },
+      "shape": "DefaultOptions"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 312,
+          "column": 9
+        },
+        "end": {
+          "line": 312,
+          "column": 16
+        }
+      },
+      "shape": "DefaultOptions"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 350,
+          "column": 49
+        },
+        "end": {
+          "line": 350,
+          "column": 56
+        }
+      },
+      "shape": "DefaultOptions"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 361,
+          "column": 48
+        },
+        "end": {
+          "line": 361,
+          "column": 55
+        }
+      },
+      "shape": "DefaultOptions"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 249,
+          "column": 27
+        },
+        "end": {
+          "line": 254,
+          "column": 6
+        }
+      },
+      "shape": "DefaultOptions"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 88,
+          "column": 18
+        },
+        "end": {
+          "line": 88,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 88,
+          "column": 20
+        },
+        "end": {
+          "line": 88,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 88,
+          "column": 22
+        },
+        "end": {
+          "line": 88,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 169,
+          "column": 33
+        },
+        "end": {
+          "line": 169,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 169,
+          "column": 44
+        },
+        "end": {
+          "line": 169,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 170,
+          "column": 28
+        },
+        "end": {
+          "line": 170,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 161,
+          "column": 33
+        },
+        "end": {
+          "line": 161,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 161,
+          "column": 44
+        },
+        "end": {
+          "line": 161,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 162,
+          "column": 43
+        },
+        "end": {
+          "line": 162,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 163,
+          "column": 43
+        },
+        "end": {
+          "line": 163,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 166,
+          "column": 28
+        },
+        "end": {
+          "line": 166,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 206,
+          "column": 23
+        },
+        "end": {
+          "line": 206,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 169,
+          "column": 23
+        },
+        "end": {
+          "line": 171,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 210,
+          "column": 24
+        },
+        "end": {
+          "line": 210,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 169,
+          "column": 23
+        },
+        "end": {
+          "line": 171,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 212,
+          "column": 24
+        },
+        "end": {
+          "line": 212,
+          "column": 35
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 169,
+          "column": 23
+        },
+        "end": {
+          "line": 171,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 227,
+          "column": 25
+        },
+        "end": {
+          "line": 227,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 169,
+          "column": 23
+        },
+        "end": {
+          "line": 171,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 236,
+          "column": 25
+        },
+        "end": {
+          "line": 236,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 169,
+          "column": 23
+        },
+        "end": {
+          "line": 171,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 219,
+          "column": 40
+        },
+        "end": {
+          "line": 219,
+          "column": 47
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 88,
+          "column": 1
+        },
+        "end": {
+          "line": 99,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 228,
+          "column": 40
+        },
+        "end": {
+          "line": 228,
+          "column": 47
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 88,
+          "column": 1
+        },
+        "end": {
+          "line": 99,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 237,
+          "column": 41
+        },
+        "end": {
+          "line": 237,
+          "column": 48
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 88,
+          "column": 1
+        },
+        "end": {
+          "line": 99,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 329,
+          "column": 29
+        },
+        "end": {
+          "line": 329,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 88,
+          "column": 1
+        },
+        "end": {
+          "line": 99,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 204,
+          "column": 19
+        },
+        "end": {
+          "line": 204,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 204,
+          "column": 15
+        },
+        "end": {
+          "line": 204,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 43,
+          "column": 21
+        },
+        "end": {
+          "line": 43,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 129,
+          "column": 18
+        },
+        "end": {
+          "line": 129,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 174,
+          "column": 24
+        },
+        "end": {
+          "line": 174,
+          "column": 25
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 177,
+          "column": 16
+        },
+        "end": {
+          "line": 177,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 143,
+          "column": 1
+        },
+        "end": {
+          "line": 155,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 146,
+          "column": 9
+        },
+        "end": {
+          "line": 146,
+          "column": 10
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 150,
+          "column": 13
+        },
+        "end": {
+          "line": 150,
+          "column": 14
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 150,
+          "column": 22
+        },
+        "end": {
+          "line": 150,
+          "column": 23
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 176,
+          "column": 25
+        },
+        "end": {
+          "line": 176,
+          "column": 26
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 177,
+          "column": 23
+        },
+        "end": {
+          "line": 177,
+          "column": 24
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 176,
+          "column": 25
+        },
+        "end": {
+          "line": 176,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 206,
+          "column": 35
+        },
+        "end": {
+          "line": 206,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 206,
+          "column": 65
+        },
+        "end": {
+          "line": 206,
+          "column": 66
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 209,
+          "column": 16
+        },
+        "end": {
+          "line": 209,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 210,
+          "column": 36
+        },
+        "end": {
+          "line": 210,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 210,
+          "column": 45
+        },
+        "end": {
+          "line": 210,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 216,
+          "column": 21
+        },
+        "end": {
+          "line": 216,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 217,
+          "column": 35
+        },
+        "end": {
+          "line": 217,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 218,
+          "column": 49
+        },
+        "end": {
+          "line": 218,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 234,
+          "column": 21
+        },
+        "end": {
+          "line": 234,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 236,
+          "column": 37
+        },
+        "end": {
+          "line": 236,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 205,
+          "column": 22
+        },
+        "end": {
+          "line": 205,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 206,
+          "column": 37
+        },
+        "end": {
+          "line": 206,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 206,
+          "column": 86
+        },
+        "end": {
+          "line": 206,
+          "column": 87
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 211,
+          "column": 16
+        },
+        "end": {
+          "line": 211,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 212,
+          "column": 38
+        },
+        "end": {
+          "line": 212,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 212,
+          "column": 45
+        },
+        "end": {
+          "line": 212,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 235,
+          "column": 25
+        },
+        "end": {
+          "line": 235,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 236,
+          "column": 39
+        },
+        "end": {
+          "line": 236,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 211,
+          "column": 19
+        },
+        "end": {
+          "line": 211,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 216,
+          "column": 25
+        },
+        "end": {
+          "line": 216,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 218,
+          "column": 37
+        },
+        "end": {
+          "line": 218,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 219,
+          "column": 72
+        },
+        "end": {
+          "line": 219,
+          "column": 80
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 221,
+          "column": 70
+        },
+        "end": {
+          "line": 221,
+          "column": 78
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 227,
+          "column": 52
+        },
+        "end": {
+          "line": 227,
+          "column": 60
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 228,
+          "column": 72
+        },
+        "end": {
+          "line": 228,
+          "column": 80
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 230,
+          "column": 46
+        },
+        "end": {
+          "line": 230,
+          "column": 54
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 235,
+          "column": 29
+        },
+        "end": {
+          "line": 235,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 238,
+          "column": 44
+        },
+        "end": {
+          "line": 238,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 240,
+          "column": 42
+        },
+        "end": {
+          "line": 240,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 205,
+          "column": 26
+        },
+        "end": {
+          "line": 205,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 209,
+          "column": 19
+        },
+        "end": {
+          "line": 209,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 225,
+          "column": 18
+        },
+        "end": {
+          "line": 225,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 225,
+          "column": 36
+        },
+        "end": {
+          "line": 225,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 226,
+          "column": 32
+        },
+        "end": {
+          "line": 226,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 227,
+          "column": 37
+        },
+        "end": {
+          "line": 227,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 234,
+          "column": 25
+        },
+        "end": {
+          "line": 234,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 217,
+          "column": 28
+        },
+        "end": {
+          "line": 217,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 218,
+          "column": 26
+        },
+        "end": {
+          "line": 218,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 218,
+          "column": 57
+        },
+        "end": {
+          "line": 218,
+          "column": 60
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 219,
+          "column": 32
+        },
+        "end": {
+          "line": 219,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 219,
+          "column": 64
+        },
+        "end": {
+          "line": 219,
+          "column": 69
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 219,
+          "column": 93
+        },
+        "end": {
+          "line": 219,
+          "column": 98
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 220,
+          "column": 64
+        },
+        "end": {
+          "line": 220,
+          "column": 69
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 221,
+          "column": 64
+        },
+        "end": {
+          "line": 221,
+          "column": 69
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 228,
+          "column": 32
+        },
+        "end": {
+          "line": 228,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 228,
+          "column": 64
+        },
+        "end": {
+          "line": 228,
+          "column": 69
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 228,
+          "column": 93
+        },
+        "end": {
+          "line": 228,
+          "column": 98
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 229,
+          "column": 40
+        },
+        "end": {
+          "line": 229,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 230,
+          "column": 40
+        },
+        "end": {
+          "line": 230,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 237,
+          "column": 32
+        },
+        "end": {
+          "line": 237,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 238,
+          "column": 36
+        },
+        "end": {
+          "line": 238,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 238,
+          "column": 66
+        },
+        "end": {
+          "line": 238,
+          "column": 71
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 239,
+          "column": 36
+        },
+        "end": {
+          "line": 239,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 240,
+          "column": 36
+        },
+        "end": {
+          "line": 240,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 225,
+          "column": 28
+        },
+        "end": {
+          "line": 225,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 226,
+          "column": 46
+        },
+        "end": {
+          "line": 226,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 227,
+          "column": 50
+        },
+        "end": {
+          "line": 227,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 226,
+          "column": 25
+        },
+        "end": {
+          "line": 226,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 227,
+          "column": 48
+        },
+        "end": {
+          "line": 227,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 227,
+          "column": 63
+        },
+        "end": {
+          "line": 227,
+          "column": 64
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 203,
+          "column": 17
+        },
+        "end": {
+          "line": 203,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 210,
+          "column": 49
+        },
+        "end": {
+          "line": 210,
+          "column": 56
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 212,
+          "column": 49
+        },
+        "end": {
+          "line": 212,
+          "column": 56
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 220,
+          "column": 83
+        },
+        "end": {
+          "line": 220,
+          "column": 90
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 221,
+          "column": 83
+        },
+        "end": {
+          "line": 221,
+          "column": 90
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 229,
+          "column": 59
+        },
+        "end": {
+          "line": 229,
+          "column": 66
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 230,
+          "column": 59
+        },
+        "end": {
+          "line": 230,
+          "column": 66
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 239,
+          "column": 45
+        },
+        "end": {
+          "line": 239,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 240,
+          "column": 52
+        },
+        "end": {
+          "line": 240,
+          "column": 59
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 206,
+          "column": 53
+        },
+        "end": {
+          "line": 206,
+          "column": 67
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 206,
+          "column": 74
+        },
+        "end": {
+          "line": 206,
+          "column": 88
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 219,
+          "column": 49
+        },
+        "end": {
+          "line": 219,
+          "column": 81
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 219,
+          "column": 83
+        },
+        "end": {
+          "line": 219,
+          "column": 99
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 220,
+          "column": 49
+        },
+        "end": {
+          "line": 220,
+          "column": 72
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 221,
+          "column": 49
+        },
+        "end": {
+          "line": 221,
+          "column": 79
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 228,
+          "column": 49
+        },
+        "end": {
+          "line": 228,
+          "column": 81
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 228,
+          "column": 83
+        },
+        "end": {
+          "line": 228,
+          "column": 99
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 229,
+          "column": 25
+        },
+        "end": {
+          "line": 229,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 230,
+          "column": 25
+        },
+        "end": {
+          "line": 230,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 238,
+          "column": 21
+        },
+        "end": {
+          "line": 238,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 238,
+          "column": 56
+        },
+        "end": {
+          "line": 238,
+          "column": 72
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 239,
+          "column": 21
+        },
+        "end": {
+          "line": 239,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 240,
+          "column": 21
+        },
+        "end": {
+          "line": 240,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 183,
+          "column": 9
+        },
+        "end": {
+          "line": 183,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 183,
+          "column": 26
+        },
+        "end": {
+          "line": 183,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 188,
+          "column": 13
+        },
+        "end": {
+          "line": 188,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 187,
+          "column": 21
+        },
+        "end": {
+          "line": 187,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 133,
+          "column": 85
+        },
+        "end": {
+          "line": 133,
+          "column": 86
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 149,
+          "column": 21
+        },
+        "end": {
+          "line": 149,
+          "column": 31
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 188,
+          "column": 26
+        },
+        "end": {
+          "line": 188,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 187,
+          "column": 25
+        },
+        "end": {
+          "line": 187,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 247,
+          "column": 20
+        },
+        "end": {
+          "line": 247,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 256,
+          "column": 9
+        },
+        "end": {
+          "line": 256,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 280,
+          "column": 16
+        },
+        "end": {
+          "line": 280,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 281,
+          "column": 16
+        },
+        "end": {
+          "line": 281,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 283,
+          "column": 30
+        },
+        "end": {
+          "line": 283,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 350,
+          "column": 9
+        },
+        "end": {
+          "line": 350,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 360,
+          "column": 59
+        },
+        "end": {
+          "line": 360,
+          "column": 69
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 367,
+          "column": 39
+        },
+        "end": {
+          "line": 367,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 285,
+          "column": 32
+        },
+        "end": {
+          "line": 285,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 286,
+          "column": 37
+        },
+        "end": {
+          "line": 286,
+          "column": 45
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 289,
+          "column": 34
+        },
+        "end": {
+          "line": 289,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 293,
+          "column": 26
+        },
+        "end": {
+          "line": 293,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 304,
+          "column": 17
+        },
+        "end": {
+          "line": 304,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 322,
+          "column": 14
+        },
+        "end": {
+          "line": 322,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 285,
+          "column": 41
+        },
+        "end": {
+          "line": 285,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 286,
+          "column": 46
+        },
+        "end": {
+          "line": 286,
+          "column": 54
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 290,
+          "column": 34
+        },
+        "end": {
+          "line": 290,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 292,
+          "column": 22
+        },
+        "end": {
+          "line": 292,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 294,
+          "column": 30
+        },
+        "end": {
+          "line": 294,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 308,
+          "column": 17
+        },
+        "end": {
+          "line": 308,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 322,
+          "column": 32
+        },
+        "end": {
+          "line": 322,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 247,
+          "column": 32
+        },
+        "end": {
+          "line": 247,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 260,
+          "column": 9
+        },
+        "end": {
+          "line": 260,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 315,
+          "column": 12
+        },
+        "end": {
+          "line": 315,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 325,
+          "column": 58
+        },
+        "end": {
+          "line": 325,
+          "column": 65
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 326,
+          "column": 58
+        },
+        "end": {
+          "line": 326,
+          "column": 65
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 350,
+          "column": 32
+        },
+        "end": {
+          "line": 350,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 360,
+          "column": 89
+        },
+        "end": {
+          "line": 360,
+          "column": 96
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 367,
+          "column": 51
+        },
+        "end": {
+          "line": 367,
+          "column": 58
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 292,
+          "column": 18
+        },
+        "end": {
+          "line": 292,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 294,
+          "column": 28
+        },
+        "end": {
+          "line": 294,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 298,
+          "column": 17
+        },
+        "end": {
+          "line": 298,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 299,
+          "column": 23
+        },
+        "end": {
+          "line": 299,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 300,
+          "column": 23
+        },
+        "end": {
+          "line": 300,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 304,
+          "column": 14
+        },
+        "end": {
+          "line": 304,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 305,
+          "column": 21
+        },
+        "end": {
+          "line": 305,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 322,
+          "column": 48
+        },
+        "end": {
+          "line": 322,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 323,
+          "column": 13
+        },
+        "end": {
+          "line": 323,
+          "column": 14
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 324,
+          "column": 49
+        },
+        "end": {
+          "line": 324,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 324,
+          "column": 83
+        },
+        "end": {
+          "line": 324,
+          "column": 84
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 325,
+          "column": 48
+        },
+        "end": {
+          "line": 325,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 326,
+          "column": 48
+        },
+        "end": {
+          "line": 326,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 330,
+          "column": 20
+        },
+        "end": {
+          "line": 330,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 293,
+          "column": 22
+        },
+        "end": {
+          "line": 293,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 294,
+          "column": 39
+        },
+        "end": {
+          "line": 294,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 308,
+          "column": 14
+        },
+        "end": {
+          "line": 308,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 309,
+          "column": 21
+        },
+        "end": {
+          "line": 309,
+          "column": 22
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 322,
+          "column": 56
+        },
+        "end": {
+          "line": 322,
+          "column": 57
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 323,
+          "column": 22
+        },
+        "end": {
+          "line": 323,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 324,
+          "column": 53
+        },
+        "end": {
+          "line": 324,
+          "column": 54
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 324,
+          "column": 85
+        },
+        "end": {
+          "line": 324,
+          "column": 86
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 325,
+          "column": 50
+        },
+        "end": {
+          "line": 325,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 326,
+          "column": 52
+        },
+        "end": {
+          "line": 326,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 333,
+          "column": 20
+        },
+        "end": {
+          "line": 333,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 287,
+          "column": 36
+        },
+        "end": {
+          "line": 287,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 288,
+          "column": 36
+        },
+        "end": {
+          "line": 288,
+          "column": 52
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 298,
+          "column": 21
+        },
+        "end": {
+          "line": 298,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 319,
+          "column": 27
+        },
+        "end": {
+          "line": 319,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 320,
+          "column": 27
+        },
+        "end": {
+          "line": 320,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 365,
+          "column": 49
+        },
+        "end": {
+          "line": 365,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 368,
+          "column": 24
+        },
+        "end": {
+          "line": 368,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 365,
+          "column": 46
+        },
+        "end": {
+          "line": 365,
+          "column": 48
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 368,
+          "column": 21
+        },
+        "end": {
+          "line": 368,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 17
+        },
+        "end": {
+          "line": 143,
+          "column": 18
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 376,
+          "column": 1
+        },
+        "end": {
+          "line": 376,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 247,
+          "column": 1
+        },
+        "end": {
+          "line": 369,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 196,
+          "column": 30
+        },
+        "end": {
+          "line": 196,
+          "column": 43
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 174,
+          "column": 1
+        },
+        "end": {
+          "line": 180,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 197,
+          "column": 30
+        },
+        "end": {
+          "line": 197,
+          "column": 43
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 174,
+          "column": 1
+        },
+        "end": {
+          "line": 180,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 315,
+          "column": 5
+        },
+        "end": {
+          "line": 315,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 203,
+          "column": 1
+        },
+        "end": {
+          "line": 245,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 351,
+          "column": 14
+        },
+        "end": {
+          "line": 351,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 182,
+          "column": 1
+        },
+        "end": {
+          "line": 194,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 355,
+          "column": 14
+        },
+        "end": {
+          "line": 355,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 182,
+          "column": 1
+        },
+        "end": {
+          "line": 194,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 324,
+          "column": 37
+        },
+        "end": {
+          "line": 324,
+          "column": 48
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 169,
+          "column": 23
+        },
+        "end": {
+          "line": 171,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 324,
+          "column": 71
+        },
+        "end": {
+          "line": 324,
+          "column": 82
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 169,
+          "column": 23
+        },
+        "end": {
+          "line": 171,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 325,
+          "column": 36
+        },
+        "end": {
+          "line": 325,
+          "column": 47
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 169,
+          "column": 23
+        },
+        "end": {
+          "line": 171,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 326,
+          "column": 36
+        },
+        "end": {
+          "line": 326,
+          "column": 47
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 169,
+          "column": 23
+        },
+        "end": {
+          "line": 171,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 378,
+          "column": 39
+        },
+        "end": {
+          "line": 378,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 378,
+          "column": 31
+        },
+        "end": {
+          "line": 378,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 324,
+          "column": 22
+        },
+        "end": {
+          "line": 324,
+          "column": 58
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 324,
+          "column": 61
+        },
+        "end": {
+          "line": 324,
+          "column": 88
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 325,
+          "column": 21
+        },
+        "end": {
+          "line": 325,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 326,
+          "column": 21
+        },
+        "end": {
+          "line": 326,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 367,
+          "column": 38
+        },
+        "end": {
+          "line": 367,
+          "column": 69
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 344,
+          "column": 54
+        },
+        "end": {
+          "line": 344,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 341,
+          "column": 54
+        },
+        "end": {
+          "line": 341,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 338,
+          "column": 13
+        },
+        "end": {
+          "line": 338,
+          "column": 20
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 341,
+          "column": 20
+        },
+        "end": {
+          "line": 341,
+          "column": 27
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 347,
+          "column": 54
+        },
+        "end": {
+          "line": 347,
+          "column": 61
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 338,
+          "column": 34
+        },
+        "end": {
+          "line": 338,
+          "column": 41
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 344,
+          "column": 20
+        },
+        "end": {
+          "line": 344,
+          "column": 27
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 347,
+          "column": 79
+        },
+        "end": {
+          "line": 347,
+          "column": 86
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 338,
+          "column": 55
+        },
+        "end": {
+          "line": 338,
+          "column": 64
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 341,
+          "column": 40
+        },
+        "end": {
+          "line": 341,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 344,
+          "column": 40
+        },
+        "end": {
+          "line": 344,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 347,
+          "column": 106
+        },
+        "end": {
+          "line": 347,
+          "column": 115
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 329,
+          "column": 37
+        },
+        "end": {
+          "line": 329,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 338,
+          "column": 69
+        },
+        "end": {
+          "line": 338,
+          "column": 71
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 264,
+          "column": 9
+        },
+        "end": {
+          "line": 264,
+          "column": 16
+        }
+      },
+      "type": "undefined"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "43:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "43:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "commonRandom"
+    },
+    {
+      "location": "43:38",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "commonRandom",
+      "note": "callee is a member expression on a builtin (Math.commonRandom); closure guard target range matches no IR"
+    },
+    {
+      "location": "133:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "151:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "162:43",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "163:43",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "164:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "166:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "170:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "176:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "177:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "177:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "to_int"
+    },
+    {
+      "location": "183:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "183:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "187:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "149:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "indexOf"
+    },
+    {
+      "location": "133:24",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error",
+      "note": "callee is a builtin reached through a global or prototype property; no target function exists in the file"
+    },
+    {
+      "location": "151:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error",
+      "note": "callee is a builtin reached through a global or prototype property; no target function exists in the file"
+    },
+    {
+      "location": "164:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error",
+      "note": "callee is a builtin reached through a global or prototype property; no target function exists in the file"
+    },
+    {
+      "location": "177:15",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push",
+      "note": "callee is a builtin reached through a global or prototype property; no target function exists in the file"
+    },
+    {
+      "location": "149:39",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "indexOf",
+      "note": "callee is a builtin reached through a global or prototype property; no target function exists in the file"
+    },
+    {
+      "location": "133:25",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation whose non-literal operand needs a runtime ToString conversion; the compiler has no numeric/string fast path to strength-reduce to"
+    },
+    {
+      "location": "164:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "string concatenation whose non-literal operand needs a runtime ToString conversion; the compiler has no numeric/string fast path to strength-reduce to"
+    },
+    {
+      "location": "150:13",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "150:22",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "204:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "204:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "204:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "204:30",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "204:9",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "205:16",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "205:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "205:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "205:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "205:37",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "206:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reference"
+    },
+    {
+      "location": "206:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_index"
+    },
+    {
+      "location": "206:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "206:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "206:43",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "blosum62"
+    },
+    {
+      "location": "206:53",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_seq_1"
+    },
+    {
+      "location": "206:65",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "206:74",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_seq_2"
+    },
+    {
+      "location": "206:86",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "209:11",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "209:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "209:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "209:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "209:31",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "210:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_index"
+    },
+    {
+      "location": "210:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "210:45",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "210:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "211:11",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "211:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "211:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "211:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "211:31",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "212:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_index"
+    },
+    {
+      "location": "212:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "212:45",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "212:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "216:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "216:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "216:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "216:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "216:39",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "217:22",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "idx"
+    },
+    {
+      "location": "217:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "idx"
+    },
+    {
+      "location": "217:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "217:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "idx"
+    },
+    {
+      "location": "217:42",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "idx"
+    },
+    {
+      "location": "218:23",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "218:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "idx"
+    },
+    {
+      "location": "218:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "218:49",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "218:57",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "idx"
+    },
+    {
+      "location": "219:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "219:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "219:40",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "maximum"
+    },
+    {
+      "location": "219:49",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "219:64",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "219:72",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "219:83",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reference"
+    },
+    {
+      "location": "219:93",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "220:49",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "220:64",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "221:49",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "221:64",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "221:70",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "225:16",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "k"
+    },
+    {
+      "location": "225:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "225:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "k"
+    },
+    {
+      "location": "225:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "225:49",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "k"
+    },
+    {
+      "location": "225:51",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "k"
+    },
+    {
+      "location": "226:20",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "l"
+    },
+    {
+      "location": "226:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "l"
+    },
+    {
+      "location": "226:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "226:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "k"
+    },
+    {
+      "location": "226:53",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "l"
+    },
+    {
+      "location": "226:55",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "l"
+    },
+    {
+      "location": "227:23",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "227:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_index"
+    },
+    {
+      "location": "227:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "227:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "l"
+    },
+    {
+      "location": "227:50",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "k"
+    },
+    {
+      "location": "227:52",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "227:63",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "l"
+    },
+    {
+      "location": "228:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "228:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "228:40",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "maximum"
+    },
+    {
+      "location": "228:49",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "228:64",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "228:72",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "228:83",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reference"
+    },
+    {
+      "location": "228:93",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "229:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "229:40",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "230:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "230:40",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "230:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "234:16",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "234:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "234:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "234:35",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "234:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "235:20",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "235:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "235:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "235:39",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "235:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "236:23",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "236:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_index"
+    },
+    {
+      "location": "236:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "i"
+    },
+    {
+      "location": "236:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "j"
+    },
+    {
+      "location": "237:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "237:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "237:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "maximum"
+    },
+    {
+      "location": "238:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "238:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "238:44",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "238:56",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reference"
+    },
+    {
+      "location": "238:66",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "239:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "239:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "240:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "240:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "index"
+    },
+    {
+      "location": "240:42",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "146:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "loose equality between a string parameter and a string literal; the generic equality helper is not strength-reducible by any type or shape guard"
+    },
+    {
+      "location": "280:14",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "281:14",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "285:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "reference"
+    },
+    {
+      "location": "285:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Int32Array"
+    },
+    {
+      "location": "285:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "285:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "286:20",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "286:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Int32Array"
+    },
+    {
+      "location": "286:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "286:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "287:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "aligned_seq_1"
+    },
+    {
+      "location": "287:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Int32Array"
+    },
+    {
+      "location": "288:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "aligned_seq_2"
+    },
+    {
+      "location": "288:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Int32Array"
+    },
+    {
+      "location": "289:17",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "input_seq_1"
+    },
+    {
+      "location": "289:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Int32Array"
+    },
+    {
+      "location": "289:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "290:17",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "input_seq_2"
+    },
+    {
+      "location": "290:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Int32Array"
+    },
+    {
+      "location": "290:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "292:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "293:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "294:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "294:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "299:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "aligned_seq_1"
+    },
+    {
+      "location": "300:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "aligned_seq_2"
+    },
+    {
+      "location": "303:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_seq_1"
+    },
+    {
+      "location": "304:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "305:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "305:52",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "commonRandom"
+    },
+    {
+      "location": "305:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_seq_1"
+    },
+    {
+      "location": "307:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_seq_2"
+    },
+    {
+      "location": "308:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "309:35",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "309:52",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "commonRandom"
+    },
+    {
+      "location": "309:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_seq_2"
+    },
+    {
+      "location": "312:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "312:45",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "314:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "314:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "315:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "needle"
+    },
+    {
+      "location": "316:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "316:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "322:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "322:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "324:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "324:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_index"
+    },
+    {
+      "location": "324:61",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reference"
+    },
+    {
+      "location": "324:71",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_index"
+    },
+    {
+      "location": "325:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "325:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_index"
+    },
+    {
+      "location": "326:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_itemsets"
+    },
+    {
+      "location": "326:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_index"
+    },
+    {
+      "location": "329:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "maximum"
+    },
+    {
+      "location": "336:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "339:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "aligned_seq_1"
+    },
+    {
+      "location": "339:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_seq_1"
+    },
+    {
+      "location": "340:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "aligned_seq_2"
+    },
+    {
+      "location": "340:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_seq_2"
+    },
+    {
+      "location": "343:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "aligned_seq_2"
+    },
+    {
+      "location": "343:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_seq_2"
+    },
+    {
+      "location": "346:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "aligned_seq_1"
+    },
+    {
+      "location": "346:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "input_seq_1"
+    },
+    {
+      "location": "347:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "351:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "seq_equal"
+    },
+    {
+      "location": "351:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "aligned_seq_1"
+    },
+    {
+      "location": "351:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "expected_aligned_seq_1"
+    },
+    {
+      "location": "352:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "355:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "seq_equal"
+    },
+    {
+      "location": "355:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "aligned_seq_2"
+    },
+    {
+      "location": "355:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "expected_aligned_seq_2"
+    },
+    {
+      "location": "356:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "359:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "359:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "365:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "365:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "367:64",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "join"
+    },
+    {
+      "location": "268:47",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "hasOwnProperty"
+    },
+    {
+      "location": "268:77",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "hasOwnProperty"
+    },
+    {
+      "location": "285:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Int32Array"
+    },
+    {
+      "location": "286:36",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Int32Array"
+    },
+    {
+      "location": "287:35",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Int32Array"
+    },
+    {
+      "location": "288:35",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Int32Array"
+    },
+    {
+      "location": "289:33",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Int32Array"
+    },
+    {
+      "location": "290:33",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Int32Array"
+    },
+    {
+      "location": "305:52",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "commonRandom"
+    },
+    {
+      "location": "309:52",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "commonRandom"
+    },
+    {
+      "location": "312:45",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "log"
+    },
+    {
+      "location": "314:29",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "316:29",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "336:33",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "347:33",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "352:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "356:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "359:20",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "log"
+    },
+    {
+      "location": "365:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "log"
+    },
+    {
+      "location": "367:64",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "join"
+    },
+    {
+      "location": "268:47",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "hasOwnProperty"
+    },
+    {
+      "location": "268:77",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "hasOwnProperty"
+    },
+    {
+      "location": "338:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Boolean === literal comparisons (n_limit === false, w_limit === false, and their === true forms). Verified boolean type guards are present on n_limit/w_limit at these sites but the compiler does not specialize identity comparison against a boolean literal for any guard type."
+    },
+    {
+      "location": "338:34",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Boolean === literal comparisons (n_limit === false, w_limit === false, and their === true forms). Verified boolean type guards are present on n_limit/w_limit at these sites but the compiler does not specialize identity comparison against a boolean literal for any guard type."
+    },
+    {
+      "location": "341:20",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Boolean === literal comparisons (n_limit === false, w_limit === false, and their === true forms). Verified boolean type guards are present on n_limit/w_limit at these sites but the compiler does not specialize identity comparison against a boolean literal for any guard type."
+    },
+    {
+      "location": "344:20",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Boolean === literal comparisons (n_limit === false, w_limit === false, and their === true forms). Verified boolean type guards are present on n_limit/w_limit at these sites but the compiler does not specialize identity comparison against a boolean literal for any guard type."
+    },
+    {
+      "location": "347:34",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation whose other operand is numeric or otherwise non-string (error-message builds and console output). No type guard type makes the concat take a fast path when one operand is non-string."
+    },
+    {
+      "location": "360:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation whose other operand is numeric or otherwise non-string (error-message builds and console output). No type guard type makes the concat take a fast path when one operand is non-string."
+    },
+    {
+      "location": "365:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation whose other operand is numeric or otherwise non-string (error-message builds and console output). No type guard type makes the concat take a fast path when one operand is non-string."
+    },
+    {
+      "location": "264:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "options === undefined identity comparison. Verified type guards \"undefined\" and [\"null\",\"undefined\"] on options at this exact range both report no effect; the compiler does not specialize identity comparison against the undefined literal."
+    },
+    {
+      "location": "102:13",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "blosum62"
+    },
+    {
+      "location": "102:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Int32Array"
+    },
+    {
+      "location": "157:14",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "158:17",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "max_columns"
+    },
+    {
+      "location": "160:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "CHECK_ACCESS_BOUNDS"
+    },
+    {
+      "location": "161:21",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "input_index"
+    },
+    {
+      "location": "169:21",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "input_index"
+    },
+    {
+      "location": "196:28",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "expected_aligned_seq_1"
+    },
+    {
+      "location": "196:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "to_int_values"
+    },
+    {
+      "location": "196:44",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "expected_aligned_seq_1_chars"
+    },
+    {
+      "location": "197:28",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "expected_aligned_seq_2"
+    },
+    {
+      "location": "197:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "to_int_values"
+    },
+    {
+      "location": "197:44",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "expected_aligned_seq_2_chars"
+    },
+    {
+      "location": "198:14",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "max_cols"
+    },
+    {
+      "location": "199:14",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "max_rows"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "to_char"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "maximum"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "to_int"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "to_int_values"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "seq_equal"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "needle"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "runNeedle"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "28:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "commonRandom"
+    },
+    {
+      "location": "42:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "42:21",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "commonRandomJS"
+    },
+    {
+      "location": "76:14",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "ArrayOld"
+    },
+    {
+      "location": "76:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "77:7",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "84:25",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "CHECK_ACCESS_BOUNDS"
+    },
+    {
+      "location": "85:34",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "expected_aligned_seq_1_chars"
+    },
+    {
+      "location": "86:34",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "expected_aligned_seq_2_chars"
+    },
+    {
+      "location": "373:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "373:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "373:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "373:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "373:71",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "374:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "374:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "374:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "374:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "374:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "375:13",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__start"
+    },
+    {
+      "location": "375:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "375:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "376:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "runNeedle"
+    },
+    {
+      "location": "377:11",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__end"
+    },
+    {
+      "location": "377:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "377:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "378:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "378:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "378:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "round"
+    },
+    {
+      "location": "378:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__end"
+    },
+    {
+      "location": "378:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__start"
+    },
+    {
+      "location": "102:29",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Int32Array"
+    },
+    {
+      "location": "375:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "377:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "378:6",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "373:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing operators (?? at 373:21, ??= at 374:19) over globalThis/global-object property loads. Both operands are unknown-shape global property accesses, and no expression in the file produces the global object, so neither a shape nor a type guard can specialize the operation."
+    },
+    {
+      "location": "374:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing operators (?? at 373:21, ??= at 374:19) over globalThis/global-object property loads. Both operands are unknown-shape global property accesses, and no expression in the file produces the global object, so neither a shape nor a type guard can specialize the operation."
+    },
+    {
+      "location": "378:8",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation \"Time: \" + Math.round(__end - __start): the right operand is a call result of Math.round (a builtin with no closure target) and the operation is a string concat over a number, which no guard type can specialize."
+    }
+  ]
+}

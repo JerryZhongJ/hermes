@@ -1,0 +1,1311 @@
+{
+  "static shapes": {
+    "BenchmarkInst1": {
+      "properties": [
+        {
+          "name": "inspectorText",
+          "type": "string"
+        }
+      ]
+    },
+    "BenchmarkInst2": {
+      "properties": [
+        {
+          "name": "inspectorText",
+          "type": "string"
+        },
+        {
+          "name": "index",
+          "type": "number"
+        }
+      ]
+    },
+    "BenchmarkInst3": {
+      "properties": [
+        {
+          "name": "inspectorText",
+          "type": "string"
+        },
+        {
+          "name": "index",
+          "type": "number"
+        },
+        {
+          "name": "text",
+          "type": "string"
+        }
+      ]
+    },
+    "JetStream": {
+      "properties": [
+        {
+          "name": "preload"
+        },
+        {
+          "name": "resources"
+        },
+        {
+          "name": "isInBrowser",
+          "type": "boolean"
+        },
+        {
+          "name": "isD8",
+          "type": "boolean"
+        },
+        {
+          "name": "getBinary",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 46,
+              "column": 23
+            },
+            "end": {
+              "line": 52,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "getString",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 54,
+              "column": 23
+            },
+            "end": {
+              "line": 59,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "JetStreamPreload": {
+      "properties": [
+        {
+          "name": "inspectorPayloadBlob",
+          "type": "string"
+        }
+      ]
+    },
+    "Performance": {
+      "properties": [
+        {
+          "name": "now"
+        },
+        {
+          "name": "mark"
+        },
+        {
+          "name": "measure"
+        },
+        {
+          "name": "timeOrigin"
+        }
+      ]
+    },
+    "Console": {
+      "properties": [
+        {
+          "name": "assert"
+        },
+        {
+          "name": "log"
+        },
+        {
+          "name": "warn"
+        },
+        {
+          "name": "error"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 83
+        },
+        "end": {
+          "line": 94,
+          "column": 92
+        }
+      },
+      "shape": "JetStream"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 103
+        },
+        "end": {
+          "line": 94,
+          "column": 112
+        }
+      },
+      "shape": "JetStream"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 103
+        },
+        "end": {
+          "line": 94,
+          "column": 120
+        }
+      },
+      "shape": "JetStreamPreload"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 100,
+          "column": 37
+        },
+        "end": {
+          "line": 100,
+          "column": 41
+        }
+      },
+      "shape": "BenchmarkInst2"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 100,
+          "column": 55
+        },
+        "end": {
+          "line": 100,
+          "column": 59
+        }
+      },
+      "shape": "BenchmarkInst2"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 101,
+          "column": 13
+        },
+        "end": {
+          "line": 101,
+          "column": 17
+        }
+      },
+      "shape": "BenchmarkInst3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 103,
+          "column": 13
+        },
+        "end": {
+          "line": 103,
+          "column": 17
+        }
+      },
+      "shape": "BenchmarkInst3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 103,
+          "column": 23
+        },
+        "end": {
+          "line": 103,
+          "column": 27
+        }
+      },
+      "shape": "BenchmarkInst3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 105,
+          "column": 11
+        },
+        "end": {
+          "line": 105,
+          "column": 15
+        }
+      },
+      "shape": "BenchmarkInst3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 109,
+          "column": 22
+        },
+        "end": {
+          "line": 109,
+          "column": 26
+        }
+      },
+      "shape": "BenchmarkInst3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 100,
+          "column": 9
+        },
+        "end": {
+          "line": 100,
+          "column": 13
+        }
+      },
+      "shape": "BenchmarkInst2"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 122,
+          "column": 17
+        },
+        "end": {
+          "line": 122,
+          "column": 28
+        }
+      },
+      "shape": "Performance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 128,
+          "column": 15
+        },
+        "end": {
+          "line": 128,
+          "column": 26
+        }
+      },
+      "shape": "Performance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 12
+        }
+      },
+      "shape": "Performance"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 33,
+          "column": 12
+        },
+        "end": {
+          "line": 36,
+          "column": 4
+        }
+      },
+      "shape": "JetStreamPreload"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 54,
+          "column": 1
+        },
+        "end": {
+          "line": 54,
+          "column": 10
+        }
+      },
+      "shape": "JetStream"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 9
+        },
+        "end": {
+          "line": 94,
+          "column": 13
+        }
+      },
+      "shape": "BenchmarkInst1"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 96,
+          "column": 9
+        },
+        "end": {
+          "line": 96,
+          "column": 13
+        }
+      },
+      "shape": "BenchmarkInst2"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 100,
+          "column": 9
+        },
+        "end": {
+          "line": 100,
+          "column": 13
+        }
+      },
+      "shape": "BenchmarkInst3"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 12
+        }
+      },
+      "shape": "Performance"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 17,
+          "column": 1
+        },
+        "end": {
+          "line": 17,
+          "column": 8
+        }
+      },
+      "shape": "Console"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 103,
+          "column": 23
+        },
+        "end": {
+          "line": 103,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 125,
+          "column": 11
+        },
+        "end": {
+          "line": 125,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 108,
+          "column": 5
+        },
+        "end": {
+          "line": 110,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 130,
+          "column": 20
+        },
+        "end": {
+          "line": 130,
+          "column": 44
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 130,
+          "column": 32
+        },
+        "end": {
+          "line": 130,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 130,
+          "column": 38
+        },
+        "end": {
+          "line": 130,
+          "column": 43
+        }
+      },
+      "type": "number"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "100:19",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "text"
+    },
+    {
+      "location": "100:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal"
+    },
+    {
+      "location": "100:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "100:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "102:19",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "102:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "103:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "104:19",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "104:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "101:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Comparison operand this.text[0] / this.text[this.text.length-1] is a keyed read on a string primitive; string type guards on the operand produced no effect, so the generic strict-equality comparison cannot be strength-reduced."
+    },
+    {
+      "location": "103:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Comparison operand this.text[0] / this.text[this.text.length-1] is a keyed read on a string primitive; string type guards on the operand produced no effect, so the generic strict-equality comparison cannot be strength-reduced."
+    },
+    {
+      "location": "12:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "12:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "printErr"
+    },
+    {
+      "location": "12:21",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "printErr"
+    },
+    {
+      "location": "12:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "13:13",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "13:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "13:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "14:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "15:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "15:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "16:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "16:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "17:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "17:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "printErr"
+    },
+    {
+      "location": "25:17",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "25:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "25:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "25:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "25:69",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "26:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "26:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "26:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "27:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "28:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "29:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "31:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "31:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "31:38",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "43:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "44:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "44:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Realm"
+    },
+    {
+      "location": "46:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "54:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "91:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "eval"
+    },
+    {
+      "location": "92:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "131:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "catch"
+    },
+    {
+      "location": "131:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "catch"
+    },
+    {
+      "location": "12:21",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape"
+    },
+    {
+      "location": "13:15",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape"
+    },
+    {
+      "location": "14:8",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "assert"
+    },
+    {
+      "location": "14:16",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape"
+    },
+    {
+      "location": "15:8",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "log"
+    },
+    {
+      "location": "15:13",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape"
+    },
+    {
+      "location": "16:8",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "warn"
+    },
+    {
+      "location": "16:14",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape"
+    },
+    {
+      "location": "17:8",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "error"
+    },
+    {
+      "location": "17:15",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape"
+    },
+    {
+      "location": "25:19",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape"
+    },
+    {
+      "location": "26:12",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "now"
+    },
+    {
+      "location": "26:17",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape"
+    },
+    {
+      "location": "27:12",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "mark"
+    },
+    {
+      "location": "27:18",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape"
+    },
+    {
+      "location": "28:12",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "measure"
+    },
+    {
+      "location": "28:21",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape"
+    },
+    {
+      "location": "120:25",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape"
+    },
+    {
+      "location": "124:40",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape"
+    },
+    {
+      "location": "126:25",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape"
+    },
+    {
+      "location": "14:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "assert"
+    },
+    {
+      "location": "15:13",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "log"
+    },
+    {
+      "location": "16:14",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "warn"
+    },
+    {
+      "location": "17:15",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "error"
+    },
+    {
+      "location": "26:17",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "now"
+    },
+    {
+      "location": "27:18",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "mark"
+    },
+    {
+      "location": "28:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "measure"
+    },
+    {
+      "location": "43:23",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isInBrowser"
+    },
+    {
+      "location": "44:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isD8"
+    },
+    {
+      "location": "46:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "getBinary"
+    },
+    {
+      "location": "54:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "getString"
+    },
+    {
+      "location": "94:28",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "inspectorText"
+    },
+    {
+      "location": "96:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "index"
+    },
+    {
+      "location": "6:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "6:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "6:43",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "replace"
+    },
+    {
+      "location": "6:43",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "replace"
+    },
+    {
+      "location": "19:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Proxy"
+    },
+    {
+      "location": "19:46",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Proxy"
+    },
+    {
+      "location": "21:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "21:20",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "21:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "21:40",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "47:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "read"
+    },
+    {
+      "location": "48:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "read"
+    },
+    {
+      "location": "48:22",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "read"
+    },
+    {
+      "location": "49:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Int8Array"
+    },
+    {
+      "location": "49:25",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Int8Array"
+    },
+    {
+      "location": "55:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "read"
+    },
+    {
+      "location": "56:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "read"
+    },
+    {
+      "location": "56:16",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "read"
+    },
+    {
+      "location": "109:21",
+      "kind": "call",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "132:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "printErr"
+    },
+    {
+      "location": "132:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "printErr"
+    },
+    {
+      "location": "132:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "132:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "132:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "stack"
+    },
+    {
+      "location": "132:47",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "stack"
+    },
+    {
+      "location": "94:103",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "94:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "HermesInternal"
+    },
+    {
+      "location": "94:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "94:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "concat"
+    },
+    {
+      "location": "94:59",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "94:70",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "94:70",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "94:83",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "119:34",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "120:25",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "init"
+    },
+    {
+      "location": "120:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "init"
+    },
+    {
+      "location": "124:40",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "prepareForNextIteration"
+    },
+    {
+      "location": "124:40",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "prepareForNextIteration"
+    },
+    {
+      "location": "125:33",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "runIteration"
+    },
+    {
+      "location": "126:25",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "validate"
+    },
+    {
+      "location": "126:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "validate"
+    },
+    {
+      "location": "93:5",
+      "kind": "call",
+      "reason": "other",
+      "note": "Function-entry call item anchored at the function's own definition site (async method / async function / async IIFE invoked indirectly); it is not a distinct call expression the compiler can devirtualize or inline."
+    },
+    {
+      "location": "46:23",
+      "kind": "call",
+      "reason": "other",
+      "note": "Function-entry call item anchored at the function's own definition site (async method / async function / async IIFE invoked indirectly); it is not a distinct call expression the compiler can devirtualize or inline."
+    },
+    {
+      "location": "54:23",
+      "kind": "call",
+      "reason": "other",
+      "note": "Function-entry call item anchored at the function's own definition site (async method / async function / async IIFE invoked indirectly); it is not a distinct call expression the compiler can devirtualize or inline."
+    },
+    {
+      "location": "118:2",
+      "kind": "call",
+      "reason": "other",
+      "note": "Function-entry call item anchored at the function's own definition site (async method / async function / async IIFE invoked indirectly); it is not a distinct call expression the compiler can devirtualize or inline."
+    },
+    {
+      "location": "21:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation (+): operands are a primitive string / host String() call result, so there is no numeric or typed-arithmetic fast path; a string type guard on the operand produced no effect."
+    },
+    {
+      "location": "130:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation (+): operands are a primitive string / host String() call result, so there is no numeric or typed-arithmetic fast path; a string type guard on the operand produced no effect."
+    },
+    {
+      "location": "122:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "128:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "130:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "130:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max"
+    },
+    {
+      "location": "130:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "130:8",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "5:10",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "self"
+    },
+    {
+      "location": "5:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "6:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "RegExp"
+    },
+    {
+      "location": "29:24",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape"
+    },
+    {
+      "location": "6:15",
+      "kind": "arithmetic",
+      "reason": "ambiguous-shape"
+    },
+    {
+      "location": "6:7",
+      "kind": "property_load",
+      "reason": "ambiguous-shape",
+      "property": "escape"
+    },
+    {
+      "location": "6:15",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "escape"
+    }
+  ]
+}

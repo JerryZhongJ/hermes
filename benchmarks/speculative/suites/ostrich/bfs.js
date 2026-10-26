@@ -1,11 +1,3 @@
-// Imported from https://github.com/Sable/Ostrich
-// Commit: dd06ca4340ecdbc0a795274d826cb5c034a2b9fe
-// Source: graph-traversal/bfs/js/bfs.js
-// Adaptation: benchmarks/speculative/import_ostrich.py
-(function() {
-// HBC shells expose Date.now(); SH and V8 also provide performance.now().
-var ostrichNow = typeof performance === "undefined"
-    ? Date.now : performance.now.bind(performance);
 // Copyright 2013 the V8 project authors. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -33,7 +25,7 @@ var ostrichNow = typeof performance === "undefined"
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-var commonRandom = (function() {
+Math.commonRandom = (function() {
     var seed = 49734321;
     return function() {
         // Robert Jenkins' 32 bit integer hash function.
@@ -47,10 +39,9 @@ var commonRandom = (function() {
     };
 })();
 
-var commonRandomJS = function () {
-    return Math.abs(commonRandom() / 0x7fffffff);
+Math.commonRandomJS = function () {
+    return Math.abs(Math.commonRandom() / 0x7fffffff);
 }
-
 
 
 var MIN_NODES      = 20;
@@ -79,11 +70,9 @@ function BFSGraph(no_of_nodes, verbose) {
     if (verbose === undefined) {
         verbose = false;
     }
-    var expected_no_of_nodes = no_of_nodes;
-    var expected_total_cost = {
-        3000000: 26321966, 100000: 650402, 10000: 54749
-    }[no_of_nodes];
-    var t1 = ostrichNow();
+    var expected_no_of_nodes = 3000000;
+    var expected_total_cost = 26321966;
+    var t1 = performance.now();
     var inits = InitializeGraph(no_of_nodes);
     var h_graph_nodes = inits.h_graph_nodes;
     var h_graph_mask = inits.h_graph_mask;
@@ -91,13 +80,13 @@ function BFSGraph(no_of_nodes, verbose) {
     var h_graph_visited = inits.h_graph_visited;
     var h_cost = inits.h_cost;
     var h_graph_edges = inits.h_graph_edges;
-    var t2 = ostrichNow();
+    var t2 = performance.now();
     var init_time = t2 - t1;
 
     var k = 0;
     var stop;
 
-    t1 = ostrichNow();
+    t1 = performance.now();
     do {
         stop = false;
 
@@ -127,27 +116,27 @@ function BFSGraph(no_of_nodes, verbose) {
         ++k;
     }
     while(stop);
-    t2 = ostrichNow();
+    t2 = performance.now();
     var traversal_time = t2 - t1;
 
     var total_cost = 0;
     for (var i=0; i<no_of_nodes; ++i) {
         total_cost += h_cost[i];
     }
-    if (expected_total_cost !== undefined) {
+    if (no_of_nodes == expected_no_of_nodes) {
         if (total_cost != expected_total_cost) {
             throw new Error("ERROR: the total cost obtained for '" + no_of_nodes + "' nodes is '" + total_cost + "' while the expected cost is '" + expected_total_cost + "'");
         }
     } else {
-        print("WARNING: no self-checking step for '" + no_of_nodes + "' nodes, only valid for '" + expected_no_of_nodes + "' nodes");
+        console.log("WARNING: no self-checking step for '" + no_of_nodes + "' nodes, only valid for '" + expected_no_of_nodes + "' nodes");
     }
 
-    print("Init time     : " + (init_time/1000) + " s");
-    print("Traversal time: " + (traversal_time/1000) + " s");
+    console.log("Init time     : " + (init_time/1000) + " s");
+    console.log("Traversal time: " + (traversal_time/1000) + " s");
 
     if (verbose) {
         for (var i = 0; i < no_of_nodes; ++i) {
-            print(i + ") cost: " + h_cost[i]);
+            console.log(i + ") cost: " + h_cost[i]);
         }
     }
 
@@ -174,10 +163,10 @@ function InitializeGraph(no_of_nodes) {
     }
 
     for (var i = 0; i < no_of_nodes; ++i) {
-        var no_of_edges = Math.abs(commonRandom() % ( MAX_INIT_EDGES - MIN_EDGES + 1 )) + MIN_EDGES;
+        var no_of_edges = Math.abs(Math.commonRandom() % ( MAX_INIT_EDGES - MIN_EDGES + 1 )) + MIN_EDGES;
         for (var j = 0; j < no_of_edges; ++j) {
-            var node_id = Math.abs(commonRandom() % no_of_nodes);
-            var weight = Math.abs(commonRandom() % ( MAX_WEIGHT - MIN_WEIGHT + 1 )) + MIN_WEIGHT;
+            var node_id = Math.abs(Math.commonRandom() % no_of_nodes);
+            var weight = Math.abs(Math.commonRandom() % ( MAX_WEIGHT - MIN_WEIGHT + 1 )) + MIN_WEIGHT;
 
             graph[i].push(edge(node_id, weight));
             graph[node_id].push(edge(i, weight));
@@ -223,11 +212,11 @@ function InitializeGraph(no_of_nodes) {
     }
 }
 
-const OSTRICH_ARGS = [100000];
-var result = BFSGraph(OSTRICH_ARGS[0]);
-if (!result || result.status !== 1 ||
-    !Number.isFinite(result.time) || result.time <= 0) {
-    throw new Error("Invalid benchmark result");
-}
-print("Time: " + result.time * 1000);
-})();
+
+// Static Hermes benchmark runner: fixed params, timed with performance.now
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+BFSGraph( 200000 );
+var __end = __performance.now();
+print( "Time: " + Math.round( __end - __start ) );

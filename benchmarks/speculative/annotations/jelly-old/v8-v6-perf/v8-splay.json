@@ -1,0 +1,2239 @@
+{
+  "static shapes": {},
+  "shape bindings": [],
+  "shape guards": [],
+  "type guards": [
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 51,
+          "column": 33
+        },
+        "end": {
+          "line": 51,
+          "column": 42
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 52,
+          "column": 34
+        },
+        "end": {
+          "line": 52,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 94,
+          "column": 25
+        },
+        "end": {
+          "line": 94,
+          "column": 30
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 132,
+          "column": 10
+        },
+        "end": {
+          "line": 132,
+          "column": 21
+        }
+      },
+      "type": "boolean"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 177,
+          "column": 17
+        },
+        "end": {
+          "line": 177,
+          "column": 40
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 181,
+          "column": 17
+        },
+        "end": {
+          "line": 181,
+          "column": 40
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 376,
+          "column": 18
+        },
+        "end": {
+          "line": 376,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 376,
+          "column": 7
+        },
+        "end": {
+          "line": 376,
+          "column": 31
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 37,
+          "column": 5
+        },
+        "end": {
+          "line": 37,
+          "column": 19
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 38,
+          "column": 5
+        },
+        "end": {
+          "line": 38,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 39,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 43,
+          "column": 30
+        },
+        "end": {
+          "line": 43,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 43,
+          "column": 10
+        },
+        "end": {
+          "line": 43,
+          "column": 29
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 55,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 57,
+          "column": 10
+        },
+        "end": {
+          "line": 57,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 57,
+          "column": 1
+        },
+        "end": {
+          "line": 61,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 69,
+          "column": 7
+        },
+        "end": {
+          "line": 69,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 63,
+          "column": 10
+        },
+        "end": {
+          "line": 63,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 63,
+          "column": 1
+        },
+        "end": {
+          "line": 72,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 10
+        },
+        "end": {
+          "line": 118,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 76,
+          "column": 12
+        },
+        "end": {
+          "line": 76,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 74,
+          "column": 10
+        },
+        "end": {
+          "line": 74,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 74,
+          "column": 1
+        },
+        "end": {
+          "line": 77,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 83,
+          "column": 7
+        },
+        "end": {
+          "line": 83,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 93,
+          "column": 12
+        },
+        "end": {
+          "line": 93,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 79,
+          "column": 10
+        },
+        "end": {
+          "line": 79,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 79,
+          "column": 1
+        },
+        "end": {
+          "line": 98,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 102,
+          "column": 12
+        },
+        "end": {
+          "line": 102,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 100,
+          "column": 10
+        },
+        "end": {
+          "line": 100,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 100,
+          "column": 1
+        },
+        "end": {
+          "line": 108,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 143,
+          "column": 45
+        },
+        "end": {
+          "line": 143,
+          "column": 50
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 154,
+          "column": 7
+        },
+        "end": {
+          "line": 154,
+          "column": 11
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 253,
+          "column": 7
+        },
+        "end": {
+          "line": 253,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 281,
+          "column": 7
+        },
+        "end": {
+          "line": 281,
+          "column": 12
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 361,
+          "column": 48
+        },
+        "end": {
+          "line": 361,
+          "column": 49
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 255,
+          "column": 26
+        },
+        "end": {
+          "line": 257,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 371,
+          "column": 5
+        },
+        "end": {
+          "line": 371,
+          "column": 10
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 375,
+          "column": 5
+        },
+        "end": {
+          "line": 375,
+          "column": 8
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 51,
+          "column": 13
+        },
+        "end": {
+          "line": 51,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 55,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 52,
+          "column": 14
+        },
+        "end": {
+          "line": 52,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 55,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 60,
+          "column": 10
+        },
+        "end": {
+          "line": 60,
+          "column": 14
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 67,
+          "column": 11
+        },
+        "end": {
+          "line": 67,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 57,
+          "column": 1
+        },
+        "end": {
+          "line": 61,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 69,
+          "column": 61
+        },
+        "end": {
+          "line": 69,
+          "column": 67
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 69,
+          "column": 17
+        },
+        "end": {
+          "line": 69,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 55,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 69,
+          "column": 37
+        },
+        "end": {
+          "line": 69,
+          "column": 59
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 70,
+          "column": 25
+        },
+        "end": {
+          "line": 70,
+          "column": 32
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 75,
+          "column": 19
+        },
+        "end": {
+          "line": 75,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 76,
+          "column": 44
+        },
+        "end": {
+          "line": 76,
+          "column": 57
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 63,
+          "column": 1
+        },
+        "end": {
+          "line": 72,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 87,
+          "column": 16
+        },
+        "end": {
+          "line": 87,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 89,
+          "column": 15
+        },
+        "end": {
+          "line": 89,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 94,
+          "column": 9
+        },
+        "end": {
+          "line": 94,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 94,
+          "column": 25
+        },
+        "end": {
+          "line": 94,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 94,
+          "column": 20
+        },
+        "end": {
+          "line": 94,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 95,
+          "column": 17
+        },
+        "end": {
+          "line": 95,
+          "column": 22
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 103,
+          "column": 15
+        },
+        "end": {
+          "line": 103,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 63,
+          "column": 1
+        },
+        "end": {
+          "line": 72,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 126,
+          "column": 1
+        },
+        "end": {
+          "line": 126,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 131,
+          "column": 1
+        },
+        "end": {
+          "line": 131,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 143,
+          "column": 1
+        },
+        "end": {
+          "line": 143,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 145,
+          "column": 42
+        },
+        "end": {
+          "line": 145,
+          "column": 47
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 145,
+          "column": 22
+        },
+        "end": {
+          "line": 145,
+          "column": 31
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 154,
+          "column": 38
+        },
+        "end": {
+          "line": 154,
+          "column": 43
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 154,
+          "column": 18
+        },
+        "end": {
+          "line": 154,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 156,
+          "column": 5
+        },
+        "end": {
+          "line": 156,
+          "column": 9
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 157,
+          "column": 5
+        },
+        "end": {
+          "line": 157,
+          "column": 9
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 160,
+          "column": 5
+        },
+        "end": {
+          "line": 160,
+          "column": 9
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 161,
+          "column": 5
+        },
+        "end": {
+          "line": 161,
+          "column": 9
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 164,
+          "column": 16
+        },
+        "end": {
+          "line": 164,
+          "column": 20
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 175,
+          "column": 1
+        },
+        "end": {
+          "line": 175,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 177,
+          "column": 11
+        },
+        "end": {
+          "line": 177,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 181,
+          "column": 11
+        },
+        "end": {
+          "line": 181,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 205,
+          "column": 1
+        },
+        "end": {
+          "line": 205,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 216,
+          "column": 1
+        },
+        "end": {
+          "line": 216,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 231,
+          "column": 1
+        },
+        "end": {
+          "line": 231,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 252,
+          "column": 1
+        },
+        "end": {
+          "line": 252,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 256,
+          "column": 7
+        },
+        "end": {
+          "line": 256,
+          "column": 13
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 259,
+          "column": 10
+        },
+        "end": {
+          "line": 259,
+          "column": 16
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 272,
+          "column": 1
+        },
+        "end": {
+          "line": 272,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 282,
+          "column": 30
+        },
+        "end": {
+          "line": 282,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 328,
+          "column": 18
+        },
+        "end": {
+          "line": 328,
+          "column": 23
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 329,
+          "column": 19
+        },
+        "end": {
+          "line": 329,
+          "column": 24
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 339,
+          "column": 1
+        },
+        "end": {
+          "line": 339,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 347,
+          "column": 1
+        },
+        "end": {
+          "line": 347,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 352,
+          "column": 1
+        },
+        "end": {
+          "line": 352,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 361,
+          "column": 1
+        },
+        "end": {
+          "line": 361,
+          "column": 10
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 365,
+          "column": 30
+        },
+        "end": {
+          "line": 365,
+          "column": 31
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 255,
+          "column": 26
+        },
+        "end": {
+          "line": 257,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 366,
+          "column": 5
+        },
+        "end": {
+          "line": 366,
+          "column": 6
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 255,
+          "column": 26
+        },
+        "end": {
+          "line": 257,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 371,
+          "column": 17
+        },
+        "end": {
+          "line": 371,
+          "column": 21
+        }
+      },
+      "type": "object"
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 372,
+          "column": 1
+        },
+        "end": {
+          "line": 372,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 74,
+          "column": 1
+        },
+        "end": {
+          "line": 77,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 373,
+          "column": 1
+        },
+        "end": {
+          "line": 373,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 100,
+          "column": 1
+        },
+        "end": {
+          "line": 108,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 374,
+          "column": 1
+        },
+        "end": {
+          "line": 374,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 79,
+          "column": 1
+        },
+        "end": {
+          "line": 98,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "file": "v8-splay.js",
+        "start": {
+          "line": 375,
+          "column": 15
+        },
+        "end": {
+          "line": 375,
+          "column": 19
+        }
+      },
+      "type": "object"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "41:5",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "111:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "188:39",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "196:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "200:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "231:40",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "235:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "272:35",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "288:39",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "297:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "297:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "356:27",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "356:32",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "382:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "384:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "71:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "73:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "89:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "111:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "112:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "113:27",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "113:10",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "190:37",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "192:15",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "194:37",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "203:17",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "206:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "208:10",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "235:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "236:10",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "237:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "239:10",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "272:55",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "301:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "302:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "305:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "307:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "308:24",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "308:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "309:21",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "309:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "310:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "311:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "316:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "316:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "317:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "318:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "319:22",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "320:12",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "323:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "325:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "326:25",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "326:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "327:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "327:9",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "328:19",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "329:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "334:20",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "334:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "335:14",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "336:17",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "342:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "342:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "343:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "343:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "344:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "345:3",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "346:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "357:14",
+      "kind": "type",
+      "reason": "unsupported-null",
+      "types": [
+        "null"
+      ]
+    },
+    {
+      "location": "358:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "384:16",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "385:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "386:7",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    },
+    {
+      "location": "387:15",
+      "kind": "type",
+      "reason": "mixed-type",
+      "types": [
+        "null",
+        "object"
+      ]
+    }
+  ]
+}

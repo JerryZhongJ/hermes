@@ -1,0 +1,3736 @@
+{
+  "static shapes": {
+    "CardDeck": {
+      "properties": [
+        {
+          "name": "_cards"
+        }
+      ]
+    },
+    "Player": {
+      "properties": [
+        {
+          "name": "_cards"
+        },
+        {
+          "name": "_rank",
+          "type": "number"
+        },
+        {
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "name": "_wins",
+          "type": "number"
+        },
+        {
+          "name": "_handTypeCounts"
+        }
+      ]
+    },
+    "PlayerExpectation": {
+      "properties": [
+        {
+          "name": "_wins",
+          "type": "number"
+        },
+        {
+          "name": "_handTypeCounts"
+        }
+      ]
+    },
+    "Benchmark": {
+      "properties": [
+        {
+          "name": "_players"
+        }
+      ]
+    },
+    "JetStream": {
+      "properties": [
+        {
+          "name": "preload"
+        },
+        {
+          "name": "resources"
+        },
+        {
+          "name": "isInBrowser"
+        },
+        {
+          "name": "isD8"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 103,
+          "column": 28
+        },
+        "end": {
+          "line": 103,
+          "column": 32
+        }
+      },
+      "shape": "CardDeck"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 111,
+          "column": 16
+        },
+        "end": {
+          "line": 111,
+          "column": 20
+        }
+      },
+      "shape": "CardDeck"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 178,
+          "column": 9
+        },
+        "end": {
+          "line": 178,
+          "column": 13
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 265,
+          "column": 16
+        },
+        "end": {
+          "line": 265,
+          "column": 20
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 182,
+          "column": 26
+        },
+        "end": {
+          "line": 182,
+          "column": 30
+        }
+      },
+      "shape": "CardDeck"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 166,
+          "column": 9
+        },
+        "end": {
+          "line": 166,
+          "column": 13
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 172,
+          "column": 9
+        },
+        "end": {
+          "line": 172,
+          "column": 13
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 256,
+          "column": 30
+        },
+        "end": {
+          "line": 256,
+          "column": 34
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 270,
+          "column": 16
+        },
+        "end": {
+          "line": 270,
+          "column": 20
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 304,
+          "column": 9
+        },
+        "end": {
+          "line": 304,
+          "column": 13
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 309,
+          "column": 9
+        },
+        "end": {
+          "line": 309,
+          "column": 13
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 329,
+          "column": 16
+        },
+        "end": {
+          "line": 329,
+          "column": 20
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 314,
+          "column": 16
+        },
+        "end": {
+          "line": 314,
+          "column": 20
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 302,
+          "column": 9
+        },
+        "end": {
+          "line": 302,
+          "column": 13
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 191,
+          "column": 21
+        },
+        "end": {
+          "line": 191,
+          "column": 25
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 258,
+          "column": 17
+        },
+        "end": {
+          "line": 258,
+          "column": 21
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 406,
+          "column": 9
+        },
+        "end": {
+          "line": 406,
+          "column": 13
+        }
+      },
+      "shape": "PlayerExpectation"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 412,
+          "column": 28
+        },
+        "end": {
+          "line": 412,
+          "column": 32
+        }
+      },
+      "shape": "PlayerExpectation"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 416,
+          "column": 13
+        },
+        "end": {
+          "line": 416,
+          "column": 17
+        }
+      },
+      "shape": "PlayerExpectation"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 419,
+          "column": 49
+        },
+        "end": {
+          "line": 419,
+          "column": 53
+        }
+      },
+      "shape": "PlayerExpectation"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 420,
+          "column": 17
+        },
+        "end": {
+          "line": 420,
+          "column": 21
+        }
+      },
+      "shape": "PlayerExpectation"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 343,
+          "column": 13
+        },
+        "end": {
+          "line": 343,
+          "column": 19
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 351,
+          "column": 13
+        },
+        "end": {
+          "line": 351,
+          "column": 19
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 359,
+          "column": 31
+        },
+        "end": {
+          "line": 359,
+          "column": 37
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 364,
+          "column": 17
+        },
+        "end": {
+          "line": 364,
+          "column": 23
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 365,
+          "column": 17
+        },
+        "end": {
+          "line": 365,
+          "column": 23
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 340,
+          "column": 9
+        },
+        "end": {
+          "line": 340,
+          "column": 17
+        }
+      },
+      "shape": "CardDeck"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 347,
+          "column": 33
+        },
+        "end": {
+          "line": 347,
+          "column": 41
+        }
+      },
+      "shape": "CardDeck"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 492,
+          "column": 19
+        },
+        "end": {
+          "line": 492,
+          "column": 23
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 500,
+          "column": 13
+        },
+        "end": {
+          "line": 500,
+          "column": 17
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 501,
+          "column": 84
+        },
+        "end": {
+          "line": 501,
+          "column": 88
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 503,
+          "column": 52
+        },
+        "end": {
+          "line": 503,
+          "column": 56
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 104,
+          "column": 13
+        },
+        "end": {
+          "line": 104,
+          "column": 17
+        }
+      },
+      "shape": "CardDeck"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 104,
+          "column": 34
+        },
+        "end": {
+          "line": 104,
+          "column": 38
+        }
+      },
+      "shape": "CardDeck"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 105,
+          "column": 13
+        },
+        "end": {
+          "line": 105,
+          "column": 17
+        }
+      },
+      "shape": "CardDeck"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 90,
+          "column": 9
+        },
+        "end": {
+          "line": 90,
+          "column": 13
+        }
+      },
+      "shape": "CardDeck"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 297,
+          "column": 9
+        },
+        "end": {
+          "line": 297,
+          "column": 13
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 407,
+          "column": 9
+        },
+        "end": {
+          "line": 407,
+          "column": 13
+        }
+      },
+      "shape": "PlayerExpectation"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 483,
+          "column": 9
+        },
+        "end": {
+          "line": 483,
+          "column": 13
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 413,
+          "column": 61
+        },
+        "end": {
+          "line": 413,
+          "column": 65
+        }
+      },
+      "shape": "PlayerExpectation"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 417,
+          "column": 61
+        },
+        "end": {
+          "line": 417,
+          "column": 65
+        }
+      },
+      "shape": "PlayerExpectation"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 421,
+          "column": 65
+        },
+        "end": {
+          "line": 421,
+          "column": 69
+        }
+      },
+      "shape": "PlayerExpectation"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 485,
+          "column": 9
+        },
+        "end": {
+          "line": 485,
+          "column": 13
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 486,
+          "column": 9
+        },
+        "end": {
+          "line": 486,
+          "column": 13
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 487,
+          "column": 9
+        },
+        "end": {
+          "line": 487,
+          "column": 13
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 324,
+          "column": 16
+        },
+        "end": {
+          "line": 324,
+          "column": 20
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 29,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 10
+        }
+      },
+      "shape": "JetStream"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 30,
+          "column": 1
+        },
+        "end": {
+          "line": 30,
+          "column": 10
+        }
+      },
+      "shape": "JetStream"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 90,
+          "column": 9
+        },
+        "end": {
+          "line": 90,
+          "column": 13
+        }
+      },
+      "shape": "CardDeck"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 297,
+          "column": 9
+        },
+        "end": {
+          "line": 297,
+          "column": 13
+        }
+      },
+      "shape": "Player"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 407,
+          "column": 9
+        },
+        "end": {
+          "line": 407,
+          "column": 13
+        }
+      },
+      "shape": "PlayerExpectation"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 483,
+          "column": 9
+        },
+        "end": {
+          "line": 483,
+          "column": 13
+        }
+      },
+      "shape": "Benchmark"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 30,
+          "column": 1
+        },
+        "end": {
+          "line": 30,
+          "column": 10
+        }
+      },
+      "shape": "JetStream"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 114,
+          "column": 21
+        },
+        "end": {
+          "line": 114,
+          "column": 25
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 184,
+          "column": 27
+        },
+        "end": {
+          "line": 184,
+          "column": 37
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 245,
+          "column": 70
+        },
+        "end": {
+          "line": 245,
+          "column": 78
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 185,
+          "column": 30
+        },
+        "end": {
+          "line": 185,
+          "column": 40
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 186,
+          "column": 29
+        },
+        "end": {
+          "line": 186,
+          "column": 39
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 208,
+          "column": 43
+        },
+        "end": {
+          "line": 208,
+          "column": 53
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 211,
+          "column": 47
+        },
+        "end": {
+          "line": 211,
+          "column": 57
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 229,
+          "column": 60
+        },
+        "end": {
+          "line": 229,
+          "column": 70
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 230,
+          "column": 74
+        },
+        "end": {
+          "line": 230,
+          "column": 84
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 231,
+          "column": 67
+        },
+        "end": {
+          "line": 231,
+          "column": 77
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 244,
+          "column": 29
+        },
+        "end": {
+          "line": 244,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 258,
+          "column": 50
+        },
+        "end": {
+          "line": 258,
+          "column": 58
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 492,
+          "column": 9
+        },
+        "end": {
+          "line": 492,
+          "column": 18
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 333,
+          "column": 1
+        },
+        "end": {
+          "line": 368,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 499,
+          "column": 36
+        },
+        "end": {
+          "line": 499,
+          "column": 57
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 442,
+          "column": 1
+        },
+        "end": {
+          "line": 449,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 403,
+          "column": 17
+        },
+        "end": {
+          "line": 403,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 403,
+          "column": 29
+        },
+        "end": {
+          "line": 403,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 406,
+          "column": 29
+        },
+        "end": {
+          "line": 406,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 405,
+          "column": 38
+        },
+        "end": {
+          "line": 405,
+          "column": 59
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 407,
+          "column": 51
+        },
+        "end": {
+          "line": 407,
+          "column": 55
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 407,
+          "column": 66
+        },
+        "end": {
+          "line": 407,
+          "column": 72
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 518,
+          "column": 7
+        },
+        "end": {
+          "line": 518,
+          "column": 30
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 45,
+          "column": 29
+        },
+        "end": {
+          "line": 47,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 517,
+          "column": 16
+        },
+        "end": {
+          "line": 517,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 45,
+          "column": 29
+        },
+        "end": {
+          "line": 47,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 513,
+          "column": 25
+        },
+        "end": {
+          "line": 513,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 481,
+          "column": 5
+        },
+        "end": {
+          "line": 488,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 522,
+          "column": 5
+        },
+        "end": {
+          "line": 522,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 490,
+          "column": 5
+        },
+        "end": {
+          "line": 493,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 529,
+          "column": 33
+        },
+        "end": {
+          "line": 529,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 529,
+          "column": 38
+        },
+        "end": {
+          "line": 529,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 335,
+          "column": 24
+        },
+        "end": {
+          "line": 335,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 82,
+          "column": 5
+        },
+        "end": {
+          "line": 85,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 444,
+          "column": 33
+        },
+        "end": {
+          "line": 444,
+          "column": 50
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 403,
+          "column": 5
+        },
+        "end": {
+          "line": 408,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 445,
+          "column": 33
+        },
+        "end": {
+          "line": 445,
+          "column": 50
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 403,
+          "column": 5
+        },
+        "end": {
+          "line": 408,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 446,
+          "column": 33
+        },
+        "end": {
+          "line": 446,
+          "column": 50
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 403,
+          "column": 5
+        },
+        "end": {
+          "line": 408,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 447,
+          "column": 33
+        },
+        "end": {
+          "line": 447,
+          "column": 50
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 403,
+          "column": 5
+        },
+        "end": {
+          "line": 408,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 484,
+          "column": 32
+        },
+        "end": {
+          "line": 484,
+          "column": 38
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 292,
+          "column": 5
+        },
+        "end": {
+          "line": 298,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 485,
+          "column": 32
+        },
+        "end": {
+          "line": 485,
+          "column": 38
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 292,
+          "column": 5
+        },
+        "end": {
+          "line": 298,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 486,
+          "column": 32
+        },
+        "end": {
+          "line": 486,
+          "column": 38
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 292,
+          "column": 5
+        },
+        "end": {
+          "line": 298,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 487,
+          "column": 32
+        },
+        "end": {
+          "line": 487,
+          "column": 38
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 292,
+          "column": 5
+        },
+        "end": {
+          "line": 298,
+          "column": 6
+        }
+      }
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "178:13",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "178:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "sort",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "178:25",
+      "kind": "call",
+      "reason": "other",
+      "property": "sort",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "182:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "182:42",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "join",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "182:42",
+      "kind": "call",
+      "reason": "other",
+      "property": "join",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "184:43",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "match",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "184:43",
+      "kind": "call",
+      "reason": "other",
+      "property": "match",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "184:48",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "FlushRegExp",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "185:46",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "match",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "185:46",
+      "kind": "call",
+      "reason": "other",
+      "property": "match",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "185:51",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "StraightRegExp",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "186:45",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "match",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "186:45",
+      "kind": "call",
+      "reason": "other",
+      "property": "match",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "186:50",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "OfAKindRegExp",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "191:32",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "191:38",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "RoyalFlush",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "193:32",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "193:38",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "StraightFlush",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "195:28",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "195:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Flush",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "197:17",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_rank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "197:24",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "197:44",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "197:44",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "197:49",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "197:86",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "197:86",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "197:91",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "199:101",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "199:101",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "199:106",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "199:24",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "199:30",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Straight",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "199:59",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "199:59",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "199:64",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "203:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "203:33",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "204:28",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "204:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "FourOfAKind",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "204:66",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "204:66",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "204:71",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "179:20",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "179:37",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "179:37",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "179:60",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "179:60",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "208:43",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "208:61",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "indexOf",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "208:61",
+      "kind": "call",
+      "reason": "other",
+      "property": "indexOf",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "208:90",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "210:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "211:63",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "211:63",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "211:90",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "match",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "211:90",
+      "kind": "call",
+      "reason": "other",
+      "property": "match",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "211:95",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "OfAKindRegExp",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "212:26",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "212:38",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "212:54",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "212:76",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "213:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "213:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "213:57",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "213:79",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "216:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "216:41",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "217:69",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "217:69",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "217:88",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "217:88",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "218:67",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "218:67",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "218:96",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "218:96",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "220:69",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "220:69",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "220:98",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "220:98",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "221:67",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "221:67",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "221:86",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "221:86",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "223:36",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "223:42",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "FullHouse",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "223:84",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "224:32",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "224:44",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "224:60",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "224:82",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "225:66",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "225:66",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "225:85",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "225:85",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "226:67",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "226:67",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "226:96",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "226:96",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "229:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "229:53",
+      "kind": "call",
+      "reason": "other",
+      "property": "codePointAt",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "229:53",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "codePointAt",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "229:82",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "codePointAt",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "229:82",
+      "kind": "call",
+      "reason": "other",
+      "property": "codePointAt",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "230:33",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "230:67",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "codePointAt",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "230:67",
+      "kind": "call",
+      "reason": "other",
+      "property": "codePointAt",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "230:96",
+      "kind": "call",
+      "reason": "other",
+      "property": "codePointAt",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "230:96",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "codePointAt",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "231:66",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "231:66",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "231:83",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "231:83",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "233:66",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "233:66",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "233:83",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "233:83",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "235:62",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "235:62",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "235:79",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "235:79",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "237:36",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "237:42",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "TwoPair",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "240:60",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "240:60",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "240:79",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "240:79",
+      "kind": "call",
+      "reason": "other",
+      "property": "slice",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "242:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "242:42",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "243:57",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "243:57",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "244:29",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "248:25",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "248:37",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "249:36",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "249:42",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "ThreeOfAKind",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "251:36",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "251:42",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "Pair",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "255:24",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "256:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "256:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_cards",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "257:49",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "257:49",
+      "kind": "call",
+      "reason": "other",
+      "property": "cardRank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "258:28",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "_rank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "258:35",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "_rank",
+      "note": "Hand.score (and its sort callback) is not optimized by the pipeline: 0 of its 146 checklist sites are optimized and shape/type annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve any site in this function."
+    },
+    {
+      "location": "340:25",
+      "kind": "call",
+      "reason": "other",
+      "property": "shuffle",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "340:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "shuffle",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "342:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "343:25",
+      "kind": "call",
+      "reason": "other",
+      "property": "clear",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "343:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "clear",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "346:13",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "347:32",
+      "kind": "call",
+      "reason": "other",
+      "property": "takeCard",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "347:32",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "takeCard",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "347:53",
+      "kind": "call",
+      "reason": "other",
+      "property": "dealOneCard",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "347:53",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "dealOneCard",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "350:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "351:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "scoreHand",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "351:29",
+      "kind": "call",
+      "reason": "other",
+      "property": "scoreHand",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "357:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "358:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "358:23",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "rank",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "359:37",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "rank",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "362:9",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "364:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "364:23",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "rank",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "365:31",
+      "kind": "call",
+      "reason": "other",
+      "property": "wonHand",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "365:31",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "wonHand",
+      "note": "playHands is not optimized by the pipeline: only 3 of its 25 checklist sites are optimized (baseline generic arithmetic, not annotation-driven) and shape/type/closures annotations targeting expressions inside it produce no compiler feedback at all (verified with dryrun), so no annotation can improve sites in this function."
+    },
+    {
+      "location": "11:17",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "11:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "11:19",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "11:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "11:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "11:69",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "12:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "12:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "12:17",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "12:17",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "12:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "12:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "13:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "13:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "mark",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "13:18",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "mark",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "13:18",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "14:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "14:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "measure",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "14:21",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "measure",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "14:21",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "15:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "15:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "timeOrigin",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "15:24",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "timeOrigin",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "15:24",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found",
+      "note": "Module-level setup against host/global objects: the receiver (globalThis, the `performance` global whose value comes from `globalThis.performance`, or the builtin `Date`) is not created by any expression in this file, so there is no object whose shape can be bound or guarded."
+    },
+    {
+      "location": "17:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "JetStream",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "17:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "17:38",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "JetStream",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "29:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "30:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "30:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Realm",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "5:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Proxy",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "5:46",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Proxy",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "7:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "7:20",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "Error",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "7:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "7:40",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "String",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "36:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "36:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "random",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "45:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "45:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "45:27",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed",
+      "note": "Receiver is a host/builtin object (the global object, the global Math, the builtin constructors Proxy/Error/String, or the undeclared global Realm). No expression in this file produces those objects, so no shape can be bound or guarded on them."
+    },
+    {
+      "location": "134:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_rankNames",
+      "note": "Store installs a static property on a class constructor object (CardDeck/Hand/PlayerExpectation) while that namespace object is still being assembled. A class binding is not an expression, so no shape binding can be attached to the constructor object; there is no fixed slot to write."
+    },
+    {
+      "location": "138:19",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_newDeck",
+      "note": "Store installs a static property on a class constructor object (CardDeck/Hand/PlayerExpectation) while that namespace object is still being assembled. A class binding is not an expression, so no shape binding can be attached to the constructor object; there is no fixed slot to write."
+    },
+    {
+      "location": "274:18",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "FlushRegExp",
+      "note": "Store installs a static property on a class constructor object (CardDeck/Hand/PlayerExpectation) while that namespace object is still being assembled. A class binding is not an expression, so no shape binding can be attached to the constructor object; there is no fixed slot to write."
+    },
+    {
+      "location": "276:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "StraightRegExp",
+      "note": "Store installs a static property on a class constructor object (CardDeck/Hand/PlayerExpectation) while that namespace object is still being assembled. A class binding is not an expression, so no shape binding can be attached to the constructor object; there is no fixed slot to write."
+    },
+    {
+      "location": "278:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "OfAKindRegExp",
+      "note": "Store installs a static property on a class constructor object (CardDeck/Hand/PlayerExpectation) while that namespace object is still being assembled. A class binding is not an expression, so no shape binding can be attached to the constructor object; there is no fixed slot to write."
+    },
+    {
+      "location": "280:17",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "RoyalFlush",
+      "note": "Store installs a static property on a class constructor object (CardDeck/Hand/PlayerExpectation) while that namespace object is still being assembled. A class binding is not an expression, so no shape binding can be attached to the constructor object; there is no fixed slot to write."
+    },
+    {
+      "location": "281:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "StraightFlush",
+      "note": "Store installs a static property on a class constructor object (CardDeck/Hand/PlayerExpectation) while that namespace object is still being assembled. A class binding is not an expression, so no shape binding can be attached to the constructor object; there is no fixed slot to write."
+    },
+    {
+      "location": "282:18",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "FourOfAKind",
+      "note": "Store installs a static property on a class constructor object (CardDeck/Hand/PlayerExpectation) while that namespace object is still being assembled. A class binding is not an expression, so no shape binding can be attached to the constructor object; there is no fixed slot to write."
+    },
+    {
+      "location": "283:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "FullHouse",
+      "note": "Store installs a static property on a class constructor object (CardDeck/Hand/PlayerExpectation) while that namespace object is still being assembled. A class binding is not an expression, so no shape binding can be attached to the constructor object; there is no fixed slot to write."
+    },
+    {
+      "location": "284:12",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "Flush",
+      "note": "Store installs a static property on a class constructor object (CardDeck/Hand/PlayerExpectation) while that namespace object is still being assembled. A class binding is not an expression, so no shape binding can be attached to the constructor object; there is no fixed slot to write."
+    },
+    {
+      "location": "285:15",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "Straight",
+      "note": "Store installs a static property on a class constructor object (CardDeck/Hand/PlayerExpectation) while that namespace object is still being assembled. A class binding is not an expression, so no shape binding can be attached to the constructor object; there is no fixed slot to write."
+    },
+    {
+      "location": "286:19",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "ThreeOfAKind",
+      "note": "Store installs a static property on a class constructor object (CardDeck/Hand/PlayerExpectation) while that namespace object is still being assembled. A class binding is not an expression, so no shape binding can be attached to the constructor object; there is no fixed slot to write."
+    },
+    {
+      "location": "287:14",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "TwoPair",
+      "note": "Store installs a static property on a class constructor object (CardDeck/Hand/PlayerExpectation) while that namespace object is still being assembled. A class binding is not an expression, so no shape binding can be attached to the constructor object; there is no fixed slot to write."
+    },
+    {
+      "location": "288:11",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "Pair",
+      "note": "Store installs a static property on a class constructor object (CardDeck/Hand/PlayerExpectation) while that namespace object is still being assembled. A class binding is not an expression, so no shape binding can be attached to the constructor object; there is no fixed slot to write."
+    },
+    {
+      "location": "428:30",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_handTypes",
+      "note": "Store installs a static property on a class constructor object (CardDeck/Hand/PlayerExpectation) while that namespace object is still being assembled. A class binding is not an expression, so no shape binding can be attached to the constructor object; there is no fixed slot to write."
+    },
+    {
+      "location": "274:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "RegExp",
+      "note": "Receiver is the builtin RegExp constructor, a host global not produced by any expression in this file."
+    },
+    {
+      "location": "274:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "RegExp",
+      "note": "Receiver is the builtin RegExp constructor, a host global not produced by any expression in this file."
+    },
+    {
+      "location": "276:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "RegExp",
+      "note": "Receiver is the builtin RegExp constructor, a host global not produced by any expression in this file."
+    },
+    {
+      "location": "276:33",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "RegExp",
+      "note": "Receiver is the builtin RegExp constructor, a host global not produced by any expression in this file."
+    },
+    {
+      "location": "278:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "RegExp",
+      "note": "Receiver is the builtin RegExp constructor, a host global not produced by any expression in this file."
+    },
+    {
+      "location": "278:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "RegExp",
+      "note": "Receiver is the builtin RegExp constructor, a host global not produced by any expression in this file."
+    },
+    {
+      "location": "82:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype",
+      "note": "Receiver/callee lives on an object with no in-file, bindable source: an ES6 class's implicit prototype (inherited methods like newDeck/clear, reached through the class prototype object, which has no expression a shape binding can target) or a builtin prototype (Array.prototype.slice/shift/push, String.prototype.codePointAt) or the mutable global Math (Math.random is reassigned by the seed IIFE)."
+    },
+    {
+      "location": "84:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "newDeck",
+      "note": "Receiver/callee lives on an object with no in-file, bindable source: an ES6 class's implicit prototype (inherited methods like newDeck/clear, reached through the class prototype object, which has no expression a shape binding can target) or a builtin prototype (Array.prototype.slice/shift/push, String.prototype.codePointAt) or the mutable global Math (Math.random is reassigned by the seed IIFE)."
+    },
+    {
+      "location": "84:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "newDeck",
+      "note": "Receiver/callee lives on an object with no in-file, bindable source: an ES6 class's implicit prototype (inherited methods like newDeck/clear, reached through the class prototype object, which has no expression a shape binding can target) or a builtin prototype (Array.prototype.slice/shift/push, String.prototype.codePointAt) or the mutable global Math (Math.random is reassigned by the seed IIFE)."
+    },
+    {
+      "location": "90:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "_newDeck",
+      "note": "Receiver/callee lives on an object with no in-file, bindable source: an ES6 class's implicit prototype (inherited methods like newDeck/clear, reached through the class prototype object, which has no expression a shape binding can target) or a builtin prototype (Array.prototype.slice/shift/push, String.prototype.codePointAt) or the mutable global Math (Math.random is reassigned by the seed IIFE)."
+    },
+    {
+      "location": "90:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "slice",
+      "note": "Receiver/callee lives on an object with no in-file, bindable source: an ES6 class's implicit prototype (inherited methods like newDeck/clear, reached through the class prototype object, which has no expression a shape binding can target) or a builtin prototype (Array.prototype.slice/shift/push, String.prototype.codePointAt) or the mutable global Math (Math.random is reassigned by the seed IIFE)."
+    },
+    {
+      "location": "90:46",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "slice",
+      "note": "Receiver/callee lives on an object with no in-file, bindable source: an ES6 class's implicit prototype (inherited methods like newDeck/clear, reached through the class prototype object, which has no expression a shape binding can target) or a builtin prototype (Array.prototype.slice/shift/push, String.prototype.codePointAt) or the mutable global Math (Math.random is reassigned by the seed IIFE)."
+    },
+    {
+      "location": "95:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "newDeck",
+      "note": "Receiver/callee lives on an object with no in-file, bindable source: an ES6 class's implicit prototype (inherited methods like newDeck/clear, reached through the class prototype object, which has no expression a shape binding can target) or a builtin prototype (Array.prototype.slice/shift/push, String.prototype.codePointAt) or the mutable global Math (Math.random is reassigned by the seed IIFE)."
+    },
+    {
+      "location": "95:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "newDeck",
+      "note": "Receiver/callee lives on an object with no in-file, bindable source: an ES6 class's implicit prototype (inherited methods like newDeck/clear, reached through the class prototype object, which has no expression a shape binding can target) or a builtin prototype (Array.prototype.slice/shift/push, String.prototype.codePointAt) or the mutable global Math (Math.random is reassigned by the seed IIFE)."
+    },
+    {
+      "location": "99:42",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math",
+      "note": "Receiver/callee lives on an object with no in-file, bindable source: an ES6 class's implicit prototype (inherited methods like newDeck/clear, reached through the class prototype object, which has no expression a shape binding can target) or a builtin prototype (Array.prototype.slice/shift/push, String.prototype.codePointAt) or the mutable global Math (Math.random is reassigned by the seed IIFE)."
+    },
+    {
+      "location": "99:53",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random",
+      "note": "Receiver/callee lives on an object with no in-file, bindable source: an ES6 class's implicit prototype (inherited methods like newDeck/clear, reached through the class prototype object, which has no expression a shape binding can target) or a builtin prototype (Array.prototype.slice/shift/push, String.prototype.codePointAt) or the mutable global Math (Math.random is reassigned by the seed IIFE)."
+    },
+    {
+      "location": "99:53",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "random",
+      "note": "Receiver/callee lives on an object with no in-file, bindable source: an ES6 class's implicit prototype (inherited methods like newDeck/clear, reached through the class prototype object, which has no expression a shape binding can target) or a builtin prototype (Array.prototype.slice/shift/push, String.prototype.codePointAt) or the mutable global Math (Math.random is reassigned by the seed IIFE)."
+    },
+    {
+      "location": "111:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "shift",
+      "note": "Receiver/callee lives on an object with no in-file, bindable source: an ES6 class's implicit prototype (inherited methods like newDeck/clear, reached through the class prototype object, which has no expression a shape binding can target) or a builtin prototype (Array.prototype.slice/shift/push, String.prototype.codePointAt) or the mutable global Math (Math.random is reassigned by the seed IIFE)."
+    },
+    {
+      "location": "111:33",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "shift",
+      "note": "Receiver/callee lives on an object with no in-file, bindable source: an ES6 class's implicit prototype (inherited methods like newDeck/clear, reached through the class prototype object, which has no expression a shape binding can target) or a builtin prototype (Array.prototype.slice/shift/push, String.prototype.codePointAt) or the mutable global Math (Math.random is reassigned by the seed IIFE)."
+    },
+    {
+      "location": "119:42",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "codePointAt",
+      "note": "Receiver/callee lives on an object with no in-file, bindable source: an ES6 class's implicit prototype (inherited methods like newDeck/clear, reached through the class prototype object, which has no expression a shape binding can target) or a builtin prototype (Array.prototype.slice/shift/push, String.prototype.codePointAt) or the mutable global Math (Math.random is reassigned by the seed IIFE)."
+    },
+    {
+      "location": "119:42",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "codePointAt",
+      "note": "Receiver/callee lives on an object with no in-file, bindable source: an ES6 class's implicit prototype (inherited methods like newDeck/clear, reached through the class prototype object, which has no expression a shape binding can target) or a builtin prototype (Array.prototype.slice/shift/push, String.prototype.codePointAt) or the mutable global Math (Math.random is reassigned by the seed IIFE)."
+    },
+    {
+      "location": "129:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "codePointAt",
+      "note": "Receiver/callee has no in-file, bindable source: a builtin prototype method (String.prototype.codePointAt, Array.prototype.push/join), an ES6 class's implicit prototype (this.clear reaches Hand.prototype.clear; the prototype object has no expression a shape binding can target), the class-constructor object as a static receiver (this._rankNames in static cardName), or the class body's prototype node."
+    },
+    {
+      "location": "129:36",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "codePointAt",
+      "note": "Receiver/callee has no in-file, bindable source: a builtin prototype method (String.prototype.codePointAt, Array.prototype.push/join), an ES6 class's implicit prototype (this.clear reaches Hand.prototype.clear; the prototype object has no expression a shape binding can target), the class-constructor object as a static receiver (this._rankNames in static cardName), or the class body's prototype node."
+    },
+    {
+      "location": "130:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "_rankNames",
+      "note": "Receiver/callee has no in-file, bindable source: a builtin prototype method (String.prototype.codePointAt, Array.prototype.push/join), an ES6 class's implicit prototype (this.clear reaches Hand.prototype.clear; the prototype object has no expression a shape binding can target), the class-constructor object as a static receiver (this._rankNames in static cardName), or the class body's prototype node."
+    },
+    {
+      "location": "159:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype",
+      "note": "Receiver/callee has no in-file, bindable source: a builtin prototype method (String.prototype.codePointAt, Array.prototype.push/join), an ES6 class's implicit prototype (this.clear reaches Hand.prototype.clear; the prototype object has no expression a shape binding can target), the class-constructor object as a static receiver (this._rankNames in static cardName), or the class body's prototype node."
+    },
+    {
+      "location": "161:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "clear",
+      "note": "Receiver/callee has no in-file, bindable source: a builtin prototype method (String.prototype.codePointAt, Array.prototype.push/join), an ES6 class's implicit prototype (this.clear reaches Hand.prototype.clear; the prototype object has no expression a shape binding can target), the class-constructor object as a static receiver (this._rankNames in static cardName), or the class body's prototype node."
+    },
+    {
+      "location": "161:19",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "clear",
+      "note": "Receiver/callee has no in-file, bindable source: a builtin prototype method (String.prototype.codePointAt, Array.prototype.push/join), an ES6 class's implicit prototype (this.clear reaches Hand.prototype.clear; the prototype object has no expression a shape binding can target), the class-constructor object as a static receiver (this._rankNames in static cardName), or the class body's prototype node."
+    },
+    {
+      "location": "172:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Receiver/callee has no in-file, bindable source: a builtin prototype method (String.prototype.codePointAt, Array.prototype.push/join), an ES6 class's implicit prototype (this.clear reaches Hand.prototype.clear; the prototype object has no expression a shape binding can target), the class-constructor object as a static receiver (this._rankNames in static cardName), or the class body's prototype node."
+    },
+    {
+      "location": "172:25",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Receiver/callee has no in-file, bindable source: a builtin prototype method (String.prototype.codePointAt, Array.prototype.push/join), an ES6 class's implicit prototype (this.clear reaches Hand.prototype.clear; the prototype object has no expression a shape binding can target), the class-constructor object as a static receiver (this._rankNames in static cardName), or the class body's prototype node."
+    },
+    {
+      "location": "270:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "join",
+      "note": "Receiver/callee has no in-file, bindable source: a builtin prototype method (String.prototype.codePointAt, Array.prototype.push/join), an ES6 class's implicit prototype (this.clear reaches Hand.prototype.clear; the prototype object has no expression a shape binding can target), the class-constructor object as a static receiver (this._rankNames in static cardName), or the class body's prototype node."
+    },
+    {
+      "location": "270:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "join",
+      "note": "Receiver/callee has no in-file, bindable source: a builtin prototype method (String.prototype.codePointAt, Array.prototype.push/join), an ES6 class's implicit prototype (this.clear reaches Hand.prototype.clear; the prototype object has no expression a shape binding can target), the class-constructor object as a static receiver (this._rankNames in static cardName), or the class body's prototype node."
+    },
+    {
+      "location": "99:42",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Numeric/string operation whose operand type is unknown and cannot be narrowed: Math.random()'s result is untyped because Math.random is reassigned at 36 (a mutable global), and the template concatenation at 7:21 mixes a closure-captured parameter with the result of the untyped builtin call String(property). A type guard on any single operand has no effect (verified with dryrun)."
+    },
+    {
+      "location": "7:21",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Numeric/string operation whose operand type is unknown and cannot be narrowed: Math.random()'s result is untyped because Math.random is reassigned at 36 (a mutable global), and the template concatenation at 7:21 mixes a closure-captured parameter with the result of the untyped builtin call String(property). A type guard on any single operand has no effect (verified with dryrun)."
+    },
+    {
+      "location": "294:14",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "note": "super() in the Player constructor invokes the parent (Hand) constructor; there is no property expression or function value here to attach a closure type guard to."
+    },
+    {
+      "location": "295:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_name",
+      "note": "These stores run in the Player constructor body before the Player shape is completed by the write that the shape binding targets (this._handTypeCounts at 297:9). The slots do not exist yet, so there is no fixed slot to write."
+    },
+    {
+      "location": "296:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "_wins",
+      "note": "These stores run in the Player constructor body before the Player shape is completed by the write that the shape binding targets (this._handTypeCounts at 297:9). The slots do not exist yet, so there is no fixed slot to write."
+    },
+    {
+      "location": "302:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "score",
+      "note": "Callee/receiver lives on an object with no in-file bindable source: inherited ES6 class prototype members (this.score, this.rank, super.toString reach the Hand prototype, which is an implicit class prototype with no expression a shape binding can target) or builtin prototype methods (Array.prototype.push/map), or the class body's prototype node."
+    },
+    {
+      "location": "302:19",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "score",
+      "note": "Callee/receiver lives on an object with no in-file bindable source: inherited ES6 class prototype members (this.score, this.rank, super.toString reach the Hand prototype, which is an implicit class prototype with no expression a shape binding can target) or builtin prototype methods (Array.prototype.push/map), or the class body's prototype node."
+    },
+    {
+      "location": "303:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "rank",
+      "note": "Callee/receiver lives on an object with no in-file bindable source: inherited ES6 class prototype members (this.score, this.rank, super.toString reach the Hand prototype, which is an implicit class prototype with no expression a shape binding can target) or builtin prototype methods (Array.prototype.push/map), or the class body's prototype node."
+    },
+    {
+      "location": "319:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "toString",
+      "note": "Callee/receiver lives on an object with no in-file bindable source: inherited ES6 class prototype members (this.score, this.rank, super.toString reach the Hand prototype, which is an implicit class prototype with no expression a shape binding can target) or builtin prototype methods (Array.prototype.push/map), or the class body's prototype node."
+    },
+    {
+      "location": "319:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "toString",
+      "note": "Callee/receiver lives on an object with no in-file bindable source: inherited ES6 class prototype members (this.score, this.rank, super.toString reach the Hand prototype, which is an implicit class prototype with no expression a shape binding can target) or builtin prototype methods (Array.prototype.push/map), or the class body's prototype node."
+    },
+    {
+      "location": "403:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype",
+      "note": "Callee/receiver lives on an object with no in-file bindable source: inherited ES6 class prototype members (this.score, this.rank, super.toString reach the Hand prototype, which is an implicit class prototype with no expression a shape binding can target) or builtin prototype methods (Array.prototype.push/map), or the class body's prototype node."
+    },
+    {
+      "location": "407:50",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "map",
+      "note": "Callee/receiver lives on an object with no in-file bindable source: inherited ES6 class prototype members (this.score, this.rank, super.toString reach the Hand prototype, which is an implicit class prototype with no expression a shape binding can target) or builtin prototype methods (Array.prototype.push/map), or the class body's prototype node."
+    },
+    {
+      "location": "407:50",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "map",
+      "note": "Callee/receiver lives on an object with no in-file bindable source: inherited ES6 class prototype members (this.score, this.rank, super.toString reach the Hand prototype, which is an implicit class prototype with no expression a shape binding can target) or builtin prototype methods (Array.prototype.push/map), or the class body's prototype node."
+    },
+    {
+      "location": "444:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Callee/receiver lives on an object with no in-file bindable source: inherited ES6 class prototype members (this.score, this.rank, super.toString reach the Hand prototype, which is an implicit class prototype with no expression a shape binding can target) or builtin prototype methods (Array.prototype.push/map), or the class body's prototype node."
+    },
+    {
+      "location": "444:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Callee/receiver lives on an object with no in-file bindable source: inherited ES6 class prototype members (this.score, this.rank, super.toString reach the Hand prototype, which is an implicit class prototype with no expression a shape binding can target) or builtin prototype methods (Array.prototype.push/map), or the class body's prototype node."
+    },
+    {
+      "location": "445:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Callee/receiver lives on an object with no in-file bindable source: inherited ES6 class prototype members (this.score, this.rank, super.toString reach the Hand prototype, which is an implicit class prototype with no expression a shape binding can target) or builtin prototype methods (Array.prototype.push/map), or the class body's prototype node."
+    },
+    {
+      "location": "445:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Callee/receiver lives on an object with no in-file bindable source: inherited ES6 class prototype members (this.score, this.rank, super.toString reach the Hand prototype, which is an implicit class prototype with no expression a shape binding can target) or builtin prototype methods (Array.prototype.push/map), or the class body's prototype node."
+    },
+    {
+      "location": "446:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Callee/receiver lives on an object with no in-file bindable source: inherited ES6 class prototype members (this.score, this.rank, super.toString reach the Hand prototype, which is an implicit class prototype with no expression a shape binding can target) or builtin prototype methods (Array.prototype.push/map), or the class body's prototype node."
+    },
+    {
+      "location": "446:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Callee/receiver lives on an object with no in-file bindable source: inherited ES6 class prototype members (this.score, this.rank, super.toString reach the Hand prototype, which is an implicit class prototype with no expression a shape binding can target) or builtin prototype methods (Array.prototype.push/map), or the class body's prototype node."
+    },
+    {
+      "location": "447:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Callee/receiver lives on an object with no in-file bindable source: inherited ES6 class prototype members (this.score, this.rank, super.toString reach the Hand prototype, which is an implicit class prototype with no expression a shape binding can target) or builtin prototype methods (Array.prototype.push/map), or the class body's prototype node."
+    },
+    {
+      "location": "447:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Callee/receiver lives on an object with no in-file bindable source: inherited ES6 class prototype members (this.score, this.rank, super.toString reach the Hand prototype, which is an implicit class prototype with no expression a shape binding can target) or builtin prototype methods (Array.prototype.push/map), or the class body's prototype node."
+    },
+    {
+      "location": "481:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype",
+      "note": "Array.prototype.push (this._players.push(...) in the Benchmark constructor) has no bindable in-file source, and the class body's prototype node is an implicit class prototype with no expression a shape binding can target."
+    },
+    {
+      "location": "484:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Array.prototype.push (this._players.push(...) in the Benchmark constructor) has no bindable in-file source, and the class body's prototype node is an implicit class prototype with no expression a shape binding can target."
+    },
+    {
+      "location": "484:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Array.prototype.push (this._players.push(...) in the Benchmark constructor) has no bindable in-file source, and the class body's prototype node is an implicit class prototype with no expression a shape binding can target."
+    },
+    {
+      "location": "485:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Array.prototype.push (this._players.push(...) in the Benchmark constructor) has no bindable in-file source, and the class body's prototype node is an implicit class prototype with no expression a shape binding can target."
+    },
+    {
+      "location": "485:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Array.prototype.push (this._players.push(...) in the Benchmark constructor) has no bindable in-file source, and the class body's prototype node is an implicit class prototype with no expression a shape binding can target."
+    },
+    {
+      "location": "486:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Array.prototype.push (this._players.push(...) in the Benchmark constructor) has no bindable in-file source, and the class body's prototype node is an implicit class prototype with no expression a shape binding can target."
+    },
+    {
+      "location": "486:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Array.prototype.push (this._players.push(...) in the Benchmark constructor) has no bindable in-file source, and the class body's prototype node is an implicit class prototype with no expression a shape binding can target."
+    },
+    {
+      "location": "487:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Array.prototype.push (this._players.push(...) in the Benchmark constructor) has no bindable in-file source, and the class body's prototype node is an implicit class prototype with no expression a shape binding can target."
+    },
+    {
+      "location": "487:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Array.prototype.push (this._players.push(...) in the Benchmark constructor) has no bindable in-file source, and the class body's prototype node is an implicit class prototype with no expression a shape binding can target."
+    },
+    {
+      "location": "412:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "wins",
+      "note": "Reads of properties with no bindable source: player.wins / player.name / player.handTypeCounts are accessors on the Player prototype (an implicit ES6 class prototype with no expression a shape binding can target; accessors are always type any anyway), and PlayerExpectation._handTypes is a static on the class constructor object."
+    },
+    {
+      "location": "413:101",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "wins",
+      "note": "Reads of properties with no bindable source: player.wins / player.name / player.handTypeCounts are accessors on the Player prototype (an implicit ES6 class prototype with no expression a shape binding can target; accessors are always type any anyway), and PlayerExpectation._handTypes is a static on the class constructor object."
+    },
+    {
+      "location": "413:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "name",
+      "note": "Reads of properties with no bindable source: player.wins / player.name / player.handTypeCounts are accessors on the Player prototype (an implicit ES6 class prototype with no expression a shape binding can target; accessors are always type any anyway), and PlayerExpectation._handTypes is a static on the class constructor object."
+    },
+    {
+      "location": "415:42",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "handTypeCounts",
+      "note": "Reads of properties with no bindable source: player.wins / player.name / player.handTypeCounts are accessors on the Player prototype (an implicit ES6 class prototype with no expression a shape binding can target; accessors are always type any anyway), and PlayerExpectation._handTypes is a static on the class constructor object."
+    },
+    {
+      "location": "417:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "name",
+      "note": "Reads of properties with no bindable source: player.wins / player.name / player.handTypeCounts are accessors on the Player prototype (an implicit ES6 class prototype with no expression a shape binding can target; accessors are always type any anyway), and PlayerExpectation._handTypes is a static on the class constructor object."
+    },
+    {
+      "location": "421:43",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "name",
+      "note": "Reads of properties with no bindable source: player.wins / player.name / player.handTypeCounts are accessors on the Player prototype (an implicit ES6 class prototype with no expression a shape binding can target; accessors are always type any anyway), and PlayerExpectation._handTypes is a static on the class constructor object."
+    },
+    {
+      "location": "421:124",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "_handTypes",
+      "note": "Reads of properties with no bindable source: player.wins / player.name / player.handTypeCounts are accessors on the Player prototype (an implicit ES6 class prototype with no expression a shape binding can target; accessors are always type any anyway), and PlayerExpectation._handTypes is a static on the class constructor object."
+    },
+    {
+      "location": "412:13",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Numeric/comparison operations whose operands are unprovable numbers: the compared values come from prototype accessors (player.wins = any) or from .length reads on arrays that are held in any-typed slots (this._handTypeCounts) or returned by any-typed accessors, so the compiler cannot prove the operands are numbers and no type guard can narrow a value it cannot name."
+    },
+    {
+      "location": "413:19",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Numeric/comparison operations whose operands are unprovable numbers: the compared values come from prototype accessors (player.wins = any) or from .length reads on arrays that are held in any-typed slots (this._handTypeCounts) or returned by any-typed accessors, so the compiler cannot prove the operands are numbers and no type guard can narrow a value it cannot name."
+    },
+    {
+      "location": "416:13",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Numeric/comparison operations whose operands are unprovable numbers: the compared values come from prototype accessors (player.wins = any) or from .length reads on arrays that are held in any-typed slots (this._handTypeCounts) or returned by any-typed accessors, so the compiler cannot prove the operands are numbers and no type guard can narrow a value it cannot name."
+    },
+    {
+      "location": "416:33",
+      "kind": "property_load",
+      "reason": "maybe-not-number",
+      "property": "length",
+      "note": "Numeric/comparison operations whose operands are unprovable numbers: the compared values come from prototype accessors (player.wins = any) or from .length reads on arrays that are held in any-typed slots (this._handTypeCounts) or returned by any-typed accessors, so the compiler cannot prove the operands are numbers and no type guard can narrow a value it cannot name."
+    },
+    {
+      "location": "416:64",
+      "kind": "property_load",
+      "reason": "maybe-not-number",
+      "property": "length",
+      "note": "Numeric/comparison operations whose operands are unprovable numbers: the compared values come from prototype accessors (player.wins = any) or from .length reads on arrays that are held in any-typed slots (this._handTypeCounts) or returned by any-typed accessors, so the compiler cannot prove the operands are numbers and no type guard can narrow a value it cannot name."
+    },
+    {
+      "location": "417:143",
+      "kind": "property_load",
+      "reason": "maybe-not-number",
+      "property": "length",
+      "note": "Numeric/comparison operations whose operands are unprovable numbers: the compared values come from prototype accessors (player.wins = any) or from .length reads on arrays that are held in any-typed slots (this._handTypeCounts) or returned by any-typed accessors, so the compiler cannot prove the operands are numbers and no type guard can narrow a value it cannot name."
+    },
+    {
+      "location": "417:19",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Numeric/comparison operations whose operands are unprovable numbers: the compared values come from prototype accessors (player.wins = any) or from .length reads on arrays that are held in any-typed slots (this._handTypeCounts) or returned by any-typed accessors, so the compiler cannot prove the operands are numbers and no type guard can narrow a value it cannot name."
+    },
+    {
+      "location": "417:81",
+      "kind": "property_load",
+      "reason": "maybe-not-number",
+      "property": "length",
+      "note": "Numeric/comparison operations whose operands are unprovable numbers: the compared values come from prototype accessors (player.wins = any) or from .length reads on arrays that are held in any-typed slots (this._handTypeCounts) or returned by any-typed accessors, so the compiler cannot prove the operands are numbers and no type guard can narrow a value it cannot name."
+    },
+    {
+      "location": "419:35",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Numeric/comparison operations whose operands are unprovable numbers: the compared values come from prototype accessors (player.wins = any) or from .length reads on arrays that are held in any-typed slots (this._handTypeCounts) or returned by any-typed accessors, so the compiler cannot prove the operands are numbers and no type guard can narrow a value it cannot name."
+    },
+    {
+      "location": "419:69",
+      "kind": "property_load",
+      "reason": "maybe-not-number",
+      "property": "length",
+      "note": "Numeric/comparison operations whose operands are unprovable numbers: the compared values come from prototype accessors (player.wins = any) or from .length reads on arrays that are held in any-typed slots (this._handTypeCounts) or returned by any-typed accessors, so the compiler cannot prove the operands are numbers and no type guard can narrow a value it cannot name."
+    },
+    {
+      "location": "420:17",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Numeric/comparison operations whose operands are unprovable numbers: the compared values come from prototype accessors (player.wins = any) or from .length reads on arrays that are held in any-typed slots (this._handTypeCounts) or returned by any-typed accessors, so the compiler cannot prove the operands are numbers and no type guard can narrow a value it cannot name."
+    },
+    {
+      "location": "421:23",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Numeric/comparison operations whose operands are unprovable numbers: the compared values come from prototype accessors (player.wins = any) or from .length reads on arrays that are held in any-typed slots (this._handTypeCounts) or returned by any-typed accessors, so the compiler cannot prove the operands are numbers and no type guard can narrow a value it cannot name."
+    },
+    {
+      "location": "492:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "playHands",
+      "note": "Bare top-level function references. The call itself is optimized by the closure type guard already attached to the same expression (492:9-492:18 / 499:36-499:57), but the load of a module-level function binding has no receiver object to bind or guard, so the load site itself cannot be optimized further."
+    },
+    {
+      "location": "499:36",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "getPlayerExpectations",
+      "note": "Bare top-level function references. The call itself is optimized by the closure type guard already attached to the same expression (492:9-492:18 / 499:36-499:57), but the load of a module-level function binding has no receiver object to bind or guard, so the load site itself cannot be optimized further."
+    },
+    {
+      "location": "500:13",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Comparisons and .length reads in Benchmark.validate: the lengths come from this._players (an any-typed slot) and from arrays returned by the untyped getPlayerExpectations/accessor chain, so the operands of the comparisons cannot be proven numbers."
+    },
+    {
+      "location": "500:26",
+      "kind": "property_load",
+      "reason": "maybe-not-number",
+      "property": "length",
+      "note": "Comparisons and .length reads in Benchmark.validate: the lengths come from this._players (an any-typed slot) and from arrays returned by the untyped getPlayerExpectations/accessor chain, so the operands of the comparisons cannot be proven numbers."
+    },
+    {
+      "location": "500:55",
+      "kind": "property_load",
+      "reason": "maybe-not-number",
+      "property": "length",
+      "note": "Comparisons and .length reads in Benchmark.validate: the lengths come from this._players (an any-typed slot) and from arrays returned by the untyped getPlayerExpectations/accessor chain, so the operands of the comparisons cannot be proven numbers."
+    },
+    {
+      "location": "501:19",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Comparisons and .length reads in Benchmark.validate: the lengths come from this._players (an any-typed slot) and from arrays returned by the untyped getPlayerExpectations/accessor chain, so the operands of the comparisons cannot be proven numbers."
+    },
+    {
+      "location": "501:49",
+      "kind": "property_load",
+      "reason": "maybe-not-number",
+      "property": "length",
+      "note": "Comparisons and .length reads in Benchmark.validate: the lengths come from this._players (an any-typed slot) and from arrays returned by the untyped getPlayerExpectations/accessor chain, so the operands of the comparisons cannot be proven numbers."
+    },
+    {
+      "location": "501:97",
+      "kind": "property_load",
+      "reason": "maybe-not-number",
+      "property": "length",
+      "note": "Comparisons and .length reads in Benchmark.validate: the lengths come from this._players (an any-typed slot) and from arrays returned by the untyped getPlayerExpectations/accessor chain, so the operands of the comparisons cannot be proven numbers."
+    },
+    {
+      "location": "502:33",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Comparisons and .length reads in Benchmark.validate: the lengths come from this._players (an any-typed slot) and from arrays returned by the untyped getPlayerExpectations/accessor chain, so the operands of the comparisons cannot be proven numbers."
+    },
+    {
+      "location": "502:63",
+      "kind": "property_load",
+      "reason": "maybe-not-number",
+      "property": "length",
+      "note": "Comparisons and .length reads in Benchmark.validate: the lengths come from this._players (an any-typed slot) and from arrays returned by the untyped getPlayerExpectations/accessor chain, so the operands of the comparisons cannot be proven numbers."
+    },
+    {
+      "location": "503:51",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "validate",
+      "note": "playerExpectations[playerIdx].validate is a method on PlayerExpectation's implicit ES6 class prototype, which has no expression a shape binding can target."
+    },
+    {
+      "location": "503:51",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "validate",
+      "note": "playerExpectations[playerIdx].validate is a method on PlayerExpectation's implicit ES6 class prototype, which has no expression a shape binding can target."
+    },
+    {
+      "location": "517:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "517:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "517:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "518:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "518:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__resetSeed",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "518:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "521:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "521:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "521:34",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "522:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "runIteration",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "523:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "523:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "523:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "now",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "524:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "524:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "push",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "527:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "validate",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "527:23",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "validate",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "529:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reduce",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "529:31",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "reduce",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "531:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "531:8",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print",
+      "note": "Receiver/callee has no bindable in-file source: the mutable global Math (Math.random is reassigned by the seed IIFE), the host performance object (its value comes from globalThis.performance), builtin prototype methods (Array.prototype.push/reduce, performance.now), ES6 class prototype methods (Benchmark.prototype.runIteration/validate — their call sites are already inlined by the closure type guards, but the load site itself has no object to bind), and the global print. All are load/call sites with no object expression a shape binding can target."
+    },
+    {
+      "location": "524:30",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Numeric operations whose operands are untyped: end/start come from the untyped global performance.now() (so end - start and Math.max(1, ...) stay generic), total comes from the reduce result and results.length from an array in an untyped slot, and the string concatenation at 531:9 mixes 'Time: ' with the untyped total."
+    },
+    {
+      "location": "530:19",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Numeric operations whose operands are untyped: end/start come from the untyped global performance.now() (so end - start and Math.max(1, ...) stay generic), total comes from the reduce result and results.length from an array in an untyped slot, and the string concatenation at 531:9 mixes 'Time: ' with the untyped total."
+    },
+    {
+      "location": "530:34",
+      "kind": "property_load",
+      "reason": "maybe-not-number",
+      "property": "length",
+      "note": "Numeric operations whose operands are untyped: end/start come from the untyped global performance.now() (so end - start and Math.max(1, ...) stay generic), total comes from the reduce result and results.length from an array in an untyped slot, and the string concatenation at 531:9 mixes 'Time: ' with the untyped total."
+    },
+    {
+      "location": "531:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number",
+      "note": "Numeric operations whose operands are untyped: end/start come from the untyped global performance.now() (so end - start and Math.max(1, ...) stay generic), total comes from the reduce result and results.length from an array in an untyped slot, and the string concatenation at 531:9 mixes 'Time: ' with the untyped total."
+    },
+    {
+      "location": "527:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "The optional-call check for benchmark.validate?.(12): its callee is a method on Benchmark's implicit ES6 class prototype, so the callee cannot be shape-guarded, and a closure type guard on the callee expression is auto-pruned as unmatched (verified)."
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "playHands",
+      "note": "Top-level function declarations install their function into the module/global namespace while that namespace object is being assembled; there is no receiver object expression a shape binding can target."
+    },
+    {
+      "location": "5:1",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "getPlayerExpectations",
+      "note": "Top-level function declarations install their function into the module/global namespace while that namespace object is being assembled; there is no receiver object expression a shape binding can target."
+    },
+    {
+      "location": "335:32",
+      "kind": "call",
+      "reason": "other",
+      "note": "new CardDeck() inside playHands. A closure type guard on the callee with the CardDeck constructor's function range (82:5:85:6) is accepted by the compiler (no range warning) but produces no optimization, and no other annotation inside playHands has any effect either (verified with dryrun across several scopes) — this function is not annotation-optimizable by the pipeline."
+    }
+  ]
+}

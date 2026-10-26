@@ -1,0 +1,2744 @@
+{
+  "static shapes": {
+    "FakesExports": {
+      "properties": [
+        {
+          "name": "uuid"
+        },
+        {
+          "name": "userAccount"
+        },
+        {
+          "name": "account"
+        },
+        {
+          "name": "blobManager"
+        },
+        {
+          "name": "self"
+        },
+        {
+          "name": "File"
+        },
+        {
+          "name": "FileVersion"
+        },
+        {
+          "name": "Version"
+        },
+        {
+          "name": "db"
+        }
+      ]
+    },
+    "UserAccount": {
+      "properties": [
+        {
+          "name": "id",
+          "type": "number"
+        }
+      ]
+    },
+    "Account": {
+      "properties": []
+    },
+    "QueryishProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "all",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 162,
+              "column": 1
+            },
+            "end": {
+              "line": 162,
+              "column": 58
+            }
+          }
+        },
+        {
+          "name": "exec",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 162,
+              "column": 1
+            },
+            "end": {
+              "line": 162,
+              "column": 58
+            }
+          }
+        },
+        {
+          "name": "execWithin",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 163,
+              "column": 1
+            },
+            "end": {
+              "line": 163,
+              "column": 59
+            }
+          }
+        },
+        {
+          "name": "get",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 162,
+              "column": 1
+            },
+            "end": {
+              "line": 162,
+              "column": 58
+            }
+          }
+        }
+      ]
+    },
+    "QueryishInst": {
+      "properties": []
+    },
+    "UuidProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "v1",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 176,
+              "column": 3
+            },
+            "end": {
+              "line": 176,
+              "column": 10
+            }
+          }
+        }
+      ]
+    },
+    "UuidInst": {
+      "properties": []
+    },
+    "BlobProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "put",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 163,
+              "column": 1
+            },
+            "end": {
+              "line": 163,
+              "column": 59
+            }
+          }
+        }
+      ]
+    },
+    "BlobInst": {
+      "properties": []
+    },
+    "BlobManagerProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "create",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 187,
+              "column": 3
+            },
+            "end": {
+              "line": 189,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "BlobManagerInst": {
+      "properties": []
+    },
+    "SelfProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "byUuidOrPath",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 171,
+              "column": 1
+            },
+            "end": {
+              "line": 173,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "createQuery",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 197,
+              "column": 30
+            },
+            "end": {
+              "line": 199,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "SelfInst": {
+      "properties": []
+    },
+    "FileObj": {
+      "properties": [
+        {
+          "name": "insert",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 171,
+              "column": 1
+            },
+            "end": {
+              "line": 173,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "whereUpdate",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 171,
+              "column": 1
+            },
+            "end": {
+              "line": 173,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "FileVersionObj": {
+      "properties": [
+        {
+          "name": "insert",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 171,
+              "column": 1
+            },
+            "end": {
+              "line": 173,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "VersionObj": {
+      "properties": [
+        {
+          "name": "createHash",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 210,
+              "column": 22
+            },
+            "end": {
+              "line": 212,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "insert",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 171,
+              "column": 1
+            },
+            "end": {
+              "line": 173,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "TransactionProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "commit",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 162,
+              "column": 1
+            },
+            "end": {
+              "line": 162,
+              "column": 58
+            }
+          }
+        },
+        {
+          "name": "rollback",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 162,
+              "column": 1
+            },
+            "end": {
+              "line": 162,
+              "column": 58
+            }
+          }
+        }
+      ]
+    },
+    "TransactionInst": {
+      "properties": []
+    },
+    "DbProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "begin",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 220,
+              "column": 3
+            },
+            "end": {
+              "line": 222,
+              "column": 4
+            }
+          }
+        }
+      ]
+    },
+    "DbInst": {
+      "properties": []
+    },
+    "VersionRec": {
+      "properties": [
+        {
+          "name": "userAccountId"
+        },
+        {
+          "name": "blobId"
+        },
+        {
+          "name": "creatorId"
+        },
+        {
+          "name": "previousId"
+        },
+        {
+          "name": "id"
+        }
+      ]
+    },
+    "BlobProtoAny": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "put"
+        }
+      ]
+    },
+    "QueryishInst2": {
+      "properties": [
+        {
+          "name": "all",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 162,
+              "column": 1
+            },
+            "end": {
+              "line": 162,
+              "column": 58
+            }
+          }
+        },
+        {
+          "name": "exec",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 162,
+              "column": 1
+            },
+            "end": {
+              "line": 162,
+              "column": 58
+            }
+          }
+        },
+        {
+          "name": "execWithin",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 163,
+              "column": 1
+            },
+            "end": {
+              "line": 163,
+              "column": 59
+            }
+          }
+        },
+        {
+          "name": "get",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 162,
+              "column": 1
+            },
+            "end": {
+              "line": 162,
+              "column": 58
+            }
+          }
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 16
+        },
+        "end": {
+          "line": 94,
+          "column": 21
+        }
+      },
+      "shape": "FakesExports"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 41
+        },
+        "end": {
+          "line": 94,
+          "column": 46
+        }
+      },
+      "shape": "FakesExports"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 95,
+          "column": 14
+        },
+        "end": {
+          "line": 95,
+          "column": 19
+        }
+      },
+      "shape": "FakesExports"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 102,
+          "column": 14
+        },
+        "end": {
+          "line": 102,
+          "column": 19
+        }
+      },
+      "shape": "FakesExports"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 108,
+          "column": 24
+        },
+        "end": {
+          "line": 108,
+          "column": 29
+        }
+      },
+      "shape": "FakesExports"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 110,
+          "column": 20
+        },
+        "end": {
+          "line": 110,
+          "column": 25
+        }
+      },
+      "shape": "FakesExports"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 113,
+          "column": 20
+        },
+        "end": {
+          "line": 113,
+          "column": 25
+        }
+      },
+      "shape": "FakesExports"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 114,
+          "column": 14
+        },
+        "end": {
+          "line": 114,
+          "column": 19
+        }
+      },
+      "shape": "FakesExports"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 120,
+          "column": 23
+        },
+        "end": {
+          "line": 120,
+          "column": 28
+        }
+      },
+      "shape": "FakesExports"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 121,
+          "column": 16
+        },
+        "end": {
+          "line": 121,
+          "column": 21
+        }
+      },
+      "shape": "FakesExports"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 124,
+          "column": 28
+        },
+        "end": {
+          "line": 124,
+          "column": 33
+        }
+      },
+      "shape": "FakesExports"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 140,
+          "column": 14
+        },
+        "end": {
+          "line": 140,
+          "column": 19
+        }
+      },
+      "shape": "FakesExports"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 146,
+          "column": 14
+        },
+        "end": {
+          "line": 146,
+          "column": 19
+        }
+      },
+      "shape": "FakesExports"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 108,
+          "column": 24
+        },
+        "end": {
+          "line": 108,
+          "column": 41
+        }
+      },
+      "shape": "UserAccount"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 110,
+          "column": 20
+        },
+        "end": {
+          "line": 110,
+          "column": 37
+        }
+      },
+      "shape": "UserAccount"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 124,
+          "column": 28
+        },
+        "end": {
+          "line": 124,
+          "column": 45
+        }
+      },
+      "shape": "UserAccount"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 113,
+          "column": 20
+        },
+        "end": {
+          "line": 113,
+          "column": 33
+        }
+      },
+      "shape": "VersionObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 114,
+          "column": 14
+        },
+        "end": {
+          "line": 114,
+          "column": 27
+        }
+      },
+      "shape": "VersionObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 140,
+          "column": 14
+        },
+        "end": {
+          "line": 140,
+          "column": 31
+        }
+      },
+      "shape": "FileVersionObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 146,
+          "column": 14
+        },
+        "end": {
+          "line": 146,
+          "column": 24
+        }
+      },
+      "shape": "FileObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 98,
+          "column": 10
+        },
+        "end": {
+          "line": 98,
+          "column": 14
+        }
+      },
+      "shape": "BlobInst",
+      "prototype shape": "BlobProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 113,
+          "column": 7
+        },
+        "end": {
+          "line": 113,
+          "column": 14
+        }
+      },
+      "shape": "VersionRec"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 113,
+          "column": 45
+        },
+        "end": {
+          "line": 113,
+          "column": 52
+        }
+      },
+      "shape": "VersionRec"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 114,
+          "column": 35
+        },
+        "end": {
+          "line": 114,
+          "column": 42
+        }
+      },
+      "shape": "VersionRec"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 126,
+          "column": 22
+        },
+        "end": {
+          "line": 126,
+          "column": 29
+        }
+      },
+      "shape": "VersionRec"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 142,
+          "column": 20
+        },
+        "end": {
+          "line": 142,
+          "column": 27
+        }
+      },
+      "shape": "VersionRec"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 148,
+          "column": 20
+        },
+        "end": {
+          "line": 148,
+          "column": 27
+        }
+      },
+      "shape": "VersionRec"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 98,
+          "column": 10
+        },
+        "end": {
+          "line": 98,
+          "column": 14
+        }
+      },
+      "shape": "BlobInst",
+      "prototype shape": "BlobProtoAny"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 226,
+          "column": 18
+        },
+        "end": {
+          "line": 236,
+          "column": 2
+        }
+      },
+      "shape": "FakesExports"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 180,
+          "column": 21
+        },
+        "end": {
+          "line": 180,
+          "column": 30
+        }
+      },
+      "shape": "UserAccount"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 182,
+          "column": 17
+        },
+        "end": {
+          "line": 182,
+          "column": 19
+        }
+      },
+      "shape": "Account"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 172,
+          "column": 10
+        },
+        "end": {
+          "line": 172,
+          "column": 24
+        }
+      },
+      "shape": "QueryishInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 178,
+          "column": 14
+        },
+        "end": {
+          "line": 178,
+          "column": 24
+        }
+      },
+      "shape": "UuidInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 188,
+          "column": 12
+        },
+        "end": {
+          "line": 188,
+          "column": 22
+        }
+      },
+      "shape": "BlobInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 191,
+          "column": 21
+        },
+        "end": {
+          "line": 191,
+          "column": 38
+        }
+      },
+      "shape": "BlobManagerInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 200,
+          "column": 14
+        },
+        "end": {
+          "line": 200,
+          "column": 24
+        }
+      },
+      "shape": "SelfInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 204,
+          "column": 1
+        },
+        "end": {
+          "line": 204,
+          "column": 5
+        }
+      },
+      "shape": "FileObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 207,
+          "column": 1
+        },
+        "end": {
+          "line": 207,
+          "column": 12
+        }
+      },
+      "shape": "FileVersionObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 213,
+          "column": 1
+        },
+        "end": {
+          "line": 213,
+          "column": 8
+        }
+      },
+      "shape": "VersionObj"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 221,
+          "column": 12
+        },
+        "end": {
+          "line": 221,
+          "column": 29
+        }
+      },
+      "shape": "TransactionInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 224,
+          "column": 12
+        },
+        "end": {
+          "line": 224,
+          "column": 20
+        }
+      },
+      "shape": "DbInst"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 113,
+          "column": 7
+        },
+        "end": {
+          "line": 113,
+          "column": 14
+        }
+      },
+      "shape": "VersionRec"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 217,
+          "column": 1
+        },
+        "end": {
+          "line": 217,
+          "column": 41
+        }
+      },
+      "shape": "TransactionProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 185,
+          "column": 1
+        },
+        "end": {
+          "line": 185,
+          "column": 15
+        }
+      },
+      "shape": "BlobProtoAny"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 170,
+          "column": 1
+        },
+        "end": {
+          "line": 170,
+          "column": 19
+        }
+      },
+      "shape": "QueryishProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 185,
+          "column": 1
+        },
+        "end": {
+          "line": 185,
+          "column": 29
+        }
+      },
+      "shape": "BlobProto"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 16
+        },
+        "end": {
+          "line": 94,
+          "column": 40
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 187,
+          "column": 3
+        },
+        "end": {
+          "line": 189,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 95,
+          "column": 14
+        },
+        "end": {
+          "line": 95,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 220,
+          "column": 3
+        },
+        "end": {
+          "line": 222,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 98,
+          "column": 10
+        },
+        "end": {
+          "line": 99,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 163,
+          "column": 1
+        },
+        "end": {
+          "line": 163,
+          "column": 59
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 113,
+          "column": 20
+        },
+        "end": {
+          "line": 113,
+          "column": 44
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 210,
+          "column": 22
+        },
+        "end": {
+          "line": 212,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 114,
+          "column": 14
+        },
+        "end": {
+          "line": 114,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 171,
+          "column": 1
+        },
+        "end": {
+          "line": 173,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 114,
+          "column": 14
+        },
+        "end": {
+          "line": 114,
+          "column": 54
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 163,
+          "column": 1
+        },
+        "end": {
+          "line": 163,
+          "column": 59
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 140,
+          "column": 14
+        },
+        "end": {
+          "line": 143,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 163,
+          "column": 1
+        },
+        "end": {
+          "line": 163,
+          "column": 59
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 146,
+          "column": 14
+        },
+        "end": {
+          "line": 149,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 163,
+          "column": 1
+        },
+        "end": {
+          "line": 163,
+          "column": 59
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 102,
+          "column": 14
+        },
+        "end": {
+          "line": 102,
+          "column": 37
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 171,
+          "column": 1
+        },
+        "end": {
+          "line": 173,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 102,
+          "column": 14
+        },
+        "end": {
+          "line": 102,
+          "column": 51
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 162,
+          "column": 1
+        },
+        "end": {
+          "line": 162,
+          "column": 58
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 120,
+          "column": 23
+        },
+        "end": {
+          "line": 120,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 176,
+          "column": 3
+        },
+        "end": {
+          "line": 176,
+          "column": 10
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 121,
+          "column": 16
+        },
+        "end": {
+          "line": 122,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 197,
+          "column": 30
+        },
+        "end": {
+          "line": 199,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 152,
+          "column": 14
+        },
+        "end": {
+          "line": 152,
+          "column": 23
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 162,
+          "column": 1
+        },
+        "end": {
+          "line": 162,
+          "column": 58
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 155,
+          "column": 14
+        },
+        "end": {
+          "line": 155,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 162,
+          "column": 1
+        },
+        "end": {
+          "line": 162,
+          "column": 58
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 272,
+          "column": 30
+        },
+        "end": {
+          "line": 272,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 272,
+          "column": 36
+        },
+        "end": {
+          "line": 272,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 275,
+          "column": 33
+        },
+        "end": {
+          "line": 275,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 275,
+          "column": 38
+        },
+        "end": {
+          "line": 275,
+          "column": 39
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 268,
+          "column": 11
+        },
+        "end": {
+          "line": 268,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 242,
+          "column": 3
+        },
+        "end": {
+          "line": 249,
+          "column": 4
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 129,
+          "column": 20
+        },
+        "end": {
+          "line": 129,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 163,
+          "column": 1
+        },
+        "end": {
+          "line": 163,
+          "column": 59
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 246,
+          "column": 21
+        },
+        "end": {
+          "line": 246,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 93,
+          "column": 18
+        },
+        "end": {
+          "line": 157,
+          "column": 2
+        }
+      }
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "11:17",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "11:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "11:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "11:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "11:69",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "12:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "12:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "12:17",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "12:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "12:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "13:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "13:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "mark"
+    },
+    {
+      "location": "13:18",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "mark"
+    },
+    {
+      "location": "14:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "14:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "measure"
+    },
+    {
+      "location": "14:21",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "measure"
+    },
+    {
+      "location": "15:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "15:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "timeOrigin"
+    },
+    {
+      "location": "15:24",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "timeOrigin"
+    },
+    {
+      "location": "17:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "17:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "17:38",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "29:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "30:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "30:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Realm"
+    },
+    {
+      "location": "32:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "40:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "JetStream"
+    },
+    {
+      "location": "5:41",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Proxy"
+    },
+    {
+      "location": "7:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "33:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "read"
+    },
+    {
+      "location": "34:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "read"
+    },
+    {
+      "location": "35:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Int8Array"
+    },
+    {
+      "location": "41:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "read"
+    },
+    {
+      "location": "42:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "read"
+    },
+    {
+      "location": "88:85",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "require"
+    },
+    {
+      "location": "88:101",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "require"
+    },
+    {
+      "location": "88:163",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "88:211",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "code"
+    },
+    {
+      "location": "88:269",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "call"
+    },
+    {
+      "location": "88:388",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "require"
+    },
+    {
+      "location": "88:404",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "require"
+    },
+    {
+      "location": "88:419",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "93:16",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "exports"
+    },
+    {
+      "location": "162:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Promise"
+    },
+    {
+      "location": "162:44",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "resolve"
+    },
+    {
+      "location": "163:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Promise"
+    },
+    {
+      "location": "163:45",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "resolve"
+    },
+    {
+      "location": "198:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Promise"
+    },
+    {
+      "location": "198:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "resolve"
+    },
+    {
+      "location": "226:16",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "exports"
+    },
+    {
+      "location": "241:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "241:22",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "Benchmark"
+    },
+    {
+      "location": "243:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Array"
+    },
+    {
+      "location": "248:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Promise"
+    },
+    {
+      "location": "248:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "all"
+    },
+    {
+      "location": "260:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Benchmark"
+    },
+    {
+      "location": "267:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "267:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "269:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "269:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "272:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "272:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "272:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "max"
+    },
+    {
+      "location": "275:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reduce"
+    },
+    {
+      "location": "276:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "277:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "279:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "printErr"
+    },
+    {
+      "location": "279:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "100:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "then"
+    },
+    {
+      "location": "104:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "then"
+    },
+    {
+      "location": "116:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "then"
+    },
+    {
+      "location": "138:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "then"
+    },
+    {
+      "location": "145:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "then"
+    },
+    {
+      "location": "151:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "then"
+    },
+    {
+      "location": "154:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "catch"
+    },
+    {
+      "location": "118:47",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "lastIndexOf"
+    },
+    {
+      "location": "119:44",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "substring"
+    },
+    {
+      "location": "128:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "then"
+    },
+    {
+      "location": "131:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "then"
+    },
+    {
+      "location": "155:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "then"
+    },
+    {
+      "location": "155:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Promise"
+    },
+    {
+      "location": "155:52",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "reject"
+    },
+    {
+      "location": "278:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "catch"
+    },
+    {
+      "location": "5:46",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Proxy"
+    },
+    {
+      "location": "32:23",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "34:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "read"
+    },
+    {
+      "location": "35:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Int8Array"
+    },
+    {
+      "location": "40:23",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "42:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "read"
+    },
+    {
+      "location": "88:126",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "88:146",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "88:168",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "88:269",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "call"
+    },
+    {
+      "location": "88:460",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "91:22",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "162:44",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "resolve"
+    },
+    {
+      "location": "163:45",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "resolve"
+    },
+    {
+      "location": "198:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "resolve"
+    },
+    {
+      "location": "239:23",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "243:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Array"
+    },
+    {
+      "location": "248:23",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "all"
+    },
+    {
+      "location": "260:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Benchmark"
+    },
+    {
+      "location": "261:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "init"
+    },
+    {
+      "location": "265:40",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "prepareForNextIteration"
+    },
+    {
+      "location": "267:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "269:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "271:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "validate"
+    },
+    {
+      "location": "272:17",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "275:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "reduce"
+    },
+    {
+      "location": "277:8",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "279:11",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "printErr"
+    },
+    {
+      "location": "279:18",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "String"
+    },
+    {
+      "location": "100:10",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "then"
+    },
+    {
+      "location": "104:10",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "then"
+    },
+    {
+      "location": "116:10",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "then"
+    },
+    {
+      "location": "138:10",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "then"
+    },
+    {
+      "location": "145:10",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "then"
+    },
+    {
+      "location": "151:10",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "then"
+    },
+    {
+      "location": "154:11",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "catch"
+    },
+    {
+      "location": "118:47",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "lastIndexOf"
+    },
+    {
+      "location": "119:44",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "substring"
+    },
+    {
+      "location": "128:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "then"
+    },
+    {
+      "location": "131:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "then"
+    },
+    {
+      "location": "155:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "then"
+    },
+    {
+      "location": "155:52",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "reject"
+    },
+    {
+      "location": "278:11",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "catch"
+    },
+    {
+      "location": "167:24",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "all"
+    },
+    {
+      "location": "168:25",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "exec"
+    },
+    {
+      "location": "169:31",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "execWithin"
+    },
+    {
+      "location": "170:24",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "get"
+    },
+    {
+      "location": "185:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "put"
+    },
+    {
+      "location": "196:29",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "byUuidOrPath"
+    },
+    {
+      "location": "197:28",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "createQuery"
+    },
+    {
+      "location": "203:13",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "insert"
+    },
+    {
+      "location": "204:18",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "whereUpdate"
+    },
+    {
+      "location": "207:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "insert"
+    },
+    {
+      "location": "210:20",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "createHash"
+    },
+    {
+      "location": "213:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "insert"
+    },
+    {
+      "location": "216:30",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "commit"
+    },
+    {
+      "location": "217:32",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "rollback"
+    },
+    {
+      "location": "29:23",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isInBrowser"
+    },
+    {
+      "location": "30:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isD8"
+    },
+    {
+      "location": "32:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "getBinary"
+    },
+    {
+      "location": "40:21",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "getString"
+    },
+    {
+      "location": "94:40",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "create",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "95:28",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "begin",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "99:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "put",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "102:37",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "byUuidOrPath",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "102:51",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "get",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "114:54",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "execWithin",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "120:36",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "v1",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "122:23",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "createQuery",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "129:32",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "execWithin",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "143:20",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "execWithin",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "149:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "execWithin",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "152:23",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "commit",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "155:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "rollback",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "268:33",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "runIteration",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "167:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "168:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "169:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "170:9",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "185:5",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "196:5",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "197:5",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "216:12",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "217:12",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "175:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "186:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "219:1",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "241:24",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prototype",
+      "note": "inherited/prototype read. Attempted the documented recipe: bound the prototype object with a shape_binding and guarded the receiver with shape + prototype shape, with the method property typed as closure and again as any. No variant produces a fast-path slot read (dryrun stays \"not optimized\"), and class-syntax prototypes (BlobManager/Db/Uuid) cannot be shape-bound at all (binding target matches no IR, auto-pruned). The matching prototype method *calls* are already optimised via closure type guards on the callee expressions; only the property read itself stays generic."
+    },
+    {
+      "location": "106:37",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "version",
+      "note": "own-property read on `file`, which is assigned from a `.then` callback parameter (an untyped promise-resolution value); there is no in-file creation expression to bind a shape to, so the read stays generic."
+    },
+    {
+      "location": "135:20",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "id",
+      "note": "own-property read on `file`, which is assigned from a `.then` callback parameter (an untyped promise-resolution value); there is no in-file creation expression to bind a shape to, so the read stays generic."
+    },
+    {
+      "location": "261:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "init",
+      "note": "optional call on a method (`init`/`prepareForNextIteration`/`validate`) that does not exist on the Benchmark class; both the property read and the `?.` guard stay generic because `benchmark`'s class prototype cannot be shape-bound and there is no statically-known callee to type-guard."
+    },
+    {
+      "location": "261:25",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional call on a method (`init`/`prepareForNextIteration`/`validate`) that does not exist on the Benchmark class; both the property read and the `?.` guard stay generic because `benchmark`'s class prototype cannot be shape-bound and there is no statically-known callee to type-guard."
+    },
+    {
+      "location": "265:40",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "prepareForNextIteration",
+      "note": "optional call on a method (`init`/`prepareForNextIteration`/`validate`) that does not exist on the Benchmark class; both the property read and the `?.` guard stay generic because `benchmark`'s class prototype cannot be shape-bound and there is no statically-known callee to type-guard."
+    },
+    {
+      "location": "265:40",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional call on a method (`init`/`prepareForNextIteration`/`validate`) that does not exist on the Benchmark class; both the property read and the `?.` guard stay generic because `benchmark`'s class prototype cannot be shape-bound and there is no statically-known callee to type-guard."
+    },
+    {
+      "location": "271:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "validate",
+      "note": "optional call on a method (`init`/`prepareForNextIteration`/`validate`) that does not exist on the Benchmark class; both the property read and the `?.` guard stay generic because `benchmark`'s class prototype cannot be shape-bound and there is no statically-known callee to type-guard."
+    },
+    {
+      "location": "271:25",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "optional call on a method (`init`/`prepareForNextIteration`/`validate`) that does not exist on the Benchmark class; both the property read and the `?.` guard stay generic because `benchmark`'s class prototype cannot be shape-bound and there is no statically-known callee to type-guard."
+    },
+    {
+      "location": "279:33",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "stack",
+      "note": "`stack` read on an unknown thrown value (the catch parameter `error` is untyped); no shape can be established for an arbitrary thrown value."
+    },
+    {
+      "location": "279:47",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "stack",
+      "note": "`stack` read on an unknown thrown value (the catch parameter `error` is untyped); no shape can be established for an arbitrary thrown value."
+    },
+    {
+      "location": "88:169",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "browserify prelude arithmetic inside the module wrapper; the operands derive from untyped prelude values (module table, loop bound) with no bindable object shapes."
+    },
+    {
+      "location": "88:416",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "browserify prelude arithmetic inside the module wrapper; the operands derive from untyped prelude values (module table, loop bound) with no bindable object shapes."
+    },
+    {
+      "location": "88:271",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "exports",
+      "note": "browserify module-record `exports` read; the `{exports:{}}` object literal was tried as a shape_binding target but matches no IR (auto-pruned), so the record object can never carry a static shape."
+    },
+    {
+      "location": "88:328",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "exports",
+      "note": "browserify module-record `exports` read; the `{exports:{}}` object literal was tried as a shape_binding target but matches no IR (auto-pruned), so the record object can never carry a static shape."
+    },
+    {
+      "location": "88:357",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "exports",
+      "note": "browserify module-record `exports` read; the `{exports:{}}` object literal was tried as a shape_binding target but matches no IR (auto-pruned), so the record object can never carry a static shape."
+    },
+    {
+      "location": "118:27",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "276:19",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "277:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "11:19",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "12:17",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "13:18",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "14:21",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "15:24",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "7:20",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "7:40",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "String"
+    },
+    {
+      "location": "7:21",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "7:34",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "259:2",
+      "kind": "call",
+      "reason": "no-closure-target"
+    }
+  ]
+}

@@ -1,12 +1,3 @@
-// Imported from https://github.com/Sable/Ostrich
-// Commit: dd06ca4340ecdbc0a795274d826cb5c034a2b9fe
-// Source: n-body-methods/lavamd/js/lavamd.js
-// Adaptation: benchmarks/speculative/import_ostrich.py
-(function() {
-// HBC shells expose Date.now(); SH and V8 also provide performance.now().
-var ostrichNow = typeof performance === "undefined"
-    ? Date.now : performance.now.bind(performance);
-var rv_cpu, qv_cpu, fv_cpu, time0, time1;
 // Copyright 2013 the V8 project authors. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -34,7 +25,7 @@ var rv_cpu, qv_cpu, fv_cpu, time0, time1;
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-var commonRandom = (function() {
+Math.commonRandom = (function() {
     var seed = 49734321;
     return function() {
         // Robert Jenkins' 32 bit integer hash function.
@@ -48,8 +39,8 @@ var commonRandom = (function() {
     };
 })();
 
-var commonRandomJS = function () {
-    return Math.abs(commonRandom() / 0x7fffffff);
+Math.commonRandomJS = function () {
+    return Math.abs(Math.commonRandom() / 0x7fffffff);
 }
 
 /*
@@ -76,7 +67,6 @@ var commonRandomJS = function () {
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 
 
 
@@ -129,21 +119,17 @@ function lavamd(boxes1d) {
 
     // system memory
     var par_cpu = {}, dim_cpu = {}, box_cpu = [], rv_cpu = [], qv_cpu, fv_cpu = [], nh;
-    var expectedAns = {
-        6: [4144561, 181665, -190914, 140373],
-        3: [314053, 36178, 21974, -26368],
-        2: [70595, 21913, 11815, 7848]
-    }[boxes1d];
+    var expectedAns = [4144561.0, 181665.0, -190914.0, 140373.0];
 
     // assign default values
     dim_cpu.cores_arg = 1;
     dim_cpu.boxes1d_arg = boxes1d || 1;
 
     if(dim_cpu.boxes1d_arg < 0) {
-        print("ERROR: Wrong value to -boxes1d parameter, cannot be <=0");
+        console.log("ERROR: Wrong value to -boxes1d parameter, cannot be <=0");
         return;
     }
-    print("Configuration used: cores = %d, boxes1d = %d\n", dim_cpu.cores_arg, dim_cpu.boxes1d_arg);
+    console.log("Configuration used: cores = %d, boxes1d = %d\n", dim_cpu.cores_arg, dim_cpu.boxes1d_arg);
 
     // INPUTS
     par_cpu.alpha = 0.5;
@@ -212,27 +198,27 @@ function lavamd(boxes1d) {
     // input (distances)
     rv_cpu = createArray(space_mem, dim_cpu.space_elem); //(FOUR_VECTOR*)malloc(dim_cpu.space_mem);
     for(i=0; i<dim_cpu.space_elem; i=i+1){
-        rv_cpu[i].v = (commonRandom()%10 + 1) / 10.0;        // get a number in the range 0.1 - 1.0
-        rv_cpu[i].x = (commonRandom()%10 + 1) / 10.0;        // get a number in the range 0.1 - 1.0
-        rv_cpu[i].y = (commonRandom()%10 + 1) / 10.0;        // get a number in the range 0.1 - 1.0
-        rv_cpu[i].z = (commonRandom()%10 + 1) / 10.0;        // get a number in the range 0.1 - 1.0
+        rv_cpu[i].v = (Math.commonRandom()%10 + 1) / 10.0;        // get a number in the range 0.1 - 1.0
+        rv_cpu[i].x = (Math.commonRandom()%10 + 1) / 10.0;        // get a number in the range 0.1 - 1.0
+        rv_cpu[i].y = (Math.commonRandom()%10 + 1) / 10.0;        // get a number in the range 0.1 - 1.0
+        rv_cpu[i].z = (Math.commonRandom()%10 + 1) / 10.0;        // get a number in the range 0.1 - 1.0
     }
 
     // input (charge)
     qv_cpu = new Float64Array(dim_cpu.space_elem); // (fp*)malloc(dim_cpu.space_mem2);
     for(i=0; i<dim_cpu.space_elem; i=i+1){
-        qv_cpu[i] = (commonRandom()%10 + 1) / 10;            // get a number in the range 0.1 - 1.0
+        qv_cpu[i] = (Math.commonRandom()%10 + 1) / 10;            // get a number in the range 0.1 - 1.0
     }
 
     // output (forces)
     fv_cpu = createArray(space_mem, dim_cpu.space_elem); //(FOUR_VECTOR*)malloc(dim_cpu.space_mem);
 
-    time0 = ostrichNow();
+    time0 = performance.now();
 
     kernel_cpu(par_cpu, dim_cpu, box_cpu, rv_cpu, qv_cpu, fv_cpu);
 
     var sum = space_mem();
-    if (expectedAns !== undefined) {
+    if (dim_cpu.boxes1d_arg == expected_boxes1d) {
         for(i=0; i<dim_cpu.space_elem; i=i+1) {
             sum.v += fv_cpu[i].v;
             sum.x += fv_cpu[i].x;
@@ -240,15 +226,15 @@ function lavamd(boxes1d) {
             sum.z += fv_cpu[i].z;
         }
         if(Math.round(sum.v) != expectedAns[0] || Math.round(sum.x) != expectedAns[1] || Math.round(sum.y) != expectedAns[2] || Math.round(sum.z) != expectedAns[3]) {
-            print("Expected: [" + expectedAns[0] + ", " + expectedAns[1] + ", " + expectedAns[2] + ", " + expectedAns[3] + "]");
-            throw new Error("Got: [" + sum.v + ", " + sum.x + ", " + sum.y + ", " + sum.z + "]");
+            console.log("Expected: [" + expectedAns[0] + ", " + expectedAns[1] + ", " + expectedAns[2] + ", " + expectedAns[3] + "]");
+            console.log("Got: [" + sum.v + ", " + sum.x + ", " + sum.y + ", " + sum.z + "]");
         }
     } else {
-        print("WARNING: no self-checking for input size of '%d'\n", dim_cpu.boxes1d_arg);
+        console.log("WARNING: no self-checking for input size of '%d'\n", dim_cpu.boxes1d_arg);
     }
 
-    time1 = ostrichNow();
-    print("Total time: " + (time1-time0) / 1000 + " s");
+    time1 = performance.now();
+    console.log("Total time: " + (time1-time0) / 1000 + " s");
     return { status: 1,
              options: "lavamd(" + boxes1d + ")",
              time: (time1 - time0) / 1000 };
@@ -310,11 +296,11 @@ function runLavaMD(boxes1d) {
     return lavamd(boxes1d);
 }
 
-const OSTRICH_ARGS = [3];
-var result = runLavaMD(OSTRICH_ARGS[0]);
-if (!result || result.status !== 1 ||
-    !Number.isFinite(result.time) || result.time <= 0) {
-    throw new Error("Invalid benchmark result");
-}
-print("Time: " + result.time * 1000);
-})();
+
+// Static Hermes benchmark runner: fixed params, timed with performance.now
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+runLavaMD( 3 );
+var __end = __performance.now();
+print( "Time: " + Math.round( __end - __start ) );

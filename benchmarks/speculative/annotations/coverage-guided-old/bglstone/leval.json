@@ -1,0 +1,4464 @@
+{
+  "static shapes": {
+    "Pair": {
+      "properties": [
+        {
+          "name": "car"
+        },
+        {
+          "name": "cdr"
+        }
+      ]
+    },
+    "PairProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "toString",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 21,
+              "column": 27
+            },
+            "end": {
+              "line": 27,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "map",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 29,
+              "column": 22
+            },
+            "end": {
+              "line": 39,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "foreach",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 41,
+              "column": 26
+            },
+            "end": {
+              "line": 52,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "assq",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 54,
+              "column": 23
+            },
+            "end": {
+              "line": 66,
+              "column": 2
+            }
+          }
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 104,
+          "column": 15
+        },
+        "end": {
+          "line": 104,
+          "column": 16
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 105,
+          "column": 15
+        },
+        "end": {
+          "line": 105,
+          "column": 16
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 105,
+          "column": 28
+        },
+        "end": {
+          "line": 105,
+          "column": 29
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 106,
+          "column": 16
+        },
+        "end": {
+          "line": 106,
+          "column": 17
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 106,
+          "column": 29
+        },
+        "end": {
+          "line": 106,
+          "column": 30
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 106,
+          "column": 29
+        },
+        "end": {
+          "line": 106,
+          "column": 34
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 107,
+          "column": 16
+        },
+        "end": {
+          "line": 107,
+          "column": 17
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 107,
+          "column": 29
+        },
+        "end": {
+          "line": 107,
+          "column": 30
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 107,
+          "column": 29
+        },
+        "end": {
+          "line": 107,
+          "column": 34
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 108,
+          "column": 16
+        },
+        "end": {
+          "line": 108,
+          "column": 17
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 108,
+          "column": 29
+        },
+        "end": {
+          "line": 108,
+          "column": 30
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 108,
+          "column": 29
+        },
+        "end": {
+          "line": 108,
+          "column": 34
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 109,
+          "column": 17
+        },
+        "end": {
+          "line": 109,
+          "column": 18
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 109,
+          "column": 30
+        },
+        "end": {
+          "line": 109,
+          "column": 31
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 109,
+          "column": 30
+        },
+        "end": {
+          "line": 109,
+          "column": 35
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 109,
+          "column": 30
+        },
+        "end": {
+          "line": 109,
+          "column": 39
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 110,
+          "column": 17
+        },
+        "end": {
+          "line": 110,
+          "column": 18
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 110,
+          "column": 30
+        },
+        "end": {
+          "line": 110,
+          "column": 31
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 110,
+          "column": 30
+        },
+        "end": {
+          "line": 110,
+          "column": 35
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 110,
+          "column": 30
+        },
+        "end": {
+          "line": 110,
+          "column": 39
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 111,
+          "column": 18
+        },
+        "end": {
+          "line": 111,
+          "column": 19
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 111,
+          "column": 31
+        },
+        "end": {
+          "line": 111,
+          "column": 32
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 111,
+          "column": 31
+        },
+        "end": {
+          "line": 111,
+          "column": 36
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 111,
+          "column": 31
+        },
+        "end": {
+          "line": 111,
+          "column": 40
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 111,
+          "column": 31
+        },
+        "end": {
+          "line": 111,
+          "column": 44
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 112,
+          "column": 18
+        },
+        "end": {
+          "line": 112,
+          "column": 19
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 112,
+          "column": 31
+        },
+        "end": {
+          "line": 112,
+          "column": 32
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 112,
+          "column": 31
+        },
+        "end": {
+          "line": 112,
+          "column": 36
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 112,
+          "column": 31
+        },
+        "end": {
+          "line": 112,
+          "column": 40
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 112,
+          "column": 31
+        },
+        "end": {
+          "line": 112,
+          "column": 44
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 114,
+          "column": 18
+        },
+        "end": {
+          "line": 114,
+          "column": 19
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 114,
+          "column": 34
+        },
+        "end": {
+          "line": 114,
+          "column": 35
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 115,
+          "column": 18
+        },
+        "end": {
+          "line": 115,
+          "column": 19
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 115,
+          "column": 34
+        },
+        "end": {
+          "line": 115,
+          "column": 35
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 133,
+          "column": 16
+        },
+        "end": {
+          "line": 133,
+          "column": 17
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 134,
+          "column": 10
+        },
+        "end": {
+          "line": 134,
+          "column": 11
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 135,
+          "column": 20
+        },
+        "end": {
+          "line": 135,
+          "column": 21
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 136,
+          "column": 18
+        },
+        "end": {
+          "line": 136,
+          "column": 19
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 141,
+          "column": 20
+        },
+        "end": {
+          "line": 141,
+          "column": 21
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 142,
+          "column": 30
+        },
+        "end": {
+          "line": 142,
+          "column": 31
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 20
+        },
+        "end": {
+          "line": 143,
+          "column": 21
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 145,
+          "column": 15
+        },
+        "end": {
+          "line": 145,
+          "column": 16
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 146,
+          "column": 16
+        },
+        "end": {
+          "line": 146,
+          "column": 17
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 147,
+          "column": 17
+        },
+        "end": {
+          "line": 147,
+          "column": 18
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 148,
+          "column": 20
+        },
+        "end": {
+          "line": 148,
+          "column": 21
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 149,
+          "column": 30
+        },
+        "end": {
+          "line": 149,
+          "column": 31
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 150,
+          "column": 20
+        },
+        "end": {
+          "line": 150,
+          "column": 21
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 151,
+          "column": 32
+        },
+        "end": {
+          "line": 151,
+          "column": 33
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 151,
+          "column": 44
+        },
+        "end": {
+          "line": 151,
+          "column": 45
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 152,
+          "column": 20
+        },
+        "end": {
+          "line": 152,
+          "column": 21
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 154,
+          "column": 19
+        },
+        "end": {
+          "line": 154,
+          "column": 20
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 155,
+          "column": 16
+        },
+        "end": {
+          "line": 155,
+          "column": 17
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 156,
+          "column": 20
+        },
+        "end": {
+          "line": 156,
+          "column": 21
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 157,
+          "column": 29
+        },
+        "end": {
+          "line": 157,
+          "column": 30
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 158,
+          "column": 27
+        },
+        "end": {
+          "line": 158,
+          "column": 28
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 163,
+          "column": 24
+        },
+        "end": {
+          "line": 163,
+          "column": 25
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 164,
+          "column": 25
+        },
+        "end": {
+          "line": 164,
+          "column": 26
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 167,
+          "column": 40
+        },
+        "end": {
+          "line": 167,
+          "column": 41
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 164,
+          "column": 13
+        },
+        "end": {
+          "line": 164,
+          "column": 17
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 23
+        },
+        "end": {
+          "line": 165,
+          "column": 27
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 13
+        },
+        "end": {
+          "line": 165,
+          "column": 20
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 167,
+          "column": 31
+        },
+        "end": {
+          "line": 167,
+          "column": 38
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 189,
+          "column": 14
+        },
+        "end": {
+          "line": 189,
+          "column": 23
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 276,
+          "column": 15
+        },
+        "end": {
+          "line": 276,
+          "column": 24
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 280,
+          "column": 7
+        },
+        "end": {
+          "line": 280,
+          "column": 16
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 280,
+          "column": 31
+        },
+        "end": {
+          "line": 280,
+          "column": 40
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 24,
+          "column": 7
+        },
+        "end": {
+          "line": 24,
+          "column": 18
+        }
+      },
+      "shape": "Pair",
+      "prototype shape": "PairProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 68,
+          "column": 19
+        },
+        "end": {
+          "line": 68,
+          "column": 20
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 69,
+          "column": 8
+        },
+        "end": {
+          "line": 69,
+          "column": 9
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 72,
+          "column": 19
+        },
+        "end": {
+          "line": 72,
+          "column": 20
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 74,
+          "column": 28
+        },
+        "end": {
+          "line": 74,
+          "column": 29
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 78,
+          "column": 19
+        },
+        "end": {
+          "line": 78,
+          "column": 20
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 79,
+          "column": 8
+        },
+        "end": {
+          "line": 79,
+          "column": 9
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 82,
+          "column": 22
+        },
+        "end": {
+          "line": 82,
+          "column": 23
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 84,
+          "column": 28
+        },
+        "end": {
+          "line": 84,
+          "column": 29
+        }
+      },
+      "shape": "Pair"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 18,
+          "column": 4
+        },
+        "end": {
+          "line": 18,
+          "column": 8
+        }
+      },
+      "shape": "Pair"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 54,
+          "column": 1
+        },
+        "end": {
+          "line": 54,
+          "column": 15
+        }
+      },
+      "shape": "PairProto"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 97,
+          "column": 10
+        },
+        "end": {
+          "line": 97,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 88,
+          "column": 1
+        },
+        "end": {
+          "line": 90,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 368,
+          "column": 11
+        },
+        "end": {
+          "line": 368,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 133,
+          "column": 1
+        },
+        "end": {
+          "line": 169,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 97,
+          "column": 24
+        },
+        "end": {
+          "line": 97,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 93,
+          "column": 4
+        },
+        "end": {
+          "line": 99,
+          "column": 5
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 101,
+          "column": 11
+        },
+        "end": {
+          "line": 101,
+          "column": 15
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 93,
+          "column": 4
+        },
+        "end": {
+          "line": 99,
+          "column": 5
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 414,
+          "column": 15
+        },
+        "end": {
+          "line": 414,
+          "column": 18
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 432,
+          "column": 16
+        },
+        "end": {
+          "line": 432,
+          "column": 17
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 68,
+          "column": 22
+        },
+        "end": {
+          "line": 68,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 78,
+          "column": 22
+        },
+        "end": {
+          "line": 78,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 93,
+          "column": 22
+        },
+        "end": {
+          "line": 93,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 175,
+          "column": 24
+        },
+        "end": {
+          "line": 175,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 358,
+          "column": 19
+        },
+        "end": {
+          "line": 358,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 358,
+          "column": 22
+        },
+        "end": {
+          "line": 358,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 359,
+          "column": 19
+        },
+        "end": {
+          "line": 359,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 359,
+          "column": 22
+        },
+        "end": {
+          "line": 359,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 360,
+          "column": 19
+        },
+        "end": {
+          "line": 360,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 360,
+          "column": 22
+        },
+        "end": {
+          "line": 360,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 361,
+          "column": 20
+        },
+        "end": {
+          "line": 361,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 361,
+          "column": 23
+        },
+        "end": {
+          "line": 361,
+          "column": 24
+        }
+      },
+      "type": "number"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "pair"
+    },
+    {
+      "location": "120:43",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pair"
+    },
+    {
+      "location": "123:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "nullp"
+    },
+    {
+      "location": "123:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "nullp"
+    },
+    {
+      "location": "126:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "126:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "126:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "126:29",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "134:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pair"
+    },
+    {
+      "location": "137:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "compRef"
+    },
+    {
+      "location": "137:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "compRef"
+    },
+    {
+      "location": "137:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "variable"
+    },
+    {
+      "location": "137:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "variable"
+    },
+    {
+      "location": "141:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "141:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "142:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "compCnst"
+    },
+    {
+      "location": "142:22",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "compCnst"
+    },
+    {
+      "location": "142:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "142:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "143:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "143:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "144:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "compIf"
+    },
+    {
+      "location": "144:20",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "compIf"
+    },
+    {
+      "location": "145:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "145:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "145:7",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "145:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "146:14",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "caddr"
+    },
+    {
+      "location": "146:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "146:7",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "146:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "caddr"
+    },
+    {
+      "location": "147:15",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cadddr"
+    },
+    {
+      "location": "147:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "147:7",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "147:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cadddr"
+    },
+    {
+      "location": "148:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "148:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "149:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "compBegin"
+    },
+    {
+      "location": "149:23",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "compBegin"
+    },
+    {
+      "location": "149:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "149:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "150:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "150:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "151:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "compDefine"
+    },
+    {
+      "location": "151:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "compDefine"
+    },
+    {
+      "location": "151:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "151:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "151:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "caddr"
+    },
+    {
+      "location": "151:42",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "caddr"
+    },
+    {
+      "location": "152:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "152:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "153:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "compSet"
+    },
+    {
+      "location": "153:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "compSet"
+    },
+    {
+      "location": "154:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "variable"
+    },
+    {
+      "location": "154:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "154:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "154:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "variable"
+    },
+    {
+      "location": "155:14",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "caddr"
+    },
+    {
+      "location": "155:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "155:7",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "155:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "caddr"
+    },
+    {
+      "location": "156:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "156:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "157:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "157:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "158:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "caddr"
+    },
+    {
+      "location": "158:25",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "caddr"
+    },
+    {
+      "location": "159:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "compLambda"
+    },
+    {
+      "location": "159:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "compLambda"
+    },
+    {
+      "location": "161:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "extendEnv"
+    },
+    {
+      "location": "161:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "extendEnv"
+    },
+    {
+      "location": "161:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "161:7",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "163:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "163:22",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "164:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "164:23",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "166:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "166:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "167:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "compApply"
+    },
+    {
+      "location": "167:23",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "compApply"
+    },
+    {
+      "location": "165:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "165:42",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "176:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "nullp"
+    },
+    {
+      "location": "176:16",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "nullp"
+    },
+    {
+      "location": "178:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "178:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "181:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "181:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "197:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pair"
+    },
+    {
+      "location": "204:15",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "globalp"
+    },
+    {
+      "location": "204:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalp"
+    },
+    {
+      "location": "205:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "205:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "208:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "208:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "209:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "209:29",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "210:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "caddr"
+    },
+    {
+      "location": "210:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "caddr"
+    },
+    {
+      "location": "211:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cadddr"
+    },
+    {
+      "location": "211:31",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cadddr"
+    },
+    {
+      "location": "212:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "listRef"
+    },
+    {
+      "location": "212:33",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "listRef"
+    },
+    {
+      "location": "22:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "22:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "23:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "pairp"
+    },
+    {
+      "location": "23:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "23:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "23:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pairp"
+    },
+    {
+      "location": "24:10",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "24:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "221:15",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "globalp"
+    },
+    {
+      "location": "221:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalp"
+    },
+    {
+      "location": "222:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setCdr"
+    },
+    {
+      "location": "222:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "setCdr"
+    },
+    {
+      "location": "225:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setCar"
+    },
+    {
+      "location": "225:31",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "setCar"
+    },
+    {
+      "location": "226:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setCar"
+    },
+    {
+      "location": "226:31",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "setCar"
+    },
+    {
+      "location": "226:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "226:36",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "227:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setCar"
+    },
+    {
+      "location": "227:31",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "setCar"
+    },
+    {
+      "location": "227:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cddr"
+    },
+    {
+      "location": "227:37",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cddr"
+    },
+    {
+      "location": "228:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setCar"
+    },
+    {
+      "location": "228:31",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "setCar"
+    },
+    {
+      "location": "228:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdddr"
+    },
+    {
+      "location": "228:38",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdddr"
+    },
+    {
+      "location": "229:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "listSet"
+    },
+    {
+      "location": "229:33",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "listSet"
+    },
+    {
+      "location": "252:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "pairp"
+    },
+    {
+      "location": "252:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "nullp"
+    },
+    {
+      "location": "252:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "nullp"
+    },
+    {
+      "location": "252:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "252:35",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "252:8",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pairp"
+    },
+    {
+      "location": "253:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "253:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "253:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "253:29",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "256:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "256:40",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "260:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "nullp"
+    },
+    {
+      "location": "260:15",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "nullp"
+    },
+    {
+      "location": "260:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "260:20",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "261:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "261:19",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "263:12",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "263:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "264:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "264:27",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "279:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "279:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "280:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "280:23",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "283:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setCdr"
+    },
+    {
+      "location": "283:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "setCdr"
+    },
+    {
+      "location": "283:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "283:36",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "291:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "nullp"
+    },
+    {
+      "location": "291:16",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "nullp"
+    },
+    {
+      "location": "293:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pairp"
+    },
+    {
+      "location": "293:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "pairp"
+    },
+    {
+      "location": "294:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "294:14",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "296:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "296:14",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "296:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "296:19",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "296:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "296:42",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "307:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "307:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "34:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "34:20",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "34:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "34:31",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "34:46",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "34:49",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "311:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "311:34",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "313:33",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "313:37",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "313:42",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "313:46",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "315:36",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "315:40",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "315:45",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "315:49",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "315:54",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "315:58",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "317:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "317:43",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "317:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "317:52",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "317:57",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "317:61",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "317:66",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "317:70",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "327:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "327:18",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "332:12",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "332:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "335:12",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "335:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "336:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "336:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "339:12",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "339:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "340:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "340:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "341:14",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "caddr"
+    },
+    {
+      "location": "341:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "caddr"
+    },
+    {
+      "location": "344:12",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "344:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "345:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "345:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "346:14",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "caddr"
+    },
+    {
+      "location": "346:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "caddr"
+    },
+    {
+      "location": "347:15",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cadddr"
+    },
+    {
+      "location": "347:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cadddr"
+    },
+    {
+      "location": "362:29",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "362:40",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "362:40",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "368:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "368:15",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "418:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "ewal"
+    },
+    {
+      "location": "418:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "ewal"
+    },
+    {
+      "location": "419:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "ewal"
+    },
+    {
+      "location": "419:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "ewal"
+    },
+    {
+      "location": "420:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "ewal"
+    },
+    {
+      "location": "420:24",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "ewal"
+    },
+    {
+      "location": "421:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "ewal"
+    },
+    {
+      "location": "421:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "ewal"
+    },
+    {
+      "location": "422:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "ewal"
+    },
+    {
+      "location": "422:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "ewal"
+    },
+    {
+      "location": "423:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "ewal"
+    },
+    {
+      "location": "423:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "ewal"
+    },
+    {
+      "location": "46:12",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "46:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "47:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "47:19",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "437:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "437:15",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "437:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "440:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "440:38",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "440:38",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "441:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "run"
+    },
+    {
+      "location": "441:16",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "run"
+    },
+    {
+      "location": "444:15",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "444:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "444:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "58:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "caar"
+    },
+    {
+      "location": "58:22",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "caar"
+    },
+    {
+      "location": "59:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "59:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "61:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "61:19",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "72:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "72:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "74:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "listRef"
+    },
+    {
+      "location": "74:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "listRef"
+    },
+    {
+      "location": "74:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "74:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "82:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "setCar"
+    },
+    {
+      "location": "82:20",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "setCar"
+    },
+    {
+      "location": "84:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "listSet"
+    },
+    {
+      "location": "84:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "listSet"
+    },
+    {
+      "location": "84:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "84:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "89:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pair"
+    },
+    {
+      "location": "89:19",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "pair"
+    },
+    {
+      "location": "94:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "97:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "listRef"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "main"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "run"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "ewal"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "compLambda"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "compApply"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "compBegin"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "compIf"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "compCnst"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "compSet"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "compRef"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "globalp"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "variable"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "comp"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "length"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "pairp"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "nullp"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "setCdr"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "setCar"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "cadddr"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "extendEnv"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "compDefine"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "listSet"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "car"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "cdr"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "cadr"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "caar"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "cddr"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "caddr"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "cdddr"
+    },
+    {
+      "location": "11:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "cddddr"
+    },
+    {
+      "location": "21:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pair"
+    },
+    {
+      "location": "21:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "29:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pair"
+    },
+    {
+      "location": "29:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "357:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "357:8",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "358:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "358:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "359:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "359:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "360:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "360:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "361:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "361:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "362:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "362:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "cons"
+    },
+    {
+      "location": "374:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "374:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "380:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "380:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "381:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "381:8",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "382:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "382:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "383:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "383:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "384:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "384:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "384:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "384:7",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "385:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "385:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "386:10",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "386:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "388:10",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "388:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "389:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "389:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "389:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "389:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "390:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "390:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "390:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "390:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "391:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "391:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "391:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "391:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "392:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "392:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "397:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "397:17",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "398:4",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "398:8",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "399:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "399:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "400:11",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "400:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "401:24",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "401:28",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "401:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "401:7",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "402:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "402:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "403:10",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "403:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "405:10",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "405:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "406:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "406:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "406:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "406:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "407:13",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "407:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "407:26",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "407:9",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "409:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "409:21",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "list"
+    },
+    {
+      "location": "41:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pair"
+    },
+    {
+      "location": "41:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "450:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "450:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "450:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "450:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "450:71",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "451:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "451:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "451:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "451:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "451:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "452:13",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__start"
+    },
+    {
+      "location": "452:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "452:32",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "452:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "453:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "main"
+    },
+    {
+      "location": "453:5",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "main"
+    },
+    {
+      "location": "454:11",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__end"
+    },
+    {
+      "location": "454:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "454:30",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "454:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "455:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "455:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__end"
+    },
+    {
+      "location": "455:28",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__start"
+    },
+    {
+      "location": "455:6",
+      "kind": "call",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "54:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "pair"
+    },
+    {
+      "location": "54:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "165:31",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "map"
+    },
+    {
+      "location": "165:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "map"
+    },
+    {
+      "location": "184:23",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "189:28",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "assq"
+    },
+    {
+      "location": "189:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "assq"
+    },
+    {
+      "location": "181:13",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "22:38",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "toString"
+    },
+    {
+      "location": "22:38",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "toString"
+    },
+    {
+      "location": "24:26",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "foreach"
+    },
+    {
+      "location": "24:26",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "foreach"
+    },
+    {
+      "location": "222:44",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "225:43",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "226:50",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "227:51",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "228:52",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "229:55",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "245:22",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "245:36",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "245:55",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "24:54",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "toString"
+    },
+    {
+      "location": "24:54",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "toString"
+    },
+    {
+      "location": "256:29",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "map"
+    },
+    {
+      "location": "256:29",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "map"
+    },
+    {
+      "location": "254:25",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "267:16",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "261:28",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "263:21",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "264:22",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "276:29",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "assq"
+    },
+    {
+      "location": "276:29",
+      "kind": "property_load",
+      "reason": "no-closure-target",
+      "property": "assq"
+    },
+    {
+      "location": "283:46",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "300:17",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "296:37",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "38:15",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "309:27",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "34:26",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "34:44",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "311:28",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "313:31",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "315:34",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "317:37",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "329:21",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "329:28",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "331:21",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "331:28",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "332:23",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "334:21",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "334:28",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "335:23",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "336:24",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "338:21",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "338:28",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "339:23",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "340:24",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "341:25",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "343:21",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "343:28",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "344:23",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "345:24",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "346:25",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "347:26",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "368:27",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "51:15",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "46:7",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "47:14",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "65:15",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "61:14",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "101:15",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "97:28",
+      "kind": "call",
+      "reason": "no-closure-target"
+    },
+    {
+      "location": "126:14",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "455:20",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "455:8",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "119:30",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic equality/reference comparison; an operand's type is not statically known (result of an unoptimizable global helper call, or a value that may be null/object/union), so no typed comparison fast path applies."
+    },
+    {
+      "location": "141:15",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic equality/reference comparison; an operand's type is not statically known (result of an unoptimizable global helper call, or a value that may be null/object/union), so no typed comparison fast path applies."
+    },
+    {
+      "location": "143:15",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic equality/reference comparison; an operand's type is not statically known (result of an unoptimizable global helper call, or a value that may be null/object/union), so no typed comparison fast path applies."
+    },
+    {
+      "location": "148:15",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic equality/reference comparison; an operand's type is not statically known (result of an unoptimizable global helper call, or a value that may be null/object/union), so no typed comparison fast path applies."
+    },
+    {
+      "location": "150:15",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic equality/reference comparison; an operand's type is not statically known (result of an unoptimizable global helper call, or a value that may be null/object/union), so no typed comparison fast path applies."
+    },
+    {
+      "location": "152:15",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic equality/reference comparison; an operand's type is not statically known (result of an unoptimizable global helper call, or a value that may be null/object/union), so no typed comparison fast path applies."
+    },
+    {
+      "location": "156:15",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic equality/reference comparison; an operand's type is not statically known (result of an unoptimizable global helper call, or a value that may be null/object/union), so no typed comparison fast path applies."
+    },
+    {
+      "location": "186:8",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic equality/reference comparison; an operand's type is not statically known (result of an unoptimizable global helper call, or a value that may be null/object/union), so no typed comparison fast path applies."
+    },
+    {
+      "location": "178:18",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic equality/reference comparison; an operand's type is not statically known (result of an unoptimizable global helper call, or a value that may be null/object/union), so no typed comparison fast path applies."
+    },
+    {
+      "location": "31:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic equality/reference comparison; an operand's type is not statically known (result of an unoptimizable global helper call, or a value that may be null/object/union), so no typed comparison fast path applies."
+    },
+    {
+      "location": "43:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic equality/reference comparison; an operand's type is not statically known (result of an unoptimizable global helper call, or a value that may be null/object/union), so no typed comparison fast path applies."
+    },
+    {
+      "location": "56:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic equality/reference comparison; an operand's type is not statically known (result of an unoptimizable global helper call, or a value that may be null/object/union), so no typed comparison fast path applies."
+    },
+    {
+      "location": "58:18",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic equality/reference comparison; an operand's type is not statically known (result of an unoptimizable global helper call, or a value that may be null/object/union), so no typed comparison fast path applies."
+    },
+    {
+      "location": "69:8",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic equality/reference comparison; an operand's type is not statically known (result of an unoptimizable global helper call, or a value that may be null/object/union), so no typed comparison fast path applies."
+    },
+    {
+      "location": "79:8",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic equality/reference comparison; an operand's type is not statically known (result of an unoptimizable global helper call, or a value that may be null/object/union), so no typed comparison fast path applies."
+    },
+    {
+      "location": "94:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Generic equality/reference comparison; an operand's type is not statically known (result of an unoptimizable global helper call, or a value that may be null/object/union), so no typed comparison fast path applies."
+    },
+    {
+      "location": "22:12",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String-concatenation operation; at least one operand's type is not statically known (e.g. result of an unoptimizable global call or builtin .toString() method), so the concat cannot take a typed fast path."
+    },
+    {
+      "location": "26:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String-concatenation operation; at least one operand's type is not statically known (e.g. result of an unoptimizable global call or builtin .toString() method), so the concat cannot take a typed fast path."
+    },
+    {
+      "location": "24:35",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String-concatenation operation; at least one operand's type is not statically known (e.g. result of an unoptimizable global call or builtin .toString() method), so the concat cannot take a typed fast path."
+    },
+    {
+      "location": "24:38",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String-concatenation operation; at least one operand's type is not statically known (e.g. result of an unoptimizable global call or builtin .toString() method), so the concat cannot take a typed fast path."
+    },
+    {
+      "location": "420:11",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String-concatenation operation; at least one operand's type is not statically known (e.g. result of an unoptimizable global call or builtin .toString() method), so the concat cannot take a typed fast path."
+    },
+    {
+      "location": "422:12",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String-concatenation operation; at least one operand's type is not statically known (e.g. result of an unoptimizable global call or builtin .toString() method), so the concat cannot take a typed fast path."
+    },
+    {
+      "location": "423:12",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String-concatenation operation; at least one operand's type is not statically known (e.g. result of an unoptimizable global call or builtin .toString() method), so the concat cannot take a typed fast path."
+    },
+    {
+      "location": "450:21",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing operation whose operands are host-global property loads (globalThis/performance/Date); operand types unknown so no typed fast path applies."
+    },
+    {
+      "location": "451:19",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Nullish-coalescing operation whose operands are host-global property loads (globalThis/performance/Date); operand types unknown so no typed fast path applies."
+    },
+    {
+      "location": "17:13",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "car",
+      "note": "Constructor's own property-initialization store creates the slot in a fresh object; the Pair shape is only bound after the completing store, so no shape guard can cover the creating write."
+    },
+    {
+      "location": "18:13",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "cdr",
+      "note": "Constructor's own property-initialization store creates the slot in a fresh object; the Pair shape is only bound after the completing store, so no shape guard can cover the creating write."
+    },
+    {
+      "location": "21:25",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "toString",
+      "note": "Store adds a new method property to pair.prototype; it is the shape-transitioning write performed before the full PairProto binding is applied, so no prior shape guard covers it."
+    },
+    {
+      "location": "29:20",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "map",
+      "note": "Store adds a new method property to pair.prototype; it is the shape-transitioning write performed before the full PairProto binding is applied, so no prior shape guard covers it."
+    },
+    {
+      "location": "41:24",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "foreach",
+      "note": "Store adds a new method property to pair.prototype; it is the shape-transitioning write performed before the full PairProto binding is applied, so no prior shape guard covers it."
+    },
+    {
+      "location": "54:21",
+      "kind": "property_store",
+      "reason": "other",
+      "property": "assq",
+      "note": "Store adds a new method property to pair.prototype; it is the shape-transitioning write performed before the full PairProto binding is applied, so no prior shape guard covers it."
+    }
+  ]
+}

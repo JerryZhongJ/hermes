@@ -1,11 +1,3 @@
-// Imported from https://github.com/manuel-serrano/jsbench
-// Commit: 7c8fc4e58d2a5c7980c207d302b1d1cb18308a5c
-// Source: other/js-of-ocaml.js
-// Adaptation: benchmarks/speculative/import_hopc.py
-(function() {
-"use strict";
-var __hopcStart = performance.now();
-
 "use strict";
 
 const THIS = globalThis;
@@ -290,7 +282,10 @@ function life(joo_global_object, disp) {
     function caml_jsstring_of_string(s) {
         return s.toUtf16()
     }
-    var caml_current_dir = "/static";
+    if (joo_global_object.process && joo_global_object.process.cwd)
+        var caml_current_dir = joo_global_object.process.cwd().replace(/\\/g, "/");
+    else
+        var caml_current_dir = "/static";
     if (caml_current_dir.slice(-1) !== "/") caml_current_dir += "/";
 
     function caml_make_path(name) {
@@ -620,12 +615,191 @@ function life(joo_global_object, disp) {
         return caml_bytes_unsafe_set(s, i, c)
     }
 
+    function MlNodeFile(fd) {
+        this.fs = require("fs");
+        this.fd = fd
+    }
+    MlNodeFile.prototype = new MlFile();
+    MlNodeFile.prototype.truncate =
+        function(len) {
+            try {
+                this.fs.ftruncateSync(this.fd, len | 0)
+            } catch (err) {
+                caml_raise_sys_error(err.toString())
+            }
+        };
+    MlNodeFile.prototype.length =
+        function() {
+            try {
+                return this.fs.fstatSync(this.fd).size
+            } catch (err) {
+                caml_raise_sys_error(err.toString())
+            }
+        };
+    MlNodeFile.prototype.write =
+        function(offset, buf, buf_offset, len) {
+            var a = caml_array_of_string(buf);
+            if (!(a instanceof joo_global_object.Uint8Array))
+                a = new(joo_global_object.Uint8Array)(a);
+            var buffer = joo_global_object.Buffer.from(a);
+            try {
+                this.fs.writeSync(this.fd, buffer, buf_offset, len, offset)
+            } catch (err) {
+                caml_raise_sys_error(err.toString())
+            }
+            return 0
+        };
+    MlNodeFile.prototype.read =
+        function(offset, buf, buf_offset, len) {
+            var a = caml_array_of_bytes(buf);
+            if (!(a instanceof joo_global_object.Uint8Array))
+                a = new(joo_global_object.Uint8Array)(a);
+            var buffer = joo_global_object.Buffer.from(a);
+            try {
+                this.fs.readSync(this.fd, buffer, buf_offset, len, offset)
+            } catch (err) {
+                caml_raise_sys_error(err.toString())
+            }
+            for (var i = 0; i < len; i++)
+                caml_bytes_set(buf, buf_offset + i, buffer[buf_offset + i]);
+            return 0
+        };
+    MlNodeFile.prototype.read_one =
+        function(offset) {
+            var
+                a = new(joo_global_object.Uint8Array)(1),
+                buffer = joo_global_object.Buffer.from(a);
+            try {
+                this.fs.readSync(this.fd, buffer, 0, 1, offset)
+            } catch (err) {
+                caml_raise_sys_error(err.toString())
+            }
+            return buffer[0]
+        };
+    MlNodeFile.prototype.close =
+        function() {
+            try {
+                this.fs.closeSync(this.fd)
+            } catch (err) {
+                caml_raise_sys_error(err.toString())
+            }
+        };
+    MlNodeFile.prototype.constructor = MlNodeFile;
+
+    function MlNodeDevice(root) {
+        this.fs = require("fs");
+        this.root = root
+    }
+    MlNodeDevice.prototype.nm = function(name) {
+        return this.root + name
+    };
+    MlNodeDevice.prototype.exists =
+        function(name) {
+            try {
+                return this.fs.existsSync(this.nm(name)) ? 1 : 0
+            } catch (err) {
+                caml_raise_sys_error(err.toString())
+            }
+        };
+    MlNodeDevice.prototype.readdir =
+        function(name) {
+            try {
+                return this.fs.readdirSync(this.nm(name))
+            } catch (err) {
+                caml_raise_sys_error(err.toString())
+            }
+        };
+    MlNodeDevice.prototype.is_dir =
+        function(name) {
+            try {
+                return this.fs.statSync(this.nm(name)).isDirectory() ? 1 : 0
+            } catch (err) {
+                caml_raise_sys_error(err.toString())
+            }
+        };
+    MlNodeDevice.prototype.unlink =
+        function(name) {
+            try {
+                var b = this.fs.existsSync(this.nm(name)) ? 1 : 0;
+                this.fs.unlinkSync(this.nm(name))
+            } catch (err) {
+                caml_raise_sys_error(err.toString())
+            }
+            return b
+        };
+    MlNodeDevice.prototype.open =
+        function(name, f) {
+            var consts = require("constants"),
+                res = 0;
+            for (var key in f)
+                switch (key) {
+                    case "rdonly":
+                        res |= consts.O_RDONLY;
+                        break;
+                    case "wronly":
+                        res |= consts.O_WRONLY;
+                        break;
+                    case "append":
+                        res |= consts.O_WRONLY | consts.O_APPEND;
+                        break;
+                    case "create":
+                        res |= consts.O_CREAT;
+                        break;
+                    case "truncate":
+                        res |= consts.O_TRUNC;
+                        break;
+                    case "excl":
+                        res |= consts.O_EXCL;
+                        break;
+                    case "binary":
+                        res |= consts.O_BINARY;
+                        break;
+                    case "text":
+                        res |= consts.O_TEXT;
+                        break;
+                    case "nonblock":
+                        res |= consts.O_NONBLOCK;
+                        break
+                }
+            try {
+                var fd = this.fs.openSync(this.nm(name), res);
+                return new MlNodeFile(fd)
+            } catch (err) {
+                caml_raise_sys_error(err.toString())
+            }
+        };
+    MlNodeDevice.prototype.rename =
+        function(o, n) {
+            try {
+                this.fs.renameSync(this.nm(o), this.nm(n))
+            } catch (err) {
+                caml_raise_sys_error(err.toString())
+            }
+        };
+    MlNodeDevice.prototype.constructor = MlNodeDevice;
     var caml_root = caml_current_dir.match(/[^\/]*\//)[0];
 
-    var jsoo_mount_point = [{
-        path: caml_root,
-        device: new MlFakeDevice(caml_root)
-    }];
+    function fs_node_supported() {
+        return typeof joo_global_object.process !==
+            "undefined" &&
+            typeof joo_global_object.process.versions !==
+            "undefined" &&
+            typeof joo_global_object.process.versions.node !==
+            "undefined" &&
+            joo_global_object.process.platform !==
+            "browser"
+    }
+    var jsoo_mount_point = [];
+    if (fs_node_supported())
+        jsoo_mount_point.push({
+            path: caml_root,
+            device: new MlNodeDevice(caml_root)
+        });
+    else
+        jsoo_mount_point.push({
+            path: caml_root,
+            device: new MlFakeDevice(caml_root)
+        });
     jsoo_mount_point.push({
         path: caml_root + "static/",
         device: new MlFakeDevice(caml_root + "static/")
@@ -712,12 +886,29 @@ function life(joo_global_object, disp) {
         return 0
     }
 
-    function js_print_stdout(s) {
-        s = caml_utf16_of_utf8(s);
-        if (s.charCodeAt(s.length - 1) === 10) s = s.slice(0, -1);
-        print(s);
+    function js_print_stderr(s) {
+        var s = caml_utf16_of_utf8(s),
+            g = joo_global_object;
+        if (g.process && g.process.stdout && g.process.stdout.write)
+            g.process.stderr.write(s);
+        else {
+            if (s.charCodeAt(s.length - 1) == 10) s = s.substr(0, s.length - 1);
+            var v = g.console;
+            v && v.error && v.error(s)
+        }
     }
-    var js_print_stderr = js_print_stdout;
+
+    function js_print_stdout(s) {
+        var s = caml_utf16_of_utf8(s),
+            g = joo_global_object;
+        if (g.process && g.process.stdout && g.process.stdout.write)
+            g.process.stdout.write(s);
+        else {
+            if (s.charCodeAt(s.length - 1) == 10) s = s.substr(0, s.length - 1);
+            var v = g.console;
+            v && v.log && v.log(s)
+        }
+    }
 
     function caml_sys_open_internal(idx, output, file, flags) {
         if (caml_global_data.fds === undefined)
@@ -1442,19 +1633,22 @@ function main(bench, n) {
     for (let i = 0, j = 0; i < n; i++, j++) {
         res = life(THIS, 9999998);
         if (j === N) {
-            print(i);
+            console.log(i);
             j = 0;
         }
     }
-    print(bench, res);
+    console.log(bench, res);
 }
 
-const K = 2;
-const N = 8;
+// Static Hermes benchmark runner: fixed N, timed with performance.now
+const N = 5 * 2;
 
-life(THIS, 9999999);
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+main("life", N);
+var __end = __performance.now();
+print( "Time: " + (__end - __start) );
+
 
 main("life", N);
-
-print('Time: ' + (performance.now() - __hopcStart));
-})();

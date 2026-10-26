@@ -1,11 +1,3 @@
-// Imported from https://github.com/manuel-serrano/jsbench
-// Commit: 7c8fc4e58d2a5c7980c207d302b1d1cb18308a5c
-// Source: other/basic.js
-// Adaptation: benchmarks/speculative/import_hopc.py
-(function() {
-"use strict";
-var __hopcStart = performance.now();
-
 "use strict"
 
 // http://eder.us/projects/jbasic/
@@ -340,23 +332,26 @@ function main( bench, N ) {
 110 print w
 120 return`.split("\n");
 
-  print( bench + "(", N, ")..." );
+  console.log( bench + "(", N, ")..." );
    
   for( let j = 0; j < 10; j++ ) {
-     print( j );
+     console.log( j );
      for( let i = 0; i < K; i++ ) {
       	RunProgram( prgm );
       	res = CurrentForm.OutputBox.value;
      }
   }
 
-   print( res );
+   console.log( res );
 }
 
 const K = 100;
-const N = 1000;
+// Static Hermes benchmark runner: fixed N, timed with performance.now
+const N = 10 * K;
 
-main( "basic", N ); 
-
-print('Time: ' + (performance.now() - __hopcStart));
-})();
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+main( "basic", N );
+var __end = __performance.now();
+print( "Time: " + (__end - __start) );

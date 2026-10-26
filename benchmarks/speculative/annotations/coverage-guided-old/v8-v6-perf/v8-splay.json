@@ -1,0 +1,3938 @@
+{
+  "static shapes": {
+    "SplayTreeProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "root_"
+        },
+        {
+          "name": "isEmpty",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 131,
+              "column": 31
+            },
+            "end": {
+              "line": 133,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "insert",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 143,
+              "column": 30
+            },
+            "end": {
+              "line": 165,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "remove",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 175,
+              "column": 30
+            },
+            "end": {
+              "line": 196,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "find",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 205,
+              "column": 28
+            },
+            "end": {
+              "line": 211,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "findMax",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 216,
+              "column": 31
+            },
+            "end": {
+              "line": 225,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "findGreatestLessThan",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 231,
+              "column": 44
+            },
+            "end": {
+              "line": 247,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "exportKeys",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 252,
+              "column": 34
+            },
+            "end": {
+              "line": 260,
+              "column": 2
+            }
+          }
+        },
+        {
+          "name": "splay_",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 272,
+              "column": 30
+            },
+            "end": {
+              "line": 331,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "NodeProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "left"
+        },
+        {
+          "name": "right"
+        },
+        {
+          "name": "traverse_",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 361,
+              "column": 38
+            },
+            "end": {
+              "line": 369,
+              "column": 2
+            }
+          }
+        }
+      ]
+    },
+    "Node": {
+      "properties": [
+        {
+          "name": "key"
+        },
+        {
+          "name": "value"
+        },
+        {
+          "name": "left"
+        },
+        {
+          "name": "right"
+        }
+      ]
+    },
+    "Tree": {
+      "properties": [
+        {
+          "name": "root_"
+        }
+      ]
+    },
+    "TinyProto": {
+      "properties": [
+        {
+          "name": "constructor",
+          "flags off": [
+            "enumerable"
+          ]
+        },
+        {
+          "name": "root_"
+        },
+        {
+          "name": "isEmpty",
+          "type": "closure",
+          "target function": {
+            "start": {
+              "line": 131,
+              "column": 31
+            },
+            "end": {
+              "line": 133,
+              "column": 2
+            }
+          }
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 132,
+          "column": 11
+        },
+        "end": {
+          "line": 132,
+          "column": 15
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 151,
+          "column": 7
+        },
+        "end": {
+          "line": 151,
+          "column": 11
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 155,
+          "column": 13
+        },
+        "end": {
+          "line": 155,
+          "column": 17
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 156,
+          "column": 17
+        },
+        "end": {
+          "line": 156,
+          "column": 21
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 157,
+          "column": 18
+        },
+        "end": {
+          "line": 157,
+          "column": 22
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 158,
+          "column": 5
+        },
+        "end": {
+          "line": 158,
+          "column": 9
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 160,
+          "column": 18
+        },
+        "end": {
+          "line": 160,
+          "column": 22
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 161,
+          "column": 17
+        },
+        "end": {
+          "line": 161,
+          "column": 21
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 162,
+          "column": 5
+        },
+        "end": {
+          "line": 162,
+          "column": 9
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 164,
+          "column": 3
+        },
+        "end": {
+          "line": 164,
+          "column": 7
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 180,
+          "column": 7
+        },
+        "end": {
+          "line": 180,
+          "column": 11
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 183,
+          "column": 17
+        },
+        "end": {
+          "line": 183,
+          "column": 21
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 184,
+          "column": 8
+        },
+        "end": {
+          "line": 184,
+          "column": 12
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 185,
+          "column": 5
+        },
+        "end": {
+          "line": 185,
+          "column": 9
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 185,
+          "column": 18
+        },
+        "end": {
+          "line": 185,
+          "column": 22
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 187,
+          "column": 17
+        },
+        "end": {
+          "line": 187,
+          "column": 21
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 188,
+          "column": 5
+        },
+        "end": {
+          "line": 188,
+          "column": 9
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 188,
+          "column": 18
+        },
+        "end": {
+          "line": 188,
+          "column": 22
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 193,
+          "column": 5
+        },
+        "end": {
+          "line": 193,
+          "column": 9
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 210,
+          "column": 10
+        },
+        "end": {
+          "line": 210,
+          "column": 14
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 210,
+          "column": 34
+        },
+        "end": {
+          "line": 210,
+          "column": 38
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 220,
+          "column": 34
+        },
+        "end": {
+          "line": 220,
+          "column": 38
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 240,
+          "column": 7
+        },
+        "end": {
+          "line": 240,
+          "column": 11
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 241,
+          "column": 12
+        },
+        "end": {
+          "line": 241,
+          "column": 16
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 14
+        },
+        "end": {
+          "line": 242,
+          "column": 18
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 243,
+          "column": 25
+        },
+        "end": {
+          "line": 243,
+          "column": 29
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 255,
+          "column": 5
+        },
+        "end": {
+          "line": 255,
+          "column": 9
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 283,
+          "column": 17
+        },
+        "end": {
+          "line": 283,
+          "column": 21
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 364,
+          "column": 16
+        },
+        "end": {
+          "line": 364,
+          "column": 23
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 367,
+          "column": 15
+        },
+        "end": {
+          "line": 367,
+          "column": 22
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 285,
+          "column": 15
+        },
+        "end": {
+          "line": 285,
+          "column": 22
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 286,
+          "column": 12
+        },
+        "end": {
+          "line": 286,
+          "column": 19
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 291,
+          "column": 19
+        },
+        "end": {
+          "line": 291,
+          "column": 26
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 292,
+          "column": 9
+        },
+        "end": {
+          "line": 292,
+          "column": 16
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 293,
+          "column": 21
+        },
+        "end": {
+          "line": 293,
+          "column": 28
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 295,
+          "column": 14
+        },
+        "end": {
+          "line": 295,
+          "column": 21
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 300,
+          "column": 20
+        },
+        "end": {
+          "line": 300,
+          "column": 27
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 301,
+          "column": 15
+        },
+        "end": {
+          "line": 301,
+          "column": 22
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 302,
+          "column": 17
+        },
+        "end": {
+          "line": 302,
+          "column": 24
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 303,
+          "column": 22
+        },
+        "end": {
+          "line": 303,
+          "column": 29
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 304,
+          "column": 12
+        },
+        "end": {
+          "line": 304,
+          "column": 19
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 309,
+          "column": 19
+        },
+        "end": {
+          "line": 309,
+          "column": 26
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 310,
+          "column": 9
+        },
+        "end": {
+          "line": 310,
+          "column": 16
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 311,
+          "column": 20
+        },
+        "end": {
+          "line": 311,
+          "column": 27
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 313,
+          "column": 14
+        },
+        "end": {
+          "line": 313,
+          "column": 21
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 318,
+          "column": 20
+        },
+        "end": {
+          "line": 318,
+          "column": 27
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 319,
+          "column": 14
+        },
+        "end": {
+          "line": 319,
+          "column": 21
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 320,
+          "column": 17
+        },
+        "end": {
+          "line": 320,
+          "column": 24
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 326,
+          "column": 16
+        },
+        "end": {
+          "line": 326,
+          "column": 23
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 327,
+          "column": 16
+        },
+        "end": {
+          "line": 327,
+          "column": 23
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 328,
+          "column": 3
+        },
+        "end": {
+          "line": 328,
+          "column": 10
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 329,
+          "column": 3
+        },
+        "end": {
+          "line": 329,
+          "column": 10
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 330,
+          "column": 16
+        },
+        "end": {
+          "line": 330,
+          "column": 23
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 292,
+          "column": 24
+        },
+        "end": {
+          "line": 292,
+          "column": 27
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 293,
+          "column": 9
+        },
+        "end": {
+          "line": 293,
+          "column": 12
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 294,
+          "column": 19
+        },
+        "end": {
+          "line": 294,
+          "column": 22
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 310,
+          "column": 25
+        },
+        "end": {
+          "line": 310,
+          "column": 28
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 311,
+          "column": 9
+        },
+        "end": {
+          "line": 311,
+          "column": 12
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 312,
+          "column": 19
+        },
+        "end": {
+          "line": 312,
+          "column": 22
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 300,
+          "column": 7
+        },
+        "end": {
+          "line": 300,
+          "column": 12
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 327,
+          "column": 3
+        },
+        "end": {
+          "line": 327,
+          "column": 8
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 318,
+          "column": 7
+        },
+        "end": {
+          "line": 318,
+          "column": 11
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 326,
+          "column": 3
+        },
+        "end": {
+          "line": 326,
+          "column": 7
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 328,
+          "column": 18
+        },
+        "end": {
+          "line": 328,
+          "column": 23
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 329,
+          "column": 19
+        },
+        "end": {
+          "line": 329,
+          "column": 24
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 156,
+          "column": 5
+        },
+        "end": {
+          "line": 156,
+          "column": 9
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 157,
+          "column": 5
+        },
+        "end": {
+          "line": 157,
+          "column": 9
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 160,
+          "column": 5
+        },
+        "end": {
+          "line": 160,
+          "column": 9
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 161,
+          "column": 5
+        },
+        "end": {
+          "line": 161,
+          "column": 9
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 164,
+          "column": 16
+        },
+        "end": {
+          "line": 164,
+          "column": 20
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 144,
+          "column": 7
+        },
+        "end": {
+          "line": 144,
+          "column": 11
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 176,
+          "column": 7
+        },
+        "end": {
+          "line": 176,
+          "column": 11
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 206,
+          "column": 7
+        },
+        "end": {
+          "line": 206,
+          "column": 11
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 209,
+          "column": 3
+        },
+        "end": {
+          "line": 209,
+          "column": 7
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 217,
+          "column": 7
+        },
+        "end": {
+          "line": 217,
+          "column": 11
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 232,
+          "column": 7
+        },
+        "end": {
+          "line": 232,
+          "column": 11
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 237,
+          "column": 3
+        },
+        "end": {
+          "line": 237,
+          "column": 7
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 254,
+          "column": 8
+        },
+        "end": {
+          "line": 254,
+          "column": 12
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 273,
+          "column": 7
+        },
+        "end": {
+          "line": 273,
+          "column": 11
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 362,
+          "column": 17
+        },
+        "end": {
+          "line": 362,
+          "column": 21
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 255,
+          "column": 5
+        },
+        "end": {
+          "line": 255,
+          "column": 15
+        }
+      },
+      "shape": "Node",
+      "prototype shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 104,
+          "column": 20
+        },
+        "end": {
+          "line": 104,
+          "column": 29
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 83,
+          "column": 14
+        },
+        "end": {
+          "line": 83,
+          "column": 23
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 144,
+          "column": 7
+        },
+        "end": {
+          "line": 144,
+          "column": 11
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "TinyProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 330,
+          "column": 3
+        },
+        "end": {
+          "line": 330,
+          "column": 7
+        }
+      },
+      "shape": "Tree",
+      "prototype shape": "SplayTreeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 283,
+          "column": 17
+        },
+        "end": {
+          "line": 283,
+          "column": 21
+        }
+      },
+      "shape": "Tree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 289,
+          "column": 17
+        },
+        "end": {
+          "line": 289,
+          "column": 29
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 307,
+          "column": 17
+        },
+        "end": {
+          "line": 307,
+          "column": 30
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 151,
+          "column": 7
+        },
+        "end": {
+          "line": 151,
+          "column": 17
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 155,
+          "column": 13
+        },
+        "end": {
+          "line": 155,
+          "column": 23
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 157,
+          "column": 18
+        },
+        "end": {
+          "line": 157,
+          "column": 28
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 158,
+          "column": 5
+        },
+        "end": {
+          "line": 158,
+          "column": 15
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 161,
+          "column": 17
+        },
+        "end": {
+          "line": 161,
+          "column": 27
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 162,
+          "column": 5
+        },
+        "end": {
+          "line": 162,
+          "column": 15
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 180,
+          "column": 7
+        },
+        "end": {
+          "line": 180,
+          "column": 17
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 184,
+          "column": 8
+        },
+        "end": {
+          "line": 184,
+          "column": 18
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 185,
+          "column": 18
+        },
+        "end": {
+          "line": 185,
+          "column": 28
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 187,
+          "column": 17
+        },
+        "end": {
+          "line": 187,
+          "column": 27
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 188,
+          "column": 18
+        },
+        "end": {
+          "line": 188,
+          "column": 28
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 193,
+          "column": 5
+        },
+        "end": {
+          "line": 193,
+          "column": 15
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 210,
+          "column": 10
+        },
+        "end": {
+          "line": 210,
+          "column": 20
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 240,
+          "column": 7
+        },
+        "end": {
+          "line": 240,
+          "column": 17
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 14
+        },
+        "end": {
+          "line": 242,
+          "column": 24
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 243,
+          "column": 25
+        },
+        "end": {
+          "line": 243,
+          "column": 35
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 255,
+          "column": 5
+        },
+        "end": {
+          "line": 255,
+          "column": 15
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 255,
+          "column": 36
+        },
+        "end": {
+          "line": 255,
+          "column": 40
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 221,
+          "column": 10
+        },
+        "end": {
+          "line": 221,
+          "column": 17
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 222,
+          "column": 15
+        },
+        "end": {
+          "line": 222,
+          "column": 22
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 145,
+          "column": 5
+        },
+        "end": {
+          "line": 145,
+          "column": 9
+        }
+      },
+      "shape": "Tree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 256,
+          "column": 19
+        },
+        "end": {
+          "line": 256,
+          "column": 23
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 106,
+          "column": 27
+        },
+        "end": {
+          "line": 106,
+          "column": 35
+        }
+      },
+      "shape": "Node"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 361,
+          "column": 1
+        },
+        "end": {
+          "line": 361,
+          "column": 25
+        }
+      },
+      "shape": "NodeProto"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 145,
+          "column": 5
+        },
+        "end": {
+          "line": 145,
+          "column": 9
+        }
+      },
+      "shape": "Tree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 341,
+          "column": 3
+        },
+        "end": {
+          "line": 341,
+          "column": 7
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 157,
+          "column": 5
+        },
+        "end": {
+          "line": 157,
+          "column": 9
+        }
+      },
+      "shape": "Node"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 75,
+          "column": 15
+        },
+        "end": {
+          "line": 75,
+          "column": 30
+        }
+      },
+      "shape": "Tree"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 272,
+          "column": 1
+        },
+        "end": {
+          "line": 272,
+          "column": 20
+        }
+      },
+      "shape": "SplayTreeProto"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 273,
+          "column": 7
+        },
+        "end": {
+          "line": 273,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 131,
+          "column": 31
+        },
+        "end": {
+          "line": 133,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 272,
+          "column": 40
+        },
+        "end": {
+          "line": 272,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 285,
+          "column": 15
+        },
+        "end": {
+          "line": 285,
+          "column": 26
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 303,
+          "column": 22
+        },
+        "end": {
+          "line": 303,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 289,
+          "column": 17
+        },
+        "end": {
+          "line": 289,
+          "column": 33
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 307,
+          "column": 17
+        },
+        "end": {
+          "line": 307,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 282,
+          "column": 30
+        },
+        "end": {
+          "line": 282,
+          "column": 39
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 144,
+          "column": 7
+        },
+        "end": {
+          "line": 144,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 131,
+          "column": 31
+        },
+        "end": {
+          "line": 133,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 176,
+          "column": 7
+        },
+        "end": {
+          "line": 176,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 131,
+          "column": 31
+        },
+        "end": {
+          "line": 133,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 206,
+          "column": 7
+        },
+        "end": {
+          "line": 206,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 131,
+          "column": 31
+        },
+        "end": {
+          "line": 133,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 217,
+          "column": 7
+        },
+        "end": {
+          "line": 217,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 131,
+          "column": 31
+        },
+        "end": {
+          "line": 133,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 232,
+          "column": 7
+        },
+        "end": {
+          "line": 232,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 131,
+          "column": 31
+        },
+        "end": {
+          "line": 133,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 254,
+          "column": 8
+        },
+        "end": {
+          "line": 254,
+          "column": 20
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 131,
+          "column": 31
+        },
+        "end": {
+          "line": 133,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 150,
+          "column": 3
+        },
+        "end": {
+          "line": 150,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 272,
+          "column": 30
+        },
+        "end": {
+          "line": 331,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 179,
+          "column": 3
+        },
+        "end": {
+          "line": 179,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 272,
+          "column": 30
+        },
+        "end": {
+          "line": 331,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 190,
+          "column": 5
+        },
+        "end": {
+          "line": 190,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 272,
+          "column": 30
+        },
+        "end": {
+          "line": 331,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 209,
+          "column": 3
+        },
+        "end": {
+          "line": 209,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 272,
+          "column": 30
+        },
+        "end": {
+          "line": 331,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 237,
+          "column": 3
+        },
+        "end": {
+          "line": 237,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 272,
+          "column": 30
+        },
+        "end": {
+          "line": 331,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 105,
+          "column": 27
+        },
+        "end": {
+          "line": 105,
+          "column": 43
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 175,
+          "column": 30
+        },
+        "end": {
+          "line": 196,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 106,
+          "column": 10
+        },
+        "end": {
+          "line": 106,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 175,
+          "column": 30
+        },
+        "end": {
+          "line": 196,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 68,
+          "column": 12
+        },
+        "end": {
+          "line": 68,
+          "column": 26
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 205,
+          "column": 28
+        },
+        "end": {
+          "line": 211,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 70,
+          "column": 3
+        },
+        "end": {
+          "line": 70,
+          "column": 19
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 143,
+          "column": 30
+        },
+        "end": {
+          "line": 165,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 243,
+          "column": 12
+        },
+        "end": {
+          "line": 243,
+          "column": 24
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 216,
+          "column": 31
+        },
+        "end": {
+          "line": 225,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 104,
+          "column": 20
+        },
+        "end": {
+          "line": 104,
+          "column": 50
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 231,
+          "column": 44
+        },
+        "end": {
+          "line": 247,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 83,
+          "column": 14
+        },
+        "end": {
+          "line": 83,
+          "column": 34
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 252,
+          "column": 34
+        },
+        "end": {
+          "line": 260,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 255,
+          "column": 5
+        },
+        "end": {
+          "line": 255,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 361,
+          "column": 38
+        },
+        "end": {
+          "line": 369,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 365,
+          "column": 15
+        },
+        "end": {
+          "line": 365,
+          "column": 29
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 361,
+          "column": 38
+        },
+        "end": {
+          "line": 369,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 43,
+          "column": 30
+        },
+        "end": {
+          "line": 43,
+          "column": 35
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 43,
+          "column": 37
+        },
+        "end": {
+          "line": 43,
+          "column": 40
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 143,
+          "column": 40
+        },
+        "end": {
+          "line": 143,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 175,
+          "column": 40
+        },
+        "end": {
+          "line": 175,
+          "column": 43
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 205,
+          "column": 38
+        },
+        "end": {
+          "line": 205,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 231,
+          "column": 54
+        },
+        "end": {
+          "line": 231,
+          "column": 57
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 151,
+          "column": 7
+        },
+        "end": {
+          "line": 151,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 155,
+          "column": 13
+        },
+        "end": {
+          "line": 155,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 180,
+          "column": 7
+        },
+        "end": {
+          "line": 180,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 210,
+          "column": 10
+        },
+        "end": {
+          "line": 210,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 240,
+          "column": 7
+        },
+        "end": {
+          "line": 240,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 180,
+          "column": 25
+        },
+        "end": {
+          "line": 180,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 210,
+          "column": 28
+        },
+        "end": {
+          "line": 210,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 240,
+          "column": 24
+        },
+        "end": {
+          "line": 240,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 51,
+          "column": 13
+        },
+        "end": {
+          "line": 51,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 55,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 52,
+          "column": 14
+        },
+        "end": {
+          "line": 52,
+          "column": 33
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 55,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 76,
+          "column": 19
+        },
+        "end": {
+          "line": 76,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 361,
+          "column": 48
+        },
+        "end": {
+          "line": 361,
+          "column": 49
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 255,
+          "column": 26
+        },
+        "end": {
+          "line": 257,
+          "column": 6
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 93,
+          "column": 19
+        },
+        "end": {
+          "line": 93,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 93,
+          "column": 23
+        },
+        "end": {
+          "line": 93,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 87,
+          "column": 16
+        },
+        "end": {
+          "line": 87,
+          "column": 27
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 9
+        },
+        "end": {
+          "line": 94,
+          "column": 16
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 105,
+          "column": 9
+        },
+        "end": {
+          "line": 105,
+          "column": 17
+        }
+      },
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 94,
+          "column": 20
+        },
+        "end": {
+          "line": 94,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 76,
+          "column": 23
+        },
+        "end": {
+          "line": 76,
+          "column": 37
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 102,
+          "column": 23
+        },
+        "end": {
+          "line": 102,
+          "column": 46
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 88,
+          "column": 17
+        },
+        "end": {
+          "line": 88,
+          "column": 31
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 88,
+          "column": 7
+        },
+        "end": {
+          "line": 88,
+          "column": 13
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 102,
+          "column": 19
+        },
+        "end": {
+          "line": 102,
+          "column": 20
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 372,
+          "column": 1
+        },
+        "end": {
+          "line": 372,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 74,
+          "column": 1
+        },
+        "end": {
+          "line": 77,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 76,
+          "column": 44
+        },
+        "end": {
+          "line": 76,
+          "column": 57
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 63,
+          "column": 1
+        },
+        "end": {
+          "line": 72,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 67,
+          "column": 11
+        },
+        "end": {
+          "line": 67,
+          "column": 22
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 57,
+          "column": 1
+        },
+        "end": {
+          "line": 61,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 374,
+          "column": 1
+        },
+        "end": {
+          "line": 374,
+          "column": 14
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 79,
+          "column": 1
+        },
+        "end": {
+          "line": 98,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 103,
+          "column": 15
+        },
+        "end": {
+          "line": 103,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 63,
+          "column": 1
+        },
+        "end": {
+          "line": 72,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 373,
+          "column": 1
+        },
+        "end": {
+          "line": 373,
+          "column": 9
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 100,
+          "column": 1
+        },
+        "end": {
+          "line": 108,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 69,
+          "column": 17
+        },
+        "end": {
+          "line": 69,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 55,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 145,
+          "column": 22
+        },
+        "end": {
+          "line": 145,
+          "column": 36
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 339,
+          "column": 18
+        },
+        "end": {
+          "line": 342,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 154,
+          "column": 18
+        },
+        "end": {
+          "line": 154,
+          "column": 32
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 339,
+          "column": 18
+        },
+        "end": {
+          "line": 342,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 282,
+          "column": 30
+        },
+        "end": {
+          "line": 282,
+          "column": 44
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 339,
+          "column": 18
+        },
+        "end": {
+          "line": 342,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 177,
+          "column": 37
+        },
+        "end": {
+          "line": 177,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 181,
+          "column": 37
+        },
+        "end": {
+          "line": 181,
+          "column": 40
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 177,
+          "column": 17
+        },
+        "end": {
+          "line": 177,
+          "column": 40
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 181,
+          "column": 17
+        },
+        "end": {
+          "line": 181,
+          "column": 40
+        }
+      },
+      "type": "string"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 75,
+          "column": 19
+        },
+        "end": {
+          "line": 75,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 118,
+          "column": 1
+        },
+        "end": {
+          "line": 118,
+          "column": 24
+        }
+      }
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "37:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "GenerateKey"
+    },
+    {
+      "location": "37:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "37:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "SplayRun"
+    },
+    {
+      "location": "37:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "SplayTearDown"
+    },
+    {
+      "location": "37:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "SplaySetup"
+    },
+    {
+      "location": "37:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "InsertNewNode"
+    },
+    {
+      "location": "37:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "GeneratePayloadTree"
+    },
+    {
+      "location": "37:20",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "kSplayTreeSize"
+    },
+    {
+      "location": "38:29",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "kSplayTreeModifications"
+    },
+    {
+      "location": "39:28",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "kSplayTreePayloadDepth"
+    },
+    {
+      "location": "41:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "splayTree"
+    },
+    {
+      "location": "136:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "136:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "142:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "142:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "155:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "155:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "188:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "188:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "219:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "219:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "231:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "231:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "247:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "247:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "269:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "269:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "288:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "288:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "356:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "365:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "365:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Node"
+    },
+    {
+      "location": "365:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "371:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "371:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Node"
+    },
+    {
+      "location": "371:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "381:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "381:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Node"
+    },
+    {
+      "location": "381:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "prototype"
+    },
+    {
+      "location": "52:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "GeneratePayloadTree"
+    },
+    {
+      "location": "53:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "GeneratePayloadTree"
+    },
+    {
+      "location": "62:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Math"
+    },
+    {
+      "location": "62:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "random"
+    },
+    {
+      "location": "70:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "GenerateKey"
+    },
+    {
+      "location": "71:12",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "splayTree"
+    },
+    {
+      "location": "72:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "GeneratePayloadTree"
+    },
+    {
+      "location": "72:37",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "kSplayTreePayloadDepth"
+    },
+    {
+      "location": "72:61",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "String"
+    },
+    {
+      "location": "73:3",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "splayTree"
+    },
+    {
+      "location": "80:13",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "splayTree"
+    },
+    {
+      "location": "80:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "81:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "kSplayTreeSize"
+    },
+    {
+      "location": "81:44",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "InsertNewNode"
+    },
+    {
+      "location": "89:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "splayTree"
+    },
+    {
+      "location": "90:13",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "splayTree"
+    },
+    {
+      "location": "94:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "kSplayTreeSize"
+    },
+    {
+      "location": "95:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "101:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "109:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "kSplayTreeModifications"
+    },
+    {
+      "location": "110:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "InsertNewNode"
+    },
+    {
+      "location": "111:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "splayTree"
+    },
+    {
+      "location": "112:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "splayTree"
+    },
+    {
+      "location": "113:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "splayTree"
+    },
+    {
+      "location": "157:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "157:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Node"
+    },
+    {
+      "location": "166:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "166:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Node"
+    },
+    {
+      "location": "298:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTree"
+    },
+    {
+      "location": "298:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Node"
+    },
+    {
+      "location": "391:11",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "start"
+    },
+    {
+      "location": "391:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "395:9",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "end"
+    },
+    {
+      "location": "395:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "396:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "396:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "end"
+    },
+    {
+      "location": "396:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "start"
+    },
+    {
+      "location": "62:21",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "random"
+    },
+    {
+      "location": "72:67",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "String"
+    },
+    {
+      "location": "95:20",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "101:22",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "190:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "194:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Error"
+    },
+    {
+      "location": "391:21",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Date"
+    },
+    {
+      "location": "395:19",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Date"
+    },
+    {
+      "location": "396:6",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "136:27",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "root_"
+    },
+    {
+      "location": "142:29",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "isEmpty"
+    },
+    {
+      "location": "155:28",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "insert"
+    },
+    {
+      "location": "188:28",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "remove"
+    },
+    {
+      "location": "219:26",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "find"
+    },
+    {
+      "location": "231:29",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "findMax"
+    },
+    {
+      "location": "247:42",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "findGreatestLessThan"
+    },
+    {
+      "location": "269:32",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "exportKeys"
+    },
+    {
+      "location": "288:28",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "splay_"
+    },
+    {
+      "location": "356:16",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "Node"
+    },
+    {
+      "location": "365:31",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "left"
+    },
+    {
+      "location": "371:32",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "right"
+    },
+    {
+      "location": "381:36",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "traverse_"
+    },
+    {
+      "location": "357:12",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "key"
+    },
+    {
+      "location": "358:14",
+      "kind": "property_store",
+      "reason": "constructing-store",
+      "property": "value"
+    },
+    {
+      "location": "156:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isEmpty",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "162:14",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splay_",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "189:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isEmpty",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "192:14",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splay_",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "203:16",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splay_",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "220:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isEmpty",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "223:14",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splay_",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "232:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isEmpty",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "248:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isEmpty",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "253:14",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "splay_",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "259:24",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "findMax",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "271:20",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isEmpty",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "272:25",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "traverse_",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "289:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "isEmpty",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "385:29",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "traverse_",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "71:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "find",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "73:19",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "insert",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "89:34",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "exportKeys",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "111:50",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "findGreatestLessThan",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "112:43",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "remove",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "113:26",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "remove",
+      "note": "Prototype-method property read (method inherited from SplayTree.prototype / SplayTree.Node.prototype, not an own property of the receiver). The documented recipe was applied in full: static shapes SplayTreeProto/NodeProto with the constructor + closure methods, shape_bindings on the SplayTree.prototype and SplayTree.Node.prototype receivers, and shape_guards on the receivers carrying BOTH the instance shape (Tree/Node) and the matching prototype shape. Every such prototype-shape guard reports \"no effect\" in this build, so the method slot is never resolved and the read stays a generic (unknown-shape) access. The paired call site IS optimized by the closure type guard on the same callee expression, but the property_load item itself cannot be made a direct slot read. Same for the global-namespace method reads (SplayTree.Node) reached via a global identifier."
+    },
+    {
+      "location": "71:12",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "112:9",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "396:19",
+      "kind": "arithmetic",
+      "reason": "maybe-not-number"
+    },
+    {
+      "location": "190:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation whose non-literal operand has no usable scalar type. 190:17/194:17 are `'Key not found: ' + key` inside a throw: the `key` parameter carries a number type guard (188:39) and fresh number guards were also added directly on `key` at the concat (190:37, 194:37), but the preceding `this.isEmpty()` call and the global `Error` property load are side-effecting and kill the fact before the `+`, so the concat stays generic. 396:7 is `\"Time: \" + (end - start)` where the right operand is the result of Date subtraction of two non-scalar objects; annotations cannot express a Date operand type, so no guard can type it."
+    },
+    {
+      "location": "194:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation whose non-literal operand has no usable scalar type. 190:17/194:17 are `'Key not found: ' + key` inside a throw: the `key` parameter carries a number type guard (188:39) and fresh number guards were also added directly on `key` at the concat (190:37, 194:37), but the preceding `this.isEmpty()` call and the global `Error` property load are side-effecting and kill the fact before the `+`, so the concat stays generic. 396:7 is `\"Time: \" + (end - start)` where the right operand is the result of Date subtraction of two non-scalar objects; annotations cannot express a Date operand type, so no guard can type it."
+    },
+    {
+      "location": "396:7",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation whose non-literal operand has no usable scalar type. 190:17/194:17 are `'Key not found: ' + key` inside a throw: the `key` parameter carries a number type guard (188:39) and fresh number guards were also added directly on `key` at the concat (190:37, 194:37), but the preceding `this.isEmpty()` call and the global `Error` property load are side-effecting and kill the fact before the `+`, so the concat stays generic. 396:7 is `\"Time: \" + (end - start)` where the right operand is the result of Date subtraction of two non-scalar objects; annotations cannot express a Date operand type, so no guard can type it."
+    },
+    {
+      "location": "93:20",
+      "kind": "property_load",
+      "reason": "other",
+      "property": "length",
+      "note": "Array `length` read on the array returned by splayTree.exportKeys(). A number type guard placed directly on the load expression (93:16:93:27) does make the downstream arithmetic non-generic (94:7 and 99:23 become optimized) but the load item itself stays a generic element/length access: the array is produced by a method call, its prototype (Array.prototype) has no source expression to shape or bind, and static shapes cannot describe indexed/length array slots."
+    },
+    {
+      "location": "272:54",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "push"
+    },
+    {
+      "location": "272:54",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "push"
+    },
+    {
+      "location": "392:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplaySetup"
+    },
+    {
+      "location": "393:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayRun"
+    },
+    {
+      "location": "394:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "SplayTearDown"
+    },
+    {
+      "location": "190:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    },
+    {
+      "location": "194:11",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Error"
+    }
+  ]
+}

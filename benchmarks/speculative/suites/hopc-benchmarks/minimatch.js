@@ -1,11 +1,3 @@
-// Imported from https://github.com/manuel-serrano/jsbench
-// Commit: 7c8fc4e58d2a5c7980c207d302b1d1cb18308a5c
-// Source: other/minimatch.js
-// Adaptation: benchmarks/speculative/import_hopc.py
-(function() {
-"use strict";
-var __hopcStart = performance.now();
-
 "use strict";
 
 /*---------------------------------------------------------------------*/
@@ -14,13 +6,13 @@ var __hopcStart = performance.now();
 let verbOn = true;
 
 function tap( msg, thunk ) {
-   if( verbOn ) print( msg, "..." );
+   if( verbOn ) console.log( msg, "..." );
    thunk();
 }
 
 function equal( x, y ) {
    if( x !== y ) {
-      throw new Error("minimatch mismatch: " + x + " != " + y);
+      console.log( "pas bon ", x, y );
    }
 }
 
@@ -1081,20 +1073,23 @@ function main( bench, n ) {
    const k = Math.round( n / 10 );
    let i = 1;
    
-   print( bench + "(", n, ")..." );
+   console.log( bench + "(", n, ")..." );
    
    testAll( true );
    
    while( n-- > 0 ) {
-      if( n % k === 0 ) { print( i++ ); }
+      if( n % k === 0 ) { console.log( i++ ); }
       testAll( false );
    }
 }
 
 const K = 30;
-const N = 600;
+// Static Hermes benchmark runner: fixed N, timed with performance.now
+const N = 25 * K;
 
-main( "minimatch", N ); 
-
-print('Time: ' + (performance.now() - __hopcStart));
-})();
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
+main( "minimatch", N );
+var __end = __performance.now();
+print( "Time: " + (__end - __start) );

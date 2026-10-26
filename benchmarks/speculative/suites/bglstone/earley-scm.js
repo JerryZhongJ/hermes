@@ -1,11 +1,3 @@
-// Imported from https://github.com/manuel-serrano/jsbench
-// Commit: 7c8fc4e58d2a5c7980c207d302b1d1cb18308a5c
-// Source: bglstone/earley-scm.js
-// Adaptation: benchmarks/speculative/import_hopc.py
-(function() {
-"use strict";
-var __hopcStart = performance.now();
-
 // File: "earley.scm"   (c) 1990, Marc Feeley
 
 // Earley parser.
@@ -351,8 +343,8 @@ function debug( ... args ) {
    if( isdebug ) {
       let s = k++ + ": ";
       args.forEach( a => s += show( a ) );
-      print( s );
-      if( k === kl ) { print( "aborting..." ); throw new Error("Benchmark aborted"); }
+      console.log( s );
+      if( k === kl ) { console.log( "aborting..." ); }
    }
 }
 
@@ -1128,20 +1120,22 @@ function main( n ) {
    const k = Math.round( n / 10 );
    let i = 1;
    
-   print( "earley(", n, ")..." );
+   console.log( "earley(", n, ")..." );
    
    while( n-- > 0 ) {
-      if( n % k === 0 ) { print( i++ ); }
+      if( n % k === 0 ) { console.log( i++ ); }
       res = test();
    }
 
-   print( "res=", res );
+   console.log( "res=", res );
 }
 
-const N = 25;
+// Static Hermes benchmark runner: fixed N, timed with performance.now
+const N = 28;
 
+var __performance = globalThis.performance ?? (globalThis.performance = {});
+__performance.now ??= Date.now;
+var __start = __performance.now();
 main( N );
-    
-
-print('Time: ' + (performance.now() - __hopcStart));
-})();
+var __end = __performance.now();
+print( "Time: " + (__end - __start) );

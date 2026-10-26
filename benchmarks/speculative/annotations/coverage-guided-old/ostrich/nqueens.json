@@ -1,0 +1,1260 @@
+{
+  "static shapes": {
+    "SolutionsBag": {
+      "properties": [
+        {
+          "name": "solutions",
+          "type": "number"
+        }
+      ]
+    }
+  },
+  "shape guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 239,
+          "column": 25
+        },
+        "end": {
+          "line": 239,
+          "column": 41
+        }
+      },
+      "shape": "SolutionsBag"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 255,
+          "column": 89
+        },
+        "end": {
+          "line": 255,
+          "column": 100
+        }
+      },
+      "shape": "SolutionsBag"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 256,
+          "column": 35
+        },
+        "end": {
+          "line": 256,
+          "column": 46
+        }
+      },
+      "shape": "SolutionsBag"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 235,
+          "column": 5
+        },
+        "end": {
+          "line": 235,
+          "column": 21
+        }
+      },
+      "shape": "SolutionsBag"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 276,
+          "column": 53
+        },
+        "end": {
+          "line": 276,
+          "column": 55
+        }
+      },
+      "shape": "SolutionsBag"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 250,
+          "column": 5
+        },
+        "end": {
+          "line": 250,
+          "column": 21
+        }
+      },
+      "shape": "SolutionsBag"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 256,
+          "column": 2
+        },
+        "end": {
+          "line": 256,
+          "column": 18
+        }
+      },
+      "shape": "SolutionsBag"
+    }
+  ],
+  "shape bindings": [
+    {
+      "target range": {
+        "start": {
+          "line": 265,
+          "column": 14
+        },
+        "end": {
+          "line": 265,
+          "column": 16
+        }
+      },
+      "shape": "SolutionsBag"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 242,
+          "column": 23
+        },
+        "end": {
+          "line": 242,
+          "column": 25
+        }
+      },
+      "shape": "SolutionsBag"
+    }
+  ],
+  "type guards": [
+    {
+      "target range": {
+        "start": {
+          "line": 48,
+          "column": 19
+        },
+        "end": {
+          "line": 48,
+          "column": 27
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 34,
+          "column": 1
+        },
+        "end": {
+          "line": 42,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 44,
+          "column": 43
+        },
+        "end": {
+          "line": 44,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 52,
+          "column": 25
+        },
+        "end": {
+          "line": 52,
+          "column": 29
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 52,
+          "column": 31
+        },
+        "end": {
+          "line": 52,
+          "column": 34
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 93,
+          "column": 24
+        },
+        "end": {
+          "line": 93,
+          "column": 28
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 247,
+          "column": 15
+        },
+        "end": {
+          "line": 247,
+          "column": 29
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 52,
+          "column": 1
+        },
+        "end": {
+          "line": 91,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 255,
+          "column": 15
+        },
+        "end": {
+          "line": 255,
+          "column": 28
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 93,
+          "column": 1
+        },
+        "end": {
+          "line": 237,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 118,
+          "column": 13
+        },
+        "end": {
+          "line": 118,
+          "column": 21
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 34,
+          "column": 1
+        },
+        "end": {
+          "line": 42,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 153,
+          "column": 7
+        },
+        "end": {
+          "line": 153,
+          "column": 16
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 44,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 271,
+          "column": 17
+        },
+        "end": {
+          "line": 271,
+          "column": 25
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 239,
+          "column": 1
+        },
+        "end": {
+          "line": 261,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 287,
+          "column": 1
+        },
+        "end": {
+          "line": 287,
+          "column": 11
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 264,
+          "column": 1
+        },
+        "end": {
+          "line": 280,
+          "column": 2
+        }
+      }
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 239,
+          "column": 19
+        },
+        "end": {
+          "line": 239,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 275,
+          "column": 48
+        },
+        "end": {
+          "line": 275,
+          "column": 50
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 275,
+          "column": 51
+        },
+        "end": {
+          "line": 275,
+          "column": 53
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 119,
+          "column": 20
+        },
+        "end": {
+          "line": 119,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 148,
+          "column": 6
+        },
+        "end": {
+          "line": 148,
+          "column": 21
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 149,
+          "column": 6
+        },
+        "end": {
+          "line": 149,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 150,
+          "column": 6
+        },
+        "end": {
+          "line": 150,
+          "column": 24
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 165,
+          "column": 11
+        },
+        "end": {
+          "line": 165,
+          "column": 49
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 168,
+          "column": 20
+        },
+        "end": {
+          "line": 168,
+          "column": 58
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 183,
+          "column": 11
+        },
+        "end": {
+          "line": 183,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 186,
+          "column": 20
+        },
+        "end": {
+          "line": 186,
+          "column": 47
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 201,
+          "column": 11
+        },
+        "end": {
+          "line": 201,
+          "column": 36
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 201,
+          "column": 47
+        },
+        "end": {
+          "line": 201,
+          "column": 61
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 203,
+          "column": 16
+        },
+        "end": {
+          "line": 203,
+          "column": 41
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 203,
+          "column": 52
+        },
+        "end": {
+          "line": 203,
+          "column": 66
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 138,
+          "column": 8
+        },
+        "end": {
+          "line": 138,
+          "column": 9
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 185,
+          "column": 18
+        },
+        "end": {
+          "line": 185,
+          "column": 32
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 247,
+          "column": 15
+        },
+        "end": {
+          "line": 247,
+          "column": 38
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 255,
+          "column": 15
+        },
+        "end": {
+          "line": 255,
+          "column": 101
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 185,
+          "column": 8
+        },
+        "end": {
+          "line": 185,
+          "column": 15
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 128,
+          "column": 20
+        },
+        "end": {
+          "line": 128,
+          "column": 25
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 128,
+          "column": 46
+        },
+        "end": {
+          "line": 128,
+          "column": 51
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 279,
+          "column": 21
+        },
+        "end": {
+          "line": 279,
+          "column": 23
+        }
+      },
+      "type": "number"
+    },
+    {
+      "target range": {
+        "start": {
+          "line": 279,
+          "column": 24
+        },
+        "end": {
+          "line": 279,
+          "column": 26
+        }
+      },
+      "type": "number"
+    }
+  ],
+  "uncovered_reasons": [
+    {
+      "location": "36:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "bit_mask1"
+    },
+    {
+      "location": "37:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "bit_mask2"
+    },
+    {
+      "location": "38:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "bit_mask3"
+    },
+    {
+      "location": "39:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "bit_mask4"
+    },
+    {
+      "location": "40:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "bit_mask5"
+    },
+    {
+      "location": "48:19",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "bit_scan"
+    },
+    {
+      "location": "55:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "56:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "57:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "58:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "95:20",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "96:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "97:26",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "98:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "100:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "101:22",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "102:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Int32Array"
+    },
+    {
+      "location": "110:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "110:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "forbidden"
+    },
+    {
+      "location": "126:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forbidden"
+    },
+    {
+      "location": "129:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forbidden"
+    },
+    {
+      "location": "132:6",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forbidden"
+    },
+    {
+      "location": "137:18",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "forbidden"
+    },
+    {
+      "location": "118:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "bit_scan"
+    },
+    {
+      "location": "153:7",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "transform"
+    },
+    {
+      "location": "247:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "nqueen_solver1"
+    },
+    {
+      "location": "255:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "nqueen_solver"
+    },
+    {
+      "location": "259:12",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "timing"
+    },
+    {
+      "location": "270:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "270:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "272:10",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "272:25",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "275:5",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "console"
+    },
+    {
+      "location": "275:16",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "log"
+    },
+    {
+      "location": "271:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "nqueenJS"
+    },
+    {
+      "location": "27:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "bit_scan"
+    },
+    {
+      "location": "27:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "transform"
+    },
+    {
+      "location": "27:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "nqueen_solver1"
+    },
+    {
+      "location": "27:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "nqueen_solver"
+    },
+    {
+      "location": "27:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "nqueenJS"
+    },
+    {
+      "location": "27:1",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "runNQueens"
+    },
+    {
+      "location": "27:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "bit_mask1"
+    },
+    {
+      "location": "28:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "bit_mask2"
+    },
+    {
+      "location": "29:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "bit_mask3"
+    },
+    {
+      "location": "30:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "bit_mask4"
+    },
+    {
+      "location": "31:15",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "bit_mask5"
+    },
+    {
+      "location": "27:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt"
+    },
+    {
+      "location": "28:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt"
+    },
+    {
+      "location": "29:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt"
+    },
+    {
+      "location": "30:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt"
+    },
+    {
+      "location": "31:17",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "parseInt"
+    },
+    {
+      "location": "284:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "284:21",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "284:21",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "284:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "284:48",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "globalThis"
+    },
+    {
+      "location": "284:71",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "performance"
+    },
+    {
+      "location": "285:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "285:14",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "285:19",
+      "kind": "arithmetic",
+      "reason": "object-source-not-found"
+    },
+    {
+      "location": "285:19",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "285:23",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "Date"
+    },
+    {
+      "location": "285:27",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "286:13",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__start"
+    },
+    {
+      "location": "286:15",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "286:32",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "287:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "runNQueens"
+    },
+    {
+      "location": "288:11",
+      "kind": "property_store",
+      "reason": "object-source-not-found",
+      "property": "__end"
+    },
+    {
+      "location": "288:13",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__performance"
+    },
+    {
+      "location": "288:30",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "now"
+    },
+    {
+      "location": "289:1",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "print"
+    },
+    {
+      "location": "289:31",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__end"
+    },
+    {
+      "location": "289:39",
+      "kind": "property_load",
+      "reason": "object-source-not-found",
+      "property": "__start"
+    },
+    {
+      "location": "55:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "56:37",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "57:38",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "58:29",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "95:31",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "96:36",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "97:37",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "98:28",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "100:34",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "101:33",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "102:37",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Int32Array"
+    },
+    {
+      "location": "110:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "Uint32Array"
+    },
+    {
+      "location": "270:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "272:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "275:16",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "log"
+    },
+    {
+      "location": "27:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "parseInt"
+    },
+    {
+      "location": "28:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "parseInt"
+    },
+    {
+      "location": "29:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "parseInt"
+    },
+    {
+      "location": "30:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "parseInt"
+    },
+    {
+      "location": "31:25",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "parseInt"
+    },
+    {
+      "location": "286:32",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "288:30",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "now"
+    },
+    {
+      "location": "289:6",
+      "kind": "call",
+      "reason": "no-closure-target",
+      "property": "print"
+    },
+    {
+      "location": "275:17",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation in runNQueens. A \"string\" type guard on the whole concat expression matched no IR (auto-pruned), and \"number\" type guards on the numeric operands feeding it (size, t2, t1, solutions) had no effect, so the concatenation cannot be given a typed path at this site."
+    },
+    {
+      "location": "278:23",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation in runNQueens. A \"string\" type guard on the whole concat expression matched no IR (auto-pruned), and \"number\" type guards on the numeric operands feeding it (size, t2, t1, solutions) had no effect, so the concatenation cannot be given a typed path at this site."
+    },
+    {
+      "location": "289:8",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "String concatenation \"Time: \" + Math.round(__end - __start). A \"number\" type guard on the Math.round(...) operand (289:19-289:48) produced no effect, so this concatenation cannot be given a typed path."
+    },
+    {
+      "location": "289:31",
+      "kind": "arithmetic",
+      "reason": "other",
+      "note": "Subtraction of two unknown global-property loads. A \"number\" type guard on __end (289:31-289:36) does optimize this arithmetic item, but it simultaneously regresses the Math (289:19) and round (289:29) property-load optimizations plus the round call on the very same line (line 289 goes from 3 optimized to 1), so keeping the guard was a net loss and it was removed."
+    }
+  ]
+}
