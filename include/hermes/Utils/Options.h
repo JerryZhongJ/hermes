@@ -124,6 +124,9 @@ struct BytecodeGenerationOptions {
   // store site; dump on exit. Covers put_by_id / put_by_val / with_receiver.
   bool instrumentStoreProperty = false;
 
+  // Record dynamic (caller, instruction site, actual SH callee) edges.
+  bool instrumentCallGraph = false;
+
   /* implicit */ BytecodeGenerationOptions(OutputFormatKind format)
       : format(format) {}
 

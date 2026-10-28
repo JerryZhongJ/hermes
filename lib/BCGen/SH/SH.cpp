@@ -7,6 +7,7 @@
 
 #include "hermes/BCGen/SH/SH.h"
 
+#include "CallGraphRuntime.h"
 #include "LineDirectiveEmitter.h"
 #include "LoweringPasses.h"
 #include "SHRegAlloc.h"
@@ -32,6 +33,7 @@
 #include "hermes/Support/BigIntSupport.h"
 #include "hermes/Support/DenseMapInfoSpecializations.h"
 #include "hermes/Support/HashString.h"
+#include "hermes/Support/JSONEmitter.h"
 #include "hermes/Support/UTF8.h"
 #include "hermes/VMLayouts/StackFrameLayout.h"
 #include "llvh/ADT/MapVector.h"
@@ -649,12 +651,60 @@ struct ModuleGen {
   llvh::SmallVector<std::string, 0> storeCounterInfo;
   llvh::DenseMap<const Instruction *, unsigned> storeCounterIdx;
 
+  /// Metadata for dynamic call-graph sites, assigned after final lowering.
+  std::vector<std::string> callGraphSites;
+
   explicit ModuleGen(Module *M, bool optimizationEnabled)
       : literalBuffers{M, stringTable, optimizationEnabled},
         staticShapeTable{M, stringTable},
         srcLocationTable{stringTable},
         nativeFunctionTable{M, stringTable} {}
 };
+
+/// Encode a metadata record as a C string. The final '}' is supplied by the
+/// runtime after appending the execution count.
+static void emitCallGraphRecord(llvh::raw_ostream &OS, std::string record) {
+  assert(!record.empty() && record.back() == '}');
+  record.pop_back();
+  OS << "  \"";
+  OS.write_escaped(record);
+  OS << "\",\n";
+}
+
+static void
+emitCallGraphLocation(JSONEmitter &json, SourceErrorManager &sm, SMLoc loc) {
+  SourceErrorManager::SourceCoords coords;
+  sm.findBufferLineAndLoc(loc, coords);
+  json.emitKeyValue(
+      "file", coords.isValid() ? sm.getSourceUrl(coords.bufId) : "");
+  json.emitKeyValue("line", coords.line);
+  json.emitKeyValue("column", coords.col);
+}
+
+static unsigned addCallGraphSite(ModuleGen &moduleGen, Instruction &I) {
+  unsigned id = moduleGen.callGraphSites.size();
+  std::string record;
+  llvh::raw_string_ostream buffer(record);
+  JSONEmitter json(buffer);
+  json.openDict();
+  json.emitKeyValue("type", "site");
+  json.emitKeyValue("id", id);
+  json.emitKeyValue(
+      "caller", moduleGen.nativeFunctionTable.getIndex(I.getFunction()));
+  json.emitKeyValue("kind", I.getKindStr());
+  auto *call = llvh::dyn_cast<BaseCallInst>(&I);
+  json.emitKeyValue("explicit", call != nullptr);
+  auto *target = call ? llvh::dyn_cast<Function>(call->getTarget()) : nullptr;
+  json.emitKeyValue(
+      "known_target",
+      target ? (int)moduleGen.nativeFunctionTable.getIndex(target) : -1);
+  emitCallGraphLocation(
+      json, I.getContext().getSourceErrorManager(), I.getLocation());
+  json.closeDict();
+  buffer.flush();
+  moduleGen.callGraphSites.push_back(std::move(record));
+  return id;
+}
 
 /// \return true if the SHLegacyValue representations of values \p a and \p b
 /// can be compared directly (bitwise).
@@ -3253,6 +3303,12 @@ void generateFunction(
        << moduleGen.nativeFunctionTable.getIndex(&F) << "];\n";
   }
 
+  if (options.instrumentCallGraph) {
+    OS << "  SHDCGState *__dcg_state = __dcg_enter(shr, frame, "
+       << moduleGen.nativeFunctionTable.getIndex(&F) << ");\n"
+       << "  const size_t __dcg_frame = (size_t)(frame - shr->registerStackStart);\n";
+  }
+
   if (emitNativeTraces) {
     // Initialize the current SHUnit.
     OS << "  locals.head.unit = shUnit;\n";
@@ -3368,7 +3424,19 @@ void generateFunction(
           prevSrcLocationIdx = idx;
         }
       }
+      // Include implicit JS execution (getters, setters, coercions, proxies),
+      // not just CallInst. Keep the site active throughout native callbacks.
+      bool graphSite = options.instrumentCallGraph &&
+          (I.getSideEffect().getExecuteJS() || llvh::isa<BaseCallInst>(&I));
+      if (graphSite) {
+        unsigned site = addCallGraphSite(moduleGen, I);
+        OS << "  ++__dcg_site_executions[" << site << "];\n"
+           << "  __dcg_state->frames[__dcg_frame].site_plus_one = " << site + 1
+           << ";\n";
+      }
       instrGen.generate(I);
+      if (graphSite && !llvh::isa<TerminatorInst>(&I))
+        OS << "  __dcg_state->frames[__dcg_frame].site_plus_one = 0;\n";
     }
   }
 
@@ -3529,6 +3597,44 @@ static SHNativeFuncInfo s_function_info_table[];
       OS << "static SHLegacyValue ";
       moduleGen.nativeFunctionTable.generateFunctionLabel(&F, OS);
       OS << "(SHRuntime *shr);\n";
+    }
+
+    if (options.instrumentCallGraph) {
+      OS << "\nstatic NativeJSFunctionPtr __dcg_functions[] = {\n";
+      std::vector<Function *> functions(moduleGen.nativeFunctionTable.size());
+      for (auto &F : *M)
+        functions[moduleGen.nativeFunctionTable.getIndex(&F)] = &F;
+      for (auto *F : functions) {
+        OS << "  ";
+        moduleGen.nativeFunctionTable.generateFunctionLabel(F, OS);
+        OS << ",\n";
+      }
+      OS << "};\nstatic const size_t __dcg_function_count = "
+         << functions.size() << ";\nstatic const size_t __dcg_site_count;\n"
+         << "static unsigned long long __dcg_entries[" << functions.size()
+         << "];\n"
+         << "static unsigned long long __dcg_site_executions[];\n"
+         << "static const char *__dcg_function_metadata[] = {\n";
+      auto &sm = M->getContext().getSourceErrorManager();
+      for (auto *F : functions) {
+        std::string record;
+        llvh::raw_string_ostream buffer(record);
+        JSONEmitter json(buffer);
+        json.openDict();
+        json.emitKeyValue("type", "function");
+        json.emitKeyValue("id", moduleGen.nativeFunctionTable.getIndex(F));
+        json.emitKeyValue("name", F->getInternalNameStr());
+        emitCallGraphLocation(json, sm, F->getSourceRange().Start);
+        SourceErrorManager::SourceCoords end;
+        sm.findBufferLineAndLoc(F->getSourceRange().End, end);
+        json.emitKeyValue("end_line", end.line);
+        json.emitKeyValue("end_column", end.col);
+        json.closeDict();
+        buffer.flush();
+        emitCallGraphRecord(OS, std::move(record));
+      }
+      OS << "};\nstatic const char *__dcg_site_metadata[];\n"
+         << sh::callGraphRuntime;
     }
   }
 
@@ -3742,6 +3848,18 @@ static SHNativeFuncInfo s_function_info_table[];
   }
 
   if (options.format == DumpBytecode || options.format == EmitBundle) {
+    if (options.instrumentCallGraph) {
+      OS << "\nstatic const size_t __dcg_site_count = "
+         << moduleGen.callGraphSites.size()
+         << ";\nstatic unsigned long long __dcg_site_executions["
+         << std::max<size_t>(1, moduleGen.callGraphSites.size()) << "];\n"
+         << "static const char *__dcg_site_metadata[] = {\n";
+      if (moduleGen.callGraphSites.empty())
+        OS << "  0,\n";
+      for (const auto &record : moduleGen.callGraphSites)
+        emitCallGraphRecord(OS, record);
+      OS << "};\n";
+    }
     moduleGen.literalBuffers.generate(OS);
     moduleGen.staticShapeTable.generate(
         OS, [&moduleGen](Function *F, llvh::raw_ostream &os) {
