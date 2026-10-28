@@ -2419,13 +2419,19 @@ class InstrGen {
     // new.target is set up in LowerCalls.
   }
   void generateCallInst(CallInst &inst) {
-    if (inst.getAttributes(inst.getModule()).isNativeJSFunction) {
+    auto *targetFunc = llvh::dyn_cast<Function>(inst.getTarget());
+    // SH compiles every IR function to a NativeJSFunction. A known target
+    // alone is not enough: the callee may also be a non-callable value.
+    bool isNativeJSFunction =
+        inst.getAttributes(inst.getModule()).isNativeJSFunction ||
+        (targetFunc && inst.getCalleeIsAlwaysClosure()->getValue());
+    if (isNativeJSFunction) {
       // Fast paths for calling NativeJSFunction.
       setupCallInline(inst);
       os_.indent(2);
       generateRegister(inst);
       os_ << " = ";
-      if (auto *targetFunc = llvh::dyn_cast<Function>(inst.getTarget())) {
+      if (targetFunc) {
         // Fast path, avoid all indirection and just call the function.
         moduleGen_.nativeFunctionTable.generateFunctionLabel(targetFunc, os_);
         os_ << "(shr);\n";
