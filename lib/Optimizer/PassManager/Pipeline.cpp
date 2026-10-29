@@ -83,6 +83,12 @@ void hermes::runFullOptimizationPasses(Module &M) {
   PM.addSimpleStackPromotion();
   PM.addScopeElimination();
   PM.addFunctionAnalysis();
+  // Simplify newly resolved calls and closure checks, then rebuild the call
+  // graph after removing dead branches and their extra callsites.
+  PM.addInstSimplify();
+  PM.addSimplifyCFG();
+  PM.addDCE();
+  PM.addFunctionAnalysis();
   PM.addPinClosureShapeGuards();
   PM.addInlining();
   PM.addDCE();
@@ -92,6 +98,9 @@ void hermes::runFullOptimizationPasses(Module &M) {
   PM.addTypeInference();
   PM.addSimpleStackPromotion();
   PM.addInstSimplify();
+  // Inlining can expose constant conditions. Remove dead branch callsites
+  // before analyzing the call graph for the second inlining pass.
+  PM.addSimplifyCFG();
   PM.addDCE();
   addMem2Reg();
   PM.addFunctionAnalysis();

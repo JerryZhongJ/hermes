@@ -1,0 +1,28 @@
+{
+  "type guards": [
+    {
+      "target range": {
+        "file": "closure-guard-recover-field-init.js",
+        "start": {
+          "line": 20,
+          "column": 26
+        },
+        "end": {
+          "line": 20,
+          "column": 31
+        }
+      },
+      "type": "closure",
+      "target function": {
+        "start": {
+          "line": 16,
+          "column": 15
+        },
+        "end": {
+          "line": 18,
+          "column": 2
+        }
+      }
+    }
+  ]
+}
